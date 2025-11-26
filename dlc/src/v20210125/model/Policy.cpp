@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,12 @@ Policy::Policy() :
     m_sourceHasBeenSet(false),
     m_modeHasBeenSet(false),
     m_operatorHasBeenSet(false),
-    m_createTimeHasBeenSet(false)
+    m_createTimeHasBeenSet(false),
+    m_sourceIdHasBeenSet(false),
+    m_sourceNameHasBeenSet(false),
+    m_idHasBeenSet(false),
+    m_engineGenerationHasBeenSet(false),
+    m_modelHasBeenSet(false)
 {
 }
 
@@ -183,6 +188,56 @@ CoreInternalOutcome Policy::Deserialize(const rapidjson::Value &value)
         m_createTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("SourceId") && !value["SourceId"].IsNull())
+    {
+        if (!value["SourceId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Policy.SourceId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_sourceId = value["SourceId"].GetInt64();
+        m_sourceIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("SourceName") && !value["SourceName"].IsNull())
+    {
+        if (!value["SourceName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Policy.SourceName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sourceName = string(value["SourceName"].GetString());
+        m_sourceNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("Id") && !value["Id"].IsNull())
+    {
+        if (!value["Id"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Policy.Id` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_id = value["Id"].GetInt64();
+        m_idHasBeenSet = true;
+    }
+
+    if (value.HasMember("EngineGeneration") && !value["EngineGeneration"].IsNull())
+    {
+        if (!value["EngineGeneration"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Policy.EngineGeneration` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_engineGeneration = string(value["EngineGeneration"].GetString());
+        m_engineGenerationHasBeenSet = true;
+    }
+
+    if (value.HasMember("Model") && !value["Model"].IsNull())
+    {
+        if (!value["Model"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Policy.Model` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_model = string(value["Model"].GetString());
+        m_modelHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -300,6 +355,46 @@ void Policy::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         string key = "CreateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_createTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sourceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SourceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_sourceId, allocator);
+    }
+
+    if (m_sourceNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SourceName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sourceName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_idHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Id";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_id, allocator);
+    }
+
+    if (m_engineGenerationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EngineGeneration";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_engineGeneration.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_modelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Model";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_model.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -527,5 +622,85 @@ void Policy::SetCreateTime(const string& _createTime)
 bool Policy::CreateTimeHasBeenSet() const
 {
     return m_createTimeHasBeenSet;
+}
+
+int64_t Policy::GetSourceId() const
+{
+    return m_sourceId;
+}
+
+void Policy::SetSourceId(const int64_t& _sourceId)
+{
+    m_sourceId = _sourceId;
+    m_sourceIdHasBeenSet = true;
+}
+
+bool Policy::SourceIdHasBeenSet() const
+{
+    return m_sourceIdHasBeenSet;
+}
+
+string Policy::GetSourceName() const
+{
+    return m_sourceName;
+}
+
+void Policy::SetSourceName(const string& _sourceName)
+{
+    m_sourceName = _sourceName;
+    m_sourceNameHasBeenSet = true;
+}
+
+bool Policy::SourceNameHasBeenSet() const
+{
+    return m_sourceNameHasBeenSet;
+}
+
+int64_t Policy::GetId() const
+{
+    return m_id;
+}
+
+void Policy::SetId(const int64_t& _id)
+{
+    m_id = _id;
+    m_idHasBeenSet = true;
+}
+
+bool Policy::IdHasBeenSet() const
+{
+    return m_idHasBeenSet;
+}
+
+string Policy::GetEngineGeneration() const
+{
+    return m_engineGeneration;
+}
+
+void Policy::SetEngineGeneration(const string& _engineGeneration)
+{
+    m_engineGeneration = _engineGeneration;
+    m_engineGenerationHasBeenSet = true;
+}
+
+bool Policy::EngineGenerationHasBeenSet() const
+{
+    return m_engineGenerationHasBeenSet;
+}
+
+string Policy::GetModel() const
+{
+    return m_model;
+}
+
+void Policy::SetModel(const string& _model)
+{
+    m_model = _model;
+    m_modelHasBeenSet = true;
+}
+
+bool Policy::ModelHasBeenSet() const
+{
+    return m_modelHasBeenSet;
 }
 

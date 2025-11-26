@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ set(cii_public_header_model
   include/tencentcloud/cii/v20210408/model/CreateStructureTaskRequest.h
   include/tencentcloud/cii/v20210408/model/UnderwriteOutput.h
   include/tencentcloud/cii/v20210408/model/DescribeStructCompareDataRequest.h
+  include/tencentcloud/cii/v20210408/model/Location.h
   include/tencentcloud/cii/v20210408/model/AddSubStructureTasksResponse.h
   include/tencentcloud/cii/v20210408/model/InsuranceResult.h
   include/tencentcloud/cii/v20210408/model/UnderwriteConclusion.h
@@ -55,7 +56,9 @@ set(cii_public_header_model
   include/tencentcloud/cii/v20210408/model/DescribeStructureTaskResultResponse.h
   include/tencentcloud/cii/v20210408/model/ClassifiedReports.h
   include/tencentcloud/cii/v20210408/model/DescribeMachineUnderwriteResponse.h
+  include/tencentcloud/cii/v20210408/model/OcrRecognise.h
   include/tencentcloud/cii/v20210408/model/CreateAutoClassifyStructureTaskResponse.h
+  include/tencentcloud/cii/v20210408/model/Point.h
   include/tencentcloud/cii/v20210408/model/DescribeReportClassifyResponse.h
   include/tencentcloud/cii/v20210408/model/CreateUnderwriteTaskByIdResponse.h
   include/tencentcloud/cii/v20210408/model/StructureResultObject.h
@@ -82,6 +85,7 @@ set(cii_src
   src/v20210408/model/CreateStructureTaskRequest.cpp
   src/v20210408/model/UnderwriteOutput.cpp
   src/v20210408/model/DescribeStructCompareDataRequest.cpp
+  src/v20210408/model/Location.cpp
   src/v20210408/model/AddSubStructureTasksResponse.cpp
   src/v20210408/model/InsuranceResult.cpp
   src/v20210408/model/UnderwriteConclusion.cpp
@@ -111,7 +115,9 @@ set(cii_src
   src/v20210408/model/DescribeStructureTaskResultResponse.cpp
   src/v20210408/model/ClassifiedReports.cpp
   src/v20210408/model/DescribeMachineUnderwriteResponse.cpp
+  src/v20210408/model/OcrRecognise.cpp
   src/v20210408/model/CreateAutoClassifyStructureTaskResponse.cpp
+  src/v20210408/model/Point.cpp
   src/v20210408/model/DescribeReportClassifyResponse.cpp
   src/v20210408/model/CreateUnderwriteTaskByIdResponse.cpp
   src/v20210408/model/StructureResultObject.cpp

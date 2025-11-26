@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,106 +49,119 @@ namespace TencentCloud
                     /**
                      * 获取执行任务ID。
                      * @return InvocationTaskId 执行任务ID。
+                     * 
                      */
                     std::string GetInvocationTaskId() const;
 
                     /**
                      * 设置执行任务ID。
-                     * @param InvocationTaskId 执行任务ID。
+                     * @param _invocationTaskId 执行任务ID。
+                     * 
                      */
                     void SetInvocationTaskId(const std::string& _invocationTaskId);
 
                     /**
                      * 判断参数 InvocationTaskId 是否已赋值
                      * @return InvocationTaskId 是否已赋值
+                     * 
                      */
                     bool InvocationTaskIdHasBeenSet() const;
 
                     /**
                      * 获取执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
                      * @return TaskStatus 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
+                     * 
                      */
                     std::string GetTaskStatus() const;
 
                     /**
                      * 设置执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
-                     * @param TaskStatus 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
+                     * @param _taskStatus 执行任务状态。取值范围：
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
+                     * 
                      */
                     void SetTaskStatus(const std::string& _taskStatus);
 
                     /**
                      * 判断参数 TaskStatus 是否已赋值
                      * @return TaskStatus 是否已赋值
+                     * 
                      */
                     bool TaskStatusHasBeenSet() const;
 
                     /**
                      * 获取实例ID。
                      * @return InstanceId 实例ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID。
-                     * @param InstanceId 实例ID。
+                     * @param _instanceId 实例ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
@@ -162,19 +175,20 @@ namespace TencentCloud
 
                     /**
                      * 执行任务状态。取值范围：
-<li> PENDING：等待下发 
-<li> DELIVERING：下发中
-<li> DELIVER_DELAYED：延时下发 
-<li> DELIVER_FAILED：下发失败
-<li> START_FAILED：命令启动失败
-<li> RUNNING：命令运行中
-<li> SUCCESS：命令成功
-<li> FAILED：命令执行失败，执行完退出码不为 0
-<li> TIMEOUT：命令超时
-<li> TASK_TIMEOUT：执行任务超时
-<li> CANCELLING：取消中
-<li> CANCELLED：已取消（命令启动前就被取消）
-<li> TERMINATED：已中止（命令执行期间被取消）
+
+- PENDING：等待下发
+- DELIVERING：下发中
+- DELIVER_DELAYED：延时下发
+- DELIVER_FAILED：下发失败
+- START_FAILED：命令启动失败
+- RUNNING：命令运行中
+- SUCCESS：命令成功
+- FAILED：命令执行失败，执行完退出码不为 0
+- TIMEOUT：命令超时
+- TASK_TIMEOUT：客户端无响应
+- CANCELLING：取消中
+- CANCELLED：已取消（命令启动前就被取消）
+- TERMINATED：已中止（命令执行期间被取消）
                      */
                     std::string m_taskStatus;
                     bool m_taskStatusHasBeenSet;

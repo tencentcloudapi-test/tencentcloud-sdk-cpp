@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取签名 ID 数组。
                      * @return SignIdSet 签名 ID 数组。
+                     * 
                      */
                     std::vector<uint64_t> GetSignIdSet() const;
 
                     /**
                      * 设置签名 ID 数组。
-                     * @param SignIdSet 签名 ID 数组。
+                     * @param _signIdSet 签名 ID 数组。
+                     * 
                      */
                     void SetSignIdSet(const std::vector<uint64_t>& _signIdSet);
 
                     /**
                      * 判断参数 SignIdSet 是否已赋值
                      * @return SignIdSet 是否已赋值
+                     * 
                      */
                     bool SignIdSetHasBeenSet() const;
 
@@ -67,6 +70,7 @@ namespace TencentCloud
                      * @return International 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+                     * 
                      */
                     uint64_t GetInternational() const;
 
@@ -74,15 +78,17 @@ namespace TencentCloud
                      * 设置是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
-                     * @param International 是否国际/港澳台短信：
+                     * @param _international 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+                     * 
                      */
                     void SetInternational(const uint64_t& _international);
 
                     /**
                      * 判断参数 International 是否已赋值
                      * @return International 是否已赋值
+                     * 
                      */
                     bool InternationalHasBeenSet() const;
 

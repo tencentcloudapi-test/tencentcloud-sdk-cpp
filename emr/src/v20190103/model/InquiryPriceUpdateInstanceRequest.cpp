@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,11 @@ using namespace std;
 InquiryPriceUpdateInstanceRequest::InquiryPriceUpdateInstanceRequest() :
     m_timeUnitHasBeenSet(false),
     m_timeSpanHasBeenSet(false),
-    m_updateSpecHasBeenSet(false),
     m_payModeHasBeenSet(false),
+    m_updateSpecHasBeenSet(false),
     m_placementHasBeenSet(false),
-    m_currencyHasBeenSet(false)
+    m_currencyHasBeenSet(false),
+    m_resourceIdListHasBeenSet(false)
 {
 }
 
@@ -55,6 +56,14 @@ string InquiryPriceUpdateInstanceRequest::ToJsonString() const
         d.AddMember(iKey, m_timeSpan, allocator);
     }
 
+    if (m_payModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PayMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_payMode, allocator);
+    }
+
     if (m_updateSpecHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -62,14 +71,6 @@ string InquiryPriceUpdateInstanceRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_updateSpec.ToJsonObject(d[key.c_str()], allocator);
-    }
-
-    if (m_payModeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PayMode";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_payMode, allocator);
     }
 
     if (m_placementHasBeenSet)
@@ -87,6 +88,19 @@ string InquiryPriceUpdateInstanceRequest::ToJsonString() const
         string key = "Currency";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_currency.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_resourceIdListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceIdList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_resourceIdList.begin(); itr != m_resourceIdList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 
@@ -129,22 +143,6 @@ bool InquiryPriceUpdateInstanceRequest::TimeSpanHasBeenSet() const
     return m_timeSpanHasBeenSet;
 }
 
-UpdateInstanceSettings InquiryPriceUpdateInstanceRequest::GetUpdateSpec() const
-{
-    return m_updateSpec;
-}
-
-void InquiryPriceUpdateInstanceRequest::SetUpdateSpec(const UpdateInstanceSettings& _updateSpec)
-{
-    m_updateSpec = _updateSpec;
-    m_updateSpecHasBeenSet = true;
-}
-
-bool InquiryPriceUpdateInstanceRequest::UpdateSpecHasBeenSet() const
-{
-    return m_updateSpecHasBeenSet;
-}
-
 uint64_t InquiryPriceUpdateInstanceRequest::GetPayMode() const
 {
     return m_payMode;
@@ -159,6 +157,22 @@ void InquiryPriceUpdateInstanceRequest::SetPayMode(const uint64_t& _payMode)
 bool InquiryPriceUpdateInstanceRequest::PayModeHasBeenSet() const
 {
     return m_payModeHasBeenSet;
+}
+
+UpdateInstanceSettings InquiryPriceUpdateInstanceRequest::GetUpdateSpec() const
+{
+    return m_updateSpec;
+}
+
+void InquiryPriceUpdateInstanceRequest::SetUpdateSpec(const UpdateInstanceSettings& _updateSpec)
+{
+    m_updateSpec = _updateSpec;
+    m_updateSpecHasBeenSet = true;
+}
+
+bool InquiryPriceUpdateInstanceRequest::UpdateSpecHasBeenSet() const
+{
+    return m_updateSpecHasBeenSet;
 }
 
 Placement InquiryPriceUpdateInstanceRequest::GetPlacement() const
@@ -191,6 +205,22 @@ void InquiryPriceUpdateInstanceRequest::SetCurrency(const string& _currency)
 bool InquiryPriceUpdateInstanceRequest::CurrencyHasBeenSet() const
 {
     return m_currencyHasBeenSet;
+}
+
+vector<string> InquiryPriceUpdateInstanceRequest::GetResourceIdList() const
+{
+    return m_resourceIdList;
+}
+
+void InquiryPriceUpdateInstanceRequest::SetResourceIdList(const vector<string>& _resourceIdList)
+{
+    m_resourceIdList = _resourceIdList;
+    m_resourceIdListHasBeenSet = true;
+}
+
+bool InquiryPriceUpdateInstanceRequest::ResourceIdListHasBeenSet() const
+{
+    return m_resourceIdListHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,304 +40,53 @@ TafClient::TafClient(const Credential &credential, const string &region, const C
 }
 
 
-TafClient::DetectFraudKOLOutcome TafClient::DetectFraudKOL(const DetectFraudKOLRequest &request)
+TafClient::ManagePortraitRiskOutcome TafClient::ManagePortraitRisk(const ManagePortraitRiskRequest &request)
 {
-    auto outcome = MakeRequest(request, "DetectFraudKOL");
+    auto outcome = MakeRequest(request, "ManagePortraitRisk");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DetectFraudKOLResponse rsp = DetectFraudKOLResponse();
+        ManagePortraitRiskResponse rsp = ManagePortraitRiskResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DetectFraudKOLOutcome(rsp);
+            return ManagePortraitRiskOutcome(rsp);
         else
-            return DetectFraudKOLOutcome(o.GetError());
+            return ManagePortraitRiskOutcome(o.GetError());
     }
     else
     {
-        return DetectFraudKOLOutcome(outcome.GetError());
+        return ManagePortraitRiskOutcome(outcome.GetError());
     }
 }
 
-void TafClient::DetectFraudKOLAsync(const DetectFraudKOLRequest& request, const DetectFraudKOLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TafClient::ManagePortraitRiskAsync(const ManagePortraitRiskRequest& request, const ManagePortraitRiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DetectFraudKOL(request), context);
-    };
+    using Req = const ManagePortraitRiskRequest&;
+    using Resp = ManagePortraitRiskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TafClient::DetectFraudKOLOutcomeCallable TafClient::DetectFraudKOLCallable(const DetectFraudKOLRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DetectFraudKOLOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "ManagePortraitRisk", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->DetectFraudKOL(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TafClient::EnhanceTaDegreeOutcome TafClient::EnhanceTaDegree(const EnhanceTaDegreeRequest &request)
+TafClient::ManagePortraitRiskOutcomeCallable TafClient::ManagePortraitRiskCallable(const ManagePortraitRiskRequest &request)
 {
-    auto outcome = MakeRequest(request, "EnhanceTaDegree");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ManagePortraitRiskOutcome>>();
+    ManagePortraitRiskAsync(
+    request,
+    [prom](
+        const TafClient*,
+        const ManagePortraitRiskRequest&,
+        ManagePortraitRiskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        EnhanceTaDegreeResponse rsp = EnhanceTaDegreeResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return EnhanceTaDegreeOutcome(rsp);
-        else
-            return EnhanceTaDegreeOutcome(o.GetError());
-    }
-    else
-    {
-        return EnhanceTaDegreeOutcome(outcome.GetError());
-    }
-}
-
-void TafClient::EnhanceTaDegreeAsync(const EnhanceTaDegreeRequest& request, const EnhanceTaDegreeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnhanceTaDegree(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TafClient::EnhanceTaDegreeOutcomeCallable TafClient::EnhanceTaDegreeCallable(const EnhanceTaDegreeRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<EnhanceTaDegreeOutcome()>>(
-        [this, request]()
-        {
-            return this->EnhanceTaDegree(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TafClient::RecognizeCustomizedAudienceOutcome TafClient::RecognizeCustomizedAudience(const RecognizeCustomizedAudienceRequest &request)
-{
-    auto outcome = MakeRequest(request, "RecognizeCustomizedAudience");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        RecognizeCustomizedAudienceResponse rsp = RecognizeCustomizedAudienceResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return RecognizeCustomizedAudienceOutcome(rsp);
-        else
-            return RecognizeCustomizedAudienceOutcome(o.GetError());
-    }
-    else
-    {
-        return RecognizeCustomizedAudienceOutcome(outcome.GetError());
-    }
-}
-
-void TafClient::RecognizeCustomizedAudienceAsync(const RecognizeCustomizedAudienceRequest& request, const RecognizeCustomizedAudienceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeCustomizedAudience(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TafClient::RecognizeCustomizedAudienceOutcomeCallable TafClient::RecognizeCustomizedAudienceCallable(const RecognizeCustomizedAudienceRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<RecognizeCustomizedAudienceOutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeCustomizedAudience(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TafClient::RecognizeEffectiveFlowOutcome TafClient::RecognizeEffectiveFlow(const RecognizeEffectiveFlowRequest &request)
-{
-    auto outcome = MakeRequest(request, "RecognizeEffectiveFlow");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        RecognizeEffectiveFlowResponse rsp = RecognizeEffectiveFlowResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return RecognizeEffectiveFlowOutcome(rsp);
-        else
-            return RecognizeEffectiveFlowOutcome(o.GetError());
-    }
-    else
-    {
-        return RecognizeEffectiveFlowOutcome(outcome.GetError());
-    }
-}
-
-void TafClient::RecognizeEffectiveFlowAsync(const RecognizeEffectiveFlowRequest& request, const RecognizeEffectiveFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeEffectiveFlow(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TafClient::RecognizeEffectiveFlowOutcomeCallable TafClient::RecognizeEffectiveFlowCallable(const RecognizeEffectiveFlowRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<RecognizeEffectiveFlowOutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeEffectiveFlow(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TafClient::RecognizePreciseTargetAudienceOutcome TafClient::RecognizePreciseTargetAudience(const RecognizePreciseTargetAudienceRequest &request)
-{
-    auto outcome = MakeRequest(request, "RecognizePreciseTargetAudience");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        RecognizePreciseTargetAudienceResponse rsp = RecognizePreciseTargetAudienceResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return RecognizePreciseTargetAudienceOutcome(rsp);
-        else
-            return RecognizePreciseTargetAudienceOutcome(o.GetError());
-    }
-    else
-    {
-        return RecognizePreciseTargetAudienceOutcome(outcome.GetError());
-    }
-}
-
-void TafClient::RecognizePreciseTargetAudienceAsync(const RecognizePreciseTargetAudienceRequest& request, const RecognizePreciseTargetAudienceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizePreciseTargetAudience(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TafClient::RecognizePreciseTargetAudienceOutcomeCallable TafClient::RecognizePreciseTargetAudienceCallable(const RecognizePreciseTargetAudienceRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<RecognizePreciseTargetAudienceOutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizePreciseTargetAudience(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TafClient::RecognizeTargetAudienceOutcome TafClient::RecognizeTargetAudience(const RecognizeTargetAudienceRequest &request)
-{
-    auto outcome = MakeRequest(request, "RecognizeTargetAudience");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        RecognizeTargetAudienceResponse rsp = RecognizeTargetAudienceResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return RecognizeTargetAudienceOutcome(rsp);
-        else
-            return RecognizeTargetAudienceOutcome(o.GetError());
-    }
-    else
-    {
-        return RecognizeTargetAudienceOutcome(outcome.GetError());
-    }
-}
-
-void TafClient::RecognizeTargetAudienceAsync(const RecognizeTargetAudienceRequest& request, const RecognizeTargetAudienceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeTargetAudience(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TafClient::RecognizeTargetAudienceOutcomeCallable TafClient::RecognizeTargetAudienceCallable(const RecognizeTargetAudienceRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<RecognizeTargetAudienceOutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeTargetAudience(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TafClient::SendTrafficSecuritySmsMessageOutcome TafClient::SendTrafficSecuritySmsMessage(const SendTrafficSecuritySmsMessageRequest &request)
-{
-    auto outcome = MakeRequest(request, "SendTrafficSecuritySmsMessage");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        SendTrafficSecuritySmsMessageResponse rsp = SendTrafficSecuritySmsMessageResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return SendTrafficSecuritySmsMessageOutcome(rsp);
-        else
-            return SendTrafficSecuritySmsMessageOutcome(o.GetError());
-    }
-    else
-    {
-        return SendTrafficSecuritySmsMessageOutcome(outcome.GetError());
-    }
-}
-
-void TafClient::SendTrafficSecuritySmsMessageAsync(const SendTrafficSecuritySmsMessageRequest& request, const SendTrafficSecuritySmsMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SendTrafficSecuritySmsMessage(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TafClient::SendTrafficSecuritySmsMessageOutcomeCallable TafClient::SendTrafficSecuritySmsMessageCallable(const SendTrafficSecuritySmsMessageRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<SendTrafficSecuritySmsMessageOutcome()>>(
-        [this, request]()
-        {
-            return this->SendTrafficSecuritySmsMessage(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,9 +35,15 @@ ModifyLivePullStreamTaskRequest::ModifyLivePullStreamTaskRequest() :
     m_callbackUrlHasBeenSet(false),
     m_fileIndexHasBeenSet(false),
     m_offsetTimeHasBeenSet(false),
+    m_specifyTaskIdHasBeenSet(false),
+    m_toUrlHasBeenSet(false),
     m_commentHasBeenSet(false),
     m_backupSourceTypeHasBeenSet(false),
-    m_backupSourceUrlHasBeenSet(false)
+    m_backupSourceUrlHasBeenSet(false),
+    m_watermarkListHasBeenSet(false),
+    m_vodLocalModeHasBeenSet(false),
+    m_backupToUrlHasBeenSet(false),
+    m_backupVodUrlHasBeenSet(false)
 {
 }
 
@@ -154,6 +160,22 @@ string ModifyLivePullStreamTaskRequest::ToJsonString() const
         d.AddMember(iKey, m_offsetTime, allocator);
     }
 
+    if (m_specifyTaskIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SpecifyTaskId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_specifyTaskId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_toUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ToUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_toUrl.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_commentHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -176,6 +198,45 @@ string ModifyLivePullStreamTaskRequest::ToJsonString() const
         string key = "BackupSourceUrl";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_backupSourceUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_watermarkListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WatermarkList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_watermarkList.begin(); itr != m_watermarkList.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_vodLocalModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VodLocalMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_vodLocalMode, allocator);
+    }
+
+    if (m_backupToUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupToUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_backupToUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backupVodUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupVodUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_backupVodUrl.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -378,6 +439,38 @@ bool ModifyLivePullStreamTaskRequest::OffsetTimeHasBeenSet() const
     return m_offsetTimeHasBeenSet;
 }
 
+string ModifyLivePullStreamTaskRequest::GetSpecifyTaskId() const
+{
+    return m_specifyTaskId;
+}
+
+void ModifyLivePullStreamTaskRequest::SetSpecifyTaskId(const string& _specifyTaskId)
+{
+    m_specifyTaskId = _specifyTaskId;
+    m_specifyTaskIdHasBeenSet = true;
+}
+
+bool ModifyLivePullStreamTaskRequest::SpecifyTaskIdHasBeenSet() const
+{
+    return m_specifyTaskIdHasBeenSet;
+}
+
+string ModifyLivePullStreamTaskRequest::GetToUrl() const
+{
+    return m_toUrl;
+}
+
+void ModifyLivePullStreamTaskRequest::SetToUrl(const string& _toUrl)
+{
+    m_toUrl = _toUrl;
+    m_toUrlHasBeenSet = true;
+}
+
+bool ModifyLivePullStreamTaskRequest::ToUrlHasBeenSet() const
+{
+    return m_toUrlHasBeenSet;
+}
+
 string ModifyLivePullStreamTaskRequest::GetComment() const
 {
     return m_comment;
@@ -424,6 +517,70 @@ void ModifyLivePullStreamTaskRequest::SetBackupSourceUrl(const string& _backupSo
 bool ModifyLivePullStreamTaskRequest::BackupSourceUrlHasBeenSet() const
 {
     return m_backupSourceUrlHasBeenSet;
+}
+
+vector<PullPushWatermarkInfo> ModifyLivePullStreamTaskRequest::GetWatermarkList() const
+{
+    return m_watermarkList;
+}
+
+void ModifyLivePullStreamTaskRequest::SetWatermarkList(const vector<PullPushWatermarkInfo>& _watermarkList)
+{
+    m_watermarkList = _watermarkList;
+    m_watermarkListHasBeenSet = true;
+}
+
+bool ModifyLivePullStreamTaskRequest::WatermarkListHasBeenSet() const
+{
+    return m_watermarkListHasBeenSet;
+}
+
+int64_t ModifyLivePullStreamTaskRequest::GetVodLocalMode() const
+{
+    return m_vodLocalMode;
+}
+
+void ModifyLivePullStreamTaskRequest::SetVodLocalMode(const int64_t& _vodLocalMode)
+{
+    m_vodLocalMode = _vodLocalMode;
+    m_vodLocalModeHasBeenSet = true;
+}
+
+bool ModifyLivePullStreamTaskRequest::VodLocalModeHasBeenSet() const
+{
+    return m_vodLocalModeHasBeenSet;
+}
+
+string ModifyLivePullStreamTaskRequest::GetBackupToUrl() const
+{
+    return m_backupToUrl;
+}
+
+void ModifyLivePullStreamTaskRequest::SetBackupToUrl(const string& _backupToUrl)
+{
+    m_backupToUrl = _backupToUrl;
+    m_backupToUrlHasBeenSet = true;
+}
+
+bool ModifyLivePullStreamTaskRequest::BackupToUrlHasBeenSet() const
+{
+    return m_backupToUrlHasBeenSet;
+}
+
+string ModifyLivePullStreamTaskRequest::GetBackupVodUrl() const
+{
+    return m_backupVodUrl;
+}
+
+void ModifyLivePullStreamTaskRequest::SetBackupVodUrl(const string& _backupVodUrl)
+{
+    m_backupVodUrl = _backupVodUrl;
+    m_backupVodUrlHasBeenSet = true;
+}
+
+bool ModifyLivePullStreamTaskRequest::BackupVodUrlHasBeenSet() const
+{
+    return m_backupVodUrlHasBeenSet;
 }
 
 

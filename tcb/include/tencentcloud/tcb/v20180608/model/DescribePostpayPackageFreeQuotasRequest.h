@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取环境ID
                      * @return EnvId 环境ID
+                     * 
                      */
                     std::string GetEnvId() const;
 
                     /**
                      * 设置环境ID
-                     * @param EnvId 环境ID
+                     * @param _envId 环境ID
+                     * 
                      */
                     void SetEnvId(const std::string& _envId);
 
                     /**
                      * 判断参数 EnvId 是否已赋值
                      * @return EnvId 是否已赋值
+                     * 
                      */
                     bool EnvIdHasBeenSet() const;
 
                     /**
                      * 获取免费额度类型标识
                      * @return FreeQuotaType 免费额度类型标识
+                     * 
                      */
                     std::string GetFreeQuotaType() const;
 
                     /**
                      * 设置免费额度类型标识
-                     * @param FreeQuotaType 免费额度类型标识
+                     * @param _freeQuotaType 免费额度类型标识
+                     * 
                      */
                     void SetFreeQuotaType(const std::string& _freeQuotaType);
 
                     /**
                      * 判断参数 FreeQuotaType 是否已赋值
                      * @return FreeQuotaType 是否已赋值
+                     * 
                      */
                     bool FreeQuotaTypeHasBeenSet() const;
 

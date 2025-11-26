@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取用户 ID。
                      * @return UserId 用户 ID。
+                     * 
                      */
                     std::string GetUserId() const;
 
                     /**
                      * 设置用户 ID。
-                     * @param UserId 用户 ID。
+                     * @param _userId 用户 ID。
+                     * 
                      */
                     void SetUserId(const std::string& _userId);
 
                     /**
                      * 判断参数 UserId 是否已赋值
                      * @return UserId 是否已赋值
+                     * 
                      */
                     bool UserIdHasBeenSet() const;
 
                     /**
                      * 获取查询范围是否包括用户关联的用户组、组织机构的应用访问权限。默认为不查询 。传false表示不查询该范围，传true表示应用查询该范围。
                      * @return IncludeInheritedAuthorizations 查询范围是否包括用户关联的用户组、组织机构的应用访问权限。默认为不查询 。传false表示不查询该范围，传true表示应用查询该范围。
+                     * 
                      */
                     bool GetIncludeInheritedAuthorizations() const;
 
                     /**
                      * 设置查询范围是否包括用户关联的用户组、组织机构的应用访问权限。默认为不查询 。传false表示不查询该范围，传true表示应用查询该范围。
-                     * @param IncludeInheritedAuthorizations 查询范围是否包括用户关联的用户组、组织机构的应用访问权限。默认为不查询 。传false表示不查询该范围，传true表示应用查询该范围。
+                     * @param _includeInheritedAuthorizations 查询范围是否包括用户关联的用户组、组织机构的应用访问权限。默认为不查询 。传false表示不查询该范围，传true表示应用查询该范围。
+                     * 
                      */
                     void SetIncludeInheritedAuthorizations(const bool& _includeInheritedAuthorizations);
 
                     /**
                      * 判断参数 IncludeInheritedAuthorizations 是否已赋值
                      * @return IncludeInheritedAuthorizations 是否已赋值
+                     * 
                      */
                     bool IncludeInheritedAuthorizationsHasBeenSet() const;
 

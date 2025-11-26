@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,8 @@ MedDoc::MedDoc() :
     m_obstericalMedicalHistoryHasBeenSet(false),
     m_familyMedicalHistoryHasBeenSet(false),
     m_menstrualMedicalHistoryHasBeenSet(false),
-    m_treatmentRecordHasBeenSet(false)
+    m_treatmentRecordHasBeenSet(false),
+    m_pageHasBeenSet(false)
 {
 }
 
@@ -176,6 +177,16 @@ CoreInternalOutcome MedDoc::Deserialize(const rapidjson::Value &value)
         m_treatmentRecordHasBeenSet = true;
     }
 
+    if (value.HasMember("Page") && !value["Page"].IsNull())
+    {
+        if (!value["Page"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `MedDoc.Page` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_page = value["Page"].GetInt64();
+        m_pageHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -259,6 +270,14 @@ void MedDoc::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_treatmentRecord.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_pageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Page";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_page, allocator);
     }
 
 }
@@ -390,5 +409,21 @@ void MedDoc::SetTreatmentRecord(const TreatmentRecord& _treatmentRecord)
 bool MedDoc::TreatmentRecordHasBeenSet() const
 {
     return m_treatmentRecordHasBeenSet;
+}
+
+int64_t MedDoc::GetPage() const
+{
+    return m_page;
+}
+
+void MedDoc::SetPage(const int64_t& _page)
+{
+    m_page = _page;
+    m_pageHasBeenSet = true;
+}
+
+bool MedDoc::PageHasBeenSet() const
+{
+    return m_pageHasBeenSet;
 }
 

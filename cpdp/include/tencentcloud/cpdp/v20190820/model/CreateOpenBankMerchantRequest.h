@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,120 +45,130 @@ namespace TencentCloud
                     /**
                      * 获取外部商户ID。
                      * @return OutMerchantId 外部商户ID。
+                     * 
                      */
                     std::string GetOutMerchantId() const;
 
                     /**
                      * 设置外部商户ID。
-                     * @param OutMerchantId 外部商户ID。
+                     * @param _outMerchantId 外部商户ID。
+                     * 
                      */
                     void SetOutMerchantId(const std::string& _outMerchantId);
 
                     /**
                      * 判断参数 OutMerchantId 是否已赋值
                      * @return OutMerchantId 是否已赋值
+                     * 
                      */
                     bool OutMerchantIdHasBeenSet() const;
 
                     /**
                      * 获取渠道名称。
 __TENPAY__: 商企付
-__WECHAT__: 微信支付
-__ALIPAY__: 支付宝
                      * @return ChannelName 渠道名称。
 __TENPAY__: 商企付
-__WECHAT__: 微信支付
-__ALIPAY__: 支付宝
+                     * 
                      */
                     std::string GetChannelName() const;
 
                     /**
                      * 设置渠道名称。
 __TENPAY__: 商企付
-__WECHAT__: 微信支付
-__ALIPAY__: 支付宝
-                     * @param ChannelName 渠道名称。
+                     * @param _channelName 渠道名称。
 __TENPAY__: 商企付
-__WECHAT__: 微信支付
-__ALIPAY__: 支付宝
+                     * 
                      */
                     void SetChannelName(const std::string& _channelName);
 
                     /**
                      * 判断参数 ChannelName 是否已赋值
                      * @return ChannelName 是否已赋值
+                     * 
                      */
                     bool ChannelNameHasBeenSet() const;
 
                     /**
                      * 获取外部商户名称。
                      * @return OutMerchantName 外部商户名称。
+                     * 
                      */
                     std::string GetOutMerchantName() const;
 
                     /**
                      * 设置外部商户名称。
-                     * @param OutMerchantName 外部商户名称。
+                     * @param _outMerchantName 外部商户名称。
+                     * 
                      */
                     void SetOutMerchantName(const std::string& _outMerchantName);
 
                     /**
                      * 判断参数 OutMerchantName 是否已赋值
                      * @return OutMerchantName 是否已赋值
+                     * 
                      */
                     bool OutMerchantNameHasBeenSet() const;
 
                     /**
                      * 获取第三方渠道商户信息。详情见附录-复杂类型。
                      * @return ExternalMerchantInfo 第三方渠道商户信息。详情见附录-复杂类型。
+                     * 
                      */
                     std::string GetExternalMerchantInfo() const;
 
                     /**
                      * 设置第三方渠道商户信息。详情见附录-复杂类型。
-                     * @param ExternalMerchantInfo 第三方渠道商户信息。详情见附录-复杂类型。
+                     * @param _externalMerchantInfo 第三方渠道商户信息。详情见附录-复杂类型。
+                     * 
                      */
                     void SetExternalMerchantInfo(const std::string& _externalMerchantInfo);
 
                     /**
                      * 判断参数 ExternalMerchantInfo 是否已赋值
                      * @return ExternalMerchantInfo 是否已赋值
+                     * 
                      */
                     bool ExternalMerchantInfoHasBeenSet() const;
 
                     /**
                      * 获取外部商户简称。
                      * @return OutMerchantShortName 外部商户简称。
+                     * 
                      */
                     std::string GetOutMerchantShortName() const;
 
                     /**
                      * 设置外部商户简称。
-                     * @param OutMerchantShortName 外部商户简称。
+                     * @param _outMerchantShortName 外部商户简称。
+                     * 
                      */
                     void SetOutMerchantShortName(const std::string& _outMerchantShortName);
 
                     /**
                      * 判断参数 OutMerchantShortName 是否已赋值
                      * @return OutMerchantShortName 是否已赋值
+                     * 
                      */
                     bool OutMerchantShortNameHasBeenSet() const;
 
                     /**
                      * 获取外部商户描述
                      * @return OutMerchantDescription 外部商户描述
+                     * 
                      */
                     std::string GetOutMerchantDescription() const;
 
                     /**
                      * 设置外部商户描述
-                     * @param OutMerchantDescription 外部商户描述
+                     * @param _outMerchantDescription 外部商户描述
+                     * 
                      */
                     void SetOutMerchantDescription(const std::string& _outMerchantDescription);
 
                     /**
                      * 判断参数 OutMerchantDescription 是否已赋值
                      * @return OutMerchantDescription 是否已赋值
+                     * 
                      */
                     bool OutMerchantDescriptionHasBeenSet() const;
 
@@ -171,6 +181,7 @@ _不填默认为生产环境_
 __release__:生产环境
 __sandbox__:沙箱环境
 _不填默认为生产环境_
+                     * 
                      */
                     std::string GetEnvironment() const;
 
@@ -179,16 +190,18 @@ _不填默认为生产环境_
 __release__:生产环境
 __sandbox__:沙箱环境
 _不填默认为生产环境_
-                     * @param Environment 环境类型。
+                     * @param _environment 环境类型。
 __release__:生产环境
 __sandbox__:沙箱环境
 _不填默认为生产环境_
+                     * 
                      */
                     void SetEnvironment(const std::string& _environment);
 
                     /**
                      * 判断参数 Environment 是否已赋值
                      * @return Environment 是否已赋值
+                     * 
                      */
                     bool EnvironmentHasBeenSet() const;
 
@@ -203,8 +216,6 @@ _不填默认为生产环境_
                     /**
                      * 渠道名称。
 __TENPAY__: 商企付
-__WECHAT__: 微信支付
-__ALIPAY__: 支付宝
                      */
                     std::string m_channelName;
                     bool m_channelNameHasBeenSet;

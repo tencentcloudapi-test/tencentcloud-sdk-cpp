@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,38 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取集群id
                      * @return ClusterId 集群id
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取已加入审批人的uin
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Uins 已加入审批人的uin
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetUins() const;
 
                     /**
                      * 判断参数 Uins 是否已赋值
                      * @return Uins 是否已赋值
+                     * 
                      */
                     bool UinsHasBeenSet() const;
 
                     /**
                      * 获取集群是否开启审核 0-关闭 1-开启
                      * @return Censorship 集群是否开启审核 0-关闭 1-开启
+                     * 
                      */
                     int64_t GetCensorship() const;
 
                     /**
                      * 判断参数 Censorship 是否已赋值
                      * @return Censorship 是否已赋值
+                     * 
                      */
                     bool CensorshipHasBeenSet() const;
 
@@ -91,7 +95,6 @@ namespace TencentCloud
 
                     /**
                      * 已加入审批人的uin
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_uins;
                     bool m_uinsHasBeenSet;

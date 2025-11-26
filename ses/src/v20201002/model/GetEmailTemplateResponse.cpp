@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ using namespace TencentCloud::Ses::V20201002::Model;
 using namespace std;
 
 GetEmailTemplateResponse::GetEmailTemplateResponse() :
-    m_templateContentHasBeenSet(false)
+    m_templateContentHasBeenSet(false),
+    m_templateStatusHasBeenSet(false),
+    m_templateNameHasBeenSet(false)
 {
 }
 
@@ -79,6 +81,26 @@ CoreInternalOutcome GetEmailTemplateResponse::Deserialize(const string &payload)
         m_templateContentHasBeenSet = true;
     }
 
+    if (rsp.HasMember("TemplateStatus") && !rsp["TemplateStatus"].IsNull())
+    {
+        if (!rsp["TemplateStatus"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateStatus` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_templateStatus = rsp["TemplateStatus"].GetUint64();
+        m_templateStatusHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("TemplateName") && !rsp["TemplateName"].IsNull())
+    {
+        if (!rsp["TemplateName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_templateName = string(rsp["TemplateName"].GetString());
+        m_templateNameHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -98,11 +120,27 @@ string GetEmailTemplateResponse::ToJsonString() const
         m_templateContent.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_templateStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TemplateStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_templateStatus, allocator);
+    }
+
+    if (m_templateNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TemplateName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_templateName.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -118,6 +156,26 @@ TemplateContent GetEmailTemplateResponse::GetTemplateContent() const
 bool GetEmailTemplateResponse::TemplateContentHasBeenSet() const
 {
     return m_templateContentHasBeenSet;
+}
+
+uint64_t GetEmailTemplateResponse::GetTemplateStatus() const
+{
+    return m_templateStatus;
+}
+
+bool GetEmailTemplateResponse::TemplateStatusHasBeenSet() const
+{
+    return m_templateStatusHasBeenSet;
+}
+
+string GetEmailTemplateResponse::GetTemplateName() const
+{
+    return m_templateName;
+}
+
+bool GetEmailTemplateResponse::TemplateNameHasBeenSet() const
+{
+    return m_templateNameHasBeenSet;
 }
 
 

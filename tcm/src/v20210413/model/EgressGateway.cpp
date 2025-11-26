@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace std;
 EgressGateway::EgressGateway() :
     m_nameHasBeenSet(false),
     m_namespaceHasBeenSet(false),
-    m_workloadHasBeenSet(false)
+    m_workloadHasBeenSet(false),
+    m_statusHasBeenSet(false)
 {
 }
 
@@ -69,6 +70,23 @@ CoreInternalOutcome EgressGateway::Deserialize(const rapidjson::Value &value)
         m_workloadHasBeenSet = true;
     }
 
+    if (value.HasMember("Status") && !value["Status"].IsNull())
+    {
+        if (!value["Status"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `EgressGateway.Status` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_status.Deserialize(value["Status"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_statusHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -99,6 +117,15 @@ void EgressGateway::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_workload.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_statusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Status";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_status.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -150,5 +177,21 @@ void EgressGateway::SetWorkload(const WorkloadConfig& _workload)
 bool EgressGateway::WorkloadHasBeenSet() const
 {
     return m_workloadHasBeenSet;
+}
+
+EgressGatewayStatus EgressGateway::GetStatus() const
+{
+    return m_status;
+}
+
+void EgressGateway::SetStatus(const EgressGatewayStatus& _status)
+{
+    m_status = _status;
+    m_statusHasBeenSet = true;
+}
+
+bool EgressGateway::StatusHasBeenSet() const
+{
+    return m_statusHasBeenSet;
 }
 

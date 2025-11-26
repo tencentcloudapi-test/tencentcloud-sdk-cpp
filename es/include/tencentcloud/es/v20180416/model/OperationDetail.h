@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取实例原始配置信息
                      * @return OldInfo 实例原始配置信息
+                     * 
                      */
                     std::vector<KeyValue> GetOldInfo() const;
 
                     /**
                      * 设置实例原始配置信息
-                     * @param OldInfo 实例原始配置信息
+                     * @param _oldInfo 实例原始配置信息
+                     * 
                      */
                     void SetOldInfo(const std::vector<KeyValue>& _oldInfo);
 
                     /**
                      * 判断参数 OldInfo 是否已赋值
                      * @return OldInfo 是否已赋值
+                     * 
                      */
                     bool OldInfoHasBeenSet() const;
 
                     /**
                      * 获取实例更新后配置信息
                      * @return NewInfo 实例更新后配置信息
+                     * 
                      */
                     std::vector<KeyValue> GetNewInfo() const;
 
                     /**
                      * 设置实例更新后配置信息
-                     * @param NewInfo 实例更新后配置信息
+                     * @param _newInfo 实例更新后配置信息
+                     * 
                      */
                     void SetNewInfo(const std::vector<KeyValue>& _newInfo);
 
                     /**
                      * 判断参数 NewInfo 是否已赋值
                      * @return NewInfo 是否已赋值
+                     * 
                      */
                     bool NewInfoHasBeenSet() const;
 

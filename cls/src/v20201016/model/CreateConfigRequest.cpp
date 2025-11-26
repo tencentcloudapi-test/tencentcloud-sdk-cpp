@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ CreateConfigRequest::CreateConfigRequest() :
     m_logTypeHasBeenSet(false),
     m_extractRuleHasBeenSet(false),
     m_excludePathsHasBeenSet(false),
-    m_userDefineRuleHasBeenSet(false)
+    m_userDefineRuleHasBeenSet(false),
+    m_advancedConfigHasBeenSet(false),
+    m_inputTypeHasBeenSet(false)
 {
 }
 
@@ -102,6 +104,22 @@ string CreateConfigRequest::ToJsonString() const
         string key = "UserDefineRule";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_userDefineRule.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_advancedConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdvancedConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_advancedConfig.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_inputTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InputType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_inputType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -222,6 +240,38 @@ void CreateConfigRequest::SetUserDefineRule(const string& _userDefineRule)
 bool CreateConfigRequest::UserDefineRuleHasBeenSet() const
 {
     return m_userDefineRuleHasBeenSet;
+}
+
+string CreateConfigRequest::GetAdvancedConfig() const
+{
+    return m_advancedConfig;
+}
+
+void CreateConfigRequest::SetAdvancedConfig(const string& _advancedConfig)
+{
+    m_advancedConfig = _advancedConfig;
+    m_advancedConfigHasBeenSet = true;
+}
+
+bool CreateConfigRequest::AdvancedConfigHasBeenSet() const
+{
+    return m_advancedConfigHasBeenSet;
+}
+
+string CreateConfigRequest::GetInputType() const
+{
+    return m_inputType;
+}
+
+void CreateConfigRequest::SetInputType(const string& _inputType)
+{
+    m_inputType = _inputType;
+    m_inputTypeHasBeenSet = true;
+}
+
+bool CreateConfigRequest::InputTypeHasBeenSet() const
+{
+    return m_inputTypeHasBeenSet;
 }
 
 

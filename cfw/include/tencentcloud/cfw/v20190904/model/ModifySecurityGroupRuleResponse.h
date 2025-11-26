@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取状态值，0：编辑成功，非0：编辑失败
                      * @return Status 状态值，0：编辑成功，非0：编辑失败
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取编辑后新生成规则的Id
                      * @return NewRuleId 编辑后新生成规则的Id
+                     * 
                      */
                     uint64_t GetNewRuleId() const;
 
                     /**
                      * 判断参数 NewRuleId 是否已赋值
                      * @return NewRuleId 是否已赋值
+                     * 
                      */
                     bool NewRuleIdHasBeenSet() const;
 

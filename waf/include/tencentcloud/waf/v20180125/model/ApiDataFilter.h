@@ -1,0 +1,165 @@
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#ifndef TENCENTCLOUD_WAF_V20180125_MODEL_APIDATAFILTER_H_
+#define TENCENTCLOUD_WAF_V20180125_MODEL_APIDATAFILTER_H_
+
+#include <string>
+#include <vector>
+#include <map>
+#include <tencentcloud/core/utils/rapidjson/document.h>
+#include <tencentcloud/core/utils/rapidjson/writer.h>
+#include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
+#include <tencentcloud/core/AbstractModel.h>
+
+
+namespace TencentCloud
+{
+    namespace Waf
+    {
+        namespace V20180125
+        {
+            namespace Model
+            {
+                /**
+                * api资产列表过滤器
+                */
+                class ApiDataFilter : public AbstractModel
+                {
+                public:
+                    ApiDataFilter();
+                    ~ApiDataFilter() = default;
+                    void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
+                    CoreInternalOutcome Deserialize(const rapidjson::Value &value);
+
+
+                    /**
+                     * 获取数据标签，是否活跃，功能场景
+                     * @return Entity 数据标签，是否活跃，功能场景
+                     * 
+                     */
+                    std::string GetEntity() const;
+
+                    /**
+                     * 设置数据标签，是否活跃，功能场景
+                     * @param _entity 数据标签，是否活跃，功能场景
+                     * 
+                     */
+                    void SetEntity(const std::string& _entity);
+
+                    /**
+                     * 判断参数 Entity 是否已赋值
+                     * @return Entity 是否已赋值
+                     * 
+                     */
+                    bool EntityHasBeenSet() const;
+
+                    /**
+                     * 获取等于
+                     * @return Operator 等于
+                     * 
+                     */
+                    std::string GetOperator() const;
+
+                    /**
+                     * 设置等于
+                     * @param _operator 等于
+                     * 
+                     */
+                    void SetOperator(const std::string& _operator);
+
+                    /**
+                     * 判断参数 Operator 是否已赋值
+                     * @return Operator 是否已赋值
+                     * 
+                     */
+                    bool OperatorHasBeenSet() const;
+
+                    /**
+                     * 获取日期，手机号，邮箱等
+                     * @return Value 日期，手机号，邮箱等
+                     * 
+                     */
+                    std::string GetValue() const;
+
+                    /**
+                     * 设置日期，手机号，邮箱等
+                     * @param _value 日期，手机号，邮箱等
+                     * 
+                     */
+                    void SetValue(const std::string& _value);
+
+                    /**
+                     * 判断参数 Value 是否已赋值
+                     * @return Value 是否已赋值
+                     * 
+                     */
+                    bool ValueHasBeenSet() const;
+
+                    /**
+                     * 获取风险等级
+                     * @return ValueList 风险等级
+                     * 
+                     */
+                    std::vector<std::string> GetValueList() const;
+
+                    /**
+                     * 设置风险等级
+                     * @param _valueList 风险等级
+                     * 
+                     */
+                    void SetValueList(const std::vector<std::string>& _valueList);
+
+                    /**
+                     * 判断参数 ValueList 是否已赋值
+                     * @return ValueList 是否已赋值
+                     * 
+                     */
+                    bool ValueListHasBeenSet() const;
+
+                private:
+
+                    /**
+                     * 数据标签，是否活跃，功能场景
+                     */
+                    std::string m_entity;
+                    bool m_entityHasBeenSet;
+
+                    /**
+                     * 等于
+                     */
+                    std::string m_operator;
+                    bool m_operatorHasBeenSet;
+
+                    /**
+                     * 日期，手机号，邮箱等
+                     */
+                    std::string m_value;
+                    bool m_valueHasBeenSet;
+
+                    /**
+                     * 风险等级
+                     */
+                    std::vector<std::string> m_valueList;
+                    bool m_valueListHasBeenSet;
+
+                };
+            }
+        }
+    }
+}
+
+#endif // !TENCENTCLOUD_WAF_V20180125_MODEL_APIDATAFILTER_H_

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,14 +47,30 @@ namespace TencentCloud
                     /**
                      * 获取数据库账号列表
                      * @return AccountSet 数据库账号列表
+                     * 
                      */
                     std::vector<Account> GetAccountSet() const;
 
                     /**
                      * 判断参数 AccountSet 是否已赋值
                      * @return AccountSet 是否已赋值
+                     * 
                      */
                     bool AccountSetHasBeenSet() const;
+
+                    /**
+                     * 获取账号总数量
+                     * @return TotalCount 账号总数量
+                     * 
+                     */
+                    int64_t GetTotalCount() const;
+
+                    /**
+                     * 判断参数 TotalCount 是否已赋值
+                     * @return TotalCount 是否已赋值
+                     * 
+                     */
+                    bool TotalCountHasBeenSet() const;
 
                 private:
 
@@ -63,6 +79,12 @@ namespace TencentCloud
                      */
                     std::vector<Account> m_accountSet;
                     bool m_accountSetHasBeenSet;
+
+                    /**
+                     * 账号总数量
+                     */
+                    int64_t m_totalCount;
+                    bool m_totalCountHasBeenSet;
 
                 };
             }

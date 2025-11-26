@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取播放位置，单位：毫秒。
                      * @return Position 播放位置，单位：毫秒。
+                     * 
                      */
                     uint64_t GetPosition() const;
 
                     /**
                      * 设置播放位置，单位：毫秒。
-                     * @param Position 播放位置，单位：毫秒。
+                     * @param _position 播放位置，单位：毫秒。
+                     * 
                      */
                     void SetPosition(const uint64_t& _position);
 
                     /**
                      * 判断参数 Position 是否已赋值
                      * @return Position 是否已赋值
+                     * 
                      */
                     bool PositionHasBeenSet() const;
 

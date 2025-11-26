@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取任务ID，例如msp-jitoh33n
                      * @return TaskId 任务ID，例如msp-jitoh33n
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 设置任务ID，例如msp-jitoh33n
-                     * @param TaskId 任务ID，例如msp-jitoh33n
+                     * @param _taskId 任务ID，例如msp-jitoh33n
+                     * 
                      */
                     void SetTaskId(const std::string& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                     /**
                      * 获取项目ID，例如10005
                      * @return ProjectId 项目ID，例如10005
+                     * 
                      */
                     uint64_t GetProjectId() const;
 
                     /**
                      * 设置项目ID，例如10005
-                     * @param ProjectId 项目ID，例如10005
+                     * @param _projectId 项目ID，例如10005
+                     * 
                      */
                     void SetProjectId(const uint64_t& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 

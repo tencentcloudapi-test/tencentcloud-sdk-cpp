@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ using namespace std;
 
 ModifySnapshotAttributeRequest::ModifySnapshotAttributeRequest() :
     m_snapshotIdHasBeenSet(false),
-    m_snapshotNameHasBeenSet(false),
     m_isPermanentHasBeenSet(false),
+    m_snapshotNameHasBeenSet(false),
     m_deadlineHasBeenSet(false)
 {
 }
@@ -45,20 +45,20 @@ string ModifySnapshotAttributeRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_snapshotId.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_snapshotNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SnapshotName";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_snapshotName.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_isPermanentHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "IsPermanent";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_isPermanent, allocator);
+    }
+
+    if (m_snapshotNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SnapshotName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_snapshotName.c_str(), allocator).Move(), allocator);
     }
 
     if (m_deadlineHasBeenSet)
@@ -93,22 +93,6 @@ bool ModifySnapshotAttributeRequest::SnapshotIdHasBeenSet() const
     return m_snapshotIdHasBeenSet;
 }
 
-string ModifySnapshotAttributeRequest::GetSnapshotName() const
-{
-    return m_snapshotName;
-}
-
-void ModifySnapshotAttributeRequest::SetSnapshotName(const string& _snapshotName)
-{
-    m_snapshotName = _snapshotName;
-    m_snapshotNameHasBeenSet = true;
-}
-
-bool ModifySnapshotAttributeRequest::SnapshotNameHasBeenSet() const
-{
-    return m_snapshotNameHasBeenSet;
-}
-
 bool ModifySnapshotAttributeRequest::GetIsPermanent() const
 {
     return m_isPermanent;
@@ -123,6 +107,22 @@ void ModifySnapshotAttributeRequest::SetIsPermanent(const bool& _isPermanent)
 bool ModifySnapshotAttributeRequest::IsPermanentHasBeenSet() const
 {
     return m_isPermanentHasBeenSet;
+}
+
+string ModifySnapshotAttributeRequest::GetSnapshotName() const
+{
+    return m_snapshotName;
+}
+
+void ModifySnapshotAttributeRequest::SetSnapshotName(const string& _snapshotName)
+{
+    m_snapshotName = _snapshotName;
+    m_snapshotNameHasBeenSet = true;
+}
+
+bool ModifySnapshotAttributeRequest::SnapshotNameHasBeenSet() const
+{
+    return m_snapshotNameHasBeenSet;
 }
 
 string ModifySnapshotAttributeRequest::GetDeadline() const

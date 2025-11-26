@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取分级策略列表总数
                      * @return Total 分级策略列表总数
+                     * 
                      */
                     uint64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
                     /**
-                     * 获取分级策略列表详情
-                     * @return LevelList 分级策略列表详情
+                     * 获取分级策略列表总数
+                     * @return LevelList 分级策略列表总数
+                     * 
                      */
                     std::vector<CCLevelPolicy> GetLevelList() const;
 
                     /**
                      * 判断参数 LevelList 是否已赋值
                      * @return LevelList 是否已赋值
+                     * 
                      */
                     bool LevelListHasBeenSet() const;
 
@@ -77,7 +81,7 @@ namespace TencentCloud
                     bool m_totalHasBeenSet;
 
                     /**
-                     * 分级策略列表详情
+                     * 分级策略列表总数
                      */
                     std::vector<CCLevelPolicy> m_levelList;
                     bool m_levelListHasBeenSet;

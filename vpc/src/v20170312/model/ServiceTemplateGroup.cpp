@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ ServiceTemplateGroup::ServiceTemplateGroup() :
     m_serviceTemplateGroupNameHasBeenSet(false),
     m_serviceTemplateIdSetHasBeenSet(false),
     m_createdTimeHasBeenSet(false),
-    m_serviceTemplateSetHasBeenSet(false)
+    m_updatedTimeHasBeenSet(false),
+    m_serviceTemplateSetHasBeenSet(false),
+    m_tagSetHasBeenSet(false)
 {
 }
 
@@ -77,6 +79,16 @@ CoreInternalOutcome ServiceTemplateGroup::Deserialize(const rapidjson::Value &va
         m_createdTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("UpdatedTime") && !value["UpdatedTime"].IsNull())
+    {
+        if (!value["UpdatedTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ServiceTemplateGroup.UpdatedTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_updatedTime = string(value["UpdatedTime"].GetString());
+        m_updatedTimeHasBeenSet = true;
+    }
+
     if (value.HasMember("ServiceTemplateSet") && !value["ServiceTemplateSet"].IsNull())
     {
         if (!value["ServiceTemplateSet"].IsArray())
@@ -95,6 +107,26 @@ CoreInternalOutcome ServiceTemplateGroup::Deserialize(const rapidjson::Value &va
             m_serviceTemplateSet.push_back(item);
         }
         m_serviceTemplateSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("TagSet") && !value["TagSet"].IsNull())
+    {
+        if (!value["TagSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ServiceTemplateGroup.TagSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TagSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tagSet.push_back(item);
+        }
+        m_tagSetHasBeenSet = true;
     }
 
 
@@ -141,6 +173,14 @@ void ServiceTemplateGroup::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         value.AddMember(iKey, rapidjson::Value(m_createdTime.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_updatedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpdatedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_updatedTime.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_serviceTemplateSetHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -150,6 +190,21 @@ void ServiceTemplateGroup::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
 
         int i=0;
         for (auto itr = m_serviceTemplateSet.begin(); itr != m_serviceTemplateSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_tagSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagSet.begin(); itr != m_tagSet.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
@@ -223,6 +278,22 @@ bool ServiceTemplateGroup::CreatedTimeHasBeenSet() const
     return m_createdTimeHasBeenSet;
 }
 
+string ServiceTemplateGroup::GetUpdatedTime() const
+{
+    return m_updatedTime;
+}
+
+void ServiceTemplateGroup::SetUpdatedTime(const string& _updatedTime)
+{
+    m_updatedTime = _updatedTime;
+    m_updatedTimeHasBeenSet = true;
+}
+
+bool ServiceTemplateGroup::UpdatedTimeHasBeenSet() const
+{
+    return m_updatedTimeHasBeenSet;
+}
+
 vector<ServiceTemplate> ServiceTemplateGroup::GetServiceTemplateSet() const
 {
     return m_serviceTemplateSet;
@@ -237,5 +308,21 @@ void ServiceTemplateGroup::SetServiceTemplateSet(const vector<ServiceTemplate>& 
 bool ServiceTemplateGroup::ServiceTemplateSetHasBeenSet() const
 {
     return m_serviceTemplateSetHasBeenSet;
+}
+
+vector<Tag> ServiceTemplateGroup::GetTagSet() const
+{
+    return m_tagSet;
+}
+
+void ServiceTemplateGroup::SetTagSet(const vector<Tag>& _tagSet)
+{
+    m_tagSet = _tagSet;
+    m_tagSetHasBeenSet = true;
+}
+
+bool ServiceTemplateGroup::TagSetHasBeenSet() const
+{
+    return m_tagSetHasBeenSet;
 }
 

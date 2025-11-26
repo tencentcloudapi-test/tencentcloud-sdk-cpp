@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace std;
 AssetKeyVal::AssetKeyVal() :
     m_keyHasBeenSet(false),
     m_valueHasBeenSet(false),
-    m_descHasBeenSet(false)
+    m_descHasBeenSet(false),
+    m_newCountHasBeenSet(false)
 {
 }
 
@@ -62,6 +63,16 @@ CoreInternalOutcome AssetKeyVal::Deserialize(const rapidjson::Value &value)
         m_descHasBeenSet = true;
     }
 
+    if (value.HasMember("NewCount") && !value["NewCount"].IsNull())
+    {
+        if (!value["NewCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetKeyVal.NewCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_newCount = value["NewCount"].GetInt64();
+        m_newCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +102,14 @@ void AssetKeyVal::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "Desc";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_desc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_newCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NewCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_newCount, allocator);
     }
 
 }
@@ -142,5 +161,21 @@ void AssetKeyVal::SetDesc(const string& _desc)
 bool AssetKeyVal::DescHasBeenSet() const
 {
     return m_descHasBeenSet;
+}
+
+int64_t AssetKeyVal::GetNewCount() const
+{
+    return m_newCount;
+}
+
+void AssetKeyVal::SetNewCount(const int64_t& _newCount)
+{
+    m_newCount = _newCount;
+    m_newCountHasBeenSet = true;
+}
+
+bool AssetKeyVal::NewCountHasBeenSet() const
+{
+    return m_newCountHasBeenSet;
 }
 

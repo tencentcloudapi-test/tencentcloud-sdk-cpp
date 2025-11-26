@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,45 +47,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取VpcId： vpc-xadsafsdasd
-                     * @return UniqVpcId VpcId： vpc-xadsafsdasd
+                     * 获取VpcId
+                     * @return UniqVpcId VpcId
+                     * 
                      */
                     std::string GetUniqVpcId() const;
 
                     /**
-                     * 设置VpcId： vpc-xadsafsdasd
-                     * @param UniqVpcId VpcId： vpc-xadsafsdasd
+                     * 设置VpcId
+                     * @param _uniqVpcId VpcId
+                     * 
                      */
                     void SetUniqVpcId(const std::string& _uniqVpcId);
 
                     /**
                      * 判断参数 UniqVpcId 是否已赋值
                      * @return UniqVpcId 是否已赋值
+                     * 
                      */
                     bool UniqVpcIdHasBeenSet() const;
 
                     /**
                      * 获取Vpc所属地区: ap-guangzhou, ap-shanghai
                      * @return Region Vpc所属地区: ap-guangzhou, ap-shanghai
+                     * 
                      */
                     std::string GetRegion() const;
 
                     /**
                      * 设置Vpc所属地区: ap-guangzhou, ap-shanghai
-                     * @param Region Vpc所属地区: ap-guangzhou, ap-shanghai
+                     * @param _region Vpc所属地区: ap-guangzhou, ap-shanghai
+                     * 
                      */
                     void SetRegion(const std::string& _region);
 
                     /**
                      * 判断参数 Region 是否已赋值
                      * @return Region 是否已赋值
+                     * 
                      */
                     bool RegionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * VpcId： vpc-xadsafsdasd
+                     * VpcId
                      */
                     std::string m_uniqVpcId;
                     bool m_uniqVpcIdHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取是否开启公网访问能力取值['DISABLE','ENABLE']
                      * @return PublicNetStatus 是否开启公网访问能力取值['DISABLE','ENABLE']
+                     * 
                      */
                     std::string GetPublicNetStatus() const;
 
                     /**
                      * 设置是否开启公网访问能力取值['DISABLE','ENABLE']
-                     * @param PublicNetStatus 是否开启公网访问能力取值['DISABLE','ENABLE']
+                     * @param _publicNetStatus 是否开启公网访问能力取值['DISABLE','ENABLE']
+                     * 
                      */
                     void SetPublicNetStatus(const std::string& _publicNetStatus);
 
                     /**
                      * 判断参数 PublicNetStatus 是否已赋值
                      * @return PublicNetStatus 是否已赋值
+                     * 
                      */
                     bool PublicNetStatusHasBeenSet() const;
 
                     /**
                      * 获取Eip配置
                      * @return EipConfig Eip配置
+                     * 
                      */
                     EipConfigIn GetEipConfig() const;
 
                     /**
                      * 设置Eip配置
-                     * @param EipConfig Eip配置
+                     * @param _eipConfig Eip配置
+                     * 
                      */
                     void SetEipConfig(const EipConfigIn& _eipConfig);
 
                     /**
                      * 判断参数 EipConfig 是否已赋值
                      * @return EipConfig 是否已赋值
+                     * 
                      */
                     bool EipConfigHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,75 @@ namespace TencentCloud
                     /**
                      * 获取镜像详细信息
                      * @return BlueprintInfo 镜像详细信息
+                     * 
                      */
                     Blueprint GetBlueprintInfo() const;
 
                     /**
                      * 设置镜像详细信息
-                     * @param BlueprintInfo 镜像详细信息
+                     * @param _blueprintInfo 镜像详细信息
+                     * 
                      */
                     void SetBlueprintInfo(const Blueprint& _blueprintInfo);
 
                     /**
                      * 判断参数 BlueprintInfo 是否已赋值
                      * @return BlueprintInfo 是否已赋值
+                     * 
                      */
                     bool BlueprintInfoHasBeenSet() const;
 
                     /**
-                     * 获取实例镜像是否可重置为目标镜像
-                     * @return IsResettable 实例镜像是否可重置为目标镜像
+                     * 获取实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
+                     * @return IsResettable 实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
+                     * 
                      */
                     bool GetIsResettable() const;
 
                     /**
-                     * 设置实例镜像是否可重置为目标镜像
-                     * @param IsResettable 实例镜像是否可重置为目标镜像
+                     * 设置实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
+                     * @param _isResettable 实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
+                     * 
                      */
                     void SetIsResettable(const bool& _isResettable);
 
                     /**
                      * 判断参数 IsResettable 是否已赋值
                      * @return IsResettable 是否已赋值
+                     * 
                      */
                     bool IsResettableHasBeenSet() const;
 
                     /**
                      * 获取不可重置信息.当镜像可重置时为""
                      * @return NonResettableMessage 不可重置信息.当镜像可重置时为""
+                     * 
                      */
                     std::string GetNonResettableMessage() const;
 
                     /**
                      * 设置不可重置信息.当镜像可重置时为""
-                     * @param NonResettableMessage 不可重置信息.当镜像可重置时为""
+                     * @param _nonResettableMessage 不可重置信息.当镜像可重置时为""
+                     * 
                      */
                     void SetNonResettableMessage(const std::string& _nonResettableMessage);
 
                     /**
                      * 判断参数 NonResettableMessage 是否已赋值
                      * @return NonResettableMessage 是否已赋值
+                     * 
                      */
                     bool NonResettableMessageHasBeenSet() const;
 
@@ -110,7 +131,10 @@ namespace TencentCloud
                     bool m_blueprintInfoHasBeenSet;
 
                     /**
-                     * 实例镜像是否可重置为目标镜像
+                     * 实例镜像是否可重置为目标镜像。
+取值：
+true（允许）
+false（不允许）
                      */
                     bool m_isResettable;
                     bool m_isResettableHasBeenSet;

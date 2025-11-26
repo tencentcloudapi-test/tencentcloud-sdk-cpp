@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 登录和敏感操作flag
+                * 登录和敏感操作flag（校验方式是单选）
                 */
                 class LoginActionFlag : public AbstractModel
                 {
@@ -47,126 +47,195 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取手机
-                     * @return Phone 手机
+                     * 获取0: 非安全手机校验 1: 安全手机校验。
+                     * @return Phone 0: 非安全手机校验 1: 安全手机校验。
+                     * 
                      */
                     uint64_t GetPhone() const;
 
                     /**
-                     * 设置手机
-                     * @param Phone 手机
+                     * 设置0: 非安全手机校验 1: 安全手机校验。
+                     * @param _phone 0: 非安全手机校验 1: 安全手机校验。
+                     * 
                      */
                     void SetPhone(const uint64_t& _phone);
 
                     /**
                      * 判断参数 Phone 是否已赋值
                      * @return Phone 是否已赋值
+                     * 
                      */
                     bool PhoneHasBeenSet() const;
 
                     /**
-                     * 获取硬token
-                     * @return Token 硬token
+                     * 获取0: 非硬token校验 1: 硬token校验。
+                     * @return Token 0: 非硬token校验 1: 硬token校验。
+                     * 
                      */
                     uint64_t GetToken() const;
 
                     /**
-                     * 设置硬token
-                     * @param Token 硬token
+                     * 设置0: 非硬token校验 1: 硬token校验。
+                     * @param _token 0: 非硬token校验 1: 硬token校验。
+                     * 
                      */
                     void SetToken(const uint64_t& _token);
 
                     /**
                      * 判断参数 Token 是否已赋值
                      * @return Token 是否已赋值
+                     * 
                      */
                     bool TokenHasBeenSet() const;
 
                     /**
-                     * 获取软token
-                     * @return Stoken 软token
+                     * 获取0: 非软token校验 1: 软token校验
+                     * @return Stoken 0: 非软token校验 1: 软token校验
+                     * 
                      */
                     uint64_t GetStoken() const;
 
                     /**
-                     * 设置软token
-                     * @param Stoken 软token
+                     * 设置0: 非软token校验 1: 软token校验
+                     * @param _stoken 0: 非软token校验 1: 软token校验
+                     * 
                      */
                     void SetStoken(const uint64_t& _stoken);
 
                     /**
                      * 判断参数 Stoken 是否已赋值
                      * @return Stoken 是否已赋值
+                     * 
                      */
                     bool StokenHasBeenSet() const;
 
                     /**
-                     * 获取微信
-                     * @return Wechat 微信
+                     * 获取0: 非微信校验 1: 微信校验
+                     * @return Wechat 0: 非微信校验 1: 微信校验
+                     * 
                      */
                     uint64_t GetWechat() const;
 
                     /**
-                     * 设置微信
-                     * @param Wechat 微信
+                     * 设置0: 非微信校验 1: 微信校验
+                     * @param _wechat 0: 非微信校验 1: 微信校验
+                     * 
                      */
                     void SetWechat(const uint64_t& _wechat);
 
                     /**
                      * 判断参数 Wechat 是否已赋值
                      * @return Wechat 是否已赋值
+                     * 
                      */
                     bool WechatHasBeenSet() const;
 
                     /**
-                     * 获取自定义
-                     * @return Custom 自定义
+                     * 获取0: 非自定义校验 1: 自定义校验
+                     * @return Custom 0: 非自定义校验 1: 自定义校验
+                     * 
                      */
                     uint64_t GetCustom() const;
 
                     /**
-                     * 设置自定义
-                     * @param Custom 自定义
+                     * 设置0: 非自定义校验 1: 自定义校验
+                     * @param _custom 0: 非自定义校验 1: 自定义校验
+                     * 
                      */
                     void SetCustom(const uint64_t& _custom);
 
                     /**
                      * 判断参数 Custom 是否已赋值
                      * @return Custom 是否已赋值
+                     * 
                      */
                     bool CustomHasBeenSet() const;
+
+                    /**
+                     * 获取0: 非邮箱校验 1: 邮箱校验
+                     * @return Mail 0: 非邮箱校验 1: 邮箱校验
+                     * 
+                     */
+                    uint64_t GetMail() const;
+
+                    /**
+                     * 设置0: 非邮箱校验 1: 邮箱校验
+                     * @param _mail 0: 非邮箱校验 1: 邮箱校验
+                     * 
+                     */
+                    void SetMail(const uint64_t& _mail);
+
+                    /**
+                     * 判断参数 Mail 是否已赋值
+                     * @return Mail 是否已赋值
+                     * 
+                     */
+                    bool MailHasBeenSet() const;
+
+                    /**
+                     * 获取0: 非u2f硬件token 1: u2f硬件token
+                     * @return U2FToken 0: 非u2f硬件token 1: u2f硬件token
+                     * 
+                     */
+                    uint64_t GetU2FToken() const;
+
+                    /**
+                     * 设置0: 非u2f硬件token 1: u2f硬件token
+                     * @param _u2FToken 0: 非u2f硬件token 1: u2f硬件token
+                     * 
+                     */
+                    void SetU2FToken(const uint64_t& _u2FToken);
+
+                    /**
+                     * 判断参数 U2FToken 是否已赋值
+                     * @return U2FToken 是否已赋值
+                     * 
+                     */
+                    bool U2FTokenHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 手机
+                     * 0: 非安全手机校验 1: 安全手机校验。
                      */
                     uint64_t m_phone;
                     bool m_phoneHasBeenSet;
 
                     /**
-                     * 硬token
+                     * 0: 非硬token校验 1: 硬token校验。
                      */
                     uint64_t m_token;
                     bool m_tokenHasBeenSet;
 
                     /**
-                     * 软token
+                     * 0: 非软token校验 1: 软token校验
                      */
                     uint64_t m_stoken;
                     bool m_stokenHasBeenSet;
 
                     /**
-                     * 微信
+                     * 0: 非微信校验 1: 微信校验
                      */
                     uint64_t m_wechat;
                     bool m_wechatHasBeenSet;
 
                     /**
-                     * 自定义
+                     * 0: 非自定义校验 1: 自定义校验
                      */
                     uint64_t m_custom;
                     bool m_customHasBeenSet;
+
+                    /**
+                     * 0: 非邮箱校验 1: 邮箱校验
+                     */
+                    uint64_t m_mail;
+                    bool m_mailHasBeenSet;
+
+                    /**
+                     * 0: 非u2f硬件token 1: u2f硬件token
+                     */
+                    uint64_t m_u2FToken;
+                    bool m_u2FTokenHasBeenSet;
 
                 };
             }

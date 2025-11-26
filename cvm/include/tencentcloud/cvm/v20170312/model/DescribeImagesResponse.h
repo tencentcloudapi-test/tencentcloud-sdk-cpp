@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取一个关于镜像详细信息的结构体，主要包括镜像的主要状态与属性。
                      * @return ImageSet 一个关于镜像详细信息的结构体，主要包括镜像的主要状态与属性。
+                     * 
                      */
                     std::vector<Image> GetImageSet() const;
 
                     /**
                      * 判断参数 ImageSet 是否已赋值
                      * @return ImageSet 是否已赋值
+                     * 
                      */
                     bool ImageSetHasBeenSet() const;
 
                     /**
                      * 获取符合要求的镜像数量。
                      * @return TotalCount 符合要求的镜像数量。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 

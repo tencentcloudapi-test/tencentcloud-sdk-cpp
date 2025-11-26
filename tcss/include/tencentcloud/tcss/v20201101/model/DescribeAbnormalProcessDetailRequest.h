@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取事件唯一id
                      * @return EventId 事件唯一id
+                     * 
                      */
                     std::string GetEventId() const;
 
                     /**
                      * 设置事件唯一id
-                     * @param EventId 事件唯一id
+                     * @param _eventId 事件唯一id
+                     * 
                      */
                     void SetEventId(const std::string& _eventId);
 
                     /**
                      * 判断参数 EventId 是否已赋值
                      * @return EventId 是否已赋值
+                     * 
                      */
                     bool EventIdHasBeenSet() const;
 

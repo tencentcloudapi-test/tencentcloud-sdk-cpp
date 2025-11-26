@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,12 +48,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return FrontSeqNo STRING(52)，见证系统流水号
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFrontSeqNo() const;
 
                     /**
                      * 判断参数 FrontSeqNo 是否已赋值
                      * @return FrontSeqNo 是否已赋值
+                     * 
                      */
                     bool FrontSeqNoHasBeenSet() const;
 
@@ -62,48 +64,56 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ReservedMsg STRING(1027)，保留域
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetReservedMsg() const;
 
                     /**
                      * 判断参数 ReservedMsg 是否已赋值
                      * @return ReservedMsg 是否已赋值
+                     * 
                      */
                     bool ReservedMsgHasBeenSet() const;
 
                     /**
                      * 获取String(20)，返回码
                      * @return TxnReturnCode String(20)，返回码
+                     * 
                      */
                     std::string GetTxnReturnCode() const;
 
                     /**
                      * 判断参数 TxnReturnCode 是否已赋值
                      * @return TxnReturnCode 是否已赋值
+                     * 
                      */
                     bool TxnReturnCodeHasBeenSet() const;
 
                     /**
                      * 获取String(100)，返回信息
                      * @return TxnReturnMsg String(100)，返回信息
+                     * 
                      */
                     std::string GetTxnReturnMsg() const;
 
                     /**
                      * 判断参数 TxnReturnMsg 是否已赋值
                      * @return TxnReturnMsg 是否已赋值
+                     * 
                      */
                     bool TxnReturnMsgHasBeenSet() const;
 
                     /**
                      * 获取String(22)，交易流水号
                      * @return CnsmrSeqNo String(22)，交易流水号
+                     * 
                      */
                     std::string GetCnsmrSeqNo() const;
 
                     /**
                      * 判断参数 CnsmrSeqNo 是否已赋值
                      * @return CnsmrSeqNo 是否已赋值
+                     * 
                      */
                     bool CnsmrSeqNoHasBeenSet() const;
 

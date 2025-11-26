@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取左上角x
                      * @return X 左上角x
+                     * 
                      */
                     int64_t GetX() const;
 
                     /**
                      * 设置左上角x
-                     * @param X 左上角x
+                     * @param _x 左上角x
+                     * 
                      */
                     void SetX(const int64_t& _x);
 
                     /**
                      * 判断参数 X 是否已赋值
                      * @return X 是否已赋值
+                     * 
                      */
                     bool XHasBeenSet() const;
 
                     /**
                      * 获取左上角y
                      * @return Y 左上角y
+                     * 
                      */
                     int64_t GetY() const;
 
                     /**
                      * 设置左上角y
-                     * @param Y 左上角y
+                     * @param _y 左上角y
+                     * 
                      */
                     void SetY(const int64_t& _y);
 
                     /**
                      * 判断参数 Y 是否已赋值
                      * @return Y 是否已赋值
+                     * 
                      */
                     bool YHasBeenSet() const;
 
                     /**
                      * 获取宽width
                      * @return Width 宽width
+                     * 
                      */
                     int64_t GetWidth() const;
 
                     /**
                      * 设置宽width
-                     * @param Width 宽width
+                     * @param _width 宽width
+                     * 
                      */
                     void SetWidth(const int64_t& _width);
 
                     /**
                      * 判断参数 Width 是否已赋值
                      * @return Width 是否已赋值
+                     * 
                      */
                     bool WidthHasBeenSet() const;
 
                     /**
                      * 获取高height
                      * @return Height 高height
+                     * 
                      */
                     int64_t GetHeight() const;
 
                     /**
                      * 设置高height
-                     * @param Height 高height
+                     * @param _height 高height
+                     * 
                      */
                     void SetHeight(const int64_t& _height);
 
                     /**
                      * 判断参数 Height 是否已赋值
                      * @return Height 是否已赋值
+                     * 
                      */
                     bool HeightHasBeenSet() const;
 

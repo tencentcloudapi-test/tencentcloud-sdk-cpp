@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,56 +50,86 @@ namespace TencentCloud
                     /**
                      * 获取获取更多检索结果的游标
                      * @return Context 获取更多检索结果的游标
+                     * 
                      */
                     std::string GetContext() const;
 
                     /**
                      * 设置获取更多检索结果的游标
-                     * @param Context 获取更多检索结果的游标
+                     * @param _context 获取更多检索结果的游标
+                     * 
                      */
                     void SetContext(const std::string& _context);
 
                     /**
                      * 判断参数 Context 是否已赋值
                      * @return Context 是否已赋值
+                     * 
                      */
                     bool ContextHasBeenSet() const;
 
                     /**
                      * 获取搜索结果是否已经全部返回
                      * @return ListOver 搜索结果是否已经全部返回
+                     * 
                      */
                     bool GetListOver() const;
 
                     /**
                      * 设置搜索结果是否已经全部返回
-                     * @param ListOver 搜索结果是否已经全部返回
+                     * @param _listOver 搜索结果是否已经全部返回
+                     * 
                      */
                     void SetListOver(const bool& _listOver);
 
                     /**
                      * 判断参数 ListOver 是否已赋值
                      * @return ListOver 是否已赋值
+                     * 
                      */
                     bool ListOverHasBeenSet() const;
 
                     /**
                      * 获取日志内容信息
                      * @return Results 日志内容信息
+                     * 
                      */
                     std::vector<LogObject> GetResults() const;
 
                     /**
                      * 设置日志内容信息
-                     * @param Results 日志内容信息
+                     * @param _results 日志内容信息
+                     * 
                      */
                     void SetResults(const std::vector<LogObject>& _results);
 
                     /**
                      * 判断参数 Results 是否已赋值
                      * @return Results 是否已赋值
+                     * 
                      */
                     bool ResultsHasBeenSet() const;
+
+                    /**
+                     * 获取日志聚合结果
+                     * @return AnalysisRecords 日志聚合结果
+                     * 
+                     */
+                    std::vector<std::string> GetAnalysisRecords() const;
+
+                    /**
+                     * 设置日志聚合结果
+                     * @param _analysisRecords 日志聚合结果
+                     * 
+                     */
+                    void SetAnalysisRecords(const std::vector<std::string>& _analysisRecords);
+
+                    /**
+                     * 判断参数 AnalysisRecords 是否已赋值
+                     * @return AnalysisRecords 是否已赋值
+                     * 
+                     */
+                    bool AnalysisRecordsHasBeenSet() const;
 
                 private:
 
@@ -120,6 +150,12 @@ namespace TencentCloud
                      */
                     std::vector<LogObject> m_results;
                     bool m_resultsHasBeenSet;
+
+                    /**
+                     * 日志聚合结果
+                     */
+                    std::vector<std::string> m_analysisRecords;
+                    bool m_analysisRecordsHasBeenSet;
 
                 };
             }

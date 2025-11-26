@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,56 +46,86 @@ namespace TencentCloud
                     /**
                      * 获取需要获取进度的镜像列表
                      * @return Images 需要获取进度的镜像列表
+                     * 
                      */
                     std::vector<ImageInfo> GetImages() const;
 
                     /**
                      * 设置需要获取进度的镜像列表
-                     * @param Images 需要获取进度的镜像列表
+                     * @param _images 需要获取进度的镜像列表
+                     * 
                      */
                     void SetImages(const std::vector<ImageInfo>& _images);
 
                     /**
                      * 判断参数 Images 是否已赋值
                      * @return Images 是否已赋值
+                     * 
                      */
                     bool ImagesHasBeenSet() const;
 
                     /**
                      * 获取是否获取全部镜像
                      * @return All 是否获取全部镜像
+                     * 
                      */
                     bool GetAll() const;
 
                     /**
                      * 设置是否获取全部镜像
-                     * @param All 是否获取全部镜像
+                     * @param _all 是否获取全部镜像
+                     * 
                      */
                     void SetAll(const bool& _all);
 
                     /**
                      * 判断参数 All 是否已赋值
                      * @return All 是否已赋值
+                     * 
                      */
                     bool AllHasBeenSet() const;
 
                     /**
                      * 获取需要获取进度的镜像列表Id
                      * @return Id 需要获取进度的镜像列表Id
+                     * 
                      */
                     std::vector<uint64_t> GetId() const;
 
                     /**
                      * 设置需要获取进度的镜像列表Id
-                     * @param Id 需要获取进度的镜像列表Id
+                     * @param _id 需要获取进度的镜像列表Id
+                     * 
                      */
                     void SetId(const std::vector<uint64_t>& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
+
+                    /**
+                     * 获取获取进度的任务ID
+                     * @return TaskID 获取进度的任务ID
+                     * 
+                     */
+                    uint64_t GetTaskID() const;
+
+                    /**
+                     * 设置获取进度的任务ID
+                     * @param _taskID 获取进度的任务ID
+                     * 
+                     */
+                    void SetTaskID(const uint64_t& _taskID);
+
+                    /**
+                     * 判断参数 TaskID 是否已赋值
+                     * @return TaskID 是否已赋值
+                     * 
+                     */
+                    bool TaskIDHasBeenSet() const;
 
                 private:
 
@@ -116,6 +146,12 @@ namespace TencentCloud
                      */
                     std::vector<uint64_t> m_id;
                     bool m_idHasBeenSet;
+
+                    /**
+                     * 获取进度的任务ID
+                     */
+                    uint64_t m_taskID;
+                    bool m_taskIDHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,13 @@ MLIDPassportOCRResponse::MLIDPassportOCRResponse() :
     m_imageHasBeenSet(false),
     m_advancedInfoHasBeenSet(false),
     m_codeSetHasBeenSet(false),
-    m_codeCrcHasBeenSet(false)
+    m_codeCrcHasBeenSet(false),
+    m_surnameHasBeenSet(false),
+    m_givenNameHasBeenSet(false),
+    m_typeHasBeenSet(false),
+    m_passportRecognizeInfosHasBeenSet(false),
+    m_warnCardInfosHasBeenSet(false),
+    m_cardCountHasBeenSet(false)
 {
 }
 
@@ -196,6 +202,76 @@ CoreInternalOutcome MLIDPassportOCRResponse::Deserialize(const string &payload)
         m_codeCrcHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Surname") && !rsp["Surname"].IsNull())
+    {
+        if (!rsp["Surname"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Surname` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_surname = string(rsp["Surname"].GetString());
+        m_surnameHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("GivenName") && !rsp["GivenName"].IsNull())
+    {
+        if (!rsp["GivenName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `GivenName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_givenName = string(rsp["GivenName"].GetString());
+        m_givenNameHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Type") && !rsp["Type"].IsNull())
+    {
+        if (!rsp["Type"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Type` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_type = string(rsp["Type"].GetString());
+        m_typeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("PassportRecognizeInfos") && !rsp["PassportRecognizeInfos"].IsNull())
+    {
+        if (!rsp["PassportRecognizeInfos"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `PassportRecognizeInfos` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_passportRecognizeInfos.Deserialize(rsp["PassportRecognizeInfos"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_passportRecognizeInfosHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("WarnCardInfos") && !rsp["WarnCardInfos"].IsNull())
+    {
+        if (!rsp["WarnCardInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `WarnCardInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["WarnCardInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_warnCardInfos.push_back((*itr).GetInt64());
+        }
+        m_warnCardInfosHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CardCount") && !rsp["CardCount"].IsNull())
+    {
+        if (!rsp["CardCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CardCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_cardCount = rsp["CardCount"].GetInt64();
+        m_cardCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -307,11 +383,65 @@ string MLIDPassportOCRResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_codeCrc.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_surnameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Surname";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_surname.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_givenNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GivenName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_givenName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_typeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Type";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_passportRecognizeInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PassportRecognizeInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_passportRecognizeInfos.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_warnCardInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WarnCardInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_warnCardInfos.begin(); itr != m_warnCardInfos.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_cardCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CardCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_cardCount, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -437,6 +567,66 @@ string MLIDPassportOCRResponse::GetCodeCrc() const
 bool MLIDPassportOCRResponse::CodeCrcHasBeenSet() const
 {
     return m_codeCrcHasBeenSet;
+}
+
+string MLIDPassportOCRResponse::GetSurname() const
+{
+    return m_surname;
+}
+
+bool MLIDPassportOCRResponse::SurnameHasBeenSet() const
+{
+    return m_surnameHasBeenSet;
+}
+
+string MLIDPassportOCRResponse::GetGivenName() const
+{
+    return m_givenName;
+}
+
+bool MLIDPassportOCRResponse::GivenNameHasBeenSet() const
+{
+    return m_givenNameHasBeenSet;
+}
+
+string MLIDPassportOCRResponse::GetType() const
+{
+    return m_type;
+}
+
+bool MLIDPassportOCRResponse::TypeHasBeenSet() const
+{
+    return m_typeHasBeenSet;
+}
+
+PassportRecognizeInfos MLIDPassportOCRResponse::GetPassportRecognizeInfos() const
+{
+    return m_passportRecognizeInfos;
+}
+
+bool MLIDPassportOCRResponse::PassportRecognizeInfosHasBeenSet() const
+{
+    return m_passportRecognizeInfosHasBeenSet;
+}
+
+vector<int64_t> MLIDPassportOCRResponse::GetWarnCardInfos() const
+{
+    return m_warnCardInfos;
+}
+
+bool MLIDPassportOCRResponse::WarnCardInfosHasBeenSet() const
+{
+    return m_warnCardInfosHasBeenSet;
+}
+
+int64_t MLIDPassportOCRResponse::GetCardCount() const
+{
+    return m_cardCount;
+}
+
+bool MLIDPassportOCRResponse::CardCountHasBeenSet() const
+{
+    return m_cardCountHasBeenSet;
 }
 
 

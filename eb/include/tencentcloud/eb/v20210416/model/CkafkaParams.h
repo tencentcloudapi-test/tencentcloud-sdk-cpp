@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取kafka offset
                      * @return Offset kafka offset
+                     * 
                      */
                     std::string GetOffset() const;
 
                     /**
                      * 设置kafka offset
-                     * @param Offset kafka offset
+                     * @param _offset kafka offset
+                     * 
                      */
                     void SetOffset(const std::string& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取ckafka  topic
                      * @return TopicName ckafka  topic
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置ckafka  topic
-                     * @param TopicName ckafka  topic
+                     * @param _topicName ckafka  topic
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,6 @@ namespace TencentCloud
             {
                 /**
                 * 单元化命名空间翻页对象
-
                 */
                 class TsfPageUnitNamespace : public AbstractModel
                 {
@@ -51,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取记录总数
                      * @return TotalCount 记录总数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 设置记录总数
-                     * @param TotalCount 记录总数
+                     * @param _totalCount 记录总数
+                     * 
                      */
                     void SetTotalCount(const int64_t& _totalCount);
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取记录实体列表
                      * @return Content 记录实体列表
+                     * 
                      */
                     std::vector<UnitNamespace> GetContent() const;
 
                     /**
                      * 设置记录实体列表
-                     * @param Content 记录实体列表
+                     * @param _content 记录实体列表
+                     * 
                      */
                     void SetContent(const std::vector<UnitNamespace>& _content);
 
                     /**
                      * 判断参数 Content 是否已赋值
                      * @return Content 是否已赋值
+                     * 
                      */
                     bool ContentHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,72 +46,84 @@ namespace TencentCloud
                     /**
                      * 获取方向，0：出站，1：入站，默认1
                      * @return Direction 方向，0：出站，1：入站，默认1
+                     * 
                      */
                     uint64_t GetDirection() const;
 
                     /**
                      * 设置方向，0：出站，1：入站，默认1
-                     * @param Direction 方向，0：出站，1：入站，默认1
+                     * @param _direction 方向，0：出站，1：入站，默认1
+                     * 
                      */
                     void SetDirection(const uint64_t& _direction);
 
                     /**
                      * 判断参数 Direction 是否已赋值
                      * @return Direction 是否已赋值
+                     * 
                      */
                     bool DirectionHasBeenSet() const;
 
                     /**
                      * 获取编辑后是否启用规则，0：不启用，1：启用，默认1
                      * @return Enable 编辑后是否启用规则，0：不启用，1：启用，默认1
+                     * 
                      */
                     uint64_t GetEnable() const;
 
                     /**
                      * 设置编辑后是否启用规则，0：不启用，1：启用，默认1
-                     * @param Enable 编辑后是否启用规则，0：不启用，1：启用，默认1
+                     * @param _enable 编辑后是否启用规则，0：不启用，1：启用，默认1
+                     * 
                      */
                     void SetEnable(const uint64_t& _enable);
 
                     /**
                      * 判断参数 Enable 是否已赋值
                      * @return Enable 是否已赋值
+                     * 
                      */
                     bool EnableHasBeenSet() const;
 
                     /**
                      * 获取编辑的企业安全组规则数据
                      * @return Data 编辑的企业安全组规则数据
+                     * 
                      */
                     std::vector<SecurityGroupListData> GetData() const;
 
                     /**
                      * 设置编辑的企业安全组规则数据
-                     * @param Data 编辑的企业安全组规则数据
+                     * @param _data 编辑的企业安全组规则数据
+                     * 
                      */
                     void SetData(const std::vector<SecurityGroupListData>& _data);
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                     /**
                      * 获取编辑的企业安全组规则的原始执行顺序
                      * @return SgRuleOriginSequence 编辑的企业安全组规则的原始执行顺序
+                     * 
                      */
                     uint64_t GetSgRuleOriginSequence() const;
 
                     /**
                      * 设置编辑的企业安全组规则的原始执行顺序
-                     * @param SgRuleOriginSequence 编辑的企业安全组规则的原始执行顺序
+                     * @param _sgRuleOriginSequence 编辑的企业安全组规则的原始执行顺序
+                     * 
                      */
                     void SetSgRuleOriginSequence(const uint64_t& _sgRuleOriginSequence);
 
                     /**
                      * 判断参数 SgRuleOriginSequence 是否已赋值
                      * @return SgRuleOriginSequence 是否已赋值
+                     * 
                      */
                     bool SgRuleOriginSequenceHasBeenSet() const;
 

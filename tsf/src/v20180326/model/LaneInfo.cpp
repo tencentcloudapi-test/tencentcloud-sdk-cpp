@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,10 @@ LaneInfo::LaneInfo() :
     m_updateTimeHasBeenSet(false),
     m_laneGroupListHasBeenSet(false),
     m_entranceHasBeenSet(false),
-    m_namespaceIdListHasBeenSet(false)
+    m_namespaceIdListHasBeenSet(false),
+    m_laneGroupIdHasBeenSet(false),
+    m_deleteDisabledHasBeenSet(false),
+    m_deleteDisabledReasonHasBeenSet(false)
 {
 }
 
@@ -130,6 +133,36 @@ CoreInternalOutcome LaneInfo::Deserialize(const rapidjson::Value &value)
         m_namespaceIdListHasBeenSet = true;
     }
 
+    if (value.HasMember("LaneGroupId") && !value["LaneGroupId"].IsNull())
+    {
+        if (!value["LaneGroupId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LaneInfo.LaneGroupId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_laneGroupId = string(value["LaneGroupId"].GetString());
+        m_laneGroupIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeleteDisabled") && !value["DeleteDisabled"].IsNull())
+    {
+        if (!value["DeleteDisabled"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `LaneInfo.DeleteDisabled` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_deleteDisabled = value["DeleteDisabled"].GetBool();
+        m_deleteDisabledHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeleteDisabledReason") && !value["DeleteDisabledReason"].IsNull())
+    {
+        if (!value["DeleteDisabledReason"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LaneInfo.DeleteDisabledReason` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_deleteDisabledReason = string(value["DeleteDisabledReason"].GetString());
+        m_deleteDisabledReasonHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -211,6 +244,30 @@ void LaneInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_laneGroupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LaneGroupId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_laneGroupId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deleteDisabledHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeleteDisabled";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deleteDisabled, allocator);
+    }
+
+    if (m_deleteDisabledReasonHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeleteDisabledReason";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_deleteDisabledReason.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -342,5 +399,53 @@ void LaneInfo::SetNamespaceIdList(const vector<string>& _namespaceIdList)
 bool LaneInfo::NamespaceIdListHasBeenSet() const
 {
     return m_namespaceIdListHasBeenSet;
+}
+
+string LaneInfo::GetLaneGroupId() const
+{
+    return m_laneGroupId;
+}
+
+void LaneInfo::SetLaneGroupId(const string& _laneGroupId)
+{
+    m_laneGroupId = _laneGroupId;
+    m_laneGroupIdHasBeenSet = true;
+}
+
+bool LaneInfo::LaneGroupIdHasBeenSet() const
+{
+    return m_laneGroupIdHasBeenSet;
+}
+
+bool LaneInfo::GetDeleteDisabled() const
+{
+    return m_deleteDisabled;
+}
+
+void LaneInfo::SetDeleteDisabled(const bool& _deleteDisabled)
+{
+    m_deleteDisabled = _deleteDisabled;
+    m_deleteDisabledHasBeenSet = true;
+}
+
+bool LaneInfo::DeleteDisabledHasBeenSet() const
+{
+    return m_deleteDisabledHasBeenSet;
+}
+
+string LaneInfo::GetDeleteDisabledReason() const
+{
+    return m_deleteDisabledReason;
+}
+
+void LaneInfo::SetDeleteDisabledReason(const string& _deleteDisabledReason)
+{
+    m_deleteDisabledReason = _deleteDisabledReason;
+    m_deleteDisabledReasonHasBeenSet = true;
+}
+
+bool LaneInfo::DeleteDisabledReasonHasBeenSet() const
+{
+    return m_deleteDisabledReasonHasBeenSet;
 }
 

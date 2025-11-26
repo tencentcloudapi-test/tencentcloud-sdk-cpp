@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,89 +50,98 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取描述如何提取数据
+                     * 获取描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Extraction 描述如何提取数据
+                     * @return Extraction 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     Extraction GetExtraction() const;
 
                     /**
-                     * 设置描述如何提取数据
+                     * 设置描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Extraction 描述如何提取数据
+                     * @param _extraction 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetExtraction(const Extraction& _extraction);
 
                     /**
                      * 判断参数 Extraction 是否已赋值
                      * @return Extraction 是否已赋值
+                     * 
                      */
                     bool ExtractionHasBeenSet() const;
 
                     /**
-                     * 获取描述如何过滤数据
+                     * 获取描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EtlFilter 描述如何过滤数据
+                     * @return EtlFilter 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     EtlFilter GetEtlFilter() const;
 
                     /**
-                     * 设置描述如何过滤数据
+                     * 设置描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EtlFilter 描述如何过滤数据
+                     * @param _etlFilter 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetEtlFilter(const EtlFilter& _etlFilter);
 
                     /**
                      * 判断参数 EtlFilter 是否已赋值
                      * @return EtlFilter 是否已赋值
+                     * 
                      */
                     bool EtlFilterHasBeenSet() const;
 
                     /**
-                     * 获取描述如何数据转换
+                     * 获取描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Transform 描述如何数据转换
+                     * @return Transform 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     Transform GetTransform() const;
 
                     /**
-                     * 设置描述如何数据转换
+                     * 设置描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Transform 描述如何数据转换
+                     * @param _transform 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTransform(const Transform& _transform);
 
                     /**
                      * 判断参数 Transform 是否已赋值
                      * @return Transform 是否已赋值
+                     * 
                      */
                     bool TransformHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 描述如何提取数据
+                     * 描述如何提取数据，{"ExtractionInputPath":"$.data.payload","Format":"JSON"}
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     Extraction m_extraction;
                     bool m_extractionHasBeenSet;
 
                     /**
-                     * 描述如何过滤数据
+                     * 描述如何过滤数据;{"Filter":"{\"source\":\"ckafka.cloud.tencent\"}"}
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     EtlFilter m_etlFilter;
                     bool m_etlFilterHasBeenSet;
 
                     /**
-                     * 描述如何数据转换
+                     * 描述如何数据转换;"OutputStructs":[{"Key":"op","Value":"$.op","ValueType":"JSONPATH"}]
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     Transform m_transform;

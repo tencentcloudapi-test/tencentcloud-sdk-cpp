@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取各规格的转码信息集合，每个元素代表一个规格的转码结果。
                      * @return TranscodeSet 各规格的转码信息集合，每个元素代表一个规格的转码结果。
+                     * 
                      */
                     std::vector<MediaTranscodeItem> GetTranscodeSet() const;
 
                     /**
                      * 设置各规格的转码信息集合，每个元素代表一个规格的转码结果。
-                     * @param TranscodeSet 各规格的转码信息集合，每个元素代表一个规格的转码结果。
+                     * @param _transcodeSet 各规格的转码信息集合，每个元素代表一个规格的转码结果。
+                     * 
                      */
                     void SetTranscodeSet(const std::vector<MediaTranscodeItem>& _transcodeSet);
 
                     /**
                      * 判断参数 TranscodeSet 是否已赋值
                      * @return TranscodeSet 是否已赋值
+                     * 
                      */
                     bool TranscodeSetHasBeenSet() const;
 

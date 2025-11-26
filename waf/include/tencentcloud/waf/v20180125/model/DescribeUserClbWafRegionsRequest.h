@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,34 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取流量来源，不填默认clb。clb：负载均衡器，tsegw：云原生API网关，scf：云函数，apisix：腾讯云上其他网关
+                     * @return AlbType 流量来源，不填默认clb。clb：负载均衡器，tsegw：云原生API网关，scf：云函数，apisix：腾讯云上其他网关
+                     * 
+                     */
+                    std::string GetAlbType() const;
+
+                    /**
+                     * 设置流量来源，不填默认clb。clb：负载均衡器，tsegw：云原生API网关，scf：云函数，apisix：腾讯云上其他网关
+                     * @param _albType 流量来源，不填默认clb。clb：负载均衡器，tsegw：云原生API网关，scf：云函数，apisix：腾讯云上其他网关
+                     * 
+                     */
+                    void SetAlbType(const std::string& _albType);
+
+                    /**
+                     * 判断参数 AlbType 是否已赋值
+                     * @return AlbType 是否已赋值
+                     * 
+                     */
+                    bool AlbTypeHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 流量来源，不填默认clb。clb：负载均衡器，tsegw：云原生API网关，scf：云函数，apisix：腾讯云上其他网关
+                     */
+                    std::string m_albType;
+                    bool m_albTypeHasBeenSet;
 
                 };
             }

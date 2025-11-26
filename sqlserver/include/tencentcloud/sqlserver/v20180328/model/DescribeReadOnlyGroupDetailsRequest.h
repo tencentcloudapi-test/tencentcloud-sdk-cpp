@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取主实例ID，格式如：mssql-3l3fgqn7
                      * @return InstanceId 主实例ID，格式如：mssql-3l3fgqn7
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置主实例ID，格式如：mssql-3l3fgqn7
-                     * @param InstanceId 主实例ID，格式如：mssql-3l3fgqn7
+                     * @param _instanceId 主实例ID，格式如：mssql-3l3fgqn7
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取只读组ID，格式如：mssqlrg-3l3fgqn7
                      * @return ReadOnlyGroupId 只读组ID，格式如：mssqlrg-3l3fgqn7
+                     * 
                      */
                     std::string GetReadOnlyGroupId() const;
 
                     /**
                      * 设置只读组ID，格式如：mssqlrg-3l3fgqn7
-                     * @param ReadOnlyGroupId 只读组ID，格式如：mssqlrg-3l3fgqn7
+                     * @param _readOnlyGroupId 只读组ID，格式如：mssqlrg-3l3fgqn7
+                     * 
                      */
                     void SetReadOnlyGroupId(const std::string& _readOnlyGroupId);
 
                     /**
                      * 判断参数 ReadOnlyGroupId 是否已赋值
                      * @return ReadOnlyGroupId 是否已赋值
+                     * 
                      */
                     bool ReadOnlyGroupIdHasBeenSet() const;
 

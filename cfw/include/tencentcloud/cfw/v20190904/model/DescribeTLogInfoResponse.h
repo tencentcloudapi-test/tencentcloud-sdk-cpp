@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,38 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取无
-                     * @return Data 无
+                     * 获取"NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0
+                     * @return Data "NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0
+                     * 
                      */
                     TLogInfo GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 无
+                     * "NetworkNum":网络扫描探测
+ "HandleNum": 待处理事件
+"BanNum": 
+  "VulNum": 漏洞利用
+  "OutNum": 失陷主机
+"BruteForceNum": 0
                      */
                     TLogInfo m_data;
                     bool m_dataHasBeenSet;

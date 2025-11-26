@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取API 的路径，如 /path。
                      * @return Path API 的路径，如 /path。
+                     * 
                      */
                     std::string GetPath() const;
 
                     /**
                      * 设置API 的路径，如 /path。
-                     * @param Path API 的路径，如 /path。
+                     * @param _path API 的路径，如 /path。
+                     * 
                      */
                     void SetPath(const std::string& _path);
 
                     /**
                      * 判断参数 Path 是否已赋值
                      * @return Path 是否已赋值
+                     * 
                      */
                     bool PathHasBeenSet() const;
 
                     /**
                      * 获取API 的请求方法，如 GET。
                      * @return Method API 的请求方法，如 GET。
+                     * 
                      */
                     std::string GetMethod() const;
 
                     /**
                      * 设置API 的请求方法，如 GET。
-                     * @param Method API 的请求方法，如 GET。
+                     * @param _method API 的请求方法，如 GET。
+                     * 
                      */
                     void SetMethod(const std::string& _method);
 
                     /**
                      * 判断参数 Method 是否已赋值
                      * @return Method 是否已赋值
+                     * 
                      */
                     bool MethodHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 AttachNetworkInterfaceRequest::AttachNetworkInterfaceRequest() :
     m_networkInterfaceIdHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
-    m_attachTypeHasBeenSet(false)
+    m_attachTypeHasBeenSet(false),
+    m_clientTokenHasBeenSet(false)
 {
 }
 
@@ -58,6 +59,14 @@ string AttachNetworkInterfaceRequest::ToJsonString() const
         string key = "AttachType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_attachType, allocator);
+    }
+
+    if (m_clientTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -114,6 +123,22 @@ void AttachNetworkInterfaceRequest::SetAttachType(const uint64_t& _attachType)
 bool AttachNetworkInterfaceRequest::AttachTypeHasBeenSet() const
 {
     return m_attachTypeHasBeenSet;
+}
+
+string AttachNetworkInterfaceRequest::GetClientToken() const
+{
+    return m_clientToken;
+}
+
+void AttachNetworkInterfaceRequest::SetClientToken(const string& _clientToken)
+{
+    m_clientToken = _clientToken;
+    m_clientTokenHasBeenSet = true;
+}
+
+bool AttachNetworkInterfaceRequest::ClientTokenHasBeenSet() const
+{
+    return m_clientTokenHasBeenSet;
 }
 
 

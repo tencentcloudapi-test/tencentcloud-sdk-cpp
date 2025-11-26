@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,23 +48,22 @@ namespace TencentCloud
 
                     /**
                      * 获取健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Path 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPath() const;
 
                     /**
                      * 设置健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Path 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _path 健康检查路径
+                     * 
                      */
                     void SetPath(const std::string& _path);
 
                     /**
                      * 判断参数 Path 是否已赋值
                      * @return Path 是否已赋值
+                     * 
                      */
                     bool PathHasBeenSet() const;
 
@@ -72,7 +71,6 @@ namespace TencentCloud
 
                     /**
                      * 健康检查路径
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_path;
                     bool m_pathHasBeenSet;

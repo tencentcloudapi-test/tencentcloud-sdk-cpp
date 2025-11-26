@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,9 @@ Bundle::Bundle() :
     m_internetChargeTypeHasBeenSet(false),
     m_bundleSalesStateHasBeenSet(false),
     m_bundleTypeHasBeenSet(false),
-    m_bundleDisplayLabelHasBeenSet(false)
+    m_bundleTypeDescriptionHasBeenSet(false),
+    m_bundleDisplayLabelHasBeenSet(false),
+    m_trafficUnlimitedHasBeenSet(false)
 {
 }
 
@@ -180,6 +182,16 @@ CoreInternalOutcome Bundle::Deserialize(const rapidjson::Value &value)
         m_bundleTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("BundleTypeDescription") && !value["BundleTypeDescription"].IsNull())
+    {
+        if (!value["BundleTypeDescription"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Bundle.BundleTypeDescription` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_bundleTypeDescription = string(value["BundleTypeDescription"].GetString());
+        m_bundleTypeDescriptionHasBeenSet = true;
+    }
+
     if (value.HasMember("BundleDisplayLabel") && !value["BundleDisplayLabel"].IsNull())
     {
         if (!value["BundleDisplayLabel"].IsString())
@@ -188,6 +200,16 @@ CoreInternalOutcome Bundle::Deserialize(const rapidjson::Value &value)
         }
         m_bundleDisplayLabel = string(value["BundleDisplayLabel"].GetString());
         m_bundleDisplayLabelHasBeenSet = true;
+    }
+
+    if (value.HasMember("TrafficUnlimited") && !value["TrafficUnlimited"].IsNull())
+    {
+        if (!value["TrafficUnlimited"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Bundle.TrafficUnlimited` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_trafficUnlimited = value["TrafficUnlimited"].GetBool();
+        m_trafficUnlimitedHasBeenSet = true;
     }
 
 
@@ -302,12 +324,28 @@ void Bundle::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         value.AddMember(iKey, rapidjson::Value(m_bundleType.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_bundleTypeDescriptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BundleTypeDescription";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_bundleTypeDescription.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_bundleDisplayLabelHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "BundleDisplayLabel";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_bundleDisplayLabel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_trafficUnlimitedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TrafficUnlimited";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_trafficUnlimited, allocator);
     }
 
 }
@@ -521,6 +559,22 @@ bool Bundle::BundleTypeHasBeenSet() const
     return m_bundleTypeHasBeenSet;
 }
 
+string Bundle::GetBundleTypeDescription() const
+{
+    return m_bundleTypeDescription;
+}
+
+void Bundle::SetBundleTypeDescription(const string& _bundleTypeDescription)
+{
+    m_bundleTypeDescription = _bundleTypeDescription;
+    m_bundleTypeDescriptionHasBeenSet = true;
+}
+
+bool Bundle::BundleTypeDescriptionHasBeenSet() const
+{
+    return m_bundleTypeDescriptionHasBeenSet;
+}
+
 string Bundle::GetBundleDisplayLabel() const
 {
     return m_bundleDisplayLabel;
@@ -535,5 +589,21 @@ void Bundle::SetBundleDisplayLabel(const string& _bundleDisplayLabel)
 bool Bundle::BundleDisplayLabelHasBeenSet() const
 {
     return m_bundleDisplayLabelHasBeenSet;
+}
+
+bool Bundle::GetTrafficUnlimited() const
+{
+    return m_trafficUnlimited;
+}
+
+void Bundle::SetTrafficUnlimited(const bool& _trafficUnlimited)
+{
+    m_trafficUnlimited = _trafficUnlimited;
+    m_trafficUnlimitedHasBeenSet = true;
+}
+
+bool Bundle::TrafficUnlimitedHasBeenSet() const
+{
+    return m_trafficUnlimitedHasBeenSet;
 }
 

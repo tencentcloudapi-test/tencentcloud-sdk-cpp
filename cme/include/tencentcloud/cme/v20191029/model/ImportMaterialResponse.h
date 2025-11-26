@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取媒体 Id。
                      * @return MaterialId 媒体 Id。
+                     * 
                      */
                     std::string GetMaterialId() const;
 
                     /**
                      * 判断参数 MaterialId 是否已赋值
                      * @return MaterialId 是否已赋值
+                     * 
                      */
                     bool MaterialIdHasBeenSet() const;
 
                     /**
-                     * 获取媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
-                     * @return PreProcessTaskId 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
+                     * 获取媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
+                     * @return PreProcessTaskId 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
+                     * 
                      */
                     std::string GetPreProcessTaskId() const;
 
                     /**
                      * 判断参数 PreProcessTaskId 是否已赋值
                      * @return PreProcessTaskId 是否已赋值
+                     * 
                      */
                     bool PreProcessTaskIdHasBeenSet() const;
 
@@ -76,7 +80,7 @@ namespace TencentCloud
                     bool m_materialIdHasBeenSet;
 
                     /**
-                     * 媒体文预处理任务 ID，如果未指定发起预处理任务则为空。
+                     * 媒体文件预处理任务 ID，如果未指定发起预处理任务则为空。
                      */
                     std::string m_preProcessTaskId;
                     bool m_preProcessTaskIdHasBeenSet;

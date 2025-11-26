@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,8 +41,6 @@
 #include <tencentcloud/dts/v20180330/model/DescribeMigrateCheckJobResponse.h>
 #include <tencentcloud/dts/v20180330/model/DescribeMigrateJobsRequest.h>
 #include <tencentcloud/dts/v20180330/model/DescribeMigrateJobsResponse.h>
-#include <tencentcloud/dts/v20180330/model/DescribeRegionConfRequest.h>
-#include <tencentcloud/dts/v20180330/model/DescribeRegionConfResponse.h>
 #include <tencentcloud/dts/v20180330/model/DescribeSubscribeConfRequest.h>
 #include <tencentcloud/dts/v20180330/model/DescribeSubscribeConfResponse.h>
 #include <tencentcloud/dts/v20180330/model/DescribeSubscribesRequest.h>
@@ -110,9 +108,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeMigrateJobsResponse> DescribeMigrateJobsOutcome;
                 typedef std::future<DescribeMigrateJobsOutcome> DescribeMigrateJobsOutcomeCallable;
                 typedef std::function<void(const DtsClient*, const Model::DescribeMigrateJobsRequest&, DescribeMigrateJobsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMigrateJobsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRegionConfResponse> DescribeRegionConfOutcome;
-                typedef std::future<DescribeRegionConfOutcome> DescribeRegionConfOutcomeCallable;
-                typedef std::function<void(const DtsClient*, const Model::DescribeRegionConfRequest&, DescribeRegionConfOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRegionConfAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeSubscribeConfResponse> DescribeSubscribeConfOutcome;
                 typedef std::future<DescribeSubscribeConfOutcome> DescribeSubscribeConfOutcomeCallable;
                 typedef std::function<void(const DtsClient*, const Model::DescribeSubscribeConfRequest&, DescribeSubscribeConfOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSubscribeConfAsyncHandler;
@@ -168,7 +163,6 @@ namespace TencentCloud
                  *本接口（CompleteMigrateJob）用于完成数据迁移任务。
 选择采用增量迁移方式的任务, 需要在迁移进度进入准备完成阶段后, 调用本接口, 停止迁移增量数据。
 通过DescribeMigrateJobs接口查询到任务的状态为准备完成（status=8）时，此时可以调用本接口完成迁移任务。
-
                  * @param req CompleteMigrateJobRequest
                  * @return CompleteMigrateJobOutcome
                  */
@@ -180,6 +174,8 @@ namespace TencentCloud
                  *创建校验迁移任务
 在开始迁移前, 必须调用本接口创建校验, 且校验成功后才能开始迁移. 校验的结果可以通过DescribeMigrateCheckJob查看.
 校验成功后,迁移任务若有修改, 则必须重新创建校验并通过后, 才能开始迁移.
+
+如果是金融区链路, 请使用域名: https://dts.ap-shenzhen-fsi.tencentcloudapi.com
                  * @param req CreateMigrateCheckJobRequest
                  * @return CreateMigrateCheckJobOutcome
                  */
@@ -245,15 +241,6 @@ namespace TencentCloud
                 DescribeMigrateJobsOutcome DescribeMigrateJobs(const Model::DescribeMigrateJobsRequest &request);
                 void DescribeMigrateJobsAsync(const Model::DescribeMigrateJobsRequest& request, const DescribeMigrateJobsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeMigrateJobsOutcomeCallable DescribeMigrateJobsCallable(const Model::DescribeMigrateJobsRequest& request);
-
-                /**
-                 *本接口（DescribeRegionConf）用于查询可售卖订阅实例的地域
-                 * @param req DescribeRegionConfRequest
-                 * @return DescribeRegionConfOutcome
-                 */
-                DescribeRegionConfOutcome DescribeRegionConf(const Model::DescribeRegionConfRequest &request);
-                void DescribeRegionConfAsync(const Model::DescribeRegionConfRequest& request, const DescribeRegionConfAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRegionConfOutcomeCallable DescribeRegionConfCallable(const Model::DescribeRegionConfRequest& request);
 
                 /**
                  *本接口（DescribeSubscribeConf）用于查询订阅实例配置
@@ -358,7 +345,7 @@ namespace TencentCloud
                 ResetSubscribeOutcomeCallable ResetSubscribeCallable(const Model::ResetSubscribeRequest& request);
 
                 /**
-                 *本接口（StartMigrationJob）用于启动迁移任务。非定时迁移任务会在调用后立即开始迁移，定时任务则会开始倒计时。
+                 *本接口（StartMigrateJob）用于启动迁移任务。非定时迁移任务会在调用后立即开始迁移，定时任务则会开始倒计时。
 调用此接口前，请务必先使用CreateMigrateCheckJob校验数据迁移任务，并通过DescribeMigrateJobs接口查询到任务状态为校验通过（status=4）时，才能启动数据迁移任务。
                  * @param req StartMigrateJobRequest
                  * @return StartMigrateJobOutcome

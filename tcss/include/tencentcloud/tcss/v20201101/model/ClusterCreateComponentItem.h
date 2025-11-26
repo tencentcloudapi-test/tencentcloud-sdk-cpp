@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取要安装组件的集群ID。
                      * @return ClusterId 要安装组件的集群ID。
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置要安装组件的集群ID。
-                     * @param ClusterId 要安装组件的集群ID。
+                     * @param _clusterId 要安装组件的集群ID。
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取该集群对应的地域
                      * @return ClusterRegion 该集群对应的地域
+                     * 
                      */
                     std::string GetClusterRegion() const;
 
                     /**
                      * 设置该集群对应的地域
-                     * @param ClusterRegion 该集群对应的地域
+                     * @param _clusterRegion 该集群对应的地域
+                     * 
                      */
                     void SetClusterRegion(const std::string& _clusterRegion);
 
                     /**
                      * 判断参数 ClusterRegion 是否已赋值
                      * @return ClusterRegion 是否已赋值
+                     * 
                      */
                     bool ClusterRegionHasBeenSet() const;
 

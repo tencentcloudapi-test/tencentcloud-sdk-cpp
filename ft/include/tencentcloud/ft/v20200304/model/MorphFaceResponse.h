@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取人像渐变任务的Job id
                      * @return JobId 人像渐变任务的Job id
+                     * 
                      */
                     std::string GetJobId() const;
 
                     /**
                      * 判断参数 JobId 是否已赋值
                      * @return JobId 是否已赋值
+                     * 
                      */
                     bool JobIdHasBeenSet() const;
 
                     /**
                      * 获取预估处理时间，粒度为秒
                      * @return EstimatedProcessTime 预估处理时间，粒度为秒
+                     * 
                      */
                     int64_t GetEstimatedProcessTime() const;
 
                     /**
                      * 判断参数 EstimatedProcessTime 是否已赋值
                      * @return EstimatedProcessTime 是否已赋值
+                     * 
                      */
                     bool EstimatedProcessTimeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,43 +46,43 @@ namespace TencentCloud
 
                     /**
                      * 获取漏洞列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return List 漏洞列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<EmergencyVul> GetList() const;
 
                     /**
                      * 判断参数 List 是否已赋值
                      * @return List 是否已赋值
+                     * 
                      */
                     bool ListHasBeenSet() const;
 
                     /**
                      * 获取漏洞总条数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCount 漏洞总条数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取是否存在风险
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ExistsRisk 是否存在风险
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     bool GetExistsRisk() const;
 
                     /**
                      * 判断参数 ExistsRisk 是否已赋值
                      * @return ExistsRisk 是否已赋值
+                     * 
                      */
                     bool ExistsRiskHasBeenSet() const;
 
@@ -90,21 +90,18 @@ namespace TencentCloud
 
                     /**
                      * 漏洞列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<EmergencyVul> m_list;
                     bool m_listHasBeenSet;
 
                     /**
                      * 漏洞总条数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
                      * 是否存在风险
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_existsRisk;
                     bool m_existsRiskHasBeenSet;

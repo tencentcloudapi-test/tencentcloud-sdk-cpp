@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取安全域名列表列表
-                     * @return Domains 安全域名列表列表
+                     * 获取安全域名列表
+                     * @return Domains 安全域名列表
+                     * 
                      */
                     std::vector<AuthDomain> GetDomains() const;
 
                     /**
                      * 判断参数 Domains 是否已赋值
                      * @return Domains 是否已赋值
+                     * 
                      */
                     bool DomainsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 安全域名列表列表
+                     * 安全域名列表
                      */
                     std::vector<AuthDomain> m_domains;
                     bool m_domainsHasBeenSet;

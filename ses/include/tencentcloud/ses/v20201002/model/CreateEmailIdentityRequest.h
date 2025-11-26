@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/ses/v20201002/model/TagList.h>
 
 
 namespace TencentCloud
@@ -45,20 +46,65 @@ namespace TencentCloud
                     /**
                      * 获取您的发信域名，建议使用三级以上域名。例如：mail.qcloud.com。
                      * @return EmailIdentity 您的发信域名，建议使用三级以上域名。例如：mail.qcloud.com。
+                     * 
                      */
                     std::string GetEmailIdentity() const;
 
                     /**
                      * 设置您的发信域名，建议使用三级以上域名。例如：mail.qcloud.com。
-                     * @param EmailIdentity 您的发信域名，建议使用三级以上域名。例如：mail.qcloud.com。
+                     * @param _emailIdentity 您的发信域名，建议使用三级以上域名。例如：mail.qcloud.com。
+                     * 
                      */
                     void SetEmailIdentity(const std::string& _emailIdentity);
 
                     /**
                      * 判断参数 EmailIdentity 是否已赋值
                      * @return EmailIdentity 是否已赋值
+                     * 
                      */
                     bool EmailIdentityHasBeenSet() const;
+
+                    /**
+                     * 获取生成的dkim密钥长度。0:1024，1:2048
+                     * @return DKIMOption 生成的dkim密钥长度。0:1024，1:2048
+                     * 
+                     */
+                    uint64_t GetDKIMOption() const;
+
+                    /**
+                     * 设置生成的dkim密钥长度。0:1024，1:2048
+                     * @param _dKIMOption 生成的dkim密钥长度。0:1024，1:2048
+                     * 
+                     */
+                    void SetDKIMOption(const uint64_t& _dKIMOption);
+
+                    /**
+                     * 判断参数 DKIMOption 是否已赋值
+                     * @return DKIMOption 是否已赋值
+                     * 
+                     */
+                    bool DKIMOptionHasBeenSet() const;
+
+                    /**
+                     * 获取tag 标签
+                     * @return TagList tag 标签
+                     * 
+                     */
+                    std::vector<TagList> GetTagList() const;
+
+                    /**
+                     * 设置tag 标签
+                     * @param _tagList tag 标签
+                     * 
+                     */
+                    void SetTagList(const std::vector<TagList>& _tagList);
+
+                    /**
+                     * 判断参数 TagList 是否已赋值
+                     * @return TagList 是否已赋值
+                     * 
+                     */
+                    bool TagListHasBeenSet() const;
 
                 private:
 
@@ -67,6 +113,18 @@ namespace TencentCloud
                      */
                     std::string m_emailIdentity;
                     bool m_emailIdentityHasBeenSet;
+
+                    /**
+                     * 生成的dkim密钥长度。0:1024，1:2048
+                     */
+                    uint64_t m_dKIMOption;
+                    bool m_dKIMOptionHasBeenSet;
+
+                    /**
+                     * tag 标签
+                     */
+                    std::vector<TagList> m_tagList;
+                    bool m_tagListHasBeenSet;
 
                 };
             }

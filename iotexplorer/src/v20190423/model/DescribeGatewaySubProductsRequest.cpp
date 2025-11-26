@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ DescribeGatewaySubProductsRequest::DescribeGatewaySubProductsRequest() :
     m_gatewayProductIdHasBeenSet(false),
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false),
-    m_projectIdHasBeenSet(false)
+    m_projectIdHasBeenSet(false),
+    m_productSourceHasBeenSet(false)
 {
 }
 
@@ -67,6 +68,14 @@ string DescribeGatewaySubProductsRequest::ToJsonString() const
         string key = "ProjectId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_projectId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_productSourceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProductSource";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_productSource, allocator);
     }
 
 
@@ -139,6 +148,22 @@ void DescribeGatewaySubProductsRequest::SetProjectId(const string& _projectId)
 bool DescribeGatewaySubProductsRequest::ProjectIdHasBeenSet() const
 {
     return m_projectIdHasBeenSet;
+}
+
+int64_t DescribeGatewaySubProductsRequest::GetProductSource() const
+{
+    return m_productSource;
+}
+
+void DescribeGatewaySubProductsRequest::SetProductSource(const int64_t& _productSource)
+{
+    m_productSource = _productSource;
+    m_productSourceHasBeenSet = true;
+}
+
+bool DescribeGatewaySubProductsRequest::ProductSourceHasBeenSet() const
+{
+    return m_productSourceHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,62 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取弹性公网ip
                      * @return Eip 弹性公网ip
+                     * 
                      */
                     std::string GetEip() const;
 
                     /**
                      * 设置弹性公网ip
-                     * @param Eip 弹性公网ip
+                     * @param _eip 弹性公网ip
+                     * 
                      */
                     void SetEip(const std::string& _eip);
 
                     /**
                      * 判断参数 Eip 是否已赋值
                      * @return Eip 是否已赋值
+                     * 
                      */
                     bool EipHasBeenSet() const;
 
                     /**
                      * 获取所属的Nat网关Id
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return NatGatewayId 所属的Nat网关Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetNatGatewayId() const;
 
                     /**
                      * 设置所属的Nat网关Id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param NatGatewayId 所属的Nat网关Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _natGatewayId 所属的Nat网关Id
+                     * 
                      */
                     void SetNatGatewayId(const std::string& _natGatewayId);
 
                     /**
                      * 判断参数 NatGatewayId 是否已赋值
                      * @return NatGatewayId 是否已赋值
+                     * 
                      */
                     bool NatGatewayIdHasBeenSet() const;
 
                     /**
                      * 获取Nat网关名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return NatGatewayName Nat网关名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetNatGatewayName() const;
 
                     /**
                      * 设置Nat网关名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param NatGatewayName Nat网关名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _natGatewayName Nat网关名称
+                     * 
                      */
                     void SetNatGatewayName(const std::string& _natGatewayName);
 
                     /**
                      * 判断参数 NatGatewayName 是否已赋值
                      * @return NatGatewayName 是否已赋值
+                     * 
                      */
                     bool NatGatewayNameHasBeenSet() const;
 
@@ -118,14 +119,12 @@ namespace TencentCloud
 
                     /**
                      * 所属的Nat网关Id
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_natGatewayId;
                     bool m_natGatewayIdHasBeenSet;
 
                     /**
                      * Nat网关名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_natGatewayName;
                     bool m_natGatewayNameHasBeenSet;

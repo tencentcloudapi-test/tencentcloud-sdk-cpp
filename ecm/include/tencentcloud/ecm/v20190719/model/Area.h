@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取区域ID
                      * @return AreaId 区域ID
+                     * 
                      */
                     std::string GetAreaId() const;
 
                     /**
                      * 设置区域ID
-                     * @param AreaId 区域ID
+                     * @param _areaId 区域ID
+                     * 
                      */
                     void SetAreaId(const std::string& _areaId);
 
                     /**
                      * 判断参数 AreaId 是否已赋值
                      * @return AreaId 是否已赋值
+                     * 
                      */
                     bool AreaIdHasBeenSet() const;
 
                     /**
                      * 获取区域名称
                      * @return AreaName 区域名称
+                     * 
                      */
                     std::string GetAreaName() const;
 
                     /**
                      * 设置区域名称
-                     * @param AreaName 区域名称
+                     * @param _areaName 区域名称
+                     * 
                      */
                     void SetAreaName(const std::string& _areaName);
 
                     /**
                      * 判断参数 AreaName 是否已赋值
                      * @return AreaName 是否已赋值
+                     * 
                      */
                     bool AreaNameHasBeenSet() const;
 

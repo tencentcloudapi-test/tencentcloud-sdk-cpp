@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取地域整型ID，目前黑石可用地域包括：8-北京，4-上海，1-广州， 19-重庆
                      * @return RegionId 地域整型ID，目前黑石可用地域包括：8-北京，4-上海，1-广州， 19-重庆
+                     * 
                      */
                     uint64_t GetRegionId() const;
 
                     /**
                      * 设置地域整型ID，目前黑石可用地域包括：8-北京，4-上海，1-广州， 19-重庆
-                     * @param RegionId 地域整型ID，目前黑石可用地域包括：8-北京，4-上海，1-广州， 19-重庆
+                     * @param _regionId 地域整型ID，目前黑石可用地域包括：8-北京，4-上海，1-广州， 19-重庆
+                     * 
                      */
                     void SetRegionId(const uint64_t& _regionId);
 
                     /**
                      * 判断参数 RegionId 是否已赋值
                      * @return RegionId 是否已赋值
+                     * 
                      */
                     bool RegionIdHasBeenSet() const;
 

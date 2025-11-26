@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ DescribeVpnGatewaySslClientsRequest::DescribeVpnGatewaySslClientsRequest() :
     m_filtersHasBeenSet(false),
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false),
-    m_sslVpnClientIdsHasBeenSet(false)
+    m_sslVpnClientIdsHasBeenSet(false),
+    m_isVpnPortalHasBeenSet(false)
 {
 }
 
@@ -79,6 +80,14 @@ string DescribeVpnGatewaySslClientsRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_isVpnPortalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsVpnPortal";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isVpnPortal, allocator);
     }
 
 
@@ -151,6 +160,22 @@ void DescribeVpnGatewaySslClientsRequest::SetSslVpnClientIds(const vector<string
 bool DescribeVpnGatewaySslClientsRequest::SslVpnClientIdsHasBeenSet() const
 {
     return m_sslVpnClientIdsHasBeenSet;
+}
+
+bool DescribeVpnGatewaySslClientsRequest::GetIsVpnPortal() const
+{
+    return m_isVpnPortal;
+}
+
+void DescribeVpnGatewaySslClientsRequest::SetIsVpnPortal(const bool& _isVpnPortal)
+{
+    m_isVpnPortal = _isVpnPortal;
+    m_isVpnPortalHasBeenSet = true;
+}
+
+bool DescribeVpnGatewaySslClientsRequest::IsVpnPortalHasBeenSet() const
+{
+    return m_isVpnPortalHasBeenSet;
 }
 
 

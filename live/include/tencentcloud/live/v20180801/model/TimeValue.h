@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取UTC 时间，时间格式：yyyy-mm-ddTHH:MM:SSZ。
                      * @return Time UTC 时间，时间格式：yyyy-mm-ddTHH:MM:SSZ。
+                     * 
                      */
                     std::string GetTime() const;
 
                     /**
                      * 设置UTC 时间，时间格式：yyyy-mm-ddTHH:MM:SSZ。
-                     * @param Time UTC 时间，时间格式：yyyy-mm-ddTHH:MM:SSZ。
+                     * @param _time UTC 时间，时间格式：yyyy-mm-ddTHH:MM:SSZ。
+                     * 
                      */
                     void SetTime(const std::string& _time);
 
                     /**
                      * 判断参数 Time 是否已赋值
                      * @return Time 是否已赋值
+                     * 
                      */
                     bool TimeHasBeenSet() const;
 
                     /**
                      * 获取数值。
                      * @return Num 数值。
+                     * 
                      */
                     uint64_t GetNum() const;
 
                     /**
                      * 设置数值。
-                     * @param Num 数值。
+                     * @param _num 数值。
+                     * 
                      */
                     void SetNum(const uint64_t& _num);
 
                     /**
                      * 判断参数 Num 是否已赋值
                      * @return Num 是否已赋值
+                     * 
                      */
                     bool NumHasBeenSet() const;
 

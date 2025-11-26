@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,9 @@ DescribeOrganizationResponse::DescribeOrganizationResponse() :
     m_joinTimeHasBeenSet(false),
     m_isAllowQuitHasBeenSet(false),
     m_payUinHasBeenSet(false),
-    m_payNameHasBeenSet(false)
+    m_payNameHasBeenSet(false),
+    m_isAssignManagerHasBeenSet(false),
+    m_isAuthManagerHasBeenSet(false)
 {
 }
 
@@ -225,6 +227,26 @@ CoreInternalOutcome DescribeOrganizationResponse::Deserialize(const string &payl
         m_payNameHasBeenSet = true;
     }
 
+    if (rsp.HasMember("IsAssignManager") && !rsp["IsAssignManager"].IsNull())
+    {
+        if (!rsp["IsAssignManager"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `IsAssignManager` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isAssignManager = rsp["IsAssignManager"].GetBool();
+        m_isAssignManagerHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("IsAuthManager") && !rsp["IsAuthManager"].IsNull())
+    {
+        if (!rsp["IsAuthManager"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `IsAuthManager` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isAuthManager = rsp["IsAuthManager"].GetBool();
+        m_isAuthManagerHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -354,11 +376,27 @@ string DescribeOrganizationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_payName.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_isAssignManagerHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsAssignManager";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isAssignManager, allocator);
+    }
+
+    if (m_isAuthManagerHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsAuthManager";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isAuthManager, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -504,6 +542,26 @@ string DescribeOrganizationResponse::GetPayName() const
 bool DescribeOrganizationResponse::PayNameHasBeenSet() const
 {
     return m_payNameHasBeenSet;
+}
+
+bool DescribeOrganizationResponse::GetIsAssignManager() const
+{
+    return m_isAssignManager;
+}
+
+bool DescribeOrganizationResponse::IsAssignManagerHasBeenSet() const
+{
+    return m_isAssignManagerHasBeenSet;
+}
+
+bool DescribeOrganizationResponse::GetIsAuthManager() const
+{
+    return m_isAuthManager;
+}
+
+bool DescribeOrganizationResponse::IsAuthManagerHasBeenSet() const
+{
+    return m_isAuthManagerHasBeenSet;
 }
 
 

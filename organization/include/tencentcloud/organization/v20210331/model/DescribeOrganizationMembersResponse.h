@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取成员列表
-                     * @return Items 成员列表
+                     * 获取成员列表。
+                     * @return Items 成员列表。
+                     * 
                      */
                     std::vector<OrgMember> GetItems() const;
 
                     /**
                      * 判断参数 Items 是否已赋值
                      * @return Items 是否已赋值
+                     * 
                      */
                     bool ItemsHasBeenSet() const;
 
                     /**
-                     * 获取总数目
-                     * @return Total 总数目
+                     * 获取总数目。
+                     * @return Total 总数目。
+                     * 
                      */
                     uint64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 成员列表
+                     * 成员列表。
                      */
                     std::vector<OrgMember> m_items;
                     bool m_itemsHasBeenSet;
 
                     /**
-                     * 总数目
+                     * 总数目。
                      */
                     uint64_t m_total;
                     bool m_totalHasBeenSet;

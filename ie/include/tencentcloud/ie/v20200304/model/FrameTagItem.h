@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,72 +50,84 @@ namespace TencentCloud
                     /**
                      * 获取标签起始时间戳PTS(ms)
                      * @return StartPts 标签起始时间戳PTS(ms)
+                     * 
                      */
                     uint64_t GetStartPts() const;
 
                     /**
                      * 设置标签起始时间戳PTS(ms)
-                     * @param StartPts 标签起始时间戳PTS(ms)
+                     * @param _startPts 标签起始时间戳PTS(ms)
+                     * 
                      */
                     void SetStartPts(const uint64_t& _startPts);
 
                     /**
                      * 判断参数 StartPts 是否已赋值
                      * @return StartPts 是否已赋值
+                     * 
                      */
                     bool StartPtsHasBeenSet() const;
 
                     /**
                      * 获取语句结束时间戳PTS(ms)
                      * @return EndPts 语句结束时间戳PTS(ms)
+                     * 
                      */
                     uint64_t GetEndPts() const;
 
                     /**
                      * 设置语句结束时间戳PTS(ms)
-                     * @param EndPts 语句结束时间戳PTS(ms)
+                     * @param _endPts 语句结束时间戳PTS(ms)
+                     * 
                      */
                     void SetEndPts(const uint64_t& _endPts);
 
                     /**
                      * 判断参数 EndPts 是否已赋值
                      * @return EndPts 是否已赋值
+                     * 
                      */
                     bool EndPtsHasBeenSet() const;
 
                     /**
                      * 获取字符串形式的起始结束时间
                      * @return Period 字符串形式的起始结束时间
+                     * 
                      */
                     std::string GetPeriod() const;
 
                     /**
                      * 设置字符串形式的起始结束时间
-                     * @param Period 字符串形式的起始结束时间
+                     * @param _period 字符串形式的起始结束时间
+                     * 
                      */
                     void SetPeriod(const std::string& _period);
 
                     /**
                      * 判断参数 Period 是否已赋值
                      * @return Period 是否已赋值
+                     * 
                      */
                     bool PeriodHasBeenSet() const;
 
                     /**
                      * 获取标签数组
                      * @return TagItems 标签数组
+                     * 
                      */
                     std::vector<TagItem> GetTagItems() const;
 
                     /**
                      * 设置标签数组
-                     * @param TagItems 标签数组
+                     * @param _tagItems 标签数组
+                     * 
                      */
                     void SetTagItems(const std::vector<TagItem>& _tagItems);
 
                     /**
                      * 判断参数 TagItems 是否已赋值
                      * @return TagItems 是否已赋值
+                     * 
                      */
                     bool TagItemsHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,10 @@ DomainRuleSet::DomainRuleSet() :
     m_polyRealServerCertificateAliasInfoHasBeenSet(false),
     m_domainStatusHasBeenSet(false),
     m_banStatusHasBeenSet(false),
-    m_http3SupportedHasBeenSet(false)
+    m_http3SupportedHasBeenSet(false),
+    m_isDefaultServerHasBeenSet(false),
+    m_tLSCiphersHasBeenSet(false),
+    m_tLSSupportVersionHasBeenSet(false)
 {
 }
 
@@ -290,6 +293,39 @@ CoreInternalOutcome DomainRuleSet::Deserialize(const rapidjson::Value &value)
         m_http3SupportedHasBeenSet = true;
     }
 
+    if (value.HasMember("IsDefaultServer") && !value["IsDefaultServer"].IsNull())
+    {
+        if (!value["IsDefaultServer"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainRuleSet.IsDefaultServer` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isDefaultServer = value["IsDefaultServer"].GetBool();
+        m_isDefaultServerHasBeenSet = true;
+    }
+
+    if (value.HasMember("TLSCiphers") && !value["TLSCiphers"].IsNull())
+    {
+        if (!value["TLSCiphers"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainRuleSet.TLSCiphers` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_tLSCiphers = string(value["TLSCiphers"].GetString());
+        m_tLSCiphersHasBeenSet = true;
+    }
+
+    if (value.HasMember("TLSSupportVersion") && !value["TLSSupportVersion"].IsNull())
+    {
+        if (!value["TLSSupportVersion"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DomainRuleSet.TLSSupportVersion` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TLSSupportVersion"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_tLSSupportVersion.push_back((*itr).GetString());
+        }
+        m_tLSSupportVersionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -484,6 +520,35 @@ void DomainRuleSet::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "Http3Supported";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_http3Supported, allocator);
+    }
+
+    if (m_isDefaultServerHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsDefaultServer";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isDefaultServer, allocator);
+    }
+
+    if (m_tLSCiphersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TLSCiphers";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_tLSCiphers.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tLSSupportVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TLSSupportVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_tLSSupportVersion.begin(); itr != m_tLSSupportVersion.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 }
@@ -823,5 +888,53 @@ void DomainRuleSet::SetHttp3Supported(const int64_t& _http3Supported)
 bool DomainRuleSet::Http3SupportedHasBeenSet() const
 {
     return m_http3SupportedHasBeenSet;
+}
+
+bool DomainRuleSet::GetIsDefaultServer() const
+{
+    return m_isDefaultServer;
+}
+
+void DomainRuleSet::SetIsDefaultServer(const bool& _isDefaultServer)
+{
+    m_isDefaultServer = _isDefaultServer;
+    m_isDefaultServerHasBeenSet = true;
+}
+
+bool DomainRuleSet::IsDefaultServerHasBeenSet() const
+{
+    return m_isDefaultServerHasBeenSet;
+}
+
+string DomainRuleSet::GetTLSCiphers() const
+{
+    return m_tLSCiphers;
+}
+
+void DomainRuleSet::SetTLSCiphers(const string& _tLSCiphers)
+{
+    m_tLSCiphers = _tLSCiphers;
+    m_tLSCiphersHasBeenSet = true;
+}
+
+bool DomainRuleSet::TLSCiphersHasBeenSet() const
+{
+    return m_tLSCiphersHasBeenSet;
+}
+
+vector<string> DomainRuleSet::GetTLSSupportVersion() const
+{
+    return m_tLSSupportVersion;
+}
+
+void DomainRuleSet::SetTLSSupportVersion(const vector<string>& _tLSSupportVersion)
+{
+    m_tLSSupportVersion = _tLSSupportVersion;
+    m_tLSSupportVersionHasBeenSet = true;
+}
+
+bool DomainRuleSet::TLSSupportVersionHasBeenSet() const
+{
+    return m_tLSSupportVersionHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,74 +46,107 @@ namespace TencentCloud
                     /**
                      * 获取日志主题名称
                      * @return TopicName 日志主题名称
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置日志主题名称
-                     * @param TopicName 日志主题名称
+                     * @param _topicName 日志主题名称
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
                      * 获取日志集ID
                      * @return LogsetId 日志集ID
+                     * 
                      */
                     std::string GetLogsetId() const;
 
                     /**
                      * 设置日志集ID
-                     * @param LogsetId 日志集ID
+                     * @param _logsetId 日志集ID
+                     * 
                      */
                     void SetLogsetId(const std::string& _logsetId);
 
                     /**
                      * 判断参数 LogsetId 是否已赋值
                      * @return LogsetId 是否已赋值
+                     * 
                      */
                     bool LogsetIdHasBeenSet() const;
 
                     /**
                      * 获取接入渠道，cdn或者ecdn，默认值为cdn
                      * @return Channel 接入渠道，cdn或者ecdn，默认值为cdn
+                     * 
                      */
                     std::string GetChannel() const;
 
                     /**
                      * 设置接入渠道，cdn或者ecdn，默认值为cdn
-                     * @param Channel 接入渠道，cdn或者ecdn，默认值为cdn
+                     * @param _channel 接入渠道，cdn或者ecdn，默认值为cdn
+                     * 
                      */
                     void SetChannel(const std::string& _channel);
 
                     /**
                      * 判断参数 Channel 是否已赋值
                      * @return Channel 是否已赋值
+                     * 
                      */
                     bool ChannelHasBeenSet() const;
 
                     /**
                      * 获取域名区域信息
                      * @return DomainAreaConfigs 域名区域信息
+                     * 
                      */
                     std::vector<DomainAreaConfig> GetDomainAreaConfigs() const;
 
                     /**
                      * 设置域名区域信息
-                     * @param DomainAreaConfigs 域名区域信息
+                     * @param _domainAreaConfigs 域名区域信息
+                     * 
                      */
                     void SetDomainAreaConfigs(const std::vector<DomainAreaConfig>& _domainAreaConfigs);
 
                     /**
                      * 判断参数 DomainAreaConfigs 是否已赋值
                      * @return DomainAreaConfigs 是否已赋值
+                     * 
                      */
                     bool DomainAreaConfigsHasBeenSet() const;
+
+                    /**
+                     * 获取是否继承域名标签，默认为false
+                     * @return InheritDomainTags 是否继承域名标签，默认为false
+                     * 
+                     */
+                    bool GetInheritDomainTags() const;
+
+                    /**
+                     * 设置是否继承域名标签，默认为false
+                     * @param _inheritDomainTags 是否继承域名标签，默认为false
+                     * 
+                     */
+                    void SetInheritDomainTags(const bool& _inheritDomainTags);
+
+                    /**
+                     * 判断参数 InheritDomainTags 是否已赋值
+                     * @return InheritDomainTags 是否已赋值
+                     * 
+                     */
+                    bool InheritDomainTagsHasBeenSet() const;
 
                 private:
 
@@ -140,6 +173,12 @@ namespace TencentCloud
                      */
                     std::vector<DomainAreaConfig> m_domainAreaConfigs;
                     bool m_domainAreaConfigsHasBeenSet;
+
+                    /**
+                     * 是否继承域名标签，默认为false
+                     */
+                    bool m_inheritDomainTags;
+                    bool m_inheritDomainTagsHasBeenSet;
 
                 };
             }

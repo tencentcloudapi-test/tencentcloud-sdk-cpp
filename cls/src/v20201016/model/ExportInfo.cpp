@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,9 @@ ExportInfo::ExportInfo() :
     m_fromHasBeenSet(false),
     m_toHasBeenSet(false),
     m_cosPathHasBeenSet(false),
-    m_createTimeHasBeenSet(false)
+    m_createTimeHasBeenSet(false),
+    m_syntaxRuleHasBeenSet(false),
+    m_derivedFieldsHasBeenSet(false)
 {
 }
 
@@ -172,6 +174,29 @@ CoreInternalOutcome ExportInfo::Deserialize(const rapidjson::Value &value)
         m_createTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("SyntaxRule") && !value["SyntaxRule"].IsNull())
+    {
+        if (!value["SyntaxRule"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ExportInfo.SyntaxRule` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_syntaxRule = value["SyntaxRule"].GetUint64();
+        m_syntaxRuleHasBeenSet = true;
+    }
+
+    if (value.HasMember("DerivedFields") && !value["DerivedFields"].IsNull())
+    {
+        if (!value["DerivedFields"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ExportInfo.DerivedFields` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["DerivedFields"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_derivedFields.push_back((*itr).GetString());
+        }
+        m_derivedFieldsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -281,6 +306,27 @@ void ExportInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "CreateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_createTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_syntaxRuleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SyntaxRule";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_syntaxRule, allocator);
+    }
+
+    if (m_derivedFieldsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DerivedFields";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_derivedFields.begin(); itr != m_derivedFields.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 }
@@ -492,5 +538,37 @@ void ExportInfo::SetCreateTime(const string& _createTime)
 bool ExportInfo::CreateTimeHasBeenSet() const
 {
     return m_createTimeHasBeenSet;
+}
+
+uint64_t ExportInfo::GetSyntaxRule() const
+{
+    return m_syntaxRule;
+}
+
+void ExportInfo::SetSyntaxRule(const uint64_t& _syntaxRule)
+{
+    m_syntaxRule = _syntaxRule;
+    m_syntaxRuleHasBeenSet = true;
+}
+
+bool ExportInfo::SyntaxRuleHasBeenSet() const
+{
+    return m_syntaxRuleHasBeenSet;
+}
+
+vector<string> ExportInfo::GetDerivedFields() const
+{
+    return m_derivedFields;
+}
+
+void ExportInfo::SetDerivedFields(const vector<string>& _derivedFields)
+{
+    m_derivedFields = _derivedFields;
+    m_derivedFieldsHasBeenSet = true;
+}
+
+bool ExportInfo::DerivedFieldsHasBeenSet() const
+{
+    return m_derivedFieldsHasBeenSet;
 }
 

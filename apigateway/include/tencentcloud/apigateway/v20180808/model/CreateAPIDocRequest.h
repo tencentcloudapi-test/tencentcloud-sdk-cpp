@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/apigateway/v20180808/model/Tag.h>
 
 
 namespace TencentCloud
@@ -45,74 +46,107 @@ namespace TencentCloud
                     /**
                      * 获取API文档名称
                      * @return ApiDocName API文档名称
+                     * 
                      */
                     std::string GetApiDocName() const;
 
                     /**
                      * 设置API文档名称
-                     * @param ApiDocName API文档名称
+                     * @param _apiDocName API文档名称
+                     * 
                      */
                     void SetApiDocName(const std::string& _apiDocName);
 
                     /**
                      * 判断参数 ApiDocName 是否已赋值
                      * @return ApiDocName 是否已赋值
+                     * 
                      */
                     bool ApiDocNameHasBeenSet() const;
 
                     /**
                      * 获取服务名称
                      * @return ServiceId 服务名称
+                     * 
                      */
                     std::string GetServiceId() const;
 
                     /**
                      * 设置服务名称
-                     * @param ServiceId 服务名称
+                     * @param _serviceId 服务名称
+                     * 
                      */
                     void SetServiceId(const std::string& _serviceId);
 
                     /**
                      * 判断参数 ServiceId 是否已赋值
                      * @return ServiceId 是否已赋值
+                     * 
                      */
                     bool ServiceIdHasBeenSet() const;
 
                     /**
                      * 获取环境名称
                      * @return Environment 环境名称
+                     * 
                      */
                     std::string GetEnvironment() const;
 
                     /**
                      * 设置环境名称
-                     * @param Environment 环境名称
+                     * @param _environment 环境名称
+                     * 
                      */
                     void SetEnvironment(const std::string& _environment);
 
                     /**
                      * 判断参数 Environment 是否已赋值
                      * @return Environment 是否已赋值
+                     * 
                      */
                     bool EnvironmentHasBeenSet() const;
 
                     /**
                      * 获取生成文档的API列表
                      * @return ApiIds 生成文档的API列表
+                     * 
                      */
                     std::vector<std::string> GetApiIds() const;
 
                     /**
                      * 设置生成文档的API列表
-                     * @param ApiIds 生成文档的API列表
+                     * @param _apiIds 生成文档的API列表
+                     * 
                      */
                     void SetApiIds(const std::vector<std::string>& _apiIds);
 
                     /**
                      * 判断参数 ApiIds 是否已赋值
                      * @return ApiIds 是否已赋值
+                     * 
                      */
                     bool ApiIdsHasBeenSet() const;
+
+                    /**
+                     * 获取标签
+                     * @return Tags 标签
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置标签
+                     * @param _tags 标签
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
@@ -139,6 +173,12 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_apiIds;
                     bool m_apiIdsHasBeenSet;
+
+                    /**
+                     * 标签
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,67 +48,64 @@ namespace TencentCloud
 
                     /**
                      * 获取实例Id。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return InstanceId 实例Id。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例Id。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstanceId 实例Id。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _instanceId 实例Id。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取退款数额。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Refunds 退款数额。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     double GetRefunds() const;
 
                     /**
                      * 设置退款数额。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Refunds 退款数额。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _refunds 退款数额。
+                     * 
                      */
                     void SetRefunds(const double& _refunds);
 
                     /**
                      * 判断参数 Refunds 是否已赋值
                      * @return Refunds 是否已赋值
+                     * 
                      */
                     bool RefundsHasBeenSet() const;
 
                     /**
                      * 获取退款详情。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PriceDetail 退款详情。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPriceDetail() const;
 
                     /**
                      * 设置退款详情。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PriceDetail 退款详情。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _priceDetail 退款详情。
+                     * 
                      */
                     void SetPriceDetail(const std::string& _priceDetail);
 
                     /**
                      * 判断参数 PriceDetail 是否已赋值
                      * @return PriceDetail 是否已赋值
+                     * 
                      */
                     bool PriceDetailHasBeenSet() const;
 
@@ -116,21 +113,18 @@ namespace TencentCloud
 
                     /**
                      * 实例Id。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
                      * 退款数额。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_refunds;
                     bool m_refundsHasBeenSet;
 
                     /**
                      * 退款详情。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_priceDetail;
                     bool m_priceDetailHasBeenSet;

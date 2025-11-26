@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取训练任务名称
                      * @return TrainingJobName 训练任务名称
+                     * 
                      */
                     std::string GetTrainingJobName() const;
 
                     /**
                      * 设置训练任务名称
-                     * @param TrainingJobName 训练任务名称
+                     * @param _trainingJobName 训练任务名称
+                     * 
                      */
                     void SetTrainingJobName(const std::string& _trainingJobName);
 
                     /**
                      * 判断参数 TrainingJobName 是否已赋值
                      * @return TrainingJobName 是否已赋值
+                     * 
                      */
                     bool TrainingJobNameHasBeenSet() const;
 

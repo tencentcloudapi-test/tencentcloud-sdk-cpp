@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ RunInstancesRequest::RunInstancesRequest() :
     m_virtualPrivateCloudHasBeenSet(false),
     m_internetAccessibleHasBeenSet(false),
     m_instanceCountHasBeenSet(false),
+    m_minCountHasBeenSet(false),
     m_instanceNameHasBeenSet(false),
     m_loginSettingsHasBeenSet(false),
     m_securityGroupIdsHasBeenSet(false),
@@ -44,11 +45,16 @@ RunInstancesRequest::RunInstancesRequest() :
     m_tagSpecificationHasBeenSet(false),
     m_instanceMarketOptionsHasBeenSet(false),
     m_userDataHasBeenSet(false),
+    m_metadataHasBeenSet(false),
     m_dryRunHasBeenSet(false),
+    m_cpuTopologyHasBeenSet(false),
     m_camRoleNameHasBeenSet(false),
     m_hpcClusterIdHasBeenSet(false),
     m_launchTemplateHasBeenSet(false),
-    m_chcIdsHasBeenSet(false)
+    m_dedicatedClusterIdHasBeenSet(false),
+    m_chcIdsHasBeenSet(false),
+    m_disableApiTerminationHasBeenSet(false),
+    m_enableJumboFrameHasBeenSet(false)
 {
 }
 
@@ -149,6 +155,14 @@ string RunInstancesRequest::ToJsonString() const
         string key = "InstanceCount";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_instanceCount, allocator);
+    }
+
+    if (m_minCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MinCount";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_minCount, allocator);
     }
 
     if (m_instanceNameHasBeenSet)
@@ -260,12 +274,30 @@ string RunInstancesRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_userData.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_metadataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Metadata";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_metadata.ToJsonObject(d[key.c_str()], allocator);
+    }
+
     if (m_dryRunHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "DryRun";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_dryRun, allocator);
+    }
+
+    if (m_cpuTopologyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CpuTopology";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_cpuTopology.ToJsonObject(d[key.c_str()], allocator);
     }
 
     if (m_camRoleNameHasBeenSet)
@@ -293,6 +325,14 @@ string RunInstancesRequest::ToJsonString() const
         m_launchTemplate.ToJsonObject(d[key.c_str()], allocator);
     }
 
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_chcIdsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -304,6 +344,22 @@ string RunInstancesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_disableApiTerminationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DisableApiTermination";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_disableApiTermination, allocator);
+    }
+
+    if (m_enableJumboFrameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableJumboFrame";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableJumboFrame, allocator);
     }
 
 
@@ -472,6 +528,22 @@ void RunInstancesRequest::SetInstanceCount(const int64_t& _instanceCount)
 bool RunInstancesRequest::InstanceCountHasBeenSet() const
 {
     return m_instanceCountHasBeenSet;
+}
+
+int64_t RunInstancesRequest::GetMinCount() const
+{
+    return m_minCount;
+}
+
+void RunInstancesRequest::SetMinCount(const int64_t& _minCount)
+{
+    m_minCount = _minCount;
+    m_minCountHasBeenSet = true;
+}
+
+bool RunInstancesRequest::MinCountHasBeenSet() const
+{
+    return m_minCountHasBeenSet;
 }
 
 string RunInstancesRequest::GetInstanceName() const
@@ -650,6 +722,22 @@ bool RunInstancesRequest::UserDataHasBeenSet() const
     return m_userDataHasBeenSet;
 }
 
+Metadata RunInstancesRequest::GetMetadata() const
+{
+    return m_metadata;
+}
+
+void RunInstancesRequest::SetMetadata(const Metadata& _metadata)
+{
+    m_metadata = _metadata;
+    m_metadataHasBeenSet = true;
+}
+
+bool RunInstancesRequest::MetadataHasBeenSet() const
+{
+    return m_metadataHasBeenSet;
+}
+
 bool RunInstancesRequest::GetDryRun() const
 {
     return m_dryRun;
@@ -664,6 +752,22 @@ void RunInstancesRequest::SetDryRun(const bool& _dryRun)
 bool RunInstancesRequest::DryRunHasBeenSet() const
 {
     return m_dryRunHasBeenSet;
+}
+
+CpuTopology RunInstancesRequest::GetCpuTopology() const
+{
+    return m_cpuTopology;
+}
+
+void RunInstancesRequest::SetCpuTopology(const CpuTopology& _cpuTopology)
+{
+    m_cpuTopology = _cpuTopology;
+    m_cpuTopologyHasBeenSet = true;
+}
+
+bool RunInstancesRequest::CpuTopologyHasBeenSet() const
+{
+    return m_cpuTopologyHasBeenSet;
 }
 
 string RunInstancesRequest::GetCamRoleName() const
@@ -714,6 +818,22 @@ bool RunInstancesRequest::LaunchTemplateHasBeenSet() const
     return m_launchTemplateHasBeenSet;
 }
 
+string RunInstancesRequest::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void RunInstancesRequest::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool RunInstancesRequest::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
+}
+
 vector<string> RunInstancesRequest::GetChcIds() const
 {
     return m_chcIds;
@@ -728,6 +848,38 @@ void RunInstancesRequest::SetChcIds(const vector<string>& _chcIds)
 bool RunInstancesRequest::ChcIdsHasBeenSet() const
 {
     return m_chcIdsHasBeenSet;
+}
+
+bool RunInstancesRequest::GetDisableApiTermination() const
+{
+    return m_disableApiTermination;
+}
+
+void RunInstancesRequest::SetDisableApiTermination(const bool& _disableApiTermination)
+{
+    m_disableApiTermination = _disableApiTermination;
+    m_disableApiTerminationHasBeenSet = true;
+}
+
+bool RunInstancesRequest::DisableApiTerminationHasBeenSet() const
+{
+    return m_disableApiTerminationHasBeenSet;
+}
+
+bool RunInstancesRequest::GetEnableJumboFrame() const
+{
+    return m_enableJumboFrame;
+}
+
+void RunInstancesRequest::SetEnableJumboFrame(const bool& _enableJumboFrame)
+{
+    m_enableJumboFrame = _enableJumboFrame;
+    m_enableJumboFrameHasBeenSet = true;
+}
+
+bool RunInstancesRequest::EnableJumboFrameHasBeenSet() const
+{
+    return m_enableJumboFrameHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ ExportVideoByTemplateRequest::ExportVideoByTemplateRequest() :
     m_slotReplacementsHasBeenSet(false),
     m_cMEExportInfoHasBeenSet(false),
     m_vODExportInfoHasBeenSet(false),
+    m_exportExtensionArgsHasBeenSet(false),
     m_operatorHasBeenSet(false)
 {
 }
@@ -104,6 +105,15 @@ string ExportVideoByTemplateRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_vODExportInfo.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_exportExtensionArgsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExportExtensionArgs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_exportExtensionArgs.ToJsonObject(d[key.c_str()], allocator);
     }
 
     if (m_operatorHasBeenSet)
@@ -232,6 +242,22 @@ void ExportVideoByTemplateRequest::SetVODExportInfo(const VODExportInfo& _vODExp
 bool ExportVideoByTemplateRequest::VODExportInfoHasBeenSet() const
 {
     return m_vODExportInfoHasBeenSet;
+}
+
+VideoExportExtensionArgs ExportVideoByTemplateRequest::GetExportExtensionArgs() const
+{
+    return m_exportExtensionArgs;
+}
+
+void ExportVideoByTemplateRequest::SetExportExtensionArgs(const VideoExportExtensionArgs& _exportExtensionArgs)
+{
+    m_exportExtensionArgs = _exportExtensionArgs;
+    m_exportExtensionArgsHasBeenSet = true;
+}
+
+bool ExportVideoByTemplateRequest::ExportExtensionArgsHasBeenSet() const
+{
+    return m_exportExtensionArgsHasBeenSet;
 }
 
 string ExportVideoByTemplateRequest::GetOperator() const

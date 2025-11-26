@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取添加的子用户 UIN/UID 和用户组 ID 关联关系
                      * @return Info 添加的子用户 UIN/UID 和用户组 ID 关联关系
+                     * 
                      */
                     std::vector<GroupIdOfUidInfo> GetInfo() const;
 
                     /**
                      * 设置添加的子用户 UIN/UID 和用户组 ID 关联关系
-                     * @param Info 添加的子用户 UIN/UID 和用户组 ID 关联关系
+                     * @param _info 添加的子用户 UIN/UID 和用户组 ID 关联关系
+                     * 
                      */
                     void SetInfo(const std::vector<GroupIdOfUidInfo>& _info);
 
                     /**
                      * 判断参数 Info 是否已赋值
                      * @return Info 是否已赋值
+                     * 
                      */
                     bool InfoHasBeenSet() const;
 

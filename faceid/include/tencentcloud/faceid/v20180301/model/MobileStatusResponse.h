@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,61 +45,71 @@ namespace TencentCloud
 
                     /**
                      * 获取认证结果码，收费情况如下。
-收费结果码：
-0：成功
-不收费结果码：
--1：未查询到结果
--2：手机号格式不正确
--3：验证中心服务繁忙
+- 收费结果码：
+0：成功。
+
+- 不收费结果码：
+-1：未查询到结果。
+-2：手机号格式不正确。
+-3：验证中心服务繁忙。
+-4：认证次数超过当日限制，请次日重试。
                      * @return Result 认证结果码，收费情况如下。
-收费结果码：
-0：成功
-不收费结果码：
--1：未查询到结果
--2：手机号格式不正确
--3：验证中心服务繁忙
+- 收费结果码：
+0：成功。
+
+- 不收费结果码：
+-1：未查询到结果。
+-2：手机号格式不正确。
+-3：验证中心服务繁忙。
+-4：认证次数超过当日限制，请次日重试。
+                     * 
                      */
                     std::string GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
                      * 获取业务结果描述。
                      * @return Description 业务结果描述。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取状态码：
-0：正常
-1：停机
-2：销号
-3：空号
-4：不在网
-99：未知状态
-                     * @return StatusCode 状态码：
-0：正常
-1：停机
-2：销号
-3：空号
-4：不在网
-99：未知状态
+                     * 获取状态码。
+- 取值范围：
+0：正常。
+1：停机。
+2：销号。
+4：不在网。
+99：未知状态。
+                     * @return StatusCode 状态码。
+- 取值范围：
+0：正常。
+1：停机。
+2：销号。
+4：不在网。
+99：未知状态。
+                     * 
                      */
                     int64_t GetStatusCode() const;
 
                     /**
                      * 判断参数 StatusCode 是否已赋值
                      * @return StatusCode 是否已赋值
+                     * 
                      */
                     bool StatusCodeHasBeenSet() const;
 
@@ -107,12 +117,14 @@ namespace TencentCloud
 
                     /**
                      * 认证结果码，收费情况如下。
-收费结果码：
-0：成功
-不收费结果码：
--1：未查询到结果
--2：手机号格式不正确
--3：验证中心服务繁忙
+- 收费结果码：
+0：成功。
+
+- 不收费结果码：
+-1：未查询到结果。
+-2：手机号格式不正确。
+-3：验证中心服务繁忙。
+-4：认证次数超过当日限制，请次日重试。
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
@@ -124,13 +136,13 @@ namespace TencentCloud
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * 状态码：
-0：正常
-1：停机
-2：销号
-3：空号
-4：不在网
-99：未知状态
+                     * 状态码。
+- 取值范围：
+0：正常。
+1：停机。
+2：销号。
+4：不在网。
+99：未知状态。
                      */
                     int64_t m_statusCode;
                     bool m_statusCodeHasBeenSet;

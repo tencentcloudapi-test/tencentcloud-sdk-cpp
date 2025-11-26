@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,63 +43,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取外部联系人的userid，注意不是企业成员的帐号
-                     * @return ExternalUserId 外部联系人的userid，注意不是企业成员的帐号
+                     * 获取外部联系人的userid，注意不是企业成员的账号
+                     * @return ExternalUserId 外部联系人的userid，注意不是企业成员的账号
+                     * 
                      */
                     std::string GetExternalUserId() const;
 
                     /**
-                     * 设置外部联系人的userid，注意不是企业成员的帐号
-                     * @param ExternalUserId 外部联系人的userid，注意不是企业成员的帐号
+                     * 设置外部联系人的userid，注意不是企业成员的账号
+                     * @param _externalUserId 外部联系人的userid，注意不是企业成员的账号
+                     * 
                      */
                     void SetExternalUserId(const std::string& _externalUserId);
 
                     /**
                      * 判断参数 ExternalUserId 是否已赋值
                      * @return ExternalUserId 是否已赋值
+                     * 
                      */
                     bool ExternalUserIdHasBeenSet() const;
 
                     /**
                      * 获取用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填。当客户在企业内的跟进人超过500人时需要使用cursor参数进行分页获取
                      * @return Cursor 用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填。当客户在企业内的跟进人超过500人时需要使用cursor参数进行分页获取
+                     * 
                      */
                     std::string GetCursor() const;
 
                     /**
                      * 设置用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填。当客户在企业内的跟进人超过500人时需要使用cursor参数进行分页获取
-                     * @param Cursor 用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填。当客户在企业内的跟进人超过500人时需要使用cursor参数进行分页获取
+                     * @param _cursor 用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填。当客户在企业内的跟进人超过500人时需要使用cursor参数进行分页获取
+                     * 
                      */
                     void SetCursor(const std::string& _cursor);
 
                     /**
                      * 判断参数 Cursor 是否已赋值
                      * @return Cursor 是否已赋值
+                     * 
                      */
                     bool CursorHasBeenSet() const;
 
                     /**
                      * 获取当前接口Limit不需要传参， 保留Limit只是为了保持向后兼容性， Limit默认值为500，当返回结果超过500时， NextCursor才有返回值
                      * @return Limit 当前接口Limit不需要传参， 保留Limit只是为了保持向后兼容性， Limit默认值为500，当返回结果超过500时， NextCursor才有返回值
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置当前接口Limit不需要传参， 保留Limit只是为了保持向后兼容性， Limit默认值为500，当返回结果超过500时， NextCursor才有返回值
-                     * @param Limit 当前接口Limit不需要传参， 保留Limit只是为了保持向后兼容性， Limit默认值为500，当返回结果超过500时， NextCursor才有返回值
+                     * @param _limit 当前接口Limit不需要传参， 保留Limit只是为了保持向后兼容性， Limit默认值为500，当返回结果超过500时， NextCursor才有返回值
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 外部联系人的userid，注意不是企业成员的帐号
+                     * 外部联系人的userid，注意不是企业成员的账号
                      */
                     std::string m_externalUserId;
                     bool m_externalUserIdHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取数据卷名
                      * @return VolumeName 数据卷名
+                     * 
                      */
                     std::string GetVolumeName() const;
 
                     /**
                      * 设置数据卷名
-                     * @param VolumeName 数据卷名
+                     * @param _volumeName 数据卷名
+                     * 
                      */
                     void SetVolumeName(const std::string& _volumeName);
 
                     /**
                      * 判断参数 VolumeName 是否已赋值
                      * @return VolumeName 是否已赋值
+                     * 
                      */
                     bool VolumeNameHasBeenSet() const;
 
                     /**
                      * 获取数据卷绑定路径
                      * @return MountPath 数据卷绑定路径
+                     * 
                      */
                     std::string GetMountPath() const;
 
                     /**
                      * 设置数据卷绑定路径
-                     * @param MountPath 数据卷绑定路径
+                     * @param _mountPath 数据卷绑定路径
+                     * 
                      */
                     void SetMountPath(const std::string& _mountPath);
 
                     /**
                      * 判断参数 MountPath 是否已赋值
                      * @return MountPath 是否已赋值
+                     * 
                      */
                     bool MountPathHasBeenSet() const;
 

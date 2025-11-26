@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,63 +43,93 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID
-                     * @return SdkAppId 实例ID
+                     * 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
                      */
                     int64_t GetSdkAppId() const;
 
                     /**
-                     * 设置实例ID
-                     * @param SdkAppId 实例ID
+                     * 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @param _sdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
                      */
                     void SetSdkAppId(const int64_t& _sdkAppId);
 
                     /**
                      * 判断参数 SdkAppId 是否已赋值
                      * @return SdkAppId 是否已赋值
+                     * 
                      */
                     bool SdkAppIdHasBeenSet() const;
 
                     /**
                      * 获取是否返回技能组维度信息，默认“是”
                      * @return EnabledSkillGroup 是否返回技能组维度信息，默认“是”
+                     * 
                      */
                     bool GetEnabledSkillGroup() const;
 
                     /**
                      * 设置是否返回技能组维度信息，默认“是”
-                     * @param EnabledSkillGroup 是否返回技能组维度信息，默认“是”
+                     * @param _enabledSkillGroup 是否返回技能组维度信息，默认“是”
+                     * 
                      */
                     void SetEnabledSkillGroup(const bool& _enabledSkillGroup);
 
                     /**
                      * 判断参数 EnabledSkillGroup 是否已赋值
                      * @return EnabledSkillGroup 是否已赋值
+                     * 
                      */
                     bool EnabledSkillGroupHasBeenSet() const;
 
                     /**
                      * 获取是否返回线路维度信息，默认“否”
                      * @return EnabledNumber 是否返回线路维度信息，默认“否”
+                     * 
                      */
                     bool GetEnabledNumber() const;
 
                     /**
                      * 设置是否返回线路维度信息，默认“否”
-                     * @param EnabledNumber 是否返回线路维度信息，默认“否”
+                     * @param _enabledNumber 是否返回线路维度信息，默认“否”
+                     * 
                      */
                     void SetEnabledNumber(const bool& _enabledNumber);
 
                     /**
                      * 判断参数 EnabledNumber 是否已赋值
                      * @return EnabledNumber 是否已赋值
+                     * 
                      */
                     bool EnabledNumberHasBeenSet() const;
+
+                    /**
+                     * 获取筛选技能组列表
+                     * @return GroupIdList 筛选技能组列表
+                     * 
+                     */
+                    std::vector<int64_t> GetGroupIdList() const;
+
+                    /**
+                     * 设置筛选技能组列表
+                     * @param _groupIdList 筛选技能组列表
+                     * 
+                     */
+                    void SetGroupIdList(const std::vector<int64_t>& _groupIdList);
+
+                    /**
+                     * 判断参数 GroupIdList 是否已赋值
+                     * @return GroupIdList 是否已赋值
+                     * 
+                     */
+                    bool GroupIdListHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID
+                     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      */
                     int64_t m_sdkAppId;
                     bool m_sdkAppIdHasBeenSet;
@@ -115,6 +145,12 @@ namespace TencentCloud
                      */
                     bool m_enabledNumber;
                     bool m_enabledNumberHasBeenSet;
+
+                    /**
+                     * 筛选技能组列表
+                     */
+                    std::vector<int64_t> m_groupIdList;
+                    bool m_groupIdListHasBeenSet;
 
                 };
             }

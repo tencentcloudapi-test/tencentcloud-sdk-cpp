@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ LaunchConfiguration::LaunchConfiguration() :
     m_instanceMarketOptionsHasBeenSet(false),
     m_instanceTypesHasBeenSet(false),
     m_instanceTagsHasBeenSet(false),
+    m_tagsHasBeenSet(false),
     m_versionNumberHasBeenSet(false),
     m_updatedTimeHasBeenSet(false),
     m_camRoleNameHasBeenSet(false),
@@ -47,7 +48,12 @@ LaunchConfiguration::LaunchConfiguration() :
     m_hostNameSettingsHasBeenSet(false),
     m_instanceNameSettingsHasBeenSet(false),
     m_instanceChargePrepaidHasBeenSet(false),
-    m_diskTypePolicyHasBeenSet(false)
+    m_diskTypePolicyHasBeenSet(false),
+    m_hpcClusterIdHasBeenSet(false),
+    m_iPv6InternetAccessibleHasBeenSet(false),
+    m_disasterRecoverGroupIdsHasBeenSet(false),
+    m_imageFamilyHasBeenSet(false),
+    m_dedicatedClusterIdHasBeenSet(false)
 {
 }
 
@@ -317,6 +323,26 @@ CoreInternalOutcome LaunchConfiguration::Deserialize(const rapidjson::Value &val
         m_instanceTagsHasBeenSet = true;
     }
 
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `LaunchConfiguration.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
     if (value.HasMember("VersionNumber") && !value["VersionNumber"].IsNull())
     {
         if (!value["VersionNumber"].IsInt64())
@@ -416,6 +442,66 @@ CoreInternalOutcome LaunchConfiguration::Deserialize(const rapidjson::Value &val
         }
         m_diskTypePolicy = string(value["DiskTypePolicy"].GetString());
         m_diskTypePolicyHasBeenSet = true;
+    }
+
+    if (value.HasMember("HpcClusterId") && !value["HpcClusterId"].IsNull())
+    {
+        if (!value["HpcClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LaunchConfiguration.HpcClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hpcClusterId = string(value["HpcClusterId"].GetString());
+        m_hpcClusterIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("IPv6InternetAccessible") && !value["IPv6InternetAccessible"].IsNull())
+    {
+        if (!value["IPv6InternetAccessible"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `LaunchConfiguration.IPv6InternetAccessible` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_iPv6InternetAccessible.Deserialize(value["IPv6InternetAccessible"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_iPv6InternetAccessibleHasBeenSet = true;
+    }
+
+    if (value.HasMember("DisasterRecoverGroupIds") && !value["DisasterRecoverGroupIds"].IsNull())
+    {
+        if (!value["DisasterRecoverGroupIds"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `LaunchConfiguration.DisasterRecoverGroupIds` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["DisasterRecoverGroupIds"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_disasterRecoverGroupIds.push_back((*itr).GetString());
+        }
+        m_disasterRecoverGroupIdsHasBeenSet = true;
+    }
+
+    if (value.HasMember("ImageFamily") && !value["ImageFamily"].IsNull())
+    {
+        if (!value["ImageFamily"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LaunchConfiguration.ImageFamily` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_imageFamily = string(value["ImageFamily"].GetString());
+        m_imageFamilyHasBeenSet = true;
+    }
+
+    if (value.HasMember("DedicatedClusterId") && !value["DedicatedClusterId"].IsNull())
+    {
+        if (!value["DedicatedClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LaunchConfiguration.DedicatedClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dedicatedClusterId = string(value["DedicatedClusterId"].GetString());
+        m_dedicatedClusterIdHasBeenSet = true;
     }
 
 
@@ -613,6 +699,21 @@ void LaunchConfiguration::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         }
     }
 
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     if (m_versionNumberHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -678,6 +779,52 @@ void LaunchConfiguration::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "DiskTypePolicy";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_diskTypePolicy.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hpcClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HpcClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hpcClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iPv6InternetAccessibleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPv6InternetAccessible";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_iPv6InternetAccessible.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_disasterRecoverGroupIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DisasterRecoverGroupIds";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_disasterRecoverGroupIds.begin(); itr != m_disasterRecoverGroupIds.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_imageFamilyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageFamily";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_imageFamily.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -987,6 +1134,22 @@ bool LaunchConfiguration::InstanceTagsHasBeenSet() const
     return m_instanceTagsHasBeenSet;
 }
 
+vector<Tag> LaunchConfiguration::GetTags() const
+{
+    return m_tags;
+}
+
+void LaunchConfiguration::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool LaunchConfiguration::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
 int64_t LaunchConfiguration::GetVersionNumber() const
 {
     return m_versionNumber;
@@ -1113,5 +1276,85 @@ void LaunchConfiguration::SetDiskTypePolicy(const string& _diskTypePolicy)
 bool LaunchConfiguration::DiskTypePolicyHasBeenSet() const
 {
     return m_diskTypePolicyHasBeenSet;
+}
+
+string LaunchConfiguration::GetHpcClusterId() const
+{
+    return m_hpcClusterId;
+}
+
+void LaunchConfiguration::SetHpcClusterId(const string& _hpcClusterId)
+{
+    m_hpcClusterId = _hpcClusterId;
+    m_hpcClusterIdHasBeenSet = true;
+}
+
+bool LaunchConfiguration::HpcClusterIdHasBeenSet() const
+{
+    return m_hpcClusterIdHasBeenSet;
+}
+
+IPv6InternetAccessible LaunchConfiguration::GetIPv6InternetAccessible() const
+{
+    return m_iPv6InternetAccessible;
+}
+
+void LaunchConfiguration::SetIPv6InternetAccessible(const IPv6InternetAccessible& _iPv6InternetAccessible)
+{
+    m_iPv6InternetAccessible = _iPv6InternetAccessible;
+    m_iPv6InternetAccessibleHasBeenSet = true;
+}
+
+bool LaunchConfiguration::IPv6InternetAccessibleHasBeenSet() const
+{
+    return m_iPv6InternetAccessibleHasBeenSet;
+}
+
+vector<string> LaunchConfiguration::GetDisasterRecoverGroupIds() const
+{
+    return m_disasterRecoverGroupIds;
+}
+
+void LaunchConfiguration::SetDisasterRecoverGroupIds(const vector<string>& _disasterRecoverGroupIds)
+{
+    m_disasterRecoverGroupIds = _disasterRecoverGroupIds;
+    m_disasterRecoverGroupIdsHasBeenSet = true;
+}
+
+bool LaunchConfiguration::DisasterRecoverGroupIdsHasBeenSet() const
+{
+    return m_disasterRecoverGroupIdsHasBeenSet;
+}
+
+string LaunchConfiguration::GetImageFamily() const
+{
+    return m_imageFamily;
+}
+
+void LaunchConfiguration::SetImageFamily(const string& _imageFamily)
+{
+    m_imageFamily = _imageFamily;
+    m_imageFamilyHasBeenSet = true;
+}
+
+bool LaunchConfiguration::ImageFamilyHasBeenSet() const
+{
+    return m_imageFamilyHasBeenSet;
+}
+
+string LaunchConfiguration::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void LaunchConfiguration::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool LaunchConfiguration::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
 }
 

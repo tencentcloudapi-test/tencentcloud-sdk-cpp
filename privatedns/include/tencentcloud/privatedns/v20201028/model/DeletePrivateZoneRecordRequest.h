@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取私有域ID
                      * @return ZoneId 私有域ID
+                     * 
                      */
                     std::string GetZoneId() const;
 
                     /**
                      * 设置私有域ID
-                     * @param ZoneId 私有域ID
+                     * @param _zoneId 私有域ID
+                     * 
                      */
                     void SetZoneId(const std::string& _zoneId);
 
                     /**
                      * 判断参数 ZoneId 是否已赋值
                      * @return ZoneId 是否已赋值
+                     * 
                      */
                     bool ZoneIdHasBeenSet() const;
 
                     /**
-                     * 获取记录ID
-                     * @return RecordId 记录ID
+                     * 获取记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
+                     * @return RecordId 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
+                     * 
                      */
                     std::string GetRecordId() const;
 
                     /**
-                     * 设置记录ID
-                     * @param RecordId 记录ID
+                     * 设置记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
+                     * @param _recordId 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
+                     * 
                      */
                     void SetRecordId(const std::string& _recordId);
 
                     /**
                      * 判断参数 RecordId 是否已赋值
                      * @return RecordId 是否已赋值
+                     * 
                      */
                     bool RecordIdHasBeenSet() const;
 
                     /**
                      * 获取记录ID数组，RecordId 优先
                      * @return RecordIdSet 记录ID数组，RecordId 优先
+                     * 
                      */
                     std::vector<std::string> GetRecordIdSet() const;
 
                     /**
                      * 设置记录ID数组，RecordId 优先
-                     * @param RecordIdSet 记录ID数组，RecordId 优先
+                     * @param _recordIdSet 记录ID数组，RecordId 优先
+                     * 
                      */
                     void SetRecordIdSet(const std::vector<std::string>& _recordIdSet);
 
                     /**
                      * 判断参数 RecordIdSet 是否已赋值
                      * @return RecordIdSet 是否已赋值
+                     * 
                      */
                     bool RecordIdSetHasBeenSet() const;
 
@@ -105,7 +114,7 @@ namespace TencentCloud
                     bool m_zoneIdHasBeenSet;
 
                     /**
-                     * 记录ID
+                     * 记录ID（调用DescribePrivateZoneRecordList可获取到RecordId）
                      */
                     std::string m_recordId;
                     bool m_recordIdHasBeenSet;

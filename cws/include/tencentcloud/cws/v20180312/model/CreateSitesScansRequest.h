@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取站点的ID列表
                      * @return SiteIds 站点的ID列表
+                     * 
                      */
                     std::vector<uint64_t> GetSiteIds() const;
 
                     /**
                      * 设置站点的ID列表
-                     * @param SiteIds 站点的ID列表
+                     * @param _siteIds 站点的ID列表
+                     * 
                      */
                     void SetSiteIds(const std::vector<uint64_t>& _siteIds);
 
                     /**
                      * 判断参数 SiteIds 是否已赋值
                      * @return SiteIds 是否已赋值
+                     * 
                      */
                     bool SiteIdsHasBeenSet() const;
 
                     /**
                      * 获取扫描模式，normal-正常扫描；deep-深度扫描
                      * @return ScannerType 扫描模式，normal-正常扫描；deep-深度扫描
+                     * 
                      */
                     std::string GetScannerType() const;
 
                     /**
                      * 设置扫描模式，normal-正常扫描；deep-深度扫描
-                     * @param ScannerType 扫描模式，normal-正常扫描；deep-深度扫描
+                     * @param _scannerType 扫描模式，normal-正常扫描；deep-深度扫描
+                     * 
                      */
                     void SetScannerType(const std::string& _scannerType);
 
                     /**
                      * 判断参数 ScannerType 是否已赋值
                      * @return ScannerType 是否已赋值
+                     * 
                      */
                     bool ScannerTypeHasBeenSet() const;
 
                     /**
                      * 获取扫描速率限制，每秒发送X个HTTP请求
                      * @return RateLimit 扫描速率限制，每秒发送X个HTTP请求
+                     * 
                      */
                     uint64_t GetRateLimit() const;
 
                     /**
                      * 设置扫描速率限制，每秒发送X个HTTP请求
-                     * @param RateLimit 扫描速率限制，每秒发送X个HTTP请求
+                     * @param _rateLimit 扫描速率限制，每秒发送X个HTTP请求
+                     * 
                      */
                     void SetRateLimit(const uint64_t& _rateLimit);
 
                     /**
                      * 判断参数 RateLimit 是否已赋值
                      * @return RateLimit 是否已赋值
+                     * 
                      */
                     bool RateLimitHasBeenSet() const;
 

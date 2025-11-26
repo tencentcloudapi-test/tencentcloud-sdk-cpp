@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,107 +49,106 @@ namespace TencentCloud
 
                     /**
                      * 获取配置的id。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ProfileId 配置的id。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetProfileId() const;
 
                     /**
                      * 设置配置的id。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ProfileId 配置的id。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _profileId 配置的id。
+                     * 
                      */
                     void SetProfileId(const std::string& _profileId);
 
                     /**
                      * 判断参数 ProfileId 是否已赋值
                      * @return ProfileId 是否已赋值
+                     * 
                      */
                     bool ProfileIdHasBeenSet() const;
 
                     /**
                      * 获取配置类型，支持值包括："dbScan_mail_configuration" - 数据库巡检邮件配置，"scheduler_mail_configuration" - 定期生成邮件配置。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ProfileType 配置类型，支持值包括："dbScan_mail_configuration" - 数据库巡检邮件配置，"scheduler_mail_configuration" - 定期生成邮件配置。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetProfileType() const;
 
                     /**
                      * 设置配置类型，支持值包括："dbScan_mail_configuration" - 数据库巡检邮件配置，"scheduler_mail_configuration" - 定期生成邮件配置。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ProfileType 配置类型，支持值包括："dbScan_mail_configuration" - 数据库巡检邮件配置，"scheduler_mail_configuration" - 定期生成邮件配置。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _profileType 配置类型，支持值包括："dbScan_mail_configuration" - 数据库巡检邮件配置，"scheduler_mail_configuration" - 定期生成邮件配置。
+                     * 
                      */
                     void SetProfileType(const std::string& _profileType);
 
                     /**
                      * 判断参数 ProfileType 是否已赋值
                      * @return ProfileType 是否已赋值
+                     * 
                      */
                     bool ProfileTypeHasBeenSet() const;
 
                     /**
                      * 获取配置级别，支持值包括："User" - 用户级别，"Instance" - 实例级别，其中数据库巡检邮件配置为用户级别，定期生成邮件配置为实例级别。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ProfileLevel 配置级别，支持值包括："User" - 用户级别，"Instance" - 实例级别，其中数据库巡检邮件配置为用户级别，定期生成邮件配置为实例级别。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetProfileLevel() const;
 
                     /**
                      * 设置配置级别，支持值包括："User" - 用户级别，"Instance" - 实例级别，其中数据库巡检邮件配置为用户级别，定期生成邮件配置为实例级别。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ProfileLevel 配置级别，支持值包括："User" - 用户级别，"Instance" - 实例级别，其中数据库巡检邮件配置为用户级别，定期生成邮件配置为实例级别。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _profileLevel 配置级别，支持值包括："User" - 用户级别，"Instance" - 实例级别，其中数据库巡检邮件配置为用户级别，定期生成邮件配置为实例级别。
+                     * 
                      */
                     void SetProfileLevel(const std::string& _profileLevel);
 
                     /**
                      * 判断参数 ProfileLevel 是否已赋值
                      * @return ProfileLevel 是否已赋值
+                     * 
                      */
                     bool ProfileLevelHasBeenSet() const;
 
                     /**
                      * 获取配置名称。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ProfileName 配置名称。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetProfileName() const;
 
                     /**
                      * 设置配置名称。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ProfileName 配置名称。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _profileName 配置名称。
+                     * 
                      */
                     void SetProfileName(const std::string& _profileName);
 
                     /**
                      * 判断参数 ProfileName 是否已赋值
                      * @return ProfileName 是否已赋值
+                     * 
                      */
                     bool ProfileNameHasBeenSet() const;
 
                     /**
                      * 获取配置详情。
                      * @return ProfileInfo 配置详情。
+                     * 
                      */
                     ProfileInfo GetProfileInfo() const;
 
                     /**
                      * 设置配置详情。
-                     * @param ProfileInfo 配置详情。
+                     * @param _profileInfo 配置详情。
+                     * 
                      */
                     void SetProfileInfo(const ProfileInfo& _profileInfo);
 
                     /**
                      * 判断参数 ProfileInfo 是否已赋值
                      * @return ProfileInfo 是否已赋值
+                     * 
                      */
                     bool ProfileInfoHasBeenSet() const;
 
@@ -157,28 +156,24 @@ namespace TencentCloud
 
                     /**
                      * 配置的id。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_profileId;
                     bool m_profileIdHasBeenSet;
 
                     /**
                      * 配置类型，支持值包括："dbScan_mail_configuration" - 数据库巡检邮件配置，"scheduler_mail_configuration" - 定期生成邮件配置。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_profileType;
                     bool m_profileTypeHasBeenSet;
 
                     /**
                      * 配置级别，支持值包括："User" - 用户级别，"Instance" - 实例级别，其中数据库巡检邮件配置为用户级别，定期生成邮件配置为实例级别。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_profileLevel;
                     bool m_profileLevelHasBeenSet;
 
                     /**
                      * 配置名称。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_profileName;
                     bool m_profileNameHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,43 +45,43 @@ namespace TencentCloud
 
                     /**
                      * 获取状态(creating/succ)
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Result 状态(creating/succ)
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
                      * 获取版本名称（只有Result为succ的时候，才会返回VersionName)
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VersionName 版本名称（只有Result为succ的时候，才会返回VersionName)
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetVersionName() const;
 
                     /**
                      * 判断参数 VersionName 是否已赋值
                      * @return VersionName 是否已赋值
+                     * 
                      */
                     bool VersionNameHasBeenSet() const;
 
                     /**
                      * 获取操作记录id
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RunId 操作记录id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRunId() const;
 
                     /**
                      * 判断参数 RunId 是否已赋值
                      * @return RunId 是否已赋值
+                     * 
                      */
                     bool RunIdHasBeenSet() const;
 
@@ -89,21 +89,18 @@ namespace TencentCloud
 
                     /**
                      * 状态(creating/succ)
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
 
                     /**
                      * 版本名称（只有Result为succ的时候，才会返回VersionName)
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_versionName;
                     bool m_versionNameHasBeenSet;
 
                     /**
                      * 操作记录id
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_runId;
                     bool m_runIdHasBeenSet;

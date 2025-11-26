@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,8 @@ CreateVpcRequest::CreateVpcRequest() :
     m_dnsServersHasBeenSet(false),
     m_domainNameHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_descriptionHasBeenSet(false),
+    m_iSPTypesHasBeenSet(false)
 {
 }
 
@@ -115,6 +116,21 @@ string CreateVpcRequest::ToJsonString() const
         string key = "Description";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iSPTypesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ISPTypes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_iSPTypes.begin(); itr != m_iSPTypes.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -251,6 +267,22 @@ void CreateVpcRequest::SetDescription(const string& _description)
 bool CreateVpcRequest::DescriptionHasBeenSet() const
 {
     return m_descriptionHasBeenSet;
+}
+
+vector<ISPTypeItem> CreateVpcRequest::GetISPTypes() const
+{
+    return m_iSPTypes;
+}
+
+void CreateVpcRequest::SetISPTypes(const vector<ISPTypeItem>& _iSPTypes)
+{
+    m_iSPTypes = _iSPTypes;
+    m_iSPTypesHasBeenSet = true;
+}
+
+bool CreateVpcRequest::ISPTypesHasBeenSet() const
+{
+    return m_iSPTypesHasBeenSet;
 }
 
 

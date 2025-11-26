@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,56 +47,137 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取回调时的Body
-                     * @return Body 回调时的Body
+                     * 获取回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
+                     * @return Body 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
+                     * 
                      */
                     std::string GetBody() const;
 
                     /**
-                     * 设置回调时的Body
-                     * @param Body 回调时的Body
+                     * 设置回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
+                     * @param _body 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
+                     * 
                      */
                     void SetBody(const std::string& _body);
 
                     /**
                      * 判断参数 Body 是否已赋值
                      * @return Body 是否已赋值
+                     * 
                      */
                     bool BodyHasBeenSet() const;
 
                     /**
-                     * 获取回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Headers 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
+                     * @return Headers 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
+                     * 
                      */
                     std::vector<std::string> GetHeaders() const;
 
                     /**
-                     * 设置回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Headers 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
+                     * @param _headers 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
+                     * 
                      */
                     void SetHeaders(const std::vector<std::string>& _headers);
 
                     /**
                      * 判断参数 Headers 是否已赋值
                      * @return Headers 是否已赋值
+                     * 
                      */
                     bool HeadersHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 回调时的Body
+                     * 回调时的Body。
+可将各类告警变量放在请求内容中，详见[帮助文档](https://cloud.tencent.com/document/product/614/74718)。
+如下示例：
+
+```
+{
+"TopicId": "{{ .QueryLog[0][0].topicId }}",
+"key": "{{.Alarm}}",
+"time": "{{ .QueryLog[0][0].time }}",
+"log": "{{ .QueryLog[0][0].content.__CONTENT__ }}",
+"namespace": "{{ .QueryLog[0][0].content.__TAG__.namespace }}"
+}
+```
                      */
                     std::string m_body;
                     bool m_bodyHasBeenSet;
 
                     /**
-                     * 回调时的Headers
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 回调时的HTTP请求头部字段。
+例如：下面请求头部字段来告知服务器请求主体的内容类型为JSON。
+```
+"Content-Type: application/json"
+```
                      */
                     std::vector<std::string> m_headers;
                     bool m_headersHasBeenSet;

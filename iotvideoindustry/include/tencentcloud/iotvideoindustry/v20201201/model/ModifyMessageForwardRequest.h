@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取配置ID
                      * @return IntId 配置ID
+                     * 
                      */
                     int64_t GetIntId() const;
 
                     /**
                      * 设置配置ID
-                     * @param IntId 配置ID
+                     * @param _intId 配置ID
+                     * 
                      */
                     void SetIntId(const int64_t& _intId);
 
                     /**
                      * 判断参数 IntId 是否已赋值
                      * @return IntId 是否已赋值
+                     * 
                      */
                     bool IntIdHasBeenSet() const;
 
                     /**
                      * 获取json数组， 转发类型 1: 告警 2:GPS
                      * @return MessageType json数组， 转发类型 1: 告警 2:GPS
+                     * 
                      */
                     std::string GetMessageType() const;
 
                     /**
                      * 设置json数组， 转发类型 1: 告警 2:GPS
-                     * @param MessageType json数组， 转发类型 1: 告警 2:GPS
+                     * @param _messageType json数组， 转发类型 1: 告警 2:GPS
+                     * 
                      */
                     void SetMessageType(const std::string& _messageType);
 
                     /**
                      * 判断参数 MessageType 是否已赋值
                      * @return MessageType 是否已赋值
+                     * 
                      */
                     bool MessageTypeHasBeenSet() const;
 

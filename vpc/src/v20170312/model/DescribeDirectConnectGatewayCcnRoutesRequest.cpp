@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ using namespace std;
 DescribeDirectConnectGatewayCcnRoutesRequest::DescribeDirectConnectGatewayCcnRoutesRequest() :
     m_directConnectGatewayIdHasBeenSet(false),
     m_ccnRouteTypeHasBeenSet(false),
+    m_addressTypeHasBeenSet(false),
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false)
 {
@@ -51,6 +52,14 @@ string DescribeDirectConnectGatewayCcnRoutesRequest::ToJsonString() const
         string key = "CcnRouteType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_ccnRouteType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_addressTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AddressType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_addressType.c_str(), allocator).Move(), allocator);
     }
 
     if (m_offsetHasBeenSet)
@@ -107,6 +116,22 @@ void DescribeDirectConnectGatewayCcnRoutesRequest::SetCcnRouteType(const string&
 bool DescribeDirectConnectGatewayCcnRoutesRequest::CcnRouteTypeHasBeenSet() const
 {
     return m_ccnRouteTypeHasBeenSet;
+}
+
+string DescribeDirectConnectGatewayCcnRoutesRequest::GetAddressType() const
+{
+    return m_addressType;
+}
+
+void DescribeDirectConnectGatewayCcnRoutesRequest::SetAddressType(const string& _addressType)
+{
+    m_addressType = _addressType;
+    m_addressTypeHasBeenSet = true;
+}
+
+bool DescribeDirectConnectGatewayCcnRoutesRequest::AddressTypeHasBeenSet() const
+{
+    return m_addressTypeHasBeenSet;
 }
 
 uint64_t DescribeDirectConnectGatewayCcnRoutesRequest::GetOffset() const

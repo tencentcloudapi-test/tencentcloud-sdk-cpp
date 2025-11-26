@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取路由表实例ID，例如：rtb-azd4dt1c。
                      * @return RouteTableId 路由表实例ID，例如：rtb-azd4dt1c。
+                     * 
                      */
                     std::string GetRouteTableId() const;
 
                     /**
                      * 设置路由表实例ID，例如：rtb-azd4dt1c。
-                     * @param RouteTableId 路由表实例ID，例如：rtb-azd4dt1c。
+                     * @param _routeTableId 路由表实例ID，例如：rtb-azd4dt1c。
+                     * 
                      */
                     void SetRouteTableId(const std::string& _routeTableId);
 
                     /**
                      * 判断参数 RouteTableId 是否已赋值
                      * @return RouteTableId 是否已赋值
+                     * 
                      */
                     bool RouteTableIdHasBeenSet() const;
 
                     /**
-                     * 获取要检查的与之冲突的目的端列表
-                     * @return DestinationCidrBlocks 要检查的与之冲突的目的端列表
+                     * 获取要检查的与之冲突的目的端列表。
+                     * @return DestinationCidrBlocks 要检查的与之冲突的目的端列表。
+                     * 
                      */
                     std::vector<std::string> GetDestinationCidrBlocks() const;
 
                     /**
-                     * 设置要检查的与之冲突的目的端列表
-                     * @param DestinationCidrBlocks 要检查的与之冲突的目的端列表
+                     * 设置要检查的与之冲突的目的端列表。
+                     * @param _destinationCidrBlocks 要检查的与之冲突的目的端列表。
+                     * 
                      */
                     void SetDestinationCidrBlocks(const std::vector<std::string>& _destinationCidrBlocks);
 
                     /**
                      * 判断参数 DestinationCidrBlocks 是否已赋值
                      * @return DestinationCidrBlocks 是否已赋值
+                     * 
                      */
                     bool DestinationCidrBlocksHasBeenSet() const;
 
@@ -87,7 +93,7 @@ namespace TencentCloud
                     bool m_routeTableIdHasBeenSet;
 
                     /**
-                     * 要检查的与之冲突的目的端列表
+                     * 要检查的与之冲突的目的端列表。
                      */
                     std::vector<std::string> m_destinationCidrBlocks;
                     bool m_destinationCidrBlocksHasBeenSet;

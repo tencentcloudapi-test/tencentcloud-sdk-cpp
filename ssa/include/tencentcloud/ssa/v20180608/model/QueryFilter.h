@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 查询参数
+                * 过滤条件
                 */
                 class QueryFilter : public AbstractModel
                 {
@@ -47,78 +47,87 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取查询的字段
-                     * @return FilterKey 查询的字段
+                     * 获取过滤key
+                     * @return FilterKey 过滤key
+                     * 
                      */
                     std::string GetFilterKey() const;
 
                     /**
-                     * 设置查询的字段
-                     * @param FilterKey 查询的字段
+                     * 设置过滤key
+                     * @param _filterKey 过滤key
+                     * 
                      */
                     void SetFilterKey(const std::string& _filterKey);
 
                     /**
                      * 判断参数 FilterKey 是否已赋值
                      * @return FilterKey 是否已赋值
+                     * 
                      */
                     bool FilterKeyHasBeenSet() const;
 
                     /**
-                     * 获取查询的值
-                     * @return FilterValue 查询的值
-                     */
-                    std::string GetFilterValue() const;
-
-                    /**
-                     * 设置查询的值
-                     * @param FilterValue 查询的值
-                     */
-                    void SetFilterValue(const std::string& _filterValue);
-
-                    /**
-                     * 判断参数 FilterValue 是否已赋值
-                     * @return FilterValue 是否已赋值
-                     */
-                    bool FilterValueHasBeenSet() const;
-
-                    /**
-                     * 获取匹配类型，枚举见pb
-                     * @return FilterOperatorType 匹配类型，枚举见pb
+                     * 获取操作符(只支持32位)
+                     * @return FilterOperatorType 操作符(只支持32位)
+                     * 
                      */
                     int64_t GetFilterOperatorType() const;
 
                     /**
-                     * 设置匹配类型，枚举见pb
-                     * @param FilterOperatorType 匹配类型，枚举见pb
+                     * 设置操作符(只支持32位)
+                     * @param _filterOperatorType 操作符(只支持32位)
+                     * 
                      */
                     void SetFilterOperatorType(const int64_t& _filterOperatorType);
 
                     /**
                      * 判断参数 FilterOperatorType 是否已赋值
                      * @return FilterOperatorType 是否已赋值
+                     * 
                      */
                     bool FilterOperatorTypeHasBeenSet() const;
+
+                    /**
+                     * 获取过滤value
+                     * @return FilterValue 过滤value
+                     * 
+                     */
+                    std::string GetFilterValue() const;
+
+                    /**
+                     * 设置过滤value
+                     * @param _filterValue 过滤value
+                     * 
+                     */
+                    void SetFilterValue(const std::string& _filterValue);
+
+                    /**
+                     * 判断参数 FilterValue 是否已赋值
+                     * @return FilterValue 是否已赋值
+                     * 
+                     */
+                    bool FilterValueHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 查询的字段
+                     * 过滤key
                      */
                     std::string m_filterKey;
                     bool m_filterKeyHasBeenSet;
 
                     /**
-                     * 查询的值
-                     */
-                    std::string m_filterValue;
-                    bool m_filterValueHasBeenSet;
-
-                    /**
-                     * 匹配类型，枚举见pb
+                     * 操作符(只支持32位)
                      */
                     int64_t m_filterOperatorType;
                     bool m_filterOperatorTypeHasBeenSet;
+
+                    /**
+                     * 过滤value
+                     */
+                    std::string m_filterValue;
+                    bool m_filterValueHasBeenSet;
 
                 };
             }

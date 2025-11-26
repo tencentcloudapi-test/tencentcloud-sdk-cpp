@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,15 @@ LoadBalancerDetail::LoadBalancerDetail() :
     m_securityGroupHasBeenSet(false),
     m_loadBalancerPassToTargetHasBeenSet(false),
     m_targetHealthHasBeenSet(false),
-    m_domainsHasBeenSet(false)
+    m_domainsHasBeenSet(false),
+    m_slaveZoneHasBeenSet(false),
+    m_zonesHasBeenSet(false),
+    m_sniSwitchHasBeenSet(false),
+    m_loadBalancerDomainHasBeenSet(false),
+    m_egressHasBeenSet(false),
+    m_attributeFlagsHasBeenSet(false),
+    m_slaTypeHasBeenSet(false),
+    m_exclusiveHasBeenSet(false)
 {
 }
 
@@ -437,6 +445,95 @@ CoreInternalOutcome LoadBalancerDetail::Deserialize(const rapidjson::Value &valu
         m_domainsHasBeenSet = true;
     }
 
+    if (value.HasMember("SlaveZone") && !value["SlaveZone"].IsNull())
+    {
+        if (!value["SlaveZone"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.SlaveZone` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["SlaveZone"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_slaveZone.push_back((*itr).GetString());
+        }
+        m_slaveZoneHasBeenSet = true;
+    }
+
+    if (value.HasMember("Zones") && !value["Zones"].IsNull())
+    {
+        if (!value["Zones"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.Zones` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Zones"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_zones.push_back((*itr).GetString());
+        }
+        m_zonesHasBeenSet = true;
+    }
+
+    if (value.HasMember("SniSwitch") && !value["SniSwitch"].IsNull())
+    {
+        if (!value["SniSwitch"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.SniSwitch` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_sniSwitch = value["SniSwitch"].GetInt64();
+        m_sniSwitchHasBeenSet = true;
+    }
+
+    if (value.HasMember("LoadBalancerDomain") && !value["LoadBalancerDomain"].IsNull())
+    {
+        if (!value["LoadBalancerDomain"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.LoadBalancerDomain` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_loadBalancerDomain = string(value["LoadBalancerDomain"].GetString());
+        m_loadBalancerDomainHasBeenSet = true;
+    }
+
+    if (value.HasMember("Egress") && !value["Egress"].IsNull())
+    {
+        if (!value["Egress"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.Egress` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_egress = string(value["Egress"].GetString());
+        m_egressHasBeenSet = true;
+    }
+
+    if (value.HasMember("AttributeFlags") && !value["AttributeFlags"].IsNull())
+    {
+        if (!value["AttributeFlags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.AttributeFlags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["AttributeFlags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_attributeFlags.push_back((*itr).GetString());
+        }
+        m_attributeFlagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("SlaType") && !value["SlaType"].IsNull())
+    {
+        if (!value["SlaType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.SlaType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_slaType = string(value["SlaType"].GetString());
+        m_slaTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Exclusive") && !value["Exclusive"].IsNull())
+    {
+        if (!value["Exclusive"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancerDetail.Exclusive` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_exclusive = value["Exclusive"].GetUint64();
+        m_exclusiveHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -729,6 +826,85 @@ void LoadBalancerDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "Domains";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_domains.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_slaveZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SlaveZone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_slaveZone.begin(); itr != m_slaveZone.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_zonesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Zones";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_zones.begin(); itr != m_zones.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_sniSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SniSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_sniSwitch, allocator);
+    }
+
+    if (m_loadBalancerDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LoadBalancerDomain";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_loadBalancerDomain.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_egressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Egress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_egress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_attributeFlagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AttributeFlags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_attributeFlags.begin(); itr != m_attributeFlags.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_slaTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SlaType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_slaType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_exclusiveHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Exclusive";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_exclusive, allocator);
     }
 
 }
@@ -1276,5 +1452,133 @@ void LoadBalancerDetail::SetDomains(const string& _domains)
 bool LoadBalancerDetail::DomainsHasBeenSet() const
 {
     return m_domainsHasBeenSet;
+}
+
+vector<string> LoadBalancerDetail::GetSlaveZone() const
+{
+    return m_slaveZone;
+}
+
+void LoadBalancerDetail::SetSlaveZone(const vector<string>& _slaveZone)
+{
+    m_slaveZone = _slaveZone;
+    m_slaveZoneHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::SlaveZoneHasBeenSet() const
+{
+    return m_slaveZoneHasBeenSet;
+}
+
+vector<string> LoadBalancerDetail::GetZones() const
+{
+    return m_zones;
+}
+
+void LoadBalancerDetail::SetZones(const vector<string>& _zones)
+{
+    m_zones = _zones;
+    m_zonesHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::ZonesHasBeenSet() const
+{
+    return m_zonesHasBeenSet;
+}
+
+int64_t LoadBalancerDetail::GetSniSwitch() const
+{
+    return m_sniSwitch;
+}
+
+void LoadBalancerDetail::SetSniSwitch(const int64_t& _sniSwitch)
+{
+    m_sniSwitch = _sniSwitch;
+    m_sniSwitchHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::SniSwitchHasBeenSet() const
+{
+    return m_sniSwitchHasBeenSet;
+}
+
+string LoadBalancerDetail::GetLoadBalancerDomain() const
+{
+    return m_loadBalancerDomain;
+}
+
+void LoadBalancerDetail::SetLoadBalancerDomain(const string& _loadBalancerDomain)
+{
+    m_loadBalancerDomain = _loadBalancerDomain;
+    m_loadBalancerDomainHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::LoadBalancerDomainHasBeenSet() const
+{
+    return m_loadBalancerDomainHasBeenSet;
+}
+
+string LoadBalancerDetail::GetEgress() const
+{
+    return m_egress;
+}
+
+void LoadBalancerDetail::SetEgress(const string& _egress)
+{
+    m_egress = _egress;
+    m_egressHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::EgressHasBeenSet() const
+{
+    return m_egressHasBeenSet;
+}
+
+vector<string> LoadBalancerDetail::GetAttributeFlags() const
+{
+    return m_attributeFlags;
+}
+
+void LoadBalancerDetail::SetAttributeFlags(const vector<string>& _attributeFlags)
+{
+    m_attributeFlags = _attributeFlags;
+    m_attributeFlagsHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::AttributeFlagsHasBeenSet() const
+{
+    return m_attributeFlagsHasBeenSet;
+}
+
+string LoadBalancerDetail::GetSlaType() const
+{
+    return m_slaType;
+}
+
+void LoadBalancerDetail::SetSlaType(const string& _slaType)
+{
+    m_slaType = _slaType;
+    m_slaTypeHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::SlaTypeHasBeenSet() const
+{
+    return m_slaTypeHasBeenSet;
+}
+
+uint64_t LoadBalancerDetail::GetExclusive() const
+{
+    return m_exclusive;
+}
+
+void LoadBalancerDetail::SetExclusive(const uint64_t& _exclusive)
+{
+    m_exclusive = _exclusive;
+    m_exclusiveHasBeenSet = true;
+}
+
+bool LoadBalancerDetail::ExclusiveHasBeenSet() const
+{
+    return m_exclusiveHasBeenSet;
 }
 

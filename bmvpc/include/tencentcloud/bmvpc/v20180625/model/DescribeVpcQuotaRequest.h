@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取类型
                      * @return TypeIds 类型
+                     * 
                      */
                     std::vector<uint64_t> GetTypeIds() const;
 
                     /**
                      * 设置类型
-                     * @param TypeIds 类型
+                     * @param _typeIds 类型
+                     * 
                      */
                     void SetTypeIds(const std::vector<uint64_t>& _typeIds);
 
                     /**
                      * 判断参数 TypeIds 是否已赋值
                      * @return TypeIds 是否已赋值
+                     * 
                      */
                     bool TypeIdsHasBeenSet() const;
 

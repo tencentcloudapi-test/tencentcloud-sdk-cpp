@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取层名称
                      * @return LayerName 层名称
+                     * 
                      */
                     std::string GetLayerName() const;
 
                     /**
                      * 设置层名称
-                     * @param LayerName 层名称
+                     * @param _layerName 层名称
+                     * 
                      */
                     void SetLayerName(const std::string& _layerName);
 
                     /**
                      * 判断参数 LayerName 是否已赋值
                      * @return LayerName 是否已赋值
+                     * 
                      */
                     bool LayerNameHasBeenSet() const;
 
                     /**
                      * 获取适配的运行时
                      * @return CompatibleRuntime 适配的运行时
+                     * 
                      */
                     std::vector<std::string> GetCompatibleRuntime() const;
 
                     /**
                      * 设置适配的运行时
-                     * @param CompatibleRuntime 适配的运行时
+                     * @param _compatibleRuntime 适配的运行时
+                     * 
                      */
                     void SetCompatibleRuntime(const std::vector<std::string>& _compatibleRuntime);
 
                     /**
                      * 判断参数 CompatibleRuntime 是否已赋值
                      * @return CompatibleRuntime 是否已赋值
+                     * 
                      */
                     bool CompatibleRuntimeHasBeenSet() const;
 

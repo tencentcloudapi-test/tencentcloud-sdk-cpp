@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取TRTC进房参数
                      * @return TRTCJoinRoomInput TRTC进房参数
+                     * 
                      */
                     TRTCJoinRoomInput GetTRTCJoinRoomInput() const;
 
                     /**
                      * 设置TRTC进房参数
-                     * @param TRTCJoinRoomInput TRTC进房参数
+                     * @param _tRTCJoinRoomInput TRTC进房参数
+                     * 
                      */
                     void SetTRTCJoinRoomInput(const TRTCJoinRoomInput& _tRTCJoinRoomInput);
 
                     /**
                      * 判断参数 TRTCJoinRoomInput 是否已赋值
                      * @return TRTCJoinRoomInput 是否已赋值
+                     * 
                      */
                     bool TRTCJoinRoomInputHasBeenSet() const;
 

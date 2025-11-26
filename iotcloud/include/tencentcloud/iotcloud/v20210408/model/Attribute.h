@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取属性列表
                      * @return Tags 属性列表
+                     * 
                      */
                     std::vector<DeviceTag> GetTags() const;
 
                     /**
                      * 设置属性列表
-                     * @param Tags 属性列表
+                     * @param _tags 属性列表
+                     * 
                      */
                     void SetTags(const std::vector<DeviceTag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 

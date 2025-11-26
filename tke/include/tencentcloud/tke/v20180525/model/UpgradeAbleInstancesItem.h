@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,60 +49,107 @@ namespace TencentCloud
                     /**
                      * 获取节点Id
                      * @return InstanceId 节点Id
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置节点Id
-                     * @param InstanceId 节点Id
+                     * @param _instanceId 节点Id
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取节点的当前版本
                      * @return Version 节点的当前版本
+                     * 
                      */
                     std::string GetVersion() const;
 
                     /**
                      * 设置节点的当前版本
-                     * @param Version 节点的当前版本
+                     * @param _version 节点的当前版本
+                     * 
                      */
                     void SetVersion(const std::string& _version);
 
                     /**
                      * 判断参数 Version 是否已赋值
                      * @return Version 是否已赋值
+                     * 
                      */
                     bool VersionHasBeenSet() const;
 
                     /**
                      * 获取当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LatestVersion 当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLatestVersion() const;
 
                     /**
                      * 设置当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param LatestVersion 当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _latestVersion 当前版本的最新小版本
+                     * 
                      */
                     void SetLatestVersion(const std::string& _latestVersion);
 
                     /**
                      * 判断参数 LatestVersion 是否已赋值
                      * @return LatestVersion 是否已赋值
+                     * 
                      */
                     bool LatestVersionHasBeenSet() const;
+
+                    /**
+                     * 获取RuntimeVersion
+                     * @return RuntimeVersion RuntimeVersion
+                     * 
+                     */
+                    std::string GetRuntimeVersion() const;
+
+                    /**
+                     * 设置RuntimeVersion
+                     * @param _runtimeVersion RuntimeVersion
+                     * 
+                     */
+                    void SetRuntimeVersion(const std::string& _runtimeVersion);
+
+                    /**
+                     * 判断参数 RuntimeVersion 是否已赋值
+                     * @return RuntimeVersion 是否已赋值
+                     * 
+                     */
+                    bool RuntimeVersionHasBeenSet() const;
+
+                    /**
+                     * 获取RuntimeLatestVersion
+                     * @return RuntimeLatestVersion RuntimeLatestVersion
+                     * 
+                     */
+                    std::string GetRuntimeLatestVersion() const;
+
+                    /**
+                     * 设置RuntimeLatestVersion
+                     * @param _runtimeLatestVersion RuntimeLatestVersion
+                     * 
+                     */
+                    void SetRuntimeLatestVersion(const std::string& _runtimeLatestVersion);
+
+                    /**
+                     * 判断参数 RuntimeLatestVersion 是否已赋值
+                     * @return RuntimeLatestVersion 是否已赋值
+                     * 
+                     */
+                    bool RuntimeLatestVersionHasBeenSet() const;
 
                 private:
 
@@ -120,10 +167,21 @@ namespace TencentCloud
 
                     /**
                      * 当前版本的最新小版本
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_latestVersion;
                     bool m_latestVersionHasBeenSet;
+
+                    /**
+                     * RuntimeVersion
+                     */
+                    std::string m_runtimeVersion;
+                    bool m_runtimeVersionHasBeenSet;
+
+                    /**
+                     * RuntimeLatestVersion
+                     */
+                    std::string m_runtimeLatestVersion;
+                    bool m_runtimeLatestVersionHasBeenSet;
 
                 };
             }

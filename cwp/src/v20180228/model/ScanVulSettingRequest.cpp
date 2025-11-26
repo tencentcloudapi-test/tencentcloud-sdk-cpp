@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,9 @@ ScanVulSettingRequest::ScanVulSettingRequest() :
     m_vulEmergencyHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
-    m_enableScanHasBeenSet(false)
+    m_enableScanHasBeenSet(false),
+    m_uuidsHasBeenSet(false),
+    m_scanMethodHasBeenSet(false)
 {
 }
 
@@ -113,6 +115,27 @@ string ScanVulSettingRequest::ToJsonString() const
         string key = "EnableScan";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_enableScan, allocator);
+    }
+
+    if (m_uuidsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Uuids";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_uuids.begin(); itr != m_uuids.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_scanMethodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanMethod";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_scanMethod, allocator);
     }
 
 
@@ -249,6 +272,38 @@ void ScanVulSettingRequest::SetEnableScan(const uint64_t& _enableScan)
 bool ScanVulSettingRequest::EnableScanHasBeenSet() const
 {
     return m_enableScanHasBeenSet;
+}
+
+vector<string> ScanVulSettingRequest::GetUuids() const
+{
+    return m_uuids;
+}
+
+void ScanVulSettingRequest::SetUuids(const vector<string>& _uuids)
+{
+    m_uuids = _uuids;
+    m_uuidsHasBeenSet = true;
+}
+
+bool ScanVulSettingRequest::UuidsHasBeenSet() const
+{
+    return m_uuidsHasBeenSet;
+}
+
+uint64_t ScanVulSettingRequest::GetScanMethod() const
+{
+    return m_scanMethod;
+}
+
+void ScanVulSettingRequest::SetScanMethod(const uint64_t& _scanMethod)
+{
+    m_scanMethod = _scanMethod;
+    m_scanMethodHasBeenSet = true;
+}
+
+bool ScanVulSettingRequest::ScanMethodHasBeenSet() const
+{
+    return m_scanMethodHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取通道实例ID。
                      * @return InstanceId 通道实例ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置通道实例ID。
-                     * @param InstanceId 通道实例ID。
+                     * @param _instanceId 通道实例ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
@@ -75,7 +78,8 @@ CLOSING表示关闭中；
 CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
-ISOLATED表示已隔离。
+ISOLATED表示已隔离；
+MOVING表示迁移中。
                      * @return Status 通道状态。
 其中：
 RUNNING表示运行中；
@@ -86,7 +90,9 @@ CLOSING表示关闭中；
 CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
-ISOLATED表示已隔离。
+ISOLATED表示已隔离；
+MOVING表示迁移中。
+                     * 
                      */
                     std::string GetStatus() const;
 
@@ -101,8 +107,9 @@ CLOSING表示关闭中；
 CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
-ISOLATED表示已隔离。
-                     * @param Status 通道状态。
+ISOLATED表示已隔离；
+MOVING表示迁移中。
+                     * @param _status 通道状态。
 其中：
 RUNNING表示运行中；
 CREATING表示创建中；
@@ -112,13 +119,16 @@ CLOSING表示关闭中；
 CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
-ISOLATED表示已隔离。
+ISOLATED表示已隔离；
+MOVING表示迁移中。
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
@@ -141,7 +151,8 @@ CLOSING表示关闭中；
 CLOSED表示已关闭；
 ADJUSTING表示配置变更中；
 ISOLATING表示隔离中；
-ISOLATED表示已隔离。
+ISOLATED表示已隔离；
+MOVING表示迁移中。
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;

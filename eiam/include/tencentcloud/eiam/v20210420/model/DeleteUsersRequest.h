@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取被删除用户的ID列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
                      * @return DeleteIdList 被删除用户的ID列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
+                     * 
                      */
                     std::vector<std::string> GetDeleteIdList() const;
 
                     /**
                      * 设置被删除用户的ID列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
-                     * @param DeleteIdList 被删除用户的ID列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
+                     * @param _deleteIdList 被删除用户的ID列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
+                     * 
                      */
                     void SetDeleteIdList(const std::vector<std::string>& _deleteIdList);
 
                     /**
                      * 判断参数 DeleteIdList 是否已赋值
                      * @return DeleteIdList 是否已赋值
+                     * 
                      */
                     bool DeleteIdListHasBeenSet() const;
 
                     /**
                      * 获取被删除用户的名称列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
                      * @return DeleteNameList 被删除用户的名称列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
+                     * 
                      */
                     std::vector<std::string> GetDeleteNameList() const;
 
                     /**
                      * 设置被删除用户的名称列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
-                     * @param DeleteNameList 被删除用户的名称列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
+                     * @param _deleteNameList 被删除用户的名称列表。DeleteIdList 和 DeleteNameList 需至少一个不为空；都不为空时优先使用 DeleteNameList。
+                     * 
                      */
                     void SetDeleteNameList(const std::vector<std::string>& _deleteNameList);
 
                     /**
                      * 判断参数 DeleteNameList 是否已赋值
                      * @return DeleteNameList 是否已赋值
+                     * 
                      */
                     bool DeleteNameListHasBeenSet() const;
 

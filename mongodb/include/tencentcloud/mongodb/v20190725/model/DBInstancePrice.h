@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,80 +47,84 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取单价
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UnitPrice 单价
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取实例单价。单位：元。
+                     * @return UnitPrice 实例单价。单位：元。
+                     * 
                      */
                     double GetUnitPrice() const;
 
                     /**
-                     * 设置单价
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UnitPrice 单价
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置实例单价。单位：元。
+                     * @param _unitPrice 实例单价。单位：元。
+                     * 
                      */
                     void SetUnitPrice(const double& _unitPrice);
 
                     /**
                      * 判断参数 UnitPrice 是否已赋值
                      * @return UnitPrice 是否已赋值
+                     * 
                      */
                     bool UnitPriceHasBeenSet() const;
 
                     /**
-                     * 获取原价
-                     * @return OriginalPrice 原价
+                     * 获取实例原价。单位：元。
+                     * @return OriginalPrice 实例原价。单位：元。
+                     * 
                      */
                     double GetOriginalPrice() const;
 
                     /**
-                     * 设置原价
-                     * @param OriginalPrice 原价
+                     * 设置实例原价。单位：元。
+                     * @param _originalPrice 实例原价。单位：元。
+                     * 
                      */
                     void SetOriginalPrice(const double& _originalPrice);
 
                     /**
                      * 判断参数 OriginalPrice 是否已赋值
                      * @return OriginalPrice 是否已赋值
+                     * 
                      */
                     bool OriginalPriceHasBeenSet() const;
 
                     /**
-                     * 获取折扣加
-                     * @return DiscountPrice 折扣加
+                     * 获取实例折扣价。单位：元。
+                     * @return DiscountPrice 实例折扣价。单位：元。
+                     * 
                      */
                     double GetDiscountPrice() const;
 
                     /**
-                     * 设置折扣加
-                     * @param DiscountPrice 折扣加
+                     * 设置实例折扣价。单位：元。
+                     * @param _discountPrice 实例折扣价。单位：元。
+                     * 
                      */
                     void SetDiscountPrice(const double& _discountPrice);
 
                     /**
                      * 判断参数 DiscountPrice 是否已赋值
                      * @return DiscountPrice 是否已赋值
+                     * 
                      */
                     bool DiscountPriceHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 单价
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 实例单价。单位：元。
                      */
                     double m_unitPrice;
                     bool m_unitPriceHasBeenSet;
 
                     /**
-                     * 原价
+                     * 实例原价。单位：元。
                      */
                     double m_originalPrice;
                     bool m_originalPriceHasBeenSet;
 
                     /**
-                     * 折扣加
+                     * 实例折扣价。单位：元。
                      */
                     double m_discountPrice;
                     bool m_discountPriceHasBeenSet;

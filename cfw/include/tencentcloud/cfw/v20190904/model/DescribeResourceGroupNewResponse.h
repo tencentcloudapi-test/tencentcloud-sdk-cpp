@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,50 +46,58 @@ namespace TencentCloud
                     /**
                      * 获取返回树形结构
                      * @return Data 返回树形结构
+                     * 
                      */
                     std::string GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                     /**
-                     * 获取未分类实例数量
-                     * @return UnResourceNum 未分类实例数量
-                     */
-                    int64_t GetUnResourceNum() const;
-
-                    /**
-                     * 判断参数 UnResourceNum 是否已赋值
-                     * @return UnResourceNum 是否已赋值
-                     */
-                    bool UnResourceNumHasBeenSet() const;
-
-                    /**
-                     * 获取接口返回消息
-                     * @return ReturnMsg 接口返回消息
-                     */
-                    std::string GetReturnMsg() const;
-
-                    /**
-                     * 判断参数 ReturnMsg 是否已赋值
-                     * @return ReturnMsg 是否已赋值
-                     */
-                    bool ReturnMsgHasBeenSet() const;
-
-                    /**
                      * 获取返回码；0为请求成功
                      * @return ReturnCode 返回码；0为请求成功
+                     * 
                      */
                     int64_t GetReturnCode() const;
 
                     /**
                      * 判断参数 ReturnCode 是否已赋值
                      * @return ReturnCode 是否已赋值
+                     * 
                      */
                     bool ReturnCodeHasBeenSet() const;
+
+                    /**
+                     * 获取接口返回消息
+                     * @return ReturnMsg 接口返回消息
+                     * 
+                     */
+                    std::string GetReturnMsg() const;
+
+                    /**
+                     * 判断参数 ReturnMsg 是否已赋值
+                     * @return ReturnMsg 是否已赋值
+                     * 
+                     */
+                    bool ReturnMsgHasBeenSet() const;
+
+                    /**
+                     * 获取未分类实例数量
+                     * @return UnResourceNum 未分类实例数量
+                     * 
+                     */
+                    int64_t GetUnResourceNum() const;
+
+                    /**
+                     * 判断参数 UnResourceNum 是否已赋值
+                     * @return UnResourceNum 是否已赋值
+                     * 
+                     */
+                    bool UnResourceNumHasBeenSet() const;
 
                 private:
 
@@ -100,10 +108,10 @@ namespace TencentCloud
                     bool m_dataHasBeenSet;
 
                     /**
-                     * 未分类实例数量
+                     * 返回码；0为请求成功
                      */
-                    int64_t m_unResourceNum;
-                    bool m_unResourceNumHasBeenSet;
+                    int64_t m_returnCode;
+                    bool m_returnCodeHasBeenSet;
 
                     /**
                      * 接口返回消息
@@ -112,10 +120,10 @@ namespace TencentCloud
                     bool m_returnMsgHasBeenSet;
 
                     /**
-                     * 返回码；0为请求成功
+                     * 未分类实例数量
                      */
-                    int64_t m_returnCode;
-                    bool m_returnCodeHasBeenSet;
+                    int64_t m_unResourceNum;
+                    bool m_unResourceNumHasBeenSet;
 
                 };
             }

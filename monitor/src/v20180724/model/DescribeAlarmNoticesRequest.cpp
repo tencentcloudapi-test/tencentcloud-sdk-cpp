@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ DescribeAlarmNoticesRequest::DescribeAlarmNoticesRequest() :
     m_receiverTypeHasBeenSet(false),
     m_userIdsHasBeenSet(false),
     m_groupIdsHasBeenSet(false),
-    m_noticeIdsHasBeenSet(false)
+    m_noticeIdsHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_onCallFormIDsHasBeenSet(false)
 {
 }
 
@@ -133,6 +135,34 @@ string DescribeAlarmNoticesRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
 
         for (auto itr = m_noticeIds.begin(); itr != m_noticeIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_onCallFormIDsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OnCallFormIDs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_onCallFormIDs.begin(); itr != m_onCallFormIDs.end(); ++itr)
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
@@ -304,6 +334,38 @@ void DescribeAlarmNoticesRequest::SetNoticeIds(const vector<string>& _noticeIds)
 bool DescribeAlarmNoticesRequest::NoticeIdsHasBeenSet() const
 {
     return m_noticeIdsHasBeenSet;
+}
+
+vector<Tag> DescribeAlarmNoticesRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void DescribeAlarmNoticesRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool DescribeAlarmNoticesRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+vector<string> DescribeAlarmNoticesRequest::GetOnCallFormIDs() const
+{
+    return m_onCallFormIDs;
+}
+
+void DescribeAlarmNoticesRequest::SetOnCallFormIDs(const vector<string>& _onCallFormIDs)
+{
+    m_onCallFormIDs = _onCallFormIDs;
+    m_onCallFormIDsHasBeenSet = true;
+}
+
+bool DescribeAlarmNoticesRequest::OnCallFormIDsHasBeenSet() const
+{
+    return m_onCallFormIDsHasBeenSet;
 }
 
 

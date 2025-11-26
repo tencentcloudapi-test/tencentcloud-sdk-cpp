@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取子账号 uin
                      * @return TargetUin 子账号 uin
+                     * 
                      */
                     uint64_t GetTargetUin() const;
 
                     /**
                      * 设置子账号 uin
-                     * @param TargetUin 子账号 uin
+                     * @param _targetUin 子账号 uin
+                     * 
                      */
                     void SetTargetUin(const uint64_t& _targetUin);
 
                     /**
                      * 判断参数 TargetUin 是否已赋值
                      * @return TargetUin 是否已赋值
+                     * 
                      */
                     bool TargetUinHasBeenSet() const;
 
                     /**
                      * 获取页码，默认值是 1，从 1 开始
                      * @return Page 页码，默认值是 1，从 1 开始
+                     * 
                      */
                     uint64_t GetPage() const;
 
                     /**
                      * 设置页码，默认值是 1，从 1 开始
-                     * @param Page 页码，默认值是 1，从 1 开始
+                     * @param _page 页码，默认值是 1，从 1 开始
+                     * 
                      */
                     void SetPage(const uint64_t& _page);
 
                     /**
                      * 判断参数 Page 是否已赋值
                      * @return Page 是否已赋值
+                     * 
                      */
                     bool PageHasBeenSet() const;
 
                     /**
                      * 获取每页大小，默认值是 20
                      * @return Rp 每页大小，默认值是 20
+                     * 
                      */
                     uint64_t GetRp() const;
 
                     /**
                      * 设置每页大小，默认值是 20
-                     * @param Rp 每页大小，默认值是 20
+                     * @param _rp 每页大小，默认值是 20
+                     * 
                      */
                     void SetRp(const uint64_t& _rp);
 
                     /**
                      * 判断参数 Rp 是否已赋值
                      * @return Rp 是否已赋值
+                     * 
                      */
                     bool RpHasBeenSet() const;
 

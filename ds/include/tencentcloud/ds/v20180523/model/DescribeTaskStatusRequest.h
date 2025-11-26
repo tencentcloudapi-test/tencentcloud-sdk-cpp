@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取模块名CommonMng
                      * @return Module 模块名CommonMng
+                     * 
                      */
                     std::string GetModule() const;
 
                     /**
                      * 设置模块名CommonMng
-                     * @param Module 模块名CommonMng
+                     * @param _module 模块名CommonMng
+                     * 
                      */
                     void SetModule(const std::string& _module);
 
                     /**
                      * 判断参数 Module 是否已赋值
                      * @return Module 是否已赋值
+                     * 
                      */
                     bool ModuleHasBeenSet() const;
 
                     /**
                      * 获取操作名DescribeTaskStatus
                      * @return Operation 操作名DescribeTaskStatus
+                     * 
                      */
                     std::string GetOperation() const;
 
                     /**
                      * 设置操作名DescribeTaskStatus
-                     * @param Operation 操作名DescribeTaskStatus
+                     * @param _operation 操作名DescribeTaskStatus
+                     * 
                      */
                     void SetOperation(const std::string& _operation);
 
                     /**
                      * 判断参数 Operation 是否已赋值
                      * @return Operation 是否已赋值
+                     * 
                      */
                     bool OperationHasBeenSet() const;
 
                     /**
                      * 获取任务ID
                      * @return TaskId 任务ID
+                     * 
                      */
                     uint64_t GetTaskId() const;
 
                     /**
                      * 设置任务ID
-                     * @param TaskId 任务ID
+                     * @param _taskId 任务ID
+                     * 
                      */
                     void SetTaskId(const uint64_t& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 

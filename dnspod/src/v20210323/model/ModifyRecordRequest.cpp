@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,9 @@ ModifyRecordRequest::ModifyRecordRequest() :
     m_mXHasBeenSet(false),
     m_tTLHasBeenSet(false),
     m_weightHasBeenSet(false),
-    m_statusHasBeenSet(false)
+    m_statusHasBeenSet(false),
+    m_remarkHasBeenSet(false),
+    m_dnssecConflictModeHasBeenSet(false)
 {
 }
 
@@ -139,6 +141,22 @@ string ModifyRecordRequest::ToJsonString() const
         string key = "Status";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_status.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dnssecConflictModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DnssecConflictMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dnssecConflictMode.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -339,6 +357,38 @@ void ModifyRecordRequest::SetStatus(const string& _status)
 bool ModifyRecordRequest::StatusHasBeenSet() const
 {
     return m_statusHasBeenSet;
+}
+
+string ModifyRecordRequest::GetRemark() const
+{
+    return m_remark;
+}
+
+void ModifyRecordRequest::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool ModifyRecordRequest::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
+}
+
+string ModifyRecordRequest::GetDnssecConflictMode() const
+{
+    return m_dnssecConflictMode;
+}
+
+void ModifyRecordRequest::SetDnssecConflictMode(const string& _dnssecConflictMode)
+{
+    m_dnssecConflictMode = _dnssecConflictMode;
+    m_dnssecConflictModeHasBeenSet = true;
+}
+
+bool ModifyRecordRequest::DnssecConflictModeHasBeenSet() const
+{
+    return m_dnssecConflictModeHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,14 @@ namespace TencentCloud
                     /**
                      * 获取图片id
                      * @return PictureId 图片id
+                     * 
                      */
                     uint64_t GetPictureId() const;
 
                     /**
                      * 判断参数 PictureId 是否已赋值
                      * @return PictureId 是否已赋值
+                     * 
                      */
                     bool PictureIdHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,13 @@ TableBaseInfo::TableBaseInfo() :
     m_datasourceConnectionNameHasBeenSet(false),
     m_tableCommentHasBeenSet(false),
     m_typeHasBeenSet(false),
-    m_tableFormatHasBeenSet(false)
+    m_tableFormatHasBeenSet(false),
+    m_userAliasHasBeenSet(false),
+    m_userSubUinHasBeenSet(false),
+    m_governPolicyHasBeenSet(false),
+    m_dbGovernPolicyIsDisableHasBeenSet(false),
+    m_smartPolicyHasBeenSet(false),
+    m_primaryKeysHasBeenSet(false)
 {
 }
 
@@ -95,6 +101,83 @@ CoreInternalOutcome TableBaseInfo::Deserialize(const rapidjson::Value &value)
         m_tableFormatHasBeenSet = true;
     }
 
+    if (value.HasMember("UserAlias") && !value["UserAlias"].IsNull())
+    {
+        if (!value["UserAlias"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableBaseInfo.UserAlias` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_userAlias = string(value["UserAlias"].GetString());
+        m_userAliasHasBeenSet = true;
+    }
+
+    if (value.HasMember("UserSubUin") && !value["UserSubUin"].IsNull())
+    {
+        if (!value["UserSubUin"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableBaseInfo.UserSubUin` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_userSubUin = string(value["UserSubUin"].GetString());
+        m_userSubUinHasBeenSet = true;
+    }
+
+    if (value.HasMember("GovernPolicy") && !value["GovernPolicy"].IsNull())
+    {
+        if (!value["GovernPolicy"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableBaseInfo.GovernPolicy` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_governPolicy.Deserialize(value["GovernPolicy"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_governPolicyHasBeenSet = true;
+    }
+
+    if (value.HasMember("DbGovernPolicyIsDisable") && !value["DbGovernPolicyIsDisable"].IsNull())
+    {
+        if (!value["DbGovernPolicyIsDisable"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableBaseInfo.DbGovernPolicyIsDisable` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dbGovernPolicyIsDisable = string(value["DbGovernPolicyIsDisable"].GetString());
+        m_dbGovernPolicyIsDisableHasBeenSet = true;
+    }
+
+    if (value.HasMember("SmartPolicy") && !value["SmartPolicy"].IsNull())
+    {
+        if (!value["SmartPolicy"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableBaseInfo.SmartPolicy` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_smartPolicy.Deserialize(value["SmartPolicy"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_smartPolicyHasBeenSet = true;
+    }
+
+    if (value.HasMember("PrimaryKeys") && !value["PrimaryKeys"].IsNull())
+    {
+        if (!value["PrimaryKeys"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TableBaseInfo.PrimaryKeys` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["PrimaryKeys"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_primaryKeys.push_back((*itr).GetString());
+        }
+        m_primaryKeysHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -148,6 +231,61 @@ void TableBaseInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "TableFormat";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_tableFormat.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_userAliasHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserAlias";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_userAlias.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_userSubUinHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserSubUin";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_userSubUin.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_governPolicyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GovernPolicy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_governPolicy.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_dbGovernPolicyIsDisableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DbGovernPolicyIsDisable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dbGovernPolicyIsDisable.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_smartPolicyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SmartPolicy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_smartPolicy.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_primaryKeysHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PrimaryKeys";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_primaryKeys.begin(); itr != m_primaryKeys.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 }
@@ -247,5 +385,101 @@ void TableBaseInfo::SetTableFormat(const string& _tableFormat)
 bool TableBaseInfo::TableFormatHasBeenSet() const
 {
     return m_tableFormatHasBeenSet;
+}
+
+string TableBaseInfo::GetUserAlias() const
+{
+    return m_userAlias;
+}
+
+void TableBaseInfo::SetUserAlias(const string& _userAlias)
+{
+    m_userAlias = _userAlias;
+    m_userAliasHasBeenSet = true;
+}
+
+bool TableBaseInfo::UserAliasHasBeenSet() const
+{
+    return m_userAliasHasBeenSet;
+}
+
+string TableBaseInfo::GetUserSubUin() const
+{
+    return m_userSubUin;
+}
+
+void TableBaseInfo::SetUserSubUin(const string& _userSubUin)
+{
+    m_userSubUin = _userSubUin;
+    m_userSubUinHasBeenSet = true;
+}
+
+bool TableBaseInfo::UserSubUinHasBeenSet() const
+{
+    return m_userSubUinHasBeenSet;
+}
+
+DataGovernPolicy TableBaseInfo::GetGovernPolicy() const
+{
+    return m_governPolicy;
+}
+
+void TableBaseInfo::SetGovernPolicy(const DataGovernPolicy& _governPolicy)
+{
+    m_governPolicy = _governPolicy;
+    m_governPolicyHasBeenSet = true;
+}
+
+bool TableBaseInfo::GovernPolicyHasBeenSet() const
+{
+    return m_governPolicyHasBeenSet;
+}
+
+string TableBaseInfo::GetDbGovernPolicyIsDisable() const
+{
+    return m_dbGovernPolicyIsDisable;
+}
+
+void TableBaseInfo::SetDbGovernPolicyIsDisable(const string& _dbGovernPolicyIsDisable)
+{
+    m_dbGovernPolicyIsDisable = _dbGovernPolicyIsDisable;
+    m_dbGovernPolicyIsDisableHasBeenSet = true;
+}
+
+bool TableBaseInfo::DbGovernPolicyIsDisableHasBeenSet() const
+{
+    return m_dbGovernPolicyIsDisableHasBeenSet;
+}
+
+SmartPolicy TableBaseInfo::GetSmartPolicy() const
+{
+    return m_smartPolicy;
+}
+
+void TableBaseInfo::SetSmartPolicy(const SmartPolicy& _smartPolicy)
+{
+    m_smartPolicy = _smartPolicy;
+    m_smartPolicyHasBeenSet = true;
+}
+
+bool TableBaseInfo::SmartPolicyHasBeenSet() const
+{
+    return m_smartPolicyHasBeenSet;
+}
+
+vector<string> TableBaseInfo::GetPrimaryKeys() const
+{
+    return m_primaryKeys;
+}
+
+void TableBaseInfo::SetPrimaryKeys(const vector<string>& _primaryKeys)
+{
+    m_primaryKeys = _primaryKeys;
+    m_primaryKeysHasBeenSet = true;
+}
+
+bool TableBaseInfo::PrimaryKeysHasBeenSet() const
+{
+    return m_primaryKeysHasBeenSet;
 }
 

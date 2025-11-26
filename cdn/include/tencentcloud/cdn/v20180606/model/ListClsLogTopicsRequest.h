@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取接入渠道，cdn或者ecdn，默认值为cdn
                      * @return Channel 接入渠道，cdn或者ecdn，默认值为cdn
+                     * 
                      */
                     std::string GetChannel() const;
 
                     /**
                      * 设置接入渠道，cdn或者ecdn，默认值为cdn
-                     * @param Channel 接入渠道，cdn或者ecdn，默认值为cdn
+                     * @param _channel 接入渠道，cdn或者ecdn，默认值为cdn
+                     * 
                      */
                     void SetChannel(const std::string& _channel);
 
                     /**
                      * 判断参数 Channel 是否已赋值
                      * @return Channel 是否已赋值
+                     * 
                      */
                     bool ChannelHasBeenSet() const;
 

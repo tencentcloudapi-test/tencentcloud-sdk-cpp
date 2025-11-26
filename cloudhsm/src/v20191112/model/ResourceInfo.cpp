@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,8 @@ ResourceInfo::ResourceInfo() :
     m_createUinHasBeenSet(false),
     m_renewFlagHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_manufacturerHasBeenSet(false)
+    m_manufacturerHasBeenSet(false),
+    m_alarmStatusHasBeenSet(false)
 {
 }
 
@@ -291,6 +292,16 @@ CoreInternalOutcome ResourceInfo::Deserialize(const rapidjson::Value &value)
         m_manufacturerHasBeenSet = true;
     }
 
+    if (value.HasMember("AlarmStatus") && !value["AlarmStatus"].IsNull())
+    {
+        if (!value["AlarmStatus"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceInfo.AlarmStatus` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_alarmStatus = value["AlarmStatus"].GetInt64();
+        m_alarmStatusHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -486,6 +497,14 @@ void ResourceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "Manufacturer";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_manufacturer.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_alarmStatus, allocator);
     }
 
 }
@@ -841,5 +860,21 @@ void ResourceInfo::SetManufacturer(const string& _manufacturer)
 bool ResourceInfo::ManufacturerHasBeenSet() const
 {
     return m_manufacturerHasBeenSet;
+}
+
+int64_t ResourceInfo::GetAlarmStatus() const
+{
+    return m_alarmStatus;
+}
+
+void ResourceInfo::SetAlarmStatus(const int64_t& _alarmStatus)
+{
+    m_alarmStatus = _alarmStatus;
+    m_alarmStatusHasBeenSet = true;
+}
+
+bool ResourceInfo::AlarmStatusHasBeenSet() const
+{
+    return m_alarmStatusHasBeenSet;
 }
 

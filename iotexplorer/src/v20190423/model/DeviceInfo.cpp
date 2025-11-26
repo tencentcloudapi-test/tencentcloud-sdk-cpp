@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,8 @@ DeviceInfo::DeviceInfo() :
     m_enableStateHasBeenSet(false),
     m_productIdHasBeenSet(false),
     m_productNameHasBeenSet(false),
-    m_deviceTypeHasBeenSet(false)
+    m_deviceTypeHasBeenSet(false),
+    m_isLoraHasBeenSet(false)
 {
 }
 
@@ -249,6 +250,16 @@ CoreInternalOutcome DeviceInfo::Deserialize(const rapidjson::Value &value)
         m_deviceTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("IsLora") && !value["IsLora"].IsNull())
+    {
+        if (!value["IsLora"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `DeviceInfo.IsLora` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isLora = value["IsLora"].GetBool();
+        m_isLoraHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -414,6 +425,14 @@ void DeviceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "DeviceType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_deviceType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isLoraHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsLora";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isLora, allocator);
     }
 
 }
@@ -737,5 +756,21 @@ void DeviceInfo::SetDeviceType(const string& _deviceType)
 bool DeviceInfo::DeviceTypeHasBeenSet() const
 {
     return m_deviceTypeHasBeenSet;
+}
+
+bool DeviceInfo::GetIsLora() const
+{
+    return m_isLora;
+}
+
+void DeviceInfo::SetIsLora(const bool& _isLora)
+{
+    m_isLora = _isLora;
+    m_isLoraHasBeenSet = true;
+}
+
+bool DeviceInfo::IsLoraHasBeenSet() const
+{
+    return m_isLoraHasBeenSet;
 }
 

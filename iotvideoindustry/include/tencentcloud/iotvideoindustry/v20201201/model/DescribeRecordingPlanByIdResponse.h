@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,15 +46,15 @@ namespace TencentCloud
 
                     /**
                      * 获取录制计划详情
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Plan 录制计划详情
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     RecordPlanDetail GetPlan() const;
 
                     /**
                      * 判断参数 Plan 是否已赋值
                      * @return Plan 是否已赋值
+                     * 
                      */
                     bool PlanHasBeenSet() const;
 
@@ -62,7 +62,6 @@ namespace TencentCloud
 
                     /**
                      * 录制计划详情
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     RecordPlanDetail m_plan;
                     bool m_planHasBeenSet;

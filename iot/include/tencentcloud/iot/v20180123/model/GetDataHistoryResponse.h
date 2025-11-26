@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取数据历史
                      * @return DataHistory 数据历史
+                     * 
                      */
                     std::vector<DataHistoryEntry> GetDataHistory() const;
 
                     /**
                      * 判断参数 DataHistory 是否已赋值
                      * @return DataHistory 是否已赋值
+                     * 
                      */
                     bool DataHistoryHasBeenSet() const;
 
                     /**
                      * 获取查询游标
                      * @return ScrollId 查询游标
+                     * 
                      */
                     std::string GetScrollId() const;
 
                     /**
                      * 判断参数 ScrollId 是否已赋值
                      * @return ScrollId 是否已赋值
+                     * 
                      */
                     bool ScrollIdHasBeenSet() const;
 
                     /**
                      * 获取查询游标超时
                      * @return ScrollTimeout 查询游标超时
+                     * 
                      */
                     uint64_t GetScrollTimeout() const;
 
                     /**
                      * 判断参数 ScrollTimeout 是否已赋值
                      * @return ScrollTimeout 是否已赋值
+                     * 
                      */
                     bool ScrollTimeoutHasBeenSet() const;
 

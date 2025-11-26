@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,67 +48,64 @@ namespace TencentCloud
 
                     /**
                      * 获取家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RelativeHistory 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRelativeHistory() const;
 
                     /**
                      * 设置家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RelativeHistory 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _relativeHistory 家族成员史
+                     * 
                      */
                     void SetRelativeHistory(const std::string& _relativeHistory);
 
                     /**
                      * 判断参数 RelativeHistory 是否已赋值
                      * @return RelativeHistory 是否已赋值
+                     * 
                      */
                     bool RelativeHistoryHasBeenSet() const;
 
                     /**
                      * 获取家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RelativeCancerHistory 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRelativeCancerHistory() const;
 
                     /**
                      * 设置家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RelativeCancerHistory 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _relativeCancerHistory 家族肿瘤史
+                     * 
                      */
                     void SetRelativeCancerHistory(const std::string& _relativeCancerHistory);
 
                     /**
                      * 判断参数 RelativeCancerHistory 是否已赋值
                      * @return RelativeCancerHistory 是否已赋值
+                     * 
                      */
                     bool RelativeCancerHistoryHasBeenSet() const;
 
                     /**
                      * 获取家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return GeneticHistory 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetGeneticHistory() const;
 
                     /**
                      * 设置家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param GeneticHistory 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _geneticHistory 家族遗传史
+                     * 
                      */
                     void SetGeneticHistory(const std::string& _geneticHistory);
 
                     /**
                      * 判断参数 GeneticHistory 是否已赋值
                      * @return GeneticHistory 是否已赋值
+                     * 
                      */
                     bool GeneticHistoryHasBeenSet() const;
 
@@ -116,21 +113,18 @@ namespace TencentCloud
 
                     /**
                      * 家族成员史
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_relativeHistory;
                     bool m_relativeHistoryHasBeenSet;
 
                     /**
                      * 家族肿瘤史
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_relativeCancerHistory;
                     bool m_relativeCancerHistoryHasBeenSet;
 
                     /**
                      * 家族遗传史
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_geneticHistory;
                     bool m_geneticHistoryHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,10 @@ using namespace TencentCloud::Essbasic::V20210526::Model;
 using namespace std;
 
 DescribeTemplatesResponse::DescribeTemplatesResponse() :
-    m_templatesHasBeenSet(false)
+    m_templatesHasBeenSet(false),
+    m_totalCountHasBeenSet(false),
+    m_limitHasBeenSet(false),
+    m_offsetHasBeenSet(false)
 {
 }
 
@@ -82,6 +85,36 @@ CoreInternalOutcome DescribeTemplatesResponse::Deserialize(const string &payload
         m_templatesHasBeenSet = true;
     }
 
+    if (rsp.HasMember("TotalCount") && !rsp["TotalCount"].IsNull())
+    {
+        if (!rsp["TotalCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TotalCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_totalCount = rsp["TotalCount"].GetInt64();
+        m_totalCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Limit") && !rsp["Limit"].IsNull())
+    {
+        if (!rsp["Limit"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Limit` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_limit = rsp["Limit"].GetUint64();
+        m_limitHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Offset") && !rsp["Offset"].IsNull())
+    {
+        if (!rsp["Offset"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Offset` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_offset = rsp["Offset"].GetUint64();
+        m_offsetHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -107,11 +140,35 @@ string DescribeTemplatesResponse::ToJsonString() const
         }
     }
 
+    if (m_totalCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TotalCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_totalCount, allocator);
+    }
+
+    if (m_limitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Limit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_limit, allocator);
+    }
+
+    if (m_offsetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Offset";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_offset, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -127,6 +184,36 @@ vector<TemplateInfo> DescribeTemplatesResponse::GetTemplates() const
 bool DescribeTemplatesResponse::TemplatesHasBeenSet() const
 {
     return m_templatesHasBeenSet;
+}
+
+int64_t DescribeTemplatesResponse::GetTotalCount() const
+{
+    return m_totalCount;
+}
+
+bool DescribeTemplatesResponse::TotalCountHasBeenSet() const
+{
+    return m_totalCountHasBeenSet;
+}
+
+uint64_t DescribeTemplatesResponse::GetLimit() const
+{
+    return m_limit;
+}
+
+bool DescribeTemplatesResponse::LimitHasBeenSet() const
+{
+    return m_limitHasBeenSet;
+}
+
+uint64_t DescribeTemplatesResponse::GetOffset() const
+{
+    return m_offset;
+}
+
+bool DescribeTemplatesResponse::OffsetHasBeenSet() const
+{
+    return m_offsetHasBeenSet;
 }
 
 

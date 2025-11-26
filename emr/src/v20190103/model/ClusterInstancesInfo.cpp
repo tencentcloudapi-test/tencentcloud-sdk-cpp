@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,17 @@ ClusterInstancesInfo::ClusterInstancesInfo() :
     m_displayNameHasBeenSet(false),
     m_vpcNameHasBeenSet(false),
     m_subnetNameHasBeenSet(false),
-    m_clusterExternalServiceInfoHasBeenSet(false)
+    m_clusterExternalServiceInfoHasBeenSet(false),
+    m_uniqVpcIdHasBeenSet(false),
+    m_uniqSubnetIdHasBeenSet(false),
+    m_topologyInfoListHasBeenSet(false),
+    m_isMultiZoneClusterHasBeenSet(false),
+    m_isCvmReplaceHasBeenSet(false),
+    m_clusterTitleHasBeenSet(false),
+    m_configDetailHasBeenSet(false),
+    m_bindFileSystemNumHasBeenSet(false),
+    m_clusterRelationInfoListHasBeenSet(false),
+    m_redisIdHasBeenSet(false)
 {
 }
 
@@ -463,6 +473,133 @@ CoreInternalOutcome ClusterInstancesInfo::Deserialize(const rapidjson::Value &va
         m_clusterExternalServiceInfoHasBeenSet = true;
     }
 
+    if (value.HasMember("UniqVpcId") && !value["UniqVpcId"].IsNull())
+    {
+        if (!value["UniqVpcId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.UniqVpcId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_uniqVpcId = string(value["UniqVpcId"].GetString());
+        m_uniqVpcIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("UniqSubnetId") && !value["UniqSubnetId"].IsNull())
+    {
+        if (!value["UniqSubnetId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.UniqSubnetId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_uniqSubnetId = string(value["UniqSubnetId"].GetString());
+        m_uniqSubnetIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("TopologyInfoList") && !value["TopologyInfoList"].IsNull())
+    {
+        if (!value["TopologyInfoList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.TopologyInfoList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TopologyInfoList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            TopologyInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_topologyInfoList.push_back(item);
+        }
+        m_topologyInfoListHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsMultiZoneCluster") && !value["IsMultiZoneCluster"].IsNull())
+    {
+        if (!value["IsMultiZoneCluster"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.IsMultiZoneCluster` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isMultiZoneCluster = value["IsMultiZoneCluster"].GetBool();
+        m_isMultiZoneClusterHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsCvmReplace") && !value["IsCvmReplace"].IsNull())
+    {
+        if (!value["IsCvmReplace"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.IsCvmReplace` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isCvmReplace = value["IsCvmReplace"].GetBool();
+        m_isCvmReplaceHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterTitle") && !value["ClusterTitle"].IsNull())
+    {
+        if (!value["ClusterTitle"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.ClusterTitle` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterTitle = string(value["ClusterTitle"].GetString());
+        m_clusterTitleHasBeenSet = true;
+    }
+
+    if (value.HasMember("ConfigDetail") && !value["ConfigDetail"].IsNull())
+    {
+        if (!value["ConfigDetail"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.ConfigDetail` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_configDetail.Deserialize(value["ConfigDetail"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_configDetailHasBeenSet = true;
+    }
+
+    if (value.HasMember("BindFileSystemNum") && !value["BindFileSystemNum"].IsNull())
+    {
+        if (!value["BindFileSystemNum"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.BindFileSystemNum` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_bindFileSystemNum = value["BindFileSystemNum"].GetInt64();
+        m_bindFileSystemNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterRelationInfoList") && !value["ClusterRelationInfoList"].IsNull())
+    {
+        if (!value["ClusterRelationInfoList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.ClusterRelationInfoList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ClusterRelationInfoList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ClusterRelationMeta item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_clusterRelationInfoList.push_back(item);
+        }
+        m_clusterRelationInfoListHasBeenSet = true;
+    }
+
+    if (value.HasMember("RedisId") && !value["RedisId"].IsNull())
+    {
+        if (!value["RedisId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInstancesInfo.RedisId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_redisId = string(value["RedisId"].GetString());
+        m_redisIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -779,6 +916,101 @@ void ClusterInstancesInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_uniqVpcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UniqVpcId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_uniqVpcId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_uniqSubnetIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UniqSubnetId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_uniqSubnetId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_topologyInfoListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TopologyInfoList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_topologyInfoList.begin(); itr != m_topologyInfoList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_isMultiZoneClusterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsMultiZoneCluster";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isMultiZoneCluster, allocator);
+    }
+
+    if (m_isCvmReplaceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsCvmReplace";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isCvmReplace, allocator);
+    }
+
+    if (m_clusterTitleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterTitle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterTitle.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_configDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConfigDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_configDetail.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_bindFileSystemNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BindFileSystemNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_bindFileSystemNum, allocator);
+    }
+
+    if (m_clusterRelationInfoListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterRelationInfoList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_clusterRelationInfoList.begin(); itr != m_clusterRelationInfoList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_redisIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RedisId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_redisId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1374,5 +1606,165 @@ void ClusterInstancesInfo::SetClusterExternalServiceInfo(const vector<ClusterExt
 bool ClusterInstancesInfo::ClusterExternalServiceInfoHasBeenSet() const
 {
     return m_clusterExternalServiceInfoHasBeenSet;
+}
+
+string ClusterInstancesInfo::GetUniqVpcId() const
+{
+    return m_uniqVpcId;
+}
+
+void ClusterInstancesInfo::SetUniqVpcId(const string& _uniqVpcId)
+{
+    m_uniqVpcId = _uniqVpcId;
+    m_uniqVpcIdHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::UniqVpcIdHasBeenSet() const
+{
+    return m_uniqVpcIdHasBeenSet;
+}
+
+string ClusterInstancesInfo::GetUniqSubnetId() const
+{
+    return m_uniqSubnetId;
+}
+
+void ClusterInstancesInfo::SetUniqSubnetId(const string& _uniqSubnetId)
+{
+    m_uniqSubnetId = _uniqSubnetId;
+    m_uniqSubnetIdHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::UniqSubnetIdHasBeenSet() const
+{
+    return m_uniqSubnetIdHasBeenSet;
+}
+
+vector<TopologyInfo> ClusterInstancesInfo::GetTopologyInfoList() const
+{
+    return m_topologyInfoList;
+}
+
+void ClusterInstancesInfo::SetTopologyInfoList(const vector<TopologyInfo>& _topologyInfoList)
+{
+    m_topologyInfoList = _topologyInfoList;
+    m_topologyInfoListHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::TopologyInfoListHasBeenSet() const
+{
+    return m_topologyInfoListHasBeenSet;
+}
+
+bool ClusterInstancesInfo::GetIsMultiZoneCluster() const
+{
+    return m_isMultiZoneCluster;
+}
+
+void ClusterInstancesInfo::SetIsMultiZoneCluster(const bool& _isMultiZoneCluster)
+{
+    m_isMultiZoneCluster = _isMultiZoneCluster;
+    m_isMultiZoneClusterHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::IsMultiZoneClusterHasBeenSet() const
+{
+    return m_isMultiZoneClusterHasBeenSet;
+}
+
+bool ClusterInstancesInfo::GetIsCvmReplace() const
+{
+    return m_isCvmReplace;
+}
+
+void ClusterInstancesInfo::SetIsCvmReplace(const bool& _isCvmReplace)
+{
+    m_isCvmReplace = _isCvmReplace;
+    m_isCvmReplaceHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::IsCvmReplaceHasBeenSet() const
+{
+    return m_isCvmReplaceHasBeenSet;
+}
+
+string ClusterInstancesInfo::GetClusterTitle() const
+{
+    return m_clusterTitle;
+}
+
+void ClusterInstancesInfo::SetClusterTitle(const string& _clusterTitle)
+{
+    m_clusterTitle = _clusterTitle;
+    m_clusterTitleHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::ClusterTitleHasBeenSet() const
+{
+    return m_clusterTitleHasBeenSet;
+}
+
+EmrProductConfigDetail ClusterInstancesInfo::GetConfigDetail() const
+{
+    return m_configDetail;
+}
+
+void ClusterInstancesInfo::SetConfigDetail(const EmrProductConfigDetail& _configDetail)
+{
+    m_configDetail = _configDetail;
+    m_configDetailHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::ConfigDetailHasBeenSet() const
+{
+    return m_configDetailHasBeenSet;
+}
+
+int64_t ClusterInstancesInfo::GetBindFileSystemNum() const
+{
+    return m_bindFileSystemNum;
+}
+
+void ClusterInstancesInfo::SetBindFileSystemNum(const int64_t& _bindFileSystemNum)
+{
+    m_bindFileSystemNum = _bindFileSystemNum;
+    m_bindFileSystemNumHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::BindFileSystemNumHasBeenSet() const
+{
+    return m_bindFileSystemNumHasBeenSet;
+}
+
+vector<ClusterRelationMeta> ClusterInstancesInfo::GetClusterRelationInfoList() const
+{
+    return m_clusterRelationInfoList;
+}
+
+void ClusterInstancesInfo::SetClusterRelationInfoList(const vector<ClusterRelationMeta>& _clusterRelationInfoList)
+{
+    m_clusterRelationInfoList = _clusterRelationInfoList;
+    m_clusterRelationInfoListHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::ClusterRelationInfoListHasBeenSet() const
+{
+    return m_clusterRelationInfoListHasBeenSet;
+}
+
+string ClusterInstancesInfo::GetRedisId() const
+{
+    return m_redisId;
+}
+
+void ClusterInstancesInfo::SetRedisId(const string& _redisId)
+{
+    m_redisId = _redisId;
+    m_redisIdHasBeenSet = true;
+}
+
+bool ClusterInstancesInfo::RedisIdHasBeenSet() const
+{
+    return m_redisIdHasBeenSet;
 }
 

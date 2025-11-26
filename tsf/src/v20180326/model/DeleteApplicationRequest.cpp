@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace TencentCloud::Tsf::V20180326::Model;
 using namespace std;
 
 DeleteApplicationRequest::DeleteApplicationRequest() :
-    m_applicationIdHasBeenSet(false)
+    m_applicationIdHasBeenSet(false),
+    m_syncDeleteImageRepositoryHasBeenSet(false)
 {
 }
 
@@ -40,6 +41,14 @@ string DeleteApplicationRequest::ToJsonString() const
         string key = "ApplicationId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_applicationId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_syncDeleteImageRepositoryHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SyncDeleteImageRepository";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_syncDeleteImageRepository, allocator);
     }
 
 
@@ -64,6 +73,22 @@ void DeleteApplicationRequest::SetApplicationId(const string& _applicationId)
 bool DeleteApplicationRequest::ApplicationIdHasBeenSet() const
 {
     return m_applicationIdHasBeenSet;
+}
+
+bool DeleteApplicationRequest::GetSyncDeleteImageRepository() const
+{
+    return m_syncDeleteImageRepository;
+}
+
+void DeleteApplicationRequest::SetSyncDeleteImageRepository(const bool& _syncDeleteImageRepository)
+{
+    m_syncDeleteImageRepository = _syncDeleteImageRepository;
+    m_syncDeleteImageRepositoryHasBeenSet = true;
+}
+
+bool DeleteApplicationRequest::SyncDeleteImageRepositoryHasBeenSet() const
+{
+    return m_syncDeleteImageRepositoryHasBeenSet;
 }
 
 

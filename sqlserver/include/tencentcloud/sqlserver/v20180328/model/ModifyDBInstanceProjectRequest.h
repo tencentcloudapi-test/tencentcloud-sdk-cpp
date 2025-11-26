@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取实例ID数组，形如mssql-j8kv137v
                      * @return InstanceIdSet 实例ID数组，形如mssql-j8kv137v
+                     * 
                      */
                     std::vector<std::string> GetInstanceIdSet() const;
 
                     /**
                      * 设置实例ID数组，形如mssql-j8kv137v
-                     * @param InstanceIdSet 实例ID数组，形如mssql-j8kv137v
+                     * @param _instanceIdSet 实例ID数组，形如mssql-j8kv137v
+                     * 
                      */
                     void SetInstanceIdSet(const std::vector<std::string>& _instanceIdSet);
 
                     /**
                      * 判断参数 InstanceIdSet 是否已赋值
                      * @return InstanceIdSet 是否已赋值
+                     * 
                      */
                     bool InstanceIdSetHasBeenSet() const;
 
                     /**
                      * 获取项目ID，为0的话表示默认项目
                      * @return ProjectId 项目ID，为0的话表示默认项目
+                     * 
                      */
                     int64_t GetProjectId() const;
 
                     /**
                      * 设置项目ID，为0的话表示默认项目
-                     * @param ProjectId 项目ID，为0的话表示默认项目
+                     * @param _projectId 项目ID，为0的话表示默认项目
+                     * 
                      */
                     void SetProjectId(const int64_t& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 

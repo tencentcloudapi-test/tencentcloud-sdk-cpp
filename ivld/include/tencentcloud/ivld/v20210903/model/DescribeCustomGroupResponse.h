@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取自定义人物库所包含的人物个数
                      * @return GroupSize 自定义人物库所包含的人物个数
+                     * 
                      */
                     int64_t GetGroupSize() const;
 
                     /**
                      * 判断参数 GroupSize 是否已赋值
                      * @return GroupSize 是否已赋值
+                     * 
                      */
                     bool GroupSizeHasBeenSet() const;
 
                     /**
                      * 获取自定义人物库图片后续所在的存储桶
                      * @return Bucket 自定义人物库图片后续所在的存储桶
+                     * 
                      */
                     std::string GetBucket() const;
 
                     /**
                      * 判断参数 Bucket 是否已赋值
                      * @return Bucket 是否已赋值
+                     * 
                      */
                     bool BucketHasBeenSet() const;
 

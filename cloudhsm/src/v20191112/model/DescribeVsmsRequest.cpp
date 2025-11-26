@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ DescribeVsmsRequest::DescribeVsmsRequest() :
     m_limitHasBeenSet(false),
     m_searchWordHasBeenSet(false),
     m_tagFiltersHasBeenSet(false),
-    m_manufacturerHasBeenSet(false)
+    m_manufacturerHasBeenSet(false),
+    m_hsmTypeHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,14 @@ string DescribeVsmsRequest::ToJsonString() const
         string key = "Manufacturer";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_manufacturer.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hsmTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HsmType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_hsmType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -171,6 +180,22 @@ void DescribeVsmsRequest::SetManufacturer(const string& _manufacturer)
 bool DescribeVsmsRequest::ManufacturerHasBeenSet() const
 {
     return m_manufacturerHasBeenSet;
+}
+
+string DescribeVsmsRequest::GetHsmType() const
+{
+    return m_hsmType;
+}
+
+void DescribeVsmsRequest::SetHsmType(const string& _hsmType)
+{
+    m_hsmType = _hsmType;
+    m_hsmTypeHasBeenSet = true;
+}
+
+bool DescribeVsmsRequest::HsmTypeHasBeenSet() const
+{
+    return m_hsmTypeHasBeenSet;
 }
 
 

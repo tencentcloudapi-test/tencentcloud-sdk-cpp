@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取工作负载配置
                      * @return Workload 工作负载配置
+                     * 
                      */
                     WorkloadConfig GetWorkload() const;
 
                     /**
                      * 设置工作负载配置
-                     * @param Workload 工作负载配置
+                     * @param _workload 工作负载配置
+                     * 
                      */
                     void SetWorkload(const WorkloadConfig& _workload);
 
                     /**
                      * 判断参数 Workload 是否已赋值
                      * @return Workload 是否已赋值
+                     * 
                      */
                     bool WorkloadHasBeenSet() const;
 

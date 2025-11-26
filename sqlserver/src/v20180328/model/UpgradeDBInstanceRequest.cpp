@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,10 @@ UpgradeDBInstanceRequest::UpgradeDBInstanceRequest() :
     m_cpuHasBeenSet(false),
     m_dBVersionHasBeenSet(false),
     m_hATypeHasBeenSet(false),
-    m_multiZonesHasBeenSet(false)
+    m_multiZonesHasBeenSet(false),
+    m_waitSwitchHasBeenSet(false),
+    m_drZonesHasBeenSet(false),
+    m_upgradeCompatLevelHasBeenSet(false)
 {
 }
 
@@ -117,6 +120,37 @@ string UpgradeDBInstanceRequest::ToJsonString() const
         string key = "MultiZones";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_multiZones.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_waitSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WaitSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_waitSwitch, allocator);
+    }
+
+    if (m_drZonesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DrZones";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_drZones.begin(); itr != m_drZones.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_upgradeCompatLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpgradeCompatLevel";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_upgradeCompatLevel, allocator);
     }
 
 
@@ -269,6 +303,54 @@ void UpgradeDBInstanceRequest::SetMultiZones(const string& _multiZones)
 bool UpgradeDBInstanceRequest::MultiZonesHasBeenSet() const
 {
     return m_multiZonesHasBeenSet;
+}
+
+int64_t UpgradeDBInstanceRequest::GetWaitSwitch() const
+{
+    return m_waitSwitch;
+}
+
+void UpgradeDBInstanceRequest::SetWaitSwitch(const int64_t& _waitSwitch)
+{
+    m_waitSwitch = _waitSwitch;
+    m_waitSwitchHasBeenSet = true;
+}
+
+bool UpgradeDBInstanceRequest::WaitSwitchHasBeenSet() const
+{
+    return m_waitSwitchHasBeenSet;
+}
+
+vector<DrZoneInfo> UpgradeDBInstanceRequest::GetDrZones() const
+{
+    return m_drZones;
+}
+
+void UpgradeDBInstanceRequest::SetDrZones(const vector<DrZoneInfo>& _drZones)
+{
+    m_drZones = _drZones;
+    m_drZonesHasBeenSet = true;
+}
+
+bool UpgradeDBInstanceRequest::DrZonesHasBeenSet() const
+{
+    return m_drZonesHasBeenSet;
+}
+
+int64_t UpgradeDBInstanceRequest::GetUpgradeCompatLevel() const
+{
+    return m_upgradeCompatLevel;
+}
+
+void UpgradeDBInstanceRequest::SetUpgradeCompatLevel(const int64_t& _upgradeCompatLevel)
+{
+    m_upgradeCompatLevel = _upgradeCompatLevel;
+    m_upgradeCompatLevelHasBeenSet = true;
+}
+
+bool UpgradeDBInstanceRequest::UpgradeCompatLevelHasBeenSet() const
+{
+    return m_upgradeCompatLevelHasBeenSet;
 }
 
 

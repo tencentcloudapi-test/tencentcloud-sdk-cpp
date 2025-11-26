@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 DetachUserPolicyRequest::DetachUserPolicyRequest() :
     m_userIdHasBeenSet(false),
-    m_policySetHasBeenSet(false)
+    m_policySetHasBeenSet(false),
+    m_accountTypeHasBeenSet(false)
 {
 }
 
@@ -56,6 +57,14 @@ string DetachUserPolicyRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_accountTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccountType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_accountType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -96,6 +105,22 @@ void DetachUserPolicyRequest::SetPolicySet(const vector<Policy>& _policySet)
 bool DetachUserPolicyRequest::PolicySetHasBeenSet() const
 {
     return m_policySetHasBeenSet;
+}
+
+string DetachUserPolicyRequest::GetAccountType() const
+{
+    return m_accountType;
+}
+
+void DetachUserPolicyRequest::SetAccountType(const string& _accountType)
+{
+    m_accountType = _accountType;
+    m_accountTypeHasBeenSet = true;
+}
+
+bool DetachUserPolicyRequest::AccountTypeHasBeenSet() const
+{
+    return m_accountTypeHasBeenSet;
 }
 
 

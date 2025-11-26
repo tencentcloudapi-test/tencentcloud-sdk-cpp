@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,6 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
-#include <tencentcloud/rum/v20210622/model/CreateLogExportRequest.h>
-#include <tencentcloud/rum/v20210622/model/CreateLogExportResponse.h>
-#include <tencentcloud/rum/v20210622/model/CreateOfflineLogConfigRequest.h>
-#include <tencentcloud/rum/v20210622/model/CreateOfflineLogConfigResponse.h>
 #include <tencentcloud/rum/v20210622/model/CreateProjectRequest.h>
 #include <tencentcloud/rum/v20210622/model/CreateProjectResponse.h>
 #include <tencentcloud/rum/v20210622/model/CreateReleaseFileRequest.h>
@@ -39,12 +35,6 @@
 #include <tencentcloud/rum/v20210622/model/CreateWhitelistResponse.h>
 #include <tencentcloud/rum/v20210622/model/DeleteInstanceRequest.h>
 #include <tencentcloud/rum/v20210622/model/DeleteInstanceResponse.h>
-#include <tencentcloud/rum/v20210622/model/DeleteLogExportRequest.h>
-#include <tencentcloud/rum/v20210622/model/DeleteLogExportResponse.h>
-#include <tencentcloud/rum/v20210622/model/DeleteOfflineLogConfigRequest.h>
-#include <tencentcloud/rum/v20210622/model/DeleteOfflineLogConfigResponse.h>
-#include <tencentcloud/rum/v20210622/model/DeleteOfflineLogRecordRequest.h>
-#include <tencentcloud/rum/v20210622/model/DeleteOfflineLogRecordResponse.h>
 #include <tencentcloud/rum/v20210622/model/DeleteProjectRequest.h>
 #include <tencentcloud/rum/v20210622/model/DeleteProjectResponse.h>
 #include <tencentcloud/rum/v20210622/model/DeleteReleaseFileRequest.h>
@@ -53,6 +43,14 @@
 #include <tencentcloud/rum/v20210622/model/DeleteStarProjectResponse.h>
 #include <tencentcloud/rum/v20210622/model/DeleteWhitelistRequest.h>
 #include <tencentcloud/rum/v20210622/model/DeleteWhitelistResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppDimensionMetricsRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppDimensionMetricsResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppMetricsDataRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppMetricsDataResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppSingleCaseDetailListRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppSingleCaseDetailListResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppSingleCaseListRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeAppSingleCaseListResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataCustomUrlRequest.h>
@@ -71,8 +69,6 @@
 #include <tencentcloud/rum/v20210622/model/DescribeDataLogUrlStatisticsResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPerformancePageRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPerformancePageResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataPerformanceProjectRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataPerformanceProjectResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlInfoRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlInfoResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlStatisticsRequest.h>
@@ -91,16 +87,6 @@
 #include <tencentcloud/rum/v20210622/model/DescribeDataWebVitalsPageResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeErrorRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeErrorResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLogExportsRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLogExportsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLogListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLogListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeOfflineLogConfigsRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeOfflineLogConfigsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeOfflineLogRecordsRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeOfflineLogRecordsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeOfflineLogsRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeOfflineLogsResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeProjectLimitsRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeProjectLimitsResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeProjectsRequest.h>
@@ -111,6 +97,16 @@
 #include <tencentcloud/rum/v20210622/model/DescribeReleaseFileSignResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeReleaseFilesRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeReleaseFilesResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumGroupLogRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumGroupLogResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportsRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportsResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumLogListRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumLogListResponse.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumStatsLogListRequest.h>
+#include <tencentcloud/rum/v20210622/model/DescribeRumStatsLogListResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeScoresRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeScoresResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeTawAreasRequest.h>
@@ -129,8 +125,12 @@
 #include <tencentcloud/rum/v20210622/model/ModifyProjectLimitResponse.h>
 #include <tencentcloud/rum/v20210622/model/ResumeInstanceRequest.h>
 #include <tencentcloud/rum/v20210622/model/ResumeInstanceResponse.h>
+#include <tencentcloud/rum/v20210622/model/ResumeProjectRequest.h>
+#include <tencentcloud/rum/v20210622/model/ResumeProjectResponse.h>
 #include <tencentcloud/rum/v20210622/model/StopInstanceRequest.h>
 #include <tencentcloud/rum/v20210622/model/StopInstanceResponse.h>
+#include <tencentcloud/rum/v20210622/model/StopProjectRequest.h>
+#include <tencentcloud/rum/v20210622/model/StopProjectResponse.h>
 
 
 namespace TencentCloud
@@ -145,12 +145,6 @@ namespace TencentCloud
                 RumClient(const Credential &credential, const std::string &region);
                 RumClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
-                typedef Outcome<Core::Error, Model::CreateLogExportResponse> CreateLogExportOutcome;
-                typedef std::future<CreateLogExportOutcome> CreateLogExportOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::CreateLogExportRequest&, CreateLogExportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateLogExportAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateOfflineLogConfigResponse> CreateOfflineLogConfigOutcome;
-                typedef std::future<CreateOfflineLogConfigOutcome> CreateOfflineLogConfigOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::CreateOfflineLogConfigRequest&, CreateOfflineLogConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateOfflineLogConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateProjectResponse> CreateProjectOutcome;
                 typedef std::future<CreateProjectOutcome> CreateProjectOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::CreateProjectRequest&, CreateProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateProjectAsyncHandler;
@@ -169,15 +163,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteInstanceResponse> DeleteInstanceOutcome;
                 typedef std::future<DeleteInstanceOutcome> DeleteInstanceOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DeleteInstanceRequest&, DeleteInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteInstanceAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteLogExportResponse> DeleteLogExportOutcome;
-                typedef std::future<DeleteLogExportOutcome> DeleteLogExportOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DeleteLogExportRequest&, DeleteLogExportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteLogExportAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteOfflineLogConfigResponse> DeleteOfflineLogConfigOutcome;
-                typedef std::future<DeleteOfflineLogConfigOutcome> DeleteOfflineLogConfigOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DeleteOfflineLogConfigRequest&, DeleteOfflineLogConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteOfflineLogConfigAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteOfflineLogRecordResponse> DeleteOfflineLogRecordOutcome;
-                typedef std::future<DeleteOfflineLogRecordOutcome> DeleteOfflineLogRecordOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DeleteOfflineLogRecordRequest&, DeleteOfflineLogRecordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteOfflineLogRecordAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteProjectResponse> DeleteProjectOutcome;
                 typedef std::future<DeleteProjectOutcome> DeleteProjectOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DeleteProjectRequest&, DeleteProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteProjectAsyncHandler;
@@ -190,6 +175,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteWhitelistResponse> DeleteWhitelistOutcome;
                 typedef std::future<DeleteWhitelistOutcome> DeleteWhitelistOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DeleteWhitelistRequest&, DeleteWhitelistOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteWhitelistAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAppDimensionMetricsResponse> DescribeAppDimensionMetricsOutcome;
+                typedef std::future<DescribeAppDimensionMetricsOutcome> DescribeAppDimensionMetricsOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeAppDimensionMetricsRequest&, DescribeAppDimensionMetricsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAppDimensionMetricsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAppMetricsDataResponse> DescribeAppMetricsDataOutcome;
+                typedef std::future<DescribeAppMetricsDataOutcome> DescribeAppMetricsDataOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeAppMetricsDataRequest&, DescribeAppMetricsDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAppMetricsDataAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAppSingleCaseDetailListResponse> DescribeAppSingleCaseDetailListOutcome;
+                typedef std::future<DescribeAppSingleCaseDetailListOutcome> DescribeAppSingleCaseDetailListOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeAppSingleCaseDetailListRequest&, DescribeAppSingleCaseDetailListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAppSingleCaseDetailListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAppSingleCaseListResponse> DescribeAppSingleCaseListOutcome;
+                typedef std::future<DescribeAppSingleCaseListOutcome> DescribeAppSingleCaseListOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeAppSingleCaseListRequest&, DescribeAppSingleCaseListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAppSingleCaseListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataResponse> DescribeDataOutcome;
                 typedef std::future<DescribeDataOutcome> DescribeDataOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataRequest&, DescribeDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataAsyncHandler;
@@ -217,9 +214,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDataPerformancePageResponse> DescribeDataPerformancePageOutcome;
                 typedef std::future<DescribeDataPerformancePageOutcome> DescribeDataPerformancePageOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataPerformancePageRequest&, DescribeDataPerformancePageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPerformancePageAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataPerformanceProjectResponse> DescribeDataPerformanceProjectOutcome;
-                typedef std::future<DescribeDataPerformanceProjectOutcome> DescribeDataPerformanceProjectOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataPerformanceProjectRequest&, DescribeDataPerformanceProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPerformanceProjectAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataPvUrlInfoResponse> DescribeDataPvUrlInfoOutcome;
                 typedef std::future<DescribeDataPvUrlInfoOutcome> DescribeDataPvUrlInfoOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataPvUrlInfoRequest&, DescribeDataPvUrlInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPvUrlInfoAsyncHandler;
@@ -247,21 +241,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeErrorResponse> DescribeErrorOutcome;
                 typedef std::future<DescribeErrorOutcome> DescribeErrorOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeErrorRequest&, DescribeErrorOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeErrorAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeLogExportsResponse> DescribeLogExportsOutcome;
-                typedef std::future<DescribeLogExportsOutcome> DescribeLogExportsOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeLogExportsRequest&, DescribeLogExportsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLogExportsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeLogListResponse> DescribeLogListOutcome;
-                typedef std::future<DescribeLogListOutcome> DescribeLogListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeLogListRequest&, DescribeLogListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLogListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeOfflineLogConfigsResponse> DescribeOfflineLogConfigsOutcome;
-                typedef std::future<DescribeOfflineLogConfigsOutcome> DescribeOfflineLogConfigsOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeOfflineLogConfigsRequest&, DescribeOfflineLogConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOfflineLogConfigsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeOfflineLogRecordsResponse> DescribeOfflineLogRecordsOutcome;
-                typedef std::future<DescribeOfflineLogRecordsOutcome> DescribeOfflineLogRecordsOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeOfflineLogRecordsRequest&, DescribeOfflineLogRecordsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOfflineLogRecordsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeOfflineLogsResponse> DescribeOfflineLogsOutcome;
-                typedef std::future<DescribeOfflineLogsOutcome> DescribeOfflineLogsOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeOfflineLogsRequest&, DescribeOfflineLogsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOfflineLogsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeProjectLimitsResponse> DescribeProjectLimitsOutcome;
                 typedef std::future<DescribeProjectLimitsOutcome> DescribeProjectLimitsOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeProjectLimitsRequest&, DescribeProjectLimitsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProjectLimitsAsyncHandler;
@@ -277,6 +256,21 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeReleaseFilesResponse> DescribeReleaseFilesOutcome;
                 typedef std::future<DescribeReleaseFilesOutcome> DescribeReleaseFilesOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeReleaseFilesRequest&, DescribeReleaseFilesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeReleaseFilesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeRumGroupLogResponse> DescribeRumGroupLogOutcome;
+                typedef std::future<DescribeRumGroupLogOutcome> DescribeRumGroupLogOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeRumGroupLogRequest&, DescribeRumGroupLogOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumGroupLogAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeRumLogExportResponse> DescribeRumLogExportOutcome;
+                typedef std::future<DescribeRumLogExportOutcome> DescribeRumLogExportOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeRumLogExportRequest&, DescribeRumLogExportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogExportAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeRumLogExportsResponse> DescribeRumLogExportsOutcome;
+                typedef std::future<DescribeRumLogExportsOutcome> DescribeRumLogExportsOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeRumLogExportsRequest&, DescribeRumLogExportsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogExportsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeRumLogListResponse> DescribeRumLogListOutcome;
+                typedef std::future<DescribeRumLogListOutcome> DescribeRumLogListOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeRumLogListRequest&, DescribeRumLogListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeRumStatsLogListResponse> DescribeRumStatsLogListOutcome;
+                typedef std::future<DescribeRumStatsLogListOutcome> DescribeRumStatsLogListOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::DescribeRumStatsLogListRequest&, DescribeRumStatsLogListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumStatsLogListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeScoresResponse> DescribeScoresOutcome;
                 typedef std::future<DescribeScoresOutcome> DescribeScoresOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeScoresRequest&, DescribeScoresOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeScoresAsyncHandler;
@@ -304,36 +298,20 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ResumeInstanceResponse> ResumeInstanceOutcome;
                 typedef std::future<ResumeInstanceOutcome> ResumeInstanceOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::ResumeInstanceRequest&, ResumeInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ResumeInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::ResumeProjectResponse> ResumeProjectOutcome;
+                typedef std::future<ResumeProjectOutcome> ResumeProjectOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::ResumeProjectRequest&, ResumeProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ResumeProjectAsyncHandler;
                 typedef Outcome<Core::Error, Model::StopInstanceResponse> StopInstanceOutcome;
                 typedef std::future<StopInstanceOutcome> StopInstanceOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::StopInstanceRequest&, StopInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::StopProjectResponse> StopProjectOutcome;
+                typedef std::future<StopProjectOutcome> StopProjectOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::StopProjectRequest&, StopProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopProjectAsyncHandler;
 
 
 
                 /**
-                 *接口请求域名： rum.tencentcloudapi.com 。
-
-本接口用于创建日志下载任务
-
-默认接口请求频率限制：20次/秒。
-                 * @param req CreateLogExportRequest
-                 * @return CreateLogExportOutcome
-                 */
-                CreateLogExportOutcome CreateLogExport(const Model::CreateLogExportRequest &request);
-                void CreateLogExportAsync(const Model::CreateLogExportRequest& request, const CreateLogExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateLogExportOutcomeCallable CreateLogExportCallable(const Model::CreateLogExportRequest& request);
-
-                /**
-                 *创建离线日志监听，对应用户的离线日志将上报
-                 * @param req CreateOfflineLogConfigRequest
-                 * @return CreateOfflineLogConfigOutcome
-                 */
-                CreateOfflineLogConfigOutcome CreateOfflineLogConfig(const Model::CreateOfflineLogConfigRequest &request);
-                void CreateOfflineLogConfigAsync(const Model::CreateOfflineLogConfigRequest& request, const CreateOfflineLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateOfflineLogConfigOutcomeCallable CreateOfflineLogConfigCallable(const Model::CreateOfflineLogConfigRequest& request);
-
-                /**
-                 *创建项目（归属于某个团队）
+                 *创建 RUM 应用（归属于某个团队）
                  * @param req CreateProjectRequest
                  * @return CreateProjectOutcome
                  */
@@ -360,7 +338,7 @@ namespace TencentCloud
                 CreateStarProjectOutcomeCallable CreateStarProjectCallable(const Model::CreateStarProjectRequest& request);
 
                 /**
-                 *创建Rum实例
+                 *创建 RUM 业务系统
                  * @param req CreateTawInstanceRequest
                  * @return CreateTawInstanceOutcome
                  */
@@ -385,37 +363,6 @@ namespace TencentCloud
                 DeleteInstanceOutcome DeleteInstance(const Model::DeleteInstanceRequest &request);
                 void DeleteInstanceAsync(const Model::DeleteInstanceRequest& request, const DeleteInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteInstanceOutcomeCallable DeleteInstanceCallable(const Model::DeleteInstanceRequest& request);
-
-                /**
-                 *接口请求域名： rum.tencentcloudapi.com 。
-
-本接口用于删除日志下载任务
-
-默认接口请求频率限制：20次/秒。
-                 * @param req DeleteLogExportRequest
-                 * @return DeleteLogExportOutcome
-                 */
-                DeleteLogExportOutcome DeleteLogExport(const Model::DeleteLogExportRequest &request);
-                void DeleteLogExportAsync(const Model::DeleteLogExportRequest& request, const DeleteLogExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteLogExportOutcomeCallable DeleteLogExportCallable(const Model::DeleteLogExportRequest& request);
-
-                /**
-                 *删除 rum 离线日志监听 - 对应用户的离线日志将不会上报
-                 * @param req DeleteOfflineLogConfigRequest
-                 * @return DeleteOfflineLogConfigOutcome
-                 */
-                DeleteOfflineLogConfigOutcome DeleteOfflineLogConfig(const Model::DeleteOfflineLogConfigRequest &request);
-                void DeleteOfflineLogConfigAsync(const Model::DeleteOfflineLogConfigRequest& request, const DeleteOfflineLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteOfflineLogConfigOutcomeCallable DeleteOfflineLogConfigCallable(const Model::DeleteOfflineLogConfigRequest& request);
-
-                /**
-                 *删除对应的离线日志记录
-                 * @param req DeleteOfflineLogRecordRequest
-                 * @return DeleteOfflineLogRecordOutcome
-                 */
-                DeleteOfflineLogRecordOutcome DeleteOfflineLogRecord(const Model::DeleteOfflineLogRecordRequest &request);
-                void DeleteOfflineLogRecordAsync(const Model::DeleteOfflineLogRecordRequest& request, const DeleteOfflineLogRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteOfflineLogRecordOutcomeCallable DeleteOfflineLogRecordCallable(const Model::DeleteOfflineLogRecordRequest& request);
 
                 /**
                  *删除给定的 rum 的项目
@@ -454,6 +401,42 @@ namespace TencentCloud
                 DeleteWhitelistOutcomeCallable DeleteWhitelistCallable(const Model::DeleteWhitelistRequest& request);
 
                 /**
+                 *用于查询 app 监控多维分析数据
+                 * @param req DescribeAppDimensionMetricsRequest
+                 * @return DescribeAppDimensionMetricsOutcome
+                 */
+                DescribeAppDimensionMetricsOutcome DescribeAppDimensionMetrics(const Model::DescribeAppDimensionMetricsRequest &request);
+                void DescribeAppDimensionMetricsAsync(const Model::DescribeAppDimensionMetricsRequest& request, const DescribeAppDimensionMetricsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAppDimensionMetricsOutcomeCallable DescribeAppDimensionMetricsCallable(const Model::DescribeAppDimensionMetricsRequest& request);
+
+                /**
+                 *获取 app 监控指标数据
+                 * @param req DescribeAppMetricsDataRequest
+                 * @return DescribeAppMetricsDataOutcome
+                 */
+                DescribeAppMetricsDataOutcome DescribeAppMetricsData(const Model::DescribeAppMetricsDataRequest &request);
+                void DescribeAppMetricsDataAsync(const Model::DescribeAppMetricsDataRequest& request, const DescribeAppMetricsDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAppMetricsDataOutcomeCallable DescribeAppMetricsDataCallable(const Model::DescribeAppMetricsDataRequest& request);
+
+                /**
+                 *查询 app 监控个例样本详情列表
+                 * @param req DescribeAppSingleCaseDetailListRequest
+                 * @return DescribeAppSingleCaseDetailListOutcome
+                 */
+                DescribeAppSingleCaseDetailListOutcome DescribeAppSingleCaseDetailList(const Model::DescribeAppSingleCaseDetailListRequest &request);
+                void DescribeAppSingleCaseDetailListAsync(const Model::DescribeAppSingleCaseDetailListRequest& request, const DescribeAppSingleCaseDetailListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAppSingleCaseDetailListOutcomeCallable DescribeAppSingleCaseDetailListCallable(const Model::DescribeAppSingleCaseDetailListRequest& request);
+
+                /**
+                 *查询 app 监控个例聚合列表
+                 * @param req DescribeAppSingleCaseListRequest
+                 * @return DescribeAppSingleCaseListOutcome
+                 */
+                DescribeAppSingleCaseListOutcome DescribeAppSingleCaseList(const Model::DescribeAppSingleCaseListRequest &request);
+                void DescribeAppSingleCaseListAsync(const Model::DescribeAppSingleCaseListRequest& request, const DescribeAppSingleCaseListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAppSingleCaseListOutcomeCallable DescribeAppSingleCaseListCallable(const Model::DescribeAppSingleCaseListRequest& request);
+
+                /**
                  *转发monitor查询
                  * @param req DescribeDataRequest
                  * @return DescribeDataOutcome
@@ -481,7 +464,7 @@ namespace TencentCloud
                 DescribeDataEventUrlOutcomeCallable DescribeDataEventUrlCallable(const Model::DescribeDataEventUrlRequest& request);
 
                 /**
-                 *获取DescribeDataFetchProject信息
+                 *获取DescribeDataFetchProject信息。已下线，请使用DescribeDataFetchUrl
                  * @param req DescribeDataFetchProjectRequest
                  * @return DescribeDataFetchProjectOutcome
                  */
@@ -533,15 +516,6 @@ namespace TencentCloud
                 DescribeDataPerformancePageOutcome DescribeDataPerformancePage(const Model::DescribeDataPerformancePageRequest &request);
                 void DescribeDataPerformancePageAsync(const Model::DescribeDataPerformancePageRequest& request, const DescribeDataPerformancePageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDataPerformancePageOutcomeCallable DescribeDataPerformancePageCallable(const Model::DescribeDataPerformancePageRequest& request);
-
-                /**
-                 *获取PerformanceProject信息
-                 * @param req DescribeDataPerformanceProjectRequest
-                 * @return DescribeDataPerformanceProjectOutcome
-                 */
-                DescribeDataPerformanceProjectOutcome DescribeDataPerformanceProject(const Model::DescribeDataPerformanceProjectRequest &request);
-                void DescribeDataPerformanceProjectAsync(const Model::DescribeDataPerformanceProjectRequest& request, const DescribeDataPerformanceProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataPerformanceProjectOutcomeCallable DescribeDataPerformanceProjectCallable(const Model::DescribeDataPerformanceProjectRequest& request);
 
                 /**
                  *获取PvUrlInfo信息
@@ -626,56 +600,7 @@ namespace TencentCloud
                 DescribeErrorOutcomeCallable DescribeErrorCallable(const Model::DescribeErrorRequest& request);
 
                 /**
-                 *接口请求域名： rum.tencentcloudapi.com 。
-
-本接口用于获取日志下载任务列表
-
-默认接口请求频率限制：20次/秒
-                 * @param req DescribeLogExportsRequest
-                 * @return DescribeLogExportsOutcome
-                 */
-                DescribeLogExportsOutcome DescribeLogExports(const Model::DescribeLogExportsRequest &request);
-                void DescribeLogExportsAsync(const Model::DescribeLogExportsRequest& request, const DescribeLogExportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeLogExportsOutcomeCallable DescribeLogExportsCallable(const Model::DescribeLogExportsRequest& request);
-
-                /**
-                 *获取项目下的日志列表（实例创建的项目下的日志列表）
-                 * @param req DescribeLogListRequest
-                 * @return DescribeLogListOutcome
-                 */
-                DescribeLogListOutcome DescribeLogList(const Model::DescribeLogListRequest &request);
-                void DescribeLogListAsync(const Model::DescribeLogListRequest& request, const DescribeLogListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeLogListOutcomeCallable DescribeLogListCallable(const Model::DescribeLogListRequest& request);
-
-                /**
-                 *获取设置的离线日志监听配置 - 返回设置的用户唯一标识
-                 * @param req DescribeOfflineLogConfigsRequest
-                 * @return DescribeOfflineLogConfigsOutcome
-                 */
-                DescribeOfflineLogConfigsOutcome DescribeOfflineLogConfigs(const Model::DescribeOfflineLogConfigsRequest &request);
-                void DescribeOfflineLogConfigsAsync(const Model::DescribeOfflineLogConfigsRequest& request, const DescribeOfflineLogConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeOfflineLogConfigsOutcomeCallable DescribeOfflineLogConfigsCallable(const Model::DescribeOfflineLogConfigsRequest& request);
-
-                /**
-                 *获取所有离线日志记录(最多100条)
-                 * @param req DescribeOfflineLogRecordsRequest
-                 * @return DescribeOfflineLogRecordsOutcome
-                 */
-                DescribeOfflineLogRecordsOutcome DescribeOfflineLogRecords(const Model::DescribeOfflineLogRecordsRequest &request);
-                void DescribeOfflineLogRecordsAsync(const Model::DescribeOfflineLogRecordsRequest& request, const DescribeOfflineLogRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeOfflineLogRecordsOutcomeCallable DescribeOfflineLogRecordsCallable(const Model::DescribeOfflineLogRecordsRequest& request);
-
-                /**
-                 *获取对应离线日志
-                 * @param req DescribeOfflineLogsRequest
-                 * @return DescribeOfflineLogsOutcome
-                 */
-                DescribeOfflineLogsOutcome DescribeOfflineLogs(const Model::DescribeOfflineLogsRequest &request);
-                void DescribeOfflineLogsAsync(const Model::DescribeOfflineLogsRequest& request, const DescribeOfflineLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeOfflineLogsOutcomeCallable DescribeOfflineLogsCallable(const Model::DescribeOfflineLogsRequest& request);
-
-                /**
-                 *获取项目上报率列表
+                 *获取应用上报抽样信息
                  * @param req DescribeProjectLimitsRequest
                  * @return DescribeProjectLimitsOutcome
                  */
@@ -711,13 +636,58 @@ namespace TencentCloud
                 DescribeReleaseFileSignOutcomeCallable DescribeReleaseFileSignCallable(const Model::DescribeReleaseFileSignRequest& request);
 
                 /**
-                 *获取项目对应sourcemap文件列表
+                 *获取应用对应sourcemap文件列表
                  * @param req DescribeReleaseFilesRequest
                  * @return DescribeReleaseFilesOutcome
                  */
                 DescribeReleaseFilesOutcome DescribeReleaseFiles(const Model::DescribeReleaseFilesRequest &request);
                 void DescribeReleaseFilesAsync(const Model::DescribeReleaseFilesRequest& request, const DescribeReleaseFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeReleaseFilesOutcomeCallable DescribeReleaseFilesCallable(const Model::DescribeReleaseFilesRequest& request);
+
+                /**
+                 *获取项目下的日志聚合信息
+                 * @param req DescribeRumGroupLogRequest
+                 * @return DescribeRumGroupLogOutcome
+                 */
+                DescribeRumGroupLogOutcome DescribeRumGroupLog(const Model::DescribeRumGroupLogRequest &request);
+                void DescribeRumGroupLogAsync(const Model::DescribeRumGroupLogRequest& request, const DescribeRumGroupLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeRumGroupLogOutcomeCallable DescribeRumGroupLogCallable(const Model::DescribeRumGroupLogRequest& request);
+
+                /**
+                 *获取项目下的日志列表（实例创建的项目下的日志列表）
+                 * @param req DescribeRumLogExportRequest
+                 * @return DescribeRumLogExportOutcome
+                 */
+                DescribeRumLogExportOutcome DescribeRumLogExport(const Model::DescribeRumLogExportRequest &request);
+                void DescribeRumLogExportAsync(const Model::DescribeRumLogExportRequest& request, const DescribeRumLogExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeRumLogExportOutcomeCallable DescribeRumLogExportCallable(const Model::DescribeRumLogExportRequest& request);
+
+                /**
+                 *获取项目下的日志导出列表
+                 * @param req DescribeRumLogExportsRequest
+                 * @return DescribeRumLogExportsOutcome
+                 */
+                DescribeRumLogExportsOutcome DescribeRumLogExports(const Model::DescribeRumLogExportsRequest &request);
+                void DescribeRumLogExportsAsync(const Model::DescribeRumLogExportsRequest& request, const DescribeRumLogExportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeRumLogExportsOutcomeCallable DescribeRumLogExportsCallable(const Model::DescribeRumLogExportsRequest& request);
+
+                /**
+                 *获取项目下的日志列表（实例创建的项目下的日志列表）
+                 * @param req DescribeRumLogListRequest
+                 * @return DescribeRumLogListOutcome
+                 */
+                DescribeRumLogListOutcome DescribeRumLogList(const Model::DescribeRumLogListRequest &request);
+                void DescribeRumLogListAsync(const Model::DescribeRumLogListRequest& request, const DescribeRumLogListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeRumLogListOutcomeCallable DescribeRumLogListCallable(const Model::DescribeRumLogListRequest& request);
+
+                /**
+                 *获取项目下的日志列表，分钟级
+                 * @param req DescribeRumStatsLogListRequest
+                 * @return DescribeRumStatsLogListOutcome
+                 */
+                DescribeRumStatsLogListOutcome DescribeRumStatsLogList(const Model::DescribeRumStatsLogListRequest &request);
+                void DescribeRumStatsLogListAsync(const Model::DescribeRumStatsLogListRequest& request, const DescribeRumStatsLogListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeRumStatsLogListOutcomeCallable DescribeRumStatsLogListCallable(const Model::DescribeRumStatsLogListRequest& request);
 
                 /**
                  *获取首页分数列表
@@ -765,7 +735,7 @@ namespace TencentCloud
                 DescribeWhitelistsOutcomeCallable DescribeWhitelistsCallable(const Model::DescribeWhitelistsRequest& request);
 
                 /**
-                 *修改实例信息
+                 *修改 RUM 业务系统
                  * @param req ModifyInstanceRequest
                  * @return ModifyInstanceOutcome
                  */
@@ -774,7 +744,7 @@ namespace TencentCloud
                 ModifyInstanceOutcomeCallable ModifyInstanceCallable(const Model::ModifyInstanceRequest& request);
 
                 /**
-                 *修改 rum 项目信息
+                 *修改 RUM 应用信息
                  * @param req ModifyProjectRequest
                  * @return ModifyProjectOutcome
                  */
@@ -792,13 +762,22 @@ namespace TencentCloud
                 ModifyProjectLimitOutcomeCallable ModifyProjectLimitCallable(const Model::ModifyProjectLimitRequest& request);
 
                 /**
-                 *恢复实例
+                 *恢复 RUM 业务系统，恢复后，用户可以正常使用和上报数据
                  * @param req ResumeInstanceRequest
                  * @return ResumeInstanceOutcome
                  */
                 ResumeInstanceOutcome ResumeInstance(const Model::ResumeInstanceRequest &request);
                 void ResumeInstanceAsync(const Model::ResumeInstanceRequest& request, const ResumeInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ResumeInstanceOutcomeCallable ResumeInstanceCallable(const Model::ResumeInstanceRequest& request);
+
+                /**
+                 *恢复应用使用与上报数据
+                 * @param req ResumeProjectRequest
+                 * @return ResumeProjectOutcome
+                 */
+                ResumeProjectOutcome ResumeProject(const Model::ResumeProjectRequest &request);
+                void ResumeProjectAsync(const Model::ResumeProjectRequest& request, const ResumeProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ResumeProjectOutcomeCallable ResumeProjectCallable(const Model::ResumeProjectRequest& request);
 
                 /**
                  *停止实例
@@ -808,6 +787,15 @@ namespace TencentCloud
                 StopInstanceOutcome StopInstance(const Model::StopInstanceRequest &request);
                 void StopInstanceAsync(const Model::StopInstanceRequest& request, const StopInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 StopInstanceOutcomeCallable StopInstanceCallable(const Model::StopInstanceRequest& request);
+
+                /**
+                 *停止项目使用与上报数据
+                 * @param req StopProjectRequest
+                 * @return StopProjectOutcome
+                 */
+                StopProjectOutcome StopProject(const Model::StopProjectRequest &request);
+                void StopProjectAsync(const Model::StopProjectRequest& request, const StopProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                StopProjectOutcomeCallable StopProjectCallable(const Model::StopProjectRequest& request);
 
             };
         }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,10 @@ Disk::Disk() :
     m_latestOperationRequestIdHasBeenSet(false),
     m_createdTimeHasBeenSet(false),
     m_expiredTimeHasBeenSet(false),
-    m_isolatedTimeHasBeenSet(false)
+    m_isolatedTimeHasBeenSet(false),
+    m_diskBackupCountHasBeenSet(false),
+    m_diskBackupQuotaHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -227,6 +230,46 @@ CoreInternalOutcome Disk::Deserialize(const rapidjson::Value &value)
         m_isolatedTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("DiskBackupCount") && !value["DiskBackupCount"].IsNull())
+    {
+        if (!value["DiskBackupCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.DiskBackupCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_diskBackupCount = value["DiskBackupCount"].GetInt64();
+        m_diskBackupCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("DiskBackupQuota") && !value["DiskBackupQuota"].IsNull())
+    {
+        if (!value["DiskBackupQuota"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.DiskBackupQuota` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_diskBackupQuota = value["DiskBackupQuota"].GetInt64();
+        m_diskBackupQuotaHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Disk.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -376,6 +419,37 @@ void Disk::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorT
         string key = "IsolatedTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_isolatedTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_diskBackupCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskBackupCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_diskBackupCount, allocator);
+    }
+
+    if (m_diskBackupQuotaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskBackupQuota";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_diskBackupQuota, allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -667,5 +741,53 @@ void Disk::SetIsolatedTime(const string& _isolatedTime)
 bool Disk::IsolatedTimeHasBeenSet() const
 {
     return m_isolatedTimeHasBeenSet;
+}
+
+int64_t Disk::GetDiskBackupCount() const
+{
+    return m_diskBackupCount;
+}
+
+void Disk::SetDiskBackupCount(const int64_t& _diskBackupCount)
+{
+    m_diskBackupCount = _diskBackupCount;
+    m_diskBackupCountHasBeenSet = true;
+}
+
+bool Disk::DiskBackupCountHasBeenSet() const
+{
+    return m_diskBackupCountHasBeenSet;
+}
+
+int64_t Disk::GetDiskBackupQuota() const
+{
+    return m_diskBackupQuota;
+}
+
+void Disk::SetDiskBackupQuota(const int64_t& _diskBackupQuota)
+{
+    m_diskBackupQuota = _diskBackupQuota;
+    m_diskBackupQuotaHasBeenSet = true;
+}
+
+bool Disk::DiskBackupQuotaHasBeenSet() const
+{
+    return m_diskBackupQuotaHasBeenSet;
+}
+
+vector<Tag> Disk::GetTags() const
+{
+    return m_tags;
+}
+
+void Disk::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool Disk::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 

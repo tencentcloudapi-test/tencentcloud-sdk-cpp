@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,13 +46,17 @@ namespace TencentCloud
 
                     /**
                      * 获取短信发送状态。
+注：可参考 <a href="#4.-.E7.A4.BA.E4.BE.8B">示例</a> ，包含短信发送成功和发送失败的输出示例。
                      * @return SendStatusSet 短信发送状态。
+注：可参考 <a href="#4.-.E7.A4.BA.E4.BE.8B">示例</a> ，包含短信发送成功和发送失败的输出示例。
+                     * 
                      */
                     std::vector<SendStatus> GetSendStatusSet() const;
 
                     /**
                      * 判断参数 SendStatusSet 是否已赋值
                      * @return SendStatusSet 是否已赋值
+                     * 
                      */
                     bool SendStatusSetHasBeenSet() const;
 
@@ -60,6 +64,7 @@ namespace TencentCloud
 
                     /**
                      * 短信发送状态。
+注：可参考 <a href="#4.-.E7.A4.BA.E4.BE.8B">示例</a> ，包含短信发送成功和发送失败的输出示例。
                      */
                     std::vector<SendStatus> m_sendStatusSet;
                     bool m_sendStatusSetHasBeenSet;

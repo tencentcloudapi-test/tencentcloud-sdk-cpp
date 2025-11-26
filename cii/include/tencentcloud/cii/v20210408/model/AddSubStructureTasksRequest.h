@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取主任务id
                      * @return MainTaskId 主任务id
+                     * 
                      */
                     std::string GetMainTaskId() const;
 
                     /**
                      * 设置主任务id
-                     * @param MainTaskId 主任务id
+                     * @param _mainTaskId 主任务id
+                     * 
                      */
                     void SetMainTaskId(const std::string& _mainTaskId);
 
                     /**
                      * 判断参数 MainTaskId 是否已赋值
                      * @return MainTaskId 是否已赋值
+                     * 
                      */
                     bool MainTaskIdHasBeenSet() const;
 
                     /**
                      * 获取子任务信息数组
                      * @return TaskInfos 子任务信息数组
+                     * 
                      */
                     std::vector<CreateStructureTaskInfo> GetTaskInfos() const;
 
                     /**
                      * 设置子任务信息数组
-                     * @param TaskInfos 子任务信息数组
+                     * @param _taskInfos 子任务信息数组
+                     * 
                      */
                     void SetTaskInfos(const std::vector<CreateStructureTaskInfo>& _taskInfos);
 
                     /**
                      * 判断参数 TaskInfos 是否已赋值
                      * @return TaskInfos 是否已赋值
+                     * 
                      */
                     bool TaskInfosHasBeenSet() const;
 

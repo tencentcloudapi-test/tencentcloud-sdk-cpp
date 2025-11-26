@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取Vpc实例ID，例如：vpc-f1xjkw1b。
                      * @return VpcIds Vpc实例ID，例如：vpc-f1xjkw1b。
+                     * 
                      */
                     std::vector<std::string> GetVpcIds() const;
 
                     /**
                      * 设置Vpc实例ID，例如：vpc-f1xjkw1b。
-                     * @param VpcIds Vpc实例ID，例如：vpc-f1xjkw1b。
+                     * @param _vpcIds Vpc实例ID，例如：vpc-f1xjkw1b。
+                     * 
                      */
                     void SetVpcIds(const std::vector<std::string>& _vpcIds);
 
                     /**
                      * 判断参数 VpcIds 是否已赋值
                      * @return VpcIds 是否已赋值
+                     * 
                      */
                     bool VpcIdsHasBeenSet() const;
 

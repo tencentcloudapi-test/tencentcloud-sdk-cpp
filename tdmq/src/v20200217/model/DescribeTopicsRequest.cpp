@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,12 +24,13 @@ using namespace std;
 
 DescribeTopicsRequest::DescribeTopicsRequest() :
     m_environmentIdHasBeenSet(false),
+    m_clusterIdHasBeenSet(false),
     m_topicNameHasBeenSet(false),
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false),
     m_topicTypeHasBeenSet(false),
-    m_clusterIdHasBeenSet(false),
-    m_filtersHasBeenSet(false)
+    m_filtersHasBeenSet(false),
+    m_topicCreatorHasBeenSet(false)
 {
 }
 
@@ -46,6 +47,14 @@ string DescribeTopicsRequest::ToJsonString() const
         string key = "EnvironmentId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_environmentId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clusterId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_topicNameHasBeenSet)
@@ -80,14 +89,6 @@ string DescribeTopicsRequest::ToJsonString() const
         d.AddMember(iKey, m_topicType, allocator);
     }
 
-    if (m_clusterIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClusterId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_clusterId.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_filtersHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -101,6 +102,14 @@ string DescribeTopicsRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_topicCreatorHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TopicCreator";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_topicCreator, allocator);
     }
 
 
@@ -125,6 +134,22 @@ void DescribeTopicsRequest::SetEnvironmentId(const string& _environmentId)
 bool DescribeTopicsRequest::EnvironmentIdHasBeenSet() const
 {
     return m_environmentIdHasBeenSet;
+}
+
+string DescribeTopicsRequest::GetClusterId() const
+{
+    return m_clusterId;
+}
+
+void DescribeTopicsRequest::SetClusterId(const string& _clusterId)
+{
+    m_clusterId = _clusterId;
+    m_clusterIdHasBeenSet = true;
+}
+
+bool DescribeTopicsRequest::ClusterIdHasBeenSet() const
+{
+    return m_clusterIdHasBeenSet;
 }
 
 string DescribeTopicsRequest::GetTopicName() const
@@ -191,22 +216,6 @@ bool DescribeTopicsRequest::TopicTypeHasBeenSet() const
     return m_topicTypeHasBeenSet;
 }
 
-string DescribeTopicsRequest::GetClusterId() const
-{
-    return m_clusterId;
-}
-
-void DescribeTopicsRequest::SetClusterId(const string& _clusterId)
-{
-    m_clusterId = _clusterId;
-    m_clusterIdHasBeenSet = true;
-}
-
-bool DescribeTopicsRequest::ClusterIdHasBeenSet() const
-{
-    return m_clusterIdHasBeenSet;
-}
-
 vector<Filter> DescribeTopicsRequest::GetFilters() const
 {
     return m_filters;
@@ -221,6 +230,22 @@ void DescribeTopicsRequest::SetFilters(const vector<Filter>& _filters)
 bool DescribeTopicsRequest::FiltersHasBeenSet() const
 {
     return m_filtersHasBeenSet;
+}
+
+uint64_t DescribeTopicsRequest::GetTopicCreator() const
+{
+    return m_topicCreator;
+}
+
+void DescribeTopicsRequest::SetTopicCreator(const uint64_t& _topicCreator)
+{
+    m_topicCreator = _topicCreator;
+    m_topicCreatorHasBeenSet = true;
+}
+
+bool DescribeTopicsRequest::TopicCreatorHasBeenSet() const
+{
+    return m_topicCreatorHasBeenSet;
 }
 
 

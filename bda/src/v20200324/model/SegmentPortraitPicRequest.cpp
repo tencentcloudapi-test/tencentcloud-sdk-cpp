@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ using namespace std;
 
 SegmentPortraitPicRequest::SegmentPortraitPicRequest() :
     m_imageHasBeenSet(false),
-    m_urlHasBeenSet(false)
+    m_urlHasBeenSet(false),
+    m_rspImgTypeHasBeenSet(false),
+    m_sceneHasBeenSet(false)
 {
 }
 
@@ -49,6 +51,22 @@ string SegmentPortraitPicRequest::ToJsonString() const
         string key = "Url";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_url.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_rspImgTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RspImgType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_rspImgType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sceneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Scene";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_scene.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +107,38 @@ void SegmentPortraitPicRequest::SetUrl(const string& _url)
 bool SegmentPortraitPicRequest::UrlHasBeenSet() const
 {
     return m_urlHasBeenSet;
+}
+
+string SegmentPortraitPicRequest::GetRspImgType() const
+{
+    return m_rspImgType;
+}
+
+void SegmentPortraitPicRequest::SetRspImgType(const string& _rspImgType)
+{
+    m_rspImgType = _rspImgType;
+    m_rspImgTypeHasBeenSet = true;
+}
+
+bool SegmentPortraitPicRequest::RspImgTypeHasBeenSet() const
+{
+    return m_rspImgTypeHasBeenSet;
+}
+
+string SegmentPortraitPicRequest::GetScene() const
+{
+    return m_scene;
+}
+
+void SegmentPortraitPicRequest::SetScene(const string& _scene)
+{
+    m_scene = _scene;
+    m_sceneHasBeenSet = true;
+}
+
+bool SegmentPortraitPicRequest::SceneHasBeenSet() const
+{
+    return m_sceneHasBeenSet;
 }
 
 

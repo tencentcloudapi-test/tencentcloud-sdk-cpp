@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,9 +26,13 @@ BindingPolicyTagRequest::BindingPolicyTagRequest() :
     m_moduleHasBeenSet(false),
     m_policyIdHasBeenSet(false),
     m_groupIdHasBeenSet(false),
-    m_tagHasBeenSet(false),
     m_serviceTypeHasBeenSet(false),
-    m_instanceGroupIdHasBeenSet(false)
+    m_tagHasBeenSet(false),
+    m_instanceGroupIdHasBeenSet(false),
+    m_batchTagHasBeenSet(false),
+    m_ebEventFlagHasBeenSet(false),
+    m_ebSubjectHasBeenSet(false),
+    m_tagOperationHasBeenSet(false)
 {
 }
 
@@ -63,6 +67,14 @@ string BindingPolicyTagRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_groupId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_serviceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_serviceType.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_tagHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -72,20 +84,51 @@ string BindingPolicyTagRequest::ToJsonString() const
         m_tag.ToJsonObject(d[key.c_str()], allocator);
     }
 
-    if (m_serviceTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ServiceType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_serviceType.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_instanceGroupIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "InstanceGroupId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_instanceGroupId, allocator);
+    }
+
+    if (m_batchTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BatchTag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_batchTag.begin(); itr != m_batchTag.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_ebEventFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EbEventFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_ebEventFlag, allocator);
+    }
+
+    if (m_ebSubjectHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EbSubject";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ebSubject.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagOperationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagOperation";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_tagOperation.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -144,22 +187,6 @@ bool BindingPolicyTagRequest::GroupIdHasBeenSet() const
     return m_groupIdHasBeenSet;
 }
 
-PolicyTag BindingPolicyTagRequest::GetTag() const
-{
-    return m_tag;
-}
-
-void BindingPolicyTagRequest::SetTag(const PolicyTag& _tag)
-{
-    m_tag = _tag;
-    m_tagHasBeenSet = true;
-}
-
-bool BindingPolicyTagRequest::TagHasBeenSet() const
-{
-    return m_tagHasBeenSet;
-}
-
 string BindingPolicyTagRequest::GetServiceType() const
 {
     return m_serviceType;
@@ -176,6 +203,22 @@ bool BindingPolicyTagRequest::ServiceTypeHasBeenSet() const
     return m_serviceTypeHasBeenSet;
 }
 
+PolicyTag BindingPolicyTagRequest::GetTag() const
+{
+    return m_tag;
+}
+
+void BindingPolicyTagRequest::SetTag(const PolicyTag& _tag)
+{
+    m_tag = _tag;
+    m_tagHasBeenSet = true;
+}
+
+bool BindingPolicyTagRequest::TagHasBeenSet() const
+{
+    return m_tagHasBeenSet;
+}
+
 int64_t BindingPolicyTagRequest::GetInstanceGroupId() const
 {
     return m_instanceGroupId;
@@ -190,6 +233,70 @@ void BindingPolicyTagRequest::SetInstanceGroupId(const int64_t& _instanceGroupId
 bool BindingPolicyTagRequest::InstanceGroupIdHasBeenSet() const
 {
     return m_instanceGroupIdHasBeenSet;
+}
+
+vector<PolicyTag> BindingPolicyTagRequest::GetBatchTag() const
+{
+    return m_batchTag;
+}
+
+void BindingPolicyTagRequest::SetBatchTag(const vector<PolicyTag>& _batchTag)
+{
+    m_batchTag = _batchTag;
+    m_batchTagHasBeenSet = true;
+}
+
+bool BindingPolicyTagRequest::BatchTagHasBeenSet() const
+{
+    return m_batchTagHasBeenSet;
+}
+
+int64_t BindingPolicyTagRequest::GetEbEventFlag() const
+{
+    return m_ebEventFlag;
+}
+
+void BindingPolicyTagRequest::SetEbEventFlag(const int64_t& _ebEventFlag)
+{
+    m_ebEventFlag = _ebEventFlag;
+    m_ebEventFlagHasBeenSet = true;
+}
+
+bool BindingPolicyTagRequest::EbEventFlagHasBeenSet() const
+{
+    return m_ebEventFlagHasBeenSet;
+}
+
+string BindingPolicyTagRequest::GetEbSubject() const
+{
+    return m_ebSubject;
+}
+
+void BindingPolicyTagRequest::SetEbSubject(const string& _ebSubject)
+{
+    m_ebSubject = _ebSubject;
+    m_ebSubjectHasBeenSet = true;
+}
+
+bool BindingPolicyTagRequest::EbSubjectHasBeenSet() const
+{
+    return m_ebSubjectHasBeenSet;
+}
+
+string BindingPolicyTagRequest::GetTagOperation() const
+{
+    return m_tagOperation;
+}
+
+void BindingPolicyTagRequest::SetTagOperation(const string& _tagOperation)
+{
+    m_tagOperation = _tagOperation;
+    m_tagOperationHasBeenSet = true;
+}
+
+bool BindingPolicyTagRequest::TagOperationHasBeenSet() const
+{
+    return m_tagOperationHasBeenSet;
 }
 
 

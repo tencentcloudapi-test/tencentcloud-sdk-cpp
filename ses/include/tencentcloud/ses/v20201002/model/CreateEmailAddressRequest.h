@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取您的发信地址（发信地址总数上限为10个）
                      * @return EmailAddress 您的发信地址（发信地址总数上限为10个）
+                     * 
                      */
                     std::string GetEmailAddress() const;
 
                     /**
                      * 设置您的发信地址（发信地址总数上限为10个）
-                     * @param EmailAddress 您的发信地址（发信地址总数上限为10个）
+                     * @param _emailAddress 您的发信地址（发信地址总数上限为10个）
+                     * 
                      */
                     void SetEmailAddress(const std::string& _emailAddress);
 
                     /**
                      * 判断参数 EmailAddress 是否已赋值
                      * @return EmailAddress 是否已赋值
+                     * 
                      */
                     bool EmailAddressHasBeenSet() const;
 
                     /**
                      * 获取发件人别名
                      * @return EmailSenderName 发件人别名
+                     * 
                      */
                     std::string GetEmailSenderName() const;
 
                     /**
                      * 设置发件人别名
-                     * @param EmailSenderName 发件人别名
+                     * @param _emailSenderName 发件人别名
+                     * 
                      */
                     void SetEmailSenderName(const std::string& _emailSenderName);
 
                     /**
                      * 判断参数 EmailSenderName 是否已赋值
                      * @return EmailSenderName 是否已赋值
+                     * 
                      */
                     bool EmailSenderNameHasBeenSet() const;
 

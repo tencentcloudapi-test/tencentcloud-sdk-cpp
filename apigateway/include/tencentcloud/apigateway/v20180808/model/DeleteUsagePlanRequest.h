@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取待删除的使用计划唯一 ID。
                      * @return UsagePlanId 待删除的使用计划唯一 ID。
+                     * 
                      */
                     std::string GetUsagePlanId() const;
 
                     /**
                      * 设置待删除的使用计划唯一 ID。
-                     * @param UsagePlanId 待删除的使用计划唯一 ID。
+                     * @param _usagePlanId 待删除的使用计划唯一 ID。
+                     * 
                      */
                     void SetUsagePlanId(const std::string& _usagePlanId);
 
                     /**
                      * 判断参数 UsagePlanId 是否已赋值
                      * @return UsagePlanId 是否已赋值
+                     * 
                      */
                     bool UsagePlanIdHasBeenSet() const;
 

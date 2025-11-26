@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 CreateCustomerGatewayRequest::CreateCustomerGatewayRequest() :
     m_customerGatewayNameHasBeenSet(false),
     m_ipAddressHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_bgpAsnHasBeenSet(false)
 {
 }
 
@@ -65,6 +66,14 @@ string CreateCustomerGatewayRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_bgpAsnHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BgpAsn";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_bgpAsn, allocator);
     }
 
 
@@ -121,6 +130,22 @@ void CreateCustomerGatewayRequest::SetTags(const vector<Tag>& _tags)
 bool CreateCustomerGatewayRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+int64_t CreateCustomerGatewayRequest::GetBgpAsn() const
+{
+    return m_bgpAsn;
+}
+
+void CreateCustomerGatewayRequest::SetBgpAsn(const int64_t& _bgpAsn)
+{
+    m_bgpAsn = _bgpAsn;
+    m_bgpAsnHasBeenSet = true;
+}
+
+bool CreateCustomerGatewayRequest::BgpAsnHasBeenSet() const
+{
+    return m_bgpAsnHasBeenSet;
 }
 
 

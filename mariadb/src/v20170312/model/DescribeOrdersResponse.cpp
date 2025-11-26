@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,14 +65,11 @@ CoreInternalOutcome DescribeOrdersResponse::Deserialize(const string &payload)
 
     if (rsp.HasMember("TotalCount") && !rsp["TotalCount"].IsNull())
     {
-        if (!rsp["TotalCount"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `TotalCount` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["TotalCount"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        if (!rsp["TotalCount"].IsUint64())
         {
-            m_totalCount.push_back((*itr).GetInt64());
+            return CoreInternalOutcome(Core::Error("response `TotalCount` IsUint64=false incorrectly").SetRequestId(requestId));
         }
+        m_totalCount = rsp["TotalCount"].GetUint64();
         m_totalCountHasBeenSet = true;
     }
 
@@ -111,12 +108,7 @@ string DescribeOrdersResponse::ToJsonString() const
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "TotalCount";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_totalCount.begin(); itr != m_totalCount.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
-        }
+        value.AddMember(iKey, m_totalCount, allocator);
     }
 
     if (m_dealsHasBeenSet)
@@ -138,7 +130,7 @@ string DescribeOrdersResponse::ToJsonString() const
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -146,7 +138,7 @@ string DescribeOrdersResponse::ToJsonString() const
 }
 
 
-vector<int64_t> DescribeOrdersResponse::GetTotalCount() const
+uint64_t DescribeOrdersResponse::GetTotalCount() const
 {
     return m_totalCount;
 }

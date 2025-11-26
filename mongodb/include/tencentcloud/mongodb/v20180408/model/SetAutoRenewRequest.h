@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,54 @@ namespace TencentCloud
                     /**
                      * 获取实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
                      * @return InstanceIds 实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+                     * 
                      */
                     std::vector<std::string> GetInstanceIds() const;
 
                     /**
                      * 设置实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
-                     * @param InstanceIds 实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+                     * @param _instanceIds 实例ID列表，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+                     * 
                      */
                     void SetInstanceIds(const std::vector<std::string>& _instanceIds);
 
                     /**
                      * 判断参数 InstanceIds 是否已赋值
                      * @return InstanceIds 是否已赋值
+                     * 
                      */
                     bool InstanceIdsHasBeenSet() const;
 
                     /**
-                     * 获取续费选项，取值范围：0-手动续费，1-自动续费，2-确认不续费
-                     * @return AutoRenewFlag 续费选项，取值范围：0-手动续费，1-自动续费，2-确认不续费
+                     * 获取配置自动续费标识。
+- 0：手动续费。
+- 1：自动续费。
+- 2：确认不续费。
+                     * @return AutoRenewFlag 配置自动续费标识。
+- 0：手动续费。
+- 1：自动续费。
+- 2：确认不续费。
+                     * 
                      */
                     uint64_t GetAutoRenewFlag() const;
 
                     /**
-                     * 设置续费选项，取值范围：0-手动续费，1-自动续费，2-确认不续费
-                     * @param AutoRenewFlag 续费选项，取值范围：0-手动续费，1-自动续费，2-确认不续费
+                     * 设置配置自动续费标识。
+- 0：手动续费。
+- 1：自动续费。
+- 2：确认不续费。
+                     * @param _autoRenewFlag 配置自动续费标识。
+- 0：手动续费。
+- 1：自动续费。
+- 2：确认不续费。
+                     * 
                      */
                     void SetAutoRenewFlag(const uint64_t& _autoRenewFlag);
 
                     /**
                      * 判断参数 AutoRenewFlag 是否已赋值
                      * @return AutoRenewFlag 是否已赋值
+                     * 
                      */
                     bool AutoRenewFlagHasBeenSet() const;
 
@@ -87,7 +105,10 @@ namespace TencentCloud
                     bool m_instanceIdsHasBeenSet;
 
                     /**
-                     * 续费选项，取值范围：0-手动续费，1-自动续费，2-确认不续费
+                     * 配置自动续费标识。
+- 0：手动续费。
+- 1：自动续费。
+- 2：确认不续费。
                      */
                     uint64_t m_autoRenewFlag;
                     bool m_autoRenewFlagHasBeenSet;

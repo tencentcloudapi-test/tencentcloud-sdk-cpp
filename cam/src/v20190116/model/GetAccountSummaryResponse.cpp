@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ GetAccountSummaryResponse::GetAccountSummaryResponse() :
     m_idpsHasBeenSet(false),
     m_userHasBeenSet(false),
     m_groupHasBeenSet(false),
-    m_memberHasBeenSet(false)
+    m_memberHasBeenSet(false),
+    m_identityProvidersHasBeenSet(false)
 {
 }
 
@@ -127,6 +128,16 @@ CoreInternalOutcome GetAccountSummaryResponse::Deserialize(const string &payload
         m_memberHasBeenSet = true;
     }
 
+    if (rsp.HasMember("IdentityProviders") && !rsp["IdentityProviders"].IsNull())
+    {
+        if (!rsp["IdentityProviders"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `IdentityProviders` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_identityProviders = rsp["IdentityProviders"].GetUint64();
+        m_identityProvidersHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -185,11 +196,19 @@ string GetAccountSummaryResponse::ToJsonString() const
         value.AddMember(iKey, m_member, allocator);
     }
 
+    if (m_identityProvidersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdentityProviders";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_identityProviders, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -255,6 +274,16 @@ uint64_t GetAccountSummaryResponse::GetMember() const
 bool GetAccountSummaryResponse::MemberHasBeenSet() const
 {
     return m_memberHasBeenSet;
+}
+
+uint64_t GetAccountSummaryResponse::GetIdentityProviders() const
+{
+    return m_identityProviders;
+}
+
+bool GetAccountSummaryResponse::IdentityProvidersHasBeenSet() const
+{
+    return m_identityProvidersHasBeenSet;
 }
 
 

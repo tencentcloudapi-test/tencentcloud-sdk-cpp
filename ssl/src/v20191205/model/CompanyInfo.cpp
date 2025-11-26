@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ CompanyInfo::CompanyInfo() :
     m_companyProvinceHasBeenSet(false),
     m_companyCityHasBeenSet(false),
     m_companyAddressHasBeenSet(false),
-    m_companyPhoneHasBeenSet(false)
+    m_companyPhoneHasBeenSet(false),
+    m_idTypeHasBeenSet(false),
+    m_idNumberHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -106,6 +109,46 @@ CoreInternalOutcome CompanyInfo::Deserialize(const rapidjson::Value &value)
         m_companyPhoneHasBeenSet = true;
     }
 
+    if (value.HasMember("IdType") && !value["IdType"].IsNull())
+    {
+        if (!value["IdType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompanyInfo.IdType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_idType = string(value["IdType"].GetString());
+        m_idTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IdNumber") && !value["IdNumber"].IsNull())
+    {
+        if (!value["IdNumber"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompanyInfo.IdNumber` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_idNumber = string(value["IdNumber"].GetString());
+        m_idNumberHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CompanyInfo.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tags item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -167,6 +210,37 @@ void CompanyInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "CompanyPhone";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_companyPhone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_idTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_idType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_idNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdNumber";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_idNumber.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -282,5 +356,53 @@ void CompanyInfo::SetCompanyPhone(const string& _companyPhone)
 bool CompanyInfo::CompanyPhoneHasBeenSet() const
 {
     return m_companyPhoneHasBeenSet;
+}
+
+string CompanyInfo::GetIdType() const
+{
+    return m_idType;
+}
+
+void CompanyInfo::SetIdType(const string& _idType)
+{
+    m_idType = _idType;
+    m_idTypeHasBeenSet = true;
+}
+
+bool CompanyInfo::IdTypeHasBeenSet() const
+{
+    return m_idTypeHasBeenSet;
+}
+
+string CompanyInfo::GetIdNumber() const
+{
+    return m_idNumber;
+}
+
+void CompanyInfo::SetIdNumber(const string& _idNumber)
+{
+    m_idNumber = _idNumber;
+    m_idNumberHasBeenSet = true;
+}
+
+bool CompanyInfo::IdNumberHasBeenSet() const
+{
+    return m_idNumberHasBeenSet;
+}
+
+vector<Tags> CompanyInfo::GetTags() const
+{
+    return m_tags;
+}
+
+void CompanyInfo::SetTags(const vector<Tags>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CompanyInfo::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 

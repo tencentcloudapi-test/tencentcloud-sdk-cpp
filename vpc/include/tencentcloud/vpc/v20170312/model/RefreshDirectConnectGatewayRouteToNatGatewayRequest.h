@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取vpc的ID
                      * @return VpcId vpc的ID
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置vpc的ID
-                     * @param VpcId vpc的ID
+                     * @param _vpcId vpc的ID
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取NAT网关ID
                      * @return NatGatewayId NAT网关ID
+                     * 
                      */
                     std::string GetNatGatewayId() const;
 
                     /**
                      * 设置NAT网关ID
-                     * @param NatGatewayId NAT网关ID
+                     * @param _natGatewayId NAT网关ID
+                     * 
                      */
                     void SetNatGatewayId(const std::string& _natGatewayId);
 
                     /**
                      * 判断参数 NatGatewayId 是否已赋值
                      * @return NatGatewayId 是否已赋值
+                     * 
                      */
                     bool NatGatewayIdHasBeenSet() const;
 
                     /**
-                     * 获取是否是预刷新；True:是， False:否
-                     * @return DryRun 是否是预刷新；True:是， False:否
+                     * 获取是否是预刷新；true:是， false:否
+                     * @return DryRun 是否是预刷新；true:是， false:否
+                     * 
                      */
                     bool GetDryRun() const;
 
                     /**
-                     * 设置是否是预刷新；True:是， False:否
-                     * @param DryRun 是否是预刷新；True:是， False:否
+                     * 设置是否是预刷新；true:是， false:否
+                     * @param _dryRun 是否是预刷新；true:是， false:否
+                     * 
                      */
                     void SetDryRun(const bool& _dryRun);
 
                     /**
                      * 判断参数 DryRun 是否已赋值
                      * @return DryRun 是否已赋值
+                     * 
                      */
                     bool DryRunHasBeenSet() const;
 
@@ -111,7 +120,7 @@ namespace TencentCloud
                     bool m_natGatewayIdHasBeenSet;
 
                     /**
-                     * 是否是预刷新；True:是， False:否
+                     * 是否是预刷新；true:是， false:否
                      */
                     bool m_dryRun;
                     bool m_dryRunHasBeenSet;

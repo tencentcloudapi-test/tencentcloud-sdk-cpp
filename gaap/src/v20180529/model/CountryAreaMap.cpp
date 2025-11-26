@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ CountryAreaMap::CountryAreaMap() :
     m_geographicalZoneNameHasBeenSet(false),
     m_geographicalZoneInnerCodeHasBeenSet(false),
     m_continentNameHasBeenSet(false),
-    m_continentInnerCodeHasBeenSet(false)
+    m_continentInnerCodeHasBeenSet(false),
+    m_remarkHasBeenSet(false)
 {
 }
 
@@ -95,6 +96,16 @@ CoreInternalOutcome CountryAreaMap::Deserialize(const rapidjson::Value &value)
         m_continentInnerCodeHasBeenSet = true;
     }
 
+    if (value.HasMember("Remark") && !value["Remark"].IsNull())
+    {
+        if (!value["Remark"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CountryAreaMap.Remark` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_remark = string(value["Remark"].GetString());
+        m_remarkHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -148,6 +159,14 @@ void CountryAreaMap::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "ContinentInnerCode";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_continentInnerCode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -247,5 +266,21 @@ void CountryAreaMap::SetContinentInnerCode(const string& _continentInnerCode)
 bool CountryAreaMap::ContinentInnerCodeHasBeenSet() const
 {
     return m_continentInnerCodeHasBeenSet;
+}
+
+string CountryAreaMap::GetRemark() const
+{
+    return m_remark;
+}
+
+void CountryAreaMap::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool CountryAreaMap::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
 }
 

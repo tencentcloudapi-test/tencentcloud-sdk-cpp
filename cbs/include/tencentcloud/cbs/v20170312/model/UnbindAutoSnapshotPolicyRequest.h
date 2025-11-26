@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,54 +43,87 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取要解绑定期快照策略的云盘ID列表。
-                     * @return DiskIds 要解绑定期快照策略的云盘ID列表。
-                     */
-                    std::vector<std::string> GetDiskIds() const;
-
-                    /**
-                     * 设置要解绑定期快照策略的云盘ID列表。
-                     * @param DiskIds 要解绑定期快照策略的云盘ID列表。
-                     */
-                    void SetDiskIds(const std::vector<std::string>& _diskIds);
-
-                    /**
-                     * 判断参数 DiskIds 是否已赋值
-                     * @return DiskIds 是否已赋值
-                     */
-                    bool DiskIdsHasBeenSet() const;
-
-                    /**
                      * 获取要解绑的定期快照策略ID。
                      * @return AutoSnapshotPolicyId 要解绑的定期快照策略ID。
+                     * 
                      */
                     std::string GetAutoSnapshotPolicyId() const;
 
                     /**
                      * 设置要解绑的定期快照策略ID。
-                     * @param AutoSnapshotPolicyId 要解绑的定期快照策略ID。
+                     * @param _autoSnapshotPolicyId 要解绑的定期快照策略ID。
+                     * 
                      */
                     void SetAutoSnapshotPolicyId(const std::string& _autoSnapshotPolicyId);
 
                     /**
                      * 判断参数 AutoSnapshotPolicyId 是否已赋值
                      * @return AutoSnapshotPolicyId 是否已赋值
+                     * 
                      */
                     bool AutoSnapshotPolicyIdHasBeenSet() const;
 
-                private:
+                    /**
+                     * 获取要解绑定期快照策略的云盘ID列表。此参数与 InstanceIds 参数至少需要传入一个。
+                     * @return DiskIds 要解绑定期快照策略的云盘ID列表。此参数与 InstanceIds 参数至少需要传入一个。
+                     * 
+                     */
+                    std::vector<std::string> GetDiskIds() const;
 
                     /**
-                     * 要解绑定期快照策略的云盘ID列表。
+                     * 设置要解绑定期快照策略的云盘ID列表。此参数与 InstanceIds 参数至少需要传入一个。
+                     * @param _diskIds 要解绑定期快照策略的云盘ID列表。此参数与 InstanceIds 参数至少需要传入一个。
+                     * 
                      */
-                    std::vector<std::string> m_diskIds;
-                    bool m_diskIdsHasBeenSet;
+                    void SetDiskIds(const std::vector<std::string>& _diskIds);
+
+                    /**
+                     * 判断参数 DiskIds 是否已赋值
+                     * @return DiskIds 是否已赋值
+                     * 
+                     */
+                    bool DiskIdsHasBeenSet() const;
+
+                    /**
+                     * 获取要解绑定期快照策略的实例ID列表。此参数与 DiskIds 参数至少需要传入一个。
+                     * @return InstanceIds 要解绑定期快照策略的实例ID列表。此参数与 DiskIds 参数至少需要传入一个。
+                     * 
+                     */
+                    std::vector<std::string> GetInstanceIds() const;
+
+                    /**
+                     * 设置要解绑定期快照策略的实例ID列表。此参数与 DiskIds 参数至少需要传入一个。
+                     * @param _instanceIds 要解绑定期快照策略的实例ID列表。此参数与 DiskIds 参数至少需要传入一个。
+                     * 
+                     */
+                    void SetInstanceIds(const std::vector<std::string>& _instanceIds);
+
+                    /**
+                     * 判断参数 InstanceIds 是否已赋值
+                     * @return InstanceIds 是否已赋值
+                     * 
+                     */
+                    bool InstanceIdsHasBeenSet() const;
+
+                private:
 
                     /**
                      * 要解绑的定期快照策略ID。
                      */
                     std::string m_autoSnapshotPolicyId;
                     bool m_autoSnapshotPolicyIdHasBeenSet;
+
+                    /**
+                     * 要解绑定期快照策略的云盘ID列表。此参数与 InstanceIds 参数至少需要传入一个。
+                     */
+                    std::vector<std::string> m_diskIds;
+                    bool m_diskIdsHasBeenSet;
+
+                    /**
+                     * 要解绑定期快照策略的实例ID列表。此参数与 DiskIds 参数至少需要传入一个。
+                     */
+                    std::vector<std::string> m_instanceIds;
+                    bool m_instanceIdsHasBeenSet;
 
                 };
             }

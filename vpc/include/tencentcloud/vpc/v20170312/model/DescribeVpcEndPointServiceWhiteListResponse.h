@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取白名单对象数组。
-                     * @return VpcEndpointServiceUserSet 白名单对象数组。
+                     * 获取白名单对象数组。已废弃
+                     * @return VpcEndpointServiceUserSet 白名单对象数组。已废弃
+                     * 
                      */
                     std::vector<VpcEndPointServiceUser> GetVpcEndpointServiceUserSet() const;
 
                     /**
                      * 判断参数 VpcEndpointServiceUserSet 是否已赋值
                      * @return VpcEndpointServiceUserSet 是否已赋值
+                     * 
                      */
                     bool VpcEndpointServiceUserSetHasBeenSet() const;
 
                     /**
+                     * 获取白名单对象数组。
+                     * @return VpcEndPointServiceUserSet 白名单对象数组。
+                     * 
+                     */
+                    std::vector<VpcEndPointServiceUser> GetVpcEndPointServiceUserSet() const;
+
+                    /**
+                     * 判断参数 VpcEndPointServiceUserSet 是否已赋值
+                     * @return VpcEndPointServiceUserSet 是否已赋值
+                     * 
+                     */
+                    bool VpcEndPointServiceUserSetHasBeenSet() const;
+
+                    /**
                      * 获取符合条件的白名单个数。
                      * @return TotalCount 符合条件的白名单个数。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 白名单对象数组。
+                     * 白名单对象数组。已废弃
                      */
                     std::vector<VpcEndPointServiceUser> m_vpcEndpointServiceUserSet;
                     bool m_vpcEndpointServiceUserSetHasBeenSet;
+
+                    /**
+                     * 白名单对象数组。
+                     */
+                    std::vector<VpcEndPointServiceUser> m_vpcEndPointServiceUserSet;
+                    bool m_vpcEndPointServiceUserSetHasBeenSet;
 
                     /**
                      * 符合条件的白名单个数。

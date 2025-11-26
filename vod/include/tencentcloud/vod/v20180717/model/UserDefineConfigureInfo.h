@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 用户自定义智能识别任务控制参数
+                * 用户自定义音视频审核任务控制参数
                 */
                 class UserDefineConfigureInfo : public AbstractModel
                 {
@@ -50,90 +50,84 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取用户自定义人物智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FaceReviewInfo 用户自定义人物智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取用户自定义人物音视频审核控制参数。
+                     * @return FaceReviewInfo 用户自定义人物音视频审核控制参数。
+                     * 
                      */
                     UserDefineFaceReviewTemplateInfo GetFaceReviewInfo() const;
 
                     /**
-                     * 设置用户自定义人物智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FaceReviewInfo 用户自定义人物智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置用户自定义人物音视频审核控制参数。
+                     * @param _faceReviewInfo 用户自定义人物音视频审核控制参数。
+                     * 
                      */
                     void SetFaceReviewInfo(const UserDefineFaceReviewTemplateInfo& _faceReviewInfo);
 
                     /**
                      * 判断参数 FaceReviewInfo 是否已赋值
                      * @return FaceReviewInfo 是否已赋值
+                     * 
                      */
                     bool FaceReviewInfoHasBeenSet() const;
 
                     /**
-                     * 获取用户自定义语音智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AsrReviewInfo 用户自定义语音智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取用户自定义语音音视频审核控制参数。
+                     * @return AsrReviewInfo 用户自定义语音音视频审核控制参数。
+                     * 
                      */
                     UserDefineAsrTextReviewTemplateInfo GetAsrReviewInfo() const;
 
                     /**
-                     * 设置用户自定义语音智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AsrReviewInfo 用户自定义语音智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置用户自定义语音音视频审核控制参数。
+                     * @param _asrReviewInfo 用户自定义语音音视频审核控制参数。
+                     * 
                      */
                     void SetAsrReviewInfo(const UserDefineAsrTextReviewTemplateInfo& _asrReviewInfo);
 
                     /**
                      * 判断参数 AsrReviewInfo 是否已赋值
                      * @return AsrReviewInfo 是否已赋值
+                     * 
                      */
                     bool AsrReviewInfoHasBeenSet() const;
 
                     /**
-                     * 获取用户自定义文本智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return OcrReviewInfo 用户自定义文本智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取用户自定义文本音视频审核控制参数。
+                     * @return OcrReviewInfo 用户自定义文本音视频审核控制参数。
+                     * 
                      */
                     UserDefineOcrTextReviewTemplateInfo GetOcrReviewInfo() const;
 
                     /**
-                     * 设置用户自定义文本智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OcrReviewInfo 用户自定义文本智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置用户自定义文本音视频审核控制参数。
+                     * @param _ocrReviewInfo 用户自定义文本音视频审核控制参数。
+                     * 
                      */
                     void SetOcrReviewInfo(const UserDefineOcrTextReviewTemplateInfo& _ocrReviewInfo);
 
                     /**
                      * 判断参数 OcrReviewInfo 是否已赋值
                      * @return OcrReviewInfo 是否已赋值
+                     * 
                      */
                     bool OcrReviewInfoHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 用户自定义人物智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 用户自定义人物音视频审核控制参数。
                      */
                     UserDefineFaceReviewTemplateInfo m_faceReviewInfo;
                     bool m_faceReviewInfoHasBeenSet;
 
                     /**
-                     * 用户自定义语音智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 用户自定义语音音视频审核控制参数。
                      */
                     UserDefineAsrTextReviewTemplateInfo m_asrReviewInfo;
                     bool m_asrReviewInfoHasBeenSet;
 
                     /**
-                     * 用户自定义文本智能识别控制参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 用户自定义文本音视频审核控制参数。
                      */
                     UserDefineOcrTextReviewTemplateInfo m_ocrReviewInfo;
                     bool m_ocrReviewInfoHasBeenSet;

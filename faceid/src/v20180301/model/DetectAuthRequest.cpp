@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,10 @@ DetectAuthRequest::DetectAuthRequest() :
     m_extraHasBeenSet(false),
     m_imageBase64HasBeenSet(false),
     m_encryptionHasBeenSet(false),
-    m_intentionVerifyTextHasBeenSet(false)
+    m_intentionVerifyTextHasBeenSet(false),
+    m_intentionQuestionsHasBeenSet(false),
+    m_intentionActionsHasBeenSet(false),
+    m_configHasBeenSet(false)
 {
 }
 
@@ -113,6 +116,45 @@ string DetectAuthRequest::ToJsonString() const
         string key = "IntentionVerifyText";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_intentionVerifyText.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_intentionQuestionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntentionQuestions";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_intentionQuestions.begin(); itr != m_intentionQuestions.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_intentionActionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntentionActions";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_intentionActions.begin(); itr != m_intentionActions.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_configHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Config";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_config.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -265,6 +307,54 @@ void DetectAuthRequest::SetIntentionVerifyText(const string& _intentionVerifyTex
 bool DetectAuthRequest::IntentionVerifyTextHasBeenSet() const
 {
     return m_intentionVerifyTextHasBeenSet;
+}
+
+vector<IntentionQuestion> DetectAuthRequest::GetIntentionQuestions() const
+{
+    return m_intentionQuestions;
+}
+
+void DetectAuthRequest::SetIntentionQuestions(const vector<IntentionQuestion>& _intentionQuestions)
+{
+    m_intentionQuestions = _intentionQuestions;
+    m_intentionQuestionsHasBeenSet = true;
+}
+
+bool DetectAuthRequest::IntentionQuestionsHasBeenSet() const
+{
+    return m_intentionQuestionsHasBeenSet;
+}
+
+vector<IntentionActionConfig> DetectAuthRequest::GetIntentionActions() const
+{
+    return m_intentionActions;
+}
+
+void DetectAuthRequest::SetIntentionActions(const vector<IntentionActionConfig>& _intentionActions)
+{
+    m_intentionActions = _intentionActions;
+    m_intentionActionsHasBeenSet = true;
+}
+
+bool DetectAuthRequest::IntentionActionsHasBeenSet() const
+{
+    return m_intentionActionsHasBeenSet;
+}
+
+RuleIdConfig DetectAuthRequest::GetConfig() const
+{
+    return m_config;
+}
+
+void DetectAuthRequest::SetConfig(const RuleIdConfig& _config)
+{
+    m_config = _config;
+    m_configHasBeenSet = true;
+}
+
+bool DetectAuthRequest::ConfigHasBeenSet() const
+{
+    return m_configHasBeenSet;
 }
 
 

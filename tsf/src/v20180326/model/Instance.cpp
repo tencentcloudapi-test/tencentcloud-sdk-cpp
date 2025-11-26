@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,8 @@ Instance::Instance() :
     m_groupNameHasBeenSet(false),
     m_namespaceNameHasBeenSet(false),
     m_reasonHasBeenSet(false),
-    m_agentVersionHasBeenSet(false)
+    m_agentVersionHasBeenSet(false),
+    m_nodeInstanceIdHasBeenSet(false)
 {
 }
 
@@ -447,6 +448,16 @@ CoreInternalOutcome Instance::Deserialize(const rapidjson::Value &value)
         m_agentVersionHasBeenSet = true;
     }
 
+    if (value.HasMember("NodeInstanceId") && !value["NodeInstanceId"].IsNull())
+    {
+        if (!value["NodeInstanceId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Instance.NodeInstanceId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeInstanceId = string(value["NodeInstanceId"].GetString());
+        m_nodeInstanceIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -756,6 +767,14 @@ void Instance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "AgentVersion";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_agentVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeInstanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeInstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nodeInstanceId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1367,5 +1386,21 @@ void Instance::SetAgentVersion(const string& _agentVersion)
 bool Instance::AgentVersionHasBeenSet() const
 {
     return m_agentVersionHasBeenSet;
+}
+
+string Instance::GetNodeInstanceId() const
+{
+    return m_nodeInstanceId;
+}
+
+void Instance::SetNodeInstanceId(const string& _nodeInstanceId)
+{
+    m_nodeInstanceId = _nodeInstanceId;
+    m_nodeInstanceIdHasBeenSet = true;
+}
+
+bool Instance::NodeInstanceIdHasBeenSet() const
+{
+    return m_nodeInstanceIdHasBeenSet;
 }
 

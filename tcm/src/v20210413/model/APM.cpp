@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace std;
 APM::APM() :
     m_enableHasBeenSet(false),
     m_regionHasBeenSet(false),
-    m_instanceIdHasBeenSet(false)
+    m_instanceIdHasBeenSet(false),
+    m_needDeleteHasBeenSet(false)
 {
 }
 
@@ -62,6 +63,16 @@ CoreInternalOutcome APM::Deserialize(const rapidjson::Value &value)
         m_instanceIdHasBeenSet = true;
     }
 
+    if (value.HasMember("NeedDelete") && !value["NeedDelete"].IsNull())
+    {
+        if (!value["NeedDelete"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `APM.NeedDelete` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_needDelete = value["NeedDelete"].GetBool();
+        m_needDeleteHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +102,14 @@ void APM::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorTy
         string key = "InstanceId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_needDeleteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NeedDelete";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_needDelete, allocator);
     }
 
 }
@@ -142,5 +161,21 @@ void APM::SetInstanceId(const string& _instanceId)
 bool APM::InstanceIdHasBeenSet() const
 {
     return m_instanceIdHasBeenSet;
+}
+
+bool APM::GetNeedDelete() const
+{
+    return m_needDelete;
+}
+
+void APM::SetNeedDelete(const bool& _needDelete)
+{
+    m_needDelete = _needDelete;
+    m_needDeleteHasBeenSet = true;
+}
+
+bool APM::NeedDeleteHasBeenSet() const
+{
+    return m_needDeleteHasBeenSet;
 }
 

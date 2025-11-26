@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,11 @@ using namespace TencentCloud::Batch::V20170312::Model;
 using namespace std;
 
 Application::Application() :
-    m_commandHasBeenSet(false),
     m_deliveryFormHasBeenSet(false),
+    m_commandHasBeenSet(false),
     m_packagePathHasBeenSet(false),
-    m_dockerHasBeenSet(false)
+    m_dockerHasBeenSet(false),
+    m_commandsHasBeenSet(false)
 {
 }
 
@@ -32,16 +33,6 @@ CoreInternalOutcome Application::Deserialize(const rapidjson::Value &value)
 {
     string requestId = "";
 
-
-    if (value.HasMember("Command") && !value["Command"].IsNull())
-    {
-        if (!value["Command"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Application.Command` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_command = string(value["Command"].GetString());
-        m_commandHasBeenSet = true;
-    }
 
     if (value.HasMember("DeliveryForm") && !value["DeliveryForm"].IsNull())
     {
@@ -51,6 +42,16 @@ CoreInternalOutcome Application::Deserialize(const rapidjson::Value &value)
         }
         m_deliveryForm = string(value["DeliveryForm"].GetString());
         m_deliveryFormHasBeenSet = true;
+    }
+
+    if (value.HasMember("Command") && !value["Command"].IsNull())
+    {
+        if (!value["Command"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Application.Command` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_command = string(value["Command"].GetString());
+        m_commandHasBeenSet = true;
     }
 
     if (value.HasMember("PackagePath") && !value["PackagePath"].IsNull())
@@ -80,6 +81,26 @@ CoreInternalOutcome Application::Deserialize(const rapidjson::Value &value)
         m_dockerHasBeenSet = true;
     }
 
+    if (value.HasMember("Commands") && !value["Commands"].IsNull())
+    {
+        if (!value["Commands"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Application.Commands` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Commands"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            CommandLine item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_commands.push_back(item);
+        }
+        m_commandsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -87,20 +108,20 @@ CoreInternalOutcome Application::Deserialize(const rapidjson::Value &value)
 void Application::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const
 {
 
-    if (m_commandHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Command";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_command.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_deliveryFormHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "DeliveryForm";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_deliveryForm.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_commandHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Command";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_command.c_str(), allocator).Move(), allocator);
     }
 
     if (m_packagePathHasBeenSet)
@@ -120,24 +141,23 @@ void Application::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         m_docker.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_commandsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Commands";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_commands.begin(); itr != m_commands.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
 }
 
-
-string Application::GetCommand() const
-{
-    return m_command;
-}
-
-void Application::SetCommand(const string& _command)
-{
-    m_command = _command;
-    m_commandHasBeenSet = true;
-}
-
-bool Application::CommandHasBeenSet() const
-{
-    return m_commandHasBeenSet;
-}
 
 string Application::GetDeliveryForm() const
 {
@@ -153,6 +173,22 @@ void Application::SetDeliveryForm(const string& _deliveryForm)
 bool Application::DeliveryFormHasBeenSet() const
 {
     return m_deliveryFormHasBeenSet;
+}
+
+string Application::GetCommand() const
+{
+    return m_command;
+}
+
+void Application::SetCommand(const string& _command)
+{
+    m_command = _command;
+    m_commandHasBeenSet = true;
+}
+
+bool Application::CommandHasBeenSet() const
+{
+    return m_commandHasBeenSet;
 }
 
 string Application::GetPackagePath() const
@@ -185,5 +221,21 @@ void Application::SetDocker(const Docker& _docker)
 bool Application::DockerHasBeenSet() const
 {
     return m_dockerHasBeenSet;
+}
+
+vector<CommandLine> Application::GetCommands() const
+{
+    return m_commands;
+}
+
+void Application::SetCommands(const vector<CommandLine>& _commands)
+{
+    m_commands = _commands;
+    m_commandsHasBeenSet = true;
+}
+
+bool Application::CommandsHasBeenSet() const
+{
+    return m_commandsHasBeenSet;
 }
 

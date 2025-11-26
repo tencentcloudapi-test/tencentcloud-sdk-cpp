@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ CreateAudioModerationTaskRequest::CreateAudioModerationTaskRequest() :
     m_bizTypeHasBeenSet(false),
     m_typeHasBeenSet(false),
     m_seedHasBeenSet(false),
-    m_callbackUrlHasBeenSet(false)
+    m_callbackUrlHasBeenSet(false),
+    m_userHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,15 @@ string CreateAudioModerationTaskRequest::ToJsonString() const
         string key = "CallbackUrl";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_callbackUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_userHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "User";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_user.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -171,6 +181,22 @@ void CreateAudioModerationTaskRequest::SetCallbackUrl(const string& _callbackUrl
 bool CreateAudioModerationTaskRequest::CallbackUrlHasBeenSet() const
 {
     return m_callbackUrlHasBeenSet;
+}
+
+User CreateAudioModerationTaskRequest::GetUser() const
+{
+    return m_user;
+}
+
+void CreateAudioModerationTaskRequest::SetUser(const User& _user)
+{
+    m_user = _user;
+    m_userHasBeenSet = true;
+}
+
+bool CreateAudioModerationTaskRequest::UserHasBeenSet() const
+{
+    return m_userHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,29 +46,29 @@ namespace TencentCloud
 
                     /**
                      * 获取表格组标签信息列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Rows 表格组标签信息列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<TagsInfoOfTableGroup> GetRows() const;
 
                     /**
                      * 判断参数 Rows 是否已赋值
                      * @return Rows 是否已赋值
+                     * 
                      */
                     bool RowsHasBeenSet() const;
 
                     /**
                      * 获取返回结果个数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCount 返回结果个数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
@@ -76,14 +76,12 @@ namespace TencentCloud
 
                     /**
                      * 表格组标签信息列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<TagsInfoOfTableGroup> m_rows;
                     bool m_rowsHasBeenSet;
 
                     /**
                      * 返回结果个数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

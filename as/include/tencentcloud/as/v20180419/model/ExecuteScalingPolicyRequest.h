@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,63 +43,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取告警伸缩策略ID
-                     * @return AutoScalingPolicyId 告警伸缩策略ID
+                     * 获取告警伸缩策略ID，不支持目标追踪策略。可通过 [DescribeScalingPolicies](https://cloud.tencent.com/document/api/377/33178) 接口返回的 `ScalingPolicyType ` 参数获取告警策略类型。
+                     * @return AutoScalingPolicyId 告警伸缩策略ID，不支持目标追踪策略。可通过 [DescribeScalingPolicies](https://cloud.tencent.com/document/api/377/33178) 接口返回的 `ScalingPolicyType ` 参数获取告警策略类型。
+                     * 
                      */
                     std::string GetAutoScalingPolicyId() const;
 
                     /**
-                     * 设置告警伸缩策略ID
-                     * @param AutoScalingPolicyId 告警伸缩策略ID
+                     * 设置告警伸缩策略ID，不支持目标追踪策略。可通过 [DescribeScalingPolicies](https://cloud.tencent.com/document/api/377/33178) 接口返回的 `ScalingPolicyType ` 参数获取告警策略类型。
+                     * @param _autoScalingPolicyId 告警伸缩策略ID，不支持目标追踪策略。可通过 [DescribeScalingPolicies](https://cloud.tencent.com/document/api/377/33178) 接口返回的 `ScalingPolicyType ` 参数获取告警策略类型。
+                     * 
                      */
                     void SetAutoScalingPolicyId(const std::string& _autoScalingPolicyId);
 
                     /**
                      * 判断参数 AutoScalingPolicyId 是否已赋值
                      * @return AutoScalingPolicyId 是否已赋值
+                     * 
                      */
                     bool AutoScalingPolicyIdHasBeenSet() const;
 
                     /**
                      * 获取是否检查伸缩组活动处于冷却时间内，默认值为false
                      * @return HonorCooldown 是否检查伸缩组活动处于冷却时间内，默认值为false
+                     * 
                      */
                     bool GetHonorCooldown() const;
 
                     /**
                      * 设置是否检查伸缩组活动处于冷却时间内，默认值为false
-                     * @param HonorCooldown 是否检查伸缩组活动处于冷却时间内，默认值为false
+                     * @param _honorCooldown 是否检查伸缩组活动处于冷却时间内，默认值为false
+                     * 
                      */
                     void SetHonorCooldown(const bool& _honorCooldown);
 
                     /**
                      * 判断参数 HonorCooldown 是否已赋值
                      * @return HonorCooldown 是否已赋值
+                     * 
                      */
                     bool HonorCooldownHasBeenSet() const;
 
                     /**
                      * 获取执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
                      * @return TriggerSource 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
+                     * 
                      */
                     std::string GetTriggerSource() const;
 
                     /**
                      * 设置执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
-                     * @param TriggerSource 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
+                     * @param _triggerSource 执行伸缩策略的触发来源，取值包括 API 和 CLOUD_MONITOR，默认值为 API。CLOUD_MONITOR 专门供云监控触发调用。
+                     * 
                      */
                     void SetTriggerSource(const std::string& _triggerSource);
 
                     /**
                      * 判断参数 TriggerSource 是否已赋值
                      * @return TriggerSource 是否已赋值
+                     * 
                      */
                     bool TriggerSourceHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 告警伸缩策略ID
+                     * 告警伸缩策略ID，不支持目标追踪策略。可通过 [DescribeScalingPolicies](https://cloud.tencent.com/document/api/377/33178) 接口返回的 `ScalingPolicyType ` 参数获取告警策略类型。
                      */
                     std::string m_autoScalingPolicyId;
                     bool m_autoScalingPolicyIdHasBeenSet;

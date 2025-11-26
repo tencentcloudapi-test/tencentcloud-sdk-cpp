@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取参数名称
                      * @return Param 参数名称
+                     * 
                      */
                     std::string GetParam() const;
 
                     /**
                      * 设置参数名称
-                     * @param Param 参数名称
+                     * @param _param 参数名称
+                     * 
                      */
                     void SetParam(const std::string& _param);
 
                     /**
                      * 判断参数 Param 是否已赋值
                      * @return Param 是否已赋值
+                     * 
                      */
                     bool ParamHasBeenSet() const;
 
                     /**
                      * 获取参数值
                      * @return Value 参数值
+                     * 
                      */
                     std::string GetValue() const;
 
                     /**
                      * 设置参数值
-                     * @param Value 参数值
+                     * @param _value 参数值
+                     * 
                      */
                     void SetValue(const std::string& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 

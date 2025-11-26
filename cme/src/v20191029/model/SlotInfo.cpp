@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ SlotInfo::SlotInfo() :
     m_typeHasBeenSet(false),
     m_defaultMaterialIdHasBeenSet(false),
     m_defaultTextSlotInfoHasBeenSet(false),
-    m_durationHasBeenSet(false)
+    m_durationHasBeenSet(false),
+    m_startTimeHasBeenSet(false)
 {
 }
 
@@ -91,6 +92,16 @@ CoreInternalOutcome SlotInfo::Deserialize(const rapidjson::Value &value)
         m_durationHasBeenSet = true;
     }
 
+    if (value.HasMember("StartTime") && !value["StartTime"].IsNull())
+    {
+        if (!value["StartTime"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `SlotInfo.StartTime` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_startTime = value["StartTime"].GetDouble();
+        m_startTimeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -137,6 +148,14 @@ void SlotInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "Duration";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_duration, allocator);
+    }
+
+    if (m_startTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StartTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_startTime, allocator);
     }
 
 }
@@ -220,5 +239,21 @@ void SlotInfo::SetDuration(const double& _duration)
 bool SlotInfo::DurationHasBeenSet() const
 {
     return m_durationHasBeenSet;
+}
+
+double SlotInfo::GetStartTime() const
+{
+    return m_startTime;
+}
+
+void SlotInfo::SetStartTime(const double& _startTime)
+{
+    m_startTime = _startTime;
+    m_startTimeHasBeenSet = true;
+}
+
+bool SlotInfo::StartTimeHasBeenSet() const
+{
+    return m_startTimeHasBeenSet;
 }
 

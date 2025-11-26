@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,18 +51,21 @@ namespace TencentCloud
                     /**
                      * 获取描述如何数据转换
                      * @return OutputStructs 描述如何数据转换
+                     * 
                      */
                     std::vector<OutputStructParam> GetOutputStructs() const;
 
                     /**
                      * 设置描述如何数据转换
-                     * @param OutputStructs 描述如何数据转换
+                     * @param _outputStructs 描述如何数据转换
+                     * 
                      */
                     void SetOutputStructs(const std::vector<OutputStructParam>& _outputStructs);
 
                     /**
                      * 判断参数 OutputStructs 是否已赋值
                      * @return OutputStructs 是否已赋值
+                     * 
                      */
                     bool OutputStructsHasBeenSet() const;
 

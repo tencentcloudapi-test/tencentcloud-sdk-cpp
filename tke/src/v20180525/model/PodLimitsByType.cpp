@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace std;
 PodLimitsByType::PodLimitsByType() :
     m_tKERouteENINonStaticIPHasBeenSet(false),
     m_tKERouteENIStaticIPHasBeenSet(false),
-    m_tKEDirectENIHasBeenSet(false)
+    m_tKEDirectENIHasBeenSet(false),
+    m_tKESubENIHasBeenSet(false)
 {
 }
 
@@ -62,6 +63,16 @@ CoreInternalOutcome PodLimitsByType::Deserialize(const rapidjson::Value &value)
         m_tKEDirectENIHasBeenSet = true;
     }
 
+    if (value.HasMember("TKESubENI") && !value["TKESubENI"].IsNull())
+    {
+        if (!value["TKESubENI"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PodLimitsByType.TKESubENI` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_tKESubENI = value["TKESubENI"].GetInt64();
+        m_tKESubENIHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +102,14 @@ void PodLimitsByType::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "TKEDirectENI";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_tKEDirectENI, allocator);
+    }
+
+    if (m_tKESubENIHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TKESubENI";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_tKESubENI, allocator);
     }
 
 }
@@ -142,5 +161,21 @@ void PodLimitsByType::SetTKEDirectENI(const int64_t& _tKEDirectENI)
 bool PodLimitsByType::TKEDirectENIHasBeenSet() const
 {
     return m_tKEDirectENIHasBeenSet;
+}
+
+int64_t PodLimitsByType::GetTKESubENI() const
+{
+    return m_tKESubENI;
+}
+
+void PodLimitsByType::SetTKESubENI(const int64_t& _tKESubENI)
+{
+    m_tKESubENI = _tKESubENI;
+    m_tKESubENIHasBeenSet = true;
+}
+
+bool PodLimitsByType::TKESubENIHasBeenSet() const
+{
+    return m_tKESubENIHasBeenSet;
 }
 

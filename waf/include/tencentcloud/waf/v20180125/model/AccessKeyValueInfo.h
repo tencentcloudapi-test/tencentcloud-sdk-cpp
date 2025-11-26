@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,45 +49,43 @@ namespace TencentCloud
 
                     /**
                      * 获取需要配置键值或者元字段索引的字段
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Key 需要配置键值或者元字段索引的字段
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetKey() const;
 
                     /**
                      * 设置需要配置键值或者元字段索引的字段
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Key 需要配置键值或者元字段索引的字段
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _key 需要配置键值或者元字段索引的字段
+                     * 
                      */
                     void SetKey(const std::string& _key);
 
                     /**
                      * 判断参数 Key 是否已赋值
                      * @return Key 是否已赋值
+                     * 
                      */
                     bool KeyHasBeenSet() const;
 
                     /**
                      * 获取字段的索引描述信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Value 字段的索引描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AccessValueInfo GetValue() const;
 
                     /**
                      * 设置字段的索引描述信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Value 字段的索引描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _value 字段的索引描述信息
+                     * 
                      */
                     void SetValue(const AccessValueInfo& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
@@ -95,14 +93,12 @@ namespace TencentCloud
 
                     /**
                      * 需要配置键值或者元字段索引的字段
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_key;
                     bool m_keyHasBeenSet;
 
                     /**
                      * 字段的索引描述信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AccessValueInfo m_value;
                     bool m_valueHasBeenSet;

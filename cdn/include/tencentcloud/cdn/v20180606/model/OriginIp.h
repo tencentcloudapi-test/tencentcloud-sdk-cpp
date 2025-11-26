@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取回源IP段/回源IP，默认返回IP段信息。
                      * @return Ip 回源IP段/回源IP，默认返回IP段信息。
+                     * 
                      */
                     std::string GetIp() const;
 
                     /**
                      * 设置回源IP段/回源IP，默认返回IP段信息。
-                     * @param Ip 回源IP段/回源IP，默认返回IP段信息。
+                     * @param _ip 回源IP段/回源IP，默认返回IP段信息。
+                     * 
                      */
                     void SetIp(const std::string& _ip);
 
                     /**
                      * 判断参数 Ip 是否已赋值
                      * @return Ip 是否已赋值
+                     * 
                      */
                     bool IpHasBeenSet() const;
 

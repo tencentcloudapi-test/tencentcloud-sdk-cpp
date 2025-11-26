@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 VpngwCcnRoutes::VpngwCcnRoutes() :
     m_routeIdHasBeenSet(false),
-    m_statusHasBeenSet(false)
+    m_statusHasBeenSet(false),
+    m_destinationCidrBlockHasBeenSet(false)
 {
 }
 
@@ -51,6 +52,16 @@ CoreInternalOutcome VpngwCcnRoutes::Deserialize(const rapidjson::Value &value)
         m_statusHasBeenSet = true;
     }
 
+    if (value.HasMember("DestinationCidrBlock") && !value["DestinationCidrBlock"].IsNull())
+    {
+        if (!value["DestinationCidrBlock"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VpngwCcnRoutes.DestinationCidrBlock` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_destinationCidrBlock = string(value["DestinationCidrBlock"].GetString());
+        m_destinationCidrBlockHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +83,14 @@ void VpngwCcnRoutes::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "Status";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_status.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_destinationCidrBlockHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DestinationCidrBlock";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_destinationCidrBlock.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -107,5 +126,21 @@ void VpngwCcnRoutes::SetStatus(const string& _status)
 bool VpngwCcnRoutes::StatusHasBeenSet() const
 {
     return m_statusHasBeenSet;
+}
+
+string VpngwCcnRoutes::GetDestinationCidrBlock() const
+{
+    return m_destinationCidrBlock;
+}
+
+void VpngwCcnRoutes::SetDestinationCidrBlock(const string& _destinationCidrBlock)
+{
+    m_destinationCidrBlock = _destinationCidrBlock;
+    m_destinationCidrBlockHasBeenSet = true;
+}
+
+bool VpngwCcnRoutes::DestinationCidrBlockHasBeenSet() const
+{
+    return m_destinationCidrBlockHasBeenSet;
 }
 

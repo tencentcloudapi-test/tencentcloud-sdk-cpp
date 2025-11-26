@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取验证码应用注册APPID
                      * @return CaptchaAppId 验证码应用注册APPID
+                     * 
                      */
                     uint64_t GetCaptchaAppId() const;
 
                     /**
                      * 设置验证码应用注册APPID
-                     * @param CaptchaAppId 验证码应用注册APPID
+                     * @param _captchaAppId 验证码应用注册APPID
+                     * 
                      */
                     void SetCaptchaAppId(const uint64_t& _captchaAppId);
 
                     /**
                      * 判断参数 CaptchaAppId 是否已赋值
                      * @return CaptchaAppId 是否已赋值
+                     * 
                      */
                     bool CaptchaAppIdHasBeenSet() const;
 

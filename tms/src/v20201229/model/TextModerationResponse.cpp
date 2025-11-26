@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,11 @@ TextModerationResponse::TextModerationResponse() :
     m_riskDetailsHasBeenSet(false),
     m_extraHasBeenSet(false),
     m_dataIdHasBeenSet(false),
-    m_subLabelHasBeenSet(false)
+    m_subLabelHasBeenSet(false),
+    m_contextTextHasBeenSet(false),
+    m_sentimentAnalysisHasBeenSet(false),
+    m_hitTypeHasBeenSet(false),
+    m_sessionIdHasBeenSet(false)
 {
 }
 
@@ -194,6 +198,53 @@ CoreInternalOutcome TextModerationResponse::Deserialize(const string &payload)
         m_subLabelHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ContextText") && !rsp["ContextText"].IsNull())
+    {
+        if (!rsp["ContextText"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContextText` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_contextText = string(rsp["ContextText"].GetString());
+        m_contextTextHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("SentimentAnalysis") && !rsp["SentimentAnalysis"].IsNull())
+    {
+        if (!rsp["SentimentAnalysis"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `SentimentAnalysis` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_sentimentAnalysis.Deserialize(rsp["SentimentAnalysis"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_sentimentAnalysisHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("HitType") && !rsp["HitType"].IsNull())
+    {
+        if (!rsp["HitType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HitType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hitType = string(rsp["HitType"].GetString());
+        m_hitTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("SessionId") && !rsp["SessionId"].IsNull())
+    {
+        if (!rsp["SessionId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SessionId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sessionId = string(rsp["SessionId"].GetString());
+        m_sessionIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -303,11 +354,44 @@ string TextModerationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_subLabel.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_contextTextHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContextText";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_contextText.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sentimentAnalysisHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SentimentAnalysis";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_sentimentAnalysis.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_hitTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HitType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hitType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sessionIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SessionId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sessionId.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -413,6 +497,46 @@ string TextModerationResponse::GetSubLabel() const
 bool TextModerationResponse::SubLabelHasBeenSet() const
 {
     return m_subLabelHasBeenSet;
+}
+
+string TextModerationResponse::GetContextText() const
+{
+    return m_contextText;
+}
+
+bool TextModerationResponse::ContextTextHasBeenSet() const
+{
+    return m_contextTextHasBeenSet;
+}
+
+SentimentAnalysis TextModerationResponse::GetSentimentAnalysis() const
+{
+    return m_sentimentAnalysis;
+}
+
+bool TextModerationResponse::SentimentAnalysisHasBeenSet() const
+{
+    return m_sentimentAnalysisHasBeenSet;
+}
+
+string TextModerationResponse::GetHitType() const
+{
+    return m_hitType;
+}
+
+bool TextModerationResponse::HitTypeHasBeenSet() const
+{
+    return m_hitTypeHasBeenSet;
+}
+
+string TextModerationResponse::GetSessionId() const
+{
+    return m_sessionId;
+}
+
+bool TextModerationResponse::SessionIdHasBeenSet() const
+{
+    return m_sessionIdHasBeenSet;
 }
 
 

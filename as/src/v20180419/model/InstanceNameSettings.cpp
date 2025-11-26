@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,9 @@ using namespace std;
 
 InstanceNameSettings::InstanceNameSettings() :
     m_instanceNameHasBeenSet(false),
-    m_instanceNameStyleHasBeenSet(false)
+    m_instanceNameStyleHasBeenSet(false),
+    m_instanceNameSuffixHasBeenSet(false),
+    m_instanceNameDelimiterHasBeenSet(false)
 {
 }
 
@@ -51,6 +53,26 @@ CoreInternalOutcome InstanceNameSettings::Deserialize(const rapidjson::Value &va
         m_instanceNameStyleHasBeenSet = true;
     }
 
+    if (value.HasMember("InstanceNameSuffix") && !value["InstanceNameSuffix"].IsNull())
+    {
+        if (!value["InstanceNameSuffix"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceNameSettings.InstanceNameSuffix` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceNameSuffix = string(value["InstanceNameSuffix"].GetString());
+        m_instanceNameSuffixHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceNameDelimiter") && !value["InstanceNameDelimiter"].IsNull())
+    {
+        if (!value["InstanceNameDelimiter"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceNameSettings.InstanceNameDelimiter` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceNameDelimiter = string(value["InstanceNameDelimiter"].GetString());
+        m_instanceNameDelimiterHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +94,22 @@ void InstanceNameSettings::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         string key = "InstanceNameStyle";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_instanceNameStyle.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceNameSuffixHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceNameSuffix";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceNameSuffix.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceNameDelimiterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceNameDelimiter";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceNameDelimiter.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -107,5 +145,37 @@ void InstanceNameSettings::SetInstanceNameStyle(const string& _instanceNameStyle
 bool InstanceNameSettings::InstanceNameStyleHasBeenSet() const
 {
     return m_instanceNameStyleHasBeenSet;
+}
+
+string InstanceNameSettings::GetInstanceNameSuffix() const
+{
+    return m_instanceNameSuffix;
+}
+
+void InstanceNameSettings::SetInstanceNameSuffix(const string& _instanceNameSuffix)
+{
+    m_instanceNameSuffix = _instanceNameSuffix;
+    m_instanceNameSuffixHasBeenSet = true;
+}
+
+bool InstanceNameSettings::InstanceNameSuffixHasBeenSet() const
+{
+    return m_instanceNameSuffixHasBeenSet;
+}
+
+string InstanceNameSettings::GetInstanceNameDelimiter() const
+{
+    return m_instanceNameDelimiter;
+}
+
+void InstanceNameSettings::SetInstanceNameDelimiter(const string& _instanceNameDelimiter)
+{
+    m_instanceNameDelimiter = _instanceNameDelimiter;
+    m_instanceNameDelimiterHasBeenSet = true;
+}
+
+bool InstanceNameSettings::InstanceNameDelimiterHasBeenSet() const
+{
+    return m_instanceNameDelimiterHasBeenSet;
 }
 

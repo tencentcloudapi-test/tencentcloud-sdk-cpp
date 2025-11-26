@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取服务
                      * @return ServiceType 服务
+                     * 
                      */
                     std::string GetServiceType() const;
 
                     /**
                      * 设置服务
-                     * @param ServiceType 服务
+                     * @param _serviceType 服务
+                     * 
                      */
                     void SetServiceType(const std::string& _serviceType);
 
                     /**
                      * 判断参数 ServiceType 是否已赋值
                      * @return ServiceType 是否已赋值
+                     * 
                      */
                     bool ServiceTypeHasBeenSet() const;
 
                     /**
                      * 获取服务名
                      * @return ServiceName 服务名
+                     * 
                      */
                     std::string GetServiceName() const;
 
                     /**
                      * 设置服务名
-                     * @param ServiceName 服务名
+                     * @param _serviceName 服务名
+                     * 
                      */
                     void SetServiceName(const std::string& _serviceName);
 
                     /**
                      * 判断参数 ServiceName 是否已赋值
                      * @return ServiceName 是否已赋值
+                     * 
                      */
                     bool ServiceNameHasBeenSet() const;
 

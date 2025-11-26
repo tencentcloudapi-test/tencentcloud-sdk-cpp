@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取值1定义：AES加密方式[加密模式ECB；填充格式pkcs7padding；秘钥16字节即128位
                      * @return CryptoType 值1定义：AES加密方式[加密模式ECB；填充格式pkcs7padding；秘钥16字节即128位
+                     * 
                      */
                     std::string GetCryptoType() const;
 
                     /**
                      * 设置值1定义：AES加密方式[加密模式ECB；填充格式pkcs7padding；秘钥16字节即128位
-                     * @param CryptoType 值1定义：AES加密方式[加密模式ECB；填充格式pkcs7padding；秘钥16字节即128位
+                     * @param _cryptoType 值1定义：AES加密方式[加密模式ECB；填充格式pkcs7padding；秘钥16字节即128位
+                     * 
                      */
                     void SetCryptoType(const std::string& _cryptoType);
 
                     /**
                      * 判断参数 CryptoType 是否已赋值
                      * @return CryptoType 是否已赋值
+                     * 
                      */
                     bool CryptoTypeHasBeenSet() const;
 
                     /**
                      * 获取业务字段BusinessSecurityData的json数据格式，采用CryptoType相应的加密方式计算后得到的bash64编码内容。比如对{"PhoneNumber":"13430420001","IdNumber":"420115199501010001","BankCardNumber":"6214000100010001"}包体做加密。
                      * @return CryptoContent 业务字段BusinessSecurityData的json数据格式，采用CryptoType相应的加密方式计算后得到的bash64编码内容。比如对{"PhoneNumber":"13430420001","IdNumber":"420115199501010001","BankCardNumber":"6214000100010001"}包体做加密。
+                     * 
                      */
                     std::string GetCryptoContent() const;
 
                     /**
                      * 设置业务字段BusinessSecurityData的json数据格式，采用CryptoType相应的加密方式计算后得到的bash64编码内容。比如对{"PhoneNumber":"13430420001","IdNumber":"420115199501010001","BankCardNumber":"6214000100010001"}包体做加密。
-                     * @param CryptoContent 业务字段BusinessSecurityData的json数据格式，采用CryptoType相应的加密方式计算后得到的bash64编码内容。比如对{"PhoneNumber":"13430420001","IdNumber":"420115199501010001","BankCardNumber":"6214000100010001"}包体做加密。
+                     * @param _cryptoContent 业务字段BusinessSecurityData的json数据格式，采用CryptoType相应的加密方式计算后得到的bash64编码内容。比如对{"PhoneNumber":"13430420001","IdNumber":"420115199501010001","BankCardNumber":"6214000100010001"}包体做加密。
+                     * 
                      */
                     void SetCryptoContent(const std::string& _cryptoContent);
 
                     /**
                      * 判断参数 CryptoContent 是否已赋值
                      * @return CryptoContent 是否已赋值
+                     * 
                      */
                     bool CryptoContentHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,75 +47,84 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取热Key
-                     * @return Key 热Key
+                     * 获取热 Key 的名称。
+                     * @return Key 热 Key 的名称。
+                     * 
                      */
                     std::string GetKey() const;
 
                     /**
-                     * 设置热Key
-                     * @param Key 热Key
+                     * 设置热 Key 的名称。
+                     * @param _key 热 Key 的名称。
+                     * 
                      */
                     void SetKey(const std::string& _key);
 
                     /**
                      * 判断参数 Key 是否已赋值
                      * @return Key 是否已赋值
+                     * 
                      */
                     bool KeyHasBeenSet() const;
 
                     /**
-                     * 获取类型
-                     * @return Type 类型
+                     * 获取Key 类型。
+                     * @return Type Key 类型。
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置类型
-                     * @param Type 类型
+                     * 设置Key 类型。
+                     * @param _type Key 类型。
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取数量
-                     * @return Count 数量
+                     * 获取某段时间内热 Key 的访问次数
+                     * @return Count 某段时间内热 Key 的访问次数
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
-                     * 设置数量
-                     * @param Count 数量
+                     * 设置某段时间内热 Key 的访问次数
+                     * @param _count 某段时间内热 Key 的访问次数
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 热Key
+                     * 热 Key 的名称。
                      */
                     std::string m_key;
                     bool m_keyHasBeenSet;
 
                     /**
-                     * 类型
+                     * Key 类型。
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * 数量
+                     * 某段时间内热 Key 的访问次数
                      */
                     int64_t m_count;
                     bool m_countHasBeenSet;

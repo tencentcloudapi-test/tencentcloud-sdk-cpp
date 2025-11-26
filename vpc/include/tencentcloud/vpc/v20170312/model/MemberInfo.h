@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取模板对象成员
                      * @return Member 模板对象成员
+                     * 
                      */
                     std::string GetMember() const;
 
                     /**
                      * 设置模板对象成员
-                     * @param Member 模板对象成员
+                     * @param _member 模板对象成员
+                     * 
                      */
                     void SetMember(const std::string& _member);
 
                     /**
                      * 判断参数 Member 是否已赋值
                      * @return Member 是否已赋值
+                     * 
                      */
                     bool MemberHasBeenSet() const;
 
                     /**
                      * 获取模板对象成员描述信息
                      * @return Description 模板对象成员描述信息
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置模板对象成员描述信息
-                     * @param Description 模板对象成员描述信息
+                     * @param _description 模板对象成员描述信息
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 

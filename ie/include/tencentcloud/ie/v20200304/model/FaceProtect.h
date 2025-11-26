@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取人脸区域增强强度，可选项：0.0-1.0。小于0.0的默认为0.0，大于1.0的默认为1.0。
                      * @return FaceUsmRatio 人脸区域增强强度，可选项：0.0-1.0。小于0.0的默认为0.0，大于1.0的默认为1.0。
+                     * 
                      */
                     double GetFaceUsmRatio() const;
 
                     /**
                      * 设置人脸区域增强强度，可选项：0.0-1.0。小于0.0的默认为0.0，大于1.0的默认为1.0。
-                     * @param FaceUsmRatio 人脸区域增强强度，可选项：0.0-1.0。小于0.0的默认为0.0，大于1.0的默认为1.0。
+                     * @param _faceUsmRatio 人脸区域增强强度，可选项：0.0-1.0。小于0.0的默认为0.0，大于1.0的默认为1.0。
+                     * 
                      */
                     void SetFaceUsmRatio(const double& _faceUsmRatio);
 
                     /**
                      * 判断参数 FaceUsmRatio 是否已赋值
                      * @return FaceUsmRatio 是否已赋值
+                     * 
                      */
                     bool FaceUsmRatioHasBeenSet() const;
 

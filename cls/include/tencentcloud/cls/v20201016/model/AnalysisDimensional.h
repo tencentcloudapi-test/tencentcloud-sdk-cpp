@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/cls/v20201016/model/AlarmAnalysisConfig.h>
 
 
 namespace TencentCloud
@@ -49,56 +50,250 @@ namespace TencentCloud
                     /**
                      * 获取分析名称
                      * @return Name 分析名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置分析名称
-                     * @param Name 分析名称
+                     * @param _name 分析名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取分析类型：query，field
-                     * @return Type 分析类型：query，field
+                     * 获取分析类型：query(自定义检索分析)，field(字段TOP5及占比统计) ，original(相关原始日志)
+
+                     * @return Type 分析类型：query(自定义检索分析)，field(字段TOP5及占比统计) ，original(相关原始日志)
+
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置分析类型：query，field
-                     * @param Type 分析类型：query，field
+                     * 设置分析类型：query(自定义检索分析)，field(字段TOP5及占比统计) ，original(相关原始日志)
+
+                     * @param _type 分析类型：query(自定义检索分析)，field(字段TOP5及占比统计) ，original(相关原始日志)
+
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取分析内容
                      * @return Content 分析内容
+                     * 
                      */
                     std::string GetContent() const;
 
                     /**
                      * 设置分析内容
-                     * @param Content 分析内容
+                     * @param _content 分析内容
+                     * 
                      */
                     void SetContent(const std::string& _content);
 
                     /**
                      * 判断参数 Content 是否已赋值
                      * @return Content 是否已赋值
+                     * 
                      */
                     bool ContentHasBeenSet() const;
+
+                    /**
+                     * 获取多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
+                     * @return ConfigInfo 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
+                     * 
+                     */
+                    std::vector<AlarmAnalysisConfig> GetConfigInfo() const;
+
+                    /**
+                     * 设置多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
+                     * @param _configInfo 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
+                     * 
+                     */
+                    void SetConfigInfo(const std::vector<AlarmAnalysisConfig>& _configInfo);
+
+                    /**
+                     * 判断参数 ConfigInfo 是否已赋值
+                     * @return ConfigInfo 是否已赋值
+                     * 
+                     */
+                    bool ConfigInfoHasBeenSet() const;
 
                 private:
 
@@ -109,7 +304,8 @@ namespace TencentCloud
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 分析类型：query，field
+                     * 分析类型：query(自定义检索分析)，field(字段TOP5及占比统计) ，original(相关原始日志)
+
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
@@ -119,6 +315,52 @@ namespace TencentCloud
                      */
                     std::string m_content;
                     bool m_contentHasBeenSet;
+
+                    /**
+                     * 多维分析配置。
+
+当Analysis的Type字段为query（自定义）时，支持
+{
+"Key": "SyntaxRule",  // 语法规则
+"Value": "1"  //0：Lucene语法 ，1： CQL语法
+}
+
+当Analysis的Type字段为field（top5）时,  支持
+ {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法（Lucene）
+    "Value": "0"//0:Lucene, 1:CQL
+}       
+
+当Analysis的Type字段为original（原始日志）时,  支持
+{
+    "Key": "Fields",
+    "Value": "__SOURCE__,__HOSTNAME__,__TIMESTAMP__,__PKG_LOGID__,__TAG__.pod_ip"
+}, {
+    "Key": "QueryIndex",
+    "Value": "-1" //  -1：自定义， 1：执行语句1， 2：执行语句2
+},{
+    "Key": "CustomQuery", //  //检索语句。 QueryIndex为-1时有效且必填
+    "Value": "* | select count(*) as count"
+},{
+    "Key": "Format", //显示形式。1：每条日志一行，2：每条日志每个字段一行
+    "Value": "2"
+},
+{
+    "Key": "Limit", //最大日志条数
+    "Value": "5"
+},{
+    "Key": "SyntaxRule", // 查不到这个字段也是老语法
+    "Value": "0"//0:Lucene, 1:CQL
+}
+                     */
+                    std::vector<AlarmAnalysisConfig> m_configInfo;
+                    bool m_configInfoHasBeenSet;
 
                 };
             }

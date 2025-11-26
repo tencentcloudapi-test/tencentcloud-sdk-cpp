@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/iotexplorer/v20190423/model/Filter.h>
 
 
 namespace TencentCloud
@@ -43,117 +44,177 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取需要查看设备列表的产品 ID
-                     * @return ProductId 需要查看设备列表的产品 ID
+                     * 获取需要查看设备列表的产品ID, -1代表ProjectId来筛选
+                     * @return ProductId 需要查看设备列表的产品ID, -1代表ProjectId来筛选
+                     * 
                      */
                     std::string GetProductId() const;
 
                     /**
-                     * 设置需要查看设备列表的产品 ID
-                     * @param ProductId 需要查看设备列表的产品 ID
+                     * 设置需要查看设备列表的产品ID, -1代表ProjectId来筛选
+                     * @param _productId 需要查看设备列表的产品ID, -1代表ProjectId来筛选
+                     * 
                      */
                     void SetProductId(const std::string& _productId);
 
                     /**
                      * 判断参数 ProductId 是否已赋值
                      * @return ProductId 是否已赋值
+                     * 
                      */
                     bool ProductIdHasBeenSet() const;
 
                     /**
                      * 获取分页偏移
                      * @return Offset 分页偏移
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置分页偏移
-                     * @param Offset 分页偏移
+                     * @param _offset 分页偏移
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取分页的大小，数值范围 10-100
                      * @return Limit 分页的大小，数值范围 10-100
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置分页的大小，数值范围 10-100
-                     * @param Limit 分页的大小，数值范围 10-100
+                     * @param _limit 分页的大小，数值范围 10-100
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
                      * @return FirmwareVersion 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+                     * 
                      */
                     std::string GetFirmwareVersion() const;
 
                     /**
                      * 设置设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
-                     * @param FirmwareVersion 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+                     * @param _firmwareVersion 设备固件版本号，若不带此参数会返回所有固件版本的设备。传"None-FirmwareVersion"查询无版本号的设备
+                     * 
                      */
                     void SetFirmwareVersion(const std::string& _firmwareVersion);
 
                     /**
                      * 判断参数 FirmwareVersion 是否已赋值
                      * @return FirmwareVersion 是否已赋值
+                     * 
                      */
                     bool FirmwareVersionHasBeenSet() const;
 
                     /**
+                     * 获取固件类型
+                     * @return FwType 固件类型
+                     * 
+                     */
+                    std::string GetFwType() const;
+
+                    /**
+                     * 设置固件类型
+                     * @param _fwType 固件类型
+                     * 
+                     */
+                    void SetFwType(const std::string& _fwType);
+
+                    /**
+                     * 判断参数 FwType 是否已赋值
+                     * @return FwType 是否已赋值
+                     * 
+                     */
+                    bool FwTypeHasBeenSet() const;
+
+                    /**
                      * 获取需要过滤的设备名称
                      * @return DeviceName 需要过滤的设备名称
+                     * 
                      */
                     std::string GetDeviceName() const;
 
                     /**
                      * 设置需要过滤的设备名称
-                     * @param DeviceName 需要过滤的设备名称
+                     * @param _deviceName 需要过滤的设备名称
+                     * 
                      */
                     void SetDeviceName(const std::string& _deviceName);
 
                     /**
                      * 判断参数 DeviceName 是否已赋值
                      * @return DeviceName 是否已赋值
+                     * 
                      */
                     bool DeviceNameHasBeenSet() const;
 
                     /**
                      * 获取项目ID。产品 ID 为 -1 时，该参数必填
                      * @return ProjectId 项目ID。产品 ID 为 -1 时，该参数必填
+                     * 
                      */
                     std::string GetProjectId() const;
 
                     /**
                      * 设置项目ID。产品 ID 为 -1 时，该参数必填
-                     * @param ProjectId 项目ID。产品 ID 为 -1 时，该参数必填
+                     * @param _projectId 项目ID。产品 ID 为 -1 时，该参数必填
+                     * 
                      */
                     void SetProjectId(const std::string& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
+
+                    /**
+                     * 获取每次请求的Filters的上限为10，Filter.Values的上限为1。
+                     * @return Filters 每次请求的Filters的上限为10，Filter.Values的上限为1。
+                     * 
+                     */
+                    std::vector<Filter> GetFilters() const;
+
+                    /**
+                     * 设置每次请求的Filters的上限为10，Filter.Values的上限为1。
+                     * @param _filters 每次请求的Filters的上限为10，Filter.Values的上限为1。
+                     * 
+                     */
+                    void SetFilters(const std::vector<Filter>& _filters);
+
+                    /**
+                     * 判断参数 Filters 是否已赋值
+                     * @return Filters 是否已赋值
+                     * 
+                     */
+                    bool FiltersHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 需要查看设备列表的产品 ID
+                     * 需要查看设备列表的产品ID, -1代表ProjectId来筛选
                      */
                     std::string m_productId;
                     bool m_productIdHasBeenSet;
@@ -177,6 +238,12 @@ namespace TencentCloud
                     bool m_firmwareVersionHasBeenSet;
 
                     /**
+                     * 固件类型
+                     */
+                    std::string m_fwType;
+                    bool m_fwTypeHasBeenSet;
+
+                    /**
                      * 需要过滤的设备名称
                      */
                     std::string m_deviceName;
@@ -187,6 +254,12 @@ namespace TencentCloud
                      */
                     std::string m_projectId;
                     bool m_projectIdHasBeenSet;
+
+                    /**
+                     * 每次请求的Filters的上限为10，Filter.Values的上限为1。
+                     */
+                    std::vector<Filter> m_filters;
+                    bool m_filtersHasBeenSet;
 
                 };
             }

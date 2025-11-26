@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,26 +46,44 @@ namespace TencentCloud
                     /**
                      * 获取SAML元数据文档
                      * @return SAMLMetadata SAML元数据文档
+                     * 
                      */
                     std::string GetSAMLMetadata() const;
 
                     /**
                      * 判断参数 SAMLMetadata 是否已赋值
                      * @return SAMLMetadata 是否已赋值
+                     * 
                      */
                     bool SAMLMetadataHasBeenSet() const;
 
                     /**
-                     * 获取状态：0:未设置，1:已开启，2:已禁用
-                     * @return Status 状态：0:未设置，1:已开启，2:已禁用
+                     * 获取状态：0:未设置，11:已开启，2:已禁用
+                     * @return Status 状态：0:未设置，11:已开启，2:已禁用
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取辅助域名
+                     * @return AuxiliaryDomain 辅助域名
+                     * 
+                     */
+                    std::string GetAuxiliaryDomain() const;
+
+                    /**
+                     * 判断参数 AuxiliaryDomain 是否已赋值
+                     * @return AuxiliaryDomain 是否已赋值
+                     * 
+                     */
+                    bool AuxiliaryDomainHasBeenSet() const;
 
                 private:
 
@@ -76,10 +94,16 @@ namespace TencentCloud
                     bool m_sAMLMetadataHasBeenSet;
 
                     /**
-                     * 状态：0:未设置，1:已开启，2:已禁用
+                     * 状态：0:未设置，11:已开启，2:已禁用
                      */
                     uint64_t m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 辅助域名
+                     */
+                    std::string m_auxiliaryDomain;
+                    bool m_auxiliaryDomainHasBeenSet;
 
                 };
             }

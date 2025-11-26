@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,90 +47,123 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
-                     * @return Names 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
-                     */
-                    std::vector<std::string> GetNames() const;
-
-                    /**
-                     * 设置搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
-                     * @param Names 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
-                     */
-                    void SetNames(const std::vector<std::string>& _names);
-
-                    /**
-                     * 判断参数 Names 是否已赋值
-                     * @return Names 是否已赋值
-                     */
-                    bool NamesHasBeenSet() const;
-
-                    /**
                      * 获取搜索字符串
                      * @return Values 搜索字符串
+                     * 
                      */
                     std::vector<std::string> GetValues() const;
 
                     /**
                      * 设置搜索字符串
-                     * @param Values 搜索字符串
+                     * @param _values 搜索字符串
+                     * 
                      */
                     void SetValues(const std::vector<std::string>& _values);
 
                     /**
                      * 判断参数 Values 是否已赋值
                      * @return Values 是否已赋值
+                     * 
                      */
                     bool ValuesHasBeenSet() const;
 
                     /**
+                     * 获取搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+                     * @return Names 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+                     * 
+                     */
+                    std::vector<std::string> GetNames() const;
+
+                    /**
+                     * 设置搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+                     * @param _names 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+                     * 
+                     */
+                    void SetNames(const std::vector<std::string>& _names);
+
+                    /**
+                     * 判断参数 Names 是否已赋值
+                     * @return Names 是否已赋值
+                     * 
+                     */
+                    bool NamesHasBeenSet() const;
+
+                    /**
                      * 获取是否精确匹配
                      * @return ExactMatch 是否精确匹配
+                     * 
                      */
                     bool GetExactMatch() const;
 
                     /**
                      * 设置是否精确匹配
-                     * @param ExactMatch 是否精确匹配
+                     * @param _exactMatch 是否精确匹配
+                     * 
                      */
                     void SetExactMatch(const bool& _exactMatch);
 
                     /**
                      * 判断参数 ExactMatch 是否已赋值
                      * @return ExactMatch 是否已赋值
+                     * 
                      */
                     bool ExactMatchHasBeenSet() const;
 
                     /**
                      * 获取搜索字段
                      * @return Name 搜索字段
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置搜索字段
-                     * @param Name 搜索字段
+                     * @param _name 搜索字段
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
-                private:
+                    /**
+                     * 获取操作符
+                     * @return Operator 操作符
+                     * 
+                     */
+                    std::string GetOperator() const;
 
                     /**
-                     * 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+                     * 设置操作符
+                     * @param _operator 操作符
+                     * 
                      */
-                    std::vector<std::string> m_names;
-                    bool m_namesHasBeenSet;
+                    void SetOperator(const std::string& _operator);
+
+                    /**
+                     * 判断参数 Operator 是否已赋值
+                     * @return Operator 是否已赋值
+                     * 
+                     */
+                    bool OperatorHasBeenSet() const;
+
+                private:
 
                     /**
                      * 搜索字符串
                      */
                     std::vector<std::string> m_values;
                     bool m_valuesHasBeenSet;
+
+                    /**
+                     * 搜索字段，目前支持："InstanceId", "ProjectId", "InstanceName", "Vip"
+                     */
+                    std::vector<std::string> m_names;
+                    bool m_namesHasBeenSet;
 
                     /**
                      * 是否精确匹配
@@ -143,6 +176,12 @@ namespace TencentCloud
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
+
+                    /**
+                     * 操作符
+                     */
+                    std::string m_operator;
+                    bool m_operatorHasBeenSet;
 
                 };
             }

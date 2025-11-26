@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ DescribeCurveDataResponse::DescribeCurveDataResponse() :
     m_metricNameHasBeenSet(false),
     m_periodHasBeenSet(false),
     m_valuesHasBeenSet(false),
-    m_timeHasBeenSet(false)
+    m_timeHasBeenSet(false),
+    m_newValuesHasBeenSet(false)
 {
 }
 
@@ -133,6 +134,19 @@ CoreInternalOutcome DescribeCurveDataResponse::Deserialize(const string &payload
         m_timeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("NewValues") && !rsp["NewValues"].IsNull())
+    {
+        if (!rsp["NewValues"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `NewValues` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["NewValues"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_newValues.push_back((*itr).GetDouble());
+        }
+        m_newValuesHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -201,11 +215,24 @@ string DescribeCurveDataResponse::ToJsonString() const
         }
     }
 
+    if (m_newValuesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NewValues";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_newValues.begin(); itr != m_newValues.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetDouble(*itr), allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -271,6 +298,16 @@ vector<int64_t> DescribeCurveDataResponse::GetTime() const
 bool DescribeCurveDataResponse::TimeHasBeenSet() const
 {
     return m_timeHasBeenSet;
+}
+
+vector<double> DescribeCurveDataResponse::GetNewValues() const
+{
+    return m_newValues;
+}
+
+bool DescribeCurveDataResponse::NewValuesHasBeenSet() const
+{
+    return m_newValuesHasBeenSet;
 }
 
 

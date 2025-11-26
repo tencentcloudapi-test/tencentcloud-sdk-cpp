@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取具体的报错日志, 包含错误码和错误信息
                      * @return ErrorLog 具体的报错日志, 包含错误码和错误信息
+                     * 
                      */
                     std::string GetErrorLog() const;
 
                     /**
                      * 设置具体的报错日志, 包含错误码和错误信息
-                     * @param ErrorLog 具体的报错日志, 包含错误码和错误信息
+                     * @param _errorLog 具体的报错日志, 包含错误码和错误信息
+                     * 
                      */
                     void SetErrorLog(const std::string& _errorLog);
 
                     /**
                      * 判断参数 ErrorLog 是否已赋值
                      * @return ErrorLog 是否已赋值
+                     * 
                      */
                     bool ErrorLogHasBeenSet() const;
 
                     /**
                      * 获取报错对应的帮助文档Ur
                      * @return HelpDoc 报错对应的帮助文档Ur
+                     * 
                      */
                     std::string GetHelpDoc() const;
 
                     /**
                      * 设置报错对应的帮助文档Ur
-                     * @param HelpDoc 报错对应的帮助文档Ur
+                     * @param _helpDoc 报错对应的帮助文档Ur
+                     * 
                      */
                     void SetHelpDoc(const std::string& _helpDoc);
 
                     /**
                      * 判断参数 HelpDoc 是否已赋值
                      * @return HelpDoc 是否已赋值
+                     * 
                      */
                     bool HelpDocHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,12 @@ CarTagItem::CarTagItem() :
     m_confidenceHasBeenSet(false),
     m_yearHasBeenSet(false),
     m_carLocationHasBeenSet(false),
-    m_plateContentHasBeenSet(false)
+    m_plateContentHasBeenSet(false),
+    m_plateConfidenceHasBeenSet(false),
+    m_typeConfidenceHasBeenSet(false),
+    m_colorConfidenceHasBeenSet(false),
+    m_orientationHasBeenSet(false),
+    m_orientationConfidenceHasBeenSet(false)
 {
 }
 
@@ -134,6 +139,56 @@ CoreInternalOutcome CarTagItem::Deserialize(const rapidjson::Value &value)
         m_plateContentHasBeenSet = true;
     }
 
+    if (value.HasMember("PlateConfidence") && !value["PlateConfidence"].IsNull())
+    {
+        if (!value["PlateConfidence"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CarTagItem.PlateConfidence` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_plateConfidence = value["PlateConfidence"].GetInt64();
+        m_plateConfidenceHasBeenSet = true;
+    }
+
+    if (value.HasMember("TypeConfidence") && !value["TypeConfidence"].IsNull())
+    {
+        if (!value["TypeConfidence"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CarTagItem.TypeConfidence` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_typeConfidence = value["TypeConfidence"].GetInt64();
+        m_typeConfidenceHasBeenSet = true;
+    }
+
+    if (value.HasMember("ColorConfidence") && !value["ColorConfidence"].IsNull())
+    {
+        if (!value["ColorConfidence"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CarTagItem.ColorConfidence` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_colorConfidence = value["ColorConfidence"].GetInt64();
+        m_colorConfidenceHasBeenSet = true;
+    }
+
+    if (value.HasMember("Orientation") && !value["Orientation"].IsNull())
+    {
+        if (!value["Orientation"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CarTagItem.Orientation` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_orientation = string(value["Orientation"].GetString());
+        m_orientationHasBeenSet = true;
+    }
+
+    if (value.HasMember("OrientationConfidence") && !value["OrientationConfidence"].IsNull())
+    {
+        if (!value["OrientationConfidence"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CarTagItem.OrientationConfidence` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_orientationConfidence = value["OrientationConfidence"].GetInt64();
+        m_orientationConfidenceHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -211,6 +266,46 @@ void CarTagItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_plateContent.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_plateConfidenceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PlateConfidence";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_plateConfidence, allocator);
+    }
+
+    if (m_typeConfidenceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TypeConfidence";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_typeConfidence, allocator);
+    }
+
+    if (m_colorConfidenceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ColorConfidence";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_colorConfidence, allocator);
+    }
+
+    if (m_orientationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Orientation";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_orientation.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orientationConfidenceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrientationConfidence";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_orientationConfidence, allocator);
     }
 
 }
@@ -342,5 +437,85 @@ void CarTagItem::SetPlateContent(const CarPlateContent& _plateContent)
 bool CarTagItem::PlateContentHasBeenSet() const
 {
     return m_plateContentHasBeenSet;
+}
+
+int64_t CarTagItem::GetPlateConfidence() const
+{
+    return m_plateConfidence;
+}
+
+void CarTagItem::SetPlateConfidence(const int64_t& _plateConfidence)
+{
+    m_plateConfidence = _plateConfidence;
+    m_plateConfidenceHasBeenSet = true;
+}
+
+bool CarTagItem::PlateConfidenceHasBeenSet() const
+{
+    return m_plateConfidenceHasBeenSet;
+}
+
+int64_t CarTagItem::GetTypeConfidence() const
+{
+    return m_typeConfidence;
+}
+
+void CarTagItem::SetTypeConfidence(const int64_t& _typeConfidence)
+{
+    m_typeConfidence = _typeConfidence;
+    m_typeConfidenceHasBeenSet = true;
+}
+
+bool CarTagItem::TypeConfidenceHasBeenSet() const
+{
+    return m_typeConfidenceHasBeenSet;
+}
+
+int64_t CarTagItem::GetColorConfidence() const
+{
+    return m_colorConfidence;
+}
+
+void CarTagItem::SetColorConfidence(const int64_t& _colorConfidence)
+{
+    m_colorConfidence = _colorConfidence;
+    m_colorConfidenceHasBeenSet = true;
+}
+
+bool CarTagItem::ColorConfidenceHasBeenSet() const
+{
+    return m_colorConfidenceHasBeenSet;
+}
+
+string CarTagItem::GetOrientation() const
+{
+    return m_orientation;
+}
+
+void CarTagItem::SetOrientation(const string& _orientation)
+{
+    m_orientation = _orientation;
+    m_orientationHasBeenSet = true;
+}
+
+bool CarTagItem::OrientationHasBeenSet() const
+{
+    return m_orientationHasBeenSet;
+}
+
+int64_t CarTagItem::GetOrientationConfidence() const
+{
+    return m_orientationConfidence;
+}
+
+void CarTagItem::SetOrientationConfidence(const int64_t& _orientationConfidence)
+{
+    m_orientationConfidence = _orientationConfidence;
+    m_orientationConfidenceHasBeenSet = true;
+}
+
+bool CarTagItem::OrientationConfidenceHasBeenSet() const
+{
+    return m_orientationConfidenceHasBeenSet;
 }
 

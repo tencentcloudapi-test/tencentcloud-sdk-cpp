@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,66 +43,75 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取文件内容 Base64,与FileUrl必须二填一
-                     * @return FileContent 文件内容 Base64,与FileUrl必须二填一
-                     */
-                    std::string GetFileContent() const;
-
-                    /**
-                     * 设置文件内容 Base64,与FileUrl必须二填一
-                     * @param FileContent 文件内容 Base64,与FileUrl必须二填一
-                     */
-                    void SetFileContent(const std::string& _fileContent);
-
-                    /**
-                     * 判断参数 FileContent 是否已赋值
-                     * @return FileContent 是否已赋值
-                     */
-                    bool FileContentHasBeenSet() const;
-
-                    /**
-                     * 获取文件MD5值
-                     * @return FileMD5 文件MD5值
-                     */
-                    std::string GetFileMD5() const;
-
-                    /**
-                     * 设置文件MD5值
-                     * @param FileMD5 文件MD5值
-                     */
-                    void SetFileMD5(const std::string& _fileMD5);
-
-                    /**
-                     * 判断参数 FileMD5 是否已赋值
-                     * @return FileMD5 是否已赋值
-                     */
-                    bool FileMD5HasBeenSet() const;
-
-                    /**
                      * 获取文件地址
                      * @return FileUrl 文件地址
+                     * 
                      */
                     std::string GetFileUrl() const;
 
                     /**
                      * 设置文件地址
-                     * @param FileUrl 文件地址
+                     * @param _fileUrl 文件地址
+                     * 
                      */
                     void SetFileUrl(const std::string& _fileUrl);
 
                     /**
                      * 判断参数 FileUrl 是否已赋值
                      * @return FileUrl 是否已赋值
+                     * 
                      */
                     bool FileUrlHasBeenSet() const;
+
+                    /**
+                     * 获取文件MD5值
+                     * @return FileMD5 文件MD5值
+                     * 
+                     */
+                    std::string GetFileMD5() const;
+
+                    /**
+                     * 设置文件MD5值
+                     * @param _fileMD5 文件MD5值
+                     * 
+                     */
+                    void SetFileMD5(const std::string& _fileMD5);
+
+                    /**
+                     * 判断参数 FileMD5 是否已赋值
+                     * @return FileMD5 是否已赋值
+                     * 
+                     */
+                    bool FileMD5HasBeenSet() const;
+
+                    /**
+                     * 获取文件内容 Base64,与FileUrl必须二填一
+                     * @return FileContent 文件内容 Base64,与FileUrl必须二填一
+                     * 
+                     */
+                    std::string GetFileContent() const;
+
+                    /**
+                     * 设置文件内容 Base64,与FileUrl必须二填一
+                     * @param _fileContent 文件内容 Base64,与FileUrl必须二填一
+                     * 
+                     */
+                    void SetFileContent(const std::string& _fileContent);
+
+                    /**
+                     * 判断参数 FileContent 是否已赋值
+                     * @return FileContent 是否已赋值
+                     * 
+                     */
+                    bool FileContentHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 文件内容 Base64,与FileUrl必须二填一
+                     * 文件地址
                      */
-                    std::string m_fileContent;
-                    bool m_fileContentHasBeenSet;
+                    std::string m_fileUrl;
+                    bool m_fileUrlHasBeenSet;
 
                     /**
                      * 文件MD5值
@@ -111,10 +120,10 @@ namespace TencentCloud
                     bool m_fileMD5HasBeenSet;
 
                     /**
-                     * 文件地址
+                     * 文件内容 Base64,与FileUrl必须二填一
                      */
-                    std::string m_fileUrl;
-                    bool m_fileUrlHasBeenSet;
+                    std::string m_fileContent;
+                    bool m_fileContentHasBeenSet;
 
                 };
             }

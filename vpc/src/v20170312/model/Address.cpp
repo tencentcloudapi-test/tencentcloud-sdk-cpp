@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,15 @@ Address::Address() :
     m_localBgpHasBeenSet(false),
     m_bandwidthHasBeenSet(false),
     m_internetChargeTypeHasBeenSet(false),
-    m_tagSetHasBeenSet(false)
+    m_tagSetHasBeenSet(false),
+    m_deadlineDateHasBeenSet(false),
+    m_instanceTypeHasBeenSet(false),
+    m_egressHasBeenSet(false),
+    m_antiDDoSPackageIdHasBeenSet(false),
+    m_renewFlagHasBeenSet(false),
+    m_bandwidthPackageIdHasBeenSet(false),
+    m_unVpcIdHasBeenSet(false),
+    m_dedicatedClusterIdHasBeenSet(false)
 {
 }
 
@@ -255,6 +263,86 @@ CoreInternalOutcome Address::Deserialize(const rapidjson::Value &value)
         m_tagSetHasBeenSet = true;
     }
 
+    if (value.HasMember("DeadlineDate") && !value["DeadlineDate"].IsNull())
+    {
+        if (!value["DeadlineDate"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.DeadlineDate` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_deadlineDate = string(value["DeadlineDate"].GetString());
+        m_deadlineDateHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceType") && !value["InstanceType"].IsNull())
+    {
+        if (!value["InstanceType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.InstanceType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceType = string(value["InstanceType"].GetString());
+        m_instanceTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Egress") && !value["Egress"].IsNull())
+    {
+        if (!value["Egress"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.Egress` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_egress = string(value["Egress"].GetString());
+        m_egressHasBeenSet = true;
+    }
+
+    if (value.HasMember("AntiDDoSPackageId") && !value["AntiDDoSPackageId"].IsNull())
+    {
+        if (!value["AntiDDoSPackageId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.AntiDDoSPackageId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_antiDDoSPackageId = string(value["AntiDDoSPackageId"].GetString());
+        m_antiDDoSPackageIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("RenewFlag") && !value["RenewFlag"].IsNull())
+    {
+        if (!value["RenewFlag"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.RenewFlag` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_renewFlag = string(value["RenewFlag"].GetString());
+        m_renewFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("BandwidthPackageId") && !value["BandwidthPackageId"].IsNull())
+    {
+        if (!value["BandwidthPackageId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.BandwidthPackageId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_bandwidthPackageId = string(value["BandwidthPackageId"].GetString());
+        m_bandwidthPackageIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("UnVpcId") && !value["UnVpcId"].IsNull())
+    {
+        if (!value["UnVpcId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.UnVpcId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_unVpcId = string(value["UnVpcId"].GetString());
+        m_unVpcIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("DedicatedClusterId") && !value["DedicatedClusterId"].IsNull())
+    {
+        if (!value["DedicatedClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Address.DedicatedClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dedicatedClusterId = string(value["DedicatedClusterId"].GetString());
+        m_dedicatedClusterIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -420,6 +508,70 @@ void Address::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_deadlineDateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeadlineDate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_deadlineDate.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_egressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Egress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_egress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_antiDDoSPackageIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AntiDDoSPackageId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_antiDDoSPackageId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_renewFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RenewFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_renewFlag.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_bandwidthPackageIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BandwidthPackageId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_bandwidthPackageId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_unVpcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UnVpcId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_unVpcId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -727,5 +879,133 @@ void Address::SetTagSet(const vector<Tag>& _tagSet)
 bool Address::TagSetHasBeenSet() const
 {
     return m_tagSetHasBeenSet;
+}
+
+string Address::GetDeadlineDate() const
+{
+    return m_deadlineDate;
+}
+
+void Address::SetDeadlineDate(const string& _deadlineDate)
+{
+    m_deadlineDate = _deadlineDate;
+    m_deadlineDateHasBeenSet = true;
+}
+
+bool Address::DeadlineDateHasBeenSet() const
+{
+    return m_deadlineDateHasBeenSet;
+}
+
+string Address::GetInstanceType() const
+{
+    return m_instanceType;
+}
+
+void Address::SetInstanceType(const string& _instanceType)
+{
+    m_instanceType = _instanceType;
+    m_instanceTypeHasBeenSet = true;
+}
+
+bool Address::InstanceTypeHasBeenSet() const
+{
+    return m_instanceTypeHasBeenSet;
+}
+
+string Address::GetEgress() const
+{
+    return m_egress;
+}
+
+void Address::SetEgress(const string& _egress)
+{
+    m_egress = _egress;
+    m_egressHasBeenSet = true;
+}
+
+bool Address::EgressHasBeenSet() const
+{
+    return m_egressHasBeenSet;
+}
+
+string Address::GetAntiDDoSPackageId() const
+{
+    return m_antiDDoSPackageId;
+}
+
+void Address::SetAntiDDoSPackageId(const string& _antiDDoSPackageId)
+{
+    m_antiDDoSPackageId = _antiDDoSPackageId;
+    m_antiDDoSPackageIdHasBeenSet = true;
+}
+
+bool Address::AntiDDoSPackageIdHasBeenSet() const
+{
+    return m_antiDDoSPackageIdHasBeenSet;
+}
+
+string Address::GetRenewFlag() const
+{
+    return m_renewFlag;
+}
+
+void Address::SetRenewFlag(const string& _renewFlag)
+{
+    m_renewFlag = _renewFlag;
+    m_renewFlagHasBeenSet = true;
+}
+
+bool Address::RenewFlagHasBeenSet() const
+{
+    return m_renewFlagHasBeenSet;
+}
+
+string Address::GetBandwidthPackageId() const
+{
+    return m_bandwidthPackageId;
+}
+
+void Address::SetBandwidthPackageId(const string& _bandwidthPackageId)
+{
+    m_bandwidthPackageId = _bandwidthPackageId;
+    m_bandwidthPackageIdHasBeenSet = true;
+}
+
+bool Address::BandwidthPackageIdHasBeenSet() const
+{
+    return m_bandwidthPackageIdHasBeenSet;
+}
+
+string Address::GetUnVpcId() const
+{
+    return m_unVpcId;
+}
+
+void Address::SetUnVpcId(const string& _unVpcId)
+{
+    m_unVpcId = _unVpcId;
+    m_unVpcIdHasBeenSet = true;
+}
+
+bool Address::UnVpcIdHasBeenSet() const
+{
+    return m_unVpcIdHasBeenSet;
+}
+
+string Address::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void Address::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool Address::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
 }
 

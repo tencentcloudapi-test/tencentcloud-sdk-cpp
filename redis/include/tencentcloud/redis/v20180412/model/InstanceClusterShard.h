@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,222 +47,350 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取分片节点名称
-                     * @return ShardName 分片节点名称
+                     * 获取分片节点名称。
+                     * @return ShardName 分片节点名称。
+                     * 
                      */
                     std::string GetShardName() const;
 
                     /**
-                     * 设置分片节点名称
-                     * @param ShardName 分片节点名称
+                     * 设置分片节点名称。
+                     * @param _shardName 分片节点名称。
+                     * 
                      */
                     void SetShardName(const std::string& _shardName);
 
                     /**
                      * 判断参数 ShardName 是否已赋值
                      * @return ShardName 是否已赋值
+                     * 
                      */
                     bool ShardNameHasBeenSet() const;
 
                     /**
-                     * 获取分片节点Id
-                     * @return ShardId 分片节点Id
+                     * 获取分片节点序号。
+                     * @return ShardId 分片节点序号。
+                     * 
                      */
                     std::string GetShardId() const;
 
                     /**
-                     * 设置分片节点Id
-                     * @param ShardId 分片节点Id
+                     * 设置分片节点序号。
+                     * @param _shardId 分片节点序号。
+                     * 
                      */
                     void SetShardId(const std::string& _shardId);
 
                     /**
                      * 判断参数 ShardId 是否已赋值
                      * @return ShardId 是否已赋值
+                     * 
                      */
                     bool ShardIdHasBeenSet() const;
 
                     /**
-                     * 获取角色
-                     * @return Role 角色
+                     * 获取分片节点的角色。
+- 0：主节点。
+- 1：副本节点。
+                     * @return Role 分片节点的角色。
+- 0：主节点。
+- 1：副本节点。
+                     * 
                      */
                     int64_t GetRole() const;
 
                     /**
-                     * 设置角色
-                     * @param Role 角色
+                     * 设置分片节点的角色。
+- 0：主节点。
+- 1：副本节点。
+                     * @param _role 分片节点的角色。
+- 0：主节点。
+- 1：副本节点。
+                     * 
                      */
                     void SetRole(const int64_t& _role);
 
                     /**
                      * 判断参数 Role 是否已赋值
                      * @return Role 是否已赋值
+                     * 
                      */
                     bool RoleHasBeenSet() const;
 
                     /**
-                     * 获取Key数量
-                     * @return Keys Key数量
+                     * 获取Key数量。
+                     * @return Keys Key数量。
+                     * 
                      */
                     int64_t GetKeys() const;
 
                     /**
-                     * 设置Key数量
-                     * @param Keys Key数量
+                     * 设置Key数量。
+                     * @param _keys Key数量。
+                     * 
                      */
                     void SetKeys(const int64_t& _keys);
 
                     /**
                      * 判断参数 Keys 是否已赋值
                      * @return Keys 是否已赋值
+                     * 
                      */
                     bool KeysHasBeenSet() const;
 
                     /**
-                     * 获取slot信息
-                     * @return Slots slot信息
+                     * 获取Slot信息。
+                     * @return Slots Slot信息。
+                     * 
                      */
                     std::string GetSlots() const;
 
                     /**
-                     * 设置slot信息
-                     * @param Slots slot信息
+                     * 设置Slot信息。
+                     * @param _slots Slot信息。
+                     * 
                      */
                     void SetSlots(const std::string& _slots);
 
                     /**
                      * 判断参数 Slots 是否已赋值
                      * @return Slots 是否已赋值
+                     * 
                      */
                     bool SlotsHasBeenSet() const;
 
                     /**
-                     * 获取使用容量
-                     * @return Storage 使用容量
+                     * 获取已使用容量。
+                     * @return Storage 已使用容量。
+                     * 
                      */
                     int64_t GetStorage() const;
 
                     /**
-                     * 设置使用容量
-                     * @param Storage 使用容量
+                     * 设置已使用容量。
+                     * @param _storage 已使用容量。
+                     * 
                      */
                     void SetStorage(const int64_t& _storage);
 
                     /**
                      * 判断参数 Storage 是否已赋值
                      * @return Storage 是否已赋值
+                     * 
                      */
                     bool StorageHasBeenSet() const;
 
                     /**
-                     * 获取容量倾斜率
-                     * @return StorageSlope 容量倾斜率
+                     * 获取容量倾斜率。
+                     * @return StorageSlope 容量倾斜率。
+                     * 
                      */
                     double GetStorageSlope() const;
 
                     /**
-                     * 设置容量倾斜率
-                     * @param StorageSlope 容量倾斜率
+                     * 设置容量倾斜率。
+                     * @param _storageSlope 容量倾斜率。
+                     * 
                      */
                     void SetStorageSlope(const double& _storageSlope);
 
                     /**
                      * 判断参数 StorageSlope 是否已赋值
                      * @return StorageSlope 是否已赋值
+                     * 
                      */
                     bool StorageSlopeHasBeenSet() const;
 
                     /**
-                     * 获取实例运行时节点Id
-                     * @return Runid 实例运行时节点Id
+                     * 获取该字段因拼写不规范问题，建议使用RunId取代。含义：实例运行时节点 ID。
+                     * @return Runid 该字段因拼写不规范问题，建议使用RunId取代。含义：实例运行时节点 ID。
+                     * 
                      */
                     std::string GetRunid() const;
 
                     /**
-                     * 设置实例运行时节点Id
-                     * @param Runid 实例运行时节点Id
+                     * 设置该字段因拼写不规范问题，建议使用RunId取代。含义：实例运行时节点 ID。
+                     * @param _runid 该字段因拼写不规范问题，建议使用RunId取代。含义：实例运行时节点 ID。
+                     * 
                      */
                     void SetRunid(const std::string& _runid);
 
                     /**
                      * 判断参数 Runid 是否已赋值
                      * @return Runid 是否已赋值
+                     * 
                      */
                     bool RunidHasBeenSet() const;
 
                     /**
-                     * 获取服务状态：0-down；1-on
-                     * @return Connected 服务状态：0-down；1-on
+                     * 获取实例运行时节点 ID。
+                     * @return RunId 实例运行时节点 ID。
+                     * 
+                     */
+                    std::string GetRunId() const;
+
+                    /**
+                     * 设置实例运行时节点 ID。
+                     * @param _runId 实例运行时节点 ID。
+                     * 
+                     */
+                    void SetRunId(const std::string& _runId);
+
+                    /**
+                     * 判断参数 RunId 是否已赋值
+                     * @return RunId 是否已赋值
+                     * 
+                     */
+                    bool RunIdHasBeenSet() const;
+
+                    /**
+                     * 获取服务状态。
+- 0：down。
+- 1：on。
+                     * @return Connected 服务状态。
+- 0：down。
+- 1：on。
+                     * 
                      */
                     int64_t GetConnected() const;
 
                     /**
-                     * 设置服务状态：0-down；1-on
-                     * @param Connected 服务状态：0-down；1-on
+                     * 设置服务状态。
+- 0：down。
+- 1：on。
+                     * @param _connected 服务状态。
+- 0：down。
+- 1：on。
+                     * 
                      */
                     void SetConnected(const int64_t& _connected);
 
                     /**
                      * 判断参数 Connected 是否已赋值
                      * @return Connected 是否已赋值
+                     * 
                      */
                     bool ConnectedHasBeenSet() const;
+
+                    /**
+                     * 获取可用区信息。
+                     * @return ZoneId 可用区信息。
+                     * 
+                     */
+                    std::string GetZoneId() const;
+
+                    /**
+                     * 设置可用区信息。
+                     * @param _zoneId 可用区信息。
+                     * 
+                     */
+                    void SetZoneId(const std::string& _zoneId);
+
+                    /**
+                     * 判断参数 ZoneId 是否已赋值
+                     * @return ZoneId 是否已赋值
+                     * 
+                     */
+                    bool ZoneIdHasBeenSet() const;
+
+                    /**
+                     * 获取节点组 ID。
+                     * @return ReplicasNodeId 节点组 ID。
+                     * 
+                     */
+                    int64_t GetReplicasNodeId() const;
+
+                    /**
+                     * 设置节点组 ID。
+                     * @param _replicasNodeId 节点组 ID。
+                     * 
+                     */
+                    void SetReplicasNodeId(const int64_t& _replicasNodeId);
+
+                    /**
+                     * 判断参数 ReplicasNodeId 是否已赋值
+                     * @return ReplicasNodeId 是否已赋值
+                     * 
+                     */
+                    bool ReplicasNodeIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 分片节点名称
+                     * 分片节点名称。
                      */
                     std::string m_shardName;
                     bool m_shardNameHasBeenSet;
 
                     /**
-                     * 分片节点Id
+                     * 分片节点序号。
                      */
                     std::string m_shardId;
                     bool m_shardIdHasBeenSet;
 
                     /**
-                     * 角色
+                     * 分片节点的角色。
+- 0：主节点。
+- 1：副本节点。
                      */
                     int64_t m_role;
                     bool m_roleHasBeenSet;
 
                     /**
-                     * Key数量
+                     * Key数量。
                      */
                     int64_t m_keys;
                     bool m_keysHasBeenSet;
 
                     /**
-                     * slot信息
+                     * Slot信息。
                      */
                     std::string m_slots;
                     bool m_slotsHasBeenSet;
 
                     /**
-                     * 使用容量
+                     * 已使用容量。
                      */
                     int64_t m_storage;
                     bool m_storageHasBeenSet;
 
                     /**
-                     * 容量倾斜率
+                     * 容量倾斜率。
                      */
                     double m_storageSlope;
                     bool m_storageSlopeHasBeenSet;
 
                     /**
-                     * 实例运行时节点Id
+                     * 该字段因拼写不规范问题，建议使用RunId取代。含义：实例运行时节点 ID。
                      */
                     std::string m_runid;
                     bool m_runidHasBeenSet;
 
                     /**
-                     * 服务状态：0-down；1-on
+                     * 实例运行时节点 ID。
+                     */
+                    std::string m_runId;
+                    bool m_runIdHasBeenSet;
+
+                    /**
+                     * 服务状态。
+- 0：down。
+- 1：on。
                      */
                     int64_t m_connected;
                     bool m_connectedHasBeenSet;
+
+                    /**
+                     * 可用区信息。
+                     */
+                    std::string m_zoneId;
+                    bool m_zoneIdHasBeenSet;
+
+                    /**
+                     * 节点组 ID。
+                     */
+                    int64_t m_replicasNodeId;
+                    bool m_replicasNodeIdHasBeenSet;
 
                 };
             }

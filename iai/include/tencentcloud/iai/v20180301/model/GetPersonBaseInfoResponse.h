@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取人员名称
                      * @return PersonName 人员名称
+                     * 
                      */
                     std::string GetPersonName() const;
 
                     /**
                      * 判断参数 PersonName 是否已赋值
                      * @return PersonName 是否已赋值
+                     * 
                      */
                     bool PersonNameHasBeenSet() const;
 
                     /**
                      * 获取人员性别
                      * @return Gender 人员性别
+                     * 
                      */
                     int64_t GetGender() const;
 
                     /**
                      * 判断参数 Gender 是否已赋值
                      * @return Gender 是否已赋值
+                     * 
                      */
                     bool GenderHasBeenSet() const;
 
                     /**
                      * 获取包含的人脸 ID 列表
                      * @return FaceIds 包含的人脸 ID 列表
+                     * 
                      */
                     std::vector<std::string> GetFaceIds() const;
 
                     /**
                      * 判断参数 FaceIds 是否已赋值
                      * @return FaceIds 是否已赋值
+                     * 
                      */
                     bool FaceIdsHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取资源类型id。13624：加固专业版。
                      * @return Pid 资源类型id。13624：加固专业版。
+                     * 
                      */
                     uint64_t GetPid() const;
 
                     /**
                      * 设置资源类型id。13624：加固专业版。
-                     * @param Pid 资源类型id。13624：加固专业版。
+                     * @param _pid 资源类型id。13624：加固专业版。
+                     * 
                      */
                     void SetPid(const uint64_t& _pid);
 
                     /**
                      * 判断参数 Pid 是否已赋值
                      * @return Pid 是否已赋值
+                     * 
                      */
                     bool PidHasBeenSet() const;
 
                     /**
                      * 获取时间单位，取值为d，m，y，分别表示天，月，年。
                      * @return TimeUnit 时间单位，取值为d，m，y，分别表示天，月，年。
+                     * 
                      */
                     std::string GetTimeUnit() const;
 
                     /**
                      * 设置时间单位，取值为d，m，y，分别表示天，月，年。
-                     * @param TimeUnit 时间单位，取值为d，m，y，分别表示天，月，年。
+                     * @param _timeUnit 时间单位，取值为d，m，y，分别表示天，月，年。
+                     * 
                      */
                     void SetTimeUnit(const std::string& _timeUnit);
 
                     /**
                      * 判断参数 TimeUnit 是否已赋值
                      * @return TimeUnit 是否已赋值
+                     * 
                      */
                     bool TimeUnitHasBeenSet() const;
 
                     /**
                      * 获取时间数量。
                      * @return TimeSpan 时间数量。
+                     * 
                      */
                     uint64_t GetTimeSpan() const;
 
                     /**
                      * 设置时间数量。
-                     * @param TimeSpan 时间数量。
+                     * @param _timeSpan 时间数量。
+                     * 
                      */
                     void SetTimeSpan(const uint64_t& _timeSpan);
 
                     /**
                      * 判断参数 TimeSpan 是否已赋值
                      * @return TimeSpan 是否已赋值
+                     * 
                      */
                     bool TimeSpanHasBeenSet() const;
 
                     /**
                      * 获取资源数量。
                      * @return ResourceNum 资源数量。
+                     * 
                      */
                     uint64_t GetResourceNum() const;
 
                     /**
                      * 设置资源数量。
-                     * @param ResourceNum 资源数量。
+                     * @param _resourceNum 资源数量。
+                     * 
                      */
                     void SetResourceNum(const uint64_t& _resourceNum);
 
                     /**
                      * 判断参数 ResourceNum 是否已赋值
                      * @return ResourceNum 是否已赋值
+                     * 
                      */
                     bool ResourceNumHasBeenSet() const;
 

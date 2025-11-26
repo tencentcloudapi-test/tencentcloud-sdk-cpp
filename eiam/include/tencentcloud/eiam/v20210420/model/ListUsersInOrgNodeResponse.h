@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,12 +50,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OrgNodeChildUserInfo 机构子节点下的用户信息列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<OrgNodeChildUserInfo> GetOrgNodeChildUserInfo() const;
 
                     /**
                      * 判断参数 OrgNodeChildUserInfo 是否已赋值
                      * @return OrgNodeChildUserInfo 是否已赋值
+                     * 
                      */
                     bool OrgNodeChildUserInfoHasBeenSet() const;
 
@@ -64,12 +66,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OrgNodeId 机构ID，是机构节点全局唯一标识，长度限制：64个字符。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetOrgNodeId() const;
 
                     /**
                      * 判断参数 OrgNodeId 是否已赋值
                      * @return OrgNodeId 是否已赋值
+                     * 
                      */
                     bool OrgNodeIdHasBeenSet() const;
 
@@ -78,12 +82,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UserInfo 用户信息列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<UserInfo> GetUserInfo() const;
 
                     /**
                      * 判断参数 UserInfo 是否已赋值
                      * @return UserInfo 是否已赋值
+                     * 
                      */
                     bool UserInfoHasBeenSet() const;
 
@@ -92,12 +98,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalUserNum 当前机构节点下的用户总数。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotalUserNum() const;
 
                     /**
                      * 判断参数 TotalUserNum 是否已赋值
                      * @return TotalUserNum 是否已赋值
+                     * 
                      */
                     bool TotalUserNumHasBeenSet() const;
 
@@ -106,12 +114,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OrgNodeIdPath 组织机构ID路径。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetOrgNodeIdPath() const;
 
                     /**
                      * 判断参数 OrgNodeIdPath 是否已赋值
                      * @return OrgNodeIdPath 是否已赋值
+                     * 
                      */
                     bool OrgNodeIdPathHasBeenSet() const;
 
@@ -120,12 +130,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OrgNodeNamePath 组织机构名称路径。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetOrgNodeNamePath() const;
 
                     /**
                      * 判断参数 OrgNodeNamePath 是否已赋值
                      * @return OrgNodeNamePath 是否已赋值
+                     * 
                      */
                     bool OrgNodeNamePathHasBeenSet() const;
 

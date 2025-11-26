@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 AccountPrivilege::AccountPrivilege() :
     m_userNameHasBeenSet(false),
-    m_privilegeHasBeenSet(false)
+    m_privilegeHasBeenSet(false),
+    m_accountTypeHasBeenSet(false)
 {
 }
 
@@ -51,6 +52,16 @@ CoreInternalOutcome AccountPrivilege::Deserialize(const rapidjson::Value &value)
         m_privilegeHasBeenSet = true;
     }
 
+    if (value.HasMember("AccountType") && !value["AccountType"].IsNull())
+    {
+        if (!value["AccountType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountPrivilege.AccountType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_accountType = string(value["AccountType"].GetString());
+        m_accountTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +83,14 @@ void AccountPrivilege::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "Privilege";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_privilege.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_accountTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccountType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_accountType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -107,5 +126,21 @@ void AccountPrivilege::SetPrivilege(const string& _privilege)
 bool AccountPrivilege::PrivilegeHasBeenSet() const
 {
     return m_privilegeHasBeenSet;
+}
+
+string AccountPrivilege::GetAccountType() const
+{
+    return m_accountType;
+}
+
+void AccountPrivilege::SetAccountType(const string& _accountType)
+{
+    m_accountType = _accountType;
+    m_accountTypeHasBeenSet = true;
+}
+
+bool AccountPrivilege::AccountTypeHasBeenSet() const
+{
+    return m_accountTypeHasBeenSet;
 }
 

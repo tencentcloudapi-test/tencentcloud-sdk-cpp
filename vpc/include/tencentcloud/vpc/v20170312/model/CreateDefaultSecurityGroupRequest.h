@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取项目ID，默认0。可在qcloud控制台项目管理页面查询到。
-                     * @return ProjectId 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+                     * 获取项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
+                     * @return ProjectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
+                     * 
                      */
                     std::string GetProjectId() const;
 
                     /**
-                     * 设置项目ID，默认0。可在qcloud控制台项目管理页面查询到。
-                     * @param ProjectId 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+                     * 设置项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
+                     * @param _projectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
+                     * 
                      */
                     void SetProjectId(const std::string& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+                     * 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">qcloud控制台项目管理页面</a>查询到。
                      */
                     std::string m_projectId;
                     bool m_projectIdHasBeenSet;

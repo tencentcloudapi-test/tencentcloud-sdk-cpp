@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取镜像Digest值
                      * @return Digest 镜像Digest值
+                     * 
                      */
                     std::string GetDigest() const;
 
                     /**
                      * 设置镜像Digest值
-                     * @param Digest 镜像Digest值
+                     * @param _digest 镜像Digest值
+                     * 
                      */
                     void SetDigest(const std::string& _digest);
 
                     /**
                      * 判断参数 Digest 是否已赋值
                      * @return Digest 是否已赋值
+                     * 
                      */
                     bool DigestHasBeenSet() const;
 

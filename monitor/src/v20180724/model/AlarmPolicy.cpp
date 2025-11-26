@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,20 @@ AlarmPolicy::AlarmPolicy() :
     m_ruleTypeHasBeenSet(false),
     m_originIdHasBeenSet(false),
     m_tagInstancesHasBeenSet(false),
-    m_filterDimensionsParamHasBeenSet(false)
+    m_filterHasBeenSet(false),
+    m_groupByHasBeenSet(false),
+    m_filterDimensionsParamHasBeenSet(false),
+    m_isOneClickHasBeenSet(false),
+    m_oneClickStatusHasBeenSet(false),
+    m_advancedMetricNumberHasBeenSet(false),
+    m_isBindAllHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_isSupportAlarmTagHasBeenSet(false),
+    m_tagOperationHasBeenSet(false),
+    m_noticeTmplBindInfosHasBeenSet(false),
+    m_hierarchicalNoticesHasBeenSet(false),
+    m_noticeContentTmplBindInfosHasBeenSet(false),
+    m_predefinedConfigIDHasBeenSet(false)
 {
 }
 
@@ -406,6 +419,43 @@ CoreInternalOutcome AlarmPolicy::Deserialize(const rapidjson::Value &value)
         m_tagInstancesHasBeenSet = true;
     }
 
+    if (value.HasMember("Filter") && !value["Filter"].IsNull())
+    {
+        if (!value["Filter"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.Filter` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_filter.Deserialize(value["Filter"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_filterHasBeenSet = true;
+    }
+
+    if (value.HasMember("GroupBy") && !value["GroupBy"].IsNull())
+    {
+        if (!value["GroupBy"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.GroupBy` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["GroupBy"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            AlarmGroupByItem item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_groupBy.push_back(item);
+        }
+        m_groupByHasBeenSet = true;
+    }
+
     if (value.HasMember("FilterDimensionsParam") && !value["FilterDimensionsParam"].IsNull())
     {
         if (!value["FilterDimensionsParam"].IsString())
@@ -414,6 +464,156 @@ CoreInternalOutcome AlarmPolicy::Deserialize(const rapidjson::Value &value)
         }
         m_filterDimensionsParam = string(value["FilterDimensionsParam"].GetString());
         m_filterDimensionsParamHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsOneClick") && !value["IsOneClick"].IsNull())
+    {
+        if (!value["IsOneClick"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.IsOneClick` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isOneClick = value["IsOneClick"].GetInt64();
+        m_isOneClickHasBeenSet = true;
+    }
+
+    if (value.HasMember("OneClickStatus") && !value["OneClickStatus"].IsNull())
+    {
+        if (!value["OneClickStatus"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.OneClickStatus` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_oneClickStatus = value["OneClickStatus"].GetInt64();
+        m_oneClickStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("AdvancedMetricNumber") && !value["AdvancedMetricNumber"].IsNull())
+    {
+        if (!value["AdvancedMetricNumber"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.AdvancedMetricNumber` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_advancedMetricNumber = value["AdvancedMetricNumber"].GetInt64();
+        m_advancedMetricNumberHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsBindAll") && !value["IsBindAll"].IsNull())
+    {
+        if (!value["IsBindAll"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.IsBindAll` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isBindAll = value["IsBindAll"].GetInt64();
+        m_isBindAllHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsSupportAlarmTag") && !value["IsSupportAlarmTag"].IsNull())
+    {
+        if (!value["IsSupportAlarmTag"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.IsSupportAlarmTag` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSupportAlarmTag = value["IsSupportAlarmTag"].GetInt64();
+        m_isSupportAlarmTagHasBeenSet = true;
+    }
+
+    if (value.HasMember("TagOperation") && !value["TagOperation"].IsNull())
+    {
+        if (!value["TagOperation"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.TagOperation` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_tagOperation = string(value["TagOperation"].GetString());
+        m_tagOperationHasBeenSet = true;
+    }
+
+    if (value.HasMember("NoticeTmplBindInfos") && !value["NoticeTmplBindInfos"].IsNull())
+    {
+        if (!value["NoticeTmplBindInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.NoticeTmplBindInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["NoticeTmplBindInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            NoticeContentTmplBindInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_noticeTmplBindInfos.push_back(item);
+        }
+        m_noticeTmplBindInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("HierarchicalNotices") && !value["HierarchicalNotices"].IsNull())
+    {
+        if (!value["HierarchicalNotices"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.HierarchicalNotices` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["HierarchicalNotices"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            AlarmHierarchicalNotice item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_hierarchicalNotices.push_back(item);
+        }
+        m_hierarchicalNoticesHasBeenSet = true;
+    }
+
+    if (value.HasMember("NoticeContentTmplBindInfos") && !value["NoticeContentTmplBindInfos"].IsNull())
+    {
+        if (!value["NoticeContentTmplBindInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.NoticeContentTmplBindInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["NoticeContentTmplBindInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            NoticeContentTmplBindInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_noticeContentTmplBindInfos.push_back(item);
+        }
+        m_noticeContentTmplBindInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("PredefinedConfigID") && !value["PredefinedConfigID"].IsNull())
+    {
+        if (!value["PredefinedConfigID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicy.PredefinedConfigID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_predefinedConfigID = string(value["PredefinedConfigID"].GetString());
+        m_predefinedConfigIDHasBeenSet = true;
     }
 
 
@@ -689,12 +889,152 @@ void AlarmPolicy::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         }
     }
 
+    if (m_filterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Filter";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_filter.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_groupByHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupBy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_groupBy.begin(); itr != m_groupBy.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     if (m_filterDimensionsParamHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "FilterDimensionsParam";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_filterDimensionsParam.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isOneClickHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsOneClick";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isOneClick, allocator);
+    }
+
+    if (m_oneClickStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OneClickStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_oneClickStatus, allocator);
+    }
+
+    if (m_advancedMetricNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdvancedMetricNumber";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_advancedMetricNumber, allocator);
+    }
+
+    if (m_isBindAllHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsBindAll";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isBindAll, allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_isSupportAlarmTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSupportAlarmTag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSupportAlarmTag, allocator);
+    }
+
+    if (m_tagOperationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagOperation";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_tagOperation.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_noticeTmplBindInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NoticeTmplBindInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_noticeTmplBindInfos.begin(); itr != m_noticeTmplBindInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_hierarchicalNoticesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HierarchicalNotices";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_hierarchicalNotices.begin(); itr != m_hierarchicalNotices.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_noticeContentTmplBindInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NoticeContentTmplBindInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_noticeContentTmplBindInfos.begin(); itr != m_noticeContentTmplBindInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_predefinedConfigIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PredefinedConfigID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_predefinedConfigID.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1164,6 +1504,38 @@ bool AlarmPolicy::TagInstancesHasBeenSet() const
     return m_tagInstancesHasBeenSet;
 }
 
+AlarmConditionFilter AlarmPolicy::GetFilter() const
+{
+    return m_filter;
+}
+
+void AlarmPolicy::SetFilter(const AlarmConditionFilter& _filter)
+{
+    m_filter = _filter;
+    m_filterHasBeenSet = true;
+}
+
+bool AlarmPolicy::FilterHasBeenSet() const
+{
+    return m_filterHasBeenSet;
+}
+
+vector<AlarmGroupByItem> AlarmPolicy::GetGroupBy() const
+{
+    return m_groupBy;
+}
+
+void AlarmPolicy::SetGroupBy(const vector<AlarmGroupByItem>& _groupBy)
+{
+    m_groupBy = _groupBy;
+    m_groupByHasBeenSet = true;
+}
+
+bool AlarmPolicy::GroupByHasBeenSet() const
+{
+    return m_groupByHasBeenSet;
+}
+
 string AlarmPolicy::GetFilterDimensionsParam() const
 {
     return m_filterDimensionsParam;
@@ -1178,5 +1550,181 @@ void AlarmPolicy::SetFilterDimensionsParam(const string& _filterDimensionsParam)
 bool AlarmPolicy::FilterDimensionsParamHasBeenSet() const
 {
     return m_filterDimensionsParamHasBeenSet;
+}
+
+int64_t AlarmPolicy::GetIsOneClick() const
+{
+    return m_isOneClick;
+}
+
+void AlarmPolicy::SetIsOneClick(const int64_t& _isOneClick)
+{
+    m_isOneClick = _isOneClick;
+    m_isOneClickHasBeenSet = true;
+}
+
+bool AlarmPolicy::IsOneClickHasBeenSet() const
+{
+    return m_isOneClickHasBeenSet;
+}
+
+int64_t AlarmPolicy::GetOneClickStatus() const
+{
+    return m_oneClickStatus;
+}
+
+void AlarmPolicy::SetOneClickStatus(const int64_t& _oneClickStatus)
+{
+    m_oneClickStatus = _oneClickStatus;
+    m_oneClickStatusHasBeenSet = true;
+}
+
+bool AlarmPolicy::OneClickStatusHasBeenSet() const
+{
+    return m_oneClickStatusHasBeenSet;
+}
+
+int64_t AlarmPolicy::GetAdvancedMetricNumber() const
+{
+    return m_advancedMetricNumber;
+}
+
+void AlarmPolicy::SetAdvancedMetricNumber(const int64_t& _advancedMetricNumber)
+{
+    m_advancedMetricNumber = _advancedMetricNumber;
+    m_advancedMetricNumberHasBeenSet = true;
+}
+
+bool AlarmPolicy::AdvancedMetricNumberHasBeenSet() const
+{
+    return m_advancedMetricNumberHasBeenSet;
+}
+
+int64_t AlarmPolicy::GetIsBindAll() const
+{
+    return m_isBindAll;
+}
+
+void AlarmPolicy::SetIsBindAll(const int64_t& _isBindAll)
+{
+    m_isBindAll = _isBindAll;
+    m_isBindAllHasBeenSet = true;
+}
+
+bool AlarmPolicy::IsBindAllHasBeenSet() const
+{
+    return m_isBindAllHasBeenSet;
+}
+
+vector<Tag> AlarmPolicy::GetTags() const
+{
+    return m_tags;
+}
+
+void AlarmPolicy::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool AlarmPolicy::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+int64_t AlarmPolicy::GetIsSupportAlarmTag() const
+{
+    return m_isSupportAlarmTag;
+}
+
+void AlarmPolicy::SetIsSupportAlarmTag(const int64_t& _isSupportAlarmTag)
+{
+    m_isSupportAlarmTag = _isSupportAlarmTag;
+    m_isSupportAlarmTagHasBeenSet = true;
+}
+
+bool AlarmPolicy::IsSupportAlarmTagHasBeenSet() const
+{
+    return m_isSupportAlarmTagHasBeenSet;
+}
+
+string AlarmPolicy::GetTagOperation() const
+{
+    return m_tagOperation;
+}
+
+void AlarmPolicy::SetTagOperation(const string& _tagOperation)
+{
+    m_tagOperation = _tagOperation;
+    m_tagOperationHasBeenSet = true;
+}
+
+bool AlarmPolicy::TagOperationHasBeenSet() const
+{
+    return m_tagOperationHasBeenSet;
+}
+
+vector<NoticeContentTmplBindInfo> AlarmPolicy::GetNoticeTmplBindInfos() const
+{
+    return m_noticeTmplBindInfos;
+}
+
+void AlarmPolicy::SetNoticeTmplBindInfos(const vector<NoticeContentTmplBindInfo>& _noticeTmplBindInfos)
+{
+    m_noticeTmplBindInfos = _noticeTmplBindInfos;
+    m_noticeTmplBindInfosHasBeenSet = true;
+}
+
+bool AlarmPolicy::NoticeTmplBindInfosHasBeenSet() const
+{
+    return m_noticeTmplBindInfosHasBeenSet;
+}
+
+vector<AlarmHierarchicalNotice> AlarmPolicy::GetHierarchicalNotices() const
+{
+    return m_hierarchicalNotices;
+}
+
+void AlarmPolicy::SetHierarchicalNotices(const vector<AlarmHierarchicalNotice>& _hierarchicalNotices)
+{
+    m_hierarchicalNotices = _hierarchicalNotices;
+    m_hierarchicalNoticesHasBeenSet = true;
+}
+
+bool AlarmPolicy::HierarchicalNoticesHasBeenSet() const
+{
+    return m_hierarchicalNoticesHasBeenSet;
+}
+
+vector<NoticeContentTmplBindInfo> AlarmPolicy::GetNoticeContentTmplBindInfos() const
+{
+    return m_noticeContentTmplBindInfos;
+}
+
+void AlarmPolicy::SetNoticeContentTmplBindInfos(const vector<NoticeContentTmplBindInfo>& _noticeContentTmplBindInfos)
+{
+    m_noticeContentTmplBindInfos = _noticeContentTmplBindInfos;
+    m_noticeContentTmplBindInfosHasBeenSet = true;
+}
+
+bool AlarmPolicy::NoticeContentTmplBindInfosHasBeenSet() const
+{
+    return m_noticeContentTmplBindInfosHasBeenSet;
+}
+
+string AlarmPolicy::GetPredefinedConfigID() const
+{
+    return m_predefinedConfigID;
+}
+
+void AlarmPolicy::SetPredefinedConfigID(const string& _predefinedConfigID)
+{
+    m_predefinedConfigID = _predefinedConfigID;
+    m_predefinedConfigIDHasBeenSet = true;
+}
+
+bool AlarmPolicy::PredefinedConfigIDHasBeenSet() const
+{
+    return m_predefinedConfigIDHasBeenSet;
 }
 

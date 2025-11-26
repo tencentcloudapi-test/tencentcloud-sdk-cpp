@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,9 +30,9 @@ InstanceInfo::InstanceInfo() :
     m_vpcUidHasBeenSet(false),
     m_subnetUidHasBeenSet(false),
     m_statusHasBeenSet(false),
+    m_renewFlagHasBeenSet(false),
     m_chargeTypeHasBeenSet(false),
     m_chargePeriodHasBeenSet(false),
-    m_renewFlagHasBeenSet(false),
     m_nodeTypeHasBeenSet(false),
     m_nodeNumHasBeenSet(false),
     m_cpuNumHasBeenSet(false),
@@ -94,7 +94,30 @@ InstanceInfo::InstanceInfo() :
     m_frozenDiskSizeHasBeenSet(false),
     m_healthStatusHasBeenSet(false),
     m_esPrivateUrlHasBeenSet(false),
-    m_esPrivateDomainHasBeenSet(false)
+    m_esPrivateDomainHasBeenSet(false),
+    m_esConfigSetsHasBeenSet(false),
+    m_operationDurationHasBeenSet(false),
+    m_optionalWebServiceInfosHasBeenSet(false),
+    m_autoIndexEnabledHasBeenSet(false),
+    m_enableHybridStorageHasBeenSet(false),
+    m_processPercentHasBeenSet(false),
+    m_kibanaAlteringPublicAccessHasBeenSet(false),
+    m_hasKernelUpgradeHasBeenSet(false),
+    m_cdcIdHasBeenSet(false),
+    m_kibanaPrivateVipHasBeenSet(false),
+    m_customKibanaPrivateUrlHasBeenSet(false),
+    m_outboundPublicAclsHasBeenSet(false),
+    m_netConnectSchemeHasBeenSet(false),
+    m_disasterRecoverGroupAffinityHasBeenSet(false),
+    m_subProductCodeHasBeenSet(false),
+    m_cosBucketStorageSizeHasBeenSet(false),
+    m_readWriteModeHasBeenSet(false),
+    m_enableScheduleRecoverGroupHasBeenSet(false),
+    m_enableScheduleOperationDurationHasBeenSet(false),
+    m_enableDestroyProtectionHasBeenSet(false),
+    m_showKibanaIpPortHasBeenSet(false),
+    m_isCdzLiteHasBeenSet(false),
+    m_esPrivateTcpUrlHasBeenSet(false)
 {
 }
 
@@ -193,6 +216,16 @@ CoreInternalOutcome InstanceInfo::Deserialize(const rapidjson::Value &value)
         m_statusHasBeenSet = true;
     }
 
+    if (value.HasMember("RenewFlag") && !value["RenewFlag"].IsNull())
+    {
+        if (!value["RenewFlag"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.RenewFlag` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_renewFlag = string(value["RenewFlag"].GetString());
+        m_renewFlagHasBeenSet = true;
+    }
+
     if (value.HasMember("ChargeType") && !value["ChargeType"].IsNull())
     {
         if (!value["ChargeType"].IsString())
@@ -211,16 +244,6 @@ CoreInternalOutcome InstanceInfo::Deserialize(const rapidjson::Value &value)
         }
         m_chargePeriod = value["ChargePeriod"].GetUint64();
         m_chargePeriodHasBeenSet = true;
-    }
-
-    if (value.HasMember("RenewFlag") && !value["RenewFlag"].IsNull())
-    {
-        if (!value["RenewFlag"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `InstanceInfo.RenewFlag` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_renewFlag = string(value["RenewFlag"].GetString());
-        m_renewFlagHasBeenSet = true;
     }
 
     if (value.HasMember("NodeType") && !value["NodeType"].IsNull())
@@ -925,6 +948,280 @@ CoreInternalOutcome InstanceInfo::Deserialize(const rapidjson::Value &value)
         m_esPrivateDomainHasBeenSet = true;
     }
 
+    if (value.HasMember("EsConfigSets") && !value["EsConfigSets"].IsNull())
+    {
+        if (!value["EsConfigSets"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.EsConfigSets` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["EsConfigSets"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            EsConfigSetInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_esConfigSets.push_back(item);
+        }
+        m_esConfigSetsHasBeenSet = true;
+    }
+
+    if (value.HasMember("OperationDuration") && !value["OperationDuration"].IsNull())
+    {
+        if (!value["OperationDuration"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.OperationDuration` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_operationDuration.Deserialize(value["OperationDuration"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_operationDurationHasBeenSet = true;
+    }
+
+    if (value.HasMember("OptionalWebServiceInfos") && !value["OptionalWebServiceInfos"].IsNull())
+    {
+        if (!value["OptionalWebServiceInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.OptionalWebServiceInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["OptionalWebServiceInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            OptionalWebServiceInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_optionalWebServiceInfos.push_back(item);
+        }
+        m_optionalWebServiceInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoIndexEnabled") && !value["AutoIndexEnabled"].IsNull())
+    {
+        if (!value["AutoIndexEnabled"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.AutoIndexEnabled` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoIndexEnabled = value["AutoIndexEnabled"].GetBool();
+        m_autoIndexEnabledHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnableHybridStorage") && !value["EnableHybridStorage"].IsNull())
+    {
+        if (!value["EnableHybridStorage"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.EnableHybridStorage` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_enableHybridStorage = value["EnableHybridStorage"].GetBool();
+        m_enableHybridStorageHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProcessPercent") && !value["ProcessPercent"].IsNull())
+    {
+        if (!value["ProcessPercent"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.ProcessPercent` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_processPercent = value["ProcessPercent"].GetDouble();
+        m_processPercentHasBeenSet = true;
+    }
+
+    if (value.HasMember("KibanaAlteringPublicAccess") && !value["KibanaAlteringPublicAccess"].IsNull())
+    {
+        if (!value["KibanaAlteringPublicAccess"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.KibanaAlteringPublicAccess` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_kibanaAlteringPublicAccess = string(value["KibanaAlteringPublicAccess"].GetString());
+        m_kibanaAlteringPublicAccessHasBeenSet = true;
+    }
+
+    if (value.HasMember("HasKernelUpgrade") && !value["HasKernelUpgrade"].IsNull())
+    {
+        if (!value["HasKernelUpgrade"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.HasKernelUpgrade` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_hasKernelUpgrade = value["HasKernelUpgrade"].GetBool();
+        m_hasKernelUpgradeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CdcId") && !value["CdcId"].IsNull())
+    {
+        if (!value["CdcId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.CdcId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cdcId = string(value["CdcId"].GetString());
+        m_cdcIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("KibanaPrivateVip") && !value["KibanaPrivateVip"].IsNull())
+    {
+        if (!value["KibanaPrivateVip"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.KibanaPrivateVip` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_kibanaPrivateVip = string(value["KibanaPrivateVip"].GetString());
+        m_kibanaPrivateVipHasBeenSet = true;
+    }
+
+    if (value.HasMember("CustomKibanaPrivateUrl") && !value["CustomKibanaPrivateUrl"].IsNull())
+    {
+        if (!value["CustomKibanaPrivateUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.CustomKibanaPrivateUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_customKibanaPrivateUrl = string(value["CustomKibanaPrivateUrl"].GetString());
+        m_customKibanaPrivateUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("OutboundPublicAcls") && !value["OutboundPublicAcls"].IsNull())
+    {
+        if (!value["OutboundPublicAcls"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.OutboundPublicAcls` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["OutboundPublicAcls"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            OutboundPublicAcl item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_outboundPublicAcls.push_back(item);
+        }
+        m_outboundPublicAclsHasBeenSet = true;
+    }
+
+    if (value.HasMember("NetConnectScheme") && !value["NetConnectScheme"].IsNull())
+    {
+        if (!value["NetConnectScheme"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.NetConnectScheme` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_netConnectScheme = string(value["NetConnectScheme"].GetString());
+        m_netConnectSchemeHasBeenSet = true;
+    }
+
+    if (value.HasMember("DisasterRecoverGroupAffinity") && !value["DisasterRecoverGroupAffinity"].IsNull())
+    {
+        if (!value["DisasterRecoverGroupAffinity"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.DisasterRecoverGroupAffinity` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_disasterRecoverGroupAffinity = value["DisasterRecoverGroupAffinity"].GetUint64();
+        m_disasterRecoverGroupAffinityHasBeenSet = true;
+    }
+
+    if (value.HasMember("SubProductCode") && !value["SubProductCode"].IsNull())
+    {
+        if (!value["SubProductCode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.SubProductCode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_subProductCode = string(value["SubProductCode"].GetString());
+        m_subProductCodeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CosBucketStorageSize") && !value["CosBucketStorageSize"].IsNull())
+    {
+        if (!value["CosBucketStorageSize"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.CosBucketStorageSize` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_cosBucketStorageSize = value["CosBucketStorageSize"].GetUint64();
+        m_cosBucketStorageSizeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReadWriteMode") && !value["ReadWriteMode"].IsNull())
+    {
+        if (!value["ReadWriteMode"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.ReadWriteMode` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_readWriteMode = value["ReadWriteMode"].GetInt64();
+        m_readWriteModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnableScheduleRecoverGroup") && !value["EnableScheduleRecoverGroup"].IsNull())
+    {
+        if (!value["EnableScheduleRecoverGroup"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.EnableScheduleRecoverGroup` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_enableScheduleRecoverGroup = value["EnableScheduleRecoverGroup"].GetBool();
+        m_enableScheduleRecoverGroupHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnableScheduleOperationDuration") && !value["EnableScheduleOperationDuration"].IsNull())
+    {
+        if (!value["EnableScheduleOperationDuration"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.EnableScheduleOperationDuration` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_enableScheduleOperationDuration.Deserialize(value["EnableScheduleOperationDuration"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_enableScheduleOperationDurationHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnableDestroyProtection") && !value["EnableDestroyProtection"].IsNull())
+    {
+        if (!value["EnableDestroyProtection"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.EnableDestroyProtection` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_enableDestroyProtection = string(value["EnableDestroyProtection"].GetString());
+        m_enableDestroyProtectionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ShowKibanaIpPort") && !value["ShowKibanaIpPort"].IsNull())
+    {
+        if (!value["ShowKibanaIpPort"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.ShowKibanaIpPort` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_showKibanaIpPort = string(value["ShowKibanaIpPort"].GetString());
+        m_showKibanaIpPortHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsCdzLite") && !value["IsCdzLite"].IsNull())
+    {
+        if (!value["IsCdzLite"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.IsCdzLite` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isCdzLite = value["IsCdzLite"].GetBool();
+        m_isCdzLiteHasBeenSet = true;
+    }
+
+    if (value.HasMember("EsPrivateTcpUrl") && !value["EsPrivateTcpUrl"].IsNull())
+    {
+        if (!value["EsPrivateTcpUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceInfo.EsPrivateTcpUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_esPrivateTcpUrl = string(value["EsPrivateTcpUrl"].GetString());
+        m_esPrivateTcpUrlHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -1004,6 +1301,14 @@ void InstanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         value.AddMember(iKey, m_status, allocator);
     }
 
+    if (m_renewFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RenewFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_renewFlag.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_chargeTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -1018,14 +1323,6 @@ void InstanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "ChargePeriod";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_chargePeriod, allocator);
-    }
-
-    if (m_renewFlagHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RenewFlag";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_renewFlag.c_str(), allocator).Move(), allocator);
     }
 
     if (m_nodeTypeHasBeenSet)
@@ -1557,6 +1854,213 @@ void InstanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         value.AddMember(iKey, rapidjson::Value(m_esPrivateDomain.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_esConfigSetsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EsConfigSets";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_esConfigSets.begin(); itr != m_esConfigSets.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_operationDurationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OperationDuration";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_operationDuration.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_optionalWebServiceInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OptionalWebServiceInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_optionalWebServiceInfos.begin(); itr != m_optionalWebServiceInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_autoIndexEnabledHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoIndexEnabled";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoIndexEnabled, allocator);
+    }
+
+    if (m_enableHybridStorageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableHybridStorage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enableHybridStorage, allocator);
+    }
+
+    if (m_processPercentHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProcessPercent";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_processPercent, allocator);
+    }
+
+    if (m_kibanaAlteringPublicAccessHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KibanaAlteringPublicAccess";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_kibanaAlteringPublicAccess.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hasKernelUpgradeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HasKernelUpgrade";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_hasKernelUpgrade, allocator);
+    }
+
+    if (m_cdcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CdcId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cdcId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_kibanaPrivateVipHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KibanaPrivateVip";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_kibanaPrivateVip.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_customKibanaPrivateUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CustomKibanaPrivateUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_customKibanaPrivateUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_outboundPublicAclsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OutboundPublicAcls";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_outboundPublicAcls.begin(); itr != m_outboundPublicAcls.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_netConnectSchemeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NetConnectScheme";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_netConnectScheme.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_disasterRecoverGroupAffinityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DisasterRecoverGroupAffinity";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_disasterRecoverGroupAffinity, allocator);
+    }
+
+    if (m_subProductCodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubProductCode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_subProductCode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cosBucketStorageSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CosBucketStorageSize";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_cosBucketStorageSize, allocator);
+    }
+
+    if (m_readWriteModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReadWriteMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_readWriteMode, allocator);
+    }
+
+    if (m_enableScheduleRecoverGroupHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableScheduleRecoverGroup";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enableScheduleRecoverGroup, allocator);
+    }
+
+    if (m_enableScheduleOperationDurationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableScheduleOperationDuration";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_enableScheduleOperationDuration.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_enableDestroyProtectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableDestroyProtection";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_enableDestroyProtection.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_showKibanaIpPortHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ShowKibanaIpPort";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_showKibanaIpPort.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isCdzLiteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsCdzLite";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isCdzLite, allocator);
+    }
+
+    if (m_esPrivateTcpUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EsPrivateTcpUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_esPrivateTcpUrl.c_str(), allocator).Move(), allocator);
+    }
+
 }
 
 
@@ -1704,6 +2208,22 @@ bool InstanceInfo::StatusHasBeenSet() const
     return m_statusHasBeenSet;
 }
 
+string InstanceInfo::GetRenewFlag() const
+{
+    return m_renewFlag;
+}
+
+void InstanceInfo::SetRenewFlag(const string& _renewFlag)
+{
+    m_renewFlag = _renewFlag;
+    m_renewFlagHasBeenSet = true;
+}
+
+bool InstanceInfo::RenewFlagHasBeenSet() const
+{
+    return m_renewFlagHasBeenSet;
+}
+
 string InstanceInfo::GetChargeType() const
 {
     return m_chargeType;
@@ -1734,22 +2254,6 @@ void InstanceInfo::SetChargePeriod(const uint64_t& _chargePeriod)
 bool InstanceInfo::ChargePeriodHasBeenSet() const
 {
     return m_chargePeriodHasBeenSet;
-}
-
-string InstanceInfo::GetRenewFlag() const
-{
-    return m_renewFlag;
-}
-
-void InstanceInfo::SetRenewFlag(const string& _renewFlag)
-{
-    m_renewFlag = _renewFlag;
-    m_renewFlagHasBeenSet = true;
-}
-
-bool InstanceInfo::RenewFlagHasBeenSet() const
-{
-    return m_renewFlagHasBeenSet;
 }
 
 string InstanceInfo::GetNodeType() const
@@ -2742,5 +3246,373 @@ void InstanceInfo::SetEsPrivateDomain(const string& _esPrivateDomain)
 bool InstanceInfo::EsPrivateDomainHasBeenSet() const
 {
     return m_esPrivateDomainHasBeenSet;
+}
+
+vector<EsConfigSetInfo> InstanceInfo::GetEsConfigSets() const
+{
+    return m_esConfigSets;
+}
+
+void InstanceInfo::SetEsConfigSets(const vector<EsConfigSetInfo>& _esConfigSets)
+{
+    m_esConfigSets = _esConfigSets;
+    m_esConfigSetsHasBeenSet = true;
+}
+
+bool InstanceInfo::EsConfigSetsHasBeenSet() const
+{
+    return m_esConfigSetsHasBeenSet;
+}
+
+OperationDuration InstanceInfo::GetOperationDuration() const
+{
+    return m_operationDuration;
+}
+
+void InstanceInfo::SetOperationDuration(const OperationDuration& _operationDuration)
+{
+    m_operationDuration = _operationDuration;
+    m_operationDurationHasBeenSet = true;
+}
+
+bool InstanceInfo::OperationDurationHasBeenSet() const
+{
+    return m_operationDurationHasBeenSet;
+}
+
+vector<OptionalWebServiceInfo> InstanceInfo::GetOptionalWebServiceInfos() const
+{
+    return m_optionalWebServiceInfos;
+}
+
+void InstanceInfo::SetOptionalWebServiceInfos(const vector<OptionalWebServiceInfo>& _optionalWebServiceInfos)
+{
+    m_optionalWebServiceInfos = _optionalWebServiceInfos;
+    m_optionalWebServiceInfosHasBeenSet = true;
+}
+
+bool InstanceInfo::OptionalWebServiceInfosHasBeenSet() const
+{
+    return m_optionalWebServiceInfosHasBeenSet;
+}
+
+bool InstanceInfo::GetAutoIndexEnabled() const
+{
+    return m_autoIndexEnabled;
+}
+
+void InstanceInfo::SetAutoIndexEnabled(const bool& _autoIndexEnabled)
+{
+    m_autoIndexEnabled = _autoIndexEnabled;
+    m_autoIndexEnabledHasBeenSet = true;
+}
+
+bool InstanceInfo::AutoIndexEnabledHasBeenSet() const
+{
+    return m_autoIndexEnabledHasBeenSet;
+}
+
+bool InstanceInfo::GetEnableHybridStorage() const
+{
+    return m_enableHybridStorage;
+}
+
+void InstanceInfo::SetEnableHybridStorage(const bool& _enableHybridStorage)
+{
+    m_enableHybridStorage = _enableHybridStorage;
+    m_enableHybridStorageHasBeenSet = true;
+}
+
+bool InstanceInfo::EnableHybridStorageHasBeenSet() const
+{
+    return m_enableHybridStorageHasBeenSet;
+}
+
+double InstanceInfo::GetProcessPercent() const
+{
+    return m_processPercent;
+}
+
+void InstanceInfo::SetProcessPercent(const double& _processPercent)
+{
+    m_processPercent = _processPercent;
+    m_processPercentHasBeenSet = true;
+}
+
+bool InstanceInfo::ProcessPercentHasBeenSet() const
+{
+    return m_processPercentHasBeenSet;
+}
+
+string InstanceInfo::GetKibanaAlteringPublicAccess() const
+{
+    return m_kibanaAlteringPublicAccess;
+}
+
+void InstanceInfo::SetKibanaAlteringPublicAccess(const string& _kibanaAlteringPublicAccess)
+{
+    m_kibanaAlteringPublicAccess = _kibanaAlteringPublicAccess;
+    m_kibanaAlteringPublicAccessHasBeenSet = true;
+}
+
+bool InstanceInfo::KibanaAlteringPublicAccessHasBeenSet() const
+{
+    return m_kibanaAlteringPublicAccessHasBeenSet;
+}
+
+bool InstanceInfo::GetHasKernelUpgrade() const
+{
+    return m_hasKernelUpgrade;
+}
+
+void InstanceInfo::SetHasKernelUpgrade(const bool& _hasKernelUpgrade)
+{
+    m_hasKernelUpgrade = _hasKernelUpgrade;
+    m_hasKernelUpgradeHasBeenSet = true;
+}
+
+bool InstanceInfo::HasKernelUpgradeHasBeenSet() const
+{
+    return m_hasKernelUpgradeHasBeenSet;
+}
+
+string InstanceInfo::GetCdcId() const
+{
+    return m_cdcId;
+}
+
+void InstanceInfo::SetCdcId(const string& _cdcId)
+{
+    m_cdcId = _cdcId;
+    m_cdcIdHasBeenSet = true;
+}
+
+bool InstanceInfo::CdcIdHasBeenSet() const
+{
+    return m_cdcIdHasBeenSet;
+}
+
+string InstanceInfo::GetKibanaPrivateVip() const
+{
+    return m_kibanaPrivateVip;
+}
+
+void InstanceInfo::SetKibanaPrivateVip(const string& _kibanaPrivateVip)
+{
+    m_kibanaPrivateVip = _kibanaPrivateVip;
+    m_kibanaPrivateVipHasBeenSet = true;
+}
+
+bool InstanceInfo::KibanaPrivateVipHasBeenSet() const
+{
+    return m_kibanaPrivateVipHasBeenSet;
+}
+
+string InstanceInfo::GetCustomKibanaPrivateUrl() const
+{
+    return m_customKibanaPrivateUrl;
+}
+
+void InstanceInfo::SetCustomKibanaPrivateUrl(const string& _customKibanaPrivateUrl)
+{
+    m_customKibanaPrivateUrl = _customKibanaPrivateUrl;
+    m_customKibanaPrivateUrlHasBeenSet = true;
+}
+
+bool InstanceInfo::CustomKibanaPrivateUrlHasBeenSet() const
+{
+    return m_customKibanaPrivateUrlHasBeenSet;
+}
+
+vector<OutboundPublicAcl> InstanceInfo::GetOutboundPublicAcls() const
+{
+    return m_outboundPublicAcls;
+}
+
+void InstanceInfo::SetOutboundPublicAcls(const vector<OutboundPublicAcl>& _outboundPublicAcls)
+{
+    m_outboundPublicAcls = _outboundPublicAcls;
+    m_outboundPublicAclsHasBeenSet = true;
+}
+
+bool InstanceInfo::OutboundPublicAclsHasBeenSet() const
+{
+    return m_outboundPublicAclsHasBeenSet;
+}
+
+string InstanceInfo::GetNetConnectScheme() const
+{
+    return m_netConnectScheme;
+}
+
+void InstanceInfo::SetNetConnectScheme(const string& _netConnectScheme)
+{
+    m_netConnectScheme = _netConnectScheme;
+    m_netConnectSchemeHasBeenSet = true;
+}
+
+bool InstanceInfo::NetConnectSchemeHasBeenSet() const
+{
+    return m_netConnectSchemeHasBeenSet;
+}
+
+uint64_t InstanceInfo::GetDisasterRecoverGroupAffinity() const
+{
+    return m_disasterRecoverGroupAffinity;
+}
+
+void InstanceInfo::SetDisasterRecoverGroupAffinity(const uint64_t& _disasterRecoverGroupAffinity)
+{
+    m_disasterRecoverGroupAffinity = _disasterRecoverGroupAffinity;
+    m_disasterRecoverGroupAffinityHasBeenSet = true;
+}
+
+bool InstanceInfo::DisasterRecoverGroupAffinityHasBeenSet() const
+{
+    return m_disasterRecoverGroupAffinityHasBeenSet;
+}
+
+string InstanceInfo::GetSubProductCode() const
+{
+    return m_subProductCode;
+}
+
+void InstanceInfo::SetSubProductCode(const string& _subProductCode)
+{
+    m_subProductCode = _subProductCode;
+    m_subProductCodeHasBeenSet = true;
+}
+
+bool InstanceInfo::SubProductCodeHasBeenSet() const
+{
+    return m_subProductCodeHasBeenSet;
+}
+
+uint64_t InstanceInfo::GetCosBucketStorageSize() const
+{
+    return m_cosBucketStorageSize;
+}
+
+void InstanceInfo::SetCosBucketStorageSize(const uint64_t& _cosBucketStorageSize)
+{
+    m_cosBucketStorageSize = _cosBucketStorageSize;
+    m_cosBucketStorageSizeHasBeenSet = true;
+}
+
+bool InstanceInfo::CosBucketStorageSizeHasBeenSet() const
+{
+    return m_cosBucketStorageSizeHasBeenSet;
+}
+
+int64_t InstanceInfo::GetReadWriteMode() const
+{
+    return m_readWriteMode;
+}
+
+void InstanceInfo::SetReadWriteMode(const int64_t& _readWriteMode)
+{
+    m_readWriteMode = _readWriteMode;
+    m_readWriteModeHasBeenSet = true;
+}
+
+bool InstanceInfo::ReadWriteModeHasBeenSet() const
+{
+    return m_readWriteModeHasBeenSet;
+}
+
+bool InstanceInfo::GetEnableScheduleRecoverGroup() const
+{
+    return m_enableScheduleRecoverGroup;
+}
+
+void InstanceInfo::SetEnableScheduleRecoverGroup(const bool& _enableScheduleRecoverGroup)
+{
+    m_enableScheduleRecoverGroup = _enableScheduleRecoverGroup;
+    m_enableScheduleRecoverGroupHasBeenSet = true;
+}
+
+bool InstanceInfo::EnableScheduleRecoverGroupHasBeenSet() const
+{
+    return m_enableScheduleRecoverGroupHasBeenSet;
+}
+
+EnableScheduleOperationDuration InstanceInfo::GetEnableScheduleOperationDuration() const
+{
+    return m_enableScheduleOperationDuration;
+}
+
+void InstanceInfo::SetEnableScheduleOperationDuration(const EnableScheduleOperationDuration& _enableScheduleOperationDuration)
+{
+    m_enableScheduleOperationDuration = _enableScheduleOperationDuration;
+    m_enableScheduleOperationDurationHasBeenSet = true;
+}
+
+bool InstanceInfo::EnableScheduleOperationDurationHasBeenSet() const
+{
+    return m_enableScheduleOperationDurationHasBeenSet;
+}
+
+string InstanceInfo::GetEnableDestroyProtection() const
+{
+    return m_enableDestroyProtection;
+}
+
+void InstanceInfo::SetEnableDestroyProtection(const string& _enableDestroyProtection)
+{
+    m_enableDestroyProtection = _enableDestroyProtection;
+    m_enableDestroyProtectionHasBeenSet = true;
+}
+
+bool InstanceInfo::EnableDestroyProtectionHasBeenSet() const
+{
+    return m_enableDestroyProtectionHasBeenSet;
+}
+
+string InstanceInfo::GetShowKibanaIpPort() const
+{
+    return m_showKibanaIpPort;
+}
+
+void InstanceInfo::SetShowKibanaIpPort(const string& _showKibanaIpPort)
+{
+    m_showKibanaIpPort = _showKibanaIpPort;
+    m_showKibanaIpPortHasBeenSet = true;
+}
+
+bool InstanceInfo::ShowKibanaIpPortHasBeenSet() const
+{
+    return m_showKibanaIpPortHasBeenSet;
+}
+
+bool InstanceInfo::GetIsCdzLite() const
+{
+    return m_isCdzLite;
+}
+
+void InstanceInfo::SetIsCdzLite(const bool& _isCdzLite)
+{
+    m_isCdzLite = _isCdzLite;
+    m_isCdzLiteHasBeenSet = true;
+}
+
+bool InstanceInfo::IsCdzLiteHasBeenSet() const
+{
+    return m_isCdzLiteHasBeenSet;
+}
+
+string InstanceInfo::GetEsPrivateTcpUrl() const
+{
+    return m_esPrivateTcpUrl;
+}
+
+void InstanceInfo::SetEsPrivateTcpUrl(const string& _esPrivateTcpUrl)
+{
+    m_esPrivateTcpUrl = _esPrivateTcpUrl;
+    m_esPrivateTcpUrlHasBeenSet = true;
+}
+
+bool InstanceInfo::EsPrivateTcpUrlHasBeenSet() const
+{
+    return m_esPrivateTcpUrlHasBeenSet;
 }
 

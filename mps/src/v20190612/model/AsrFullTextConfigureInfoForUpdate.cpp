@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 AsrFullTextConfigureInfoForUpdate::AsrFullTextConfigureInfoForUpdate() :
     m_switchHasBeenSet(false),
-    m_subtitleFormatHasBeenSet(false)
+    m_subtitleFormatHasBeenSet(false),
+    m_sourceLanguageHasBeenSet(false)
 {
 }
 
@@ -51,6 +52,16 @@ CoreInternalOutcome AsrFullTextConfigureInfoForUpdate::Deserialize(const rapidjs
         m_subtitleFormatHasBeenSet = true;
     }
 
+    if (value.HasMember("SourceLanguage") && !value["SourceLanguage"].IsNull())
+    {
+        if (!value["SourceLanguage"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AsrFullTextConfigureInfoForUpdate.SourceLanguage` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sourceLanguage = string(value["SourceLanguage"].GetString());
+        m_sourceLanguageHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +83,14 @@ void AsrFullTextConfigureInfoForUpdate::ToJsonObject(rapidjson::Value &value, ra
         string key = "SubtitleFormat";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_subtitleFormat.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sourceLanguageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SourceLanguage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sourceLanguage.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -107,5 +126,21 @@ void AsrFullTextConfigureInfoForUpdate::SetSubtitleFormat(const string& _subtitl
 bool AsrFullTextConfigureInfoForUpdate::SubtitleFormatHasBeenSet() const
 {
     return m_subtitleFormatHasBeenSet;
+}
+
+string AsrFullTextConfigureInfoForUpdate::GetSourceLanguage() const
+{
+    return m_sourceLanguage;
+}
+
+void AsrFullTextConfigureInfoForUpdate::SetSourceLanguage(const string& _sourceLanguage)
+{
+    m_sourceLanguage = _sourceLanguage;
+    m_sourceLanguageHasBeenSet = true;
+}
+
+bool AsrFullTextConfigureInfoForUpdate::SourceLanguageHasBeenSet() const
+{
+    return m_sourceLanguageHasBeenSet;
 }
 

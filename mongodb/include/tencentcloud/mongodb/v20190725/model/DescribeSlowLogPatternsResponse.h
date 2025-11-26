@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取慢日志统计信息总数
                      * @return Count 慢日志统计信息总数
+                     * 
                      */
                     uint64_t GetCount() const;
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
                     /**
                      * 获取慢日志统计信息
                      * @return SlowLogPatterns 慢日志统计信息
+                     * 
                      */
                     std::vector<SlowLogPattern> GetSlowLogPatterns() const;
 
                     /**
                      * 判断参数 SlowLogPatterns 是否已赋值
                      * @return SlowLogPatterns 是否已赋值
+                     * 
                      */
                     bool SlowLogPatternsHasBeenSet() const;
 

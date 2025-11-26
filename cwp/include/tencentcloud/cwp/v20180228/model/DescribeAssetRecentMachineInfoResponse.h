@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,57 +46,57 @@ namespace TencentCloud
 
                     /**
                      * 获取总数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalList 总数量列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AssetKeyVal> GetTotalList() const;
 
                     /**
                      * 判断参数 TotalList 是否已赋值
                      * @return TotalList 是否已赋值
+                     * 
                      */
                     bool TotalListHasBeenSet() const;
 
                     /**
                      * 获取在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LiveList 在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AssetKeyVal> GetLiveList() const;
 
                     /**
                      * 判断参数 LiveList 是否已赋值
                      * @return LiveList 是否已赋值
+                     * 
                      */
                     bool LiveListHasBeenSet() const;
 
                     /**
                      * 获取离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return OfflineList 离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AssetKeyVal> GetOfflineList() const;
 
                     /**
                      * 判断参数 OfflineList 是否已赋值
                      * @return OfflineList 是否已赋值
+                     * 
                      */
                     bool OfflineListHasBeenSet() const;
 
                     /**
                      * 获取风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RiskList 风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AssetKeyVal> GetRiskList() const;
 
                     /**
                      * 判断参数 RiskList 是否已赋值
                      * @return RiskList 是否已赋值
+                     * 
                      */
                     bool RiskListHasBeenSet() const;
 
@@ -104,28 +104,24 @@ namespace TencentCloud
 
                     /**
                      * 总数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<AssetKeyVal> m_totalList;
                     bool m_totalListHasBeenSet;
 
                     /**
                      * 在线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<AssetKeyVal> m_liveList;
                     bool m_liveListHasBeenSet;
 
                     /**
                      * 离线数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<AssetKeyVal> m_offlineList;
                     bool m_offlineListHasBeenSet;
 
                     /**
                      * 风险数量列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<AssetKeyVal> m_riskList;
                     bool m_riskListHasBeenSet;

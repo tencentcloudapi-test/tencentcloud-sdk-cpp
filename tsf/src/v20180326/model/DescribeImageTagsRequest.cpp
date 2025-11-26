@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ DescribeImageTagsRequest::DescribeImageTagsRequest() :
     m_queryImageIdFlagHasBeenSet(false),
     m_searchWordHasBeenSet(false),
     m_repoTypeHasBeenSet(false),
-    m_tcrRepoInfoHasBeenSet(false)
+    m_tcrRepoInfoHasBeenSet(false),
+    m_repoNameHasBeenSet(false)
 {
 }
 
@@ -95,6 +96,14 @@ string DescribeImageTagsRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_tcrRepoInfo.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_repoNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RepoName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_repoName.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -215,6 +224,22 @@ void DescribeImageTagsRequest::SetTcrRepoInfo(const TcrRepoInfo& _tcrRepoInfo)
 bool DescribeImageTagsRequest::TcrRepoInfoHasBeenSet() const
 {
     return m_tcrRepoInfoHasBeenSet;
+}
+
+string DescribeImageTagsRequest::GetRepoName() const
+{
+    return m_repoName;
+}
+
+void DescribeImageTagsRequest::SetRepoName(const string& _repoName)
+{
+    m_repoName = _repoName;
+    m_repoNameHasBeenSet = true;
+}
+
+bool DescribeImageTagsRequest::RepoNameHasBeenSet() const
+{
+    return m_repoNameHasBeenSet;
 }
 
 

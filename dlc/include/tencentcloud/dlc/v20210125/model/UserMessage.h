@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取用户Id，和CAM侧子用户Uin匹配
                      * @return UserId 用户Id，和CAM侧子用户Uin匹配
+                     * 
                      */
                     std::string GetUserId() const;
 
                     /**
                      * 设置用户Id，和CAM侧子用户Uin匹配
-                     * @param UserId 用户Id，和CAM侧子用户Uin匹配
+                     * @param _userId 用户Id，和CAM侧子用户Uin匹配
+                     * 
                      */
                     void SetUserId(const std::string& _userId);
 
                     /**
                      * 判断参数 UserId 是否已赋值
                      * @return UserId 是否已赋值
+                     * 
                      */
                     bool UserIdHasBeenSet() const;
 
@@ -69,58 +72,109 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UserDescription 用户描述
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUserDescription() const;
 
                     /**
                      * 设置用户描述
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UserDescription 用户描述
+                     * @param _userDescription 用户描述
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetUserDescription(const std::string& _userDescription);
 
                     /**
                      * 判断参数 UserDescription 是否已赋值
                      * @return UserDescription 是否已赋值
+                     * 
                      */
                     bool UserDescriptionHasBeenSet() const;
 
                     /**
                      * 获取当前用户的创建者
                      * @return Creator 当前用户的创建者
+                     * 
                      */
                     std::string GetCreator() const;
 
                     /**
                      * 设置当前用户的创建者
-                     * @param Creator 当前用户的创建者
+                     * @param _creator 当前用户的创建者
+                     * 
                      */
                     void SetCreator(const std::string& _creator);
 
                     /**
                      * 判断参数 Creator 是否已赋值
                      * @return Creator 是否已赋值
+                     * 
                      */
                     bool CreatorHasBeenSet() const;
 
                     /**
                      * 获取当前用户的创建时间，形如2021-07-28 16:19:32
                      * @return CreateTime 当前用户的创建时间，形如2021-07-28 16:19:32
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置当前用户的创建时间，形如2021-07-28 16:19:32
-                     * @param CreateTime 当前用户的创建时间，形如2021-07-28 16:19:32
+                     * @param _createTime 当前用户的创建时间，形如2021-07-28 16:19:32
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
+
+                    /**
+                     * 获取用户别名
+                     * @return UserAlias 用户别名
+                     * 
+                     */
+                    std::string GetUserAlias() const;
+
+                    /**
+                     * 设置用户别名
+                     * @param _userAlias 用户别名
+                     * 
+                     */
+                    void SetUserAlias(const std::string& _userAlias);
+
+                    /**
+                     * 判断参数 UserAlias 是否已赋值
+                     * @return UserAlias 是否已赋值
+                     * 
+                     */
+                    bool UserAliasHasBeenSet() const;
+
+                    /**
+                     * 获取用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * @return AccountType 用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * 
+                     */
+                    std::string GetAccountType() const;
+
+                    /**
+                     * 设置用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * @param _accountType 用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * 
+                     */
+                    void SetAccountType(const std::string& _accountType);
+
+                    /**
+                     * 判断参数 AccountType 是否已赋值
+                     * @return AccountType 是否已赋值
+                     * 
+                     */
+                    bool AccountTypeHasBeenSet() const;
 
                 private:
 
@@ -148,6 +202,18 @@ namespace TencentCloud
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
+
+                    /**
+                     * 用户别名
+                     */
+                    std::string m_userAlias;
+                    bool m_userAliasHasBeenSet;
+
+                    /**
+                     * 用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     */
+                    std::string m_accountType;
+                    bool m_accountTypeHasBeenSet;
 
                 };
             }

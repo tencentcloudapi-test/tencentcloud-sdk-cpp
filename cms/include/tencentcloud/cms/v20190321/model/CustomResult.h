@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取命中的自定义关键词
                      * @return Keywords 命中的自定义关键词
+                     * 
                      */
                     std::vector<std::string> GetKeywords() const;
 
                     /**
                      * 设置命中的自定义关键词
-                     * @param Keywords 命中的自定义关键词
+                     * @param _keywords 命中的自定义关键词
+                     * 
                      */
                     void SetKeywords(const std::vector<std::string>& _keywords);
 
                     /**
                      * 判断参数 Keywords 是否已赋值
                      * @return Keywords 是否已赋值
+                     * 
                      */
                     bool KeywordsHasBeenSet() const;
 
                     /**
-                     * 获取自定义库id
-                     * @return LibId 自定义库id
-                     */
-                    std::string GetLibId() const;
-
-                    /**
-                     * 设置自定义库id
-                     * @param LibId 自定义库id
-                     */
-                    void SetLibId(const std::string& _libId);
-
-                    /**
-                     * 判断参数 LibId 是否已赋值
-                     * @return LibId 是否已赋值
-                     */
-                    bool LibIdHasBeenSet() const;
-
-                    /**
                      * 获取自定义词库名称
                      * @return LibName 自定义词库名称
+                     * 
                      */
                     std::string GetLibName() const;
 
                     /**
                      * 设置自定义词库名称
-                     * @param LibName 自定义词库名称
+                     * @param _libName 自定义词库名称
+                     * 
                      */
                     void SetLibName(const std::string& _libName);
 
                     /**
                      * 判断参数 LibName 是否已赋值
                      * @return LibName 是否已赋值
+                     * 
                      */
                     bool LibNameHasBeenSet() const;
 
                     /**
+                     * 获取自定义库id
+                     * @return LibId 自定义库id
+                     * 
+                     */
+                    std::string GetLibId() const;
+
+                    /**
+                     * 设置自定义库id
+                     * @param _libId 自定义库id
+                     * 
+                     */
+                    void SetLibId(const std::string& _libId);
+
+                    /**
+                     * 判断参数 LibId 是否已赋值
+                     * @return LibId 是否已赋值
+                     * 
+                     */
+                    bool LibIdHasBeenSet() const;
+
+                    /**
                      * 获取命中的自定义关键词的类型
                      * @return Type 命中的自定义关键词的类型
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置命中的自定义关键词的类型
-                     * @param Type 命中的自定义关键词的类型
+                     * @param _type 命中的自定义关键词的类型
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
@@ -127,16 +139,16 @@ namespace TencentCloud
                     bool m_keywordsHasBeenSet;
 
                     /**
-                     * 自定义库id
-                     */
-                    std::string m_libId;
-                    bool m_libIdHasBeenSet;
-
-                    /**
                      * 自定义词库名称
                      */
                     std::string m_libName;
                     bool m_libNameHasBeenSet;
+
+                    /**
+                     * 自定义库id
+                     */
+                    std::string m_libId;
+                    bool m_libIdHasBeenSet;
 
                     /**
                      * 命中的自定义关键词的类型

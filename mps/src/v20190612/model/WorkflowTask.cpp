@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,10 @@ WorkflowTask::WorkflowTask() :
     m_mediaProcessResultSetHasBeenSet(false),
     m_aiContentReviewResultSetHasBeenSet(false),
     m_aiAnalysisResultSetHasBeenSet(false),
-    m_aiRecognitionResultSetHasBeenSet(false)
+    m_aiRecognitionResultSetHasBeenSet(false),
+    m_aiQualityControlTaskResultHasBeenSet(false),
+    m_smartSubtitlesTaskResultHasBeenSet(false),
+    m_smartEraseTaskResultHasBeenSet(false)
 {
 }
 
@@ -193,6 +196,60 @@ CoreInternalOutcome WorkflowTask::Deserialize(const rapidjson::Value &value)
         m_aiRecognitionResultSetHasBeenSet = true;
     }
 
+    if (value.HasMember("AiQualityControlTaskResult") && !value["AiQualityControlTaskResult"].IsNull())
+    {
+        if (!value["AiQualityControlTaskResult"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `WorkflowTask.AiQualityControlTaskResult` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_aiQualityControlTaskResult.Deserialize(value["AiQualityControlTaskResult"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_aiQualityControlTaskResultHasBeenSet = true;
+    }
+
+    if (value.HasMember("SmartSubtitlesTaskResult") && !value["SmartSubtitlesTaskResult"].IsNull())
+    {
+        if (!value["SmartSubtitlesTaskResult"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `WorkflowTask.SmartSubtitlesTaskResult` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["SmartSubtitlesTaskResult"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            SmartSubtitlesResult item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_smartSubtitlesTaskResult.push_back(item);
+        }
+        m_smartSubtitlesTaskResultHasBeenSet = true;
+    }
+
+    if (value.HasMember("SmartEraseTaskResult") && !value["SmartEraseTaskResult"].IsNull())
+    {
+        if (!value["SmartEraseTaskResult"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `WorkflowTask.SmartEraseTaskResult` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_smartEraseTaskResult.Deserialize(value["SmartEraseTaskResult"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_smartEraseTaskResultHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -308,6 +365,39 @@ void WorkflowTask::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_aiQualityControlTaskResultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AiQualityControlTaskResult";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_aiQualityControlTaskResult.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_smartSubtitlesTaskResultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SmartSubtitlesTaskResult";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_smartSubtitlesTaskResult.begin(); itr != m_smartSubtitlesTaskResult.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_smartEraseTaskResultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SmartEraseTaskResult";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_smartEraseTaskResult.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -471,5 +561,53 @@ void WorkflowTask::SetAiRecognitionResultSet(const vector<AiRecognitionResult>& 
 bool WorkflowTask::AiRecognitionResultSetHasBeenSet() const
 {
     return m_aiRecognitionResultSetHasBeenSet;
+}
+
+ScheduleQualityControlTaskResult WorkflowTask::GetAiQualityControlTaskResult() const
+{
+    return m_aiQualityControlTaskResult;
+}
+
+void WorkflowTask::SetAiQualityControlTaskResult(const ScheduleQualityControlTaskResult& _aiQualityControlTaskResult)
+{
+    m_aiQualityControlTaskResult = _aiQualityControlTaskResult;
+    m_aiQualityControlTaskResultHasBeenSet = true;
+}
+
+bool WorkflowTask::AiQualityControlTaskResultHasBeenSet() const
+{
+    return m_aiQualityControlTaskResultHasBeenSet;
+}
+
+vector<SmartSubtitlesResult> WorkflowTask::GetSmartSubtitlesTaskResult() const
+{
+    return m_smartSubtitlesTaskResult;
+}
+
+void WorkflowTask::SetSmartSubtitlesTaskResult(const vector<SmartSubtitlesResult>& _smartSubtitlesTaskResult)
+{
+    m_smartSubtitlesTaskResult = _smartSubtitlesTaskResult;
+    m_smartSubtitlesTaskResultHasBeenSet = true;
+}
+
+bool WorkflowTask::SmartSubtitlesTaskResultHasBeenSet() const
+{
+    return m_smartSubtitlesTaskResultHasBeenSet;
+}
+
+SmartEraseTaskResult WorkflowTask::GetSmartEraseTaskResult() const
+{
+    return m_smartEraseTaskResult;
+}
+
+void WorkflowTask::SetSmartEraseTaskResult(const SmartEraseTaskResult& _smartEraseTaskResult)
+{
+    m_smartEraseTaskResult = _smartEraseTaskResult;
+    m_smartEraseTaskResultHasBeenSet = true;
+}
+
+bool WorkflowTask::SmartEraseTaskResultHasBeenSet() const
+{
+    return m_smartEraseTaskResultHasBeenSet;
 }
 

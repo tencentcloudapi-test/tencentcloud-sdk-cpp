@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取仓库总数
                      * @return TotalCount 仓库总数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 设置仓库总数
-                     * @param TotalCount 仓库总数
+                     * @param _totalCount 仓库总数
+                     * 
                      */
                     void SetTotalCount(const int64_t& _totalCount);
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取仓库信息列表
                      * @return RepoInfo 仓库信息列表
+                     * 
                      */
                     std::vector<RepoInfo> GetRepoInfo() const;
 
                     /**
                      * 设置仓库信息列表
-                     * @param RepoInfo 仓库信息列表
+                     * @param _repoInfo 仓库信息列表
+                     * 
                      */
                     void SetRepoInfo(const std::vector<RepoInfo>& _repoInfo);
 
                     /**
                      * 判断参数 RepoInfo 是否已赋值
                      * @return RepoInfo 是否已赋值
+                     * 
                      */
                     bool RepoInfoHasBeenSet() const;
 
                     /**
                      * 获取Server信息
                      * @return Server Server信息
+                     * 
                      */
                     std::string GetServer() const;
 
                     /**
                      * 设置Server信息
-                     * @param Server Server信息
+                     * @param _server Server信息
+                     * 
                      */
                     void SetServer(const std::string& _server);
 
                     /**
                      * 判断参数 Server 是否已赋值
                      * @return Server 是否已赋值
+                     * 
                      */
                     bool ServerHasBeenSet() const;
 

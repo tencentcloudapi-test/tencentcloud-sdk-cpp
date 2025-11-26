@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,12 +54,14 @@ namespace TencentCloud
 <li> PRIVATE：仅创建者及管理员可读写</li>
 <li> ADMINWRITE：所有用户可读，仅管理员可写</li>
 <li> ADMINONLY：仅管理员可读写</li>
+                     * 
                      */
                     std::string GetAclTag() const;
 
                     /**
                      * 判断参数 AclTag 是否已赋值
                      * @return AclTag 是否已赋值
+                     * 
                      */
                     bool AclTagHasBeenSet() const;
 

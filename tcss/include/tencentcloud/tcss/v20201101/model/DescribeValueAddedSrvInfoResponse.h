@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取仓库镜像未授权数量
                      * @return RegistryImageCnt 仓库镜像未授权数量
+                     * 
                      */
                     uint64_t GetRegistryImageCnt() const;
 
                     /**
                      * 判断参数 RegistryImageCnt 是否已赋值
                      * @return RegistryImageCnt 是否已赋值
+                     * 
                      */
                     bool RegistryImageCntHasBeenSet() const;
 
                     /**
                      * 获取本地镜像未授权数量
                      * @return LocalImageCnt 本地镜像未授权数量
+                     * 
                      */
                     uint64_t GetLocalImageCnt() const;
 
                     /**
                      * 判断参数 LocalImageCnt 是否已赋值
                      * @return LocalImageCnt 是否已赋值
+                     * 
                      */
                     bool LocalImageCntHasBeenSet() const;
 
                     /**
                      * 获取未使用的镜像安全扫描授权数
                      * @return UnusedAuthorizedCnt 未使用的镜像安全扫描授权数
+                     * 
                      */
                     uint64_t GetUnusedAuthorizedCnt() const;
 
                     /**
                      * 判断参数 UnusedAuthorizedCnt 是否已赋值
                      * @return UnusedAuthorizedCnt 是否已赋值
+                     * 
                      */
                     bool UnusedAuthorizedCntHasBeenSet() const;
 

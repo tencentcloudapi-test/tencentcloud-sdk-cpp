@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取最大调用量
                      * @return MaxRequestNum 最大调用量
+                     * 
                      */
                     int64_t GetMaxRequestNum() const;
 
                     /**
                      * 判断参数 MaxRequestNum 是否已赋值
                      * @return MaxRequestNum 是否已赋值
+                     * 
                      */
                     bool MaxRequestNumHasBeenSet() const;
 
                     /**
                      * 获取已经调用量
                      * @return InUseRequestNum 已经调用量
+                     * 
                      */
                     int64_t GetInUseRequestNum() const;
 
                     /**
                      * 判断参数 InUseRequestNum 是否已赋值
                      * @return InUseRequestNum 是否已赋值
+                     * 
                      */
                     bool InUseRequestNumHasBeenSet() const;
 
                     /**
                      * 获取剩余调用量
                      * @return RemainingRequestNum 剩余调用量
+                     * 
                      */
                     int64_t GetRemainingRequestNum() const;
 
                     /**
                      * 判断参数 RemainingRequestNum 是否已赋值
                      * @return RemainingRequestNum 是否已赋值
+                     * 
                      */
                     bool RemainingRequestNumHasBeenSet() const;
 

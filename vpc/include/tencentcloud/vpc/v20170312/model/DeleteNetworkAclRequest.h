@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取网络ACL实例ID。例如：acl-12345678。
                      * @return NetworkAclId 网络ACL实例ID。例如：acl-12345678。
+                     * 
                      */
                     std::string GetNetworkAclId() const;
 
                     /**
                      * 设置网络ACL实例ID。例如：acl-12345678。
-                     * @param NetworkAclId 网络ACL实例ID。例如：acl-12345678。
+                     * @param _networkAclId 网络ACL实例ID。例如：acl-12345678。
+                     * 
                      */
                     void SetNetworkAclId(const std::string& _networkAclId);
 
                     /**
                      * 判断参数 NetworkAclId 是否已赋值
                      * @return NetworkAclId 是否已赋值
+                     * 
                      */
                     bool NetworkAclIdHasBeenSet() const;
 

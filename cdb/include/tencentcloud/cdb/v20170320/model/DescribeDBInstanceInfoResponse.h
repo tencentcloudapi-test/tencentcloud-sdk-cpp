@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,78 +46,84 @@ namespace TencentCloud
                     /**
                      * 获取实例 ID 。
                      * @return InstanceId 实例 ID 。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取实例名称。
                      * @return InstanceName 实例名称。
+                     * 
                      */
                     std::string GetInstanceName() const;
 
                     /**
                      * 判断参数 InstanceName 是否已赋值
                      * @return InstanceName 是否已赋值
+                     * 
                      */
                     bool InstanceNameHasBeenSet() const;
 
                     /**
                      * 获取是否开通加密，YES 已开通，NO 未开通。
                      * @return Encryption 是否开通加密，YES 已开通，NO 未开通。
+                     * 
                      */
                     std::string GetEncryption() const;
 
                     /**
                      * 判断参数 Encryption 是否已赋值
                      * @return Encryption 是否已赋值
+                     * 
                      */
                     bool EncryptionHasBeenSet() const;
 
                     /**
                      * 获取加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return KeyId 加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetKeyId() const;
 
                     /**
                      * 判断参数 KeyId 是否已赋值
                      * @return KeyId 是否已赋值
+                     * 
                      */
                     bool KeyIdHasBeenSet() const;
 
                     /**
                      * 获取密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return KeyRegion 密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetKeyRegion() const;
 
                     /**
                      * 判断参数 KeyRegion 是否已赋值
                      * @return KeyRegion 是否已赋值
+                     * 
                      */
                     bool KeyRegionHasBeenSet() const;
 
                     /**
                      * 获取当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DefaultKmsRegion 当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDefaultKmsRegion() const;
 
                     /**
                      * 判断参数 DefaultKmsRegion 是否已赋值
                      * @return DefaultKmsRegion 是否已赋值
+                     * 
                      */
                     bool DefaultKmsRegionHasBeenSet() const;
 
@@ -143,21 +149,18 @@ namespace TencentCloud
 
                     /**
                      * 加密使用的密钥 ID 。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_keyId;
                     bool m_keyIdHasBeenSet;
 
                     /**
                      * 密钥所在地域。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_keyRegion;
                     bool m_keyRegionHasBeenSet;
 
                     /**
                      * 当前 CDB 后端服务使用的 KMS 服务的默认地域。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_defaultKmsRegion;
                     bool m_defaultKmsRegionHasBeenSet;

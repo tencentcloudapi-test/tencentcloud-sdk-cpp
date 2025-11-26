@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ DescribeScanVulSettingResponse::DescribeScanVulSettingResponse() :
     m_startTimeHasBeenSet(false),
     m_enableScanHasBeenSet(false),
     m_endTimeHasBeenSet(false),
-    m_clickTimeoutHasBeenSet(false)
+    m_clickTimeoutHasBeenSet(false),
+    m_uuidsHasBeenSet(false),
+    m_scanMethodHasBeenSet(false)
 {
 }
 
@@ -160,6 +162,29 @@ CoreInternalOutcome DescribeScanVulSettingResponse::Deserialize(const string &pa
         m_clickTimeoutHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Uuids") && !rsp["Uuids"].IsNull())
+    {
+        if (!rsp["Uuids"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Uuids` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["Uuids"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_uuids.push_back((*itr).GetString());
+        }
+        m_uuidsHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ScanMethod") && !rsp["ScanMethod"].IsNull())
+    {
+        if (!rsp["ScanMethod"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanMethod` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanMethod = rsp["ScanMethod"].GetUint64();
+        m_scanMethodHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -242,11 +267,32 @@ string DescribeScanVulSettingResponse::ToJsonString() const
         value.AddMember(iKey, m_clickTimeout, allocator);
     }
 
+    if (m_uuidsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Uuids";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_uuids.begin(); itr != m_uuids.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_scanMethodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanMethod";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_scanMethod, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -342,6 +388,26 @@ uint64_t DescribeScanVulSettingResponse::GetClickTimeout() const
 bool DescribeScanVulSettingResponse::ClickTimeoutHasBeenSet() const
 {
     return m_clickTimeoutHasBeenSet;
+}
+
+vector<string> DescribeScanVulSettingResponse::GetUuids() const
+{
+    return m_uuids;
+}
+
+bool DescribeScanVulSettingResponse::UuidsHasBeenSet() const
+{
+    return m_uuidsHasBeenSet;
+}
+
+uint64_t DescribeScanVulSettingResponse::GetScanMethod() const
+{
+    return m_scanMethod;
+}
+
+bool DescribeScanVulSettingResponse::ScanMethodHasBeenSet() const
+{
+    return m_scanMethodHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取实例ID的数组
                      * @return InstanceIds 实例ID的数组
+                     * 
                      */
                     std::vector<std::string> GetInstanceIds() const;
 
                     /**
                      * 设置实例ID的数组
-                     * @param InstanceIds 实例ID的数组
+                     * @param _instanceIds 实例ID的数组
+                     * 
                      */
                     void SetInstanceIds(const std::vector<std::string>& _instanceIds);
 
                     /**
                      * 判断参数 InstanceIds 是否已赋值
                      * @return InstanceIds 是否已赋值
+                     * 
                      */
                     bool InstanceIdsHasBeenSet() const;
 
                     /**
                      * 获取重启时间
                      * @return RestartTime 重启时间
+                     * 
                      */
                     std::string GetRestartTime() const;
 
                     /**
                      * 设置重启时间
-                     * @param RestartTime 重启时间
+                     * @param _restartTime 重启时间
+                     * 
                      */
                     void SetRestartTime(const std::string& _restartTime);
 
                     /**
                      * 判断参数 RestartTime 是否已赋值
                      * @return RestartTime 是否已赋值
+                     * 
                      */
                     bool RestartTimeHasBeenSet() const;
 

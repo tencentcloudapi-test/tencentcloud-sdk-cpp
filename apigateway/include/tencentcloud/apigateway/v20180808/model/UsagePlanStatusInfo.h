@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/apigateway/v20180808/model/Tag.h>
 
 
 namespace TencentCloud
@@ -51,20 +52,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UsagePlanId 使用计划唯一 ID。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUsagePlanId() const;
 
                     /**
                      * 设置使用计划唯一 ID。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UsagePlanId 使用计划唯一 ID。
+                     * @param _usagePlanId 使用计划唯一 ID。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetUsagePlanId(const std::string& _usagePlanId);
 
                     /**
                      * 判断参数 UsagePlanId 是否已赋值
                      * @return UsagePlanId 是否已赋值
+                     * 
                      */
                     bool UsagePlanIdHasBeenSet() const;
 
@@ -73,20 +77,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UsagePlanName 用户自定义的使用计划名称。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUsagePlanName() const;
 
                     /**
                      * 设置用户自定义的使用计划名称。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UsagePlanName 用户自定义的使用计划名称。
+                     * @param _usagePlanName 用户自定义的使用计划名称。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetUsagePlanName(const std::string& _usagePlanName);
 
                     /**
                      * 判断参数 UsagePlanName 是否已赋值
                      * @return UsagePlanName 是否已赋值
+                     * 
                      */
                     bool UsagePlanNameHasBeenSet() const;
 
@@ -95,20 +102,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UsagePlanDesc 用户自定义的使用计划描述。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUsagePlanDesc() const;
 
                     /**
                      * 设置用户自定义的使用计划描述。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UsagePlanDesc 用户自定义的使用计划描述。
+                     * @param _usagePlanDesc 用户自定义的使用计划描述。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetUsagePlanDesc(const std::string& _usagePlanDesc);
 
                     /**
                      * 判断参数 UsagePlanDesc 是否已赋值
                      * @return UsagePlanDesc 是否已赋值
+                     * 
                      */
                     bool UsagePlanDescHasBeenSet() const;
 
@@ -117,20 +127,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return MaxRequestNumPreSec 每秒最大请求次数。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetMaxRequestNumPreSec() const;
 
                     /**
                      * 设置每秒最大请求次数。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MaxRequestNumPreSec 每秒最大请求次数。
+                     * @param _maxRequestNumPreSec 每秒最大请求次数。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMaxRequestNumPreSec(const int64_t& _maxRequestNumPreSec);
 
                     /**
                      * 判断参数 MaxRequestNumPreSec 是否已赋值
                      * @return MaxRequestNumPreSec 是否已赋值
+                     * 
                      */
                     bool MaxRequestNumPreSecHasBeenSet() const;
 
@@ -139,20 +152,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return MaxRequestNum 请求配额总量，-1表示没有限制。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetMaxRequestNum() const;
 
                     /**
                      * 设置请求配额总量，-1表示没有限制。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MaxRequestNum 请求配额总量，-1表示没有限制。
+                     * @param _maxRequestNum 请求配额总量，-1表示没有限制。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMaxRequestNum(const int64_t& _maxRequestNum);
 
                     /**
                      * 判断参数 MaxRequestNum 是否已赋值
                      * @return MaxRequestNum 是否已赋值
+                     * 
                      */
                     bool MaxRequestNumHasBeenSet() const;
 
@@ -161,20 +177,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreatedTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCreatedTime() const;
 
                     /**
                      * 设置创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CreatedTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
+                     * @param _createdTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCreatedTime(const std::string& _createdTime);
 
                     /**
                      * 判断参数 CreatedTime 是否已赋值
                      * @return CreatedTime 是否已赋值
+                     * 
                      */
                     bool CreatedTimeHasBeenSet() const;
 
@@ -183,22 +202,50 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ModifiedTime 最后修改时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetModifiedTime() const;
 
                     /**
                      * 设置最后修改时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ModifiedTime 最后修改时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
+                     * @param _modifiedTime 最后修改时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetModifiedTime(const std::string& _modifiedTime);
 
                     /**
                      * 判断参数 ModifiedTime 是否已赋值
                      * @return ModifiedTime 是否已赋值
+                     * 
                      */
                     bool ModifiedTimeHasBeenSet() const;
+
+                    /**
+                     * 获取标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
@@ -250,6 +297,13 @@ namespace TencentCloud
                      */
                     std::string m_modifiedTime;
                     bool m_modifiedTimeHasBeenSet;
+
+                    /**
+                     * 标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

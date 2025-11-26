@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,150 +51,279 @@ namespace TencentCloud
                     /**
                      * 获取车系
                      * @return Serial 车系
+                     * 
                      */
                     std::string GetSerial() const;
 
                     /**
                      * 设置车系
-                     * @param Serial 车系
+                     * @param _serial 车系
+                     * 
                      */
                     void SetSerial(const std::string& _serial);
 
                     /**
                      * 判断参数 Serial 是否已赋值
                      * @return Serial 是否已赋值
+                     * 
                      */
                     bool SerialHasBeenSet() const;
 
                     /**
                      * 获取车辆品牌
                      * @return Brand 车辆品牌
+                     * 
                      */
                     std::string GetBrand() const;
 
                     /**
                      * 设置车辆品牌
-                     * @param Brand 车辆品牌
+                     * @param _brand 车辆品牌
+                     * 
                      */
                     void SetBrand(const std::string& _brand);
 
                     /**
                      * 判断参数 Brand 是否已赋值
                      * @return Brand 是否已赋值
+                     * 
                      */
                     bool BrandHasBeenSet() const;
 
                     /**
                      * 获取车辆类型
                      * @return Type 车辆类型
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置车辆类型
-                     * @param Type 车辆类型
+                     * @param _type 车辆类型
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取车辆颜色
                      * @return Color 车辆颜色
+                     * 
                      */
                     std::string GetColor() const;
 
                     /**
                      * 设置车辆颜色
-                     * @param Color 车辆颜色
+                     * @param _color 车辆颜色
+                     * 
                      */
                     void SetColor(const std::string& _color);
 
                     /**
                      * 判断参数 Color 是否已赋值
                      * @return Color 是否已赋值
+                     * 
                      */
                     bool ColorHasBeenSet() const;
 
                     /**
-                     * 获取置信度，0-100
-                     * @return Confidence 置信度，0-100
+                     * 获取车系置信度，0-100
+                     * @return Confidence 车系置信度，0-100
+                     * 
                      */
                     int64_t GetConfidence() const;
 
                     /**
-                     * 设置置信度，0-100
-                     * @param Confidence 置信度，0-100
+                     * 设置车系置信度，0-100
+                     * @param _confidence 车系置信度，0-100
+                     * 
                      */
                     void SetConfidence(const int64_t& _confidence);
 
                     /**
                      * 判断参数 Confidence 是否已赋值
                      * @return Confidence 是否已赋值
+                     * 
                      */
                     bool ConfidenceHasBeenSet() const;
 
                     /**
                      * 获取年份，没识别出年份的时候返回0
                      * @return Year 年份，没识别出年份的时候返回0
+                     * 
                      */
                     int64_t GetYear() const;
 
                     /**
                      * 设置年份，没识别出年份的时候返回0
-                     * @param Year 年份，没识别出年份的时候返回0
+                     * @param _year 年份，没识别出年份的时候返回0
+                     * 
                      */
                     void SetYear(const int64_t& _year);
 
                     /**
                      * 判断参数 Year 是否已赋值
                      * @return Year 是否已赋值
+                     * 
                      */
                     bool YearHasBeenSet() const;
 
                     /**
                      * 获取车辆在图片中的坐标信息
                      * @return CarLocation 车辆在图片中的坐标信息
+                     * 
                      */
                     std::vector<Coord> GetCarLocation() const;
 
                     /**
                      * 设置车辆在图片中的坐标信息
-                     * @param CarLocation 车辆在图片中的坐标信息
+                     * @param _carLocation 车辆在图片中的坐标信息
+                     * 
                      */
                     void SetCarLocation(const std::vector<Coord>& _carLocation);
 
                     /**
                      * 判断参数 CarLocation 是否已赋值
                      * @return CarLocation 是否已赋值
+                     * 
                      */
                     bool CarLocationHasBeenSet() const;
 
                     /**
-                     * 获取车牌信息
+                     * 获取车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PlateContent 车牌信息
+                     * @return PlateContent 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     CarPlateContent GetPlateContent() const;
 
                     /**
-                     * 设置车牌信息
+                     * 设置车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PlateContent 车牌信息
+                     * @param _plateContent 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPlateContent(const CarPlateContent& _plateContent);
 
                     /**
                      * 判断参数 PlateContent 是否已赋值
                      * @return PlateContent 是否已赋值
+                     * 
                      */
                     bool PlateContentHasBeenSet() const;
+
+                    /**
+                     * 获取车牌信息置信度，0-100，仅车辆识别（增强版）支持
+                     * @return PlateConfidence 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    int64_t GetPlateConfidence() const;
+
+                    /**
+                     * 设置车牌信息置信度，0-100，仅车辆识别（增强版）支持
+                     * @param _plateConfidence 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    void SetPlateConfidence(const int64_t& _plateConfidence);
+
+                    /**
+                     * 判断参数 PlateConfidence 是否已赋值
+                     * @return PlateConfidence 是否已赋值
+                     * 
+                     */
+                    bool PlateConfidenceHasBeenSet() const;
+
+                    /**
+                     * 获取车辆类型置信度，0-100，仅车辆识别（增强版）支持
+                     * @return TypeConfidence 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    int64_t GetTypeConfidence() const;
+
+                    /**
+                     * 设置车辆类型置信度，0-100，仅车辆识别（增强版）支持
+                     * @param _typeConfidence 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    void SetTypeConfidence(const int64_t& _typeConfidence);
+
+                    /**
+                     * 判断参数 TypeConfidence 是否已赋值
+                     * @return TypeConfidence 是否已赋值
+                     * 
+                     */
+                    bool TypeConfidenceHasBeenSet() const;
+
+                    /**
+                     * 获取车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+                     * @return ColorConfidence 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    int64_t GetColorConfidence() const;
+
+                    /**
+                     * 设置车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+                     * @param _colorConfidence 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    void SetColorConfidence(const int64_t& _colorConfidence);
+
+                    /**
+                     * 判断参数 ColorConfidence 是否已赋值
+                     * @return ColorConfidence 是否已赋值
+                     * 
+                     */
+                    bool ColorConfidenceHasBeenSet() const;
+
+                    /**
+                     * 获取车辆朝向，仅车辆识别（增强版）支持
+                     * @return Orientation 车辆朝向，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    std::string GetOrientation() const;
+
+                    /**
+                     * 设置车辆朝向，仅车辆识别（增强版）支持
+                     * @param _orientation 车辆朝向，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    void SetOrientation(const std::string& _orientation);
+
+                    /**
+                     * 判断参数 Orientation 是否已赋值
+                     * @return Orientation 是否已赋值
+                     * 
+                     */
+                    bool OrientationHasBeenSet() const;
+
+                    /**
+                     * 获取车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+                     * @return OrientationConfidence 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    int64_t GetOrientationConfidence() const;
+
+                    /**
+                     * 设置车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+                     * @param _orientationConfidence 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+                     * 
+                     */
+                    void SetOrientationConfidence(const int64_t& _orientationConfidence);
+
+                    /**
+                     * 判断参数 OrientationConfidence 是否已赋值
+                     * @return OrientationConfidence 是否已赋值
+                     * 
+                     */
+                    bool OrientationConfidenceHasBeenSet() const;
 
                 private:
 
@@ -223,7 +352,7 @@ namespace TencentCloud
                     bool m_colorHasBeenSet;
 
                     /**
-                     * 置信度，0-100
+                     * 车系置信度，0-100
                      */
                     int64_t m_confidence;
                     bool m_confidenceHasBeenSet;
@@ -241,11 +370,41 @@ namespace TencentCloud
                     bool m_carLocationHasBeenSet;
 
                     /**
-                     * 车牌信息
+                     * 车牌信息，仅车辆识别（增强版）支持
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     CarPlateContent m_plateContent;
                     bool m_plateContentHasBeenSet;
+
+                    /**
+                     * 车牌信息置信度，0-100，仅车辆识别（增强版）支持
+                     */
+                    int64_t m_plateConfidence;
+                    bool m_plateConfidenceHasBeenSet;
+
+                    /**
+                     * 车辆类型置信度，0-100，仅车辆识别（增强版）支持
+                     */
+                    int64_t m_typeConfidence;
+                    bool m_typeConfidenceHasBeenSet;
+
+                    /**
+                     * 车辆颜色置信度，0-100，仅车辆识别（增强版）支持
+                     */
+                    int64_t m_colorConfidence;
+                    bool m_colorConfidenceHasBeenSet;
+
+                    /**
+                     * 车辆朝向，仅车辆识别（增强版）支持
+                     */
+                    std::string m_orientation;
+                    bool m_orientationHasBeenSet;
+
+                    /**
+                     * 车辆朝向置信度，0-100，仅车辆识别（增强版）支持
+                     */
+                    int64_t m_orientationConfidence;
+                    bool m_orientationConfidenceHasBeenSet;
 
                 };
             }

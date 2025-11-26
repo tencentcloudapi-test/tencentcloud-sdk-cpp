@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取歌曲详情列表信息
                      * @return KTVMusicDetailInfoSet 歌曲详情列表信息
+                     * 
                      */
                     std::vector<KTVMusicDetailInfo> GetKTVMusicDetailInfoSet() const;
 
                     /**
                      * 判断参数 KTVMusicDetailInfoSet 是否已赋值
                      * @return KTVMusicDetailInfoSet 是否已赋值
+                     * 
                      */
                     bool KTVMusicDetailInfoSetHasBeenSet() const;
 
                     /**
                      * 获取不存在的歌曲 ID 列表。
                      * @return NotExistMusicIdSet 不存在的歌曲 ID 列表。
+                     * 
                      */
                     std::vector<std::string> GetNotExistMusicIdSet() const;
 
                     /**
                      * 判断参数 NotExistMusicIdSet 是否已赋值
                      * @return NotExistMusicIdSet 是否已赋值
+                     * 
                      */
                     bool NotExistMusicIdSetHasBeenSet() const;
 

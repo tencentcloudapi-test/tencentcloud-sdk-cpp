@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,63 +43,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取`VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-                     * @return VpcId `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+                     * 获取`VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
+                     * @return VpcId `VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置`VPC`实例`ID`。形如：`vpc-6v2ht8q5`
-                     * @param VpcId `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+                     * 设置`VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
+                     * @param _vpcId `VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
                      * @return NewCidrBlocks 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+                     * 
                      */
                     std::vector<std::string> GetNewCidrBlocks() const;
 
                     /**
                      * 设置待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
-                     * @param NewCidrBlocks 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+                     * @param _newCidrBlocks 待添加的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+                     * 
                      */
                     void SetNewCidrBlocks(const std::vector<std::string>& _newCidrBlocks);
 
                     /**
                      * 判断参数 NewCidrBlocks 是否已赋值
                      * @return NewCidrBlocks 是否已赋值
+                     * 
                      */
                     bool NewCidrBlocksHasBeenSet() const;
 
                     /**
                      * 获取待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
                      * @return OldCidrBlocks 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+                     * 
                      */
                     std::vector<std::string> GetOldCidrBlocks() const;
 
                     /**
                      * 设置待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
-                     * @param OldCidrBlocks 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+                     * @param _oldCidrBlocks 待删除的辅助CIDR。CIDR数组，格式如["10.0.0.0/16", "172.16.0.0/16"]，入参NewCidrBlocks和OldCidrBlocks至少需要其一。
+                     * 
                      */
                     void SetOldCidrBlocks(const std::vector<std::string>& _oldCidrBlocks);
 
                     /**
                      * 判断参数 OldCidrBlocks 是否已赋值
                      * @return OldCidrBlocks 是否已赋值
+                     * 
                      */
                     bool OldCidrBlocksHasBeenSet() const;
 
                 private:
 
                     /**
-                     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`
+                     * `VPC`实例`ID`。形如：`vpc-6v2ht8q5`。
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;

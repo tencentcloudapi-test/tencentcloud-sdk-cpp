@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ using namespace TencentCloud::Vod::V20180717::Model;
 using namespace std;
 
 CreateAIRecognitionTemplateRequest::CreateAIRecognitionTemplateRequest() :
+    m_subAppIdHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_commentHasBeenSet(false),
     m_headTailConfigureHasBeenSet(false),
@@ -32,9 +33,9 @@ CreateAIRecognitionTemplateRequest::CreateAIRecognitionTemplateRequest() :
     m_ocrWordsConfigureHasBeenSet(false),
     m_asrFullTextConfigureHasBeenSet(false),
     m_asrWordsConfigureHasBeenSet(false),
+    m_asrTranslateConfigureHasBeenSet(false),
     m_objectConfigureHasBeenSet(false),
-    m_screenshotIntervalHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_screenshotIntervalHasBeenSet(false)
 {
 }
 
@@ -44,6 +45,14 @@ string CreateAIRecognitionTemplateRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
+    }
 
     if (m_nameHasBeenSet)
     {
@@ -124,6 +133,15 @@ string CreateAIRecognitionTemplateRequest::ToJsonString() const
         m_asrWordsConfigure.ToJsonObject(d[key.c_str()], allocator);
     }
 
+    if (m_asrTranslateConfigureHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AsrTranslateConfigure";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_asrTranslateConfigure.ToJsonObject(d[key.c_str()], allocator);
+    }
+
     if (m_objectConfigureHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -141,14 +159,6 @@ string CreateAIRecognitionTemplateRequest::ToJsonString() const
         d.AddMember(iKey, m_screenshotInterval, allocator);
     }
 
-    if (m_subAppIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -156,6 +166,22 @@ string CreateAIRecognitionTemplateRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+uint64_t CreateAIRecognitionTemplateRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void CreateAIRecognitionTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool CreateAIRecognitionTemplateRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
+}
 
 string CreateAIRecognitionTemplateRequest::GetName() const
 {
@@ -301,6 +327,22 @@ bool CreateAIRecognitionTemplateRequest::AsrWordsConfigureHasBeenSet() const
     return m_asrWordsConfigureHasBeenSet;
 }
 
+AsrTranslateConfigureInfo CreateAIRecognitionTemplateRequest::GetAsrTranslateConfigure() const
+{
+    return m_asrTranslateConfigure;
+}
+
+void CreateAIRecognitionTemplateRequest::SetAsrTranslateConfigure(const AsrTranslateConfigureInfo& _asrTranslateConfigure)
+{
+    m_asrTranslateConfigure = _asrTranslateConfigure;
+    m_asrTranslateConfigureHasBeenSet = true;
+}
+
+bool CreateAIRecognitionTemplateRequest::AsrTranslateConfigureHasBeenSet() const
+{
+    return m_asrTranslateConfigureHasBeenSet;
+}
+
 ObjectConfigureInfo CreateAIRecognitionTemplateRequest::GetObjectConfigure() const
 {
     return m_objectConfigure;
@@ -331,22 +373,6 @@ void CreateAIRecognitionTemplateRequest::SetScreenshotInterval(const double& _sc
 bool CreateAIRecognitionTemplateRequest::ScreenshotIntervalHasBeenSet() const
 {
     return m_screenshotIntervalHasBeenSet;
-}
-
-uint64_t CreateAIRecognitionTemplateRequest::GetSubAppId() const
-{
-    return m_subAppId;
-}
-
-void CreateAIRecognitionTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
-{
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
-}
-
-bool CreateAIRecognitionTemplateRequest::SubAppIdHasBeenSet() const
-{
-    return m_subAppIdHasBeenSet;
 }
 
 

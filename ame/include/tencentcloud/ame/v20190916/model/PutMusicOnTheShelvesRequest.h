@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取资源方歌曲Id
                      * @return MusicIds 资源方歌曲Id
+                     * 
                      */
                     std::vector<std::string> GetMusicIds() const;
 
                     /**
                      * 设置资源方歌曲Id
-                     * @param MusicIds 资源方歌曲Id
+                     * @param _musicIds 资源方歌曲Id
+                     * 
                      */
                     void SetMusicIds(const std::vector<std::string>& _musicIds);
 
                     /**
                      * 判断参数 MusicIds 是否已赋值
                      * @return MusicIds 是否已赋值
+                     * 
                      */
                     bool MusicIdsHasBeenSet() const;
 

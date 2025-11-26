@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,21 +44,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取自定义多因子验证Token对应的帐号Id
-                     * @return Uin 自定义多因子验证Token对应的帐号Id
+                     * 获取自定义多因子验证Token对应的账号Id
+                     * @return Uin 自定义多因子验证Token对应的账号Id
+                     * 
                      */
                     uint64_t GetUin() const;
 
                     /**
                      * 判断参数 Uin 是否已赋值
                      * @return Uin 是否已赋值
+                     * 
                      */
                     bool UinHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 自定义多因子验证Token对应的帐号Id
+                     * 自定义多因子验证Token对应的账号Id
                      */
                     uint64_t m_uin;
                     bool m_uinHasBeenSet;

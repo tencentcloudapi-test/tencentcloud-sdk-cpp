@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tke/v20180525/model/AutoUpgradeClusterLevel.h>
+#include <tencentcloud/tke/v20180525/model/ClusterProperty.h>
 
 
 namespace TencentCloud
@@ -46,110 +47,145 @@ namespace TencentCloud
 
                     /**
                      * 获取集群所属项目
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ProjectId 集群所属项目
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetProjectId() const;
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 
                     /**
                      * 获取集群名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ClusterName 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetClusterName() const;
 
                     /**
                      * 判断参数 ClusterName 是否已赋值
                      * @return ClusterName 是否已赋值
+                     * 
                      */
                     bool ClusterNameHasBeenSet() const;
 
                     /**
                      * 获取集群描述
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ClusterDesc 集群描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetClusterDesc() const;
 
                     /**
                      * 判断参数 ClusterDesc 是否已赋值
                      * @return ClusterDesc 是否已赋值
+                     * 
                      */
                     bool ClusterDescHasBeenSet() const;
 
                     /**
                      * 获取集群等级
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ClusterLevel 集群等级
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetClusterLevel() const;
 
                     /**
                      * 判断参数 ClusterLevel 是否已赋值
                      * @return ClusterLevel 是否已赋值
+                     * 
                      */
                     bool ClusterLevelHasBeenSet() const;
 
                     /**
                      * 获取自动变配集群等级
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return AutoUpgradeClusterLevel 自动变配集群等级
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AutoUpgradeClusterLevel GetAutoUpgradeClusterLevel() const;
 
                     /**
                      * 判断参数 AutoUpgradeClusterLevel 是否已赋值
                      * @return AutoUpgradeClusterLevel 是否已赋值
+                     * 
                      */
                     bool AutoUpgradeClusterLevelHasBeenSet() const;
+
+                    /**
+                     * 获取是否开启QGPU共享
+                     * @return QGPUShareEnable 是否开启QGPU共享
+                     * 
+                     */
+                    bool GetQGPUShareEnable() const;
+
+                    /**
+                     * 判断参数 QGPUShareEnable 是否已赋值
+                     * @return QGPUShareEnable 是否已赋值
+                     * 
+                     */
+                    bool QGPUShareEnableHasBeenSet() const;
+
+                    /**
+                     * 获取集群属性
+                     * @return ClusterProperty 集群属性
+                     * 
+                     */
+                    ClusterProperty GetClusterProperty() const;
+
+                    /**
+                     * 判断参数 ClusterProperty 是否已赋值
+                     * @return ClusterProperty 是否已赋值
+                     * 
+                     */
+                    bool ClusterPropertyHasBeenSet() const;
 
                 private:
 
                     /**
                      * 集群所属项目
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
                      * 集群名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_clusterName;
                     bool m_clusterNameHasBeenSet;
 
                     /**
                      * 集群描述
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_clusterDesc;
                     bool m_clusterDescHasBeenSet;
 
                     /**
                      * 集群等级
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_clusterLevel;
                     bool m_clusterLevelHasBeenSet;
 
                     /**
                      * 自动变配集群等级
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AutoUpgradeClusterLevel m_autoUpgradeClusterLevel;
                     bool m_autoUpgradeClusterLevelHasBeenSet;
+
+                    /**
+                     * 是否开启QGPU共享
+                     */
+                    bool m_qGPUShareEnable;
+                    bool m_qGPUShareEnableHasBeenSet;
+
+                    /**
+                     * 集群属性
+                     */
+                    ClusterProperty m_clusterProperty;
+                    bool m_clusterPropertyHasBeenSet;
 
                 };
             }

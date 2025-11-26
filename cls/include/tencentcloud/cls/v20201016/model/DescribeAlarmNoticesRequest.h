@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,39 +47,60 @@ namespace TencentCloud
                      * 获取<li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
+必选：否</li>
 
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
+必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
                      * @return Filters <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
+必选：否</li>
 
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
+必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
@@ -87,81 +108,109 @@ namespace TencentCloud
                      * 设置<li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
+必选：否</li>
 
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
+必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
-                     * @param Filters <li> name
+                     * @param _filters <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
+必选：否</li>
 
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
+必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
                      * 获取分页的偏移量，默认值为0。
                      * @return Offset 分页的偏移量，默认值为0。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置分页的偏移量，默认值为0。
-                     * @param Offset 分页的偏移量，默认值为0。
+                     * @param _offset 分页的偏移量，默认值为0。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取分页单页限制数目，默认值为20，最大值100。
                      * @return Limit 分页单页限制数目，默认值为20，最大值100。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置分页单页限制数目，默认值为20，最大值100。
-                     * @param Limit 分页单页限制数目，默认值为20，最大值100。
+                     * @param _limit 分页单页限制数目，默认值为20，最大值100。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
@@ -171,20 +220,30 @@ namespace TencentCloud
                      * <li> name
 按照【通知渠道组名称】进行过滤。
 类型：String
-必选：否
+示例："Filters":[{"Key":"name","Values":["test-notice"]}]
+必选：否</li>
 <li> alarmNoticeId
 按照【通知渠道组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "alarmNoticeId", Values: ["notice-5281f1d2-6275-4e56-9ec3-a1eb19d8bc2f"]}]
+必选：否</li>
 <li> uid
 按照【接收用户ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "uid", Values: ["1137546"]}]
+必选：否</li>
 <li> groupId
 按照【接收用户组ID】进行过滤。
 类型：String
-必选：否
+示例："Filters": [{Key: "groupId", Values: ["344098"]}]
+必选：否</li>
 
+<li> deliverFlag
+按照【投递状态】进行过滤。
+类型：String
+必选：否
+可选值： "1":未启用,  "2": 已启用, "3":投递异常</li>
+示例："Filters":[{"Key":"deliverFlag","Values":["2"]}]
 每次请求的Filters的上限为10，Filter.Values的上限为5。
                      */
                     std::vector<Filter> m_filters;

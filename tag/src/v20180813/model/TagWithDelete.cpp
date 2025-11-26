@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace std;
 TagWithDelete::TagWithDelete() :
     m_tagKeyHasBeenSet(false),
     m_tagValueHasBeenSet(false),
-    m_canDeleteHasBeenSet(false)
+    m_canDeleteHasBeenSet(false),
+    m_categoryHasBeenSet(false)
 {
 }
 
@@ -62,6 +63,16 @@ CoreInternalOutcome TagWithDelete::Deserialize(const rapidjson::Value &value)
         m_canDeleteHasBeenSet = true;
     }
 
+    if (value.HasMember("Category") && !value["Category"].IsNull())
+    {
+        if (!value["Category"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TagWithDelete.Category` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_category = string(value["Category"].GetString());
+        m_categoryHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +102,14 @@ void TagWithDelete::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "CanDelete";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_canDelete, allocator);
+    }
+
+    if (m_categoryHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Category";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_category.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -142,5 +161,21 @@ void TagWithDelete::SetCanDelete(const uint64_t& _canDelete)
 bool TagWithDelete::CanDeleteHasBeenSet() const
 {
     return m_canDeleteHasBeenSet;
+}
+
+string TagWithDelete::GetCategory() const
+{
+    return m_category;
+}
+
+void TagWithDelete::SetCategory(const string& _category)
+{
+    m_category = _category;
+    m_categoryHasBeenSet = true;
+}
+
+bool TagWithDelete::CategoryHasBeenSet() const
+{
+    return m_categoryHasBeenSet;
 }
 

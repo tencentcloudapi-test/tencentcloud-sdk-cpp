@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取任务唯一标识ItemId的列表
                      * @return ItemIds 任务唯一标识ItemId的列表
+                     * 
                      */
                     std::vector<std::string> GetItemIds() const;
 
                     /**
                      * 设置任务唯一标识ItemId的列表
-                     * @param ItemIds 任务唯一标识ItemId的列表
+                     * @param _itemIds 任务唯一标识ItemId的列表
+                     * 
                      */
                     void SetItemIds(const std::vector<std::string>& _itemIds);
 
                     /**
                      * 判断参数 ItemIds 是否已赋值
                      * @return ItemIds 是否已赋值
+                     * 
                      */
                     bool ItemIdsHasBeenSet() const;
 

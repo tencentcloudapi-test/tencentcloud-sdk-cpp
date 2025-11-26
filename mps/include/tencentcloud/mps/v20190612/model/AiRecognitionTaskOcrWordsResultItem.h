@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取文本关键词。
                      * @return Word 文本关键词。
+                     * 
                      */
                     std::string GetWord() const;
 
                     /**
                      * 设置文本关键词。
-                     * @param Word 文本关键词。
+                     * @param _word 文本关键词。
+                     * 
                      */
                     void SetWord(const std::string& _word);
 
                     /**
                      * 判断参数 Word 是否已赋值
                      * @return Word 是否已赋值
+                     * 
                      */
                     bool WordHasBeenSet() const;
 
                     /**
                      * 获取文本关键出现的片段列表。
                      * @return SegmentSet 文本关键出现的片段列表。
+                     * 
                      */
                     std::vector<AiRecognitionTaskOcrWordsSegmentItem> GetSegmentSet() const;
 
                     /**
                      * 设置文本关键出现的片段列表。
-                     * @param SegmentSet 文本关键出现的片段列表。
+                     * @param _segmentSet 文本关键出现的片段列表。
+                     * 
                      */
                     void SetSegmentSet(const std::vector<AiRecognitionTaskOcrWordsSegmentItem>& _segmentSet);
 
                     /**
                      * 判断参数 SegmentSet 是否已赋值
                      * @return SegmentSet 是否已赋值
+                     * 
                      */
                     bool SegmentSetHasBeenSet() const;
 

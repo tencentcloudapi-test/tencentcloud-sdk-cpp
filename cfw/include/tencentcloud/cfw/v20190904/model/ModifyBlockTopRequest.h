@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,54 +43,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取记录id
-                     * @return UniqueId 记录id
-                     */
-                    std::string GetUniqueId() const;
-
-                    /**
-                     * 设置记录id
-                     * @param UniqueId 记录id
-                     */
-                    void SetUniqueId(const std::string& _uniqueId);
-
-                    /**
-                     * 判断参数 UniqueId 是否已赋值
-                     * @return UniqueId 是否已赋值
-                     */
-                    bool UniqueIdHasBeenSet() const;
-
-                    /**
                      * 获取操作类型 1 置顶 0取消
                      * @return OpeType 操作类型 1 置顶 0取消
+                     * 
                      */
                     std::string GetOpeType() const;
 
                     /**
                      * 设置操作类型 1 置顶 0取消
-                     * @param OpeType 操作类型 1 置顶 0取消
+                     * @param _opeType 操作类型 1 置顶 0取消
+                     * 
                      */
                     void SetOpeType(const std::string& _opeType);
 
                     /**
                      * 判断参数 OpeType 是否已赋值
                      * @return OpeType 是否已赋值
+                     * 
                      */
                     bool OpeTypeHasBeenSet() const;
 
-                private:
+                    /**
+                     * 获取记录id
+                     * @return UniqueId 记录id
+                     * 
+                     */
+                    std::string GetUniqueId() const;
 
                     /**
-                     * 记录id
+                     * 设置记录id
+                     * @param _uniqueId 记录id
+                     * 
                      */
-                    std::string m_uniqueId;
-                    bool m_uniqueIdHasBeenSet;
+                    void SetUniqueId(const std::string& _uniqueId);
+
+                    /**
+                     * 判断参数 UniqueId 是否已赋值
+                     * @return UniqueId 是否已赋值
+                     * 
+                     */
+                    bool UniqueIdHasBeenSet() const;
+
+                private:
 
                     /**
                      * 操作类型 1 置顶 0取消
                      */
                     std::string m_opeType;
                     bool m_opeTypeHasBeenSet;
+
+                    /**
+                     * 记录id
+                     */
+                    std::string m_uniqueId;
+                    bool m_uniqueIdHasBeenSet;
 
                 };
             }

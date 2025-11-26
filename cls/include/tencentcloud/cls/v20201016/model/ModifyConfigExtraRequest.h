@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,314 +49,511 @@ namespace TencentCloud
 
                     /**
                      * 获取采集配置扩展信息id
+- 通过[获取特殊采集配置](https://cloud.tencent.com/document/api/614/71164)获取采集配置扩展信息id。
                      * @return ConfigExtraId 采集配置扩展信息id
+- 通过[获取特殊采集配置](https://cloud.tencent.com/document/api/614/71164)获取采集配置扩展信息id。
+                     * 
                      */
                     std::string GetConfigExtraId() const;
 
                     /**
                      * 设置采集配置扩展信息id
-                     * @param ConfigExtraId 采集配置扩展信息id
+- 通过[获取特殊采集配置](https://cloud.tencent.com/document/api/614/71164)获取采集配置扩展信息id。
+                     * @param _configExtraId 采集配置扩展信息id
+- 通过[获取特殊采集配置](https://cloud.tencent.com/document/api/614/71164)获取采集配置扩展信息id。
+                     * 
                      */
                     void SetConfigExtraId(const std::string& _configExtraId);
 
                     /**
                      * 判断参数 ConfigExtraId 是否已赋值
                      * @return ConfigExtraId 是否已赋值
+                     * 
                      */
                     bool ConfigExtraIdHasBeenSet() const;
 
                     /**
                      * 获取采集配置规程名称，最长63个字符，只能包含小写字符、数字及分隔符（“-”），且必须以小写字符开头，数字或小写字符结尾
                      * @return Name 采集配置规程名称，最长63个字符，只能包含小写字符、数字及分隔符（“-”），且必须以小写字符开头，数字或小写字符结尾
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置采集配置规程名称，最长63个字符，只能包含小写字符、数字及分隔符（“-”），且必须以小写字符开头，数字或小写字符结尾
-                     * @param Name 采集配置规程名称，最长63个字符，只能包含小写字符、数字及分隔符（“-”），且必须以小写字符开头，数字或小写字符结尾
+                     * @param _name 采集配置规程名称，最长63个字符，只能包含小写字符、数字及分隔符（“-”），且必须以小写字符开头，数字或小写字符结尾
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
                      * @return TopicId 日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * 
                      */
                     std::string GetTopicId() const;
 
                     /**
                      * 设置日志主题id
-                     * @param TopicId 日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * @param _topicId 日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * 
                      */
                     void SetTopicId(const std::string& _topicId);
 
                     /**
                      * 判断参数 TopicId 是否已赋值
                      * @return TopicId 是否已赋值
+                     * 
                      */
                     bool TopicIdHasBeenSet() const;
 
                     /**
-                     * 获取节点文件配置信息
-                     * @return HostFile 节点文件配置信息
+                     * 获取自建k8s-节点文件配置信息,包括文件路径、名称及元数据相关信息。
+
+- 详情参考  [HostFileInfo](https://cloud.tencent.com/document/api/614/56471#HostFileInfo) 文档。
+                     * @return HostFile 自建k8s-节点文件配置信息,包括文件路径、名称及元数据相关信息。
+
+- 详情参考  [HostFileInfo](https://cloud.tencent.com/document/api/614/56471#HostFileInfo) 文档。
+                     * 
                      */
                     HostFileInfo GetHostFile() const;
 
                     /**
-                     * 设置节点文件配置信息
-                     * @param HostFile 节点文件配置信息
+                     * 设置自建k8s-节点文件配置信息,包括文件路径、名称及元数据相关信息。
+
+- 详情参考  [HostFileInfo](https://cloud.tencent.com/document/api/614/56471#HostFileInfo) 文档。
+                     * @param _hostFile 自建k8s-节点文件配置信息,包括文件路径、名称及元数据相关信息。
+
+- 详情参考  [HostFileInfo](https://cloud.tencent.com/document/api/614/56471#HostFileInfo) 文档。
+                     * 
                      */
                     void SetHostFile(const HostFileInfo& _hostFile);
 
                     /**
                      * 判断参数 HostFile 是否已赋值
                      * @return HostFile 是否已赋值
+                     * 
                      */
                     bool HostFileHasBeenSet() const;
 
                     /**
-                     * 获取容器文件路径信息
-                     * @return ContainerFile 容器文件路径信息
+                     * 获取采集配置标记。
+- 目前只支持label_k8s，用于标记自建k8s集群使用的采集配置
+- 详情参考 [ ContainerFileInfo](https://cloud.tencent.com/document/api/614/56471#ContainerFileInfo) 文档
+                     * @return ContainerFile 采集配置标记。
+- 目前只支持label_k8s，用于标记自建k8s集群使用的采集配置
+- 详情参考 [ ContainerFileInfo](https://cloud.tencent.com/document/api/614/56471#ContainerFileInfo) 文档
+                     * 
                      */
                     ContainerFileInfo GetContainerFile() const;
 
                     /**
-                     * 设置容器文件路径信息
-                     * @param ContainerFile 容器文件路径信息
+                     * 设置采集配置标记。
+- 目前只支持label_k8s，用于标记自建k8s集群使用的采集配置
+- 详情参考 [ ContainerFileInfo](https://cloud.tencent.com/document/api/614/56471#ContainerFileInfo) 文档
+                     * @param _containerFile 采集配置标记。
+- 目前只支持label_k8s，用于标记自建k8s集群使用的采集配置
+- 详情参考 [ ContainerFileInfo](https://cloud.tencent.com/document/api/614/56471#ContainerFileInfo) 文档
+                     * 
                      */
                     void SetContainerFile(const ContainerFileInfo& _containerFile);
 
                     /**
                      * 判断参数 ContainerFile 是否已赋值
                      * @return ContainerFile 是否已赋值
+                     * 
                      */
                     bool ContainerFileHasBeenSet() const;
 
                     /**
-                     * 获取容器标准输出信息
-                     * @return ContainerStdout 容器标准输出信息
+                     * 获取自建k8s-容器标准输出信息，包括容器、命名空间等，
+
+- 详情参考 [ContainerStdoutInfo]( https://cloud.tencent.com/document/api/614/56471#ContainerStdoutInfo) 文档
+                     * @return ContainerStdout 自建k8s-容器标准输出信息，包括容器、命名空间等，
+
+- 详情参考 [ContainerStdoutInfo]( https://cloud.tencent.com/document/api/614/56471#ContainerStdoutInfo) 文档
+                     * 
                      */
                     ContainerStdoutInfo GetContainerStdout() const;
 
                     /**
-                     * 设置容器标准输出信息
-                     * @param ContainerStdout 容器标准输出信息
+                     * 设置自建k8s-容器标准输出信息，包括容器、命名空间等，
+
+- 详情参考 [ContainerStdoutInfo]( https://cloud.tencent.com/document/api/614/56471#ContainerStdoutInfo) 文档
+                     * @param _containerStdout 自建k8s-容器标准输出信息，包括容器、命名空间等，
+
+- 详情参考 [ContainerStdoutInfo]( https://cloud.tencent.com/document/api/614/56471#ContainerStdoutInfo) 文档
+                     * 
                      */
                     void SetContainerStdout(const ContainerStdoutInfo& _containerStdout);
 
                     /**
                      * 判断参数 ContainerStdout 是否已赋值
                      * @return ContainerStdout 是否已赋值
+                     * 
                      */
                     bool ContainerStdoutHasBeenSet() const;
 
                     /**
-                     * 获取采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
-                     * @return LogType 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
+                     * 获取采集的日志类型，默认为minimalist_log。支持以下类型：
+- json_log代表：JSON-文件日志（详见[使用 JSON 提取模式采集日志](https://cloud.tencent.com/document/product/614/17419)）；
+- delimiter_log代表：分隔符-文件日志（详见[使用分隔符提取模式采集日志](https://cloud.tencent.com/document/product/614/17420)）；
+- minimalist_log代表：单行全文-文件日志（详见[使用单行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17421)）；
+- fullregex_log代表：单行完全正则-文件日志（详见[使用单行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52365)）；
+- multiline_log代表：多行全文-文件日志（详见[使用多行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17422)）；
+- multiline_fullregex_log代表：多行完全正则-文件日志（详见[使用多行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52366)）；
+- user_define_log代表：组合解析（适用于多格式嵌套的日志，详见[使用组合解析提取模式采集日志](https://cloud.tencent.com/document/product/614/61310)）。
+                     * @return LogType 采集的日志类型，默认为minimalist_log。支持以下类型：
+- json_log代表：JSON-文件日志（详见[使用 JSON 提取模式采集日志](https://cloud.tencent.com/document/product/614/17419)）；
+- delimiter_log代表：分隔符-文件日志（详见[使用分隔符提取模式采集日志](https://cloud.tencent.com/document/product/614/17420)）；
+- minimalist_log代表：单行全文-文件日志（详见[使用单行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17421)）；
+- fullregex_log代表：单行完全正则-文件日志（详见[使用单行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52365)）；
+- multiline_log代表：多行全文-文件日志（详见[使用多行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17422)）；
+- multiline_fullregex_log代表：多行完全正则-文件日志（详见[使用多行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52366)）；
+- user_define_log代表：组合解析（适用于多格式嵌套的日志，详见[使用组合解析提取模式采集日志](https://cloud.tencent.com/document/product/614/61310)）。
+                     * 
                      */
                     std::string GetLogType() const;
 
                     /**
-                     * 设置采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
-                     * @param LogType 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
+                     * 设置采集的日志类型，默认为minimalist_log。支持以下类型：
+- json_log代表：JSON-文件日志（详见[使用 JSON 提取模式采集日志](https://cloud.tencent.com/document/product/614/17419)）；
+- delimiter_log代表：分隔符-文件日志（详见[使用分隔符提取模式采集日志](https://cloud.tencent.com/document/product/614/17420)）；
+- minimalist_log代表：单行全文-文件日志（详见[使用单行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17421)）；
+- fullregex_log代表：单行完全正则-文件日志（详见[使用单行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52365)）；
+- multiline_log代表：多行全文-文件日志（详见[使用多行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17422)）；
+- multiline_fullregex_log代表：多行完全正则-文件日志（详见[使用多行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52366)）；
+- user_define_log代表：组合解析（适用于多格式嵌套的日志，详见[使用组合解析提取模式采集日志](https://cloud.tencent.com/document/product/614/61310)）。
+                     * @param _logType 采集的日志类型，默认为minimalist_log。支持以下类型：
+- json_log代表：JSON-文件日志（详见[使用 JSON 提取模式采集日志](https://cloud.tencent.com/document/product/614/17419)）；
+- delimiter_log代表：分隔符-文件日志（详见[使用分隔符提取模式采集日志](https://cloud.tencent.com/document/product/614/17420)）；
+- minimalist_log代表：单行全文-文件日志（详见[使用单行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17421)）；
+- fullregex_log代表：单行完全正则-文件日志（详见[使用单行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52365)）；
+- multiline_log代表：多行全文-文件日志（详见[使用多行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17422)）；
+- multiline_fullregex_log代表：多行完全正则-文件日志（详见[使用多行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52366)）；
+- user_define_log代表：组合解析（适用于多格式嵌套的日志，详见[使用组合解析提取模式采集日志](https://cloud.tencent.com/document/product/614/61310)）。
+                     * 
                      */
                     void SetLogType(const std::string& _logType);
 
                     /**
                      * 判断参数 LogType 是否已赋值
                      * @return LogType 是否已赋值
+                     * 
                      */
                     bool LogTypeHasBeenSet() const;
 
                     /**
-                     * 获取日志格式化方式
-                     * @return LogFormat 日志格式化方式
+                     * 获取日志格式化方式，用于容器采集场景。
+- stdout-docker-json：用于docker容器采集场景
+- stdout-containerd：用于containerd容器采集场景
+                     * @return LogFormat 日志格式化方式，用于容器采集场景。
+- stdout-docker-json：用于docker容器采集场景
+- stdout-containerd：用于containerd容器采集场景
+                     * @deprecated
                      */
                     std::string GetLogFormat() const;
 
                     /**
-                     * 设置日志格式化方式
-                     * @param LogFormat 日志格式化方式
+                     * 设置日志格式化方式，用于容器采集场景。
+- stdout-docker-json：用于docker容器采集场景
+- stdout-containerd：用于containerd容器采集场景
+                     * @param _logFormat 日志格式化方式，用于容器采集场景。
+- stdout-docker-json：用于docker容器采集场景
+- stdout-containerd：用于containerd容器采集场景
+                     * @deprecated
                      */
                     void SetLogFormat(const std::string& _logFormat);
 
                     /**
                      * 判断参数 LogFormat 是否已赋值
                      * @return LogFormat 是否已赋值
+                     * @deprecated
                      */
                     bool LogFormatHasBeenSet() const;
 
                     /**
-                     * 获取提取规则，如果设置了ExtractRule，则必须设置LogType
-                     * @return ExtractRule 提取规则，如果设置了ExtractRule，则必须设置LogType
+                     * 获取提取规则，如果设置了ExtractRule，则必须设置LogType。
+                     * @return ExtractRule 提取规则，如果设置了ExtractRule，则必须设置LogType。
+                     * 
                      */
                     ExtractRuleInfo GetExtractRule() const;
 
                     /**
-                     * 设置提取规则，如果设置了ExtractRule，则必须设置LogType
-                     * @param ExtractRule 提取规则，如果设置了ExtractRule，则必须设置LogType
+                     * 设置提取规则，如果设置了ExtractRule，则必须设置LogType。
+                     * @param _extractRule 提取规则，如果设置了ExtractRule，则必须设置LogType。
+                     * 
                      */
                     void SetExtractRule(const ExtractRuleInfo& _extractRule);
 
                     /**
                      * 判断参数 ExtractRule 是否已赋值
                      * @return ExtractRule 是否已赋值
+                     * 
                      */
                     bool ExtractRuleHasBeenSet() const;
 
                     /**
                      * 获取采集黑名单路径列表
                      * @return ExcludePaths 采集黑名单路径列表
+                     * 
                      */
                     std::vector<ExcludePathInfo> GetExcludePaths() const;
 
                     /**
                      * 设置采集黑名单路径列表
-                     * @param ExcludePaths 采集黑名单路径列表
+                     * @param _excludePaths 采集黑名单路径列表
+                     * 
                      */
                     void SetExcludePaths(const std::vector<ExcludePathInfo>& _excludePaths);
 
                     /**
                      * 判断参数 ExcludePaths 是否已赋值
                      * @return ExcludePaths 是否已赋值
+                     * 
                      */
                     bool ExcludePathsHasBeenSet() const;
 
                     /**
-                     * 获取用户自定义采集规则，Json格式序列化的字符串
-                     * @return UserDefineRule 用户自定义采集规则，Json格式序列化的字符串
+                     * 获取组合解析采集规则，用于复杂场景下的日志采集。
+- 取值参考：[使用组合解析提取模式采集日志
+](https://cloud.tencent.com/document/product/614/61310)
+                     * @return UserDefineRule 组合解析采集规则，用于复杂场景下的日志采集。
+- 取值参考：[使用组合解析提取模式采集日志
+](https://cloud.tencent.com/document/product/614/61310)
+                     * 
                      */
                     std::string GetUserDefineRule() const;
 
                     /**
-                     * 设置用户自定义采集规则，Json格式序列化的字符串
-                     * @param UserDefineRule 用户自定义采集规则，Json格式序列化的字符串
+                     * 设置组合解析采集规则，用于复杂场景下的日志采集。
+- 取值参考：[使用组合解析提取模式采集日志
+](https://cloud.tencent.com/document/product/614/61310)
+                     * @param _userDefineRule 组合解析采集规则，用于复杂场景下的日志采集。
+- 取值参考：[使用组合解析提取模式采集日志
+](https://cloud.tencent.com/document/product/614/61310)
+                     * 
                      */
                     void SetUserDefineRule(const std::string& _userDefineRule);
 
                     /**
                      * 判断参数 UserDefineRule 是否已赋值
                      * @return UserDefineRule 是否已赋值
+                     * 
                      */
                     bool UserDefineRuleHasBeenSet() const;
 
                     /**
-                     * 获取类型：container_stdout、container_file、host_file
-                     * @return Type 类型：container_stdout、container_file、host_file
+                     * 获取容器场景，日志采集输入类型，支持以下三种类型
+- container_stdout 标准输出
+- container_file 容器文件
+- host_file 主机节点文件
+                     * @return Type 容器场景，日志采集输入类型，支持以下三种类型
+- container_stdout 标准输出
+- container_file 容器文件
+- host_file 主机节点文件
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置类型：container_stdout、container_file、host_file
-                     * @param Type 类型：container_stdout、container_file、host_file
+                     * 设置容器场景，日志采集输入类型，支持以下三种类型
+- container_stdout 标准输出
+- container_file 容器文件
+- host_file 主机节点文件
+                     * @param _type 容器场景，日志采集输入类型，支持以下三种类型
+- container_stdout 标准输出
+- container_file 容器文件
+- host_file 主机节点文件
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取机器组ID
+- 通过[获取机器组列表](https://cloud.tencent.com/document/api/614/56438)获取机器组Id。
                      * @return GroupId 机器组ID
+- 通过[获取机器组列表](https://cloud.tencent.com/document/api/614/56438)获取机器组Id。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置机器组ID
-                     * @param GroupId 机器组ID
+- 通过[获取机器组列表](https://cloud.tencent.com/document/api/614/56438)获取机器组Id。
+                     * @param _groupId 机器组ID
+- 通过[获取机器组列表](https://cloud.tencent.com/document/api/614/56438)获取机器组Id。
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取自建采集配置标
                      * @return ConfigFlag 自建采集配置标
+                     * 
                      */
                     std::string GetConfigFlag() const;
 
                     /**
                      * 设置自建采集配置标
-                     * @param ConfigFlag 自建采集配置标
+                     * @param _configFlag 自建采集配置标
+                     * 
                      */
                     void SetConfigFlag(const std::string& _configFlag);
 
                     /**
                      * 判断参数 ConfigFlag 是否已赋值
                      * @return ConfigFlag 是否已赋值
+                     * 
                      */
                     bool ConfigFlagHasBeenSet() const;
 
                     /**
                      * 获取日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集Id。
                      * @return LogsetId 日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集Id。
+                     * 
                      */
                     std::string GetLogsetId() const;
 
                     /**
                      * 设置日志集ID
-                     * @param LogsetId 日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集Id。
+                     * @param _logsetId 日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集Id。
+                     * 
                      */
                     void SetLogsetId(const std::string& _logsetId);
 
                     /**
                      * 判断参数 LogsetId 是否已赋值
                      * @return LogsetId 是否已赋值
+                     * 
                      */
                     bool LogsetIdHasBeenSet() const;
 
                     /**
-                     * 获取日志集name
-                     * @return LogsetName 日志集name
+                     * 获取日志集名称
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集名称。
+                     * @return LogsetName 日志集名称
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集名称。
+                     * 
                      */
                     std::string GetLogsetName() const;
 
                     /**
-                     * 设置日志集name
-                     * @param LogsetName 日志集name
+                     * 设置日志集名称
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集名称。
+                     * @param _logsetName 日志集名称
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集名称。
+                     * 
                      */
                     void SetLogsetName(const std::string& _logsetName);
 
                     /**
                      * 判断参数 LogsetName 是否已赋值
                      * @return LogsetName 是否已赋值
+                     * 
                      */
                     bool LogsetNameHasBeenSet() const;
 
                     /**
-                     * 获取日志主题name
-                     * @return TopicName 日志主题name
+                     * 获取日志主题名称
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题名称。
+                     * @return TopicName 日志主题名称
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题名称。
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
-                     * 设置日志主题name
-                     * @param TopicName 日志主题name
+                     * 设置日志主题名称
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题名称。
+                     * @param _topicName 日志主题名称
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题名称。
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
+
+                    /**
+                     * 获取高级采集配置。 Json字符串， Key/Value定义为如下：
+- ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
+- ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
+- ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
+- ClsAgentDefault(自定义默认值，无特殊含义，用于清空其他选项)，建议取值0
+
+                     * @return AdvancedConfig 高级采集配置。 Json字符串， Key/Value定义为如下：
+- ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
+- ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
+- ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
+- ClsAgentDefault(自定义默认值，无特殊含义，用于清空其他选项)，建议取值0
+
+                     * 
+                     */
+                    std::string GetAdvancedConfig() const;
+
+                    /**
+                     * 设置高级采集配置。 Json字符串， Key/Value定义为如下：
+- ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
+- ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
+- ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
+- ClsAgentDefault(自定义默认值，无特殊含义，用于清空其他选项)，建议取值0
+
+                     * @param _advancedConfig 高级采集配置。 Json字符串， Key/Value定义为如下：
+- ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
+- ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
+- ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
+- ClsAgentDefault(自定义默认值，无特殊含义，用于清空其他选项)，建议取值0
+
+                     * 
+                     */
+                    void SetAdvancedConfig(const std::string& _advancedConfig);
+
+                    /**
+                     * 判断参数 AdvancedConfig 是否已赋值
+                     * @return AdvancedConfig 是否已赋值
+                     * 
+                     */
+                    bool AdvancedConfigHasBeenSet() const;
 
                 private:
 
                     /**
                      * 采集配置扩展信息id
+- 通过[获取特殊采集配置](https://cloud.tencent.com/document/api/614/71164)获取采集配置扩展信息id。
                      */
                     std::string m_configExtraId;
                     bool m_configExtraIdHasBeenSet;
@@ -369,42 +566,58 @@ namespace TencentCloud
 
                     /**
                      * 日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;
 
                     /**
-                     * 节点文件配置信息
+                     * 自建k8s-节点文件配置信息,包括文件路径、名称及元数据相关信息。
+
+- 详情参考  [HostFileInfo](https://cloud.tencent.com/document/api/614/56471#HostFileInfo) 文档。
                      */
                     HostFileInfo m_hostFile;
                     bool m_hostFileHasBeenSet;
 
                     /**
-                     * 容器文件路径信息
+                     * 采集配置标记。
+- 目前只支持label_k8s，用于标记自建k8s集群使用的采集配置
+- 详情参考 [ ContainerFileInfo](https://cloud.tencent.com/document/api/614/56471#ContainerFileInfo) 文档
                      */
                     ContainerFileInfo m_containerFile;
                     bool m_containerFileHasBeenSet;
 
                     /**
-                     * 容器标准输出信息
+                     * 自建k8s-容器标准输出信息，包括容器、命名空间等，
+
+- 详情参考 [ContainerStdoutInfo]( https://cloud.tencent.com/document/api/614/56471#ContainerStdoutInfo) 文档
                      */
                     ContainerStdoutInfo m_containerStdout;
                     bool m_containerStdoutHasBeenSet;
 
                     /**
-                     * 采集的日志类型，json_log代表json格式日志，delimiter_log代表分隔符格式日志，minimalist_log代表极简日志，multiline_log代表多行日志，fullregex_log代表完整正则，默认为minimalist_log
+                     * 采集的日志类型，默认为minimalist_log。支持以下类型：
+- json_log代表：JSON-文件日志（详见[使用 JSON 提取模式采集日志](https://cloud.tencent.com/document/product/614/17419)）；
+- delimiter_log代表：分隔符-文件日志（详见[使用分隔符提取模式采集日志](https://cloud.tencent.com/document/product/614/17420)）；
+- minimalist_log代表：单行全文-文件日志（详见[使用单行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17421)）；
+- fullregex_log代表：单行完全正则-文件日志（详见[使用单行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52365)）；
+- multiline_log代表：多行全文-文件日志（详见[使用多行全文提取模式采集日志](https://cloud.tencent.com/document/product/614/17422)）；
+- multiline_fullregex_log代表：多行完全正则-文件日志（详见[使用多行-完全正则提取模式采集日志](https://cloud.tencent.com/document/product/614/52366)）；
+- user_define_log代表：组合解析（适用于多格式嵌套的日志，详见[使用组合解析提取模式采集日志](https://cloud.tencent.com/document/product/614/61310)）。
                      */
                     std::string m_logType;
                     bool m_logTypeHasBeenSet;
 
                     /**
-                     * 日志格式化方式
+                     * 日志格式化方式，用于容器采集场景。
+- stdout-docker-json：用于docker容器采集场景
+- stdout-containerd：用于containerd容器采集场景
                      */
                     std::string m_logFormat;
                     bool m_logFormatHasBeenSet;
 
                     /**
-                     * 提取规则，如果设置了ExtractRule，则必须设置LogType
+                     * 提取规则，如果设置了ExtractRule，则必须设置LogType。
                      */
                     ExtractRuleInfo m_extractRule;
                     bool m_extractRuleHasBeenSet;
@@ -416,19 +629,25 @@ namespace TencentCloud
                     bool m_excludePathsHasBeenSet;
 
                     /**
-                     * 用户自定义采集规则，Json格式序列化的字符串
+                     * 组合解析采集规则，用于复杂场景下的日志采集。
+- 取值参考：[使用组合解析提取模式采集日志
+](https://cloud.tencent.com/document/product/614/61310)
                      */
                     std::string m_userDefineRule;
                     bool m_userDefineRuleHasBeenSet;
 
                     /**
-                     * 类型：container_stdout、container_file、host_file
+                     * 容器场景，日志采集输入类型，支持以下三种类型
+- container_stdout 标准输出
+- container_file 容器文件
+- host_file 主机节点文件
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
                      * 机器组ID
+- 通过[获取机器组列表](https://cloud.tencent.com/document/api/614/56438)获取机器组Id。
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
@@ -441,21 +660,35 @@ namespace TencentCloud
 
                     /**
                      * 日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集Id。
                      */
                     std::string m_logsetId;
                     bool m_logsetIdHasBeenSet;
 
                     /**
-                     * 日志集name
+                     * 日志集名称
+- 通过[获取日志集列表](https://cloud.tencent.com/document/api/614/58624)获取日志集名称。
                      */
                     std::string m_logsetName;
                     bool m_logsetNameHasBeenSet;
 
                     /**
-                     * 日志主题name
+                     * 日志主题名称
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题名称。
                      */
                     std::string m_topicName;
                     bool m_topicNameHasBeenSet;
+
+                    /**
+                     * 高级采集配置。 Json字符串， Key/Value定义为如下：
+- ClsAgentFileTimeout(超时属性), 取值范围: 大于等于0的整数， 0为不超时
+- ClsAgentMaxDepth(最大目录深度)，取值范围: 大于等于0的整数
+- ClsAgentParseFailMerge(合并解析失败日志)，取值范围: true或false
+- ClsAgentDefault(自定义默认值，无特殊含义，用于清空其他选项)，建议取值0
+
+                     */
+                    std::string m_advancedConfig;
+                    bool m_advancedConfigHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,34 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+                     * @return QualityType 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+                     * 
+                     */
+                    uint64_t GetQualityType() const;
+
+                    /**
+                     * 设置通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+                     * @param _qualityType 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+                     * 
+                     */
+                    void SetQualityType(const uint64_t& _qualityType);
+
+                    /**
+                     * 判断参数 QualityType 是否已赋值
+                     * @return QualityType 是否已赋值
+                     * 
+                     */
+                    bool QualityTypeHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 通道质量:0表示金牌，1表示银牌。默认不传该参数，表示金牌。本参数确定查询指定通道质量的源站区域
+                     */
+                    uint64_t m_qualityType;
+                    bool m_qualityTypeHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,105 +43,99 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID
-                     * @return InstanceId 实例ID
+                     * 获取指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * @return InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * 设置指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * @param _instanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
-                     * @return Password 1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
+                     * 获取该参数用于配置指定实例的访问密码。若为免密认证，该参数则无需配置。密码复杂度要求如下所示。
+- 长度8-30位,推荐使用12位以上的密码
+- 不能以"/"开头
+- 至少包含小写字母a-z、大写字母A-Z、数字0-9及其 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
+                     * @return Password 该参数用于配置指定实例的访问密码。若为免密认证，该参数则无需配置。密码复杂度要求如下所示。
+- 长度8-30位,推荐使用12位以上的密码
+- 不能以"/"开头
+- 至少包含小写字母a-z、大写字母A-Z、数字0-9及其 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
+                     * 
                      */
                     std::string GetPassword() const;
 
                     /**
-                     * 设置1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
-                     * @param Password 1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
+                     * 设置该参数用于配置指定实例的访问密码。若为免密认证，该参数则无需配置。密码复杂度要求如下所示。
+- 长度8-30位,推荐使用12位以上的密码
+- 不能以"/"开头
+- 至少包含小写字母a-z、大写字母A-Z、数字0-9及其 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
+                     * @param _password 该参数用于配置指定实例的访问密码。若为免密认证，该参数则无需配置。密码复杂度要求如下所示。
+- 长度8-30位,推荐使用12位以上的密码
+- 不能以"/"开头
+- 至少包含小写字母a-z、大写字母A-Z、数字0-9及其 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
+                     * 
                      */
                     void SetPassword(const std::string& _password);
 
                     /**
                      * 判断参数 Password 是否已赋值
                      * @return Password 是否已赋值
+                     * 
                      */
                     bool PasswordHasBeenSet() const;
 
                     /**
-                     * 获取单AZ实例节点信息
-                     * @return ShardIds 单AZ实例节点信息
+                     * 获取分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
+                     * @return ShardIds 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
+                     * 
                      */
                     std::vector<int64_t> GetShardIds() const;
 
                     /**
-                     * 设置单AZ实例节点信息
-                     * @param ShardIds 单AZ实例节点信息
+                     * 设置分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
+                     * @param _shardIds 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
+                     * 
                      */
                     void SetShardIds(const std::vector<int64_t>& _shardIds);
 
                     /**
                      * 判断参数 ShardIds 是否已赋值
                      * @return ShardIds 是否已赋值
+                     * 
                      */
                     bool ShardIdsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID
+                     * 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
+                     * 该参数用于配置指定实例的访问密码。若为免密认证，该参数则无需配置。密码复杂度要求如下所示。
+- 长度8-30位,推荐使用12位以上的密码
+- 不能以"/"开头
+- 至少包含小写字母a-z、大写字母A-Z、数字0-9及其 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/中的两项。
                      */
                     std::string m_password;
                     bool m_passwordHasBeenSet;
 
                     /**
-                     * 单AZ实例节点信息
+                     * 分片集群的分片 ID。请通过接口[DescribeInstanceNodeInfo](https://cloud.tencent.com/document/product/239/48603) 的返回参数 **Redis** 中的 **ClusterId** 获取。
                      */
                     std::vector<int64_t> m_shardIds;
                     bool m_shardIdsHasBeenSet;

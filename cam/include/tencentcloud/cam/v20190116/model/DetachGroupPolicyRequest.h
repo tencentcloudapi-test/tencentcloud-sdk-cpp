@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取策略 id
                      * @return PolicyId 策略 id
+                     * 
                      */
                     uint64_t GetPolicyId() const;
 
                     /**
                      * 设置策略 id
-                     * @param PolicyId 策略 id
+                     * @param _policyId 策略 id
+                     * 
                      */
                     void SetPolicyId(const uint64_t& _policyId);
 
                     /**
                      * 判断参数 PolicyId 是否已赋值
                      * @return PolicyId 是否已赋值
+                     * 
                      */
                     bool PolicyIdHasBeenSet() const;
 
                     /**
                      * 获取用户组 id
                      * @return DetachGroupId 用户组 id
+                     * 
                      */
                     uint64_t GetDetachGroupId() const;
 
                     /**
                      * 设置用户组 id
-                     * @param DetachGroupId 用户组 id
+                     * @param _detachGroupId 用户组 id
+                     * 
                      */
                     void SetDetachGroupId(const uint64_t& _detachGroupId);
 
                     /**
                      * 判断参数 DetachGroupId 是否已赋值
                      * @return DetachGroupId 是否已赋值
+                     * 
                      */
                     bool DetachGroupIdHasBeenSet() const;
 

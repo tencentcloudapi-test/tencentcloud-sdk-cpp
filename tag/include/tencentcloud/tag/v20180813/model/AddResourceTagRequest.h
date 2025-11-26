@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,75 +43,84 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取标签键
-                     * @return TagKey 标签键
+                     * 获取需要绑定的标签键，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * @return TagKey 需要绑定的标签键，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * 
                      */
                     std::string GetTagKey() const;
 
                     /**
-                     * 设置标签键
-                     * @param TagKey 标签键
+                     * 设置需要绑定的标签键，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * @param _tagKey 需要绑定的标签键，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * 
                      */
                     void SetTagKey(const std::string& _tagKey);
 
                     /**
                      * 判断参数 TagKey 是否已赋值
                      * @return TagKey 是否已赋值
+                     * 
                      */
                     bool TagKeyHasBeenSet() const;
 
                     /**
-                     * 获取标签值
-                     * @return TagValue 标签值
+                     * 获取需要绑定的标签值，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * @return TagValue 需要绑定的标签值，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * 
                      */
                     std::string GetTagValue() const;
 
                     /**
-                     * 设置标签值
-                     * @param TagValue 标签值
+                     * 设置需要绑定的标签值，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * @param _tagValue 需要绑定的标签值，取值规范参考：https://cloud.tencent.com/document/product/651/13354
+                     * 
                      */
                     void SetTagValue(const std::string& _tagValue);
 
                     /**
                      * 判断参数 TagValue 是否已赋值
                      * @return TagValue 是否已赋值
+                     * 
                      */
                     bool TagValueHasBeenSet() const;
 
                     /**
-                     * 获取[ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
-                     * @return Resource [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+                     * 获取待关联的资源，用标准的资源六段式表示。正确的资源六段式请参考：https://cloud.tencent.com/document/product/651/89122
+                     * @return Resource 待关联的资源，用标准的资源六段式表示。正确的资源六段式请参考：https://cloud.tencent.com/document/product/651/89122
+                     * 
                      */
                     std::string GetResource() const;
 
                     /**
-                     * 设置[ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
-                     * @param Resource [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+                     * 设置待关联的资源，用标准的资源六段式表示。正确的资源六段式请参考：https://cloud.tencent.com/document/product/651/89122
+                     * @param _resource 待关联的资源，用标准的资源六段式表示。正确的资源六段式请参考：https://cloud.tencent.com/document/product/651/89122
+                     * 
                      */
                     void SetResource(const std::string& _resource);
 
                     /**
                      * 判断参数 Resource 是否已赋值
                      * @return Resource 是否已赋值
+                     * 
                      */
                     bool ResourceHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 标签键
+                     * 需要绑定的标签键，取值规范参考：https://cloud.tencent.com/document/product/651/13354
                      */
                     std::string m_tagKey;
                     bool m_tagKeyHasBeenSet;
 
                     /**
-                     * 标签值
+                     * 需要绑定的标签值，取值规范参考：https://cloud.tencent.com/document/product/651/13354
                      */
                     std::string m_tagValue;
                     bool m_tagValueHasBeenSet;
 
                     /**
-                     * [ 资源六段式描述 ](https://cloud.tencent.com/document/product/598/10606)
+                     * 待关联的资源，用标准的资源六段式表示。正确的资源六段式请参考：https://cloud.tencent.com/document/product/651/89122
                      */
                     std::string m_resource;
                     bool m_resourceHasBeenSet;

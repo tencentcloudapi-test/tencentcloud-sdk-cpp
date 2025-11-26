@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,6 +56,7 @@ off(关闭)
 on(开启)
 off(关闭)
 ]
+                     * 
                      */
                     std::string GetDDoSAI() const;
 
@@ -64,34 +65,39 @@ off(关闭)
 on(开启)
 off(关闭)
 ]
-                     * @param DDoSAI AI防护开关，取值[
+                     * @param _dDoSAI AI防护开关，取值[
 on(开启)
 off(关闭)
 ]
+                     * 
                      */
                     void SetDDoSAI(const std::string& _dDoSAI);
 
                     /**
                      * 判断参数 DDoSAI 是否已赋值
                      * @return DDoSAI 是否已赋值
+                     * 
                      */
                     bool DDoSAIHasBeenSet() const;
 
                     /**
                      * 获取AI防护开关所属的资源实例
                      * @return InstanceDetailList AI防护开关所属的资源实例
+                     * 
                      */
                     std::vector<InstanceRelation> GetInstanceDetailList() const;
 
                     /**
                      * 设置AI防护开关所属的资源实例
-                     * @param InstanceDetailList AI防护开关所属的资源实例
+                     * @param _instanceDetailList AI防护开关所属的资源实例
+                     * 
                      */
                     void SetInstanceDetailList(const std::vector<InstanceRelation>& _instanceDetailList);
 
                     /**
                      * 判断参数 InstanceDetailList 是否已赋值
                      * @return InstanceDetailList 是否已赋值
+                     * 
                      */
                     bool InstanceDetailListHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,7 @@ namespace TencentCloud
                      * @return Type 授权者类型，取值有：
 <li>PERSON：个人。</li>
 <li>TEAM：团队。</li>
+                     * 
                      */
                     std::string GetType() const;
 
@@ -60,33 +61,38 @@ namespace TencentCloud
                      * 设置授权者类型，取值有：
 <li>PERSON：个人。</li>
 <li>TEAM：团队。</li>
-                     * @param Type 授权者类型，取值有：
+                     * @param _type 授权者类型，取值有：
 <li>PERSON：个人。</li>
 <li>TEAM：团队。</li>
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取Id，当 Type=PERSON，取值为用户 Id。当Type=TEAM，取值为团队 ID。
                      * @return Id Id，当 Type=PERSON，取值为用户 Id。当Type=TEAM，取值为团队 ID。
+                     * 
                      */
                     std::string GetId() const;
 
                     /**
                      * 设置Id，当 Type=PERSON，取值为用户 Id。当Type=TEAM，取值为团队 ID。
-                     * @param Id Id，当 Type=PERSON，取值为用户 Id。当Type=TEAM，取值为团队 ID。
+                     * @param _id Id，当 Type=PERSON，取值为用户 Id。当Type=TEAM，取值为团队 ID。
+                     * 
                      */
                     void SetId(const std::string& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 

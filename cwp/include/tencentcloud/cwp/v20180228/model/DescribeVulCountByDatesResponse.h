@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,27 +45,29 @@ namespace TencentCloud
 
                     /**
                      * 获取批量获得对应天数的漏洞数量
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VulCount 批量获得对应天数的漏洞数量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<uint64_t> GetVulCount() const;
 
                     /**
                      * 判断参数 VulCount 是否已赋值
                      * @return VulCount 是否已赋值
+                     * 
                      */
                     bool VulCountHasBeenSet() const;
 
                     /**
                      * 获取批量获得对应天数的主机数量
                      * @return HostCount 批量获得对应天数的主机数量
+                     * 
                      */
                     std::vector<uint64_t> GetHostCount() const;
 
                     /**
                      * 判断参数 HostCount 是否已赋值
                      * @return HostCount 是否已赋值
+                     * 
                      */
                     bool HostCountHasBeenSet() const;
 
@@ -73,7 +75,6 @@ namespace TencentCloud
 
                     /**
                      * 批量获得对应天数的漏洞数量
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<uint64_t> m_vulCount;
                     bool m_vulCountHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ CertificateExtra::CertificateExtra() :
     m_originCertificateIdHasBeenSet(false),
     m_replacedByHasBeenSet(false),
     m_replacedForHasBeenSet(false),
-    m_renewOrderHasBeenSet(false)
+    m_renewOrderHasBeenSet(false),
+    m_sMCertHasBeenSet(false),
+    m_companyTypeHasBeenSet(false)
 {
 }
 
@@ -84,6 +86,26 @@ CoreInternalOutcome CertificateExtra::Deserialize(const rapidjson::Value &value)
         m_renewOrderHasBeenSet = true;
     }
 
+    if (value.HasMember("SMCert") && !value["SMCert"].IsNull())
+    {
+        if (!value["SMCert"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CertificateExtra.SMCert` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_sMCert = value["SMCert"].GetInt64();
+        m_sMCertHasBeenSet = true;
+    }
+
+    if (value.HasMember("CompanyType") && !value["CompanyType"].IsNull())
+    {
+        if (!value["CompanyType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CertificateExtra.CompanyType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_companyType = value["CompanyType"].GetInt64();
+        m_companyTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +151,22 @@ void CertificateExtra::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "RenewOrder";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_renewOrder.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sMCertHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SMCert";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_sMCert, allocator);
+    }
+
+    if (m_companyTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CompanyType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_companyType, allocator);
     }
 
 }
@@ -212,5 +250,37 @@ void CertificateExtra::SetRenewOrder(const string& _renewOrder)
 bool CertificateExtra::RenewOrderHasBeenSet() const
 {
     return m_renewOrderHasBeenSet;
+}
+
+int64_t CertificateExtra::GetSMCert() const
+{
+    return m_sMCert;
+}
+
+void CertificateExtra::SetSMCert(const int64_t& _sMCert)
+{
+    m_sMCert = _sMCert;
+    m_sMCertHasBeenSet = true;
+}
+
+bool CertificateExtra::SMCertHasBeenSet() const
+{
+    return m_sMCertHasBeenSet;
+}
+
+int64_t CertificateExtra::GetCompanyType() const
+{
+    return m_companyType;
+}
+
+void CertificateExtra::SetCompanyType(const int64_t& _companyType)
+{
+    m_companyType = _companyType;
+    m_companyTypeHasBeenSet = true;
+}
+
+bool CertificateExtra::CompanyTypeHasBeenSet() const
+{
+    return m_companyTypeHasBeenSet;
 }
 

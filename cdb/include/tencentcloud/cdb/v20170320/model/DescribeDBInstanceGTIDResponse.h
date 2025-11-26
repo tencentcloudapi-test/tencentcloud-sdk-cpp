@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,14 @@ namespace TencentCloud
                     /**
                      * 获取GTID 是否开通的标记，可能的取值为：0 - 未开通，1 - 已开通。
                      * @return IsGTIDOpen GTID 是否开通的标记，可能的取值为：0 - 未开通，1 - 已开通。
+                     * 
                      */
                     int64_t GetIsGTIDOpen() const;
 
                     /**
                      * 判断参数 IsGTIDOpen 是否已赋值
                      * @return IsGTIDOpen 是否已赋值
+                     * 
                      */
                     bool IsGTIDOpenHasBeenSet() const;
 

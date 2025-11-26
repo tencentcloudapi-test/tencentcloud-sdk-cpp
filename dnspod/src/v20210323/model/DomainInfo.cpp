@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,17 @@ DomainInfo::DomainInfo() :
     m_uinHasBeenSet(false),
     m_actualNsListHasBeenSet(false),
     m_recordCountHasBeenSet(false),
-    m_ownerNickHasBeenSet(false)
+    m_ownerNickHasBeenSet(false),
+    m_isGracePeriodHasBeenSet(false),
+    m_vipBufferedHasBeenSet(false),
+    m_vipStartAtHasBeenSet(false),
+    m_vipEndAtHasBeenSet(false),
+    m_vipAutoRenewHasBeenSet(false),
+    m_vipResourceIdHasBeenSet(false),
+    m_isSubDomainHasBeenSet(false),
+    m_tagListHasBeenSet(false),
+    m_searchEnginePushHasBeenSet(false),
+    m_slaveDNSHasBeenSet(false)
 {
 }
 
@@ -288,6 +298,116 @@ CoreInternalOutcome DomainInfo::Deserialize(const rapidjson::Value &value)
         m_ownerNickHasBeenSet = true;
     }
 
+    if (value.HasMember("IsGracePeriod") && !value["IsGracePeriod"].IsNull())
+    {
+        if (!value["IsGracePeriod"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.IsGracePeriod` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_isGracePeriod = string(value["IsGracePeriod"].GetString());
+        m_isGracePeriodHasBeenSet = true;
+    }
+
+    if (value.HasMember("VipBuffered") && !value["VipBuffered"].IsNull())
+    {
+        if (!value["VipBuffered"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.VipBuffered` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vipBuffered = string(value["VipBuffered"].GetString());
+        m_vipBufferedHasBeenSet = true;
+    }
+
+    if (value.HasMember("VipStartAt") && !value["VipStartAt"].IsNull())
+    {
+        if (!value["VipStartAt"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.VipStartAt` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vipStartAt = string(value["VipStartAt"].GetString());
+        m_vipStartAtHasBeenSet = true;
+    }
+
+    if (value.HasMember("VipEndAt") && !value["VipEndAt"].IsNull())
+    {
+        if (!value["VipEndAt"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.VipEndAt` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vipEndAt = string(value["VipEndAt"].GetString());
+        m_vipEndAtHasBeenSet = true;
+    }
+
+    if (value.HasMember("VipAutoRenew") && !value["VipAutoRenew"].IsNull())
+    {
+        if (!value["VipAutoRenew"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.VipAutoRenew` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vipAutoRenew = string(value["VipAutoRenew"].GetString());
+        m_vipAutoRenewHasBeenSet = true;
+    }
+
+    if (value.HasMember("VipResourceId") && !value["VipResourceId"].IsNull())
+    {
+        if (!value["VipResourceId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.VipResourceId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vipResourceId = string(value["VipResourceId"].GetString());
+        m_vipResourceIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsSubDomain") && !value["IsSubDomain"].IsNull())
+    {
+        if (!value["IsSubDomain"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.IsSubDomain` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSubDomain = value["IsSubDomain"].GetBool();
+        m_isSubDomainHasBeenSet = true;
+    }
+
+    if (value.HasMember("TagList") && !value["TagList"].IsNull())
+    {
+        if (!value["TagList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.TagList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TagList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            TagItem item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tagList.push_back(item);
+        }
+        m_tagListHasBeenSet = true;
+    }
+
+    if (value.HasMember("SearchEnginePush") && !value["SearchEnginePush"].IsNull())
+    {
+        if (!value["SearchEnginePush"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.SearchEnginePush` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_searchEnginePush = string(value["SearchEnginePush"].GetString());
+        m_searchEnginePushHasBeenSet = true;
+    }
+
+    if (value.HasMember("SlaveDNS") && !value["SlaveDNS"].IsNull())
+    {
+        if (!value["SlaveDNS"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainInfo.SlaveDNS` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_slaveDNS = string(value["SlaveDNS"].GetString());
+        m_slaveDNSHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -487,6 +607,93 @@ void DomainInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "OwnerNick";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_ownerNick.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isGracePeriodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsGracePeriod";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_isGracePeriod.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vipBufferedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VipBuffered";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vipBuffered.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vipStartAtHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VipStartAt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vipStartAt.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vipEndAtHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VipEndAt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vipEndAt.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vipAutoRenewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VipAutoRenew";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vipAutoRenew.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vipResourceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VipResourceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vipResourceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isSubDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSubDomain";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSubDomain, allocator);
+    }
+
+    if (m_tagListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagList.begin(); itr != m_tagList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_searchEnginePushHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SearchEnginePush";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_searchEnginePush.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_slaveDNSHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SlaveDNS";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_slaveDNS.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -858,5 +1065,165 @@ void DomainInfo::SetOwnerNick(const string& _ownerNick)
 bool DomainInfo::OwnerNickHasBeenSet() const
 {
     return m_ownerNickHasBeenSet;
+}
+
+string DomainInfo::GetIsGracePeriod() const
+{
+    return m_isGracePeriod;
+}
+
+void DomainInfo::SetIsGracePeriod(const string& _isGracePeriod)
+{
+    m_isGracePeriod = _isGracePeriod;
+    m_isGracePeriodHasBeenSet = true;
+}
+
+bool DomainInfo::IsGracePeriodHasBeenSet() const
+{
+    return m_isGracePeriodHasBeenSet;
+}
+
+string DomainInfo::GetVipBuffered() const
+{
+    return m_vipBuffered;
+}
+
+void DomainInfo::SetVipBuffered(const string& _vipBuffered)
+{
+    m_vipBuffered = _vipBuffered;
+    m_vipBufferedHasBeenSet = true;
+}
+
+bool DomainInfo::VipBufferedHasBeenSet() const
+{
+    return m_vipBufferedHasBeenSet;
+}
+
+string DomainInfo::GetVipStartAt() const
+{
+    return m_vipStartAt;
+}
+
+void DomainInfo::SetVipStartAt(const string& _vipStartAt)
+{
+    m_vipStartAt = _vipStartAt;
+    m_vipStartAtHasBeenSet = true;
+}
+
+bool DomainInfo::VipStartAtHasBeenSet() const
+{
+    return m_vipStartAtHasBeenSet;
+}
+
+string DomainInfo::GetVipEndAt() const
+{
+    return m_vipEndAt;
+}
+
+void DomainInfo::SetVipEndAt(const string& _vipEndAt)
+{
+    m_vipEndAt = _vipEndAt;
+    m_vipEndAtHasBeenSet = true;
+}
+
+bool DomainInfo::VipEndAtHasBeenSet() const
+{
+    return m_vipEndAtHasBeenSet;
+}
+
+string DomainInfo::GetVipAutoRenew() const
+{
+    return m_vipAutoRenew;
+}
+
+void DomainInfo::SetVipAutoRenew(const string& _vipAutoRenew)
+{
+    m_vipAutoRenew = _vipAutoRenew;
+    m_vipAutoRenewHasBeenSet = true;
+}
+
+bool DomainInfo::VipAutoRenewHasBeenSet() const
+{
+    return m_vipAutoRenewHasBeenSet;
+}
+
+string DomainInfo::GetVipResourceId() const
+{
+    return m_vipResourceId;
+}
+
+void DomainInfo::SetVipResourceId(const string& _vipResourceId)
+{
+    m_vipResourceId = _vipResourceId;
+    m_vipResourceIdHasBeenSet = true;
+}
+
+bool DomainInfo::VipResourceIdHasBeenSet() const
+{
+    return m_vipResourceIdHasBeenSet;
+}
+
+bool DomainInfo::GetIsSubDomain() const
+{
+    return m_isSubDomain;
+}
+
+void DomainInfo::SetIsSubDomain(const bool& _isSubDomain)
+{
+    m_isSubDomain = _isSubDomain;
+    m_isSubDomainHasBeenSet = true;
+}
+
+bool DomainInfo::IsSubDomainHasBeenSet() const
+{
+    return m_isSubDomainHasBeenSet;
+}
+
+vector<TagItem> DomainInfo::GetTagList() const
+{
+    return m_tagList;
+}
+
+void DomainInfo::SetTagList(const vector<TagItem>& _tagList)
+{
+    m_tagList = _tagList;
+    m_tagListHasBeenSet = true;
+}
+
+bool DomainInfo::TagListHasBeenSet() const
+{
+    return m_tagListHasBeenSet;
+}
+
+string DomainInfo::GetSearchEnginePush() const
+{
+    return m_searchEnginePush;
+}
+
+void DomainInfo::SetSearchEnginePush(const string& _searchEnginePush)
+{
+    m_searchEnginePush = _searchEnginePush;
+    m_searchEnginePushHasBeenSet = true;
+}
+
+bool DomainInfo::SearchEnginePushHasBeenSet() const
+{
+    return m_searchEnginePushHasBeenSet;
+}
+
+string DomainInfo::GetSlaveDNS() const
+{
+    return m_slaveDNS;
+}
+
+void DomainInfo::SetSlaveDNS(const string& _slaveDNS)
+{
+    m_slaveDNS = _slaveDNS;
+    m_slaveDNSHasBeenSet = true;
+}
+
+bool DomainInfo::SlaveDNSHasBeenSet() const
+{
+    return m_slaveDNSHasBeenSet;
 }
 

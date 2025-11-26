@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,63 @@ namespace TencentCloud
                     /**
                      * 获取场景ID
                      * @return SceneId 场景ID
+                     * 
                      */
                     int64_t GetSceneId() const;
 
                     /**
                      * 设置场景ID
-                     * @param SceneId 场景ID
+                     * @param _sceneId 场景ID
+                     * 
                      */
                     void SetSceneId(const int64_t& _sceneId);
 
                     /**
                      * 判断参数 SceneId 是否已赋值
                      * @return SceneId 是否已赋值
+                     * 
                      */
                     bool SceneIdHasBeenSet() const;
 
                     /**
                      * 获取1: 绑定 2: 解绑
                      * @return Type 1: 绑定 2: 解绑
+                     * 
                      */
                     int64_t GetType() const;
 
                     /**
                      * 设置1: 绑定 2: 解绑
-                     * @param Type 1: 绑定 2: 解绑
+                     * @param _type 1: 绑定 2: 解绑
+                     * 
                      */
                     void SetType(const int64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取设备列表
                      * @return Devices 设备列表
+                     * 
                      */
                     std::vector<DeviceItem> GetDevices() const;
 
                     /**
                      * 设置设备列表
-                     * @param Devices 设备列表
+                     * @param _devices 设备列表
+                     * 
                      */
                     void SetDevices(const std::vector<DeviceItem>& _devices);
 
                     /**
                      * 判断参数 Devices 是否已赋值
                      * @return Devices 是否已赋值
+                     * 
                      */
                     bool DevicesHasBeenSet() const;
 

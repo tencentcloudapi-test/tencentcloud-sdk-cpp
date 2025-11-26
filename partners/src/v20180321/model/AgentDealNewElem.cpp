@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,10 @@ AgentDealNewElem::AgentDealNewElem() :
     m_overdueTimeHasBeenSet(false),
     m_productInfoHasBeenSet(false),
     m_paymentMethodHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false),
+    m_resourceIdsHasBeenSet(false),
+    m_refundMapHasBeenSet(false),
+    m_subGoodsNameHasBeenSet(false)
 {
 }
 
@@ -354,6 +357,49 @@ CoreInternalOutcome AgentDealNewElem::Deserialize(const rapidjson::Value &value)
         m_updateTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("ResourceIds") && !value["ResourceIds"].IsNull())
+    {
+        if (!value["ResourceIds"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AgentDealNewElem.ResourceIds` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ResourceIds"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_resourceIds.push_back((*itr).GetString());
+        }
+        m_resourceIdsHasBeenSet = true;
+    }
+
+    if (value.HasMember("RefundMap") && !value["RefundMap"].IsNull())
+    {
+        if (!value["RefundMap"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AgentDealNewElem.RefundMap` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["RefundMap"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            RefundMap item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_refundMap.push_back(item);
+        }
+        m_refundMapHasBeenSet = true;
+    }
+
+    if (value.HasMember("SubGoodsName") && !value["SubGoodsName"].IsNull())
+    {
+        if (!value["SubGoodsName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AgentDealNewElem.SubGoodsName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_subGoodsName = string(value["SubGoodsName"].GetString());
+        m_subGoodsNameHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -591,6 +637,42 @@ void AgentDealNewElem::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_resourceIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceIds";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_resourceIds.begin(); itr != m_resourceIds.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_refundMapHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RefundMap";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_refundMap.begin(); itr != m_refundMap.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_subGoodsNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubGoodsName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_subGoodsName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1042,5 +1124,53 @@ void AgentDealNewElem::SetUpdateTime(const string& _updateTime)
 bool AgentDealNewElem::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
+}
+
+vector<string> AgentDealNewElem::GetResourceIds() const
+{
+    return m_resourceIds;
+}
+
+void AgentDealNewElem::SetResourceIds(const vector<string>& _resourceIds)
+{
+    m_resourceIds = _resourceIds;
+    m_resourceIdsHasBeenSet = true;
+}
+
+bool AgentDealNewElem::ResourceIdsHasBeenSet() const
+{
+    return m_resourceIdsHasBeenSet;
+}
+
+vector<RefundMap> AgentDealNewElem::GetRefundMap() const
+{
+    return m_refundMap;
+}
+
+void AgentDealNewElem::SetRefundMap(const vector<RefundMap>& _refundMap)
+{
+    m_refundMap = _refundMap;
+    m_refundMapHasBeenSet = true;
+}
+
+bool AgentDealNewElem::RefundMapHasBeenSet() const
+{
+    return m_refundMapHasBeenSet;
+}
+
+string AgentDealNewElem::GetSubGoodsName() const
+{
+    return m_subGoodsName;
+}
+
+void AgentDealNewElem::SetSubGoodsName(const string& _subGoodsName)
+{
+    m_subGoodsName = _subGoodsName;
+    m_subGoodsNameHasBeenSet = true;
+}
+
+bool AgentDealNewElem::SubGoodsNameHasBeenSet() const
+{
+    return m_subGoodsNameHasBeenSet;
 }
 

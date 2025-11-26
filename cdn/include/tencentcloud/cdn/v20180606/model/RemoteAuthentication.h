@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,32 +50,35 @@ RemoteAuthenticationRules和Server 互斥，只需要配置其中一个。
 
 
                     /**
-                     * 获取远程鉴权开关；
-on : 开启;
-off: 关闭；
+                     * 获取远程鉴权配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Switch 远程鉴权开关；
-on : 开启;
-off: 关闭；
+                     * @return Switch 远程鉴权配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置远程鉴权开关；
-on : 开启;
-off: 关闭；
+                     * 设置远程鉴权配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Switch 远程鉴权开关；
-on : 开启;
-off: 关闭；
+                     * @param _switch 远程鉴权配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -84,20 +87,23 @@ off: 关闭；
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RemoteAuthenticationRules 远程鉴权规则配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<RemoteAuthenticationRule> GetRemoteAuthenticationRules() const;
 
                     /**
                      * 设置远程鉴权规则配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RemoteAuthenticationRules 远程鉴权规则配置
+                     * @param _remoteAuthenticationRules 远程鉴权规则配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRemoteAuthenticationRules(const std::vector<RemoteAuthenticationRule>& _remoteAuthenticationRules);
 
                     /**
                      * 判断参数 RemoteAuthenticationRules 是否已赋值
                      * @return RemoteAuthenticationRules 是否已赋值
+                     * 
                      */
                     bool RemoteAuthenticationRulesHasBeenSet() const;
 
@@ -106,29 +112,32 @@ off: 关闭；
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Server 远程鉴权Server
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetServer() const;
 
                     /**
                      * 设置远程鉴权Server
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Server 远程鉴权Server
+                     * @param _server 远程鉴权Server
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetServer(const std::string& _server);
 
                     /**
                      * 判断参数 Server 是否已赋值
                      * @return Server 是否已赋值
+                     * 
                      */
                     bool ServerHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 远程鉴权开关；
-on : 开启;
-off: 关闭；
+                     * 远程鉴权配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_switch;

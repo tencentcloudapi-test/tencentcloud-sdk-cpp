@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取集群名称
                      * @return Cluster 集群名称
+                     * 
                      */
                     std::string GetCluster() const;
 
                     /**
                      * 设置集群名称
-                     * @param Cluster 集群名称
+                     * @param _cluster 集群名称
+                     * 
                      */
                     void SetCluster(const std::string& _cluster);
 
                     /**
                      * 判断参数 Cluster 是否已赋值
                      * @return Cluster 是否已赋值
+                     * 
                      */
                     bool ClusterHasBeenSet() const;
 
                     /**
                      * 获取Agent版本, 用于私有集群的agent安装，默认为“private-training”
                      * @return TiaVersion Agent版本, 用于私有集群的agent安装，默认为“private-training”
+                     * 
                      */
                     std::string GetTiaVersion() const;
 
                     /**
                      * 设置Agent版本, 用于私有集群的agent安装，默认为“private-training”
-                     * @param TiaVersion Agent版本, 用于私有集群的agent安装，默认为“private-training”
+                     * @param _tiaVersion Agent版本, 用于私有集群的agent安装，默认为“private-training”
+                     * 
                      */
                     void SetTiaVersion(const std::string& _tiaVersion);
 
                     /**
                      * 判断参数 TiaVersion 是否已赋值
                      * @return TiaVersion 是否已赋值
+                     * 
                      */
                     bool TiaVersionHasBeenSet() const;
 
                     /**
                      * 获取是否允许更新Agent
                      * @return Update 是否允许更新Agent
+                     * 
                      */
                     bool GetUpdate() const;
 
                     /**
                      * 设置是否允许更新Agent
-                     * @param Update 是否允许更新Agent
+                     * @param _update 是否允许更新Agent
+                     * 
                      */
                     void SetUpdate(const bool& _update);
 
                     /**
                      * 判断参数 Update 是否已赋值
                      * @return Update 是否已赋值
+                     * 
                      */
                     bool UpdateHasBeenSet() const;
 

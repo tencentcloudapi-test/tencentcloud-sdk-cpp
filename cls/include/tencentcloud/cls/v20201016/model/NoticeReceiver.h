@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,137 +48,196 @@ namespace TencentCloud
 
                     /**
                      * 获取接受者类型。可选值：
-<br><li> Uin - 用户ID
-<br><li> Group - 用户组ID
+-  Uin - 用户ID
+- Group - 用户组ID
 暂不支持其余接收者类型。
                      * @return ReceiverType 接受者类型。可选值：
-<br><li> Uin - 用户ID
-<br><li> Group - 用户组ID
+-  Uin - 用户ID
+- Group - 用户组ID
 暂不支持其余接收者类型。
+                     * 
                      */
                     std::string GetReceiverType() const;
 
                     /**
                      * 设置接受者类型。可选值：
-<br><li> Uin - 用户ID
-<br><li> Group - 用户组ID
+-  Uin - 用户ID
+- Group - 用户组ID
 暂不支持其余接收者类型。
-                     * @param ReceiverType 接受者类型。可选值：
-<br><li> Uin - 用户ID
-<br><li> Group - 用户组ID
+                     * @param _receiverType 接受者类型。可选值：
+-  Uin - 用户ID
+- Group - 用户组ID
 暂不支持其余接收者类型。
+                     * 
                      */
                     void SetReceiverType(const std::string& _receiverType);
 
                     /**
                      * 判断参数 ReceiverType 是否已赋值
                      * @return ReceiverType 是否已赋值
+                     * 
                      */
                     bool ReceiverTypeHasBeenSet() const;
 
                     /**
                      * 获取接收者。
+当ReceiverType为Uin时，ReceiverIds的值为用户uid。[子用户信息查询](https://cloud.tencent.com/document/api/598/53486)
+当ReceiverType为Group时，ReceiverIds的值为用户组id。[CAM用户组](https://cloud.tencent.com/document/product/598/34589)
                      * @return ReceiverIds 接收者。
+当ReceiverType为Uin时，ReceiverIds的值为用户uid。[子用户信息查询](https://cloud.tencent.com/document/api/598/53486)
+当ReceiverType为Group时，ReceiverIds的值为用户组id。[CAM用户组](https://cloud.tencent.com/document/product/598/34589)
+                     * 
                      */
                     std::vector<int64_t> GetReceiverIds() const;
 
                     /**
                      * 设置接收者。
-                     * @param ReceiverIds 接收者。
+当ReceiverType为Uin时，ReceiverIds的值为用户uid。[子用户信息查询](https://cloud.tencent.com/document/api/598/53486)
+当ReceiverType为Group时，ReceiverIds的值为用户组id。[CAM用户组](https://cloud.tencent.com/document/product/598/34589)
+                     * @param _receiverIds 接收者。
+当ReceiverType为Uin时，ReceiverIds的值为用户uid。[子用户信息查询](https://cloud.tencent.com/document/api/598/53486)
+当ReceiverType为Group时，ReceiverIds的值为用户组id。[CAM用户组](https://cloud.tencent.com/document/product/598/34589)
+                     * 
                      */
                     void SetReceiverIds(const std::vector<int64_t>& _receiverIds);
 
                     /**
                      * 判断参数 ReceiverIds 是否已赋值
                      * @return ReceiverIds 是否已赋值
+                     * 
                      */
                     bool ReceiverIdsHasBeenSet() const;
 
                     /**
                      * 获取通知接收渠道。
-<br><li> Email - 邮件
-<br><li> Sms - 短信
-<br><li> WeChat - 微信
-<br><li> Phone - 电话
+- Email - 邮件
+- Sms - 短信
+- WeChat - 微信
+- Phone - 电话
                      * @return ReceiverChannels 通知接收渠道。
-<br><li> Email - 邮件
-<br><li> Sms - 短信
-<br><li> WeChat - 微信
-<br><li> Phone - 电话
+- Email - 邮件
+- Sms - 短信
+- WeChat - 微信
+- Phone - 电话
+                     * 
                      */
                     std::vector<std::string> GetReceiverChannels() const;
 
                     /**
                      * 设置通知接收渠道。
-<br><li> Email - 邮件
-<br><li> Sms - 短信
-<br><li> WeChat - 微信
-<br><li> Phone - 电话
-                     * @param ReceiverChannels 通知接收渠道。
-<br><li> Email - 邮件
-<br><li> Sms - 短信
-<br><li> WeChat - 微信
-<br><li> Phone - 电话
+- Email - 邮件
+- Sms - 短信
+- WeChat - 微信
+- Phone - 电话
+                     * @param _receiverChannels 通知接收渠道。
+- Email - 邮件
+- Sms - 短信
+- WeChat - 微信
+- Phone - 电话
+                     * 
                      */
                     void SetReceiverChannels(const std::vector<std::string>& _receiverChannels);
 
                     /**
                      * 判断参数 ReceiverChannels 是否已赋值
                      * @return ReceiverChannels 是否已赋值
+                     * 
                      */
                     bool ReceiverChannelsHasBeenSet() const;
 
                     /**
-                     * 获取允许接收信息的开始时间。
-                     * @return StartTime 允许接收信息的开始时间。
+                     * 获取通知内容模板ID，使用Default-zh引用默认模板（中文），使用Default-en引用DefaultTemplate(English)。-通过[获取通知内容模板](https://cloud.tencent.com/document/product/614/111714)获取通知内容模板ID
+                     * @return NoticeContentId 通知内容模板ID，使用Default-zh引用默认模板（中文），使用Default-en引用DefaultTemplate(English)。-通过[获取通知内容模板](https://cloud.tencent.com/document/product/614/111714)获取通知内容模板ID
+                     * 
+                     */
+                    std::string GetNoticeContentId() const;
+
+                    /**
+                     * 设置通知内容模板ID，使用Default-zh引用默认模板（中文），使用Default-en引用DefaultTemplate(English)。-通过[获取通知内容模板](https://cloud.tencent.com/document/product/614/111714)获取通知内容模板ID
+                     * @param _noticeContentId 通知内容模板ID，使用Default-zh引用默认模板（中文），使用Default-en引用DefaultTemplate(English)。-通过[获取通知内容模板](https://cloud.tencent.com/document/product/614/111714)获取通知内容模板ID
+                     * 
+                     */
+                    void SetNoticeContentId(const std::string& _noticeContentId);
+
+                    /**
+                     * 判断参数 NoticeContentId 是否已赋值
+                     * @return NoticeContentId 是否已赋值
+                     * 
+                     */
+                    bool NoticeContentIdHasBeenSet() const;
+
+                    /**
+                     * 获取允许接收信息的开始时间。格式：`15:04:05`。必填
+                     * @return StartTime 允许接收信息的开始时间。格式：`15:04:05`。必填
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置允许接收信息的开始时间。
-                     * @param StartTime 允许接收信息的开始时间。
+                     * 设置允许接收信息的开始时间。格式：`15:04:05`。必填
+                     * @param _startTime 允许接收信息的开始时间。格式：`15:04:05`。必填
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取允许接收信息的结束时间。
-                     * @return EndTime 允许接收信息的结束时间。
+                     * 获取允许接收信息的结束时间。格式：`15:04:05`。必填
+                     * @return EndTime 允许接收信息的结束时间。格式：`15:04:05`。必填
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置允许接收信息的结束时间。
-                     * @param EndTime 允许接收信息的结束时间。
+                     * 设置允许接收信息的结束时间。格式：`15:04:05`。必填
+                     * @param _endTime 允许接收信息的结束时间。格式：`15:04:05`。必填
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取位序
-                     * @return Index 位序
+                     * 获取位序。
+
+- 入参时无效。
+- 出参时有效。
+                     * @return Index 位序。
+
+- 入参时无效。
+- 出参时有效。
+                     * 
                      */
                     int64_t GetIndex() const;
 
                     /**
-                     * 设置位序
-                     * @param Index 位序
+                     * 设置位序。
+
+- 入参时无效。
+- 出参时有效。
+                     * @param _index 位序。
+
+- 入参时无效。
+- 出参时有效。
+                     * 
                      */
                     void SetIndex(const int64_t& _index);
 
                     /**
                      * 判断参数 Index 是否已赋值
                      * @return Index 是否已赋值
+                     * 
                      */
                     bool IndexHasBeenSet() const;
 
@@ -186,8 +245,8 @@ namespace TencentCloud
 
                     /**
                      * 接受者类型。可选值：
-<br><li> Uin - 用户ID
-<br><li> Group - 用户组ID
+-  Uin - 用户ID
+- Group - 用户组ID
 暂不支持其余接收者类型。
                      */
                     std::string m_receiverType;
@@ -195,34 +254,45 @@ namespace TencentCloud
 
                     /**
                      * 接收者。
+当ReceiverType为Uin时，ReceiverIds的值为用户uid。[子用户信息查询](https://cloud.tencent.com/document/api/598/53486)
+当ReceiverType为Group时，ReceiverIds的值为用户组id。[CAM用户组](https://cloud.tencent.com/document/product/598/34589)
                      */
                     std::vector<int64_t> m_receiverIds;
                     bool m_receiverIdsHasBeenSet;
 
                     /**
                      * 通知接收渠道。
-<br><li> Email - 邮件
-<br><li> Sms - 短信
-<br><li> WeChat - 微信
-<br><li> Phone - 电话
+- Email - 邮件
+- Sms - 短信
+- WeChat - 微信
+- Phone - 电话
                      */
                     std::vector<std::string> m_receiverChannels;
                     bool m_receiverChannelsHasBeenSet;
 
                     /**
-                     * 允许接收信息的开始时间。
+                     * 通知内容模板ID，使用Default-zh引用默认模板（中文），使用Default-en引用DefaultTemplate(English)。-通过[获取通知内容模板](https://cloud.tencent.com/document/product/614/111714)获取通知内容模板ID
+                     */
+                    std::string m_noticeContentId;
+                    bool m_noticeContentIdHasBeenSet;
+
+                    /**
+                     * 允许接收信息的开始时间。格式：`15:04:05`。必填
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * 允许接收信息的结束时间。
+                     * 允许接收信息的结束时间。格式：`15:04:05`。必填
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * 位序
+                     * 位序。
+
+- 入参时无效。
+- 出参时有效。
                      */
                     int64_t m_index;
                     bool m_indexHasBeenSet;

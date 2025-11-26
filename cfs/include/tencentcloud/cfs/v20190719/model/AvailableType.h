@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取协议与售卖详情
                      * @return Protocols 协议与售卖详情
+                     * 
                      */
                     std::vector<AvailableProtoStatus> GetProtocols() const;
 
                     /**
                      * 设置协议与售卖详情
-                     * @param Protocols 协议与售卖详情
+                     * @param _protocols 协议与售卖详情
+                     * 
                      */
                     void SetProtocols(const std::vector<AvailableProtoStatus>& _protocols);
 
                     /**
                      * 判断参数 Protocols 是否已赋值
                      * @return Protocols 是否已赋值
+                     * 
                      */
                     bool ProtocolsHasBeenSet() const;
 
                     /**
-                     * 获取存储类型。返回值中 SD 为标准型存储、HP 为性能型存储
-                     * @return Type 存储类型。返回值中 SD 为标准型存储、HP 为性能型存储
+                     * 获取存储类型。返回值中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
+                     * @return Type 存储类型。返回值中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置存储类型。返回值中 SD 为标准型存储、HP 为性能型存储
-                     * @param Type 存储类型。返回值中 SD 为标准型存储、HP 为性能型存储
+                     * 设置存储类型。返回值中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
+                     * @param _type 存储类型。返回值中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取是否支持预付费。返回值中 true 为支持、false 为不支持
                      * @return Prepayment 是否支持预付费。返回值中 true 为支持、false 为不支持
+                     * 
                      */
                     bool GetPrepayment() const;
 
                     /**
                      * 设置是否支持预付费。返回值中 true 为支持、false 为不支持
-                     * @param Prepayment 是否支持预付费。返回值中 true 为支持、false 为不支持
+                     * @param _prepayment 是否支持预付费。返回值中 true 为支持、false 为不支持
+                     * 
                      */
                     void SetPrepayment(const bool& _prepayment);
 
                     /**
                      * 判断参数 Prepayment 是否已赋值
                      * @return Prepayment 是否已赋值
+                     * 
                      */
                     bool PrepaymentHasBeenSet() const;
 
@@ -110,7 +119,7 @@ namespace TencentCloud
                     bool m_protocolsHasBeenSet;
 
                     /**
-                     * 存储类型。返回值中 SD 为标准型存储、HP 为性能型存储
+                     * 存储类型。返回值中 SD 为通用标准型存储， HP为通用性能型存储， TB为Turbo标准型， TP 为Turbo性能型。
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;

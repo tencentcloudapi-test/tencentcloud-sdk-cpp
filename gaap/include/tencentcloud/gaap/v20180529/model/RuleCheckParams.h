@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,90 +49,105 @@ namespace TencentCloud
                     /**
                      * 获取健康检查的时间间隔
                      * @return DelayLoop 健康检查的时间间隔
+                     * 
                      */
                     uint64_t GetDelayLoop() const;
 
                     /**
                      * 设置健康检查的时间间隔
-                     * @param DelayLoop 健康检查的时间间隔
+                     * @param _delayLoop 健康检查的时间间隔
+                     * 
                      */
                     void SetDelayLoop(const uint64_t& _delayLoop);
 
                     /**
                      * 判断参数 DelayLoop 是否已赋值
                      * @return DelayLoop 是否已赋值
+                     * 
                      */
                     bool DelayLoopHasBeenSet() const;
 
                     /**
                      * 获取健康检查的响应超时时间
                      * @return ConnectTimeout 健康检查的响应超时时间
+                     * 
                      */
                     uint64_t GetConnectTimeout() const;
 
                     /**
                      * 设置健康检查的响应超时时间
-                     * @param ConnectTimeout 健康检查的响应超时时间
+                     * @param _connectTimeout 健康检查的响应超时时间
+                     * 
                      */
                     void SetConnectTimeout(const uint64_t& _connectTimeout);
 
                     /**
                      * 判断参数 ConnectTimeout 是否已赋值
                      * @return ConnectTimeout 是否已赋值
+                     * 
                      */
                     bool ConnectTimeoutHasBeenSet() const;
 
                     /**
                      * 获取健康检查的检查路径
                      * @return Path 健康检查的检查路径
+                     * 
                      */
                     std::string GetPath() const;
 
                     /**
                      * 设置健康检查的检查路径
-                     * @param Path 健康检查的检查路径
+                     * @param _path 健康检查的检查路径
+                     * 
                      */
                     void SetPath(const std::string& _path);
 
                     /**
                      * 判断参数 Path 是否已赋值
                      * @return Path 是否已赋值
+                     * 
                      */
                     bool PathHasBeenSet() const;
 
                     /**
                      * 获取健康检查的方法，GET/HEAD
                      * @return Method 健康检查的方法，GET/HEAD
+                     * 
                      */
                     std::string GetMethod() const;
 
                     /**
                      * 设置健康检查的方法，GET/HEAD
-                     * @param Method 健康检查的方法，GET/HEAD
+                     * @param _method 健康检查的方法，GET/HEAD
+                     * 
                      */
                     void SetMethod(const std::string& _method);
 
                     /**
                      * 判断参数 Method 是否已赋值
                      * @return Method 是否已赋值
+                     * 
                      */
                     bool MethodHasBeenSet() const;
 
                     /**
                      * 获取确认源站正常的返回码，可选范围[100, 200, 300, 400, 500]
                      * @return StatusCode 确认源站正常的返回码，可选范围[100, 200, 300, 400, 500]
+                     * 
                      */
                     std::vector<uint64_t> GetStatusCode() const;
 
                     /**
                      * 设置确认源站正常的返回码，可选范围[100, 200, 300, 400, 500]
-                     * @param StatusCode 确认源站正常的返回码，可选范围[100, 200, 300, 400, 500]
+                     * @param _statusCode 确认源站正常的返回码，可选范围[100, 200, 300, 400, 500]
+                     * 
                      */
                     void SetStatusCode(const std::vector<uint64_t>& _statusCode);
 
                     /**
                      * 判断参数 StatusCode 是否已赋值
                      * @return StatusCode 是否已赋值
+                     * 
                      */
                     bool StatusCodeHasBeenSet() const;
 
@@ -141,86 +156,86 @@ namespace TencentCloud
 当调用ModifyRuleAttribute时，不支持修改该参数。
                      * @return Domain 健康检查的检查域名。
 当调用ModifyRuleAttribute时，不支持修改该参数。
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置健康检查的检查域名。
 当调用ModifyRuleAttribute时，不支持修改该参数。
-                     * @param Domain 健康检查的检查域名。
+                     * @param _domain 健康检查的检查域名。
 当调用ModifyRuleAttribute时，不支持修改该参数。
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                     /**
                      * 获取源站服务失败统计频率
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FailedCountInter 源站服务失败统计频率
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetFailedCountInter() const;
 
                     /**
                      * 设置源站服务失败统计频率
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FailedCountInter 源站服务失败统计频率
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _failedCountInter 源站服务失败统计频率
+                     * 
                      */
                     void SetFailedCountInter(const uint64_t& _failedCountInter);
 
                     /**
                      * 判断参数 FailedCountInter 是否已赋值
                      * @return FailedCountInter 是否已赋值
+                     * 
                      */
                     bool FailedCountInterHasBeenSet() const;
 
                     /**
                      * 获取源站健康性检查阀值，超过该阀值会屏蔽服务
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FailedThreshold 源站健康性检查阀值，超过该阀值会屏蔽服务
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetFailedThreshold() const;
 
                     /**
                      * 设置源站健康性检查阀值，超过该阀值会屏蔽服务
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FailedThreshold 源站健康性检查阀值，超过该阀值会屏蔽服务
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _failedThreshold 源站健康性检查阀值，超过该阀值会屏蔽服务
+                     * 
                      */
                     void SetFailedThreshold(const uint64_t& _failedThreshold);
 
                     /**
                      * 判断参数 FailedThreshold 是否已赋值
                      * @return FailedThreshold 是否已赋值
+                     * 
                      */
                     bool FailedThresholdHasBeenSet() const;
 
                     /**
                      * 获取源站健康性检测超出阀值后，屏蔽的时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return BlockInter 源站健康性检测超出阀值后，屏蔽的时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetBlockInter() const;
 
                     /**
                      * 设置源站健康性检测超出阀值后，屏蔽的时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param BlockInter 源站健康性检测超出阀值后，屏蔽的时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _blockInter 源站健康性检测超出阀值后，屏蔽的时间
+                     * 
                      */
                     void SetBlockInter(const uint64_t& _blockInter);
 
                     /**
                      * 判断参数 BlockInter 是否已赋值
                      * @return BlockInter 是否已赋值
+                     * 
                      */
                     bool BlockInterHasBeenSet() const;
 
@@ -265,21 +280,18 @@ namespace TencentCloud
 
                     /**
                      * 源站服务失败统计频率
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_failedCountInter;
                     bool m_failedCountInterHasBeenSet;
 
                     /**
                      * 源站健康性检查阀值，超过该阀值会屏蔽服务
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_failedThreshold;
                     bool m_failedThresholdHasBeenSet;
 
                     /**
                      * 源站健康性检测超出阀值后，屏蔽的时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_blockInter;
                     bool m_blockInterHasBeenSet;

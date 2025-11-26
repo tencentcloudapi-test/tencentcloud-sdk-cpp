@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,11 @@ DbNormalDetail::DbNormalDetail() :
     m_recoveryModelDescHasBeenSet(false),
     m_retentionPeriodHasBeenSet(false),
     m_stateDescHasBeenSet(false),
-    m_userAccessDescHasBeenSet(false)
+    m_userAccessDescHasBeenSet(false),
+    m_createTimeHasBeenSet(false),
+    m_isFullTextEnabledHasBeenSet(false),
+    m_isAvailabilityGroupsHasBeenSet(false),
+    m_aGSyncStateHasBeenSet(false)
 {
 }
 
@@ -227,6 +231,46 @@ CoreInternalOutcome DbNormalDetail::Deserialize(const rapidjson::Value &value)
         m_userAccessDescHasBeenSet = true;
     }
 
+    if (value.HasMember("CreateTime") && !value["CreateTime"].IsNull())
+    {
+        if (!value["CreateTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DbNormalDetail.CreateTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_createTime = string(value["CreateTime"].GetString());
+        m_createTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsFullTextEnabled") && !value["IsFullTextEnabled"].IsNull())
+    {
+        if (!value["IsFullTextEnabled"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DbNormalDetail.IsFullTextEnabled` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_isFullTextEnabled = string(value["IsFullTextEnabled"].GetString());
+        m_isFullTextEnabledHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsAvailabilityGroups") && !value["IsAvailabilityGroups"].IsNull())
+    {
+        if (!value["IsAvailabilityGroups"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DbNormalDetail.IsAvailabilityGroups` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_isAvailabilityGroups = string(value["IsAvailabilityGroups"].GetString());
+        m_isAvailabilityGroupsHasBeenSet = true;
+    }
+
+    if (value.HasMember("AGSyncState") && !value["AGSyncState"].IsNull())
+    {
+        if (!value["AGSyncState"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DbNormalDetail.AGSyncState` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_aGSyncState = string(value["AGSyncState"].GetString());
+        m_aGSyncStateHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -376,6 +420,38 @@ void DbNormalDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "UserAccessDesc";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_userAccessDesc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_createTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CreateTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_createTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isFullTextEnabledHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsFullTextEnabled";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_isFullTextEnabled.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isAvailabilityGroupsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsAvailabilityGroups";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_isAvailabilityGroups.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_aGSyncStateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AGSyncState";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_aGSyncState.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -667,5 +743,69 @@ void DbNormalDetail::SetUserAccessDesc(const string& _userAccessDesc)
 bool DbNormalDetail::UserAccessDescHasBeenSet() const
 {
     return m_userAccessDescHasBeenSet;
+}
+
+string DbNormalDetail::GetCreateTime() const
+{
+    return m_createTime;
+}
+
+void DbNormalDetail::SetCreateTime(const string& _createTime)
+{
+    m_createTime = _createTime;
+    m_createTimeHasBeenSet = true;
+}
+
+bool DbNormalDetail::CreateTimeHasBeenSet() const
+{
+    return m_createTimeHasBeenSet;
+}
+
+string DbNormalDetail::GetIsFullTextEnabled() const
+{
+    return m_isFullTextEnabled;
+}
+
+void DbNormalDetail::SetIsFullTextEnabled(const string& _isFullTextEnabled)
+{
+    m_isFullTextEnabled = _isFullTextEnabled;
+    m_isFullTextEnabledHasBeenSet = true;
+}
+
+bool DbNormalDetail::IsFullTextEnabledHasBeenSet() const
+{
+    return m_isFullTextEnabledHasBeenSet;
+}
+
+string DbNormalDetail::GetIsAvailabilityGroups() const
+{
+    return m_isAvailabilityGroups;
+}
+
+void DbNormalDetail::SetIsAvailabilityGroups(const string& _isAvailabilityGroups)
+{
+    m_isAvailabilityGroups = _isAvailabilityGroups;
+    m_isAvailabilityGroupsHasBeenSet = true;
+}
+
+bool DbNormalDetail::IsAvailabilityGroupsHasBeenSet() const
+{
+    return m_isAvailabilityGroupsHasBeenSet;
+}
+
+string DbNormalDetail::GetAGSyncState() const
+{
+    return m_aGSyncState;
+}
+
+void DbNormalDetail::SetAGSyncState(const string& _aGSyncState)
+{
+    m_aGSyncState = _aGSyncState;
+    m_aGSyncStateHasBeenSet = true;
+}
+
+bool DbNormalDetail::AGSyncStateHasBeenSet() const
+{
+    return m_aGSyncStateHasBeenSet;
 }
 

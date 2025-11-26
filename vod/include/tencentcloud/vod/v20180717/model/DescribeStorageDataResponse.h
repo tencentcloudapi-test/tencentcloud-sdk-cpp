@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,60 +47,98 @@ namespace TencentCloud
                     /**
                      * 获取当前媒体总量。
                      * @return MediaCount 当前媒体总量。
+                     * 
                      */
                     uint64_t GetMediaCount() const;
 
                     /**
                      * 判断参数 MediaCount 是否已赋值
                      * @return MediaCount 是否已赋值
+                     * 
                      */
                     bool MediaCountHasBeenSet() const;
 
                     /**
                      * 获取当前总存储量，单位是字节。
                      * @return TotalStorage 当前总存储量，单位是字节。
+                     * 
                      */
                     uint64_t GetTotalStorage() const;
 
                     /**
                      * 判断参数 TotalStorage 是否已赋值
                      * @return TotalStorage 是否已赋值
+                     * 
                      */
                     bool TotalStorageHasBeenSet() const;
 
                     /**
-                     * 获取当前低频存储量，单位是字节。
-                     * @return InfrequentStorage 当前低频存储量，单位是字节。
-                     */
-                    uint64_t GetInfrequentStorage() const;
-
-                    /**
-                     * 判断参数 InfrequentStorage 是否已赋值
-                     * @return InfrequentStorage 是否已赋值
-                     */
-                    bool InfrequentStorageHasBeenSet() const;
-
-                    /**
                      * 获取当前标准存储量，单位是字节。
                      * @return StandardStorage 当前标准存储量，单位是字节。
+                     * 
                      */
                     uint64_t GetStandardStorage() const;
 
                     /**
                      * 判断参数 StandardStorage 是否已赋值
                      * @return StandardStorage 是否已赋值
+                     * 
                      */
                     bool StandardStorageHasBeenSet() const;
 
                     /**
+                     * 获取当前低频存储量，单位是字节。
+                     * @return InfrequentStorage 当前低频存储量，单位是字节。
+                     * 
+                     */
+                    uint64_t GetInfrequentStorage() const;
+
+                    /**
+                     * 判断参数 InfrequentStorage 是否已赋值
+                     * @return InfrequentStorage 是否已赋值
+                     * 
+                     */
+                    bool InfrequentStorageHasBeenSet() const;
+
+                    /**
+                     * 获取当前归档存储量，单位是字节。
+                     * @return ArchiveStorage 当前归档存储量，单位是字节。
+                     * 
+                     */
+                    uint64_t GetArchiveStorage() const;
+
+                    /**
+                     * 判断参数 ArchiveStorage 是否已赋值
+                     * @return ArchiveStorage 是否已赋值
+                     * 
+                     */
+                    bool ArchiveStorageHasBeenSet() const;
+
+                    /**
+                     * 获取当前深度归档存储量，单位是字节。
+                     * @return DeepArchiveStorage 当前深度归档存储量，单位是字节。
+                     * 
+                     */
+                    uint64_t GetDeepArchiveStorage() const;
+
+                    /**
+                     * 判断参数 DeepArchiveStorage 是否已赋值
+                     * @return DeepArchiveStorage 是否已赋值
+                     * 
+                     */
+                    bool DeepArchiveStorageHasBeenSet() const;
+
+                    /**
                      * 获取各计费区域的存储用量。
                      * @return StorageStat 各计费区域的存储用量。
+                     * 
                      */
                     std::vector<StorageStatData> GetStorageStat() const;
 
                     /**
                      * 判断参数 StorageStat 是否已赋值
                      * @return StorageStat 是否已赋值
+                     * 
                      */
                     bool StorageStatHasBeenSet() const;
 
@@ -119,16 +157,28 @@ namespace TencentCloud
                     bool m_totalStorageHasBeenSet;
 
                     /**
+                     * 当前标准存储量，单位是字节。
+                     */
+                    uint64_t m_standardStorage;
+                    bool m_standardStorageHasBeenSet;
+
+                    /**
                      * 当前低频存储量，单位是字节。
                      */
                     uint64_t m_infrequentStorage;
                     bool m_infrequentStorageHasBeenSet;
 
                     /**
-                     * 当前标准存储量，单位是字节。
+                     * 当前归档存储量，单位是字节。
                      */
-                    uint64_t m_standardStorage;
-                    bool m_standardStorageHasBeenSet;
+                    uint64_t m_archiveStorage;
+                    bool m_archiveStorageHasBeenSet;
+
+                    /**
+                     * 当前深度归档存储量，单位是字节。
+                     */
+                    uint64_t m_deepArchiveStorage;
+                    bool m_deepArchiveStorageHasBeenSet;
 
                     /**
                      * 各计费区域的存储用量。

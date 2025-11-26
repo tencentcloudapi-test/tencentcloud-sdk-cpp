@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,81 +48,85 @@ namespace TencentCloud
 
                     /**
                      * 获取预置位ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PresetId 预置位ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetPresetId() const;
 
                     /**
                      * 设置预置位ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PresetId 预置位ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _presetId 预置位ID
+                     * 
                      */
                     void SetPresetId(const int64_t& _presetId);
 
                     /**
                      * 判断参数 PresetId 是否已赋值
                      * @return PresetId 是否已赋值
+                     * 
                      */
                     bool PresetIdHasBeenSet() const;
 
                     /**
                      * 获取预置位名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PresetName 预置位名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPresetName() const;
 
                     /**
                      * 设置预置位名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PresetName 预置位名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _presetName 预置位名称
+                     * 
                      */
                     void SetPresetName(const std::string& _presetName);
 
                     /**
                      * 判断参数 PresetName 是否已赋值
                      * @return PresetName 是否已赋值
+                     * 
                      */
                     bool PresetNameHasBeenSet() const;
 
                     /**
                      * 获取预置位状态 0:未设置预置位 1:已设置预置位 2:已设置预置位&看守位
                      * @return Status 预置位状态 0:未设置预置位 1:已设置预置位 2:已设置预置位&看守位
+                     * 
                      */
                     int64_t GetStatus() const;
 
                     /**
                      * 设置预置位状态 0:未设置预置位 1:已设置预置位 2:已设置预置位&看守位
-                     * @param Status 预置位状态 0:未设置预置位 1:已设置预置位 2:已设置预置位&看守位
+                     * @param _status 预置位状态 0:未设置预置位 1:已设置预置位 2:已设置预置位&看守位
+                     * 
                      */
                     void SetStatus(const int64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取预置位启用时的自动归位时间
                      * @return ResetTime 预置位启用时的自动归位时间
+                     * 
                      */
                     int64_t GetResetTime() const;
 
                     /**
                      * 设置预置位启用时的自动归位时间
-                     * @param ResetTime 预置位启用时的自动归位时间
+                     * @param _resetTime 预置位启用时的自动归位时间
+                     * 
                      */
                     void SetResetTime(const int64_t& _resetTime);
 
                     /**
                      * 判断参数 ResetTime 是否已赋值
                      * @return ResetTime 是否已赋值
+                     * 
                      */
                     bool ResetTimeHasBeenSet() const;
 
@@ -130,14 +134,12 @@ namespace TencentCloud
 
                     /**
                      * 预置位ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_presetId;
                     bool m_presetIdHasBeenSet;
 
                     /**
                      * 预置位名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_presetName;
                     bool m_presetNameHasBeenSet;

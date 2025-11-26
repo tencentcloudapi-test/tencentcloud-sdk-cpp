@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,8 @@ VulItem::VulItem() :
     m_vulUrlHasBeenSet(false),
     m_isOpenHasBeenSet(false),
     m_yzHostIdHasBeenSet(false),
-    m_vulRepairPlanHasBeenSet(false)
+    m_vulRepairPlanHasBeenSet(false),
+    m_vulPathHasBeenSet(false)
 {
 }
 
@@ -379,6 +380,16 @@ CoreInternalOutcome VulItem::Deserialize(const rapidjson::Value &value)
         m_vulRepairPlanHasBeenSet = true;
     }
 
+    if (value.HasMember("VulPath") && !value["VulPath"].IsNull())
+    {
+        if (!value["VulPath"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VulItem.VulPath` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vulPath = string(value["VulPath"].GetString());
+        m_vulPathHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -647,6 +658,14 @@ void VulItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "VulRepairPlan";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_vulRepairPlan.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vulPathHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VulPath";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vulPath.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1146,5 +1165,21 @@ void VulItem::SetVulRepairPlan(const string& _vulRepairPlan)
 bool VulItem::VulRepairPlanHasBeenSet() const
 {
     return m_vulRepairPlanHasBeenSet;
+}
+
+string VulItem::GetVulPath() const
+{
+    return m_vulPath;
+}
+
+void VulItem::SetVulPath(const string& _vulPath)
+{
+    m_vulPath = _vulPath;
+    m_vulPathHasBeenSet = true;
+}
+
+bool VulItem::VulPathHasBeenSet() const
+{
+    return m_vulPathHasBeenSet;
 }
 

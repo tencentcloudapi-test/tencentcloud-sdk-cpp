@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,10 @@ TelCdrInfo::TelCdrInfo() :
     m_calleeHasBeenSet(false),
     m_timeHasBeenSet(false),
     m_directionHasBeenSet(false),
+    m_callTypeHasBeenSet(false),
     m_durationHasBeenSet(false),
     m_recordURLHasBeenSet(false),
+    m_recordIdHasBeenSet(false),
     m_seatUserHasBeenSet(false),
     m_endStatusHasBeenSet(false),
     m_skillGroupHasBeenSet(false),
@@ -48,9 +50,15 @@ TelCdrInfo::TelCdrInfo() :
     m_protectedCallerHasBeenSet(false),
     m_protectedCalleeHasBeenSet(false),
     m_uuiHasBeenSet(false),
+    m_uUIHasBeenSet(false),
     m_iVRKeyPressedExHasBeenSet(false),
     m_asrUrlHasBeenSet(false),
-    m_customRecordURLHasBeenSet(false)
+    m_asrStatusHasBeenSet(false),
+    m_customRecordURLHasBeenSet(false),
+    m_remarkHasBeenSet(false),
+    m_queuedSkillGroupNameHasBeenSet(false),
+    m_voicemailRecordURLHasBeenSet(false),
+    m_voicemailAsrURLHasBeenSet(false)
 {
 }
 
@@ -99,6 +107,16 @@ CoreInternalOutcome TelCdrInfo::Deserialize(const rapidjson::Value &value)
         m_directionHasBeenSet = true;
     }
 
+    if (value.HasMember("CallType") && !value["CallType"].IsNull())
+    {
+        if (!value["CallType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.CallType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_callType = value["CallType"].GetInt64();
+        m_callTypeHasBeenSet = true;
+    }
+
     if (value.HasMember("Duration") && !value["Duration"].IsNull())
     {
         if (!value["Duration"].IsInt64())
@@ -117,6 +135,16 @@ CoreInternalOutcome TelCdrInfo::Deserialize(const rapidjson::Value &value)
         }
         m_recordURL = string(value["RecordURL"].GetString());
         m_recordURLHasBeenSet = true;
+    }
+
+    if (value.HasMember("RecordId") && !value["RecordId"].IsNull())
+    {
+        if (!value["RecordId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.RecordId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_recordId = string(value["RecordId"].GetString());
+        m_recordIdHasBeenSet = true;
     }
 
     if (value.HasMember("SeatUser") && !value["SeatUser"].IsNull())
@@ -359,6 +387,16 @@ CoreInternalOutcome TelCdrInfo::Deserialize(const rapidjson::Value &value)
         m_uuiHasBeenSet = true;
     }
 
+    if (value.HasMember("UUI") && !value["UUI"].IsNull())
+    {
+        if (!value["UUI"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.UUI` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_uUI = string(value["UUI"].GetString());
+        m_uUIHasBeenSet = true;
+    }
+
     if (value.HasMember("IVRKeyPressedEx") && !value["IVRKeyPressedEx"].IsNull())
     {
         if (!value["IVRKeyPressedEx"].IsArray())
@@ -389,6 +427,16 @@ CoreInternalOutcome TelCdrInfo::Deserialize(const rapidjson::Value &value)
         m_asrUrlHasBeenSet = true;
     }
 
+    if (value.HasMember("AsrStatus") && !value["AsrStatus"].IsNull())
+    {
+        if (!value["AsrStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.AsrStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_asrStatus = string(value["AsrStatus"].GetString());
+        m_asrStatusHasBeenSet = true;
+    }
+
     if (value.HasMember("CustomRecordURL") && !value["CustomRecordURL"].IsNull())
     {
         if (!value["CustomRecordURL"].IsString())
@@ -397,6 +445,52 @@ CoreInternalOutcome TelCdrInfo::Deserialize(const rapidjson::Value &value)
         }
         m_customRecordURL = string(value["CustomRecordURL"].GetString());
         m_customRecordURLHasBeenSet = true;
+    }
+
+    if (value.HasMember("Remark") && !value["Remark"].IsNull())
+    {
+        if (!value["Remark"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.Remark` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_remark = string(value["Remark"].GetString());
+        m_remarkHasBeenSet = true;
+    }
+
+    if (value.HasMember("QueuedSkillGroupName") && !value["QueuedSkillGroupName"].IsNull())
+    {
+        if (!value["QueuedSkillGroupName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.QueuedSkillGroupName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_queuedSkillGroupName = string(value["QueuedSkillGroupName"].GetString());
+        m_queuedSkillGroupNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("VoicemailRecordURL") && !value["VoicemailRecordURL"].IsNull())
+    {
+        if (!value["VoicemailRecordURL"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.VoicemailRecordURL` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["VoicemailRecordURL"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_voicemailRecordURL.push_back((*itr).GetString());
+        }
+        m_voicemailRecordURLHasBeenSet = true;
+    }
+
+    if (value.HasMember("VoicemailAsrURL") && !value["VoicemailAsrURL"].IsNull())
+    {
+        if (!value["VoicemailAsrURL"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TelCdrInfo.VoicemailAsrURL` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["VoicemailAsrURL"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_voicemailAsrURL.push_back((*itr).GetString());
+        }
+        m_voicemailAsrURLHasBeenSet = true;
     }
 
 
@@ -438,6 +532,14 @@ void TelCdrInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, m_direction, allocator);
     }
 
+    if (m_callTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CallType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_callType, allocator);
+    }
+
     if (m_durationHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -452,6 +554,14 @@ void TelCdrInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "RecordURL";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_recordURL.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_recordIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecordId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_recordId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_seatUserHasBeenSet)
@@ -642,6 +752,14 @@ void TelCdrInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, rapidjson::Value(m_uui.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_uUIHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UUI";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_uUI.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_iVRKeyPressedExHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -665,12 +783,62 @@ void TelCdrInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, rapidjson::Value(m_asrUrl.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_asrStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AsrStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_asrStatus.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_customRecordURLHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "CustomRecordURL";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_customRecordURL.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_queuedSkillGroupNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QueuedSkillGroupName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_queuedSkillGroupName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_voicemailRecordURLHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VoicemailRecordURL";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_voicemailRecordURL.begin(); itr != m_voicemailRecordURL.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_voicemailAsrURLHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VoicemailAsrURL";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_voicemailAsrURL.begin(); itr != m_voicemailAsrURL.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 }
@@ -740,6 +908,22 @@ bool TelCdrInfo::DirectionHasBeenSet() const
     return m_directionHasBeenSet;
 }
 
+int64_t TelCdrInfo::GetCallType() const
+{
+    return m_callType;
+}
+
+void TelCdrInfo::SetCallType(const int64_t& _callType)
+{
+    m_callType = _callType;
+    m_callTypeHasBeenSet = true;
+}
+
+bool TelCdrInfo::CallTypeHasBeenSet() const
+{
+    return m_callTypeHasBeenSet;
+}
+
 int64_t TelCdrInfo::GetDuration() const
 {
     return m_duration;
@@ -770,6 +954,22 @@ void TelCdrInfo::SetRecordURL(const string& _recordURL)
 bool TelCdrInfo::RecordURLHasBeenSet() const
 {
     return m_recordURLHasBeenSet;
+}
+
+string TelCdrInfo::GetRecordId() const
+{
+    return m_recordId;
+}
+
+void TelCdrInfo::SetRecordId(const string& _recordId)
+{
+    m_recordId = _recordId;
+    m_recordIdHasBeenSet = true;
+}
+
+bool TelCdrInfo::RecordIdHasBeenSet() const
+{
+    return m_recordIdHasBeenSet;
 }
 
 SeatUserInfo TelCdrInfo::GetSeatUser() const
@@ -1108,6 +1308,22 @@ bool TelCdrInfo::UuiHasBeenSet() const
     return m_uuiHasBeenSet;
 }
 
+string TelCdrInfo::GetUUI() const
+{
+    return m_uUI;
+}
+
+void TelCdrInfo::SetUUI(const string& _uUI)
+{
+    m_uUI = _uUI;
+    m_uUIHasBeenSet = true;
+}
+
+bool TelCdrInfo::UUIHasBeenSet() const
+{
+    return m_uUIHasBeenSet;
+}
+
 vector<IVRKeyPressedElement> TelCdrInfo::GetIVRKeyPressedEx() const
 {
     return m_iVRKeyPressedEx;
@@ -1140,6 +1356,22 @@ bool TelCdrInfo::AsrUrlHasBeenSet() const
     return m_asrUrlHasBeenSet;
 }
 
+string TelCdrInfo::GetAsrStatus() const
+{
+    return m_asrStatus;
+}
+
+void TelCdrInfo::SetAsrStatus(const string& _asrStatus)
+{
+    m_asrStatus = _asrStatus;
+    m_asrStatusHasBeenSet = true;
+}
+
+bool TelCdrInfo::AsrStatusHasBeenSet() const
+{
+    return m_asrStatusHasBeenSet;
+}
+
 string TelCdrInfo::GetCustomRecordURL() const
 {
     return m_customRecordURL;
@@ -1154,5 +1386,69 @@ void TelCdrInfo::SetCustomRecordURL(const string& _customRecordURL)
 bool TelCdrInfo::CustomRecordURLHasBeenSet() const
 {
     return m_customRecordURLHasBeenSet;
+}
+
+string TelCdrInfo::GetRemark() const
+{
+    return m_remark;
+}
+
+void TelCdrInfo::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool TelCdrInfo::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
+}
+
+string TelCdrInfo::GetQueuedSkillGroupName() const
+{
+    return m_queuedSkillGroupName;
+}
+
+void TelCdrInfo::SetQueuedSkillGroupName(const string& _queuedSkillGroupName)
+{
+    m_queuedSkillGroupName = _queuedSkillGroupName;
+    m_queuedSkillGroupNameHasBeenSet = true;
+}
+
+bool TelCdrInfo::QueuedSkillGroupNameHasBeenSet() const
+{
+    return m_queuedSkillGroupNameHasBeenSet;
+}
+
+vector<string> TelCdrInfo::GetVoicemailRecordURL() const
+{
+    return m_voicemailRecordURL;
+}
+
+void TelCdrInfo::SetVoicemailRecordURL(const vector<string>& _voicemailRecordURL)
+{
+    m_voicemailRecordURL = _voicemailRecordURL;
+    m_voicemailRecordURLHasBeenSet = true;
+}
+
+bool TelCdrInfo::VoicemailRecordURLHasBeenSet() const
+{
+    return m_voicemailRecordURLHasBeenSet;
+}
+
+vector<string> TelCdrInfo::GetVoicemailAsrURL() const
+{
+    return m_voicemailAsrURL;
+}
+
+void TelCdrInfo::SetVoicemailAsrURL(const vector<string>& _voicemailAsrURL)
+{
+    m_voicemailAsrURL = _voicemailAsrURL;
+    m_voicemailAsrURLHasBeenSet = true;
+}
+
+bool TelCdrInfo::VoicemailAsrURLHasBeenSet() const
+{
+    return m_voicemailAsrURLHasBeenSet;
 }
 

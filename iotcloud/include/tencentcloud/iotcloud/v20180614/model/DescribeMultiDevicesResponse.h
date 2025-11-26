@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取任务 ID，由批量创建设备接口返回
                      * @return TaskId 任务 ID，由批量创建设备接口返回
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                     /**
                      * 获取设备详细信息列表
                      * @return DevicesInfo 设备详细信息列表
+                     * 
                      */
                     std::vector<MultiDevicesInfo> GetDevicesInfo() const;
 
                     /**
                      * 判断参数 DevicesInfo 是否已赋值
                      * @return DevicesInfo 是否已赋值
+                     * 
                      */
                     bool DevicesInfoHasBeenSet() const;
 
                     /**
                      * 获取该任务创建设备的总数
                      * @return TotalDevNum 该任务创建设备的总数
+                     * 
                      */
                     uint64_t GetTotalDevNum() const;
 
                     /**
                      * 判断参数 TotalDevNum 是否已赋值
                      * @return TotalDevNum 是否已赋值
+                     * 
                      */
                     bool TotalDevNumHasBeenSet() const;
 

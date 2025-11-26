@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,58 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取存储卷名称
                      * @return StorageVolName 存储卷名称
+                     * 
                      */
                     std::string GetStorageVolName() const;
 
                     /**
                      * 设置存储卷名称
-                     * @param StorageVolName 存储卷名称
+                     * @param _storageVolName 存储卷名称
+                     * 
                      */
                     void SetStorageVolName(const std::string& _storageVolName);
 
                     /**
                      * 判断参数 StorageVolName 是否已赋值
                      * @return StorageVolName 是否已赋值
+                     * 
                      */
                     bool StorageVolNameHasBeenSet() const;
 
                     /**
                      * 获取存储卷路径
                      * @return StorageVolPath 存储卷路径
+                     * 
                      */
                     std::string GetStorageVolPath() const;
 
                     /**
                      * 设置存储卷路径
-                     * @param StorageVolPath 存储卷路径
+                     * @param _storageVolPath 存储卷路径
+                     * 
                      */
                     void SetStorageVolPath(const std::string& _storageVolPath);
 
                     /**
                      * 判断参数 StorageVolPath 是否已赋值
                      * @return StorageVolPath 是否已赋值
+                     * 
                      */
                     bool StorageVolPathHasBeenSet() const;
 
                     /**
                      * 获取存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return StorageVolIp 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetStorageVolIp() const;
 
                     /**
                      * 设置存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param StorageVolIp 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _storageVolIp 存储卷IP
+                     * 
                      */
                     void SetStorageVolIp(const std::string& _storageVolIp);
 
                     /**
                      * 判断参数 StorageVolIp 是否已赋值
                      * @return StorageVolIp 是否已赋值
+                     * 
                      */
                     bool StorageVolIpHasBeenSet() const;
 
@@ -120,7 +125,6 @@ namespace TencentCloud
 
                     /**
                      * 存储卷IP
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_storageVolIp;
                     bool m_storageVolIpHasBeenSet;

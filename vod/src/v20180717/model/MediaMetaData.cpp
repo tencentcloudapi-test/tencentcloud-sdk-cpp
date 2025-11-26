@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ MediaMetaData::MediaMetaData() :
     m_videoStreamSetHasBeenSet(false),
     m_audioStreamSetHasBeenSet(false),
     m_videoDurationHasBeenSet(false),
-    m_audioDurationHasBeenSet(false)
+    m_audioDurationHasBeenSet(false),
+    m_md5HasBeenSet(false)
 {
 }
 
@@ -170,6 +171,16 @@ CoreInternalOutcome MediaMetaData::Deserialize(const rapidjson::Value &value)
         m_audioDurationHasBeenSet = true;
     }
 
+    if (value.HasMember("Md5") && !value["Md5"].IsNull())
+    {
+        if (!value["Md5"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `MediaMetaData.Md5` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_md5 = string(value["Md5"].GetString());
+        m_md5HasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -277,6 +288,14 @@ void MediaMetaData::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "AudioDuration";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_audioDuration, allocator);
+    }
+
+    if (m_md5HasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Md5";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_md5.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -456,5 +475,21 @@ void MediaMetaData::SetAudioDuration(const double& _audioDuration)
 bool MediaMetaData::AudioDurationHasBeenSet() const
 {
     return m_audioDurationHasBeenSet;
+}
+
+string MediaMetaData::GetMd5() const
+{
+    return m_md5;
+}
+
+void MediaMetaData::SetMd5(const string& _md5)
+{
+    m_md5 = _md5;
+    m_md5HasBeenSet = true;
+}
+
+bool MediaMetaData::Md5HasBeenSet() const
+{
+    return m_md5HasBeenSet;
 }
 

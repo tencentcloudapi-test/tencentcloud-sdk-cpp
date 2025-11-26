@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,56 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取下载文件的URL
-                     * @return Url 下载文件的URL
+                     * 获取下载文件的URL，有效期为输入的UrlTtl，默认5分钟
+                     * @return Url 下载文件的URL，有效期为输入的UrlTtl，默认5分钟
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
-                     * 设置下载文件的URL
-                     * @param Url 下载文件的URL
+                     * 设置下载文件的URL，有效期为输入的UrlTtl，默认5分钟
+                     * @param _url 下载文件的URL，有效期为输入的UrlTtl，默认5分钟
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
-                     * 获取下载文件的附加信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Option 下载文件的附加信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
+                     * @return Option 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
+                     * 
                      */
                     std::string GetOption() const;
 
                     /**
-                     * 设置下载文件的附加信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Option 下载文件的附加信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
+                     * @param _option 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
+                     * 
                      */
                     void SetOption(const std::string& _option);
 
                     /**
                      * 判断参数 Option 是否已赋值
                      * @return Option 是否已赋值
+                     * 
                      */
                     bool OptionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 下载文件的URL
+                     * 下载文件的URL，有效期为输入的UrlTtl，默认5分钟
                      */
                     std::string m_url;
                     bool m_urlHasBeenSet;
 
                     /**
-                     * 下载文件的附加信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 下载文件的附加信息。如果是pdf文件，会返回pdf文件每页的有效高宽
                      */
                     std::string m_option;
                     bool m_optionHasBeenSet;

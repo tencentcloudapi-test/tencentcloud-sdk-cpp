@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取内容审核结果列表。
                      * @return ResultSet 内容审核结果列表。
+                     * 
                      */
                     std::vector<LiveStreamAiReviewResultItem> GetResultSet() const;
 
                     /**
                      * 设置内容审核结果列表。
-                     * @param ResultSet 内容审核结果列表。
+                     * @param _resultSet 内容审核结果列表。
+                     * 
                      */
                     void SetResultSet(const std::vector<LiveStreamAiReviewResultItem>& _resultSet);
 
                     /**
                      * 判断参数 ResultSet 是否已赋值
                      * @return ResultSet 是否已赋值
+                     * 
                      */
                     bool ResultSetHasBeenSet() const;
 

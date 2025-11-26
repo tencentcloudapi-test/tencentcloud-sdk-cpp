@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取弹性伸缩告警触发策略详细信息列表。
                      * @return ScalingPolicySet 弹性伸缩告警触发策略详细信息列表。
+                     * 
                      */
                     std::vector<ScalingPolicy> GetScalingPolicySet() const;
 
                     /**
                      * 判断参数 ScalingPolicySet 是否已赋值
                      * @return ScalingPolicySet 是否已赋值
+                     * 
                      */
                     bool ScalingPolicySetHasBeenSet() const;
 
                     /**
                      * 获取符合条件的通知数量。
                      * @return TotalCount 符合条件的通知数量。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 

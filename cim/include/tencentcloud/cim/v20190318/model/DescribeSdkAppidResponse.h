@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,14 @@ namespace TencentCloud
                     /**
                      * 获取表示 appid 对应的 SdkAppid 的数据
                      * @return SdkAppids 表示 appid 对应的 SdkAppid 的数据
+                     * 
                      */
                     std::vector<int64_t> GetSdkAppids() const;
 
                     /**
                      * 判断参数 SdkAppids 是否已赋值
                      * @return SdkAppids 是否已赋值
+                     * 
                      */
                     bool SdkAppidsHasBeenSet() const;
 

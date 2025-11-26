@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,90 +46,121 @@ namespace TencentCloud
                     /**
                      * 获取实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
                      * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-                     * @param InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * @param _instanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取云数据库账号。
                      * @return Accounts 云数据库账号。
+                     * 
                      */
                     std::vector<Account> GetAccounts() const;
 
                     /**
                      * 设置云数据库账号。
-                     * @param Accounts 云数据库账号。
+                     * @param _accounts 云数据库账号。
+                     * 
                      */
                     void SetAccounts(const std::vector<Account>& _accounts);
 
                     /**
                      * 判断参数 Accounts 是否已赋值
                      * @return Accounts 是否已赋值
+                     * 
                      */
                     bool AccountsHasBeenSet() const;
 
                     /**
                      * 获取新账户的密码。
+说明：
+1. 在8 ～ 64位字符数以内（推荐12位以上）。
+2. 至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&=!@#$%^*().|。
+3. 不能包含非法字符。
                      * @return Password 新账户的密码。
+说明：
+1. 在8 ～ 64位字符数以内（推荐12位以上）。
+2. 至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&=!@#$%^*().|。
+3. 不能包含非法字符。
+                     * 
                      */
                     std::string GetPassword() const;
 
                     /**
                      * 设置新账户的密码。
-                     * @param Password 新账户的密码。
+说明：
+1. 在8 ～ 64位字符数以内（推荐12位以上）。
+2. 至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&=!@#$%^*().|。
+3. 不能包含非法字符。
+                     * @param _password 新账户的密码。
+说明：
+1. 在8 ～ 64位字符数以内（推荐12位以上）。
+2. 至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&=!@#$%^*().|。
+3. 不能包含非法字符。
+                     * 
                      */
                     void SetPassword(const std::string& _password);
 
                     /**
                      * 判断参数 Password 是否已赋值
                      * @return Password 是否已赋值
+                     * 
                      */
                     bool PasswordHasBeenSet() const;
 
                     /**
-                     * 获取备注信息。
-                     * @return Description 备注信息。
+                     * 获取备注信息。最多支持输入255个字符。
+                     * @return Description 备注信息。最多支持输入255个字符。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置备注信息。
-                     * @param Description 备注信息。
+                     * 设置备注信息。最多支持输入255个字符。
+                     * @param _description 备注信息。最多支持输入255个字符。
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取新账户最大可用连接数，默认值为10240，最大可设置值为10240。
                      * @return MaxUserConnections 新账户最大可用连接数，默认值为10240，最大可设置值为10240。
+                     * 
                      */
                     int64_t GetMaxUserConnections() const;
 
                     /**
                      * 设置新账户最大可用连接数，默认值为10240，最大可设置值为10240。
-                     * @param MaxUserConnections 新账户最大可用连接数，默认值为10240，最大可设置值为10240。
+                     * @param _maxUserConnections 新账户最大可用连接数，默认值为10240，最大可设置值为10240。
+                     * 
                      */
                     void SetMaxUserConnections(const int64_t& _maxUserConnections);
 
                     /**
                      * 判断参数 MaxUserConnections 是否已赋值
                      * @return MaxUserConnections 是否已赋值
+                     * 
                      */
                     bool MaxUserConnectionsHasBeenSet() const;
 
@@ -149,12 +180,16 @@ namespace TencentCloud
 
                     /**
                      * 新账户的密码。
+说明：
+1. 在8 ～ 64位字符数以内（推荐12位以上）。
+2. 至少包含其中两项：小写字母 a ~ z 或 大写字母 A ～ Z。数字0 ～ 9。_+-,&=!@#$%^*().|。
+3. 不能包含非法字符。
                      */
                     std::string m_password;
                     bool m_passwordHasBeenSet;
 
                     /**
-                     * 备注信息。
+                     * 备注信息。最多支持输入255个字符。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 ModifyClusterEndpointSPRequest::ModifyClusterEndpointSPRequest() :
     m_clusterIdHasBeenSet(false),
-    m_securityPoliciesHasBeenSet(false)
+    m_securityPoliciesHasBeenSet(false),
+    m_securityGroupHasBeenSet(false)
 {
 }
 
@@ -54,6 +55,14 @@ string ModifyClusterEndpointSPRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_securityGroupHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SecurityGroup";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_securityGroup.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -94,6 +103,22 @@ void ModifyClusterEndpointSPRequest::SetSecurityPolicies(const vector<string>& _
 bool ModifyClusterEndpointSPRequest::SecurityPoliciesHasBeenSet() const
 {
     return m_securityPoliciesHasBeenSet;
+}
+
+string ModifyClusterEndpointSPRequest::GetSecurityGroup() const
+{
+    return m_securityGroup;
+}
+
+void ModifyClusterEndpointSPRequest::SetSecurityGroup(const string& _securityGroup)
+{
+    m_securityGroup = _securityGroup;
+    m_securityGroupHasBeenSet = true;
+}
+
+bool ModifyClusterEndpointSPRequest::SecurityGroupHasBeenSet() const
+{
+    return m_securityGroupHasBeenSet;
 }
 
 

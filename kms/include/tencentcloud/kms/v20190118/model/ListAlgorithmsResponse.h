@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取本地区支持的对称加密算法
                      * @return SymmetricAlgorithms 本地区支持的对称加密算法
+                     * 
                      */
                     std::vector<AlgorithmInfo> GetSymmetricAlgorithms() const;
 
                     /**
                      * 判断参数 SymmetricAlgorithms 是否已赋值
                      * @return SymmetricAlgorithms 是否已赋值
+                     * 
                      */
                     bool SymmetricAlgorithmsHasBeenSet() const;
 
                     /**
                      * 获取本地区支持的非对称加密算法
                      * @return AsymmetricAlgorithms 本地区支持的非对称加密算法
+                     * 
                      */
                     std::vector<AlgorithmInfo> GetAsymmetricAlgorithms() const;
 
                     /**
                      * 判断参数 AsymmetricAlgorithms 是否已赋值
                      * @return AsymmetricAlgorithms 是否已赋值
+                     * 
                      */
                     bool AsymmetricAlgorithmsHasBeenSet() const;
 
                     /**
                      * 获取本地区支持的非对称签名验签算法
                      * @return AsymmetricSignVerifyAlgorithms 本地区支持的非对称签名验签算法
+                     * 
                      */
                     std::vector<AlgorithmInfo> GetAsymmetricSignVerifyAlgorithms() const;
 
                     /**
                      * 判断参数 AsymmetricSignVerifyAlgorithms 是否已赋值
                      * @return AsymmetricSignVerifyAlgorithms 是否已赋值
+                     * 
                      */
                     bool AsymmetricSignVerifyAlgorithmsHasBeenSet() const;
 

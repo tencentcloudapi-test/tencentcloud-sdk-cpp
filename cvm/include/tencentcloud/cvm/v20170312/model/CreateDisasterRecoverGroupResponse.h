@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,72 +46,84 @@ namespace TencentCloud
                     /**
                      * 获取分散置放群组ID列表。
                      * @return DisasterRecoverGroupId 分散置放群组ID列表。
+                     * 
                      */
                     std::string GetDisasterRecoverGroupId() const;
 
                     /**
                      * 判断参数 DisasterRecoverGroupId 是否已赋值
                      * @return DisasterRecoverGroupId 是否已赋值
+                     * 
                      */
                     bool DisasterRecoverGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
-                     * @return Type 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+                     * 获取分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li>
+                     * @return Type 分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li>
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取分散置放群组名称，长度1-60个字符，支持中、英文。
                      * @return Name 分散置放群组名称，长度1-60个字符，支持中、英文。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取置放群组内可容纳的云服务器数量。
                      * @return CvmQuotaTotal 置放群组内可容纳的云服务器数量。
+                     * 
                      */
                     int64_t GetCvmQuotaTotal() const;
 
                     /**
                      * 判断参数 CvmQuotaTotal 是否已赋值
                      * @return CvmQuotaTotal 是否已赋值
+                     * 
                      */
                     bool CvmQuotaTotalHasBeenSet() const;
 
                     /**
                      * 获取置放群组内已有的云服务器数量。
                      * @return CurrentNum 置放群组内已有的云服务器数量。
+                     * 
                      */
                     int64_t GetCurrentNum() const;
 
                     /**
                      * 判断参数 CurrentNum 是否已赋值
                      * @return CurrentNum 是否已赋值
+                     * 
                      */
                     bool CurrentNumHasBeenSet() const;
 
                     /**
-                     * 获取置放群组创建时间。
-                     * @return CreateTime 置放群组创建时间。
+                     * 获取分散置放群组创建时间。按照ISO8601标准表示，并且使用UTC时间。格式为：YYYY-MM-DDThh:mm:ssZ。
+                     * @return CreateTime 分散置放群组创建时间。按照ISO8601标准表示，并且使用UTC时间。格式为：YYYY-MM-DDThh:mm:ssZ。
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
@@ -124,7 +136,7 @@ namespace TencentCloud
                     bool m_disasterRecoverGroupIdHasBeenSet;
 
                     /**
-                     * 分散置放群组类型，取值范围：<br><li>HOST：物理机<br><li>SW：交换机<br><li>RACK：机架
+                     * 分散置放群组类型，取值范围：<br><li>HOST：物理机</li><li>SW：交换机</li><li>RACK：机架</li>
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
@@ -148,7 +160,7 @@ namespace TencentCloud
                     bool m_currentNumHasBeenSet;
 
                     /**
-                     * 置放群组创建时间。
+                     * 分散置放群组创建时间。按照ISO8601标准表示，并且使用UTC时间。格式为：YYYY-MM-DDThh:mm:ssZ。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;

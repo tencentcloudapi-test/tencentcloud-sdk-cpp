@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,42 +47,75 @@ namespace TencentCloud
 
 
                     /**
+                     * 获取使能BFD多跳，0:未开启，2-255:BFD跳数
+                     * @return EnableBfdMultiHop 使能BFD多跳，0:未开启，2-255:BFD跳数
+                     * 
+                     */
+                    int64_t GetEnableBfdMultiHop() const;
+
+                    /**
+                     * 设置使能BFD多跳，0:未开启，2-255:BFD跳数
+                     * @param _enableBfdMultiHop 使能BFD多跳，0:未开启，2-255:BFD跳数
+                     * 
+                     */
+                    void SetEnableBfdMultiHop(const int64_t& _enableBfdMultiHop);
+
+                    /**
+                     * 判断参数 EnableBfdMultiHop 是否已赋值
+                     * @return EnableBfdMultiHop 是否已赋值
+                     * 
+                     */
+                    bool EnableBfdMultiHopHasBeenSet() const;
+
+                    /**
                      * 获取健康检查次数
                      * @return ProbeFailedTimes 健康检查次数
+                     * 
                      */
                     int64_t GetProbeFailedTimes() const;
 
                     /**
                      * 设置健康检查次数
-                     * @param ProbeFailedTimes 健康检查次数
+                     * @param _probeFailedTimes 健康检查次数
+                     * 
                      */
                     void SetProbeFailedTimes(const int64_t& _probeFailedTimes);
 
                     /**
                      * 判断参数 ProbeFailedTimes 是否已赋值
                      * @return ProbeFailedTimes 是否已赋值
+                     * 
                      */
                     bool ProbeFailedTimesHasBeenSet() const;
 
                     /**
                      * 获取健康检查间隔
                      * @return Interval 健康检查间隔
+                     * 
                      */
                     int64_t GetInterval() const;
 
                     /**
                      * 设置健康检查间隔
-                     * @param Interval 健康检查间隔
+                     * @param _interval 健康检查间隔
+                     * 
                      */
                     void SetInterval(const int64_t& _interval);
 
                     /**
                      * 判断参数 Interval 是否已赋值
                      * @return Interval 是否已赋值
+                     * 
                      */
                     bool IntervalHasBeenSet() const;
 
                 private:
+
+                    /**
+                     * 使能BFD多跳，0:未开启，2-255:BFD跳数
+                     */
+                    int64_t m_enableBfdMultiHop;
+                    bool m_enableBfdMultiHopHasBeenSet;
 
                     /**
                      * 健康检查次数

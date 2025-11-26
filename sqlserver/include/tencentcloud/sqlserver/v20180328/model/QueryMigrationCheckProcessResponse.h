@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取总步骤数量
                      * @return TotalStep 总步骤数量
+                     * 
                      */
                     int64_t GetTotalStep() const;
 
                     /**
                      * 判断参数 TotalStep 是否已赋值
                      * @return TotalStep 是否已赋值
+                     * 
                      */
                     bool TotalStepHasBeenSet() const;
 
                     /**
                      * 获取当前步骤编号，从1开始
                      * @return CurrentStep 当前步骤编号，从1开始
+                     * 
                      */
                     int64_t GetCurrentStep() const;
 
                     /**
                      * 判断参数 CurrentStep 是否已赋值
                      * @return CurrentStep 是否已赋值
+                     * 
                      */
                     bool CurrentStepHasBeenSet() const;
 
                     /**
                      * 获取所有步骤详情
                      * @return StepDetails 所有步骤详情
+                     * 
                      */
                     std::vector<StepDetail> GetStepDetails() const;
 
                     /**
                      * 判断参数 StepDetails 是否已赋值
                      * @return StepDetails 是否已赋值
+                     * 
                      */
                     bool StepDetailsHasBeenSet() const;
 

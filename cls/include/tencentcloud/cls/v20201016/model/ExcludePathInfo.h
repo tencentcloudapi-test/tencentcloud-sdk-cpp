@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取类型，选填File或Path
                      * @return Type 类型，选填File或Path
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置类型，选填File或Path
-                     * @param Type 类型，选填File或Path
+                     * @param _type 类型，选填File或Path
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取Type对应的具体内容
                      * @return Value Type对应的具体内容
+                     * 
                      */
                     std::string GetValue() const;
 
                     /**
                      * 设置Type对应的具体内容
-                     * @param Value Type对应的具体内容
+                     * @param _value Type对应的具体内容
+                     * 
                      */
                     void SetValue(const std::string& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 

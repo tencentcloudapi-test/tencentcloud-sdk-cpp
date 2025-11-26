@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,62 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取是否所有容器
                      * @return AllContainers 是否所有容器
+                     * 
                      */
                     bool GetAllContainers() const;
 
                     /**
                      * 设置是否所有容器
-                     * @param AllContainers 是否所有容器
+                     * @param _allContainers 是否所有容器
+                     * 
                      */
                     void SetAllContainers(const bool& _allContainers);
 
                     /**
                      * 判断参数 AllContainers 是否已赋值
                      * @return AllContainers 是否已赋值
+                     * 
                      */
                     bool AllContainersHasBeenSet() const;
 
                     /**
                      * 获取container为空表所有的，不为空采集指定的容器
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Container container为空表所有的，不为空采集指定的容器
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetContainer() const;
 
                     /**
                      * 设置container为空表所有的，不为空采集指定的容器
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Container container为空表所有的，不为空采集指定的容器
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _container container为空表所有的，不为空采集指定的容器
+                     * 
                      */
                     void SetContainer(const std::string& _container);
 
                     /**
                      * 判断参数 Container 是否已赋值
                      * @return Container 是否已赋值
+                     * 
                      */
                     bool ContainerHasBeenSet() const;
 
                     /**
                      * 获取namespace可以多个，用分隔号分割,例如A,B；为空或者没有这个字段，表示所有namespace
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Namespace namespace可以多个，用分隔号分割,例如A,B；为空或者没有这个字段，表示所有namespace
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置namespace可以多个，用分隔号分割,例如A,B；为空或者没有这个字段，表示所有namespace
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Namespace namespace可以多个，用分隔号分割,例如A,B；为空或者没有这个字段，表示所有namespace
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _namespace namespace可以多个，用分隔号分割,例如A,B；为空或者没有这个字段，表示所有namespace
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 
@@ -114,20 +115,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return IncludeLabels pod标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetIncludeLabels() const;
 
                     /**
                      * 设置pod标签信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param IncludeLabels pod标签信息
+                     * @param _includeLabels pod标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetIncludeLabels(const std::vector<std::string>& _includeLabels);
 
                     /**
                      * 判断参数 IncludeLabels 是否已赋值
                      * @return IncludeLabels 是否已赋值
+                     * 
                      */
                     bool IncludeLabelsHasBeenSet() const;
 
@@ -136,42 +140,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return WorkLoads 工作负载信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ContainerWorkLoadInfo> GetWorkLoads() const;
 
                     /**
                      * 设置工作负载信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param WorkLoads 工作负载信息
+                     * @param _workLoads 工作负载信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetWorkLoads(const std::vector<ContainerWorkLoadInfo>& _workLoads);
 
                     /**
                      * 判断参数 WorkLoads 是否已赋值
                      * @return WorkLoads 是否已赋值
+                     * 
                      */
                     bool WorkLoadsHasBeenSet() const;
 
                     /**
                      * 获取需要排除的namespace可以多个，用分隔号分割,例如A,B
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ExcludeNamespace 需要排除的namespace可以多个，用分隔号分割,例如A,B
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetExcludeNamespace() const;
 
                     /**
                      * 设置需要排除的namespace可以多个，用分隔号分割,例如A,B
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ExcludeNamespace 需要排除的namespace可以多个，用分隔号分割,例如A,B
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _excludeNamespace 需要排除的namespace可以多个，用分隔号分割,例如A,B
+                     * 
                      */
                     void SetExcludeNamespace(const std::string& _excludeNamespace);
 
                     /**
                      * 判断参数 ExcludeNamespace 是否已赋值
                      * @return ExcludeNamespace 是否已赋值
+                     * 
                      */
                     bool ExcludeNamespaceHasBeenSet() const;
 
@@ -180,22 +186,50 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ExcludeLabels 需要排除的pod标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetExcludeLabels() const;
 
                     /**
                      * 设置需要排除的pod标签信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ExcludeLabels 需要排除的pod标签信息
+                     * @param _excludeLabels 需要排除的pod标签信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetExcludeLabels(const std::vector<std::string>& _excludeLabels);
 
                     /**
                      * 判断参数 ExcludeLabels 是否已赋值
                      * @return ExcludeLabels 是否已赋值
+                     * 
                      */
                     bool ExcludeLabelsHasBeenSet() const;
+
+                    /**
+                     * 获取metadata信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CustomLabels metadata信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<std::string> GetCustomLabels() const;
+
+                    /**
+                     * 设置metadata信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _customLabels metadata信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetCustomLabels(const std::vector<std::string>& _customLabels);
+
+                    /**
+                     * 判断参数 CustomLabels 是否已赋值
+                     * @return CustomLabels 是否已赋值
+                     * 
+                     */
+                    bool CustomLabelsHasBeenSet() const;
 
                 private:
 
@@ -207,14 +241,12 @@ namespace TencentCloud
 
                     /**
                      * container为空表所有的，不为空采集指定的容器
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_container;
                     bool m_containerHasBeenSet;
 
                     /**
                      * namespace可以多个，用分隔号分割,例如A,B；为空或者没有这个字段，表示所有namespace
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_namespace;
                     bool m_namespaceHasBeenSet;
@@ -235,7 +267,6 @@ namespace TencentCloud
 
                     /**
                      * 需要排除的namespace可以多个，用分隔号分割,例如A,B
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_excludeNamespace;
                     bool m_excludeNamespaceHasBeenSet;
@@ -246,6 +277,13 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_excludeLabels;
                     bool m_excludeLabelsHasBeenSet;
+
+                    /**
+                     * metadata信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<std::string> m_customLabels;
+                    bool m_customLabelsHasBeenSet;
 
                 };
             }

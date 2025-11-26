@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取PC网银指引
                      * @return PcGuideUrl PC网银指引
+                     * 
                      */
                     std::string GetPcGuideUrl() const;
 
                     /**
                      * 设置PC网银指引
-                     * @param PcGuideUrl PC网银指引
+                     * @param _pcGuideUrl PC网银指引
+                     * 
                      */
                     void SetPcGuideUrl(const std::string& _pcGuideUrl);
 
                     /**
                      * 判断参数 PcGuideUrl 是否已赋值
                      * @return PcGuideUrl 是否已赋值
+                     * 
                      */
                     bool PcGuideUrlHasBeenSet() const;
 
@@ -69,20 +72,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return MobileGuideUrl 手机网银指引
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMobileGuideUrl() const;
 
                     /**
                      * 设置手机网银指引
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MobileGuideUrl 手机网银指引
+                     * @param _mobileGuideUrl 手机网银指引
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMobileGuideUrl(const std::string& _mobileGuideUrl);
 
                     /**
                      * 判断参数 MobileGuideUrl 是否已赋值
                      * @return MobileGuideUrl 是否已赋值
+                     * 
                      */
                     bool MobileGuideUrlHasBeenSet() const;
 

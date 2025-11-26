@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ ModifyTranscodeTemplateRequest::ModifyTranscodeTemplateRequest() :
     m_removeAudioHasBeenSet(false),
     m_videoTemplateHasBeenSet(false),
     m_audioTemplateHasBeenSet(false),
-    m_tEHDConfigHasBeenSet(false)
+    m_tEHDConfigHasBeenSet(false),
+    m_enhanceConfigHasBeenSet(false)
 {
 }
 
@@ -115,6 +116,15 @@ string ModifyTranscodeTemplateRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_tEHDConfig.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_enhanceConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnhanceConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_enhanceConfig.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -267,6 +277,22 @@ void ModifyTranscodeTemplateRequest::SetTEHDConfig(const TEHDConfigForUpdate& _t
 bool ModifyTranscodeTemplateRequest::TEHDConfigHasBeenSet() const
 {
     return m_tEHDConfigHasBeenSet;
+}
+
+EnhanceConfig ModifyTranscodeTemplateRequest::GetEnhanceConfig() const
+{
+    return m_enhanceConfig;
+}
+
+void ModifyTranscodeTemplateRequest::SetEnhanceConfig(const EnhanceConfig& _enhanceConfig)
+{
+    m_enhanceConfig = _enhanceConfig;
+    m_enhanceConfigHasBeenSet = true;
+}
+
+bool ModifyTranscodeTemplateRequest::EnhanceConfigHasBeenSet() const
+{
+    return m_enhanceConfigHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取要删除的函数名称
                      * @return FunctionName 要删除的函数名称
+                     * 
                      */
                     std::string GetFunctionName() const;
 
                     /**
                      * 设置要删除的函数名称
-                     * @param FunctionName 要删除的函数名称
+                     * @param _functionName 要删除的函数名称
+                     * 
                      */
                     void SetFunctionName(const std::string& _functionName);
 
                     /**
                      * 判断参数 FunctionName 是否已赋值
                      * @return FunctionName 是否已赋值
+                     * 
                      */
                     bool FunctionNameHasBeenSet() const;
 
                     /**
                      * 获取函数所属命名空间
                      * @return Namespace 函数所属命名空间
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置函数所属命名空间
-                     * @param Namespace 函数所属命名空间
+                     * @param _namespace 函数所属命名空间
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 
                     /**
                      * 获取填写需要删除的版本号，不填默认删除函数下全部版本。
                      * @return Qualifier 填写需要删除的版本号，不填默认删除函数下全部版本。
+                     * 
                      */
                     std::string GetQualifier() const;
 
                     /**
                      * 设置填写需要删除的版本号，不填默认删除函数下全部版本。
-                     * @param Qualifier 填写需要删除的版本号，不填默认删除函数下全部版本。
+                     * @param _qualifier 填写需要删除的版本号，不填默认删除函数下全部版本。
+                     * 
                      */
                     void SetQualifier(const std::string& _qualifier);
 
                     /**
                      * 判断参数 Qualifier 是否已赋值
                      * @return Qualifier 是否已赋值
+                     * 
                      */
                     bool QualifierHasBeenSet() const;
 

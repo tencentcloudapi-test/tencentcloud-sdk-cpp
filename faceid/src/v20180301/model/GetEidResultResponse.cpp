@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,12 @@ GetEidResultResponse::GetEidResultResponse() :
     m_textHasBeenSet(false),
     m_idCardDataHasBeenSet(false),
     m_bestFrameHasBeenSet(false),
-    m_eidInfoHasBeenSet(false)
+    m_eidInfoHasBeenSet(false),
+    m_intentionVerifyDataHasBeenSet(false),
+    m_intentionQuestionResultHasBeenSet(false),
+    m_intentionActionResultHasBeenSet(false),
+    m_isVerifyIntentionHasBeenSet(false),
+    m_intentionVerifyTypeHasBeenSet(false)
 {
 }
 
@@ -133,6 +138,77 @@ CoreInternalOutcome GetEidResultResponse::Deserialize(const string &payload)
         m_eidInfoHasBeenSet = true;
     }
 
+    if (rsp.HasMember("IntentionVerifyData") && !rsp["IntentionVerifyData"].IsNull())
+    {
+        if (!rsp["IntentionVerifyData"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `IntentionVerifyData` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_intentionVerifyData.Deserialize(rsp["IntentionVerifyData"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_intentionVerifyDataHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("IntentionQuestionResult") && !rsp["IntentionQuestionResult"].IsNull())
+    {
+        if (!rsp["IntentionQuestionResult"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `IntentionQuestionResult` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_intentionQuestionResult.Deserialize(rsp["IntentionQuestionResult"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_intentionQuestionResultHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("IntentionActionResult") && !rsp["IntentionActionResult"].IsNull())
+    {
+        if (!rsp["IntentionActionResult"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `IntentionActionResult` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_intentionActionResult.Deserialize(rsp["IntentionActionResult"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_intentionActionResultHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("IsVerifyIntention") && !rsp["IsVerifyIntention"].IsNull())
+    {
+        if (!rsp["IsVerifyIntention"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `IsVerifyIntention` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isVerifyIntention = rsp["IsVerifyIntention"].GetBool();
+        m_isVerifyIntentionHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("IntentionVerifyType") && !rsp["IntentionVerifyType"].IsNull())
+    {
+        if (!rsp["IntentionVerifyType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IntentionVerifyType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_intentionVerifyType = string(rsp["IntentionVerifyType"].GetString());
+        m_intentionVerifyTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -179,11 +255,54 @@ string GetEidResultResponse::ToJsonString() const
         m_eidInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_intentionVerifyDataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntentionVerifyData";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_intentionVerifyData.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_intentionQuestionResultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntentionQuestionResult";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_intentionQuestionResult.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_intentionActionResultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntentionActionResult";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_intentionActionResult.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_isVerifyIntentionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsVerifyIntention";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isVerifyIntention, allocator);
+    }
+
+    if (m_intentionVerifyTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntentionVerifyType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_intentionVerifyType.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -229,6 +348,56 @@ EidInfo GetEidResultResponse::GetEidInfo() const
 bool GetEidResultResponse::EidInfoHasBeenSet() const
 {
     return m_eidInfoHasBeenSet;
+}
+
+IntentionVerifyData GetEidResultResponse::GetIntentionVerifyData() const
+{
+    return m_intentionVerifyData;
+}
+
+bool GetEidResultResponse::IntentionVerifyDataHasBeenSet() const
+{
+    return m_intentionVerifyDataHasBeenSet;
+}
+
+IntentionQuestionResult GetEidResultResponse::GetIntentionQuestionResult() const
+{
+    return m_intentionQuestionResult;
+}
+
+bool GetEidResultResponse::IntentionQuestionResultHasBeenSet() const
+{
+    return m_intentionQuestionResultHasBeenSet;
+}
+
+IntentionActionResult GetEidResultResponse::GetIntentionActionResult() const
+{
+    return m_intentionActionResult;
+}
+
+bool GetEidResultResponse::IntentionActionResultHasBeenSet() const
+{
+    return m_intentionActionResultHasBeenSet;
+}
+
+bool GetEidResultResponse::GetIsVerifyIntention() const
+{
+    return m_isVerifyIntention;
+}
+
+bool GetEidResultResponse::IsVerifyIntentionHasBeenSet() const
+{
+    return m_isVerifyIntentionHasBeenSet;
+}
+
+string GetEidResultResponse::GetIntentionVerifyType() const
+{
+    return m_intentionVerifyType;
+}
+
+bool GetEidResultResponse::IntentionVerifyTypeHasBeenSet() const
+{
+    return m_intentionVerifyTypeHasBeenSet;
 }
 
 

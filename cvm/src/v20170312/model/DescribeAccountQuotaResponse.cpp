@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,11 +65,11 @@ CoreInternalOutcome DescribeAccountQuotaResponse::Deserialize(const string &payl
 
     if (rsp.HasMember("AppId") && !rsp["AppId"].IsNull())
     {
-        if (!rsp["AppId"].IsString())
+        if (!rsp["AppId"].IsUint64())
         {
-            return CoreInternalOutcome(Core::Error("response `AppId` IsString=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `AppId` IsUint64=false incorrectly").SetRequestId(requestId));
         }
-        m_appId = string(rsp["AppId"].GetString());
+        m_appId = rsp["AppId"].GetUint64();
         m_appIdHasBeenSet = true;
     }
 
@@ -105,7 +105,7 @@ string DescribeAccountQuotaResponse::ToJsonString() const
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "AppId";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_appId.c_str(), allocator).Move(), allocator);
+        value.AddMember(iKey, m_appId, allocator);
     }
 
     if (m_accountQuotaOverviewHasBeenSet)
@@ -121,7 +121,7 @@ string DescribeAccountQuotaResponse::ToJsonString() const
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -129,7 +129,7 @@ string DescribeAccountQuotaResponse::ToJsonString() const
 }
 
 
-string DescribeAccountQuotaResponse::GetAppId() const
+uint64_t DescribeAccountQuotaResponse::GetAppId() const
 {
     return m_appId;
 }

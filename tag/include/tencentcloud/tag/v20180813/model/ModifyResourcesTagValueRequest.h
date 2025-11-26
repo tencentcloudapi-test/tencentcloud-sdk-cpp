@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,117 +43,135 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取资源所属业务名称（资源六段式中的第三段）
-                     * @return ServiceType 资源所属业务名称（资源六段式中的第三段）
+                     * 获取业务类型，示例 cvm。资源所属业务名称（资源六段式中的第三段）
+                     * @return ServiceType 业务类型，示例 cvm。资源所属业务名称（资源六段式中的第三段）
+                     * 
                      */
                     std::string GetServiceType() const;
 
                     /**
-                     * 设置资源所属业务名称（资源六段式中的第三段）
-                     * @param ServiceType 资源所属业务名称（资源六段式中的第三段）
+                     * 设置业务类型，示例 cvm。资源所属业务名称（资源六段式中的第三段）
+                     * @param _serviceType 业务类型，示例 cvm。资源所属业务名称（资源六段式中的第三段）
+                     * 
                      */
                     void SetServiceType(const std::string& _serviceType);
 
                     /**
                      * 判断参数 ServiceType 是否已赋值
                      * @return ServiceType 是否已赋值
+                     * 
                      */
                     bool ServiceTypeHasBeenSet() const;
 
                     /**
                      * 获取资源ID数组，资源个数最多为50
                      * @return ResourceIds 资源ID数组，资源个数最多为50
+                     * 
                      */
                     std::vector<std::string> GetResourceIds() const;
 
                     /**
                      * 设置资源ID数组，资源个数最多为50
-                     * @param ResourceIds 资源ID数组，资源个数最多为50
+                     * @param _resourceIds 资源ID数组，资源个数最多为50
+                     * 
                      */
                     void SetResourceIds(const std::vector<std::string>& _resourceIds);
 
                     /**
                      * 判断参数 ResourceIds 是否已赋值
                      * @return ResourceIds 是否已赋值
+                     * 
                      */
                     bool ResourceIdsHasBeenSet() const;
 
                     /**
                      * 获取标签键
                      * @return TagKey 标签键
+                     * 
                      */
                     std::string GetTagKey() const;
 
                     /**
                      * 设置标签键
-                     * @param TagKey 标签键
+                     * @param _tagKey 标签键
+                     * 
                      */
                     void SetTagKey(const std::string& _tagKey);
 
                     /**
                      * 判断参数 TagKey 是否已赋值
                      * @return TagKey 是否已赋值
+                     * 
                      */
                     bool TagKeyHasBeenSet() const;
 
                     /**
                      * 获取标签值
                      * @return TagValue 标签值
+                     * 
                      */
                     std::string GetTagValue() const;
 
                     /**
                      * 设置标签值
-                     * @param TagValue 标签值
+                     * @param _tagValue 标签值
+                     * 
                      */
                     void SetTagValue(const std::string& _tagValue);
 
                     /**
                      * 判断参数 TagValue 是否已赋值
                      * @return TagValue 是否已赋值
+                     * 
                      */
                     bool TagValueHasBeenSet() const;
 
                     /**
-                     * 获取资源所在地域，不区分地域的资源不需要传入该字段，区分地域的资源必填
-                     * @return ResourceRegion 资源所在地域，不区分地域的资源不需要传入该字段，区分地域的资源必填
+                     * 获取资源所在地域，示例：ap-guangzhou 不区分地域的资源不需要传入该字段，区分地域的资源必填
+                     * @return ResourceRegion 资源所在地域，示例：ap-guangzhou 不区分地域的资源不需要传入该字段，区分地域的资源必填
+                     * 
                      */
                     std::string GetResourceRegion() const;
 
                     /**
-                     * 设置资源所在地域，不区分地域的资源不需要传入该字段，区分地域的资源必填
-                     * @param ResourceRegion 资源所在地域，不区分地域的资源不需要传入该字段，区分地域的资源必填
+                     * 设置资源所在地域，示例：ap-guangzhou 不区分地域的资源不需要传入该字段，区分地域的资源必填
+                     * @param _resourceRegion 资源所在地域，示例：ap-guangzhou 不区分地域的资源不需要传入该字段，区分地域的资源必填
+                     * 
                      */
                     void SetResourceRegion(const std::string& _resourceRegion);
 
                     /**
                      * 判断参数 ResourceRegion 是否已赋值
                      * @return ResourceRegion 是否已赋值
+                     * 
                      */
                     bool ResourceRegionHasBeenSet() const;
 
                     /**
-                     * 获取资源前缀（资源六段式中最后一段"/"前面的部分），cos存储桶不需要传入该字段，其他云资源必填
-                     * @return ResourcePrefix 资源前缀（资源六段式中最后一段"/"前面的部分），cos存储桶不需要传入该字段，其他云资源必填
+                     * 获取资源前缀（资源六段式中最后一段"/"前面的部分），例如“qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584” 中资源前缀为ckafkaId），cos存储桶不需要传入该字段，其他云资源必填
+                     * @return ResourcePrefix 资源前缀（资源六段式中最后一段"/"前面的部分），例如“qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584” 中资源前缀为ckafkaId），cos存储桶不需要传入该字段，其他云资源必填
+                     * 
                      */
                     std::string GetResourcePrefix() const;
 
                     /**
-                     * 设置资源前缀（资源六段式中最后一段"/"前面的部分），cos存储桶不需要传入该字段，其他云资源必填
-                     * @param ResourcePrefix 资源前缀（资源六段式中最后一段"/"前面的部分），cos存储桶不需要传入该字段，其他云资源必填
+                     * 设置资源前缀（资源六段式中最后一段"/"前面的部分），例如“qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584” 中资源前缀为ckafkaId），cos存储桶不需要传入该字段，其他云资源必填
+                     * @param _resourcePrefix 资源前缀（资源六段式中最后一段"/"前面的部分），例如“qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584” 中资源前缀为ckafkaId），cos存储桶不需要传入该字段，其他云资源必填
+                     * 
                      */
                     void SetResourcePrefix(const std::string& _resourcePrefix);
 
                     /**
                      * 判断参数 ResourcePrefix 是否已赋值
                      * @return ResourcePrefix 是否已赋值
+                     * 
                      */
                     bool ResourcePrefixHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 资源所属业务名称（资源六段式中的第三段）
+                     * 业务类型，示例 cvm。资源所属业务名称（资源六段式中的第三段）
                      */
                     std::string m_serviceType;
                     bool m_serviceTypeHasBeenSet;
@@ -177,13 +195,13 @@ namespace TencentCloud
                     bool m_tagValueHasBeenSet;
 
                     /**
-                     * 资源所在地域，不区分地域的资源不需要传入该字段，区分地域的资源必填
+                     * 资源所在地域，示例：ap-guangzhou 不区分地域的资源不需要传入该字段，区分地域的资源必填
                      */
                     std::string m_resourceRegion;
                     bool m_resourceRegionHasBeenSet;
 
                     /**
-                     * 资源前缀（资源六段式中最后一段"/"前面的部分），cos存储桶不需要传入该字段，其他云资源必填
+                     * 资源前缀（资源六段式中最后一段"/"前面的部分），例如“qcs::ckafka:ap-shanghai:uin/123456789:ckafkaId/ckafka-o85jq584” 中资源前缀为ckafkaId），cos存储桶不需要传入该字段，其他云资源必填
                      */
                     std::string m_resourcePrefix;
                     bool m_resourcePrefixHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取需要修改的通道组ID。
                      * @return GroupId 需要修改的通道组ID。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置需要修改的通道组ID。
-                     * @param GroupId 需要修改的通道组ID。
+                     * @param _groupId 需要修改的通道组ID。
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取修改后的通道组名称：不超过30个字符，超过部分会被截断。
-                     * @return GroupName 修改后的通道组名称：不超过30个字符，超过部分会被截断。
+                     * 获取修改后的通道组名称：不超过30个字符，否则修改失败。
+                     * @return GroupName 修改后的通道组名称：不超过30个字符，否则修改失败。
+                     * 
                      */
                     std::string GetGroupName() const;
 
                     /**
-                     * 设置修改后的通道组名称：不超过30个字符，超过部分会被截断。
-                     * @param GroupName 修改后的通道组名称：不超过30个字符，超过部分会被截断。
+                     * 设置修改后的通道组名称：不超过30个字符，否则修改失败。
+                     * @param _groupName 修改后的通道组名称：不超过30个字符，否则修改失败。
+                     * 
                      */
                     void SetGroupName(const std::string& _groupName);
 
                     /**
                      * 判断参数 GroupName 是否已赋值
                      * @return GroupName 是否已赋值
+                     * 
                      */
                     bool GroupNameHasBeenSet() const;
 
                     /**
                      * 获取项目ID
                      * @return ProjectId 项目ID
+                     * 
                      */
                     uint64_t GetProjectId() const;
 
                     /**
                      * 设置项目ID
-                     * @param ProjectId 项目ID
+                     * @param _projectId 项目ID
+                     * 
                      */
                     void SetProjectId(const uint64_t& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 
@@ -105,7 +114,7 @@ namespace TencentCloud
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * 修改后的通道组名称：不超过30个字符，超过部分会被截断。
+                     * 修改后的通道组名称：不超过30个字符，否则修改失败。
                      */
                     std::string m_groupName;
                     bool m_groupNameHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取企业名称
                      * @return TaxpayerName 企业名称
+                     * 
                      */
                     std::string GetTaxpayerName() const;
 
                     /**
                      * 设置企业名称
-                     * @param TaxpayerName 企业名称
+                     * @param _taxpayerName 企业名称
+                     * 
                      */
                     void SetTaxpayerName(const std::string& _taxpayerName);
 
                     /**
                      * 判断参数 TaxpayerName 是否已赋值
                      * @return TaxpayerName 是否已赋值
+                     * 
                      */
                     bool TaxpayerNameHasBeenSet() const;
 
                     /**
                      * 获取请求流水号
                      * @return SerialNo 请求流水号
+                     * 
                      */
                     std::string GetSerialNo() const;
 
                     /**
                      * 设置请求流水号
-                     * @param SerialNo 请求流水号
+                     * @param _serialNo 请求流水号
+                     * 
                      */
                     void SetSerialNo(const std::string& _serialNo);
 
                     /**
                      * 判断参数 SerialNo 是否已赋值
                      * @return SerialNo 是否已赋值
+                     * 
                      */
                     bool SerialNoHasBeenSet() const;
 
                     /**
                      * 获取纳税号
                      * @return TaxpayerNum 纳税号
+                     * 
                      */
                     std::string GetTaxpayerNum() const;
 
                     /**
                      * 设置纳税号
-                     * @param TaxpayerNum 纳税号
+                     * @param _taxpayerNum 纳税号
+                     * 
                      */
                     void SetTaxpayerNum(const std::string& _taxpayerNum);
 
                     /**
                      * 判断参数 TaxpayerNum 是否已赋值
                      * @return TaxpayerNum 是否已赋值
+                     * 
                      */
                     bool TaxpayerNumHasBeenSet() const;
 

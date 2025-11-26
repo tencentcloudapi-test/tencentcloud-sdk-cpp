@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,10 @@ ProxyInfo::ProxyInfo() :
     m_banStatusHasBeenSet(false),
     m_iPListHasBeenSet(false),
     m_http3SupportedHasBeenSet(false),
-    m_inBanBlacklistHasBeenSet(false)
+    m_inBanBlacklistHasBeenSet(false),
+    m_featureBitmapHasBeenSet(false),
+    m_isAutoScaleProxyHasBeenSet(false),
+    m_isSupportTLSChoiceHasBeenSet(false)
 {
 }
 
@@ -446,6 +449,36 @@ CoreInternalOutcome ProxyInfo::Deserialize(const rapidjson::Value &value)
         m_inBanBlacklistHasBeenSet = true;
     }
 
+    if (value.HasMember("FeatureBitmap") && !value["FeatureBitmap"].IsNull())
+    {
+        if (!value["FeatureBitmap"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProxyInfo.FeatureBitmap` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_featureBitmap = value["FeatureBitmap"].GetInt64();
+        m_featureBitmapHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsAutoScaleProxy") && !value["IsAutoScaleProxy"].IsNull())
+    {
+        if (!value["IsAutoScaleProxy"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProxyInfo.IsAutoScaleProxy` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isAutoScaleProxy = value["IsAutoScaleProxy"].GetInt64();
+        m_isAutoScaleProxyHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsSupportTLSChoice") && !value["IsSupportTLSChoice"].IsNull())
+    {
+        if (!value["IsSupportTLSChoice"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProxyInfo.IsSupportTLSChoice` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSupportTLSChoice = value["IsSupportTLSChoice"].GetInt64();
+        m_isSupportTLSChoiceHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -754,6 +787,30 @@ void ProxyInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "InBanBlacklist";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_inBanBlacklist, allocator);
+    }
+
+    if (m_featureBitmapHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FeatureBitmap";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_featureBitmap, allocator);
+    }
+
+    if (m_isAutoScaleProxyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsAutoScaleProxy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isAutoScaleProxy, allocator);
+    }
+
+    if (m_isSupportTLSChoiceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSupportTLSChoice";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSupportTLSChoice, allocator);
     }
 
 }
@@ -1301,5 +1358,53 @@ void ProxyInfo::SetInBanBlacklist(const int64_t& _inBanBlacklist)
 bool ProxyInfo::InBanBlacklistHasBeenSet() const
 {
     return m_inBanBlacklistHasBeenSet;
+}
+
+int64_t ProxyInfo::GetFeatureBitmap() const
+{
+    return m_featureBitmap;
+}
+
+void ProxyInfo::SetFeatureBitmap(const int64_t& _featureBitmap)
+{
+    m_featureBitmap = _featureBitmap;
+    m_featureBitmapHasBeenSet = true;
+}
+
+bool ProxyInfo::FeatureBitmapHasBeenSet() const
+{
+    return m_featureBitmapHasBeenSet;
+}
+
+int64_t ProxyInfo::GetIsAutoScaleProxy() const
+{
+    return m_isAutoScaleProxy;
+}
+
+void ProxyInfo::SetIsAutoScaleProxy(const int64_t& _isAutoScaleProxy)
+{
+    m_isAutoScaleProxy = _isAutoScaleProxy;
+    m_isAutoScaleProxyHasBeenSet = true;
+}
+
+bool ProxyInfo::IsAutoScaleProxyHasBeenSet() const
+{
+    return m_isAutoScaleProxyHasBeenSet;
+}
+
+int64_t ProxyInfo::GetIsSupportTLSChoice() const
+{
+    return m_isSupportTLSChoice;
+}
+
+void ProxyInfo::SetIsSupportTLSChoice(const int64_t& _isSupportTLSChoice)
+{
+    m_isSupportTLSChoice = _isSupportTLSChoice;
+    m_isSupportTLSChoiceHasBeenSet = true;
+}
+
+bool ProxyInfo::IsSupportTLSChoiceHasBeenSet() const
+{
+    return m_isSupportTLSChoiceHasBeenSet;
 }
 

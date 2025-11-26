@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取播放统计数据所属日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      * @return Date 播放统计数据所属日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     std::string GetDate() const;
 
                     /**
                      * 设置播放统计数据所属日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-                     * @param Date 播放统计数据所属日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @param _date 播放统计数据所属日期，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     void SetDate(const std::string& _date);
 
                     /**
                      * 判断参数 Date 是否已赋值
                      * @return Date 是否已赋值
+                     * 
                      */
                     bool DateHasBeenSet() const;
 
@@ -87,6 +90,7 @@ namespace TencentCloud
 <li> iphone_play_times：iPhone 端播放次数。</li>
 <li> android_play_times：Android 端播放次数。</li>
 <li> host_name	域名。</li>
+                     * 
                      */
                     std::string GetUrl() const;
 
@@ -102,7 +106,7 @@ namespace TencentCloud
 <li> iphone_play_times：iPhone 端播放次数。</li>
 <li> android_play_times：Android 端播放次数。</li>
 <li> host_name	域名。</li>
-                     * @param Url 播放统计文件的 URL 地址。播放统计文件内容为：
+                     * @param _url 播放统计文件的 URL 地址。播放统计文件内容为：
 <li> date：播放日期。</li>
 <li> file_id：视频文件 ID。</li>
 <li> ip_count：去重后的客户端 IP 数。</li>
@@ -113,12 +117,14 @@ namespace TencentCloud
 <li> iphone_play_times：iPhone 端播放次数。</li>
 <li> android_play_times：Android 端播放次数。</li>
 <li> host_name	域名。</li>
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 

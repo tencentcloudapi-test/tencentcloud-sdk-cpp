@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,45 +48,43 @@ namespace TencentCloud
 
                     /**
                      * 获取划分上限
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LessThan 划分上限
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetLessThan() const;
 
                     /**
                      * 设置划分上限
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param LessThan 划分上限
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _lessThan 划分上限
+                     * 
                      */
                     void SetLessThan(const uint64_t& _lessThan);
 
                     /**
                      * 判断参数 LessThan 是否已赋值
                      * @return LessThan 是否已赋值
+                     * 
                      */
                     bool LessThanHasBeenSet() const;
 
                     /**
                      * 获取权重
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Weight 权重
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetWeight() const;
 
                     /**
                      * 设置权重
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Weight 权重
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _weight 权重
+                     * 
                      */
                     void SetWeight(const uint64_t& _weight);
 
                     /**
                      * 判断参数 Weight 是否已赋值
                      * @return Weight 是否已赋值
+                     * 
                      */
                     bool WeightHasBeenSet() const;
 
@@ -94,14 +92,12 @@ namespace TencentCloud
 
                     /**
                      * 划分上限
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_lessThan;
                     bool m_lessThanHasBeenSet;
 
                     /**
                      * 权重
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_weight;
                     bool m_weightHasBeenSet;

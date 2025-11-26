@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 标签键值对
+                * 标签键值对，可以通过调用 [DescribeTags](https://cloud.tencent.com/document/api/651/35316) 返回值中的 Tags 字段来获取。
                 */
                 class Tag : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取标签键
                      * @return Key 标签键
+                     * 
                      */
                     std::string GetKey() const;
 
                     /**
                      * 设置标签键
-                     * @param Key 标签键
+                     * @param _key 标签键
+                     * 
                      */
                     void SetKey(const std::string& _key);
 
                     /**
                      * 判断参数 Key 是否已赋值
                      * @return Key 是否已赋值
+                     * 
                      */
                     bool KeyHasBeenSet() const;
 
                     /**
                      * 获取标签值
                      * @return Value 标签值
+                     * 
                      */
                     std::string GetValue() const;
 
                     /**
                      * 设置标签值
-                     * @param Value 标签值
+                     * @param _value 标签值
+                     * 
                      */
                     void SetValue(const std::string& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,16 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取数据是否准备好，0未准备好，1准备好
-                     * @return Ready 数据是否准备好，0未准备好，1准备好
+                     * 获取数据是否准备好，0准备中，1已就绪。（Ready=0，为当前UIN首次进行初始化出账，预计需要5~10分钟出账，请于10分钟后重试即可）
+                     * @return Ready 数据是否准备好，0准备中，1已就绪。（Ready=0，为当前UIN首次进行初始化出账，预计需要5~10分钟出账，请于10分钟后重试即可）
+                     * 
                      */
                     uint64_t GetReady() const;
 
                     /**
                      * 判断参数 Ready 是否已赋值
                      * @return Ready 是否已赋值
+                     * 
                      */
                     bool ReadyHasBeenSet() const;
 
@@ -62,12 +64,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return SummaryOverview 各标签值花费分布详情
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<TagSummaryOverviewItem> GetSummaryOverview() const;
 
                     /**
                      * 判断参数 SummaryOverview 是否已赋值
                      * @return SummaryOverview 是否已赋值
+                     * 
                      */
                     bool SummaryOverviewHasBeenSet() const;
 
@@ -76,19 +80,21 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return SummaryTotal 总数
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     SummaryTotal GetSummaryTotal() const;
 
                     /**
                      * 判断参数 SummaryTotal 是否已赋值
                      * @return SummaryTotal 是否已赋值
+                     * 
                      */
                     bool SummaryTotalHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 数据是否准备好，0未准备好，1准备好
+                     * 数据是否准备好，0准备中，1已就绪。（Ready=0，为当前UIN首次进行初始化出账，预计需要5~10分钟出账，请于10分钟后重试即可）
                      */
                     uint64_t m_ready;
                     bool m_readyHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取转场 Id 。暂只支持一个转场。
                      * @return TransitionId 转场 Id 。暂只支持一个转场。
+                     * 
                      */
                     std::string GetTransitionId() const;
 
                     /**
                      * 设置转场 Id 。暂只支持一个转场。
-                     * @param TransitionId 转场 Id 。暂只支持一个转场。
+                     * @param _transitionId 转场 Id 。暂只支持一个转场。
+                     * 
                      */
                     void SetTransitionId(const std::string& _transitionId);
 
                     /**
                      * 判断参数 TransitionId 是否已赋值
                      * @return TransitionId 是否已赋值
+                     * 
                      */
                     bool TransitionIdHasBeenSet() const;
 
                     /**
                      * 获取转场持续时间，单位为秒，默认为2秒。进行转场处理的两个媒体片段，第二个片段在轨道上的起始时间会自动进行调整，设置为前面一个片段的结束时间减去转场的持续时间。
                      * @return Duration 转场持续时间，单位为秒，默认为2秒。进行转场处理的两个媒体片段，第二个片段在轨道上的起始时间会自动进行调整，设置为前面一个片段的结束时间减去转场的持续时间。
+                     * 
                      */
                     double GetDuration() const;
 
                     /**
                      * 设置转场持续时间，单位为秒，默认为2秒。进行转场处理的两个媒体片段，第二个片段在轨道上的起始时间会自动进行调整，设置为前面一个片段的结束时间减去转场的持续时间。
-                     * @param Duration 转场持续时间，单位为秒，默认为2秒。进行转场处理的两个媒体片段，第二个片段在轨道上的起始时间会自动进行调整，设置为前面一个片段的结束时间减去转场的持续时间。
+                     * @param _duration 转场持续时间，单位为秒，默认为2秒。进行转场处理的两个媒体片段，第二个片段在轨道上的起始时间会自动进行调整，设置为前面一个片段的结束时间减去转场的持续时间。
+                     * 
                      */
                     void SetDuration(const double& _duration);
 
                     /**
                      * 判断参数 Duration 是否已赋值
                      * @return Duration 是否已赋值
+                     * 
                      */
                     bool DurationHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取是否开启自动变配集群等级
                      * @return IsAutoUpgrade 是否开启自动变配集群等级
+                     * 
                      */
                     bool GetIsAutoUpgrade() const;
 
                     /**
                      * 设置是否开启自动变配集群等级
-                     * @param IsAutoUpgrade 是否开启自动变配集群等级
+                     * @param _isAutoUpgrade 是否开启自动变配集群等级
+                     * 
                      */
                     void SetIsAutoUpgrade(const bool& _isAutoUpgrade);
 
                     /**
                      * 判断参数 IsAutoUpgrade 是否已赋值
                      * @return IsAutoUpgrade 是否已赋值
+                     * 
                      */
                     bool IsAutoUpgradeHasBeenSet() const;
 

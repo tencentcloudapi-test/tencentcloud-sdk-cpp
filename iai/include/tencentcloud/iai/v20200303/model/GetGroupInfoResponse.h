@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,99 +44,111 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取人员库名称
-                     * @return GroupName 人员库名称
+                     * 获取人员库名称。
+                     * @return GroupName 人员库名称。
+                     * 
                      */
                     std::string GetGroupName() const;
 
                     /**
                      * 判断参数 GroupName 是否已赋值
                      * @return GroupName 是否已赋值
+                     * 
                      */
                     bool GroupNameHasBeenSet() const;
 
                     /**
-                     * 获取人员库ID
-                     * @return GroupId 人员库ID
+                     * 获取人员库ID。
+                     * @return GroupId 人员库ID。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取人员库自定义描述字段
-                     * @return GroupExDescriptions 人员库自定义描述字段
+                     * 获取人员库自定义描述字段。
+                     * @return GroupExDescriptions 人员库自定义描述字段。
+                     * 
                      */
                     std::vector<std::string> GetGroupExDescriptions() const;
 
                     /**
                      * 判断参数 GroupExDescriptions 是否已赋值
                      * @return GroupExDescriptions 是否已赋值
+                     * 
                      */
                     bool GroupExDescriptionsHasBeenSet() const;
 
                     /**
-                     * 获取人员库信息备注
-                     * @return Tag 人员库信息备注
+                     * 获取人员库信息备注。
+                     * @return Tag 人员库信息备注。
+                     * 
                      */
                     std::string GetTag() const;
 
                     /**
                      * 判断参数 Tag 是否已赋值
                      * @return Tag 是否已赋值
+                     * 
                      */
                     bool TagHasBeenSet() const;
 
                     /**
                      * 获取人脸识别所用的算法模型版本。
                      * @return FaceModelVersion 人脸识别所用的算法模型版本。
+                     * 
                      */
                     std::string GetFaceModelVersion() const;
 
                     /**
                      * 判断参数 FaceModelVersion 是否已赋值
                      * @return FaceModelVersion 是否已赋值
+                     * 
                      */
                     bool FaceModelVersionHasBeenSet() const;
 
                     /**
-                     * 获取Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
-                     * @return CreationTimestamp Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+                     * 获取Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+                     * @return CreationTimestamp Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+                     * 
                      */
                     uint64_t GetCreationTimestamp() const;
 
                     /**
                      * 判断参数 CreationTimestamp 是否已赋值
                      * @return CreationTimestamp 是否已赋值
+                     * 
                      */
                     bool CreationTimestampHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 人员库名称
+                     * 人员库名称。
                      */
                     std::string m_groupName;
                     bool m_groupNameHasBeenSet;
 
                     /**
-                     * 人员库ID
+                     * 人员库ID。
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * 人员库自定义描述字段
+                     * 人员库自定义描述字段。
                      */
                     std::vector<std::string> m_groupExDescriptions;
                     bool m_groupExDescriptionsHasBeenSet;
 
                     /**
-                     * 人员库信息备注
+                     * 人员库信息备注。
                      */
                     std::string m_tag;
                     bool m_tagHasBeenSet;
@@ -148,7 +160,7 @@ namespace TencentCloud
                     bool m_faceModelVersionHasBeenSet;
 
                     /**
-                     * Group的创建时间和日期 CreationTimestamp。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
+                     * Group的创建时间和日期。CreationTimestamp 的值是自 Unix 纪元时间到Group创建时间的毫秒数。
                      */
                     uint64_t m_creationTimestamp;
                     bool m_creationTimestampHasBeenSet;

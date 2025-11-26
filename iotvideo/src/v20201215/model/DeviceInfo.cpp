@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ DeviceInfo::DeviceInfo() :
     m_loginTimeHasBeenSet(false),
     m_devicePskHasBeenSet(false),
     m_enableStateHasBeenSet(false),
-    m_expireTimeHasBeenSet(false)
+    m_expireTimeHasBeenSet(false),
+    m_logLevelHasBeenSet(false)
 {
 }
 
@@ -95,6 +96,16 @@ CoreInternalOutcome DeviceInfo::Deserialize(const rapidjson::Value &value)
         m_expireTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("LogLevel") && !value["LogLevel"].IsNull())
+    {
+        if (!value["LogLevel"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DeviceInfo.LogLevel` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_logLevel = value["LogLevel"].GetUint64();
+        m_logLevelHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -148,6 +159,14 @@ void DeviceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "ExpireTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_expireTime, allocator);
+    }
+
+    if (m_logLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LogLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_logLevel, allocator);
     }
 
 }
@@ -247,5 +266,21 @@ void DeviceInfo::SetExpireTime(const uint64_t& _expireTime)
 bool DeviceInfo::ExpireTimeHasBeenSet() const
 {
     return m_expireTimeHasBeenSet;
+}
+
+uint64_t DeviceInfo::GetLogLevel() const
+{
+    return m_logLevel;
+}
+
+void DeviceInfo::SetLogLevel(const uint64_t& _logLevel)
+{
+    m_logLevel = _logLevel;
+    m_logLevelHasBeenSet = true;
+}
+
+bool DeviceInfo::LogLevelHasBeenSet() const
+{
+    return m_logLevelHasBeenSet;
 }
 

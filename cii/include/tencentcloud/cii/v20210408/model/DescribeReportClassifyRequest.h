@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@ Underwrite 结构化+核保
                      * @return ServiceType 服务类型
 Structured 仅结构化
 Underwrite 结构化+核保
+                     * 
                      */
                     std::string GetServiceType() const;
 
@@ -56,33 +57,38 @@ Underwrite 结构化+核保
                      * 设置服务类型
 Structured 仅结构化
 Underwrite 结构化+核保
-                     * @param ServiceType 服务类型
+                     * @param _serviceType 服务类型
 Structured 仅结构化
 Underwrite 结构化+核保
+                     * 
                      */
                     void SetServiceType(const std::string& _serviceType);
 
                     /**
                      * 判断参数 ServiceType 是否已赋值
                      * @return ServiceType 是否已赋值
+                     * 
                      */
                     bool ServiceTypeHasBeenSet() const;
 
                     /**
                      * 获取文件地址数组
                      * @return FileList 文件地址数组
+                     * 
                      */
                     std::vector<std::string> GetFileList() const;
 
                     /**
                      * 设置文件地址数组
-                     * @param FileList 文件地址数组
+                     * @param _fileList 文件地址数组
+                     * 
                      */
                     void SetFileList(const std::vector<std::string>& _fileList);
 
                     /**
                      * 判断参数 FileList 是否已赋值
                      * @return FileList 是否已赋值
+                     * 
                      */
                     bool FileListHasBeenSet() const;
 

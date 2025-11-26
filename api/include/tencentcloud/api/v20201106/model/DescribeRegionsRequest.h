@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取待查询产品的名称，例如cvm
-                     * @return Product 待查询产品的名称，例如cvm
+                     * 获取待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
+                     * @return Product 待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
+                     * 
                      */
                     std::string GetProduct() const;
 
                     /**
-                     * 设置待查询产品的名称，例如cvm
-                     * @param Product 待查询产品的名称，例如cvm
+                     * 设置待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
+                     * @param _product 待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
+                     * 
                      */
                     void SetProduct(const std::string& _product);
 
                     /**
                      * 判断参数 Product 是否已赋值
                      * @return Product 是否已赋值
+                     * 
                      */
                     bool ProductHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 待查询产品的名称，例如cvm
+                     * 待查询产品的名称，例如cvm，具体取值请查询DescribeProducts接口
                      */
                     std::string m_product;
                     bool m_productHasBeenSet;

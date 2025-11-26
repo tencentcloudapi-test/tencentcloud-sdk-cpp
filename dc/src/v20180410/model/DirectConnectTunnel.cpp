@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,10 @@ DirectConnectTunnel::DirectConnectTunnel() :
     m_vpcNameHasBeenSet(false),
     m_tencentBackupAddressHasBeenSet(false),
     m_signLawHasBeenSet(false),
-    m_cloudAttachIdHasBeenSet(false)
+    m_cloudAttachIdHasBeenSet(false),
+    m_shareOrNotHasBeenSet(false),
+    m_accessPointNameHasBeenSet(false),
+    m_accessPointIdHasBeenSet(false)
 {
 }
 
@@ -386,6 +389,36 @@ CoreInternalOutcome DirectConnectTunnel::Deserialize(const rapidjson::Value &val
         m_cloudAttachIdHasBeenSet = true;
     }
 
+    if (value.HasMember("ShareOrNot") && !value["ShareOrNot"].IsNull())
+    {
+        if (!value["ShareOrNot"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DirectConnectTunnel.ShareOrNot` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_shareOrNot = value["ShareOrNot"].GetUint64();
+        m_shareOrNotHasBeenSet = true;
+    }
+
+    if (value.HasMember("AccessPointName") && !value["AccessPointName"].IsNull())
+    {
+        if (!value["AccessPointName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DirectConnectTunnel.AccessPointName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_accessPointName = string(value["AccessPointName"].GetString());
+        m_accessPointNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("AccessPointId") && !value["AccessPointId"].IsNull())
+    {
+        if (!value["AccessPointId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DirectConnectTunnel.AccessPointId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_accessPointId = string(value["AccessPointId"].GetString());
+        m_accessPointIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -646,6 +679,30 @@ void DirectConnectTunnel::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "CloudAttachId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_cloudAttachId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_shareOrNotHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ShareOrNot";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_shareOrNot, allocator);
+    }
+
+    if (m_accessPointNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccessPointName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_accessPointName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_accessPointIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccessPointId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_accessPointId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1129,5 +1186,53 @@ void DirectConnectTunnel::SetCloudAttachId(const string& _cloudAttachId)
 bool DirectConnectTunnel::CloudAttachIdHasBeenSet() const
 {
     return m_cloudAttachIdHasBeenSet;
+}
+
+uint64_t DirectConnectTunnel::GetShareOrNot() const
+{
+    return m_shareOrNot;
+}
+
+void DirectConnectTunnel::SetShareOrNot(const uint64_t& _shareOrNot)
+{
+    m_shareOrNot = _shareOrNot;
+    m_shareOrNotHasBeenSet = true;
+}
+
+bool DirectConnectTunnel::ShareOrNotHasBeenSet() const
+{
+    return m_shareOrNotHasBeenSet;
+}
+
+string DirectConnectTunnel::GetAccessPointName() const
+{
+    return m_accessPointName;
+}
+
+void DirectConnectTunnel::SetAccessPointName(const string& _accessPointName)
+{
+    m_accessPointName = _accessPointName;
+    m_accessPointNameHasBeenSet = true;
+}
+
+bool DirectConnectTunnel::AccessPointNameHasBeenSet() const
+{
+    return m_accessPointNameHasBeenSet;
+}
+
+string DirectConnectTunnel::GetAccessPointId() const
+{
+    return m_accessPointId;
+}
+
+void DirectConnectTunnel::SetAccessPointId(const string& _accessPointId)
+{
+    m_accessPointId = _accessPointId;
+    m_accessPointIdHasBeenSet = true;
+}
+
+bool DirectConnectTunnel::AccessPointIdHasBeenSet() const
+{
+    return m_accessPointIdHasBeenSet;
 }
 

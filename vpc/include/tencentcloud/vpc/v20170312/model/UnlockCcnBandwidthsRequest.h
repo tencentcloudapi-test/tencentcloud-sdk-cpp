@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/vpc/v20170312/model/CcnFlowLock.h>
 
 
 namespace TencentCloud
@@ -42,7 +43,34 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取带宽实例对象数组。
+                     * @return Instances 带宽实例对象数组。
+                     * 
+                     */
+                    std::vector<CcnFlowLock> GetInstances() const;
+
+                    /**
+                     * 设置带宽实例对象数组。
+                     * @param _instances 带宽实例对象数组。
+                     * 
+                     */
+                    void SetInstances(const std::vector<CcnFlowLock>& _instances);
+
+                    /**
+                     * 判断参数 Instances 是否已赋值
+                     * @return Instances 是否已赋值
+                     * 
+                     */
+                    bool InstancesHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 带宽实例对象数组。
+                     */
+                    std::vector<CcnFlowLock> m_instances;
+                    bool m_instancesHasBeenSet;
 
                 };
             }

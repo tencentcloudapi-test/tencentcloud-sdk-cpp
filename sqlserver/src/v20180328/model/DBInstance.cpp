@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,24 @@ DBInstance::DBInstance() :
     m_rOFlagHasBeenSet(false),
     m_hAFlagHasBeenSet(false),
     m_resourceTagsHasBeenSet(false),
-    m_backupModelHasBeenSet(false)
+    m_backupModelHasBeenSet(false),
+    m_instanceNoteHasBeenSet(false),
+    m_backupCycleHasBeenSet(false),
+    m_backupCycleTypeHasBeenSet(false),
+    m_backupSaveDaysHasBeenSet(false),
+    m_instanceTypeHasBeenSet(false),
+    m_crossRegionsHasBeenSet(false),
+    m_crossBackupEnabledHasBeenSet(false),
+    m_crossBackupSaveDaysHasBeenSet(false),
+    m_dnsPodDomainHasBeenSet(false),
+    m_tgwWanVPortHasBeenSet(false),
+    m_collationHasBeenSet(false),
+    m_timeZoneHasBeenSet(false),
+    m_isDrZoneHasBeenSet(false),
+    m_slaveZonesHasBeenSet(false),
+    m_architectureHasBeenSet(false),
+    m_styleHasBeenSet(false),
+    m_multiSlaveZonesHasBeenSet(false)
 {
 }
 
@@ -457,6 +474,199 @@ CoreInternalOutcome DBInstance::Deserialize(const rapidjson::Value &value)
         m_backupModelHasBeenSet = true;
     }
 
+    if (value.HasMember("InstanceNote") && !value["InstanceNote"].IsNull())
+    {
+        if (!value["InstanceNote"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.InstanceNote` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceNote = string(value["InstanceNote"].GetString());
+        m_instanceNoteHasBeenSet = true;
+    }
+
+    if (value.HasMember("BackupCycle") && !value["BackupCycle"].IsNull())
+    {
+        if (!value["BackupCycle"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DBInstance.BackupCycle` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["BackupCycle"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_backupCycle.push_back((*itr).GetInt64());
+        }
+        m_backupCycleHasBeenSet = true;
+    }
+
+    if (value.HasMember("BackupCycleType") && !value["BackupCycleType"].IsNull())
+    {
+        if (!value["BackupCycleType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.BackupCycleType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_backupCycleType = string(value["BackupCycleType"].GetString());
+        m_backupCycleTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("BackupSaveDays") && !value["BackupSaveDays"].IsNull())
+    {
+        if (!value["BackupSaveDays"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.BackupSaveDays` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_backupSaveDays = value["BackupSaveDays"].GetInt64();
+        m_backupSaveDaysHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceType") && !value["InstanceType"].IsNull())
+    {
+        if (!value["InstanceType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.InstanceType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceType = string(value["InstanceType"].GetString());
+        m_instanceTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CrossRegions") && !value["CrossRegions"].IsNull())
+    {
+        if (!value["CrossRegions"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DBInstance.CrossRegions` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CrossRegions"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_crossRegions.push_back((*itr).GetString());
+        }
+        m_crossRegionsHasBeenSet = true;
+    }
+
+    if (value.HasMember("CrossBackupEnabled") && !value["CrossBackupEnabled"].IsNull())
+    {
+        if (!value["CrossBackupEnabled"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.CrossBackupEnabled` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_crossBackupEnabled = string(value["CrossBackupEnabled"].GetString());
+        m_crossBackupEnabledHasBeenSet = true;
+    }
+
+    if (value.HasMember("CrossBackupSaveDays") && !value["CrossBackupSaveDays"].IsNull())
+    {
+        if (!value["CrossBackupSaveDays"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.CrossBackupSaveDays` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_crossBackupSaveDays = value["CrossBackupSaveDays"].GetUint64();
+        m_crossBackupSaveDaysHasBeenSet = true;
+    }
+
+    if (value.HasMember("DnsPodDomain") && !value["DnsPodDomain"].IsNull())
+    {
+        if (!value["DnsPodDomain"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DnsPodDomain` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dnsPodDomain = string(value["DnsPodDomain"].GetString());
+        m_dnsPodDomainHasBeenSet = true;
+    }
+
+    if (value.HasMember("TgwWanVPort") && !value["TgwWanVPort"].IsNull())
+    {
+        if (!value["TgwWanVPort"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.TgwWanVPort` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_tgwWanVPort = value["TgwWanVPort"].GetInt64();
+        m_tgwWanVPortHasBeenSet = true;
+    }
+
+    if (value.HasMember("Collation") && !value["Collation"].IsNull())
+    {
+        if (!value["Collation"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.Collation` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_collation = string(value["Collation"].GetString());
+        m_collationHasBeenSet = true;
+    }
+
+    if (value.HasMember("TimeZone") && !value["TimeZone"].IsNull())
+    {
+        if (!value["TimeZone"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.TimeZone` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_timeZone = string(value["TimeZone"].GetString());
+        m_timeZoneHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsDrZone") && !value["IsDrZone"].IsNull())
+    {
+        if (!value["IsDrZone"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.IsDrZone` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isDrZone = value["IsDrZone"].GetBool();
+        m_isDrZoneHasBeenSet = true;
+    }
+
+    if (value.HasMember("SlaveZones") && !value["SlaveZones"].IsNull())
+    {
+        if (!value["SlaveZones"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.SlaveZones` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_slaveZones.Deserialize(value["SlaveZones"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_slaveZonesHasBeenSet = true;
+    }
+
+    if (value.HasMember("Architecture") && !value["Architecture"].IsNull())
+    {
+        if (!value["Architecture"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.Architecture` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_architecture = string(value["Architecture"].GetString());
+        m_architectureHasBeenSet = true;
+    }
+
+    if (value.HasMember("Style") && !value["Style"].IsNull())
+    {
+        if (!value["Style"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.Style` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_style = string(value["Style"].GetString());
+        m_styleHasBeenSet = true;
+    }
+
+    if (value.HasMember("MultiSlaveZones") && !value["MultiSlaveZones"].IsNull())
+    {
+        if (!value["MultiSlaveZones"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DBInstance.MultiSlaveZones` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["MultiSlaveZones"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            SlaveZones item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_multiSlaveZones.push_back(item);
+        }
+        m_multiSlaveZonesHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -773,6 +983,160 @@ void DBInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "BackupModel";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_backupModel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceNoteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceNote";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceNote.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backupCycleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupCycle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_backupCycle.begin(); itr != m_backupCycle.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_backupCycleTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupCycleType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_backupCycleType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backupSaveDaysHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupSaveDays";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_backupSaveDays, allocator);
+    }
+
+    if (m_instanceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_crossRegionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CrossRegions";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_crossRegions.begin(); itr != m_crossRegions.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_crossBackupEnabledHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CrossBackupEnabled";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_crossBackupEnabled.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_crossBackupSaveDaysHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CrossBackupSaveDays";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_crossBackupSaveDays, allocator);
+    }
+
+    if (m_dnsPodDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DnsPodDomain";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dnsPodDomain.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tgwWanVPortHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TgwWanVPort";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_tgwWanVPort, allocator);
+    }
+
+    if (m_collationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Collation";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_collation.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_timeZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TimeZone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_timeZone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isDrZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsDrZone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isDrZone, allocator);
+    }
+
+    if (m_slaveZonesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SlaveZones";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_slaveZones.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_architectureHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Architecture";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_architecture.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_styleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Style";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_style.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_multiSlaveZonesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MultiSlaveZones";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_multiSlaveZones.begin(); itr != m_multiSlaveZones.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -1384,5 +1748,277 @@ void DBInstance::SetBackupModel(const string& _backupModel)
 bool DBInstance::BackupModelHasBeenSet() const
 {
     return m_backupModelHasBeenSet;
+}
+
+string DBInstance::GetInstanceNote() const
+{
+    return m_instanceNote;
+}
+
+void DBInstance::SetInstanceNote(const string& _instanceNote)
+{
+    m_instanceNote = _instanceNote;
+    m_instanceNoteHasBeenSet = true;
+}
+
+bool DBInstance::InstanceNoteHasBeenSet() const
+{
+    return m_instanceNoteHasBeenSet;
+}
+
+vector<int64_t> DBInstance::GetBackupCycle() const
+{
+    return m_backupCycle;
+}
+
+void DBInstance::SetBackupCycle(const vector<int64_t>& _backupCycle)
+{
+    m_backupCycle = _backupCycle;
+    m_backupCycleHasBeenSet = true;
+}
+
+bool DBInstance::BackupCycleHasBeenSet() const
+{
+    return m_backupCycleHasBeenSet;
+}
+
+string DBInstance::GetBackupCycleType() const
+{
+    return m_backupCycleType;
+}
+
+void DBInstance::SetBackupCycleType(const string& _backupCycleType)
+{
+    m_backupCycleType = _backupCycleType;
+    m_backupCycleTypeHasBeenSet = true;
+}
+
+bool DBInstance::BackupCycleTypeHasBeenSet() const
+{
+    return m_backupCycleTypeHasBeenSet;
+}
+
+int64_t DBInstance::GetBackupSaveDays() const
+{
+    return m_backupSaveDays;
+}
+
+void DBInstance::SetBackupSaveDays(const int64_t& _backupSaveDays)
+{
+    m_backupSaveDays = _backupSaveDays;
+    m_backupSaveDaysHasBeenSet = true;
+}
+
+bool DBInstance::BackupSaveDaysHasBeenSet() const
+{
+    return m_backupSaveDaysHasBeenSet;
+}
+
+string DBInstance::GetInstanceType() const
+{
+    return m_instanceType;
+}
+
+void DBInstance::SetInstanceType(const string& _instanceType)
+{
+    m_instanceType = _instanceType;
+    m_instanceTypeHasBeenSet = true;
+}
+
+bool DBInstance::InstanceTypeHasBeenSet() const
+{
+    return m_instanceTypeHasBeenSet;
+}
+
+vector<string> DBInstance::GetCrossRegions() const
+{
+    return m_crossRegions;
+}
+
+void DBInstance::SetCrossRegions(const vector<string>& _crossRegions)
+{
+    m_crossRegions = _crossRegions;
+    m_crossRegionsHasBeenSet = true;
+}
+
+bool DBInstance::CrossRegionsHasBeenSet() const
+{
+    return m_crossRegionsHasBeenSet;
+}
+
+string DBInstance::GetCrossBackupEnabled() const
+{
+    return m_crossBackupEnabled;
+}
+
+void DBInstance::SetCrossBackupEnabled(const string& _crossBackupEnabled)
+{
+    m_crossBackupEnabled = _crossBackupEnabled;
+    m_crossBackupEnabledHasBeenSet = true;
+}
+
+bool DBInstance::CrossBackupEnabledHasBeenSet() const
+{
+    return m_crossBackupEnabledHasBeenSet;
+}
+
+uint64_t DBInstance::GetCrossBackupSaveDays() const
+{
+    return m_crossBackupSaveDays;
+}
+
+void DBInstance::SetCrossBackupSaveDays(const uint64_t& _crossBackupSaveDays)
+{
+    m_crossBackupSaveDays = _crossBackupSaveDays;
+    m_crossBackupSaveDaysHasBeenSet = true;
+}
+
+bool DBInstance::CrossBackupSaveDaysHasBeenSet() const
+{
+    return m_crossBackupSaveDaysHasBeenSet;
+}
+
+string DBInstance::GetDnsPodDomain() const
+{
+    return m_dnsPodDomain;
+}
+
+void DBInstance::SetDnsPodDomain(const string& _dnsPodDomain)
+{
+    m_dnsPodDomain = _dnsPodDomain;
+    m_dnsPodDomainHasBeenSet = true;
+}
+
+bool DBInstance::DnsPodDomainHasBeenSet() const
+{
+    return m_dnsPodDomainHasBeenSet;
+}
+
+int64_t DBInstance::GetTgwWanVPort() const
+{
+    return m_tgwWanVPort;
+}
+
+void DBInstance::SetTgwWanVPort(const int64_t& _tgwWanVPort)
+{
+    m_tgwWanVPort = _tgwWanVPort;
+    m_tgwWanVPortHasBeenSet = true;
+}
+
+bool DBInstance::TgwWanVPortHasBeenSet() const
+{
+    return m_tgwWanVPortHasBeenSet;
+}
+
+string DBInstance::GetCollation() const
+{
+    return m_collation;
+}
+
+void DBInstance::SetCollation(const string& _collation)
+{
+    m_collation = _collation;
+    m_collationHasBeenSet = true;
+}
+
+bool DBInstance::CollationHasBeenSet() const
+{
+    return m_collationHasBeenSet;
+}
+
+string DBInstance::GetTimeZone() const
+{
+    return m_timeZone;
+}
+
+void DBInstance::SetTimeZone(const string& _timeZone)
+{
+    m_timeZone = _timeZone;
+    m_timeZoneHasBeenSet = true;
+}
+
+bool DBInstance::TimeZoneHasBeenSet() const
+{
+    return m_timeZoneHasBeenSet;
+}
+
+bool DBInstance::GetIsDrZone() const
+{
+    return m_isDrZone;
+}
+
+void DBInstance::SetIsDrZone(const bool& _isDrZone)
+{
+    m_isDrZone = _isDrZone;
+    m_isDrZoneHasBeenSet = true;
+}
+
+bool DBInstance::IsDrZoneHasBeenSet() const
+{
+    return m_isDrZoneHasBeenSet;
+}
+
+SlaveZones DBInstance::GetSlaveZones() const
+{
+    return m_slaveZones;
+}
+
+void DBInstance::SetSlaveZones(const SlaveZones& _slaveZones)
+{
+    m_slaveZones = _slaveZones;
+    m_slaveZonesHasBeenSet = true;
+}
+
+bool DBInstance::SlaveZonesHasBeenSet() const
+{
+    return m_slaveZonesHasBeenSet;
+}
+
+string DBInstance::GetArchitecture() const
+{
+    return m_architecture;
+}
+
+void DBInstance::SetArchitecture(const string& _architecture)
+{
+    m_architecture = _architecture;
+    m_architectureHasBeenSet = true;
+}
+
+bool DBInstance::ArchitectureHasBeenSet() const
+{
+    return m_architectureHasBeenSet;
+}
+
+string DBInstance::GetStyle() const
+{
+    return m_style;
+}
+
+void DBInstance::SetStyle(const string& _style)
+{
+    m_style = _style;
+    m_styleHasBeenSet = true;
+}
+
+bool DBInstance::StyleHasBeenSet() const
+{
+    return m_styleHasBeenSet;
+}
+
+vector<SlaveZones> DBInstance::GetMultiSlaveZones() const
+{
+    return m_multiSlaveZones;
+}
+
+void DBInstance::SetMultiSlaveZones(const vector<SlaveZones>& _multiSlaveZones)
+{
+    m_multiSlaveZones = _multiSlaveZones;
+    m_multiSlaveZonesHasBeenSet = true;
+}
+
+bool DBInstance::MultiSlaveZonesHasBeenSet() const
+{
+    return m_multiSlaveZonesHasBeenSet;
 }
 

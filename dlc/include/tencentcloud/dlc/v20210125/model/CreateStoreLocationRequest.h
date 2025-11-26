@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取计算结果存储cos路径，如：cosn://bucketname/
                      * @return StoreLocation 计算结果存储cos路径，如：cosn://bucketname/
+                     * 
                      */
                     std::string GetStoreLocation() const;
 
                     /**
                      * 设置计算结果存储cos路径，如：cosn://bucketname/
-                     * @param StoreLocation 计算结果存储cos路径，如：cosn://bucketname/
+                     * @param _storeLocation 计算结果存储cos路径，如：cosn://bucketname/
+                     * 
                      */
                     void SetStoreLocation(const std::string& _storeLocation);
 
                     /**
                      * 判断参数 StoreLocation 是否已赋值
                      * @return StoreLocation 是否已赋值
+                     * 
                      */
                     bool StoreLocationHasBeenSet() const;
 

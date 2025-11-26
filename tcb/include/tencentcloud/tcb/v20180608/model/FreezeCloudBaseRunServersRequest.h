@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取环境ID
                      * @return EnvId 环境ID
+                     * 
                      */
                     std::string GetEnvId() const;
 
                     /**
                      * 设置环境ID
-                     * @param EnvId 环境ID
+                     * @param _envId 环境ID
+                     * 
                      */
                     void SetEnvId(const std::string& _envId);
 
                     /**
                      * 判断参数 EnvId 是否已赋值
                      * @return EnvId 是否已赋值
+                     * 
                      */
                     bool EnvIdHasBeenSet() const;
 
                     /**
                      * 获取服务名列表
                      * @return ServerNameList 服务名列表
+                     * 
                      */
                     std::vector<std::string> GetServerNameList() const;
 
                     /**
                      * 设置服务名列表
-                     * @param ServerNameList 服务名列表
+                     * @param _serverNameList 服务名列表
+                     * 
                      */
                     void SetServerNameList(const std::vector<std::string>& _serverNameList);
 
                     /**
                      * 判断参数 ServerNameList 是否已赋值
                      * @return ServerNameList 是否已赋值
+                     * 
                      */
                     bool ServerNameListHasBeenSet() const;
 

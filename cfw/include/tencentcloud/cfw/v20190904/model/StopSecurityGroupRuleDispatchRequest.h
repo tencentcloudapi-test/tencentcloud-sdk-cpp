@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取值为1，中止全部
                      * @return StopType 值为1，中止全部
+                     * 
                      */
                     int64_t GetStopType() const;
 
                     /**
                      * 设置值为1，中止全部
-                     * @param StopType 值为1，中止全部
+                     * @param _stopType 值为1，中止全部
+                     * 
                      */
                     void SetStopType(const int64_t& _stopType);
 
                     /**
                      * 判断参数 StopType 是否已赋值
                      * @return StopType 是否已赋值
+                     * 
                      */
                     bool StopTypeHasBeenSet() const;
 

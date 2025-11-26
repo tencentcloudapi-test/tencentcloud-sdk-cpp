@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 ModifyBackupStrategyResponse::ModifyBackupStrategyResponse() :
     m_errnoHasBeenSet(false),
-    m_msgHasBeenSet(false)
+    m_msgHasBeenSet(false),
+    m_codeHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome ModifyBackupStrategyResponse::Deserialize(const string &payl
         m_msgHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Code") && !rsp["Code"].IsNull())
+    {
+        if (!rsp["Code"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Code` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_code = rsp["Code"].GetInt64();
+        m_codeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string ModifyBackupStrategyResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_msg.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_codeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Code";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_code, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ string ModifyBackupStrategyResponse::GetMsg() const
 bool ModifyBackupStrategyResponse::MsgHasBeenSet() const
 {
     return m_msgHasBeenSet;
+}
+
+int64_t ModifyBackupStrategyResponse::GetCode() const
+{
+    return m_code;
+}
+
+bool ModifyBackupStrategyResponse::CodeHasBeenSet() const
+{
+    return m_codeHasBeenSet;
 }
 
 

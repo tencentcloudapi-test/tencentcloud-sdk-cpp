@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,69 @@ namespace TencentCloud
                     /**
                      * 获取应用ID，登录控制台 - 服务管理创建应用得到的AppID
                      * @return BizId 应用ID，登录控制台 - 服务管理创建应用得到的AppID
+                     * 
                      */
                     uint64_t GetBizId() const;
 
                     /**
                      * 设置应用ID，登录控制台 - 服务管理创建应用得到的AppID
-                     * @param BizId 应用ID，登录控制台 - 服务管理创建应用得到的AppID
+                     * @param _bizId 应用ID，登录控制台 - 服务管理创建应用得到的AppID
+                     * 
                      */
                     void SetBizId(const uint64_t& _bizId);
 
                     /**
                      * 判断参数 BizId 是否已赋值
                      * @return BizId 是否已赋值
+                     * 
                      */
                     bool BizIdHasBeenSet() const;
 
                     /**
                      * 获取需要删除送检的用户号。示例：1234
+(若UserId不填，则UserIdString必填；两者选其一；两者都填以UserIdString为准)
                      * @return UserId 需要删除送检的用户号。示例：1234
+(若UserId不填，则UserIdString必填；两者选其一；两者都填以UserIdString为准)
+                     * 
                      */
                     uint64_t GetUserId() const;
 
                     /**
                      * 设置需要删除送检的用户号。示例：1234
-                     * @param UserId 需要删除送检的用户号。示例：1234
+(若UserId不填，则UserIdString必填；两者选其一；两者都填以UserIdString为准)
+                     * @param _userId 需要删除送检的用户号。示例：1234
+(若UserId不填，则UserIdString必填；两者选其一；两者都填以UserIdString为准)
+                     * 
                      */
                     void SetUserId(const uint64_t& _userId);
 
                     /**
                      * 判断参数 UserId 是否已赋值
                      * @return UserId 是否已赋值
+                     * 
                      */
                     bool UserIdHasBeenSet() const;
+
+                    /**
+                     * 获取需要删除送检的用户号，长度不超过1024字符。示例："1234"(若UserIdString不填，则UserId必填；两者选其一；两者都填以UserIdString为准)
+                     * @return UserIdString 需要删除送检的用户号，长度不超过1024字符。示例："1234"(若UserIdString不填，则UserId必填；两者选其一；两者都填以UserIdString为准)
+                     * 
+                     */
+                    std::string GetUserIdString() const;
+
+                    /**
+                     * 设置需要删除送检的用户号，长度不超过1024字符。示例："1234"(若UserIdString不填，则UserId必填；两者选其一；两者都填以UserIdString为准)
+                     * @param _userIdString 需要删除送检的用户号，长度不超过1024字符。示例："1234"(若UserIdString不填，则UserId必填；两者选其一；两者都填以UserIdString为准)
+                     * 
+                     */
+                    void SetUserIdString(const std::string& _userIdString);
+
+                    /**
+                     * 判断参数 UserIdString 是否已赋值
+                     * @return UserIdString 是否已赋值
+                     * 
+                     */
+                    bool UserIdStringHasBeenSet() const;
 
                 private:
 
@@ -88,9 +119,16 @@ namespace TencentCloud
 
                     /**
                      * 需要删除送检的用户号。示例：1234
+(若UserId不填，则UserIdString必填；两者选其一；两者都填以UserIdString为准)
                      */
                     uint64_t m_userId;
                     bool m_userIdHasBeenSet;
+
+                    /**
+                     * 需要删除送检的用户号，长度不超过1024字符。示例："1234"(若UserIdString不填，则UserId必填；两者选其一；两者都填以UserIdString为准)
+                     */
+                    std::string m_userIdString;
+                    bool m_userIdStringHasBeenSet;
 
                 };
             }

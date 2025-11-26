@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,38 +46,58 @@ namespace TencentCloud
                     /**
                      * 获取基础版数量
                      * @return BasicVersionNum 基础版数量
+                     * 
                      */
                     uint64_t GetBasicVersionNum() const;
 
                     /**
                      * 判断参数 BasicVersionNum 是否已赋值
                      * @return BasicVersionNum 是否已赋值
+                     * 
                      */
                     bool BasicVersionNumHasBeenSet() const;
 
                     /**
                      * 获取专业版数量
                      * @return ProVersionNum 专业版数量
+                     * 
                      */
                     uint64_t GetProVersionNum() const;
 
                     /**
                      * 判断参数 ProVersionNum 是否已赋值
                      * @return ProVersionNum 是否已赋值
+                     * 
                      */
                     bool ProVersionNumHasBeenSet() const;
 
                     /**
                      * 获取旗舰版数量
                      * @return UltimateVersionNum 旗舰版数量
+                     * 
                      */
                     uint64_t GetUltimateVersionNum() const;
 
                     /**
                      * 判断参数 UltimateVersionNum 是否已赋值
                      * @return UltimateVersionNum 是否已赋值
+                     * 
                      */
                     bool UltimateVersionNumHasBeenSet() const;
+
+                    /**
+                     * 获取轻量版数量
+                     * @return GeneralVersionNum 轻量版数量
+                     * 
+                     */
+                    uint64_t GetGeneralVersionNum() const;
+
+                    /**
+                     * 判断参数 GeneralVersionNum 是否已赋值
+                     * @return GeneralVersionNum 是否已赋值
+                     * 
+                     */
+                    bool GeneralVersionNumHasBeenSet() const;
 
                 private:
 
@@ -98,6 +118,12 @@ namespace TencentCloud
                      */
                     uint64_t m_ultimateVersionNum;
                     bool m_ultimateVersionNumHasBeenSet;
+
+                    /**
+                     * 轻量版数量
+                     */
+                    uint64_t m_generalVersionNum;
+                    bool m_generalVersionNumHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,11 @@ AssetWebFrameBaseInfo::AssetWebFrameBaseInfo() :
     m_langHasBeenSet(false),
     m_serviceTypeHasBeenSet(false),
     m_machineNameHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false),
+    m_firstTimeHasBeenSet(false),
+    m_isNewHasBeenSet(false),
+    m_machineExtraInfoHasBeenSet(false),
+    m_pathHasBeenSet(false)
 {
 }
 
@@ -182,6 +186,53 @@ CoreInternalOutcome AssetWebFrameBaseInfo::Deserialize(const rapidjson::Value &v
         m_updateTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("FirstTime") && !value["FirstTime"].IsNull())
+    {
+        if (!value["FirstTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetWebFrameBaseInfo.FirstTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_firstTime = string(value["FirstTime"].GetString());
+        m_firstTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsNew") && !value["IsNew"].IsNull())
+    {
+        if (!value["IsNew"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetWebFrameBaseInfo.IsNew` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isNew = value["IsNew"].GetInt64();
+        m_isNewHasBeenSet = true;
+    }
+
+    if (value.HasMember("MachineExtraInfo") && !value["MachineExtraInfo"].IsNull())
+    {
+        if (!value["MachineExtraInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetWebFrameBaseInfo.MachineExtraInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_machineExtraInfo.Deserialize(value["MachineExtraInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_machineExtraInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("Path") && !value["Path"].IsNull())
+    {
+        if (!value["Path"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetWebFrameBaseInfo.Path` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_path = string(value["Path"].GetString());
+        m_pathHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -298,6 +349,39 @@ void AssetWebFrameBaseInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Doc
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_firstTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FirstTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_firstTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isNewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsNew";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isNew, allocator);
+    }
+
+    if (m_machineExtraInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MachineExtraInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_machineExtraInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_pathHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Path";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_path.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -509,5 +593,69 @@ void AssetWebFrameBaseInfo::SetUpdateTime(const string& _updateTime)
 bool AssetWebFrameBaseInfo::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
+}
+
+string AssetWebFrameBaseInfo::GetFirstTime() const
+{
+    return m_firstTime;
+}
+
+void AssetWebFrameBaseInfo::SetFirstTime(const string& _firstTime)
+{
+    m_firstTime = _firstTime;
+    m_firstTimeHasBeenSet = true;
+}
+
+bool AssetWebFrameBaseInfo::FirstTimeHasBeenSet() const
+{
+    return m_firstTimeHasBeenSet;
+}
+
+int64_t AssetWebFrameBaseInfo::GetIsNew() const
+{
+    return m_isNew;
+}
+
+void AssetWebFrameBaseInfo::SetIsNew(const int64_t& _isNew)
+{
+    m_isNew = _isNew;
+    m_isNewHasBeenSet = true;
+}
+
+bool AssetWebFrameBaseInfo::IsNewHasBeenSet() const
+{
+    return m_isNewHasBeenSet;
+}
+
+MachineExtraInfo AssetWebFrameBaseInfo::GetMachineExtraInfo() const
+{
+    return m_machineExtraInfo;
+}
+
+void AssetWebFrameBaseInfo::SetMachineExtraInfo(const MachineExtraInfo& _machineExtraInfo)
+{
+    m_machineExtraInfo = _machineExtraInfo;
+    m_machineExtraInfoHasBeenSet = true;
+}
+
+bool AssetWebFrameBaseInfo::MachineExtraInfoHasBeenSet() const
+{
+    return m_machineExtraInfoHasBeenSet;
+}
+
+string AssetWebFrameBaseInfo::GetPath() const
+{
+    return m_path;
+}
+
+void AssetWebFrameBaseInfo::SetPath(const string& _path)
+{
+    m_path = _path;
+    m_pathHasBeenSet = true;
+}
+
+bool AssetWebFrameBaseInfo::PathHasBeenSet() const
+{
+    return m_pathHasBeenSet;
 }
 

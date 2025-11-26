@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取验证成功的根域名数量。
                      * @return SuccessNumber 验证成功的根域名数量。
+                     * 
                      */
                     uint64_t GetSuccessNumber() const;
 
                     /**
                      * 判断参数 SuccessNumber 是否已赋值
                      * @return SuccessNumber 是否已赋值
+                     * 
                      */
                     bool SuccessNumberHasBeenSet() const;
 
                     /**
                      * 获取验证失败的根域名数量。
                      * @return FailNumber 验证失败的根域名数量。
+                     * 
                      */
                     uint64_t GetFailNumber() const;
 
                     /**
                      * 判断参数 FailNumber 是否已赋值
                      * @return FailNumber 是否已赋值
+                     * 
                      */
                     bool FailNumberHasBeenSet() const;
 

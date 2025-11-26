@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,10 +30,17 @@ AllocateAddressesRequest::AllocateAddressesRequest() :
     m_addressChargePrepaidHasBeenSet(false),
     m_addressTypeHasBeenSet(false),
     m_anycastZoneHasBeenSet(false),
+    m_vipClusterHasBeenSet(false),
     m_applicableForCLBHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_bandwidthPackageIdHasBeenSet(false),
-    m_addressNameHasBeenSet(false)
+    m_addressNameHasBeenSet(false),
+    m_dedicatedClusterIdHasBeenSet(false),
+    m_isDedicatedAddressPoolHasBeenSet(false),
+    m_egressHasBeenSet(false),
+    m_antiDDoSPackageIdHasBeenSet(false),
+    m_clientTokenHasBeenSet(false),
+    m_iPChargeTypeHasBeenSet(false)
 {
 }
 
@@ -101,6 +108,19 @@ string AllocateAddressesRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_anycastZone.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_vipClusterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VipCluster";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_vipCluster.begin(); itr != m_vipCluster.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
     if (m_applicableForCLBHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -138,6 +158,54 @@ string AllocateAddressesRequest::ToJsonString() const
         string key = "AddressName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_addressName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isDedicatedAddressPoolHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsDedicatedAddressPool";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isDedicatedAddressPool, allocator);
+    }
+
+    if (m_egressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Egress";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_egress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_antiDDoSPackageIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AntiDDoSPackageId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_antiDDoSPackageId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clientTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iPChargeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPChargeType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_iPChargeType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -260,6 +328,22 @@ bool AllocateAddressesRequest::AnycastZoneHasBeenSet() const
     return m_anycastZoneHasBeenSet;
 }
 
+vector<string> AllocateAddressesRequest::GetVipCluster() const
+{
+    return m_vipCluster;
+}
+
+void AllocateAddressesRequest::SetVipCluster(const vector<string>& _vipCluster)
+{
+    m_vipCluster = _vipCluster;
+    m_vipClusterHasBeenSet = true;
+}
+
+bool AllocateAddressesRequest::VipClusterHasBeenSet() const
+{
+    return m_vipClusterHasBeenSet;
+}
+
 bool AllocateAddressesRequest::GetApplicableForCLB() const
 {
     return m_applicableForCLB;
@@ -322,6 +406,102 @@ void AllocateAddressesRequest::SetAddressName(const string& _addressName)
 bool AllocateAddressesRequest::AddressNameHasBeenSet() const
 {
     return m_addressNameHasBeenSet;
+}
+
+string AllocateAddressesRequest::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void AllocateAddressesRequest::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool AllocateAddressesRequest::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
+}
+
+bool AllocateAddressesRequest::GetIsDedicatedAddressPool() const
+{
+    return m_isDedicatedAddressPool;
+}
+
+void AllocateAddressesRequest::SetIsDedicatedAddressPool(const bool& _isDedicatedAddressPool)
+{
+    m_isDedicatedAddressPool = _isDedicatedAddressPool;
+    m_isDedicatedAddressPoolHasBeenSet = true;
+}
+
+bool AllocateAddressesRequest::IsDedicatedAddressPoolHasBeenSet() const
+{
+    return m_isDedicatedAddressPoolHasBeenSet;
+}
+
+string AllocateAddressesRequest::GetEgress() const
+{
+    return m_egress;
+}
+
+void AllocateAddressesRequest::SetEgress(const string& _egress)
+{
+    m_egress = _egress;
+    m_egressHasBeenSet = true;
+}
+
+bool AllocateAddressesRequest::EgressHasBeenSet() const
+{
+    return m_egressHasBeenSet;
+}
+
+string AllocateAddressesRequest::GetAntiDDoSPackageId() const
+{
+    return m_antiDDoSPackageId;
+}
+
+void AllocateAddressesRequest::SetAntiDDoSPackageId(const string& _antiDDoSPackageId)
+{
+    m_antiDDoSPackageId = _antiDDoSPackageId;
+    m_antiDDoSPackageIdHasBeenSet = true;
+}
+
+bool AllocateAddressesRequest::AntiDDoSPackageIdHasBeenSet() const
+{
+    return m_antiDDoSPackageIdHasBeenSet;
+}
+
+string AllocateAddressesRequest::GetClientToken() const
+{
+    return m_clientToken;
+}
+
+void AllocateAddressesRequest::SetClientToken(const string& _clientToken)
+{
+    m_clientToken = _clientToken;
+    m_clientTokenHasBeenSet = true;
+}
+
+bool AllocateAddressesRequest::ClientTokenHasBeenSet() const
+{
+    return m_clientTokenHasBeenSet;
+}
+
+string AllocateAddressesRequest::GetIPChargeType() const
+{
+    return m_iPChargeType;
+}
+
+void AllocateAddressesRequest::SetIPChargeType(const string& _iPChargeType)
+{
+    m_iPChargeType = _iPChargeType;
+    m_iPChargeTypeHasBeenSet = true;
+}
+
+bool AllocateAddressesRequest::IPChargeTypeHasBeenSet() const
+{
+    return m_iPChargeTypeHasBeenSet;
 }
 
 

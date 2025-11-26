@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,60 +49,86 @@ namespace TencentCloud
                     /**
                      * 获取Vpc Id
                      * @return VpcId Vpc Id
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置Vpc Id
-                     * @param VpcId Vpc Id
+                     * @param _vpcId Vpc Id
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取子网ID
                      * @return SubnetId 子网ID
+                     * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
                      * 设置子网ID
-                     * @param SubnetId 子网ID
+                     * @param _subnetId 子网ID
+                     * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
 
                     /**
                      * 判断参数 SubnetId 是否已赋值
                      * @return SubnetId 是否已赋值
+                     * 
                      */
                     bool SubnetIdHasBeenSet() const;
 
                     /**
                      * 获取内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return IntranetAddress 内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetIntranetAddress() const;
 
                     /**
                      * 设置内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param IntranetAddress 内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _intranetAddress 内网访问地址
+                     * 
                      */
                     void SetIntranetAddress(const std::string& _intranetAddress);
 
                     /**
                      * 判断参数 IntranetAddress 是否已赋值
                      * @return IntranetAddress 是否已赋值
+                     * 
                      */
                     bool IntranetAddressHasBeenSet() const;
+
+                    /**
+                     * 获取负载均衡均衡接入点子网ID
+                     * @return LbSubnetId 负载均衡均衡接入点子网ID
+                     * 
+                     */
+                    std::string GetLbSubnetId() const;
+
+                    /**
+                     * 设置负载均衡均衡接入点子网ID
+                     * @param _lbSubnetId 负载均衡均衡接入点子网ID
+                     * 
+                     */
+                    void SetLbSubnetId(const std::string& _lbSubnetId);
+
+                    /**
+                     * 判断参数 LbSubnetId 是否已赋值
+                     * @return LbSubnetId 是否已赋值
+                     * 
+                     */
+                    bool LbSubnetIdHasBeenSet() const;
 
                 private:
 
@@ -120,10 +146,15 @@ namespace TencentCloud
 
                     /**
                      * 内网访问地址
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_intranetAddress;
                     bool m_intranetAddressHasBeenSet;
+
+                    /**
+                     * 负载均衡均衡接入点子网ID
+                     */
+                    std::string m_lbSubnetId;
+                    bool m_lbSubnetIdHasBeenSet;
 
                 };
             }

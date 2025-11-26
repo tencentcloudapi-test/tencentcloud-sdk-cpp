@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,16 @@ DescribeImageRegistryTimingScanTaskResponse::DescribeImageRegistryTimingScanTask
     m_scanTypeHasBeenSet(false),
     m_allHasBeenSet(false),
     m_imagesHasBeenSet(false),
-    m_idHasBeenSet(false)
+    m_idHasBeenSet(false),
+    m_latestHasBeenSet(false),
+    m_scanEndTimeHasBeenSet(false),
+    m_registryTypeHasBeenSet(false),
+    m_containerRunningHasBeenSet(false),
+    m_scanScopeHasBeenSet(false),
+    m_namespaceHasBeenSet(false),
+    m_excludeImageAssetIdsHasBeenSet(false),
+    m_lastScanTimeHasBeenSet(false),
+    m_scanResultHasBeenSet(false)
 {
 }
 
@@ -154,6 +163,105 @@ CoreInternalOutcome DescribeImageRegistryTimingScanTaskResponse::Deserialize(con
         m_idHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Latest") && !rsp["Latest"].IsNull())
+    {
+        if (!rsp["Latest"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Latest` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_latest = rsp["Latest"].GetBool();
+        m_latestHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ScanEndTime") && !rsp["ScanEndTime"].IsNull())
+    {
+        if (!rsp["ScanEndTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanEndTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanEndTime = string(rsp["ScanEndTime"].GetString());
+        m_scanEndTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("RegistryType") && !rsp["RegistryType"].IsNull())
+    {
+        if (!rsp["RegistryType"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `RegistryType` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["RegistryType"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_registryType.push_back((*itr).GetString());
+        }
+        m_registryTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ContainerRunning") && !rsp["ContainerRunning"].IsNull())
+    {
+        if (!rsp["ContainerRunning"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainerRunning` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_containerRunning = rsp["ContainerRunning"].GetBool();
+        m_containerRunningHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ScanScope") && !rsp["ScanScope"].IsNull())
+    {
+        if (!rsp["ScanScope"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanScope` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanScope = rsp["ScanScope"].GetUint64();
+        m_scanScopeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Namespace") && !rsp["Namespace"].IsNull())
+    {
+        if (!rsp["Namespace"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Namespace` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["Namespace"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_namespace.push_back((*itr).GetString());
+        }
+        m_namespaceHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ExcludeImageAssetIds") && !rsp["ExcludeImageAssetIds"].IsNull())
+    {
+        if (!rsp["ExcludeImageAssetIds"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ExcludeImageAssetIds` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["ExcludeImageAssetIds"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_excludeImageAssetIds.push_back((*itr).GetUint64());
+        }
+        m_excludeImageAssetIdsHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("LastScanTime") && !rsp["LastScanTime"].IsNull())
+    {
+        if (!rsp["LastScanTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LastScanTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_lastScanTime = string(rsp["LastScanTime"].GetString());
+        m_lastScanTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ScanResult") && !rsp["ScanResult"].IsNull())
+    {
+        if (!rsp["ScanResult"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanResult` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanResult = string(rsp["ScanResult"].GetString());
+        m_scanResultHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -237,11 +345,98 @@ string DescribeImageRegistryTimingScanTaskResponse::ToJsonString() const
         }
     }
 
+    if (m_latestHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Latest";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_latest, allocator);
+    }
+
+    if (m_scanEndTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanEndTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_scanEndTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_registryTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegistryType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_registryType.begin(); itr != m_registryType.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_containerRunningHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerRunning";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_containerRunning, allocator);
+    }
+
+    if (m_scanScopeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanScope";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_scanScope, allocator);
+    }
+
+    if (m_namespaceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Namespace";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_namespace.begin(); itr != m_namespace.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_excludeImageAssetIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExcludeImageAssetIds";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_excludeImageAssetIds.begin(); itr != m_excludeImageAssetIds.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetUint64(*itr), allocator);
+        }
+    }
+
+    if (m_lastScanTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LastScanTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_lastScanTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_scanResultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanResult";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_scanResult.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -317,6 +512,96 @@ vector<uint64_t> DescribeImageRegistryTimingScanTaskResponse::GetId() const
 bool DescribeImageRegistryTimingScanTaskResponse::IdHasBeenSet() const
 {
     return m_idHasBeenSet;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::GetLatest() const
+{
+    return m_latest;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::LatestHasBeenSet() const
+{
+    return m_latestHasBeenSet;
+}
+
+string DescribeImageRegistryTimingScanTaskResponse::GetScanEndTime() const
+{
+    return m_scanEndTime;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::ScanEndTimeHasBeenSet() const
+{
+    return m_scanEndTimeHasBeenSet;
+}
+
+vector<string> DescribeImageRegistryTimingScanTaskResponse::GetRegistryType() const
+{
+    return m_registryType;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::RegistryTypeHasBeenSet() const
+{
+    return m_registryTypeHasBeenSet;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::GetContainerRunning() const
+{
+    return m_containerRunning;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::ContainerRunningHasBeenSet() const
+{
+    return m_containerRunningHasBeenSet;
+}
+
+uint64_t DescribeImageRegistryTimingScanTaskResponse::GetScanScope() const
+{
+    return m_scanScope;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::ScanScopeHasBeenSet() const
+{
+    return m_scanScopeHasBeenSet;
+}
+
+vector<string> DescribeImageRegistryTimingScanTaskResponse::GetNamespace() const
+{
+    return m_namespace;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::NamespaceHasBeenSet() const
+{
+    return m_namespaceHasBeenSet;
+}
+
+vector<uint64_t> DescribeImageRegistryTimingScanTaskResponse::GetExcludeImageAssetIds() const
+{
+    return m_excludeImageAssetIds;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::ExcludeImageAssetIdsHasBeenSet() const
+{
+    return m_excludeImageAssetIdsHasBeenSet;
+}
+
+string DescribeImageRegistryTimingScanTaskResponse::GetLastScanTime() const
+{
+    return m_lastScanTime;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::LastScanTimeHasBeenSet() const
+{
+    return m_lastScanTimeHasBeenSet;
+}
+
+string DescribeImageRegistryTimingScanTaskResponse::GetScanResult() const
+{
+    return m_scanResult;
+}
+
+bool DescribeImageRegistryTimingScanTaskResponse::ScanResultHasBeenSet() const
+{
+    return m_scanResultHasBeenSet;
 }
 
 

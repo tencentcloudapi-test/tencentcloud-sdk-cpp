@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,45 +48,63 @@ namespace TencentCloud
 
                     /**
                      * 获取极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return Type 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
-                     * @param Type 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _type 极速高清类型，可选值：
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return MaxVideoBitrate 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    uint64_t GetMaxVideoBitrate() const;
+                    int64_t GetMaxVideoBitrate() const;
 
                     /**
                      * 设置视频码率上限，不填代表不修改。
-                     * @param MaxVideoBitrate 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _maxVideoBitrate 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    void SetMaxVideoBitrate(const uint64_t& _maxVideoBitrate);
+                    void SetMaxVideoBitrate(const int64_t& _maxVideoBitrate);
 
                     /**
                      * 判断参数 MaxVideoBitrate 是否已赋值
                      * @return MaxVideoBitrate 是否已赋值
+                     * 
                      */
                     bool MaxVideoBitrateHasBeenSet() const;
 
@@ -94,16 +112,19 @@ namespace TencentCloud
 
                     /**
                      * 极速高清类型，可选值：
-<li>TEHD-100：极速高清-100。</li>
+<li>TEHD-100：极速高清-100（视频极速高清）。</li>
+<li>TEHD-200：极速高清-200（音频极速高清）。</li>
 不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
                      * 视频码率上限，不填代表不修改。
+注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    uint64_t m_maxVideoBitrate;
+                    int64_t m_maxVideoBitrate;
                     bool m_maxVideoBitrateHasBeenSet;
 
                 };

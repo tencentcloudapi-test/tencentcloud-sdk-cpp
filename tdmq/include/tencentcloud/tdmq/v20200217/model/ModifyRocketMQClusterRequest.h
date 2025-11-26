@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,56 +45,86 @@ namespace TencentCloud
                     /**
                      * 获取RocketMQ集群ID
                      * @return ClusterId RocketMQ集群ID
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置RocketMQ集群ID
-                     * @param ClusterId RocketMQ集群ID
+                     * @param _clusterId RocketMQ集群ID
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取3-64个字符，只能包含字母、数字、“-”及“_”
                      * @return ClusterName 3-64个字符，只能包含字母、数字、“-”及“_”
+                     * 
                      */
                     std::string GetClusterName() const;
 
                     /**
                      * 设置3-64个字符，只能包含字母、数字、“-”及“_”
-                     * @param ClusterName 3-64个字符，只能包含字母、数字、“-”及“_”
+                     * @param _clusterName 3-64个字符，只能包含字母、数字、“-”及“_”
+                     * 
                      */
                     void SetClusterName(const std::string& _clusterName);
 
                     /**
                      * 判断参数 ClusterName 是否已赋值
                      * @return ClusterName 是否已赋值
+                     * 
                      */
                     bool ClusterNameHasBeenSet() const;
 
                     /**
                      * 获取说明信息，不超过128个字符
                      * @return Remark 说明信息，不超过128个字符
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
                      * 设置说明信息，不超过128个字符
-                     * @param Remark 说明信息，不超过128个字符
+                     * @param _remark 说明信息，不超过128个字符
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
+
+                    /**
+                     * 获取是否开启HTTP公网访问
+                     * @return PublicAccessEnabled 是否开启HTTP公网访问
+                     * 
+                     */
+                    bool GetPublicAccessEnabled() const;
+
+                    /**
+                     * 设置是否开启HTTP公网访问
+                     * @param _publicAccessEnabled 是否开启HTTP公网访问
+                     * 
+                     */
+                    void SetPublicAccessEnabled(const bool& _publicAccessEnabled);
+
+                    /**
+                     * 判断参数 PublicAccessEnabled 是否已赋值
+                     * @return PublicAccessEnabled 是否已赋值
+                     * 
+                     */
+                    bool PublicAccessEnabledHasBeenSet() const;
 
                 private:
 
@@ -115,6 +145,12 @@ namespace TencentCloud
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
+
+                    /**
+                     * 是否开启HTTP公网访问
+                     */
+                    bool m_publicAccessEnabled;
+                    bool m_publicAccessEnabledHasBeenSet;
 
                 };
             }

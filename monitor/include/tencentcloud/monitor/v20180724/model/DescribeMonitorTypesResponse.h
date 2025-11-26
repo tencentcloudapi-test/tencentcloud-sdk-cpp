@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/monitor/v20180724/model/MonitorTypeInfo.h>
 
 
 namespace TencentCloud
@@ -46,14 +47,30 @@ namespace TencentCloud
                     /**
                      * 获取监控类型，云产品监控为 MT_QCE
                      * @return MonitorTypes 监控类型，云产品监控为 MT_QCE
+                     * 
                      */
                     std::vector<std::string> GetMonitorTypes() const;
 
                     /**
                      * 判断参数 MonitorTypes 是否已赋值
                      * @return MonitorTypes 是否已赋值
+                     * 
                      */
                     bool MonitorTypesHasBeenSet() const;
+
+                    /**
+                     * 获取监控类型详情
+                     * @return MonitorTypeInfos 监控类型详情
+                     * 
+                     */
+                    std::vector<MonitorTypeInfo> GetMonitorTypeInfos() const;
+
+                    /**
+                     * 判断参数 MonitorTypeInfos 是否已赋值
+                     * @return MonitorTypeInfos 是否已赋值
+                     * 
+                     */
+                    bool MonitorTypeInfosHasBeenSet() const;
 
                 private:
 
@@ -62,6 +79,12 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_monitorTypes;
                     bool m_monitorTypesHasBeenSet;
+
+                    /**
+                     * 监控类型详情
+                     */
+                    std::vector<MonitorTypeInfo> m_monitorTypeInfos;
+                    bool m_monitorTypeInfosHasBeenSet;
 
                 };
             }

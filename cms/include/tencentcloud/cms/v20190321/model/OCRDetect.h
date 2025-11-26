@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,37 +49,51 @@ namespace TencentCloud
 
                     /**
                      * 获取识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return Item 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<OCRItem> GetItem() const;
 
                     /**
                      * 设置识别到的详细信息
-                     * @param Item 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _item 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetItem(const std::vector<OCRItem>& _item);
 
                     /**
                      * 判断参数 Item 是否已赋值
                      * @return Item 是否已赋值
+                     * 
                      */
                     bool ItemHasBeenSet() const;
 
                     /**
                      * 获取识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return TextInfo 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetTextInfo() const;
 
                     /**
                      * 设置识别到的文本信息
-                     * @param TextInfo 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _textInfo 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTextInfo(const std::string& _textInfo);
 
                     /**
                      * 判断参数 TextInfo 是否已赋值
                      * @return TextInfo 是否已赋值
+                     * 
                      */
                     bool TextInfoHasBeenSet() const;
 
@@ -87,12 +101,14 @@ namespace TencentCloud
 
                     /**
                      * 识别到的详细信息
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<OCRItem> m_item;
                     bool m_itemHasBeenSet;
 
                     /**
                      * 识别到的文本信息
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_textInfo;
                     bool m_textInfoHasBeenSet;

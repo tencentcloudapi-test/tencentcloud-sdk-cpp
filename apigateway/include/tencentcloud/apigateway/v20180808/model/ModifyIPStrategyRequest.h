@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取待修改的策略所属服务的唯一ID。
                      * @return ServiceId 待修改的策略所属服务的唯一ID。
+                     * 
                      */
                     std::string GetServiceId() const;
 
                     /**
                      * 设置待修改的策略所属服务的唯一ID。
-                     * @param ServiceId 待修改的策略所属服务的唯一ID。
+                     * @param _serviceId 待修改的策略所属服务的唯一ID。
+                     * 
                      */
                     void SetServiceId(const std::string& _serviceId);
 
                     /**
                      * 判断参数 ServiceId 是否已赋值
                      * @return ServiceId 是否已赋值
+                     * 
                      */
                     bool ServiceIdHasBeenSet() const;
 
                     /**
                      * 获取待修改的策略唯一ID。
                      * @return StrategyId 待修改的策略唯一ID。
+                     * 
                      */
                     std::string GetStrategyId() const;
 
                     /**
                      * 设置待修改的策略唯一ID。
-                     * @param StrategyId 待修改的策略唯一ID。
+                     * @param _strategyId 待修改的策略唯一ID。
+                     * 
                      */
                     void SetStrategyId(const std::string& _strategyId);
 
                     /**
                      * 判断参数 StrategyId 是否已赋值
                      * @return StrategyId 是否已赋值
+                     * 
                      */
                     bool StrategyIdHasBeenSet() const;
 
                     /**
                      * 获取待修改的策略详情。
                      * @return StrategyData 待修改的策略详情。
+                     * 
                      */
                     std::string GetStrategyData() const;
 
                     /**
                      * 设置待修改的策略详情。
-                     * @param StrategyData 待修改的策略详情。
+                     * @param _strategyData 待修改的策略详情。
+                     * 
                      */
                     void SetStrategyData(const std::string& _strategyData);
 
                     /**
                      * 判断参数 StrategyData 是否已赋值
                      * @return StrategyData 是否已赋值
+                     * 
                      */
                     bool StrategyDataHasBeenSet() const;
 

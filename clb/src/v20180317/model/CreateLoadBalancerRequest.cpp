@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,13 +40,20 @@ CreateLoadBalancerRequest::CreateLoadBalancerRequest() :
     m_bandwidthPackageIdHasBeenSet(false),
     m_exclusiveClusterHasBeenSet(false),
     m_slaTypeHasBeenSet(false),
+    m_clusterIdsHasBeenSet(false),
     m_clientTokenHasBeenSet(false),
     m_snatProHasBeenSet(false),
     m_snatIpsHasBeenSet(false),
     m_clusterTagHasBeenSet(false),
     m_slaveZoneIdHasBeenSet(false),
     m_eipAddressIdHasBeenSet(false),
-    m_loadBalancerPassToTargetHasBeenSet(false)
+    m_loadBalancerPassToTargetHasBeenSet(false),
+    m_dynamicVipHasBeenSet(false),
+    m_egressHasBeenSet(false),
+    m_lBChargePrepaidHasBeenSet(false),
+    m_lBChargeTypeHasBeenSet(false),
+    m_accessLogTopicIdHasBeenSet(false),
+    m_advancedRouteHasBeenSet(false)
 {
 }
 
@@ -202,6 +209,19 @@ string CreateLoadBalancerRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_slaType.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_clusterIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_clusterIds.begin(); itr != m_clusterIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
     if (m_clientTokenHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -263,6 +283,55 @@ string CreateLoadBalancerRequest::ToJsonString() const
         string key = "LoadBalancerPassToTarget";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_loadBalancerPassToTarget, allocator);
+    }
+
+    if (m_dynamicVipHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DynamicVip";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_dynamicVip, allocator);
+    }
+
+    if (m_egressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Egress";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_egress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_lBChargePrepaidHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LBChargePrepaid";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_lBChargePrepaid.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_lBChargeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LBChargeType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_lBChargeType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_accessLogTopicIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccessLogTopicId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_accessLogTopicId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_advancedRouteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdvancedRoute";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_advancedRoute, allocator);
     }
 
 
@@ -545,6 +614,22 @@ bool CreateLoadBalancerRequest::SlaTypeHasBeenSet() const
     return m_slaTypeHasBeenSet;
 }
 
+vector<string> CreateLoadBalancerRequest::GetClusterIds() const
+{
+    return m_clusterIds;
+}
+
+void CreateLoadBalancerRequest::SetClusterIds(const vector<string>& _clusterIds)
+{
+    m_clusterIds = _clusterIds;
+    m_clusterIdsHasBeenSet = true;
+}
+
+bool CreateLoadBalancerRequest::ClusterIdsHasBeenSet() const
+{
+    return m_clusterIdsHasBeenSet;
+}
+
 string CreateLoadBalancerRequest::GetClientToken() const
 {
     return m_clientToken;
@@ -655,6 +740,102 @@ void CreateLoadBalancerRequest::SetLoadBalancerPassToTarget(const bool& _loadBal
 bool CreateLoadBalancerRequest::LoadBalancerPassToTargetHasBeenSet() const
 {
     return m_loadBalancerPassToTargetHasBeenSet;
+}
+
+bool CreateLoadBalancerRequest::GetDynamicVip() const
+{
+    return m_dynamicVip;
+}
+
+void CreateLoadBalancerRequest::SetDynamicVip(const bool& _dynamicVip)
+{
+    m_dynamicVip = _dynamicVip;
+    m_dynamicVipHasBeenSet = true;
+}
+
+bool CreateLoadBalancerRequest::DynamicVipHasBeenSet() const
+{
+    return m_dynamicVipHasBeenSet;
+}
+
+string CreateLoadBalancerRequest::GetEgress() const
+{
+    return m_egress;
+}
+
+void CreateLoadBalancerRequest::SetEgress(const string& _egress)
+{
+    m_egress = _egress;
+    m_egressHasBeenSet = true;
+}
+
+bool CreateLoadBalancerRequest::EgressHasBeenSet() const
+{
+    return m_egressHasBeenSet;
+}
+
+LBChargePrepaid CreateLoadBalancerRequest::GetLBChargePrepaid() const
+{
+    return m_lBChargePrepaid;
+}
+
+void CreateLoadBalancerRequest::SetLBChargePrepaid(const LBChargePrepaid& _lBChargePrepaid)
+{
+    m_lBChargePrepaid = _lBChargePrepaid;
+    m_lBChargePrepaidHasBeenSet = true;
+}
+
+bool CreateLoadBalancerRequest::LBChargePrepaidHasBeenSet() const
+{
+    return m_lBChargePrepaidHasBeenSet;
+}
+
+string CreateLoadBalancerRequest::GetLBChargeType() const
+{
+    return m_lBChargeType;
+}
+
+void CreateLoadBalancerRequest::SetLBChargeType(const string& _lBChargeType)
+{
+    m_lBChargeType = _lBChargeType;
+    m_lBChargeTypeHasBeenSet = true;
+}
+
+bool CreateLoadBalancerRequest::LBChargeTypeHasBeenSet() const
+{
+    return m_lBChargeTypeHasBeenSet;
+}
+
+string CreateLoadBalancerRequest::GetAccessLogTopicId() const
+{
+    return m_accessLogTopicId;
+}
+
+void CreateLoadBalancerRequest::SetAccessLogTopicId(const string& _accessLogTopicId)
+{
+    m_accessLogTopicId = _accessLogTopicId;
+    m_accessLogTopicIdHasBeenSet = true;
+}
+
+bool CreateLoadBalancerRequest::AccessLogTopicIdHasBeenSet() const
+{
+    return m_accessLogTopicIdHasBeenSet;
+}
+
+bool CreateLoadBalancerRequest::GetAdvancedRoute() const
+{
+    return m_advancedRoute;
+}
+
+void CreateLoadBalancerRequest::SetAdvancedRoute(const bool& _advancedRoute)
+{
+    m_advancedRoute = _advancedRoute;
+    m_advancedRouteHasBeenSet = true;
+}
+
+bool CreateLoadBalancerRequest::AdvancedRouteHasBeenSet() const
+{
+    return m_advancedRouteHasBeenSet;
 }
 
 

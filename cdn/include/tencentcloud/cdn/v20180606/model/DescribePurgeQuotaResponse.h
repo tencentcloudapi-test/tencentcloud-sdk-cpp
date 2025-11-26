@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取URL刷新用量及配额。
                      * @return UrlPurge URL刷新用量及配额。
+                     * 
                      */
                     std::vector<Quota> GetUrlPurge() const;
 
                     /**
                      * 判断参数 UrlPurge 是否已赋值
                      * @return UrlPurge 是否已赋值
+                     * 
                      */
                     bool UrlPurgeHasBeenSet() const;
 
                     /**
                      * 获取目录刷新用量及配额。
                      * @return PathPurge 目录刷新用量及配额。
+                     * 
                      */
                     std::vector<Quota> GetPathPurge() const;
 
                     /**
                      * 判断参数 PathPurge 是否已赋值
                      * @return PathPurge 是否已赋值
+                     * 
                      */
                     bool PathPurgeHasBeenSet() const;
 

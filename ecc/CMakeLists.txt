@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ set(ecc_public_header_model
   include/tencentcloud/ecc/v20181213/model/CompostionContext.h
   include/tencentcloud/ecc/v20181213/model/DescribeTaskResponse.h
   include/tencentcloud/ecc/v20181213/model/EHOCRRequest.h
+  include/tencentcloud/ecc/v20181213/model/CompositionContext.h
   include/tencentcloud/ecc/v20181213/model/CorrectMultiImageRequest.h
   )
 
@@ -54,6 +55,7 @@ set(ecc_src
   src/v20181213/model/CompostionContext.cpp
   src/v20181213/model/DescribeTaskResponse.cpp
   src/v20181213/model/EHOCRRequest.cpp
+  src/v20181213/model/CompositionContext.cpp
   src/v20181213/model/CorrectMultiImageRequest.cpp
   )
 

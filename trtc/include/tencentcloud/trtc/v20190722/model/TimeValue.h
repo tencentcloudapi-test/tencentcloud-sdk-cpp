@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取时间，unix时间戳（1590065877s)
                      * @return Time 时间，unix时间戳（1590065877s)
+                     * 
                      */
                     uint64_t GetTime() const;
 
                     /**
                      * 设置时间，unix时间戳（1590065877s)
-                     * @param Time 时间，unix时间戳（1590065877s)
+                     * @param _time 时间，unix时间戳（1590065877s)
+                     * 
                      */
                     void SetTime(const uint64_t& _time);
 
                     /**
                      * 判断参数 Time 是否已赋值
                      * @return Time 是否已赋值
+                     * 
                      */
                     bool TimeHasBeenSet() const;
 
                     /**
                      * 获取当前时间返回参数取值，如（bigvCapFps在1590065877取值为0，则Value：0 ）
                      * @return Value 当前时间返回参数取值，如（bigvCapFps在1590065877取值为0，则Value：0 ）
+                     * 
                      */
                     double GetValue() const;
 
                     /**
                      * 设置当前时间返回参数取值，如（bigvCapFps在1590065877取值为0，则Value：0 ）
-                     * @param Value 当前时间返回参数取值，如（bigvCapFps在1590065877取值为0，则Value：0 ）
+                     * @param _value 当前时间返回参数取值，如（bigvCapFps在1590065877取值为0，则Value：0 ）
+                     * 
                      */
                     void SetValue(const double& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,123 +47,138 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取OpenID
-                     * @return SponsorOpenId OpenID
+                     * 获取助力场景建议填写：活动发起人微信OpenId。
+                     * @return SponsorOpenId 助力场景建议填写：活动发起人微信OpenId。
+                     * 
                      */
                     std::string GetSponsorOpenId() const;
 
                     /**
-                     * 设置OpenID
-                     * @param SponsorOpenId OpenID
+                     * 设置助力场景建议填写：活动发起人微信OpenId。
+                     * @param _sponsorOpenId 助力场景建议填写：活动发起人微信OpenId。
+                     * 
                      */
                     void SetSponsorOpenId(const std::string& _sponsorOpenId);
 
                     /**
                      * 判断参数 SponsorOpenId 是否已赋值
                      * @return SponsorOpenId 是否已赋值
+                     * 
                      */
                     bool SponsorOpenIdHasBeenSet() const;
 
                     /**
-                     * 获取设备号
-                     * @return SponsorDeviceNumber 设备号
+                     * 获取助力场景建议填写：发起人设备号
+                     * @return SponsorDeviceNumber 助力场景建议填写：发起人设备号
+                     * 
                      */
                     std::string GetSponsorDeviceNumber() const;
 
                     /**
-                     * 设置设备号
-                     * @param SponsorDeviceNumber 设备号
+                     * 设置助力场景建议填写：发起人设备号
+                     * @param _sponsorDeviceNumber 助力场景建议填写：发起人设备号
+                     * 
                      */
                     void SetSponsorDeviceNumber(const std::string& _sponsorDeviceNumber);
 
                     /**
                      * 判断参数 SponsorDeviceNumber 是否已赋值
                      * @return SponsorDeviceNumber 是否已赋值
+                     * 
                      */
                     bool SponsorDeviceNumberHasBeenSet() const;
 
                     /**
-                     * 获取手机号
-                     * @return SponsorPhone 手机号
+                     * 获取助力场景建议填写：发起人的MD5手机号
+                     * @return SponsorPhone 助力场景建议填写：发起人的MD5手机号
+                     * 
                      */
                     std::string GetSponsorPhone() const;
 
                     /**
-                     * 设置手机号
-                     * @param SponsorPhone 手机号
+                     * 设置助力场景建议填写：发起人的MD5手机号
+                     * @param _sponsorPhone 助力场景建议填写：发起人的MD5手机号
+                     * 
                      */
                     void SetSponsorPhone(const std::string& _sponsorPhone);
 
                     /**
                      * 判断参数 SponsorPhone 是否已赋值
                      * @return SponsorPhone 是否已赋值
+                     * 
                      */
                     bool SponsorPhoneHasBeenSet() const;
 
                     /**
-                     * 获取IP
-                     * @return SponsorIp IP
+                     * 获取助力场景建议填写：发起人IP
+                     * @return SponsorIp 助力场景建议填写：发起人IP
+                     * 
                      */
                     std::string GetSponsorIp() const;
 
                     /**
-                     * 设置IP
-                     * @param SponsorIp IP
+                     * 设置助力场景建议填写：发起人IP
+                     * @param _sponsorIp 助力场景建议填写：发起人IP
+                     * 
                      */
                     void SetSponsorIp(const std::string& _sponsorIp);
 
                     /**
                      * 判断参数 SponsorIp 是否已赋值
                      * @return SponsorIp 是否已赋值
+                     * 
                      */
                     bool SponsorIpHasBeenSet() const;
 
                     /**
-                     * 获取链接
-                     * @return CampaignUrl 链接
+                     * 获取助力场景建议填写：活动链接
+                     * @return CampaignUrl 助力场景建议填写：活动链接
+                     * 
                      */
                     std::string GetCampaignUrl() const;
 
                     /**
-                     * 设置链接
-                     * @param CampaignUrl 链接
+                     * 设置助力场景建议填写：活动链接
+                     * @param _campaignUrl 助力场景建议填写：活动链接
+                     * 
                      */
                     void SetCampaignUrl(const std::string& _campaignUrl);
 
                     /**
                      * 判断参数 CampaignUrl 是否已赋值
                      * @return CampaignUrl 是否已赋值
+                     * 
                      */
                     bool CampaignUrlHasBeenSet() const;
 
                 private:
 
                     /**
-                     * OpenID
+                     * 助力场景建议填写：活动发起人微信OpenId。
                      */
                     std::string m_sponsorOpenId;
                     bool m_sponsorOpenIdHasBeenSet;
 
                     /**
-                     * 设备号
+                     * 助力场景建议填写：发起人设备号
                      */
                     std::string m_sponsorDeviceNumber;
                     bool m_sponsorDeviceNumberHasBeenSet;
 
                     /**
-                     * 手机号
+                     * 助力场景建议填写：发起人的MD5手机号
                      */
                     std::string m_sponsorPhone;
                     bool m_sponsorPhoneHasBeenSet;
 
                     /**
-                     * IP
+                     * 助力场景建议填写：发起人IP
                      */
                     std::string m_sponsorIp;
                     bool m_sponsorIpHasBeenSet;
 
                     /**
-                     * 链接
+                     * 助力场景建议填写：活动链接
                      */
                     std::string m_campaignUrl;
                     bool m_campaignUrlHasBeenSet;

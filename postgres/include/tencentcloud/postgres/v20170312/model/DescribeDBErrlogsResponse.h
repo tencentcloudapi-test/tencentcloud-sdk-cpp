@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取本次调用返回了多少条数据
-                     * @return TotalCount 本次调用返回了多少条数据
+                     * 获取查询到的日志数量，最大值为10000条。
+                     * @return TotalCount 查询到的日志数量，最大值为10000条。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取错误日志列表
-                     * @return Details 错误日志列表
+                     * 获取错误日志详细信息集合。
+                     * @return Details 错误日志详细信息集合。
+                     * 
                      */
                     std::vector<ErrLogDetail> GetDetails() const;
 
                     /**
                      * 判断参数 Details 是否已赋值
                      * @return Details 是否已赋值
+                     * 
                      */
                     bool DetailsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 本次调用返回了多少条数据
+                     * 查询到的日志数量，最大值为10000条。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 错误日志列表
+                     * 错误日志详细信息集合。
                      */
                     std::vector<ErrLogDetail> m_details;
                     bool m_detailsHasBeenSet;

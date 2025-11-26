@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,12 @@ ImageRepository::ImageRepository() :
     m_tcrRepoInfoHasBeenSet(false),
     m_tcrBindingIdHasBeenSet(false),
     m_applicationIdHasBeenSet(false),
-    m_applicationNameHasBeenSet(false)
+    m_applicationNameHasBeenSet(false),
+    m_applicationNameRealHasBeenSet(false),
+    m_publicHasBeenSet(false),
+    m_createModeHasBeenSet(false),
+    m_repoNameHasBeenSet(false),
+    m_repoTypeHasBeenSet(false)
 {
 }
 
@@ -208,6 +213,56 @@ CoreInternalOutcome ImageRepository::Deserialize(const rapidjson::Value &value)
         m_applicationNameHasBeenSet = true;
     }
 
+    if (value.HasMember("ApplicationNameReal") && !value["ApplicationNameReal"].IsNull())
+    {
+        if (!value["ApplicationNameReal"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ImageRepository.ApplicationNameReal` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_applicationNameReal = string(value["ApplicationNameReal"].GetString());
+        m_applicationNameRealHasBeenSet = true;
+    }
+
+    if (value.HasMember("Public") && !value["Public"].IsNull())
+    {
+        if (!value["Public"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ImageRepository.Public` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_public = value["Public"].GetInt64();
+        m_publicHasBeenSet = true;
+    }
+
+    if (value.HasMember("CreateMode") && !value["CreateMode"].IsNull())
+    {
+        if (!value["CreateMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ImageRepository.CreateMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_createMode = string(value["CreateMode"].GetString());
+        m_createModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RepoName") && !value["RepoName"].IsNull())
+    {
+        if (!value["RepoName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ImageRepository.RepoName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_repoName = string(value["RepoName"].GetString());
+        m_repoNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("RepoType") && !value["RepoType"].IsNull())
+    {
+        if (!value["RepoType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ImageRepository.RepoType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_repoType = string(value["RepoType"].GetString());
+        m_repoTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -335,6 +390,46 @@ void ImageRepository::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_applicationName.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_applicationNameRealHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ApplicationNameReal";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_applicationNameReal.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_publicHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Public";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_public, allocator);
+    }
+
+    if (m_createModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CreateMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_createMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_repoNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RepoName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_repoName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_repoTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RepoType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_repoType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -578,5 +673,85 @@ void ImageRepository::SetApplicationName(const ScalableRule& _applicationName)
 bool ImageRepository::ApplicationNameHasBeenSet() const
 {
     return m_applicationNameHasBeenSet;
+}
+
+string ImageRepository::GetApplicationNameReal() const
+{
+    return m_applicationNameReal;
+}
+
+void ImageRepository::SetApplicationNameReal(const string& _applicationNameReal)
+{
+    m_applicationNameReal = _applicationNameReal;
+    m_applicationNameRealHasBeenSet = true;
+}
+
+bool ImageRepository::ApplicationNameRealHasBeenSet() const
+{
+    return m_applicationNameRealHasBeenSet;
+}
+
+int64_t ImageRepository::GetPublic() const
+{
+    return m_public;
+}
+
+void ImageRepository::SetPublic(const int64_t& _public)
+{
+    m_public = _public;
+    m_publicHasBeenSet = true;
+}
+
+bool ImageRepository::PublicHasBeenSet() const
+{
+    return m_publicHasBeenSet;
+}
+
+string ImageRepository::GetCreateMode() const
+{
+    return m_createMode;
+}
+
+void ImageRepository::SetCreateMode(const string& _createMode)
+{
+    m_createMode = _createMode;
+    m_createModeHasBeenSet = true;
+}
+
+bool ImageRepository::CreateModeHasBeenSet() const
+{
+    return m_createModeHasBeenSet;
+}
+
+string ImageRepository::GetRepoName() const
+{
+    return m_repoName;
+}
+
+void ImageRepository::SetRepoName(const string& _repoName)
+{
+    m_repoName = _repoName;
+    m_repoNameHasBeenSet = true;
+}
+
+bool ImageRepository::RepoNameHasBeenSet() const
+{
+    return m_repoNameHasBeenSet;
+}
+
+string ImageRepository::GetRepoType() const
+{
+    return m_repoType;
+}
+
+void ImageRepository::SetRepoType(const string& _repoType)
+{
+    m_repoType = _repoType;
+    m_repoTypeHasBeenSet = true;
+}
+
+bool ImageRepository::RepoTypeHasBeenSet() const
+{
+    return m_repoTypeHasBeenSet;
 }
 

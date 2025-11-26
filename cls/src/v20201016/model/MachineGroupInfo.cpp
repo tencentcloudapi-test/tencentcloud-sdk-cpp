@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,10 @@ MachineGroupInfo::MachineGroupInfo() :
     m_autoUpdateHasBeenSet(false),
     m_updateStartTimeHasBeenSet(false),
     m_updateEndTimeHasBeenSet(false),
-    m_serviceLoggingHasBeenSet(false)
+    m_serviceLoggingHasBeenSet(false),
+    m_delayCleanupTimeHasBeenSet(false),
+    m_metaTagsHasBeenSet(false),
+    m_oSTypeHasBeenSet(false)
 {
 }
 
@@ -145,6 +148,46 @@ CoreInternalOutcome MachineGroupInfo::Deserialize(const rapidjson::Value &value)
         m_serviceLoggingHasBeenSet = true;
     }
 
+    if (value.HasMember("DelayCleanupTime") && !value["DelayCleanupTime"].IsNull())
+    {
+        if (!value["DelayCleanupTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `MachineGroupInfo.DelayCleanupTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_delayCleanupTime = value["DelayCleanupTime"].GetInt64();
+        m_delayCleanupTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("MetaTags") && !value["MetaTags"].IsNull())
+    {
+        if (!value["MetaTags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `MachineGroupInfo.MetaTags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["MetaTags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            MetaTagInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_metaTags.push_back(item);
+        }
+        m_metaTagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("OSType") && !value["OSType"].IsNull())
+    {
+        if (!value["OSType"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `MachineGroupInfo.OSType` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_oSType = value["OSType"].GetUint64();
+        m_oSTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -230,6 +273,37 @@ void MachineGroupInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "ServiceLogging";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_serviceLogging, allocator);
+    }
+
+    if (m_delayCleanupTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DelayCleanupTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_delayCleanupTime, allocator);
+    }
+
+    if (m_metaTagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MetaTags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_metaTags.begin(); itr != m_metaTags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_oSTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OSType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_oSType, allocator);
     }
 
 }
@@ -377,5 +451,53 @@ void MachineGroupInfo::SetServiceLogging(const bool& _serviceLogging)
 bool MachineGroupInfo::ServiceLoggingHasBeenSet() const
 {
     return m_serviceLoggingHasBeenSet;
+}
+
+int64_t MachineGroupInfo::GetDelayCleanupTime() const
+{
+    return m_delayCleanupTime;
+}
+
+void MachineGroupInfo::SetDelayCleanupTime(const int64_t& _delayCleanupTime)
+{
+    m_delayCleanupTime = _delayCleanupTime;
+    m_delayCleanupTimeHasBeenSet = true;
+}
+
+bool MachineGroupInfo::DelayCleanupTimeHasBeenSet() const
+{
+    return m_delayCleanupTimeHasBeenSet;
+}
+
+vector<MetaTagInfo> MachineGroupInfo::GetMetaTags() const
+{
+    return m_metaTags;
+}
+
+void MachineGroupInfo::SetMetaTags(const vector<MetaTagInfo>& _metaTags)
+{
+    m_metaTags = _metaTags;
+    m_metaTagsHasBeenSet = true;
+}
+
+bool MachineGroupInfo::MetaTagsHasBeenSet() const
+{
+    return m_metaTagsHasBeenSet;
+}
+
+uint64_t MachineGroupInfo::GetOSType() const
+{
+    return m_oSType;
+}
+
+void MachineGroupInfo::SetOSType(const uint64_t& _oSType)
+{
+    m_oSType = _oSType;
+    m_oSTypeHasBeenSet = true;
+}
+
+bool MachineGroupInfo::OSTypeHasBeenSet() const
+{
+    return m_oSTypeHasBeenSet;
 }
 

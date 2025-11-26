@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ PrivateIpAddressSpecification::PrivateIpAddressSpecification() :
     m_addressIdHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_isWanIpBlockedHasBeenSet(false),
-    m_stateHasBeenSet(false)
+    m_stateHasBeenSet(false),
+    m_qosLevelHasBeenSet(false)
 {
 }
 
@@ -106,6 +107,16 @@ CoreInternalOutcome PrivateIpAddressSpecification::Deserialize(const rapidjson::
         m_stateHasBeenSet = true;
     }
 
+    if (value.HasMember("QosLevel") && !value["QosLevel"].IsNull())
+    {
+        if (!value["QosLevel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrivateIpAddressSpecification.QosLevel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_qosLevel = string(value["QosLevel"].GetString());
+        m_qosLevelHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -167,6 +178,14 @@ void PrivateIpAddressSpecification::ToJsonObject(rapidjson::Value &value, rapidj
         string key = "State";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_state.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_qosLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QosLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_qosLevel.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -282,5 +301,21 @@ void PrivateIpAddressSpecification::SetState(const string& _state)
 bool PrivateIpAddressSpecification::StateHasBeenSet() const
 {
     return m_stateHasBeenSet;
+}
+
+string PrivateIpAddressSpecification::GetQosLevel() const
+{
+    return m_qosLevel;
+}
+
+void PrivateIpAddressSpecification::SetQosLevel(const string& _qosLevel)
+{
+    m_qosLevel = _qosLevel;
+    m_qosLevelHasBeenSet = true;
+}
+
+bool PrivateIpAddressSpecification::QosLevelHasBeenSet() const
+{
+    return m_qosLevelHasBeenSet;
 }
 

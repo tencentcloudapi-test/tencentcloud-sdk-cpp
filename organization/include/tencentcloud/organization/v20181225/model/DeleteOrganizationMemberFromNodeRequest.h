@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取被删除成员UIN
                      * @return MemberUin 被删除成员UIN
+                     * 
                      */
                     uint64_t GetMemberUin() const;
 
                     /**
                      * 设置被删除成员UIN
-                     * @param MemberUin 被删除成员UIN
+                     * @param _memberUin 被删除成员UIN
+                     * 
                      */
                     void SetMemberUin(const uint64_t& _memberUin);
 
                     /**
                      * 判断参数 MemberUin 是否已赋值
                      * @return MemberUin 是否已赋值
+                     * 
                      */
                     bool MemberUinHasBeenSet() const;
 
                     /**
                      * 获取组织单元ID
                      * @return NodeId 组织单元ID
+                     * 
                      */
                     uint64_t GetNodeId() const;
 
                     /**
                      * 设置组织单元ID
-                     * @param NodeId 组织单元ID
+                     * @param _nodeId 组织单元ID
+                     * 
                      */
                     void SetNodeId(const uint64_t& _nodeId);
 
                     /**
                      * 判断参数 NodeId 是否已赋值
                      * @return NodeId 是否已赋值
+                     * 
                      */
                     bool NodeIdHasBeenSet() const;
 

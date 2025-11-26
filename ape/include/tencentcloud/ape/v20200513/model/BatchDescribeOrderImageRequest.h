@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取要下载图片的订单id
                      * @return OrderIds 要下载图片的订单id
+                     * 
                      */
                     std::vector<std::string> GetOrderIds() const;
 
                     /**
                      * 设置要下载图片的订单id
-                     * @param OrderIds 要下载图片的订单id
+                     * @param _orderIds 要下载图片的订单id
+                     * 
                      */
                     void SetOrderIds(const std::vector<std::string>& _orderIds);
 
                     /**
                      * 判断参数 OrderIds 是否已赋值
                      * @return OrderIds 是否已赋值
+                     * 
                      */
                     bool OrderIdsHasBeenSet() const;
 

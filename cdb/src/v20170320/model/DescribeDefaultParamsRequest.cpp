@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 DescribeDefaultParamsRequest::DescribeDefaultParamsRequest() :
     m_engineVersionHasBeenSet(false),
-    m_templateTypeHasBeenSet(false)
+    m_templateTypeHasBeenSet(false),
+    m_engineTypeHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string DescribeDefaultParamsRequest::ToJsonString() const
         string key = "TemplateType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_templateType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_engineTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EngineType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_engineType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +98,22 @@ void DescribeDefaultParamsRequest::SetTemplateType(const string& _templateType)
 bool DescribeDefaultParamsRequest::TemplateTypeHasBeenSet() const
 {
     return m_templateTypeHasBeenSet;
+}
+
+string DescribeDefaultParamsRequest::GetEngineType() const
+{
+    return m_engineType;
+}
+
+void DescribeDefaultParamsRequest::SetEngineType(const string& _engineType)
+{
+    m_engineType = _engineType;
+    m_engineTypeHasBeenSet = true;
+}
+
+bool DescribeDefaultParamsRequest::EngineTypeHasBeenSet() const
+{
+    return m_engineTypeHasBeenSet;
 }
 
 

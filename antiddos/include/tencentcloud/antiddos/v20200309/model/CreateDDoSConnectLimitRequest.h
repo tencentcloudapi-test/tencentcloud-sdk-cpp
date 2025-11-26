@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取资源实例Id
                      * @return InstanceId 资源实例Id
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置资源实例Id
-                     * @param InstanceId 资源实例Id
+                     * @param _instanceId 资源实例Id
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取连接抑制配置
                      * @return ConnectLimitConfig 连接抑制配置
+                     * 
                      */
                     ConnectLimitConfig GetConnectLimitConfig() const;
 
                     /**
                      * 设置连接抑制配置
-                     * @param ConnectLimitConfig 连接抑制配置
+                     * @param _connectLimitConfig 连接抑制配置
+                     * 
                      */
                     void SetConnectLimitConfig(const ConnectLimitConfig& _connectLimitConfig);
 
                     /**
                      * 判断参数 ConnectLimitConfig 是否已赋值
                      * @return ConnectLimitConfig 是否已赋值
+                     * 
                      */
                     bool ConnectLimitConfigHasBeenSet() const;
 

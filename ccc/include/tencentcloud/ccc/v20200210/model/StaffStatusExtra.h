@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 坐席状态补充信息
+                * 座席状态补充信息
                 */
                 class StaffStatusExtra : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取im - 文本 | tel - 电话 | all - 全媒体
                      * @return Type im - 文本 | tel - 电话 | all - 全媒体
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置im - 文本 | tel - 电话 | all - 全媒体
-                     * @param Type im - 文本 | tel - 电话 | all - 全媒体
+                     * @param _type im - 文本 | tel - 电话 | all - 全媒体
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取in - 呼入 | out - 呼出
                      * @return Direct in - 呼入 | out - 呼出
+                     * 
                      */
                     std::string GetDirect() const;
 
                     /**
                      * 设置in - 呼入 | out - 呼出
-                     * @param Direct in - 呼入 | out - 呼出
+                     * @param _direct in - 呼入 | out - 呼出
+                     * 
                      */
                     void SetDirect(const std::string& _direct);
 
                     /**
                      * 判断参数 Direct 是否已赋值
                      * @return Direct 是否已赋值
+                     * 
                      */
                     bool DirectHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tke/v20180525/model/ServiceAccountAuthenticationOptions.h>
+#include <tencentcloud/tke/v20180525/model/OIDCConfigAuthenticationOptions.h>
 
 
 namespace TencentCloud
@@ -46,47 +47,65 @@ namespace TencentCloud
 
                     /**
                      * 获取ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ServiceAccounts ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     ServiceAccountAuthenticationOptions GetServiceAccounts() const;
 
                     /**
                      * 判断参数 ServiceAccounts 是否已赋值
                      * @return ServiceAccounts 是否已赋值
+                     * 
                      */
                     bool ServiceAccountsHasBeenSet() const;
 
                     /**
                      * 获取最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LatestOperationState 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLatestOperationState() const;
 
                     /**
                      * 判断参数 LatestOperationState 是否已赋值
                      * @return LatestOperationState 是否已赋值
+                     * 
                      */
                     bool LatestOperationStateHasBeenSet() const;
+
+                    /**
+                     * 获取OIDC认证配置
+                     * @return OIDCConfig OIDC认证配置
+                     * 
+                     */
+                    OIDCConfigAuthenticationOptions GetOIDCConfig() const;
+
+                    /**
+                     * 判断参数 OIDCConfig 是否已赋值
+                     * @return OIDCConfig 是否已赋值
+                     * 
+                     */
+                    bool OIDCConfigHasBeenSet() const;
 
                 private:
 
                     /**
                      * ServiceAccount认证配置
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ServiceAccountAuthenticationOptions m_serviceAccounts;
                     bool m_serviceAccountsHasBeenSet;
 
                     /**
                      * 最近一次修改操作结果，返回值可能为：Updating，Success，Failed，TimeOut
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_latestOperationState;
                     bool m_latestOperationStateHasBeenSet;
+
+                    /**
+                     * OIDC认证配置
+                     */
+                    OIDCConfigAuthenticationOptions m_oIDCConfig;
+                    bool m_oIDCConfigHasBeenSet;
 
                 };
             }

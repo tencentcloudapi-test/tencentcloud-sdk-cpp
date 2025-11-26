@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,45 +49,43 @@ namespace TencentCloud
 
                     /**
                      * 获取是否大小写敏感
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CaseSensitive 是否大小写敏感
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     bool GetCaseSensitive() const;
 
                     /**
                      * 设置是否大小写敏感
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CaseSensitive 是否大小写敏感
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _caseSensitive 是否大小写敏感
+                     * 
                      */
                     void SetCaseSensitive(const bool& _caseSensitive);
 
                     /**
                      * 判断参数 CaseSensitive 是否已赋值
                      * @return CaseSensitive 是否已赋值
+                     * 
                      */
                     bool CaseSensitiveHasBeenSet() const;
 
                     /**
                      * 获取标签索引配置中的字段信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return KeyValues 标签索引配置中的字段信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AccessKeyValueInfo> GetKeyValues() const;
 
                     /**
                      * 设置标签索引配置中的字段信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param KeyValues 标签索引配置中的字段信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _keyValues 标签索引配置中的字段信息
+                     * 
                      */
                     void SetKeyValues(const std::vector<AccessKeyValueInfo>& _keyValues);
 
                     /**
                      * 判断参数 KeyValues 是否已赋值
                      * @return KeyValues 是否已赋值
+                     * 
                      */
                     bool KeyValuesHasBeenSet() const;
 
@@ -95,14 +93,12 @@ namespace TencentCloud
 
                     /**
                      * 是否大小写敏感
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_caseSensitive;
                     bool m_caseSensitiveHasBeenSet;
 
                     /**
                      * 标签索引配置中的字段信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<AccessKeyValueInfo> m_keyValues;
                     bool m_keyValuesHasBeenSet;

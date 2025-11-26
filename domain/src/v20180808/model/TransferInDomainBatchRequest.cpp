@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,10 @@ TransferInDomainBatchRequest::TransferInDomainBatchRequest() :
     m_autoRenewFlagHasBeenSet(false),
     m_lockTransferHasBeenSet(false),
     m_updateProhibitionHasBeenSet(false),
-    m_transferProhibitionHasBeenSet(false)
+    m_transferProhibitionHasBeenSet(false),
+    m_channelFromHasBeenSet(false),
+    m_orderFromHasBeenSet(false),
+    m_activityIdHasBeenSet(false)
 {
 }
 
@@ -113,6 +116,30 @@ string TransferInDomainBatchRequest::ToJsonString() const
         string key = "TransferProhibition";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_transferProhibition, allocator);
+    }
+
+    if (m_channelFromHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChannelFrom";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_channelFrom.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orderFromHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderFrom";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_orderFrom.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_activityIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ActivityId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_activityId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -249,6 +276,54 @@ void TransferInDomainBatchRequest::SetTransferProhibition(const int64_t& _transf
 bool TransferInDomainBatchRequest::TransferProhibitionHasBeenSet() const
 {
     return m_transferProhibitionHasBeenSet;
+}
+
+string TransferInDomainBatchRequest::GetChannelFrom() const
+{
+    return m_channelFrom;
+}
+
+void TransferInDomainBatchRequest::SetChannelFrom(const string& _channelFrom)
+{
+    m_channelFrom = _channelFrom;
+    m_channelFromHasBeenSet = true;
+}
+
+bool TransferInDomainBatchRequest::ChannelFromHasBeenSet() const
+{
+    return m_channelFromHasBeenSet;
+}
+
+string TransferInDomainBatchRequest::GetOrderFrom() const
+{
+    return m_orderFrom;
+}
+
+void TransferInDomainBatchRequest::SetOrderFrom(const string& _orderFrom)
+{
+    m_orderFrom = _orderFrom;
+    m_orderFromHasBeenSet = true;
+}
+
+bool TransferInDomainBatchRequest::OrderFromHasBeenSet() const
+{
+    return m_orderFromHasBeenSet;
+}
+
+string TransferInDomainBatchRequest::GetActivityId() const
+{
+    return m_activityId;
+}
+
+void TransferInDomainBatchRequest::SetActivityId(const string& _activityId)
+{
+    m_activityId = _activityId;
+    m_activityIdHasBeenSet = true;
+}
+
+bool TransferInDomainBatchRequest::ActivityIdHasBeenSet() const
+{
+    return m_activityIdHasBeenSet;
 }
 
 

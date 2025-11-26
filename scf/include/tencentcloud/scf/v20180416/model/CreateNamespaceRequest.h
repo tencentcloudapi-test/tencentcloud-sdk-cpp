@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/scf/v20180416/model/NamespaceResourceEnv.h>
 
 
 namespace TencentCloud
@@ -45,38 +46,65 @@ namespace TencentCloud
                     /**
                      * 获取命名空间名称
                      * @return Namespace 命名空间名称
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置命名空间名称
-                     * @param Namespace 命名空间名称
+                     * @param _namespace 命名空间名称
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 
                     /**
                      * 获取命名空间描述
                      * @return Description 命名空间描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置命名空间描述
-                     * @param Description 命名空间描述
+                     * @param _description 命名空间描述
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
+
+                    /**
+                     * 获取资源池配置
+                     * @return ResourceEnv 资源池配置
+                     * 
+                     */
+                    NamespaceResourceEnv GetResourceEnv() const;
+
+                    /**
+                     * 设置资源池配置
+                     * @param _resourceEnv 资源池配置
+                     * 
+                     */
+                    void SetResourceEnv(const NamespaceResourceEnv& _resourceEnv);
+
+                    /**
+                     * 判断参数 ResourceEnv 是否已赋值
+                     * @return ResourceEnv 是否已赋值
+                     * 
+                     */
+                    bool ResourceEnvHasBeenSet() const;
 
                 private:
 
@@ -91,6 +119,12 @@ namespace TencentCloud
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
+
+                    /**
+                     * 资源池配置
+                     */
+                    NamespaceResourceEnv m_resourceEnv;
+                    bool m_resourceEnvHasBeenSet;
 
                 };
             }

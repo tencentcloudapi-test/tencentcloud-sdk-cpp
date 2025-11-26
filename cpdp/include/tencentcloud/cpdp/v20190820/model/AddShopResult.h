@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ShopNo 门店编号
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetShopNo() const;
 
                     /**
                      * 设置门店编号
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ShopNo 门店编号
+                     * @param _shopNo 门店编号
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetShopNo(const std::string& _shopNo);
 
                     /**
                      * 判断参数 ShopNo 是否已赋值
                      * @return ShopNo 是否已赋值
+                     * 
                      */
                     bool ShopNoHasBeenSet() const;
 

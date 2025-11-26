@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,33 +45,37 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取签署参与者签署H5链接信息数组
-                     * @return SignUrlInfos 签署参与者签署H5链接信息数组
+                     * 获取生成的签署参与者的签署链接信息数组。
+                     * @return SignUrlInfos 生成的签署参与者的签署链接信息数组。
+                     * 
                      */
                     std::vector<SignUrlInfo> GetSignUrlInfos() const;
 
                     /**
                      * 判断参数 SignUrlInfos 是否已赋值
                      * @return SignUrlInfos 是否已赋值
+                     * 
                      */
                     bool SignUrlInfosHasBeenSet() const;
 
                     /**
                      * 获取生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致
                      * @return ErrorMessages 生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致
+                     * 
                      */
                     std::vector<std::string> GetErrorMessages() const;
 
                     /**
                      * 判断参数 ErrorMessages 是否已赋值
                      * @return ErrorMessages 是否已赋值
+                     * 
                      */
                     bool ErrorMessagesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 签署参与者签署H5链接信息数组
+                     * 生成的签署参与者的签署链接信息数组。
                      */
                     std::vector<SignUrlInfo> m_signUrlInfos;
                     bool m_signUrlInfosHasBeenSet;

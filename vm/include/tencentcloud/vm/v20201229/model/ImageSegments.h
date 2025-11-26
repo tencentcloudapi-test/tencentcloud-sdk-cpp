@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,38 +50,94 @@ namespace TencentCloud
                     /**
                      * 获取该字段用于返回视频片段的截帧时间，单位为秒。对于点播文件，该参数代表对应截取图片相对于视频的偏移时间，如0（代表不偏移），5（视频开始后5秒），10（视频开始后10秒）；对于直播文件，该参数则返回对应图片的Unix时间戳，如：1594650717。
                      * @return OffsetTime 该字段用于返回视频片段的截帧时间，单位为秒。对于点播文件，该参数代表对应截取图片相对于视频的偏移时间，如0（代表不偏移），5（视频开始后5秒），10（视频开始后10秒）；对于直播文件，该参数则返回对应图片的Unix时间戳，如：1594650717。
+                     * 
                      */
                     std::string GetOffsetTime() const;
 
                     /**
                      * 设置该字段用于返回视频片段的截帧时间，单位为秒。对于点播文件，该参数代表对应截取图片相对于视频的偏移时间，如0（代表不偏移），5（视频开始后5秒），10（视频开始后10秒）；对于直播文件，该参数则返回对应图片的Unix时间戳，如：1594650717。
-                     * @param OffsetTime 该字段用于返回视频片段的截帧时间，单位为秒。对于点播文件，该参数代表对应截取图片相对于视频的偏移时间，如0（代表不偏移），5（视频开始后5秒），10（视频开始后10秒）；对于直播文件，该参数则返回对应图片的Unix时间戳，如：1594650717。
+                     * @param _offsetTime 该字段用于返回视频片段的截帧时间，单位为秒。对于点播文件，该参数代表对应截取图片相对于视频的偏移时间，如0（代表不偏移），5（视频开始后5秒），10（视频开始后10秒）；对于直播文件，该参数则返回对应图片的Unix时间戳，如：1594650717。
+                     * 
                      */
                     void SetOffsetTime(const std::string& _offsetTime);
 
                     /**
                      * 判断参数 OffsetTime 是否已赋值
                      * @return OffsetTime 是否已赋值
+                     * 
                      */
                     bool OffsetTimeHasBeenSet() const;
 
                     /**
                      * 获取该字段用于返回视频片段的具体截帧审核结果，详细内容敬请参考ImageResult数据结构的描述。
                      * @return Result 该字段用于返回视频片段的具体截帧审核结果，详细内容敬请参考ImageResult数据结构的描述。
+                     * 
                      */
                     ImageResult GetResult() const;
 
                     /**
                      * 设置该字段用于返回视频片段的具体截帧审核结果，详细内容敬请参考ImageResult数据结构的描述。
-                     * @param Result 该字段用于返回视频片段的具体截帧审核结果，详细内容敬请参考ImageResult数据结构的描述。
+                     * @param _result 该字段用于返回视频片段的具体截帧审核结果，详细内容敬请参考ImageResult数据结构的描述。
+                     * 
                      */
                     void SetResult(const ImageResult& _result);
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
+
+                    /**
+                     * 获取该字段用于返回视频片段的具体截帧审核时间。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CreatedAt 该字段用于返回视频片段的具体截帧审核时间。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetCreatedAt() const;
+
+                    /**
+                     * 设置该字段用于返回视频片段的具体截帧审核时间。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _createdAt 该字段用于返回视频片段的具体截帧审核时间。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetCreatedAt(const std::string& _createdAt);
+
+                    /**
+                     * 判断参数 CreatedAt 是否已赋值
+                     * @return CreatedAt 是否已赋值
+                     * 
+                     */
+                    bool CreatedAtHasBeenSet() const;
+
+                    /**
+                     * 获取该字段用于返回视频片段的截帧时间，单位为豪秒。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return OffsetusTime 该字段用于返回视频片段的截帧时间，单位为豪秒。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetOffsetusTime() const;
+
+                    /**
+                     * 设置该字段用于返回视频片段的截帧时间，单位为豪秒。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _offsetusTime 该字段用于返回视频片段的截帧时间，单位为豪秒。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetOffsetusTime(const std::string& _offsetusTime);
+
+                    /**
+                     * 判断参数 OffsetusTime 是否已赋值
+                     * @return OffsetusTime 是否已赋值
+                     * 
+                     */
+                    bool OffsetusTimeHasBeenSet() const;
 
                 private:
 
@@ -96,6 +152,20 @@ namespace TencentCloud
                      */
                     ImageResult m_result;
                     bool m_resultHasBeenSet;
+
+                    /**
+                     * 该字段用于返回视频片段的具体截帧审核时间。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_createdAt;
+                    bool m_createdAtHasBeenSet;
+
+                    /**
+                     * 该字段用于返回视频片段的截帧时间，单位为豪秒。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_offsetusTime;
+                    bool m_offsetusTimeHasBeenSet;
 
                 };
             }

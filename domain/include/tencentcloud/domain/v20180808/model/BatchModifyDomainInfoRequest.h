@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,38 +43,52 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取批量修改的域名。
-                     * @return Domains 批量修改的域名。
+                     * 获取批量修改的域名数组
+个数最大不超过4000
+                     * @return Domains 批量修改的域名数组
+个数最大不超过4000
+                     * 
                      */
                     std::vector<std::string> GetDomains() const;
 
                     /**
-                     * 设置批量修改的域名。
-                     * @param Domains 批量修改的域名。
+                     * 设置批量修改的域名数组
+个数最大不超过4000
+                     * @param _domains 批量修改的域名数组
+个数最大不超过4000
+                     * 
                      */
                     void SetDomains(const std::vector<std::string>& _domains);
 
                     /**
                      * 判断参数 Domains 是否已赋值
                      * @return Domains 是否已赋值
+                     * 
                      */
                     bool DomainsHasBeenSet() const;
 
                     /**
-                     * 获取模板ID。
-                     * @return TemplateId 模板ID。
+                     * 获取模板ID 
+可从[DescribeTemplateList](https://cloud.tencent.com/document/api/242/48940)接口获取
+                     * @return TemplateId 模板ID 
+可从[DescribeTemplateList](https://cloud.tencent.com/document/api/242/48940)接口获取
+                     * 
                      */
                     std::string GetTemplateId() const;
 
                     /**
-                     * 设置模板ID。
-                     * @param TemplateId 模板ID。
+                     * 设置模板ID 
+可从[DescribeTemplateList](https://cloud.tencent.com/document/api/242/48940)接口获取
+                     * @param _templateId 模板ID 
+可从[DescribeTemplateList](https://cloud.tencent.com/document/api/242/48940)接口获取
+                     * 
                      */
                     void SetTemplateId(const std::string& _templateId);
 
                     /**
                      * 判断参数 TemplateId 是否已赋值
                      * @return TemplateId 是否已赋值
+                     * 
                      */
                     bool TemplateIdHasBeenSet() const;
 
@@ -85,6 +99,7 @@ false：关闭60天内禁止转移注册商锁定
                      * @return LockTransfer true： 开启60天内禁止转移注册商锁定
 false：关闭60天内禁止转移注册商锁定
 默认 true
+                     * 
                      */
                     bool GetLockTransfer() const;
 
@@ -92,28 +107,32 @@ false：关闭60天内禁止转移注册商锁定
                      * 设置true： 开启60天内禁止转移注册商锁定
 false：关闭60天内禁止转移注册商锁定
 默认 true
-                     * @param LockTransfer true： 开启60天内禁止转移注册商锁定
+                     * @param _lockTransfer true： 开启60天内禁止转移注册商锁定
 false：关闭60天内禁止转移注册商锁定
 默认 true
+                     * 
                      */
                     void SetLockTransfer(const bool& _lockTransfer);
 
                     /**
                      * 判断参数 LockTransfer 是否已赋值
                      * @return LockTransfer 是否已赋值
+                     * 
                      */
                     bool LockTransferHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 批量修改的域名。
+                     * 批量修改的域名数组
+个数最大不超过4000
                      */
                     std::vector<std::string> m_domains;
                     bool m_domainsHasBeenSet;
 
                     /**
-                     * 模板ID。
+                     * 模板ID 
+可从[DescribeTemplateList](https://cloud.tencent.com/document/api/242/48940)接口获取
                      */
                     std::string m_templateId;
                     bool m_templateIdHasBeenSet;

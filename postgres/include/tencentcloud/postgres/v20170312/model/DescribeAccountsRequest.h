@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,99 +43,122 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID，形如postgres-6fego161
-                     * @return DBInstanceId 实例ID，形如postgres-6fego161
+                     * 获取实例ID，形如postgres-6fego161。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * @return DBInstanceId 实例ID，形如postgres-6fego161。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * 
                      */
                     std::string GetDBInstanceId() const;
 
                     /**
-                     * 设置实例ID，形如postgres-6fego161
-                     * @param DBInstanceId 实例ID，形如postgres-6fego161
+                     * 设置实例ID，形如postgres-6fego161。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * @param _dBInstanceId 实例ID，形如postgres-6fego161。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * 
                      */
                     void SetDBInstanceId(const std::string& _dBInstanceId);
 
                     /**
                      * 判断参数 DBInstanceId 是否已赋值
                      * @return DBInstanceId 是否已赋值
+                     * 
                      */
                     bool DBInstanceIdHasBeenSet() const;
 
                     /**
                      * 获取分页返回，每页最大返回数目，默认20，取值范围为1-100
                      * @return Limit 分页返回，每页最大返回数目，默认20，取值范围为1-100
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置分页返回，每页最大返回数目，默认20，取值范围为1-100
-                     * @param Limit 分页返回，每页最大返回数目，默认20，取值范围为1-100
+                     * @param _limit 分页返回，每页最大返回数目，默认20，取值范围为1-100
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取分页返回，返回第几页的用户数据。页码从0开始计数
-                     * @return Offset 分页返回，返回第几页的用户数据。页码从0开始计数
+                     * 获取数据偏移量，从0开始。
+                     * @return Offset 数据偏移量，从0开始。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置分页返回，返回第几页的用户数据。页码从0开始计数
-                     * @param Offset 分页返回，返回第几页的用户数据。页码从0开始计数
+                     * 设置数据偏移量，从0开始。
+                     * @param _offset 数据偏移量，从0开始。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取返回数据按照创建时间或者用户名排序。取值只能为createTime或者name。createTime-按照创建时间排序；name-按照用户名排序
-                     * @return OrderBy 返回数据按照创建时间或者用户名排序。取值只能为createTime或者name。createTime-按照创建时间排序；name-按照用户名排序
+                     * 获取返回数据按照创建时间或者用户名排序。取值支持createTime、name、updateTime。createTime-按照创建时间排序；name-按照用户名排序; updateTime-按照更新时间排序。
+默认值：createTime
+                     * @return OrderBy 返回数据按照创建时间或者用户名排序。取值支持createTime、name、updateTime。createTime-按照创建时间排序；name-按照用户名排序; updateTime-按照更新时间排序。
+默认值：createTime
+                     * 
                      */
                     std::string GetOrderBy() const;
 
                     /**
-                     * 设置返回数据按照创建时间或者用户名排序。取值只能为createTime或者name。createTime-按照创建时间排序；name-按照用户名排序
-                     * @param OrderBy 返回数据按照创建时间或者用户名排序。取值只能为createTime或者name。createTime-按照创建时间排序；name-按照用户名排序
+                     * 设置返回数据按照创建时间或者用户名排序。取值支持createTime、name、updateTime。createTime-按照创建时间排序；name-按照用户名排序; updateTime-按照更新时间排序。
+默认值：createTime
+                     * @param _orderBy 返回数据按照创建时间或者用户名排序。取值支持createTime、name、updateTime。createTime-按照创建时间排序；name-按照用户名排序; updateTime-按照更新时间排序。
+默认值：createTime
+                     * 
                      */
                     void SetOrderBy(const std::string& _orderBy);
 
                     /**
                      * 判断参数 OrderBy 是否已赋值
                      * @return OrderBy 是否已赋值
+                     * 
                      */
                     bool OrderByHasBeenSet() const;
 
                     /**
                      * 获取返回结果是升序还是降序。取值只能为desc或者asc。desc-降序；asc-升序
+默认值：desc
                      * @return OrderByType 返回结果是升序还是降序。取值只能为desc或者asc。desc-降序；asc-升序
+默认值：desc
+                     * 
                      */
                     std::string GetOrderByType() const;
 
                     /**
                      * 设置返回结果是升序还是降序。取值只能为desc或者asc。desc-降序；asc-升序
-                     * @param OrderByType 返回结果是升序还是降序。取值只能为desc或者asc。desc-降序；asc-升序
+默认值：desc
+                     * @param _orderByType 返回结果是升序还是降序。取值只能为desc或者asc。desc-降序；asc-升序
+默认值：desc
+                     * 
                      */
                     void SetOrderByType(const std::string& _orderByType);
 
                     /**
                      * 判断参数 OrderByType 是否已赋值
                      * @return OrderByType 是否已赋值
+                     * 
                      */
                     bool OrderByTypeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID，形如postgres-6fego161
+                     * 实例ID，形如postgres-6fego161。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
                      */
                     std::string m_dBInstanceId;
                     bool m_dBInstanceIdHasBeenSet;
@@ -147,19 +170,21 @@ namespace TencentCloud
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 分页返回，返回第几页的用户数据。页码从0开始计数
+                     * 数据偏移量，从0开始。
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 返回数据按照创建时间或者用户名排序。取值只能为createTime或者name。createTime-按照创建时间排序；name-按照用户名排序
+                     * 返回数据按照创建时间或者用户名排序。取值支持createTime、name、updateTime。createTime-按照创建时间排序；name-按照用户名排序; updateTime-按照更新时间排序。
+默认值：createTime
                      */
                     std::string m_orderBy;
                     bool m_orderByHasBeenSet;
 
                     /**
                      * 返回结果是升序还是降序。取值只能为desc或者asc。desc-降序；asc-升序
+默认值：desc
                      */
                     std::string m_orderByType;
                     bool m_orderByTypeHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取标签Key
                      * @return Key 标签Key
+                     * 
                      */
                     std::string GetKey() const;
 
                     /**
                      * 设置标签Key
-                     * @param Key 标签Key
+                     * @param _key 标签Key
+                     * 
                      */
                     void SetKey(const std::string& _key);
 
                     /**
                      * 判断参数 Key 是否已赋值
                      * @return Key 是否已赋值
+                     * 
                      */
                     bool KeyHasBeenSet() const;
 
                     /**
                      * 获取标签Value
                      * @return Value 标签Value
+                     * 
                      */
                     std::string GetValue() const;
 
                     /**
                      * 设置标签Value
-                     * @param Value 标签Value
+                     * @param _value 标签Value
+                     * 
                      */
                     void SetValue(const std::string& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 

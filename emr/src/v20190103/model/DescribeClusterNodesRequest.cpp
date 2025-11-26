@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,13 @@ using namespace std;
 DescribeClusterNodesRequest::DescribeClusterNodesRequest() :
     m_instanceIdHasBeenSet(false),
     m_nodeFlagHasBeenSet(false),
+    m_exportDbHasBeenSet(false),
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false),
     m_hardwareResourceTypeHasBeenSet(false),
-    m_searchFieldsHasBeenSet(false)
+    m_searchFieldsHasBeenSet(false),
+    m_orderFieldHasBeenSet(false),
+    m_ascHasBeenSet(false)
 {
 }
 
@@ -53,6 +56,14 @@ string DescribeClusterNodesRequest::ToJsonString() const
         string key = "NodeFlag";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_nodeFlag.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_exportDbHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExportDb";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_exportDb, allocator);
     }
 
     if (m_offsetHasBeenSet)
@@ -94,6 +105,22 @@ string DescribeClusterNodesRequest::ToJsonString() const
         }
     }
 
+    if (m_orderFieldHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderField";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_orderField.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ascHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Asc";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_asc, allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -132,6 +159,22 @@ void DescribeClusterNodesRequest::SetNodeFlag(const string& _nodeFlag)
 bool DescribeClusterNodesRequest::NodeFlagHasBeenSet() const
 {
     return m_nodeFlagHasBeenSet;
+}
+
+bool DescribeClusterNodesRequest::GetExportDb() const
+{
+    return m_exportDb;
+}
+
+void DescribeClusterNodesRequest::SetExportDb(const bool& _exportDb)
+{
+    m_exportDb = _exportDb;
+    m_exportDbHasBeenSet = true;
+}
+
+bool DescribeClusterNodesRequest::ExportDbHasBeenSet() const
+{
+    return m_exportDbHasBeenSet;
 }
 
 int64_t DescribeClusterNodesRequest::GetOffset() const
@@ -196,6 +239,38 @@ void DescribeClusterNodesRequest::SetSearchFields(const vector<SearchItem>& _sea
 bool DescribeClusterNodesRequest::SearchFieldsHasBeenSet() const
 {
     return m_searchFieldsHasBeenSet;
+}
+
+string DescribeClusterNodesRequest::GetOrderField() const
+{
+    return m_orderField;
+}
+
+void DescribeClusterNodesRequest::SetOrderField(const string& _orderField)
+{
+    m_orderField = _orderField;
+    m_orderFieldHasBeenSet = true;
+}
+
+bool DescribeClusterNodesRequest::OrderFieldHasBeenSet() const
+{
+    return m_orderFieldHasBeenSet;
+}
+
+int64_t DescribeClusterNodesRequest::GetAsc() const
+{
+    return m_asc;
+}
+
+void DescribeClusterNodesRequest::SetAsc(const int64_t& _asc)
+{
+    m_asc = _asc;
+    m_ascHasBeenSet = true;
+}
+
+bool DescribeClusterNodesRequest::AscHasBeenSet() const
+{
+    return m_ascHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,21 +44,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取数字验证码，如：1234
-                     * @return LiveCode 数字验证码，如：1234
+                     * 获取数字验证码。
+                     * @return LiveCode 数字验证码。
+                     * 
                      */
                     std::string GetLiveCode() const;
 
                     /**
                      * 判断参数 LiveCode 是否已赋值
                      * @return LiveCode 是否已赋值
+                     * 
                      */
                     bool LiveCodeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 数字验证码，如：1234
+                     * 数字验证码。
                      */
                     std::string m_liveCode;
                     bool m_liveCodeHasBeenSet;

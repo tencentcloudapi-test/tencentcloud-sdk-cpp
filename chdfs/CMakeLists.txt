@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ set(chdfs_public_header_model
   include/tencentcloud/chdfs/v20201112/model/ModifyFileSystemResponse.h
   include/tencentcloud/chdfs/v20201112/model/ModifyFileSystemRequest.h
   include/tencentcloud/chdfs/v20201112/model/DescribeLifeCycleRulesRequest.h
+  include/tencentcloud/chdfs/v20201112/model/Summary.h
   include/tencentcloud/chdfs/v20201112/model/AssociateAccessGroupsRequest.h
   include/tencentcloud/chdfs/v20201112/model/ModifyAccessGroupRequest.h
   include/tencentcloud/chdfs/v20201112/model/DescribeFileSystemsResponse.h
@@ -161,6 +162,7 @@ set(chdfs_src
   src/v20201112/model/ModifyFileSystemResponse.cpp
   src/v20201112/model/ModifyFileSystemRequest.cpp
   src/v20201112/model/DescribeLifeCycleRulesRequest.cpp
+  src/v20201112/model/Summary.cpp
   src/v20201112/model/AssociateAccessGroupsRequest.cpp
   src/v20201112/model/ModifyAccessGroupRequest.cpp
   src/v20201112/model/DescribeFileSystemsResponse.cpp

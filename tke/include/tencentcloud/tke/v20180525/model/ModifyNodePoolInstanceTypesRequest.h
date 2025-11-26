@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取集群id
                      * @return ClusterId 集群id
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置集群id
-                     * @param ClusterId 集群id
+                     * @param _clusterId 集群id
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取节点池id
                      * @return NodePoolId 节点池id
+                     * 
                      */
                     std::string GetNodePoolId() const;
 
                     /**
                      * 设置节点池id
-                     * @param NodePoolId 节点池id
+                     * @param _nodePoolId 节点池id
+                     * 
                      */
                     void SetNodePoolId(const std::string& _nodePoolId);
 
                     /**
                      * 判断参数 NodePoolId 是否已赋值
                      * @return NodePoolId 是否已赋值
+                     * 
                      */
                     bool NodePoolIdHasBeenSet() const;
 
                     /**
-                     * 获取机型列表
-                     * @return InstanceTypes 机型列表
+                     * 获取机型列表，参考 https://cloud.tencent.com/document/product/213/11518，主实例机型不支持修改
+                     * @return InstanceTypes 机型列表，参考 https://cloud.tencent.com/document/product/213/11518，主实例机型不支持修改
+                     * 
                      */
                     std::vector<std::string> GetInstanceTypes() const;
 
                     /**
-                     * 设置机型列表
-                     * @param InstanceTypes 机型列表
+                     * 设置机型列表，参考 https://cloud.tencent.com/document/product/213/11518，主实例机型不支持修改
+                     * @param _instanceTypes 机型列表，参考 https://cloud.tencent.com/document/product/213/11518，主实例机型不支持修改
+                     * 
                      */
                     void SetInstanceTypes(const std::vector<std::string>& _instanceTypes);
 
                     /**
                      * 判断参数 InstanceTypes 是否已赋值
                      * @return InstanceTypes 是否已赋值
+                     * 
                      */
                     bool InstanceTypesHasBeenSet() const;
 
@@ -111,7 +120,7 @@ namespace TencentCloud
                     bool m_nodePoolIdHasBeenSet;
 
                     /**
-                     * 机型列表
+                     * 机型列表，参考 https://cloud.tencent.com/document/product/213/11518，主实例机型不支持修改
                      */
                     std::vector<std::string> m_instanceTypes;
                     bool m_instanceTypesHasBeenSet;

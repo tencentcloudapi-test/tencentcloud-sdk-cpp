@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取域名共享对象的账号
                      * @return ShareTo 域名共享对象的账号
+                     * 
                      */
                     std::string GetShareTo() const;
 
                     /**
                      * 设置域名共享对象的账号
-                     * @param ShareTo 域名共享对象的账号
+                     * @param _shareTo 域名共享对象的账号
+                     * 
                      */
                     void SetShareTo(const std::string& _shareTo);
 
                     /**
                      * 判断参数 ShareTo 是否已赋值
                      * @return ShareTo 是否已赋值
+                     * 
                      */
                     bool ShareToHasBeenSet() const;
 
                     /**
                      * 获取共享模式，“rw”：可读写。 “r”:：只读
                      * @return Mode 共享模式，“rw”：可读写。 “r”:：只读
+                     * 
                      */
                     std::string GetMode() const;
 
                     /**
                      * 设置共享模式，“rw”：可读写。 “r”:：只读
-                     * @param Mode 共享模式，“rw”：可读写。 “r”:：只读
+                     * @param _mode 共享模式，“rw”：可读写。 “r”:：只读
+                     * 
                      */
                     void SetMode(const std::string& _mode);
 
                     /**
                      * 判断参数 Mode 是否已赋值
                      * @return Mode 是否已赋值
+                     * 
                      */
                     bool ModeHasBeenSet() const;
 
                     /**
                      * 获取共享状态“enabled”：共享成功。“pending”：共享到的账号不存在, 等待注册
                      * @return Status 共享状态“enabled”：共享成功。“pending”：共享到的账号不存在, 等待注册
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置共享状态“enabled”：共享成功。“pending”：共享到的账号不存在, 等待注册
-                     * @param Status 共享状态“enabled”：共享成功。“pending”：共享到的账号不存在, 等待注册
+                     * @param _status 共享状态“enabled”：共享成功。“pending”：共享到的账号不存在, 等待注册
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 

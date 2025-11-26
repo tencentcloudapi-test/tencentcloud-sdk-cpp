@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,7 +60,27 @@ NodeHardwareInfo::NodeHardwareInfo() :
     m_hardwareResourceTypeHasBeenSet(false),
     m_isDynamicSpecHasBeenSet(false),
     m_dynamicPodSpecHasBeenSet(false),
-    m_supportModifyPayModeHasBeenSet(false)
+    m_supportModifyPayModeHasBeenSet(false),
+    m_rootStorageTypeHasBeenSet(false),
+    m_zoneHasBeenSet(false),
+    m_subnetInfoHasBeenSet(false),
+    m_clientsHasBeenSet(false),
+    m_currentTimeHasBeenSet(false),
+    m_isFederationHasBeenSet(false),
+    m_deviceNameHasBeenSet(false),
+    m_serviceClientHasBeenSet(false),
+    m_disableApiTerminationHasBeenSet(false),
+    m_tradeVersionHasBeenSet(false),
+    m_servicesStatusHasBeenSet(false),
+    m_remarkHasBeenSet(false),
+    m_sharedClusterIdHasBeenSet(false),
+    m_sharedClusterIdDescHasBeenSet(false),
+    m_timingResourceHasBeenSet(false),
+    m_tkeClusterIdHasBeenSet(false),
+    m_configurableServicesHasBeenSet(false),
+    m_nodeMarkHasBeenSet(false),
+    m_underwriteSetAutoRenewHasBeenSet(false),
+    m_gpuDescHasBeenSet(false)
 {
 }
 
@@ -496,6 +516,216 @@ CoreInternalOutcome NodeHardwareInfo::Deserialize(const rapidjson::Value &value)
         m_supportModifyPayModeHasBeenSet = true;
     }
 
+    if (value.HasMember("RootStorageType") && !value["RootStorageType"].IsNull())
+    {
+        if (!value["RootStorageType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.RootStorageType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_rootStorageType = value["RootStorageType"].GetInt64();
+        m_rootStorageTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Zone") && !value["Zone"].IsNull())
+    {
+        if (!value["Zone"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.Zone` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_zone = string(value["Zone"].GetString());
+        m_zoneHasBeenSet = true;
+    }
+
+    if (value.HasMember("SubnetInfo") && !value["SubnetInfo"].IsNull())
+    {
+        if (!value["SubnetInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.SubnetInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_subnetInfo.Deserialize(value["SubnetInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_subnetInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("Clients") && !value["Clients"].IsNull())
+    {
+        if (!value["Clients"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.Clients` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clients = string(value["Clients"].GetString());
+        m_clientsHasBeenSet = true;
+    }
+
+    if (value.HasMember("CurrentTime") && !value["CurrentTime"].IsNull())
+    {
+        if (!value["CurrentTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.CurrentTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_currentTime = string(value["CurrentTime"].GetString());
+        m_currentTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsFederation") && !value["IsFederation"].IsNull())
+    {
+        if (!value["IsFederation"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.IsFederation` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isFederation = value["IsFederation"].GetInt64();
+        m_isFederationHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeviceName") && !value["DeviceName"].IsNull())
+    {
+        if (!value["DeviceName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.DeviceName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_deviceName = string(value["DeviceName"].GetString());
+        m_deviceNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("ServiceClient") && !value["ServiceClient"].IsNull())
+    {
+        if (!value["ServiceClient"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.ServiceClient` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_serviceClient = string(value["ServiceClient"].GetString());
+        m_serviceClientHasBeenSet = true;
+    }
+
+    if (value.HasMember("DisableApiTermination") && !value["DisableApiTermination"].IsNull())
+    {
+        if (!value["DisableApiTermination"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.DisableApiTermination` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_disableApiTermination = value["DisableApiTermination"].GetBool();
+        m_disableApiTerminationHasBeenSet = true;
+    }
+
+    if (value.HasMember("TradeVersion") && !value["TradeVersion"].IsNull())
+    {
+        if (!value["TradeVersion"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.TradeVersion` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_tradeVersion = value["TradeVersion"].GetInt64();
+        m_tradeVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ServicesStatus") && !value["ServicesStatus"].IsNull())
+    {
+        if (!value["ServicesStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.ServicesStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_servicesStatus = string(value["ServicesStatus"].GetString());
+        m_servicesStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("Remark") && !value["Remark"].IsNull())
+    {
+        if (!value["Remark"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.Remark` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_remark = string(value["Remark"].GetString());
+        m_remarkHasBeenSet = true;
+    }
+
+    if (value.HasMember("SharedClusterId") && !value["SharedClusterId"].IsNull())
+    {
+        if (!value["SharedClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.SharedClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sharedClusterId = string(value["SharedClusterId"].GetString());
+        m_sharedClusterIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("SharedClusterIdDesc") && !value["SharedClusterIdDesc"].IsNull())
+    {
+        if (!value["SharedClusterIdDesc"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.SharedClusterIdDesc` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sharedClusterIdDesc = string(value["SharedClusterIdDesc"].GetString());
+        m_sharedClusterIdDescHasBeenSet = true;
+    }
+
+    if (value.HasMember("TimingResource") && !value["TimingResource"].IsNull())
+    {
+        if (!value["TimingResource"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.TimingResource` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_timingResource = value["TimingResource"].GetBool();
+        m_timingResourceHasBeenSet = true;
+    }
+
+    if (value.HasMember("TkeClusterId") && !value["TkeClusterId"].IsNull())
+    {
+        if (!value["TkeClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.TkeClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_tkeClusterId = string(value["TkeClusterId"].GetString());
+        m_tkeClusterIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ConfigurableServices") && !value["ConfigurableServices"].IsNull())
+    {
+        if (!value["ConfigurableServices"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.ConfigurableServices` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ConfigurableServices"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_configurableServices.push_back((*itr).GetString());
+        }
+        m_configurableServicesHasBeenSet = true;
+    }
+
+    if (value.HasMember("NodeMark") && !value["NodeMark"].IsNull())
+    {
+        if (!value["NodeMark"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.NodeMark` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeMark = string(value["NodeMark"].GetString());
+        m_nodeMarkHasBeenSet = true;
+    }
+
+    if (value.HasMember("UnderwriteSetAutoRenew") && !value["UnderwriteSetAutoRenew"].IsNull())
+    {
+        if (!value["UnderwriteSetAutoRenew"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.UnderwriteSetAutoRenew` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_underwriteSetAutoRenew = value["UnderwriteSetAutoRenew"].GetBool();
+        m_underwriteSetAutoRenewHasBeenSet = true;
+    }
+
+    if (value.HasMember("GpuDesc") && !value["GpuDesc"].IsNull())
+    {
+        if (!value["GpuDesc"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeHardwareInfo.GpuDesc` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_gpuDesc = string(value["GpuDesc"].GetString());
+        m_gpuDescHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -836,6 +1066,172 @@ void NodeHardwareInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "SupportModifyPayMode";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_supportModifyPayMode, allocator);
+    }
+
+    if (m_rootStorageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RootStorageType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_rootStorageType, allocator);
+    }
+
+    if (m_zoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Zone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_subnetInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubnetInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_subnetInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_clientsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Clients";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clients.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_currentTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CurrentTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_currentTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isFederationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsFederation";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isFederation, allocator);
+    }
+
+    if (m_deviceNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeviceName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_deviceName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_serviceClientHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceClient";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_serviceClient.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_disableApiTerminationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DisableApiTermination";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_disableApiTermination, allocator);
+    }
+
+    if (m_tradeVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TradeVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_tradeVersion, allocator);
+    }
+
+    if (m_servicesStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServicesStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_servicesStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sharedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SharedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sharedClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sharedClusterIdDescHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SharedClusterIdDesc";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sharedClusterIdDesc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_timingResourceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TimingResource";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_timingResource, allocator);
+    }
+
+    if (m_tkeClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TkeClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_tkeClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_configurableServicesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConfigurableServices";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_configurableServices.begin(); itr != m_configurableServices.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_nodeMarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeMark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nodeMark.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_underwriteSetAutoRenewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UnderwriteSetAutoRenew";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_underwriteSetAutoRenew, allocator);
+    }
+
+    if (m_gpuDescHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GpuDesc";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_gpuDesc.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1479,5 +1875,325 @@ void NodeHardwareInfo::SetSupportModifyPayMode(const int64_t& _supportModifyPayM
 bool NodeHardwareInfo::SupportModifyPayModeHasBeenSet() const
 {
     return m_supportModifyPayModeHasBeenSet;
+}
+
+int64_t NodeHardwareInfo::GetRootStorageType() const
+{
+    return m_rootStorageType;
+}
+
+void NodeHardwareInfo::SetRootStorageType(const int64_t& _rootStorageType)
+{
+    m_rootStorageType = _rootStorageType;
+    m_rootStorageTypeHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::RootStorageTypeHasBeenSet() const
+{
+    return m_rootStorageTypeHasBeenSet;
+}
+
+string NodeHardwareInfo::GetZone() const
+{
+    return m_zone;
+}
+
+void NodeHardwareInfo::SetZone(const string& _zone)
+{
+    m_zone = _zone;
+    m_zoneHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::ZoneHasBeenSet() const
+{
+    return m_zoneHasBeenSet;
+}
+
+SubnetInfo NodeHardwareInfo::GetSubnetInfo() const
+{
+    return m_subnetInfo;
+}
+
+void NodeHardwareInfo::SetSubnetInfo(const SubnetInfo& _subnetInfo)
+{
+    m_subnetInfo = _subnetInfo;
+    m_subnetInfoHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::SubnetInfoHasBeenSet() const
+{
+    return m_subnetInfoHasBeenSet;
+}
+
+string NodeHardwareInfo::GetClients() const
+{
+    return m_clients;
+}
+
+void NodeHardwareInfo::SetClients(const string& _clients)
+{
+    m_clients = _clients;
+    m_clientsHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::ClientsHasBeenSet() const
+{
+    return m_clientsHasBeenSet;
+}
+
+string NodeHardwareInfo::GetCurrentTime() const
+{
+    return m_currentTime;
+}
+
+void NodeHardwareInfo::SetCurrentTime(const string& _currentTime)
+{
+    m_currentTime = _currentTime;
+    m_currentTimeHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::CurrentTimeHasBeenSet() const
+{
+    return m_currentTimeHasBeenSet;
+}
+
+int64_t NodeHardwareInfo::GetIsFederation() const
+{
+    return m_isFederation;
+}
+
+void NodeHardwareInfo::SetIsFederation(const int64_t& _isFederation)
+{
+    m_isFederation = _isFederation;
+    m_isFederationHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::IsFederationHasBeenSet() const
+{
+    return m_isFederationHasBeenSet;
+}
+
+string NodeHardwareInfo::GetDeviceName() const
+{
+    return m_deviceName;
+}
+
+void NodeHardwareInfo::SetDeviceName(const string& _deviceName)
+{
+    m_deviceName = _deviceName;
+    m_deviceNameHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::DeviceNameHasBeenSet() const
+{
+    return m_deviceNameHasBeenSet;
+}
+
+string NodeHardwareInfo::GetServiceClient() const
+{
+    return m_serviceClient;
+}
+
+void NodeHardwareInfo::SetServiceClient(const string& _serviceClient)
+{
+    m_serviceClient = _serviceClient;
+    m_serviceClientHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::ServiceClientHasBeenSet() const
+{
+    return m_serviceClientHasBeenSet;
+}
+
+bool NodeHardwareInfo::GetDisableApiTermination() const
+{
+    return m_disableApiTermination;
+}
+
+void NodeHardwareInfo::SetDisableApiTermination(const bool& _disableApiTermination)
+{
+    m_disableApiTermination = _disableApiTermination;
+    m_disableApiTerminationHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::DisableApiTerminationHasBeenSet() const
+{
+    return m_disableApiTerminationHasBeenSet;
+}
+
+int64_t NodeHardwareInfo::GetTradeVersion() const
+{
+    return m_tradeVersion;
+}
+
+void NodeHardwareInfo::SetTradeVersion(const int64_t& _tradeVersion)
+{
+    m_tradeVersion = _tradeVersion;
+    m_tradeVersionHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::TradeVersionHasBeenSet() const
+{
+    return m_tradeVersionHasBeenSet;
+}
+
+string NodeHardwareInfo::GetServicesStatus() const
+{
+    return m_servicesStatus;
+}
+
+void NodeHardwareInfo::SetServicesStatus(const string& _servicesStatus)
+{
+    m_servicesStatus = _servicesStatus;
+    m_servicesStatusHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::ServicesStatusHasBeenSet() const
+{
+    return m_servicesStatusHasBeenSet;
+}
+
+string NodeHardwareInfo::GetRemark() const
+{
+    return m_remark;
+}
+
+void NodeHardwareInfo::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
+}
+
+string NodeHardwareInfo::GetSharedClusterId() const
+{
+    return m_sharedClusterId;
+}
+
+void NodeHardwareInfo::SetSharedClusterId(const string& _sharedClusterId)
+{
+    m_sharedClusterId = _sharedClusterId;
+    m_sharedClusterIdHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::SharedClusterIdHasBeenSet() const
+{
+    return m_sharedClusterIdHasBeenSet;
+}
+
+string NodeHardwareInfo::GetSharedClusterIdDesc() const
+{
+    return m_sharedClusterIdDesc;
+}
+
+void NodeHardwareInfo::SetSharedClusterIdDesc(const string& _sharedClusterIdDesc)
+{
+    m_sharedClusterIdDesc = _sharedClusterIdDesc;
+    m_sharedClusterIdDescHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::SharedClusterIdDescHasBeenSet() const
+{
+    return m_sharedClusterIdDescHasBeenSet;
+}
+
+bool NodeHardwareInfo::GetTimingResource() const
+{
+    return m_timingResource;
+}
+
+void NodeHardwareInfo::SetTimingResource(const bool& _timingResource)
+{
+    m_timingResource = _timingResource;
+    m_timingResourceHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::TimingResourceHasBeenSet() const
+{
+    return m_timingResourceHasBeenSet;
+}
+
+string NodeHardwareInfo::GetTkeClusterId() const
+{
+    return m_tkeClusterId;
+}
+
+void NodeHardwareInfo::SetTkeClusterId(const string& _tkeClusterId)
+{
+    m_tkeClusterId = _tkeClusterId;
+    m_tkeClusterIdHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::TkeClusterIdHasBeenSet() const
+{
+    return m_tkeClusterIdHasBeenSet;
+}
+
+vector<string> NodeHardwareInfo::GetConfigurableServices() const
+{
+    return m_configurableServices;
+}
+
+void NodeHardwareInfo::SetConfigurableServices(const vector<string>& _configurableServices)
+{
+    m_configurableServices = _configurableServices;
+    m_configurableServicesHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::ConfigurableServicesHasBeenSet() const
+{
+    return m_configurableServicesHasBeenSet;
+}
+
+string NodeHardwareInfo::GetNodeMark() const
+{
+    return m_nodeMark;
+}
+
+void NodeHardwareInfo::SetNodeMark(const string& _nodeMark)
+{
+    m_nodeMark = _nodeMark;
+    m_nodeMarkHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::NodeMarkHasBeenSet() const
+{
+    return m_nodeMarkHasBeenSet;
+}
+
+bool NodeHardwareInfo::GetUnderwriteSetAutoRenew() const
+{
+    return m_underwriteSetAutoRenew;
+}
+
+void NodeHardwareInfo::SetUnderwriteSetAutoRenew(const bool& _underwriteSetAutoRenew)
+{
+    m_underwriteSetAutoRenew = _underwriteSetAutoRenew;
+    m_underwriteSetAutoRenewHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::UnderwriteSetAutoRenewHasBeenSet() const
+{
+    return m_underwriteSetAutoRenewHasBeenSet;
+}
+
+string NodeHardwareInfo::GetGpuDesc() const
+{
+    return m_gpuDesc;
+}
+
+void NodeHardwareInfo::SetGpuDesc(const string& _gpuDesc)
+{
+    m_gpuDesc = _gpuDesc;
+    m_gpuDescHasBeenSet = true;
+}
+
+bool NodeHardwareInfo::GpuDescHasBeenSet() const
+{
+    return m_gpuDescHasBeenSet;
 }
 

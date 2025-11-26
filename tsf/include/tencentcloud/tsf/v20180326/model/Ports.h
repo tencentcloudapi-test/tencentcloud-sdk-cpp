@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取服务端口
                      * @return TargetPort 服务端口
+                     * 
                      */
                     uint64_t GetTargetPort() const;
 
                     /**
                      * 设置服务端口
-                     * @param TargetPort 服务端口
+                     * @param _targetPort 服务端口
+                     * 
                      */
                     void SetTargetPort(const uint64_t& _targetPort);
 
                     /**
                      * 判断参数 TargetPort 是否已赋值
                      * @return TargetPort 是否已赋值
+                     * 
                      */
                     bool TargetPortHasBeenSet() const;
 
                     /**
-                     * 获取端口协议
-                     * @return Protocol 端口协议
+                     * 获取端口协议，TCP或者UDP
+                     * @return Protocol 端口协议，TCP或者UDP
+                     * 
                      */
                     std::string GetProtocol() const;
 
                     /**
-                     * 设置端口协议
-                     * @param Protocol 端口协议
+                     * 设置端口协议，TCP或者UDP
+                     * @param _protocol 端口协议，TCP或者UDP
+                     * 
                      */
                     void SetProtocol(const std::string& _protocol);
 
                     /**
                      * 判断参数 Protocol 是否已赋值
                      * @return Protocol 是否已赋值
+                     * 
                      */
                     bool ProtocolHasBeenSet() const;
 
@@ -91,7 +97,7 @@ namespace TencentCloud
                     bool m_targetPortHasBeenSet;
 
                     /**
-                     * 端口协议
+                     * 端口协议，TCP或者UDP
                      */
                     std::string m_protocol;
                     bool m_protocolHasBeenSet;

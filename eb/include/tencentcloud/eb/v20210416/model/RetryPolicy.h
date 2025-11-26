@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取重试间隔 单位:秒
                      * @return RetryInterval 重试间隔 单位:秒
+                     * 
                      */
                     uint64_t GetRetryInterval() const;
 
                     /**
                      * 设置重试间隔 单位:秒
-                     * @param RetryInterval 重试间隔 单位:秒
+                     * @param _retryInterval 重试间隔 单位:秒
+                     * 
                      */
                     void SetRetryInterval(const uint64_t& _retryInterval);
 
                     /**
                      * 判断参数 RetryInterval 是否已赋值
                      * @return RetryInterval 是否已赋值
+                     * 
                      */
                     bool RetryIntervalHasBeenSet() const;
 
                     /**
                      * 获取最大重试次数
                      * @return MaxRetryAttempts 最大重试次数
+                     * 
                      */
                     uint64_t GetMaxRetryAttempts() const;
 
                     /**
                      * 设置最大重试次数
-                     * @param MaxRetryAttempts 最大重试次数
+                     * @param _maxRetryAttempts 最大重试次数
+                     * 
                      */
                     void SetMaxRetryAttempts(const uint64_t& _maxRetryAttempts);
 
                     /**
                      * 判断参数 MaxRetryAttempts 是否已赋值
                      * @return MaxRetryAttempts 是否已赋值
+                     * 
                      */
                     bool MaxRetryAttemptsHasBeenSet() const;
 

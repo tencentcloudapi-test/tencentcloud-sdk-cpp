@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,16 +24,18 @@ using namespace std;
 
 PullUploadRequest::PullUploadRequest() :
     m_mediaUrlHasBeenSet(false),
+    m_mediaTypeHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_mediaNameHasBeenSet(false),
     m_coverUrlHasBeenSet(false),
     m_procedureHasBeenSet(false),
     m_expireTimeHasBeenSet(false),
     m_storageRegionHasBeenSet(false),
     m_classIdHasBeenSet(false),
+    m_tasksPriorityHasBeenSet(false),
     m_sessionContextHasBeenSet(false),
     m_sessionIdHasBeenSet(false),
     m_extInfoHasBeenSet(false),
-    m_subAppIdHasBeenSet(false),
     m_sourceContextHasBeenSet(false)
 {
 }
@@ -51,6 +53,22 @@ string PullUploadRequest::ToJsonString() const
         string key = "MediaUrl";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_mediaUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_mediaTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MediaType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_mediaType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_mediaNameHasBeenSet)
@@ -101,6 +119,14 @@ string PullUploadRequest::ToJsonString() const
         d.AddMember(iKey, m_classId, allocator);
     }
 
+    if (m_tasksPriorityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TasksPriority";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_tasksPriority, allocator);
+    }
+
     if (m_sessionContextHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -123,14 +149,6 @@ string PullUploadRequest::ToJsonString() const
         string key = "ExtInfo";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_extInfo.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_subAppIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_sourceContextHasBeenSet)
@@ -163,6 +181,38 @@ void PullUploadRequest::SetMediaUrl(const string& _mediaUrl)
 bool PullUploadRequest::MediaUrlHasBeenSet() const
 {
     return m_mediaUrlHasBeenSet;
+}
+
+string PullUploadRequest::GetMediaType() const
+{
+    return m_mediaType;
+}
+
+void PullUploadRequest::SetMediaType(const string& _mediaType)
+{
+    m_mediaType = _mediaType;
+    m_mediaTypeHasBeenSet = true;
+}
+
+bool PullUploadRequest::MediaTypeHasBeenSet() const
+{
+    return m_mediaTypeHasBeenSet;
+}
+
+uint64_t PullUploadRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void PullUploadRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool PullUploadRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
 }
 
 string PullUploadRequest::GetMediaName() const
@@ -261,6 +311,22 @@ bool PullUploadRequest::ClassIdHasBeenSet() const
     return m_classIdHasBeenSet;
 }
 
+int64_t PullUploadRequest::GetTasksPriority() const
+{
+    return m_tasksPriority;
+}
+
+void PullUploadRequest::SetTasksPriority(const int64_t& _tasksPriority)
+{
+    m_tasksPriority = _tasksPriority;
+    m_tasksPriorityHasBeenSet = true;
+}
+
+bool PullUploadRequest::TasksPriorityHasBeenSet() const
+{
+    return m_tasksPriorityHasBeenSet;
+}
+
 string PullUploadRequest::GetSessionContext() const
 {
     return m_sessionContext;
@@ -307,22 +373,6 @@ void PullUploadRequest::SetExtInfo(const string& _extInfo)
 bool PullUploadRequest::ExtInfoHasBeenSet() const
 {
     return m_extInfoHasBeenSet;
-}
-
-uint64_t PullUploadRequest::GetSubAppId() const
-{
-    return m_subAppId;
-}
-
-void PullUploadRequest::SetSubAppId(const uint64_t& _subAppId)
-{
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
-}
-
-bool PullUploadRequest::SubAppIdHasBeenSet() const
-{
-    return m_subAppIdHasBeenSet;
 }
 
 string PullUploadRequest::GetSourceContext() const

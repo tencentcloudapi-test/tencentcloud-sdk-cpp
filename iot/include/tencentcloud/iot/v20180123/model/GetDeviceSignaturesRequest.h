@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取产品ID
                      * @return ProductId 产品ID
+                     * 
                      */
                     std::string GetProductId() const;
 
                     /**
                      * 设置产品ID
-                     * @param ProductId 产品ID
+                     * @param _productId 产品ID
+                     * 
                      */
                     void SetProductId(const std::string& _productId);
 
                     /**
                      * 判断参数 ProductId 是否已赋值
                      * @return ProductId 是否已赋值
+                     * 
                      */
                     bool ProductIdHasBeenSet() const;
 
                     /**
                      * 获取设备名称列表（单次限制1000个设备）
                      * @return DeviceNames 设备名称列表（单次限制1000个设备）
+                     * 
                      */
                     std::vector<std::string> GetDeviceNames() const;
 
                     /**
                      * 设置设备名称列表（单次限制1000个设备）
-                     * @param DeviceNames 设备名称列表（单次限制1000个设备）
+                     * @param _deviceNames 设备名称列表（单次限制1000个设备）
+                     * 
                      */
                     void SetDeviceNames(const std::vector<std::string>& _deviceNames);
 
                     /**
                      * 判断参数 DeviceNames 是否已赋值
                      * @return DeviceNames 是否已赋值
+                     * 
                      */
                     bool DeviceNamesHasBeenSet() const;
 
                     /**
                      * 获取过期时间
                      * @return Expire 过期时间
+                     * 
                      */
                     uint64_t GetExpire() const;
 
                     /**
                      * 设置过期时间
-                     * @param Expire 过期时间
+                     * @param _expire 过期时间
+                     * 
                      */
                     void SetExpire(const uint64_t& _expire);
 
                     /**
                      * 判断参数 Expire 是否已赋值
                      * @return Expire 是否已赋值
+                     * 
                      */
                     bool ExpireHasBeenSet() const;
 

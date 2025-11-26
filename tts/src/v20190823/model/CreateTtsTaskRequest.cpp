@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,16 +24,19 @@ using namespace std;
 
 CreateTtsTaskRequest::CreateTtsTaskRequest() :
     m_textHasBeenSet(false),
-    m_modelTypeHasBeenSet(false),
     m_volumeHasBeenSet(false),
     m_speedHasBeenSet(false),
     m_projectIdHasBeenSet(false),
+    m_modelTypeHasBeenSet(false),
     m_voiceTypeHasBeenSet(false),
     m_primaryLanguageHasBeenSet(false),
     m_sampleRateHasBeenSet(false),
     m_codecHasBeenSet(false),
     m_callbackUrlHasBeenSet(false),
-    m_voiceoverDialogueSplitHasBeenSet(false)
+    m_enableSubtitleHasBeenSet(false),
+    m_voiceoverDialogueSplitHasBeenSet(false),
+    m_emotionCategoryHasBeenSet(false),
+    m_emotionIntensityHasBeenSet(false)
 {
 }
 
@@ -50,14 +53,6 @@ string CreateTtsTaskRequest::ToJsonString() const
         string key = "Text";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_text.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_modelTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ModelType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_modelType, allocator);
     }
 
     if (m_volumeHasBeenSet)
@@ -82,6 +77,14 @@ string CreateTtsTaskRequest::ToJsonString() const
         string key = "ProjectId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_projectId, allocator);
+    }
+
+    if (m_modelTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ModelType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_modelType, allocator);
     }
 
     if (m_voiceTypeHasBeenSet)
@@ -124,12 +127,36 @@ string CreateTtsTaskRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_callbackUrl.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_enableSubtitleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableSubtitle";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableSubtitle, allocator);
+    }
+
     if (m_voiceoverDialogueSplitHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "VoiceoverDialogueSplit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_voiceoverDialogueSplit, allocator);
+    }
+
+    if (m_emotionCategoryHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EmotionCategory";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_emotionCategory.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_emotionIntensityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EmotionIntensity";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_emotionIntensity, allocator);
     }
 
 
@@ -154,22 +181,6 @@ void CreateTtsTaskRequest::SetText(const string& _text)
 bool CreateTtsTaskRequest::TextHasBeenSet() const
 {
     return m_textHasBeenSet;
-}
-
-int64_t CreateTtsTaskRequest::GetModelType() const
-{
-    return m_modelType;
-}
-
-void CreateTtsTaskRequest::SetModelType(const int64_t& _modelType)
-{
-    m_modelType = _modelType;
-    m_modelTypeHasBeenSet = true;
-}
-
-bool CreateTtsTaskRequest::ModelTypeHasBeenSet() const
-{
-    return m_modelTypeHasBeenSet;
 }
 
 double CreateTtsTaskRequest::GetVolume() const
@@ -218,6 +229,22 @@ void CreateTtsTaskRequest::SetProjectId(const int64_t& _projectId)
 bool CreateTtsTaskRequest::ProjectIdHasBeenSet() const
 {
     return m_projectIdHasBeenSet;
+}
+
+int64_t CreateTtsTaskRequest::GetModelType() const
+{
+    return m_modelType;
+}
+
+void CreateTtsTaskRequest::SetModelType(const int64_t& _modelType)
+{
+    m_modelType = _modelType;
+    m_modelTypeHasBeenSet = true;
+}
+
+bool CreateTtsTaskRequest::ModelTypeHasBeenSet() const
+{
+    return m_modelTypeHasBeenSet;
 }
 
 int64_t CreateTtsTaskRequest::GetVoiceType() const
@@ -300,6 +327,22 @@ bool CreateTtsTaskRequest::CallbackUrlHasBeenSet() const
     return m_callbackUrlHasBeenSet;
 }
 
+bool CreateTtsTaskRequest::GetEnableSubtitle() const
+{
+    return m_enableSubtitle;
+}
+
+void CreateTtsTaskRequest::SetEnableSubtitle(const bool& _enableSubtitle)
+{
+    m_enableSubtitle = _enableSubtitle;
+    m_enableSubtitleHasBeenSet = true;
+}
+
+bool CreateTtsTaskRequest::EnableSubtitleHasBeenSet() const
+{
+    return m_enableSubtitleHasBeenSet;
+}
+
 bool CreateTtsTaskRequest::GetVoiceoverDialogueSplit() const
 {
     return m_voiceoverDialogueSplit;
@@ -314,6 +357,38 @@ void CreateTtsTaskRequest::SetVoiceoverDialogueSplit(const bool& _voiceoverDialo
 bool CreateTtsTaskRequest::VoiceoverDialogueSplitHasBeenSet() const
 {
     return m_voiceoverDialogueSplitHasBeenSet;
+}
+
+string CreateTtsTaskRequest::GetEmotionCategory() const
+{
+    return m_emotionCategory;
+}
+
+void CreateTtsTaskRequest::SetEmotionCategory(const string& _emotionCategory)
+{
+    m_emotionCategory = _emotionCategory;
+    m_emotionCategoryHasBeenSet = true;
+}
+
+bool CreateTtsTaskRequest::EmotionCategoryHasBeenSet() const
+{
+    return m_emotionCategoryHasBeenSet;
+}
+
+int64_t CreateTtsTaskRequest::GetEmotionIntensity() const
+{
+    return m_emotionIntensity;
+}
+
+void CreateTtsTaskRequest::SetEmotionIntensity(const int64_t& _emotionIntensity)
+{
+    m_emotionIntensity = _emotionIntensity;
+    m_emotionIntensityHasBeenSet = true;
+}
+
+bool CreateTtsTaskRequest::EmotionIntensityHasBeenSet() const
+{
+    return m_emotionIntensityHasBeenSet;
 }
 
 

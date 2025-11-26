@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取加密后的数据密钥。
                      * @return Edk 加密后的数据密钥。
+                     * 
                      */
                     std::string GetEdk() const;
 
                     /**
                      * 设置加密后的数据密钥。
-                     * @param Edk 加密后的数据密钥。
+                     * @param _edk 加密后的数据密钥。
+                     * 
                      */
                     void SetEdk(const std::string& _edk);
 
                     /**
                      * 判断参数 Edk 是否已赋值
                      * @return Edk 是否已赋值
+                     * 
                      */
                     bool EdkHasBeenSet() const;
 
                     /**
                      * 获取数据密钥。返回的数据密钥 DK 为 Base64 编码字符串。
                      * @return Dk 数据密钥。返回的数据密钥 DK 为 Base64 编码字符串。
+                     * 
                      */
                     std::string GetDk() const;
 
                     /**
                      * 设置数据密钥。返回的数据密钥 DK 为 Base64 编码字符串。
-                     * @param Dk 数据密钥。返回的数据密钥 DK 为 Base64 编码字符串。
+                     * @param _dk 数据密钥。返回的数据密钥 DK 为 Base64 编码字符串。
+                     * 
                      */
                     void SetDk(const std::string& _dk);
 
                     /**
                      * 判断参数 Dk 是否已赋值
                      * @return Dk 是否已赋值
+                     * 
                      */
                     bool DkHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取子应用 ID。
                      * @return SubAppId 子应用 ID。
+                     * 
                      */
                     uint64_t GetSubAppId() const;
 
                     /**
                      * 设置子应用 ID。
-                     * @param SubAppId 子应用 ID。
+                     * @param _subAppId 子应用 ID。
+                     * 
                      */
                     void SetSubAppId(const uint64_t& _subAppId);
 
                     /**
                      * 判断参数 SubAppId 是否已赋值
                      * @return SubAppId 是否已赋值
+                     * 
                      */
                     bool SubAppIdHasBeenSet() const;
 
                     /**
                      * 获取子应用名称。
-                     * @return Name 子应用名称。
+                     * @return SubAppIdName 子应用名称。
+                     * 
                      */
-                    std::string GetName() const;
+                    std::string GetSubAppIdName() const;
 
                     /**
                      * 设置子应用名称。
-                     * @param Name 子应用名称。
+                     * @param _subAppIdName 子应用名称。
+                     * 
                      */
-                    void SetName(const std::string& _name);
+                    void SetSubAppIdName(const std::string& _subAppIdName);
 
                     /**
-                     * 判断参数 Name 是否已赋值
-                     * @return Name 是否已赋值
+                     * 判断参数 SubAppIdName 是否已赋值
+                     * @return SubAppIdName 是否已赋值
+                     * 
                      */
-                    bool NameHasBeenSet() const;
+                    bool SubAppIdNameHasBeenSet() const;
 
                     /**
                      * 获取子应用简介。
                      * @return Description 子应用简介。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置子应用简介。
-                     * @param Description 子应用简介。
+                     * @param _description 子应用简介。
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取子应用创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      * @return CreateTime 子应用创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置子应用创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-                     * @param CreateTime 子应用创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @param _createTime 子应用创建时间，采用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
@@ -129,6 +141,7 @@ namespace TencentCloud
 <li>Off：停用。</li>
 <li>Destroying：销毁中。</li>
 <li>Destroyed：销毁完成。</li>
+                     * 
                      */
                     std::string GetStatus() const;
 
@@ -138,19 +151,42 @@ namespace TencentCloud
 <li>Off：停用。</li>
 <li>Destroying：销毁中。</li>
 <li>Destroyed：销毁完成。</li>
-                     * @param Status 子应用状态，有效值：
+                     * @param _status 子应用状态，有效值：
 <li>On：启用；</li>
 <li>Off：停用。</li>
 <li>Destroying：销毁中。</li>
 <li>Destroyed：销毁完成。</li>
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+                     * @return Name 子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+                     * 
+                     */
+                    std::string GetName() const;
+
+                    /**
+                     * 设置子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+                     * @param _name 子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+                     * 
+                     */
+                    void SetName(const std::string& _name);
+
+                    /**
+                     * 判断参数 Name 是否已赋值
+                     * @return Name 是否已赋值
+                     * 
+                     */
+                    bool NameHasBeenSet() const;
 
                 private:
 
@@ -163,8 +199,8 @@ namespace TencentCloud
                     /**
                      * 子应用名称。
                      */
-                    std::string m_name;
-                    bool m_nameHasBeenSet;
+                    std::string m_subAppIdName;
+                    bool m_subAppIdNameHasBeenSet;
 
                     /**
                      * 子应用简介。
@@ -187,6 +223,12 @@ namespace TencentCloud
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 子应用名称（该字段已不推荐使用，建议使用新的子应用名称字段 SubAppIdName）。
+                     */
+                    std::string m_name;
+                    bool m_nameHasBeenSet;
 
                 };
             }

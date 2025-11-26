@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取国家名称
                      * @return Name 国家名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置国家名称
-                     * @param Name 国家名称
+                     * @param _name 国家名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取带宽明细数据信息。
                      * @return BandInfoList 带宽明细数据信息。
+                     * 
                      */
                     std::vector<BillDataInfo> GetBandInfoList() const;
 
                     /**
                      * 设置带宽明细数据信息。
-                     * @param BandInfoList 带宽明细数据信息。
+                     * @param _bandInfoList 带宽明细数据信息。
+                     * 
                      */
                     void SetBandInfoList(const std::vector<BillDataInfo>& _bandInfoList);
 
                     /**
                      * 判断参数 BandInfoList 是否已赋值
                      * @return BandInfoList 是否已赋值
+                     * 
                      */
                     bool BandInfoListHasBeenSet() const;
 

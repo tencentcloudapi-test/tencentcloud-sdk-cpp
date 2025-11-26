@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取默认不需要使用
-                     * @return ActionType 默认不需要使用
+                     * 获取默认不需要使用。
+                     * @return ActionType 默认不需要使用。
+                     * 
                      */
                     std::string GetActionType() const;
 
                     /**
-                     * 设置默认不需要使用
-                     * @param ActionType 默认不需要使用
+                     * 设置默认不需要使用。
+                     * @param _actionType 默认不需要使用。
+                     * 
                      */
                     void SetActionType(const std::string& _actionType);
 
                     /**
                      * 判断参数 ActionType 是否已赋值
                      * @return ActionType 是否已赋值
+                     * 
                      */
                     bool ActionTypeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 默认不需要使用
+                     * 默认不需要使用。
                      */
                     std::string m_actionType;
                     bool m_actionTypeHasBeenSet;

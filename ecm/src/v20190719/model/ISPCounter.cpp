@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ ISPCounter::ISPCounter() :
     m_providerNameHasBeenSet(false),
     m_providerNodeNumHasBeenSet(false),
     m_provederInstanceNumHasBeenSet(false),
-    m_zoneInstanceInfoSetHasBeenSet(false)
+    m_zoneInstanceInfoSetHasBeenSet(false),
+    m_providerInstanceNumHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome ISPCounter::Deserialize(const rapidjson::Value &value)
         m_zoneInstanceInfoSetHasBeenSet = true;
     }
 
+    if (value.HasMember("ProviderInstanceNum") && !value["ProviderInstanceNum"].IsNull())
+    {
+        if (!value["ProviderInstanceNum"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ISPCounter.ProviderInstanceNum` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_providerInstanceNum = value["ProviderInstanceNum"].GetInt64();
+        m_providerInstanceNumHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -127,6 +138,14 @@ void ISPCounter::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_providerInstanceNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProviderInstanceNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_providerInstanceNum, allocator);
     }
 
 }
@@ -194,5 +213,21 @@ void ISPCounter::SetZoneInstanceInfoSet(const vector<ZoneInstanceInfo>& _zoneIns
 bool ISPCounter::ZoneInstanceInfoSetHasBeenSet() const
 {
     return m_zoneInstanceInfoSetHasBeenSet;
+}
+
+int64_t ISPCounter::GetProviderInstanceNum() const
+{
+    return m_providerInstanceNum;
+}
+
+void ISPCounter::SetProviderInstanceNum(const int64_t& _providerInstanceNum)
+{
+    m_providerInstanceNum = _providerInstanceNum;
+    m_providerInstanceNumHasBeenSet = true;
+}
+
+bool ISPCounter::ProviderInstanceNumHasBeenSet() const
+{
+    return m_providerInstanceNumHasBeenSet;
 }
 

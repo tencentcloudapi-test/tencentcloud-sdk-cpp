@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填
                      * @return Cursor 用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填
+                     * 
                      */
                     std::string GetCursor() const;
 
                     /**
                      * 设置用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填
-                     * @param Cursor 用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填
+                     * @param _cursor 用于分页查询的游标，字符串类型，由上一次调用返回，首次调用可不填
+                     * 
                      */
                     void SetCursor(const std::string& _cursor);
 
                     /**
                      * 判断参数 Cursor 是否已赋值
                      * @return Cursor 是否已赋值
+                     * 
                      */
                     bool CursorHasBeenSet() const;
 
                     /**
                      * 获取返回的最大记录数，整型，最大值100，默认值50，超过最大值时取最大值
                      * @return Limit 返回的最大记录数，整型，最大值100，默认值50，超过最大值时取最大值
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置返回的最大记录数，整型，最大值100，默认值50，超过最大值时取最大值
-                     * @param Limit 返回的最大记录数，整型，最大值100，默认值50，超过最大值时取最大值
+                     * @param _limit 返回的最大记录数，整型，最大值100，默认值50，超过最大值时取最大值
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 

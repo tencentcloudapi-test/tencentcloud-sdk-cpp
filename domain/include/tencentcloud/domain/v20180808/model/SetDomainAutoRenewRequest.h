@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,20 +43,27 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取域名ID。
-                     * @return DomainId 域名ID。
+                     * 获取域名实例ID
+可通过[DescribeDomainNameList](https://cloud.tencent.com/document/api/242/48941)接口获取
+                     * @return DomainId 域名实例ID
+可通过[DescribeDomainNameList](https://cloud.tencent.com/document/api/242/48941)接口获取
+                     * 
                      */
                     std::string GetDomainId() const;
 
                     /**
-                     * 设置域名ID。
-                     * @param DomainId 域名ID。
+                     * 设置域名实例ID
+可通过[DescribeDomainNameList](https://cloud.tencent.com/document/api/242/48941)接口获取
+                     * @param _domainId 域名实例ID
+可通过[DescribeDomainNameList](https://cloud.tencent.com/document/api/242/48941)接口获取
+                     * 
                      */
                     void SetDomainId(const std::string& _domainId);
 
                     /**
                      * 判断参数 DomainId 是否已赋值
                      * @return DomainId 是否已赋值
+                     * 
                      */
                     bool DomainIdHasBeenSet() const;
 
@@ -69,6 +76,7 @@ namespace TencentCloud
  0：不设置自动续费
 1：设置自动续费
 2：设置到期后不续费
+                     * 
                      */
                     uint64_t GetAutoRenew() const;
 
@@ -77,23 +85,26 @@ namespace TencentCloud
  0：不设置自动续费
 1：设置自动续费
 2：设置到期后不续费
-                     * @param AutoRenew AutoRenew 有三个可选值：
+                     * @param _autoRenew AutoRenew 有三个可选值：
  0：不设置自动续费
 1：设置自动续费
 2：设置到期后不续费
+                     * 
                      */
                     void SetAutoRenew(const uint64_t& _autoRenew);
 
                     /**
                      * 判断参数 AutoRenew 是否已赋值
                      * @return AutoRenew 是否已赋值
+                     * 
                      */
                     bool AutoRenewHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 域名ID。
+                     * 域名实例ID
+可通过[DescribeDomainNameList](https://cloud.tencent.com/document/api/242/48941)接口获取
                      */
                     std::string m_domainId;
                     bool m_domainIdHasBeenSet;

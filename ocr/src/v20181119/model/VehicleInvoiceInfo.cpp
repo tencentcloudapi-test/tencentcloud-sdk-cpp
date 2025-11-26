@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,10 @@ VehicleInvoiceInfo::VehicleInvoiceInfo() :
     m_taxtationOrgNameHasBeenSet(false),
     m_motorTaxRateHasBeenSet(false),
     m_motorBankNameHasBeenSet(false),
-    m_motorBankAccountHasBeenSet(false)
+    m_motorBankAccountHasBeenSet(false),
+    m_sellerAddressHasBeenSet(false),
+    m_sellerTelHasBeenSet(false),
+    m_buyerNoHasBeenSet(false)
 {
 }
 
@@ -205,6 +208,36 @@ CoreInternalOutcome VehicleInvoiceInfo::Deserialize(const rapidjson::Value &valu
         m_motorBankAccountHasBeenSet = true;
     }
 
+    if (value.HasMember("SellerAddress") && !value["SellerAddress"].IsNull())
+    {
+        if (!value["SellerAddress"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VehicleInvoiceInfo.SellerAddress` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sellerAddress = string(value["SellerAddress"].GetString());
+        m_sellerAddressHasBeenSet = true;
+    }
+
+    if (value.HasMember("SellerTel") && !value["SellerTel"].IsNull())
+    {
+        if (!value["SellerTel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VehicleInvoiceInfo.SellerTel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sellerTel = string(value["SellerTel"].GetString());
+        m_sellerTelHasBeenSet = true;
+    }
+
+    if (value.HasMember("BuyerNo") && !value["BuyerNo"].IsNull())
+    {
+        if (!value["BuyerNo"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VehicleInvoiceInfo.BuyerNo` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_buyerNo = string(value["BuyerNo"].GetString());
+        m_buyerNoHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -338,6 +371,30 @@ void VehicleInvoiceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "MotorBankAccount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_motorBankAccount.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sellerAddressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SellerAddress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sellerAddress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sellerTelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SellerTel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sellerTel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_buyerNoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BuyerNo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_buyerNo.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -597,5 +654,53 @@ void VehicleInvoiceInfo::SetMotorBankAccount(const string& _motorBankAccount)
 bool VehicleInvoiceInfo::MotorBankAccountHasBeenSet() const
 {
     return m_motorBankAccountHasBeenSet;
+}
+
+string VehicleInvoiceInfo::GetSellerAddress() const
+{
+    return m_sellerAddress;
+}
+
+void VehicleInvoiceInfo::SetSellerAddress(const string& _sellerAddress)
+{
+    m_sellerAddress = _sellerAddress;
+    m_sellerAddressHasBeenSet = true;
+}
+
+bool VehicleInvoiceInfo::SellerAddressHasBeenSet() const
+{
+    return m_sellerAddressHasBeenSet;
+}
+
+string VehicleInvoiceInfo::GetSellerTel() const
+{
+    return m_sellerTel;
+}
+
+void VehicleInvoiceInfo::SetSellerTel(const string& _sellerTel)
+{
+    m_sellerTel = _sellerTel;
+    m_sellerTelHasBeenSet = true;
+}
+
+bool VehicleInvoiceInfo::SellerTelHasBeenSet() const
+{
+    return m_sellerTelHasBeenSet;
+}
+
+string VehicleInvoiceInfo::GetBuyerNo() const
+{
+    return m_buyerNo;
+}
+
+void VehicleInvoiceInfo::SetBuyerNo(const string& _buyerNo)
+{
+    m_buyerNo = _buyerNo;
+    m_buyerNoHasBeenSet = true;
+}
+
+bool VehicleInvoiceInfo::BuyerNoHasBeenSet() const
+{
+    return m_buyerNoHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取权限组名称
                      * @return AccessGroupName 权限组名称
+                     * 
                      */
                     std::string GetAccessGroupName() const;
 
                     /**
                      * 设置权限组名称
-                     * @param AccessGroupName 权限组名称
+                     * @param _accessGroupName 权限组名称
+                     * 
                      */
                     void SetAccessGroupName(const std::string& _accessGroupName);
 
                     /**
                      * 判断参数 AccessGroupName 是否已赋值
                      * @return AccessGroupName 是否已赋值
+                     * 
                      */
                     bool AccessGroupNameHasBeenSet() const;
 
                     /**
-                     * 获取VPC网络类型（1：CVM；2：黑石1.0）
-                     * @return VpcType VPC网络类型（1：CVM；2：黑石1.0）
+                     * 获取VPC网络类型（1：CVM）
+                     * @return VpcType VPC网络类型（1：CVM）
+                     * 
                      */
                     uint64_t GetVpcType() const;
 
                     /**
-                     * 设置VPC网络类型（1：CVM；2：黑石1.0）
-                     * @param VpcType VPC网络类型（1：CVM；2：黑石1.0）
+                     * 设置VPC网络类型（1：CVM）
+                     * @param _vpcType VPC网络类型（1：CVM）
+                     * 
                      */
                     void SetVpcType(const uint64_t& _vpcType);
 
                     /**
                      * 判断参数 VpcType 是否已赋值
                      * @return VpcType 是否已赋值
+                     * 
                      */
                     bool VpcTypeHasBeenSet() const;
 
                     /**
                      * 获取VPC网络ID
                      * @return VpcId VPC网络ID
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置VPC网络ID
-                     * @param VpcId VPC网络ID
+                     * @param _vpcId VPC网络ID
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取权限组描述，默认为空字符串
                      * @return Description 权限组描述，默认为空字符串
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置权限组描述，默认为空字符串
-                     * @param Description 权限组描述，默认为空字符串
+                     * @param _description 权限组描述，默认为空字符串
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
@@ -123,7 +135,7 @@ namespace TencentCloud
                     bool m_accessGroupNameHasBeenSet;
 
                     /**
-                     * VPC网络类型（1：CVM；2：黑石1.0）
+                     * VPC网络类型（1：CVM）
                      */
                     uint64_t m_vpcType;
                     bool m_vpcTypeHasBeenSet;

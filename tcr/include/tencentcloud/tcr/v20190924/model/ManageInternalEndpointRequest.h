@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,108 +45,126 @@ namespace TencentCloud
                     /**
                      * 获取实例Id
                      * @return RegistryId 实例Id
+                     * 
                      */
                     std::string GetRegistryId() const;
 
                     /**
                      * 设置实例Id
-                     * @param RegistryId 实例Id
+                     * @param _registryId 实例Id
+                     * 
                      */
                     void SetRegistryId(const std::string& _registryId);
 
                     /**
                      * 判断参数 RegistryId 是否已赋值
                      * @return RegistryId 是否已赋值
+                     * 
                      */
                     bool RegistryIdHasBeenSet() const;
 
                     /**
                      * 获取Create/Delete
                      * @return Operation Create/Delete
+                     * 
                      */
                     std::string GetOperation() const;
 
                     /**
                      * 设置Create/Delete
-                     * @param Operation Create/Delete
+                     * @param _operation Create/Delete
+                     * 
                      */
                     void SetOperation(const std::string& _operation);
 
                     /**
                      * 判断参数 Operation 是否已赋值
                      * @return Operation 是否已赋值
+                     * 
                      */
                     bool OperationHasBeenSet() const;
 
                     /**
                      * 获取需要接入的用户vpcid
                      * @return VpcId 需要接入的用户vpcid
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置需要接入的用户vpcid
-                     * @param VpcId 需要接入的用户vpcid
+                     * @param _vpcId 需要接入的用户vpcid
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取需要接入的用户子网id
                      * @return SubnetId 需要接入的用户子网id
+                     * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
                      * 设置需要接入的用户子网id
-                     * @param SubnetId 需要接入的用户子网id
+                     * @param _subnetId 需要接入的用户子网id
+                     * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
 
                     /**
                      * 判断参数 SubnetId 是否已赋值
                      * @return SubnetId 是否已赋值
+                     * 
                      */
                     bool SubnetIdHasBeenSet() const;
 
                     /**
                      * 获取请求的地域ID，用于实例复制地域
                      * @return RegionId 请求的地域ID，用于实例复制地域
+                     * 
                      */
                     uint64_t GetRegionId() const;
 
                     /**
                      * 设置请求的地域ID，用于实例复制地域
-                     * @param RegionId 请求的地域ID，用于实例复制地域
+                     * @param _regionId 请求的地域ID，用于实例复制地域
+                     * 
                      */
                     void SetRegionId(const uint64_t& _regionId);
 
                     /**
                      * 判断参数 RegionId 是否已赋值
                      * @return RegionId 是否已赋值
+                     * 
                      */
                     bool RegionIdHasBeenSet() const;
 
                     /**
                      * 获取请求的地域名称，用于实例复制地域
                      * @return RegionName 请求的地域名称，用于实例复制地域
+                     * 
                      */
                     std::string GetRegionName() const;
 
                     /**
                      * 设置请求的地域名称，用于实例复制地域
-                     * @param RegionName 请求的地域名称，用于实例复制地域
+                     * @param _regionName 请求的地域名称，用于实例复制地域
+                     * 
                      */
                     void SetRegionName(const std::string& _regionName);
 
                     /**
                      * 判断参数 RegionName 是否已赋值
                      * @return RegionName 是否已赋值
+                     * 
                      */
                     bool RegionNameHasBeenSet() const;
 

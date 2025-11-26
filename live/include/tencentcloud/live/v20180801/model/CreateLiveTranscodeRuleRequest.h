@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取播放域名。
                      * @return DomainName 播放域名。
+                     * 
                      */
                     std::string GetDomainName() const;
 
                     /**
                      * 设置播放域名。
-                     * @param DomainName 播放域名。
+                     * @param _domainName 播放域名。
+                     * 
                      */
                     void SetDomainName(const std::string& _domainName);
 
                     /**
                      * 判断参数 DomainName 是否已赋值
                      * @return DomainName 是否已赋值
+                     * 
                      */
                     bool DomainNameHasBeenSet() const;
 
                     /**
-                     * 获取推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
-                     * @return AppName 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
+                     * 获取推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
+                     * @return AppName 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
+                     * 
                      */
                     std::string GetAppName() const;
 
                     /**
-                     * 设置推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
-                     * @param AppName 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
+                     * 设置推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
+                     * @param _appName 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
+                     * 
                      */
                     void SetAppName(const std::string& _appName);
 
                     /**
                      * 判断参数 AppName 是否已赋值
                      * @return AppName 是否已赋值
+                     * 
                      */
                     bool AppNameHasBeenSet() const;
 
                     /**
-                     * 获取流名称。如果只绑定域名或路径，则此处填空。
-                     * @return StreamName 流名称。如果只绑定域名或路径，则此处填空。
+                     * 获取流名称。已废弃该字段，请传入空字符串。
+                     * @return StreamName 流名称。已废弃该字段，请传入空字符串。
+                     * 
                      */
                     std::string GetStreamName() const;
 
                     /**
-                     * 设置流名称。如果只绑定域名或路径，则此处填空。
-                     * @param StreamName 流名称。如果只绑定域名或路径，则此处填空。
+                     * 设置流名称。已废弃该字段，请传入空字符串。
+                     * @param _streamName 流名称。已废弃该字段，请传入空字符串。
+                     * 
                      */
                     void SetStreamName(const std::string& _streamName);
 
                     /**
                      * 判断参数 StreamName 是否已赋值
                      * @return StreamName 是否已赋值
+                     * 
                      */
                     bool StreamNameHasBeenSet() const;
 
                     /**
                      * 获取指定已有的模板Id。
                      * @return TemplateId 指定已有的模板Id。
+                     * 
                      */
                     int64_t GetTemplateId() const;
 
                     /**
                      * 设置指定已有的模板Id。
-                     * @param TemplateId 指定已有的模板Id。
+                     * @param _templateId 指定已有的模板Id。
+                     * 
                      */
                     void SetTemplateId(const int64_t& _templateId);
 
                     /**
                      * 判断参数 TemplateId 是否已赋值
                      * @return TemplateId 是否已赋值
+                     * 
                      */
                     bool TemplateIdHasBeenSet() const;
 
@@ -123,13 +135,13 @@ namespace TencentCloud
                     bool m_domainNameHasBeenSet;
 
                     /**
-                     * 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填空。
+                     * 推流路径，与推流和播放地址中的AppName保持一致。如果只绑定域名，则此处填""。
                      */
                     std::string m_appName;
                     bool m_appNameHasBeenSet;
 
                     /**
-                     * 流名称。如果只绑定域名或路径，则此处填空。
+                     * 流名称。已废弃该字段，请传入空字符串。
                      */
                     std::string m_streamName;
                     bool m_streamNameHasBeenSet;

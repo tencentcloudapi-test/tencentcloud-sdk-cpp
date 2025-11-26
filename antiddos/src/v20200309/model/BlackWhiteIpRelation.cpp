@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ BlackWhiteIpRelation::BlackWhiteIpRelation() :
     m_ipHasBeenSet(false),
     m_typeHasBeenSet(false),
     m_instanceDetailListHasBeenSet(false),
-    m_maskHasBeenSet(false)
+    m_maskHasBeenSet(false),
+    m_modifyTimeHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome BlackWhiteIpRelation::Deserialize(const rapidjson::Value &va
         m_maskHasBeenSet = true;
     }
 
+    if (value.HasMember("ModifyTime") && !value["ModifyTime"].IsNull())
+    {
+        if (!value["ModifyTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BlackWhiteIpRelation.ModifyTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_modifyTime = string(value["ModifyTime"].GetString());
+        m_modifyTimeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -127,6 +138,14 @@ void BlackWhiteIpRelation::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         string key = "Mask";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_mask, allocator);
+    }
+
+    if (m_modifyTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ModifyTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_modifyTime.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -194,5 +213,21 @@ void BlackWhiteIpRelation::SetMask(const uint64_t& _mask)
 bool BlackWhiteIpRelation::MaskHasBeenSet() const
 {
     return m_maskHasBeenSet;
+}
+
+string BlackWhiteIpRelation::GetModifyTime() const
+{
+    return m_modifyTime;
+}
+
+void BlackWhiteIpRelation::SetModifyTime(const string& _modifyTime)
+{
+    m_modifyTime = _modifyTime;
+    m_modifyTimeHasBeenSet = true;
+}
+
+bool BlackWhiteIpRelation::ModifyTimeHasBeenSet() const
+{
+    return m_modifyTimeHasBeenSet;
 }
 

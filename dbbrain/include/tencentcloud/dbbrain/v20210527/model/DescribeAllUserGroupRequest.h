@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取服务产品类型，固定值：mysql。
                      * @return Product 服务产品类型，固定值：mysql。
+                     * 
                      */
                     std::string GetProduct() const;
 
                     /**
                      * 设置服务产品类型，固定值：mysql。
-                     * @param Product 服务产品类型，固定值：mysql。
+                     * @param _product 服务产品类型，固定值：mysql。
+                     * 
                      */
                     void SetProduct(const std::string& _product);
 
                     /**
                      * 判断参数 Product 是否已赋值
                      * @return Product 是否已赋值
+                     * 
                      */
                     bool ProductHasBeenSet() const;
 
                     /**
                      * 获取联系组名称数组，支持模糊搜索。
                      * @return Names 联系组名称数组，支持模糊搜索。
+                     * 
                      */
                     std::vector<std::string> GetNames() const;
 
                     /**
                      * 设置联系组名称数组，支持模糊搜索。
-                     * @param Names 联系组名称数组，支持模糊搜索。
+                     * @param _names 联系组名称数组，支持模糊搜索。
+                     * 
                      */
                     void SetNames(const std::vector<std::string>& _names);
 
                     /**
                      * 判断参数 Names 是否已赋值
                      * @return Names 是否已赋值
+                     * 
                      */
                     bool NamesHasBeenSet() const;
 

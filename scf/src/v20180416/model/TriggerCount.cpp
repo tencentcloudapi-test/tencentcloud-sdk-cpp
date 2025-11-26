@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ TriggerCount::TriggerCount() :
     m_clbHasBeenSet(false),
     m_mpsHasBeenSet(false),
     m_cmHasBeenSet(false),
-    m_vodHasBeenSet(false)
+    m_vodHasBeenSet(false),
+    m_ebHasBeenSet(false)
 {
 }
 
@@ -150,6 +151,16 @@ CoreInternalOutcome TriggerCount::Deserialize(const rapidjson::Value &value)
         m_vodHasBeenSet = true;
     }
 
+    if (value.HasMember("Eb") && !value["Eb"].IsNull())
+    {
+        if (!value["Eb"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TriggerCount.Eb` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_eb = value["Eb"].GetInt64();
+        m_ebHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -243,6 +254,14 @@ void TriggerCount::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "Vod";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_vod, allocator);
+    }
+
+    if (m_ebHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Eb";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_eb, allocator);
     }
 
 }
@@ -422,5 +441,21 @@ void TriggerCount::SetVod(const int64_t& _vod)
 bool TriggerCount::VodHasBeenSet() const
 {
     return m_vodHasBeenSet;
+}
+
+int64_t TriggerCount::GetEb() const
+{
+    return m_eb;
+}
+
+void TriggerCount::SetEb(const int64_t& _eb)
+{
+    m_eb = _eb;
+    m_ebHasBeenSet = true;
+}
+
+bool TriggerCount::EbHasBeenSet() const
+{
+    return m_ebHasBeenSet;
 }
 

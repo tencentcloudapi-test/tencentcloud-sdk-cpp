@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,21 +44,26 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取合同（流程）下载地址
-                     * @return DownLoadUrl 合同（流程）下载地址
+                     * 获取跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+
+                     * @return DownLoadUrl 跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+
+                     * 
                      */
                     std::string GetDownLoadUrl() const;
 
                     /**
                      * 判断参数 DownLoadUrl 是否已赋值
                      * @return DownLoadUrl 是否已赋值
+                     * 
                      */
                     bool DownLoadUrlHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 合同（流程）下载地址
+                     * 跳转控制台合同下载页面链接 , 5分钟之内有效，且只能访问一次
+
                      */
                     std::string m_downLoadUrl;
                     bool m_downLoadUrlHasBeenSet;

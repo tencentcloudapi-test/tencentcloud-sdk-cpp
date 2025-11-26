@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,15 @@ HostInfo::HostInfo() :
     m_publicIpHasBeenSet(false),
     m_uuidHasBeenSet(false),
     m_instanceIDHasBeenSet(false),
-    m_regionIDHasBeenSet(false)
+    m_regionIDHasBeenSet(false),
+    m_projectHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_clusterIDHasBeenSet(false),
+    m_clusterNameHasBeenSet(false),
+    m_clusterAccessedStatusHasBeenSet(false),
+    m_chargeCoresCntHasBeenSet(false),
+    m_defendStatusHasBeenSet(false),
+    m_coresCntHasBeenSet(false)
 {
 }
 
@@ -194,6 +202,103 @@ CoreInternalOutcome HostInfo::Deserialize(const rapidjson::Value &value)
         m_regionIDHasBeenSet = true;
     }
 
+    if (value.HasMember("Project") && !value["Project"].IsNull())
+    {
+        if (!value["Project"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostInfo.Project` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_project.Deserialize(value["Project"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_projectHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `HostInfo.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            TagInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterID") && !value["ClusterID"].IsNull())
+    {
+        if (!value["ClusterID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostInfo.ClusterID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterID = string(value["ClusterID"].GetString());
+        m_clusterIDHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterName") && !value["ClusterName"].IsNull())
+    {
+        if (!value["ClusterName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostInfo.ClusterName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterName = string(value["ClusterName"].GetString());
+        m_clusterNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterAccessedStatus") && !value["ClusterAccessedStatus"].IsNull())
+    {
+        if (!value["ClusterAccessedStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostInfo.ClusterAccessedStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterAccessedStatus = string(value["ClusterAccessedStatus"].GetString());
+        m_clusterAccessedStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("ChargeCoresCnt") && !value["ChargeCoresCnt"].IsNull())
+    {
+        if (!value["ChargeCoresCnt"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostInfo.ChargeCoresCnt` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_chargeCoresCnt = value["ChargeCoresCnt"].GetUint64();
+        m_chargeCoresCntHasBeenSet = true;
+    }
+
+    if (value.HasMember("DefendStatus") && !value["DefendStatus"].IsNull())
+    {
+        if (!value["DefendStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostInfo.DefendStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_defendStatus = string(value["DefendStatus"].GetString());
+        m_defendStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("CoresCnt") && !value["CoresCnt"].IsNull())
+    {
+        if (!value["CoresCnt"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostInfo.CoresCnt` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_coresCnt = value["CoresCnt"].GetUint64();
+        m_coresCntHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -319,6 +424,78 @@ void HostInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "RegionID";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_regionID, allocator);
+    }
+
+    if (m_projectHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Project";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_project.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_clusterIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterID.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterAccessedStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterAccessedStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterAccessedStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_chargeCoresCntHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChargeCoresCnt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_chargeCoresCnt, allocator);
+    }
+
+    if (m_defendStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DefendStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_defendStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_coresCntHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CoresCnt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_coresCnt, allocator);
     }
 
 }
@@ -562,5 +739,133 @@ void HostInfo::SetRegionID(const int64_t& _regionID)
 bool HostInfo::RegionIDHasBeenSet() const
 {
     return m_regionIDHasBeenSet;
+}
+
+ProjectInfo HostInfo::GetProject() const
+{
+    return m_project;
+}
+
+void HostInfo::SetProject(const ProjectInfo& _project)
+{
+    m_project = _project;
+    m_projectHasBeenSet = true;
+}
+
+bool HostInfo::ProjectHasBeenSet() const
+{
+    return m_projectHasBeenSet;
+}
+
+vector<TagInfo> HostInfo::GetTags() const
+{
+    return m_tags;
+}
+
+void HostInfo::SetTags(const vector<TagInfo>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool HostInfo::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+string HostInfo::GetClusterID() const
+{
+    return m_clusterID;
+}
+
+void HostInfo::SetClusterID(const string& _clusterID)
+{
+    m_clusterID = _clusterID;
+    m_clusterIDHasBeenSet = true;
+}
+
+bool HostInfo::ClusterIDHasBeenSet() const
+{
+    return m_clusterIDHasBeenSet;
+}
+
+string HostInfo::GetClusterName() const
+{
+    return m_clusterName;
+}
+
+void HostInfo::SetClusterName(const string& _clusterName)
+{
+    m_clusterName = _clusterName;
+    m_clusterNameHasBeenSet = true;
+}
+
+bool HostInfo::ClusterNameHasBeenSet() const
+{
+    return m_clusterNameHasBeenSet;
+}
+
+string HostInfo::GetClusterAccessedStatus() const
+{
+    return m_clusterAccessedStatus;
+}
+
+void HostInfo::SetClusterAccessedStatus(const string& _clusterAccessedStatus)
+{
+    m_clusterAccessedStatus = _clusterAccessedStatus;
+    m_clusterAccessedStatusHasBeenSet = true;
+}
+
+bool HostInfo::ClusterAccessedStatusHasBeenSet() const
+{
+    return m_clusterAccessedStatusHasBeenSet;
+}
+
+uint64_t HostInfo::GetChargeCoresCnt() const
+{
+    return m_chargeCoresCnt;
+}
+
+void HostInfo::SetChargeCoresCnt(const uint64_t& _chargeCoresCnt)
+{
+    m_chargeCoresCnt = _chargeCoresCnt;
+    m_chargeCoresCntHasBeenSet = true;
+}
+
+bool HostInfo::ChargeCoresCntHasBeenSet() const
+{
+    return m_chargeCoresCntHasBeenSet;
+}
+
+string HostInfo::GetDefendStatus() const
+{
+    return m_defendStatus;
+}
+
+void HostInfo::SetDefendStatus(const string& _defendStatus)
+{
+    m_defendStatus = _defendStatus;
+    m_defendStatusHasBeenSet = true;
+}
+
+bool HostInfo::DefendStatusHasBeenSet() const
+{
+    return m_defendStatusHasBeenSet;
+}
+
+uint64_t HostInfo::GetCoresCnt() const
+{
+    return m_coresCnt;
+}
+
+void HostInfo::SetCoresCnt(const uint64_t& _coresCnt)
+{
+    m_coresCnt = _coresCnt;
+    m_coresCntHasBeenSet = true;
+}
+
+bool HostInfo::CoresCntHasBeenSet() const
+{
+    return m_coresCntHasBeenSet;
 }
 

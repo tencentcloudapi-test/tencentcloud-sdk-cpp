@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,38 +49,44 @@ namespace TencentCloud
                     /**
                      * 获取集群信息
                      * @return ClusterInfo 集群信息
+                     * 
                      */
                     RocketMQClusterInfo GetClusterInfo() const;
 
                     /**
                      * 判断参数 ClusterInfo 是否已赋值
                      * @return ClusterInfo 是否已赋值
+                     * 
                      */
                     bool ClusterInfoHasBeenSet() const;
 
                     /**
                      * 获取集群配置
                      * @return ClusterConfig 集群配置
+                     * 
                      */
                     RocketMQClusterConfig GetClusterConfig() const;
 
                     /**
                      * 判断参数 ClusterConfig 是否已赋值
                      * @return ClusterConfig 是否已赋值
+                     * 
                      */
                     bool ClusterConfigHasBeenSet() const;
 
                     /**
-                     * 获取集群最近使用量
+                     * 获取集群最近使用量，即将废弃，请使用腾讯云可观测平台获取相关数据。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ClusterStats 集群最近使用量
+                     * @return ClusterStats 集群最近使用量，即将废弃，请使用腾讯云可观测平台获取相关数据。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     RocketMQClusterRecentStats GetClusterStats() const;
 
                     /**
                      * 判断参数 ClusterStats 是否已赋值
                      * @return ClusterStats 是否已赋值
+                     * 
                      */
                     bool ClusterStatsHasBeenSet() const;
 
@@ -99,7 +105,7 @@ namespace TencentCloud
                     bool m_clusterConfigHasBeenSet;
 
                     /**
-                     * 集群最近使用量
+                     * 集群最近使用量，即将废弃，请使用腾讯云可观测平台获取相关数据。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     RocketMQClusterRecentStats m_clusterStats;

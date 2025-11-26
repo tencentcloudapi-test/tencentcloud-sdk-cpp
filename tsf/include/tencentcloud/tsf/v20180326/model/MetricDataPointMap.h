@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取总调用次数监控数据点集合
                      * @return SumReqAmount 总调用次数监控数据点集合
+                     * 
                      */
                     std::vector<MetricDataPoint> GetSumReqAmount() const;
 
                     /**
                      * 设置总调用次数监控数据点集合
-                     * @param SumReqAmount 总调用次数监控数据点集合
+                     * @param _sumReqAmount 总调用次数监控数据点集合
+                     * 
                      */
                     void SetSumReqAmount(const std::vector<MetricDataPoint>& _sumReqAmount);
 
                     /**
                      * 判断参数 SumReqAmount 是否已赋值
                      * @return SumReqAmount 是否已赋值
+                     * 
                      */
                     bool SumReqAmountHasBeenSet() const;
 
                     /**
                      * 获取平均错误率监控数据点集合
                      * @return AvgFailureRate 平均错误率监控数据点集合
+                     * 
                      */
                     std::vector<MetricDataPoint> GetAvgFailureRate() const;
 
                     /**
                      * 设置平均错误率监控数据点集合
-                     * @param AvgFailureRate 平均错误率监控数据点集合
+                     * @param _avgFailureRate 平均错误率监控数据点集合
+                     * 
                      */
                     void SetAvgFailureRate(const std::vector<MetricDataPoint>& _avgFailureRate);
 
                     /**
                      * 判断参数 AvgFailureRate 是否已赋值
                      * @return AvgFailureRate 是否已赋值
+                     * 
                      */
                     bool AvgFailureRateHasBeenSet() const;
 
                     /**
                      * 获取平均响应时间监控数据点集合
                      * @return AvgTimeCost 平均响应时间监控数据点集合
+                     * 
                      */
                     std::vector<MetricDataPoint> GetAvgTimeCost() const;
 
                     /**
                      * 设置平均响应时间监控数据点集合
-                     * @param AvgTimeCost 平均响应时间监控数据点集合
+                     * @param _avgTimeCost 平均响应时间监控数据点集合
+                     * 
                      */
                     void SetAvgTimeCost(const std::vector<MetricDataPoint>& _avgTimeCost);
 
                     /**
                      * 判断参数 AvgTimeCost 是否已赋值
                      * @return AvgTimeCost 是否已赋值
+                     * 
                      */
                     bool AvgTimeCostHasBeenSet() const;
 

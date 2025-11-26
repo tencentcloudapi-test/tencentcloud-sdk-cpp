@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,11 @@ using namespace std;
 
 ModifyVodDomainConfigRequest::ModifyVodDomainConfigRequest() :
     m_domainHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_refererAuthPolicyHasBeenSet(false),
     m_urlSignatureAuthPolicyHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_qUICConfigHasBeenSet(false),
+    m_iPFilterPolicyHasBeenSet(false)
 {
 }
 
@@ -43,6 +45,14 @@ string ModifyVodDomainConfigRequest::ToJsonString() const
         string key = "Domain";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_domain.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_refererAuthPolicyHasBeenSet)
@@ -63,12 +73,22 @@ string ModifyVodDomainConfigRequest::ToJsonString() const
         m_urlSignatureAuthPolicy.ToJsonObject(d[key.c_str()], allocator);
     }
 
-    if (m_subAppIdHasBeenSet)
+    if (m_qUICConfigHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
+        string key = "QUICConfig";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_qUICConfig.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_iPFilterPolicyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPFilterPolicy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_iPFilterPolicy.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -93,6 +113,22 @@ void ModifyVodDomainConfigRequest::SetDomain(const string& _domain)
 bool ModifyVodDomainConfigRequest::DomainHasBeenSet() const
 {
     return m_domainHasBeenSet;
+}
+
+uint64_t ModifyVodDomainConfigRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void ModifyVodDomainConfigRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool ModifyVodDomainConfigRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
 }
 
 RefererAuthPolicy ModifyVodDomainConfigRequest::GetRefererAuthPolicy() const
@@ -127,20 +163,36 @@ bool ModifyVodDomainConfigRequest::UrlSignatureAuthPolicyHasBeenSet() const
     return m_urlSignatureAuthPolicyHasBeenSet;
 }
 
-uint64_t ModifyVodDomainConfigRequest::GetSubAppId() const
+DomainQUICConfig ModifyVodDomainConfigRequest::GetQUICConfig() const
 {
-    return m_subAppId;
+    return m_qUICConfig;
 }
 
-void ModifyVodDomainConfigRequest::SetSubAppId(const uint64_t& _subAppId)
+void ModifyVodDomainConfigRequest::SetQUICConfig(const DomainQUICConfig& _qUICConfig)
 {
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
+    m_qUICConfig = _qUICConfig;
+    m_qUICConfigHasBeenSet = true;
 }
 
-bool ModifyVodDomainConfigRequest::SubAppIdHasBeenSet() const
+bool ModifyVodDomainConfigRequest::QUICConfigHasBeenSet() const
 {
-    return m_subAppIdHasBeenSet;
+    return m_qUICConfigHasBeenSet;
+}
+
+IPFilterPolicy ModifyVodDomainConfigRequest::GetIPFilterPolicy() const
+{
+    return m_iPFilterPolicy;
+}
+
+void ModifyVodDomainConfigRequest::SetIPFilterPolicy(const IPFilterPolicy& _iPFilterPolicy)
+{
+    m_iPFilterPolicy = _iPFilterPolicy;
+    m_iPFilterPolicyHasBeenSet = true;
+}
+
+bool ModifyVodDomainConfigRequest::IPFilterPolicyHasBeenSet() const
+{
+    return m_iPFilterPolicyHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,9 @@ using namespace std;
 SealOCRResponse::SealOCRResponse() :
     m_sealBodyHasBeenSet(false),
     m_locationHasBeenSet(false),
-    m_otherTextsHasBeenSet(false)
+    m_otherTextsHasBeenSet(false),
+    m_sealInfosHasBeenSet(false),
+    m_sealShapeHasBeenSet(false)
 {
 }
 
@@ -104,6 +106,36 @@ CoreInternalOutcome SealOCRResponse::Deserialize(const string &payload)
         m_otherTextsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("SealInfos") && !rsp["SealInfos"].IsNull())
+    {
+        if (!rsp["SealInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `SealInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["SealInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            SealInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_sealInfos.push_back(item);
+        }
+        m_sealInfosHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("SealShape") && !rsp["SealShape"].IsNull())
+    {
+        if (!rsp["SealShape"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SealShape` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sealShape = string(rsp["SealShape"].GetString());
+        m_sealShapeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -144,11 +176,34 @@ string SealOCRResponse::ToJsonString() const
         }
     }
 
+    if (m_sealInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SealInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_sealInfos.begin(); itr != m_sealInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_sealShapeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SealShape";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sealShape.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -184,6 +239,26 @@ vector<string> SealOCRResponse::GetOtherTexts() const
 bool SealOCRResponse::OtherTextsHasBeenSet() const
 {
     return m_otherTextsHasBeenSet;
+}
+
+vector<SealInfo> SealOCRResponse::GetSealInfos() const
+{
+    return m_sealInfos;
+}
+
+bool SealOCRResponse::SealInfosHasBeenSet() const
+{
+    return m_sealInfosHasBeenSet;
+}
+
+string SealOCRResponse::GetSealShape() const
+{
+    return m_sealShape;
+}
+
+bool SealOCRResponse::SealShapeHasBeenSet() const
+{
+    return m_sealShapeHasBeenSet;
 }
 
 

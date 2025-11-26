@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取配置项类型，当前仅支持value
                      * @return FieldType 配置项类型，当前仅支持value
+                     * 
                      */
                     std::string GetFieldType() const;
 
                     /**
                      * 设置配置项类型，当前仅支持value
-                     * @param FieldType 配置项类型，当前仅支持value
+                     * @param _fieldType 配置项类型，当前仅支持value
+                     * 
                      */
                     void SetFieldType(const std::string& _fieldType);
 
                     /**
                      * 判断参数 FieldType 是否已赋值
                      * @return FieldType 是否已赋值
+                     * 
                      */
                     bool FieldTypeHasBeenSet() const;
 
                     /**
                      * 获取配置字段，可取值cgi， ua， cookie， referer， accept,  srcip
                      * @return FieldName 配置字段，可取值cgi， ua， cookie， referer， accept,  srcip
+                     * 
                      */
                     std::string GetFieldName() const;
 
                     /**
                      * 设置配置字段，可取值cgi， ua， cookie， referer， accept,  srcip
-                     * @param FieldName 配置字段，可取值cgi， ua， cookie， referer， accept,  srcip
+                     * @param _fieldName 配置字段，可取值cgi， ua， cookie， referer， accept,  srcip
+                     * 
                      */
                     void SetFieldName(const std::string& _fieldName);
 
                     /**
                      * 判断参数 FieldName 是否已赋值
                      * @return FieldName 是否已赋值
+                     * 
                      */
                     bool FieldNameHasBeenSet() const;
 
                     /**
                      * 获取配置取值
                      * @return Value 配置取值
+                     * 
                      */
                     std::string GetValue() const;
 
                     /**
                      * 设置配置取值
-                     * @param Value 配置取值
+                     * @param _value 配置取值
+                     * 
                      */
                     void SetValue(const std::string& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
                     /**
-                     * 获取配置项值比对方式，可取值equal ，not_equal， include
-                     * @return ValueOperator 配置项值比对方式，可取值equal ，not_equal， include
+                     * 获取配置项值比对方式，可取值equal：相等，not_equal：不相等， include：包含
+                     * @return ValueOperator 配置项值比对方式，可取值equal：相等，not_equal：不相等， include：包含
+                     * 
                      */
                     std::string GetValueOperator() const;
 
                     /**
-                     * 设置配置项值比对方式，可取值equal ，not_equal， include
-                     * @param ValueOperator 配置项值比对方式，可取值equal ，not_equal， include
+                     * 设置配置项值比对方式，可取值equal：相等，not_equal：不相等， include：包含
+                     * @param _valueOperator 配置项值比对方式，可取值equal：相等，not_equal：不相等， include：包含
+                     * 
                      */
                     void SetValueOperator(const std::string& _valueOperator);
 
                     /**
                      * 判断参数 ValueOperator 是否已赋值
                      * @return ValueOperator 是否已赋值
+                     * 
                      */
                     bool ValueOperatorHasBeenSet() const;
 
@@ -139,7 +151,7 @@ namespace TencentCloud
                     bool m_valueHasBeenSet;
 
                     /**
-                     * 配置项值比对方式，可取值equal ，not_equal， include
+                     * 配置项值比对方式，可取值equal：相等，not_equal：不相等， include：包含
                      */
                     std::string m_valueOperator;
                     bool m_valueOperatorHasBeenSet;

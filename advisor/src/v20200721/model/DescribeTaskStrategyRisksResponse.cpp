@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ DescribeTaskStrategyRisksResponse::DescribeTaskStrategyRisksResponse() :
     m_riskFieldsDescHasBeenSet(false),
     m_strategyIdHasBeenSet(false),
     m_riskTotalCountHasBeenSet(false),
-    m_risksHasBeenSet(false)
+    m_risksHasBeenSet(false),
+    m_resourceCountHasBeenSet(false)
 {
 }
 
@@ -115,6 +116,16 @@ CoreInternalOutcome DescribeTaskStrategyRisksResponse::Deserialize(const string 
         m_risksHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ResourceCount") && !rsp["ResourceCount"].IsNull())
+    {
+        if (!rsp["ResourceCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_resourceCount = rsp["ResourceCount"].GetUint64();
+        m_resourceCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -164,11 +175,19 @@ string DescribeTaskStrategyRisksResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_risks.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_resourceCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_resourceCount, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -214,6 +233,16 @@ string DescribeTaskStrategyRisksResponse::GetRisks() const
 bool DescribeTaskStrategyRisksResponse::RisksHasBeenSet() const
 {
     return m_risksHasBeenSet;
+}
+
+uint64_t DescribeTaskStrategyRisksResponse::GetResourceCount() const
+{
+    return m_resourceCount;
+}
+
+bool DescribeTaskStrategyRisksResponse::ResourceCountHasBeenSet() const
+{
+    return m_resourceCountHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取新增分片的数量
                      * @return ShardCount 新增分片的数量
+                     * 
                      */
                     int64_t GetShardCount() const;
 
                     /**
                      * 设置新增分片的数量
-                     * @param ShardCount 新增分片的数量
+                     * @param _shardCount 新增分片的数量
+                     * 
                      */
                     void SetShardCount(const int64_t& _shardCount);
 
                     /**
                      * 判断参数 ShardCount 是否已赋值
                      * @return ShardCount 是否已赋值
+                     * 
                      */
                     bool ShardCountHasBeenSet() const;
 
                     /**
                      * 获取分片内存大小，单位 GB
                      * @return ShardMemory 分片内存大小，单位 GB
+                     * 
                      */
                     int64_t GetShardMemory() const;
 
                     /**
                      * 设置分片内存大小，单位 GB
-                     * @param ShardMemory 分片内存大小，单位 GB
+                     * @param _shardMemory 分片内存大小，单位 GB
+                     * 
                      */
                     void SetShardMemory(const int64_t& _shardMemory);
 
                     /**
                      * 判断参数 ShardMemory 是否已赋值
                      * @return ShardMemory 是否已赋值
+                     * 
                      */
                     bool ShardMemoryHasBeenSet() const;
 
                     /**
                      * 获取分片存储大小，单位 GB
                      * @return ShardStorage 分片存储大小，单位 GB
+                     * 
                      */
                     int64_t GetShardStorage() const;
 
                     /**
                      * 设置分片存储大小，单位 GB
-                     * @param ShardStorage 分片存储大小，单位 GB
+                     * @param _shardStorage 分片存储大小，单位 GB
+                     * 
                      */
                     void SetShardStorage(const int64_t& _shardStorage);
 
                     /**
                      * 判断参数 ShardStorage 是否已赋值
                      * @return ShardStorage 是否已赋值
+                     * 
                      */
                     bool ShardStorageHasBeenSet() const;
 

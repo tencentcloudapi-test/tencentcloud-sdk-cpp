@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ Origin::Origin() :
     m_basePathHasBeenSet(false),
     m_pathRulesHasBeenSet(false),
     m_pathBasedOriginHasBeenSet(false),
-    m_advanceHttpsHasBeenSet(false)
+    m_sniHasBeenSet(false),
+    m_advanceHttpsHasBeenSet(false),
+    m_originCompanyHasBeenSet(false)
 {
 }
 
@@ -177,6 +179,23 @@ CoreInternalOutcome Origin::Deserialize(const rapidjson::Value &value)
         m_pathBasedOriginHasBeenSet = true;
     }
 
+    if (value.HasMember("Sni") && !value["Sni"].IsNull())
+    {
+        if (!value["Sni"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Origin.Sni` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_sni.Deserialize(value["Sni"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_sniHasBeenSet = true;
+    }
+
     if (value.HasMember("AdvanceHttps") && !value["AdvanceHttps"].IsNull())
     {
         if (!value["AdvanceHttps"].IsObject())
@@ -192,6 +211,16 @@ CoreInternalOutcome Origin::Deserialize(const rapidjson::Value &value)
         }
 
         m_advanceHttpsHasBeenSet = true;
+    }
+
+    if (value.HasMember("OriginCompany") && !value["OriginCompany"].IsNull())
+    {
+        if (!value["OriginCompany"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Origin.OriginCompany` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_originCompany = string(value["OriginCompany"].GetString());
+        m_originCompanyHasBeenSet = true;
     }
 
 
@@ -313,6 +342,15 @@ void Origin::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         }
     }
 
+    if (m_sniHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Sni";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_sni.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     if (m_advanceHttpsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -320,6 +358,14 @@ void Origin::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_advanceHttps.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_originCompanyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OriginCompany";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_originCompany.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -501,6 +547,22 @@ bool Origin::PathBasedOriginHasBeenSet() const
     return m_pathBasedOriginHasBeenSet;
 }
 
+OriginSni Origin::GetSni() const
+{
+    return m_sni;
+}
+
+void Origin::SetSni(const OriginSni& _sni)
+{
+    m_sni = _sni;
+    m_sniHasBeenSet = true;
+}
+
+bool Origin::SniHasBeenSet() const
+{
+    return m_sniHasBeenSet;
+}
+
 AdvanceHttps Origin::GetAdvanceHttps() const
 {
     return m_advanceHttps;
@@ -515,5 +577,21 @@ void Origin::SetAdvanceHttps(const AdvanceHttps& _advanceHttps)
 bool Origin::AdvanceHttpsHasBeenSet() const
 {
     return m_advanceHttpsHasBeenSet;
+}
+
+string Origin::GetOriginCompany() const
+{
+    return m_originCompany;
+}
+
+void Origin::SetOriginCompany(const string& _originCompany)
+{
+    m_originCompany = _originCompany;
+    m_originCompanyHasBeenSet = true;
+}
+
+bool Origin::OriginCompanyHasBeenSet() const
+{
+    return m_originCompanyHasBeenSet;
 }
 

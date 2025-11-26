@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,45 +43,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取云镜客户端唯一Uuid。
-                     * @return Uuid 云镜客户端唯一Uuid。
+                     * 获取主机安全客户端唯一Uuid。
+                     * @return Uuid 主机安全客户端唯一Uuid。
+                     * 
                      */
                     std::string GetUuid() const;
 
                     /**
-                     * 设置云镜客户端唯一Uuid。
-                     * @param Uuid 云镜客户端唯一Uuid。
+                     * 设置主机安全客户端唯一Uuid。
+                     * @param _uuid 主机安全客户端唯一Uuid。
+                     * 
                      */
                     void SetUuid(const std::string& _uuid);
 
                     /**
                      * 判断参数 Uuid 是否已赋值
                      * @return Uuid 是否已赋值
+                     * 
                      */
                     bool UuidHasBeenSet() const;
 
                     /**
                      * 获取Quuid , Uuid 必填一项
                      * @return Quuid Quuid , Uuid 必填一项
+                     * 
                      */
                     std::string GetQuuid() const;
 
                     /**
                      * 设置Quuid , Uuid 必填一项
-                     * @param Quuid Quuid , Uuid 必填一项
+                     * @param _quuid Quuid , Uuid 必填一项
+                     * 
                      */
                     void SetQuuid(const std::string& _quuid);
 
                     /**
                      * 判断参数 Quuid 是否已赋值
                      * @return Quuid 是否已赋值
+                     * 
                      */
                     bool QuuidHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 云镜客户端唯一Uuid。
+                     * 主机安全客户端唯一Uuid。
                      */
                     std::string m_uuid;
                     bool m_uuidHasBeenSet;

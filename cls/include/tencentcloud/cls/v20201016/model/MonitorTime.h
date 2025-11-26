@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,64 +47,117 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
-                     * @return Type 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
+                     * 获取执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
+                     * @return Type 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
-                     * @param Type 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
+                     * 设置执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
+                     * @param _type 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
                      * @return Time 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
+                     * 
                      */
                     int64_t GetTime() const;
 
                     /**
                      * 设置执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
-                     * @param Time 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
+                     * @param _time 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
+                     * 
                      */
                     void SetTime(const int64_t& _time);
 
                     /**
                      * 判断参数 Time 是否已赋值
                      * @return Time 是否已赋值
+                     * 
                      */
                     bool TimeHasBeenSet() const;
+
+                    /**
+                     * 获取执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+                     * @return CronExpression 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+                     * 
+                     */
+                    std::string GetCronExpression() const;
+
+                    /**
+                     * 设置执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+                     * @param _cronExpression 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+                     * 
+                     */
+                    void SetCronExpression(const std::string& _cronExpression);
+
+                    /**
+                     * 判断参数 CronExpression 是否已赋值
+                     * @return CronExpression 是否已赋值
+                     * 
+                     */
+                    bool CronExpressionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 可选值：
-<br><li> Period - 周期执行
-<br><li> Fixed - 定期执行
+                     * 执行周期， 可选值：`Period`、`Fixed`、`Cron`。
+
+- Period：固定频率
+- Fixed：固定时间
+- Cron：Cron表达式
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
                      * 执行的周期，或者定制执行的时间节点。单位为分钟，取值范围为1~1440。
+当type为`Period`,`Fixed`时，time字段生效。
                      */
                     int64_t m_time;
                     bool m_timeHasBeenSet;
+
+                    /**
+                     * 执行的周期cron表达式。示例：`"* /1 * * * *"` 从左到右每个field的含义 Minutes field(分钟), Hours field(小时),Day of month field(日期),Month field(月份),Day of week field(星期)， 不支持秒级别。
+当type为`Cron`时，CronExpression字段生效。
+                     */
+                    std::string m_cronExpression;
+                    bool m_cronExpressionHasBeenSet;
 
                 };
             }

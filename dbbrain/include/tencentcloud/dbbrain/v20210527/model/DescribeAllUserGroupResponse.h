@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取组总数。
                      * @return TotalCount 组总数。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取组信息。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Groups 组信息。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<GroupItem> GetGroups() const;
 
                     /**
                      * 判断参数 Groups 是否已赋值
                      * @return Groups 是否已赋值
+                     * 
                      */
                     bool GroupsHasBeenSet() const;
 
@@ -80,7 +82,6 @@ namespace TencentCloud
 
                     /**
                      * 组信息。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<GroupItem> m_groups;
                     bool m_groupsHasBeenSet;

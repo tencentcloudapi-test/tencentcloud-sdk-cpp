@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 描述实例节点信息，包括节点类型、节点所在可用区。
+                * 描述实例节点信息，包括节点类型、节点所在可用区、节点所在专属集群。
                 */
                 class DBNode : public AbstractModel
                 {
@@ -53,6 +53,7 @@ Standby，代表备节点。
                      * @return Role 节点类型，值可以为：
 Primary，代表主节点；
 Standby，代表备节点。
+                     * 
                      */
                     std::string GetRole() const;
 
@@ -60,35 +61,61 @@ Standby，代表备节点。
                      * 设置节点类型，值可以为：
 Primary，代表主节点；
 Standby，代表备节点。
-                     * @param Role 节点类型，值可以为：
+                     * @param _role 节点类型，值可以为：
 Primary，代表主节点；
 Standby，代表备节点。
+                     * 
                      */
                     void SetRole(const std::string& _role);
 
                     /**
                      * 判断参数 Role 是否已赋值
                      * @return Role 是否已赋值
+                     * 
                      */
                     bool RoleHasBeenSet() const;
 
                     /**
                      * 获取节点所在可用区，例如 ap-guangzhou-1。
                      * @return Zone 节点所在可用区，例如 ap-guangzhou-1。
+                     * 
                      */
                     std::string GetZone() const;
 
                     /**
                      * 设置节点所在可用区，例如 ap-guangzhou-1。
-                     * @param Zone 节点所在可用区，例如 ap-guangzhou-1。
+                     * @param _zone 节点所在可用区，例如 ap-guangzhou-1。
+                     * 
                      */
                     void SetZone(const std::string& _zone);
 
                     /**
                      * 判断参数 Zone 是否已赋值
                      * @return Zone 是否已赋值
+                     * 
                      */
                     bool ZoneHasBeenSet() const;
+
+                    /**
+                     * 获取专属集群ID
+                     * @return DedicatedClusterId 专属集群ID
+                     * 
+                     */
+                    std::string GetDedicatedClusterId() const;
+
+                    /**
+                     * 设置专属集群ID
+                     * @param _dedicatedClusterId 专属集群ID
+                     * 
+                     */
+                    void SetDedicatedClusterId(const std::string& _dedicatedClusterId);
+
+                    /**
+                     * 判断参数 DedicatedClusterId 是否已赋值
+                     * @return DedicatedClusterId 是否已赋值
+                     * 
+                     */
+                    bool DedicatedClusterIdHasBeenSet() const;
 
                 private:
 
@@ -105,6 +132,12 @@ Standby，代表备节点。
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
+
+                    /**
+                     * 专属集群ID
+                     */
+                    std::string m_dedicatedClusterId;
+                    bool m_dedicatedClusterIdHasBeenSet;
 
                 };
             }

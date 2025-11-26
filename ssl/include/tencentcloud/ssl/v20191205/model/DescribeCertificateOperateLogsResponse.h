@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,38 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取当前查询条件日志总数。
                      * @return AllTotal 当前查询条件日志总数。
+                     * 
                      */
                     uint64_t GetAllTotal() const;
 
                     /**
                      * 判断参数 AllTotal 是否已赋值
                      * @return AllTotal 是否已赋值
+                     * 
                      */
                     bool AllTotalHasBeenSet() const;
 
                     /**
                      * 获取本次请求返回的日志数量。
                      * @return TotalCount 本次请求返回的日志数量。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取证书操作日志列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return OperateLogs 证书操作日志列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<OperationLog> GetOperateLogs() const;
 
                     /**
                      * 判断参数 OperateLogs 是否已赋值
                      * @return OperateLogs 是否已赋值
+                     * 
                      */
                     bool OperateLogsHasBeenSet() const;
 
@@ -98,7 +102,6 @@ namespace TencentCloud
 
                     /**
                      * 证书操作日志列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<OperationLog> m_operateLogs;
                     bool m_operateLogsHasBeenSet;

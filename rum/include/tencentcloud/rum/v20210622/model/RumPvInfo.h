@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,58 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取项目ID
                      * @return ProjectId 项目ID
+                     * 
                      */
                     int64_t GetProjectId() const;
 
                     /**
                      * 设置项目ID
-                     * @param ProjectId 项目ID
+                     * @param _projectId 项目ID
+                     * 
                      */
                     void SetProjectId(const int64_t& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 
                     /**
                      * 获取pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Pv pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPv() const;
 
                     /**
                      * 设置pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Pv pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _pv pv访问量
+                     * 
                      */
                     void SetPv(const std::string& _pv);
 
                     /**
                      * 判断参数 Pv 是否已赋值
                      * @return Pv 是否已赋值
+                     * 
                      */
                     bool PvHasBeenSet() const;
 
                     /**
                      * 获取时间
                      * @return CreateTime 时间
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置时间
-                     * @param CreateTime 时间
+                     * @param _createTime 时间
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
@@ -114,7 +119,6 @@ namespace TencentCloud
 
                     /**
                      * pv访问量
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_pv;
                     bool m_pvHasBeenSet;

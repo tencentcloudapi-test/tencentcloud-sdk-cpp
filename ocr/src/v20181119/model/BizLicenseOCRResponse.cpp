@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,19 @@ BizLicenseOCRResponse::BizLicenseOCRResponse() :
     m_composingFormHasBeenSet(false),
     m_setDateHasBeenSet(false),
     m_recognizeWarnCodeHasBeenSet(false),
-    m_recognizeWarnMsgHasBeenSet(false)
+    m_recognizeWarnMsgHasBeenSet(false),
+    m_isDuplicationHasBeenSet(false),
+    m_registrationDateHasBeenSet(false),
+    m_angleHasBeenSet(false),
+    m_nationalEmblemHasBeenSet(false),
+    m_qRCodeHasBeenSet(false),
+    m_sealHasBeenSet(false),
+    m_titleHasBeenSet(false),
+    m_serialNumberHasBeenSet(false),
+    m_registrationAuthorityHasBeenSet(false),
+    m_electronicHasBeenSet(false),
+    m_businessCertificateHasBeenSet(false),
+    m_importantHasBeenSet(false)
 {
 }
 
@@ -199,6 +211,136 @@ CoreInternalOutcome BizLicenseOCRResponse::Deserialize(const string &payload)
         m_recognizeWarnMsgHasBeenSet = true;
     }
 
+    if (rsp.HasMember("IsDuplication") && !rsp["IsDuplication"].IsNull())
+    {
+        if (!rsp["IsDuplication"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `IsDuplication` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isDuplication = rsp["IsDuplication"].GetInt64();
+        m_isDuplicationHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("RegistrationDate") && !rsp["RegistrationDate"].IsNull())
+    {
+        if (!rsp["RegistrationDate"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RegistrationDate` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_registrationDate = string(rsp["RegistrationDate"].GetString());
+        m_registrationDateHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Angle") && !rsp["Angle"].IsNull())
+    {
+        if (!rsp["Angle"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `Angle` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_angle = rsp["Angle"].GetDouble();
+        m_angleHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("NationalEmblem") && !rsp["NationalEmblem"].IsNull())
+    {
+        if (!rsp["NationalEmblem"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NationalEmblem` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_nationalEmblem = rsp["NationalEmblem"].GetBool();
+        m_nationalEmblemHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("QRCode") && !rsp["QRCode"].IsNull())
+    {
+        if (!rsp["QRCode"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `QRCode` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_qRCode = rsp["QRCode"].GetBool();
+        m_qRCodeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Seal") && !rsp["Seal"].IsNull())
+    {
+        if (!rsp["Seal"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Seal` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_seal = rsp["Seal"].GetBool();
+        m_sealHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Title") && !rsp["Title"].IsNull())
+    {
+        if (!rsp["Title"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Title` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_title = string(rsp["Title"].GetString());
+        m_titleHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("SerialNumber") && !rsp["SerialNumber"].IsNull())
+    {
+        if (!rsp["SerialNumber"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SerialNumber` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_serialNumber = string(rsp["SerialNumber"].GetString());
+        m_serialNumberHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("RegistrationAuthority") && !rsp["RegistrationAuthority"].IsNull())
+    {
+        if (!rsp["RegistrationAuthority"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RegistrationAuthority` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_registrationAuthority = string(rsp["RegistrationAuthority"].GetString());
+        m_registrationAuthorityHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Electronic") && !rsp["Electronic"].IsNull())
+    {
+        if (!rsp["Electronic"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Electronic` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_electronic = rsp["Electronic"].GetBool();
+        m_electronicHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BusinessCertificate") && !rsp["BusinessCertificate"].IsNull())
+    {
+        if (!rsp["BusinessCertificate"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `BusinessCertificate` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["BusinessCertificate"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            BusinessCertificateInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_businessCertificate.push_back(item);
+        }
+        m_businessCertificateHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Important") && !rsp["Important"].IsNull())
+    {
+        if (!rsp["Important"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Important` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_important = string(rsp["Important"].GetString());
+        m_importantHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -315,11 +457,114 @@ string BizLicenseOCRResponse::ToJsonString() const
         }
     }
 
+    if (m_isDuplicationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsDuplication";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isDuplication, allocator);
+    }
+
+    if (m_registrationDateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegistrationDate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_registrationDate.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_angleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Angle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_angle, allocator);
+    }
+
+    if (m_nationalEmblemHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NationalEmblem";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_nationalEmblem, allocator);
+    }
+
+    if (m_qRCodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QRCode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_qRCode, allocator);
+    }
+
+    if (m_sealHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Seal";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_seal, allocator);
+    }
+
+    if (m_titleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Title";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_title.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_serialNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SerialNumber";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_serialNumber.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_registrationAuthorityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegistrationAuthority";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_registrationAuthority.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_electronicHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Electronic";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_electronic, allocator);
+    }
+
+    if (m_businessCertificateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BusinessCertificate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_businessCertificate.begin(); itr != m_businessCertificate.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_importantHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Important";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_important.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -445,6 +690,126 @@ vector<string> BizLicenseOCRResponse::GetRecognizeWarnMsg() const
 bool BizLicenseOCRResponse::RecognizeWarnMsgHasBeenSet() const
 {
     return m_recognizeWarnMsgHasBeenSet;
+}
+
+int64_t BizLicenseOCRResponse::GetIsDuplication() const
+{
+    return m_isDuplication;
+}
+
+bool BizLicenseOCRResponse::IsDuplicationHasBeenSet() const
+{
+    return m_isDuplicationHasBeenSet;
+}
+
+string BizLicenseOCRResponse::GetRegistrationDate() const
+{
+    return m_registrationDate;
+}
+
+bool BizLicenseOCRResponse::RegistrationDateHasBeenSet() const
+{
+    return m_registrationDateHasBeenSet;
+}
+
+double BizLicenseOCRResponse::GetAngle() const
+{
+    return m_angle;
+}
+
+bool BizLicenseOCRResponse::AngleHasBeenSet() const
+{
+    return m_angleHasBeenSet;
+}
+
+bool BizLicenseOCRResponse::GetNationalEmblem() const
+{
+    return m_nationalEmblem;
+}
+
+bool BizLicenseOCRResponse::NationalEmblemHasBeenSet() const
+{
+    return m_nationalEmblemHasBeenSet;
+}
+
+bool BizLicenseOCRResponse::GetQRCode() const
+{
+    return m_qRCode;
+}
+
+bool BizLicenseOCRResponse::QRCodeHasBeenSet() const
+{
+    return m_qRCodeHasBeenSet;
+}
+
+bool BizLicenseOCRResponse::GetSeal() const
+{
+    return m_seal;
+}
+
+bool BizLicenseOCRResponse::SealHasBeenSet() const
+{
+    return m_sealHasBeenSet;
+}
+
+string BizLicenseOCRResponse::GetTitle() const
+{
+    return m_title;
+}
+
+bool BizLicenseOCRResponse::TitleHasBeenSet() const
+{
+    return m_titleHasBeenSet;
+}
+
+string BizLicenseOCRResponse::GetSerialNumber() const
+{
+    return m_serialNumber;
+}
+
+bool BizLicenseOCRResponse::SerialNumberHasBeenSet() const
+{
+    return m_serialNumberHasBeenSet;
+}
+
+string BizLicenseOCRResponse::GetRegistrationAuthority() const
+{
+    return m_registrationAuthority;
+}
+
+bool BizLicenseOCRResponse::RegistrationAuthorityHasBeenSet() const
+{
+    return m_registrationAuthorityHasBeenSet;
+}
+
+bool BizLicenseOCRResponse::GetElectronic() const
+{
+    return m_electronic;
+}
+
+bool BizLicenseOCRResponse::ElectronicHasBeenSet() const
+{
+    return m_electronicHasBeenSet;
+}
+
+vector<BusinessCertificateInfo> BizLicenseOCRResponse::GetBusinessCertificate() const
+{
+    return m_businessCertificate;
+}
+
+bool BizLicenseOCRResponse::BusinessCertificateHasBeenSet() const
+{
+    return m_businessCertificateHasBeenSet;
+}
+
+string BizLicenseOCRResponse::GetImportant() const
+{
+    return m_important;
+}
+
+bool BizLicenseOCRResponse::ImportantHasBeenSet() const
+{
+    return m_importantHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,9 @@ PrivilegeEscalationProcess::PrivilegeEscalationProcess() :
     m_procTreeHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_machineNameHasBeenSet(false)
+    m_machineNameHasBeenSet(false),
+    m_machineExtraInfoHasBeenSet(false),
+    m_pidHasBeenSet(false)
 {
 }
 
@@ -227,6 +229,33 @@ CoreInternalOutcome PrivilegeEscalationProcess::Deserialize(const rapidjson::Val
         m_machineNameHasBeenSet = true;
     }
 
+    if (value.HasMember("MachineExtraInfo") && !value["MachineExtraInfo"].IsNull())
+    {
+        if (!value["MachineExtraInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrivilegeEscalationProcess.MachineExtraInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_machineExtraInfo.Deserialize(value["MachineExtraInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_machineExtraInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("Pid") && !value["Pid"].IsNull())
+    {
+        if (!value["Pid"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrivilegeEscalationProcess.Pid` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_pid = value["Pid"].GetInt64();
+        m_pidHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -376,6 +405,23 @@ void PrivilegeEscalationProcess::ToJsonObject(rapidjson::Value &value, rapidjson
         string key = "MachineName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_machineName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_machineExtraInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MachineExtraInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_machineExtraInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_pidHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Pid";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_pid, allocator);
     }
 
 }
@@ -667,5 +713,37 @@ void PrivilegeEscalationProcess::SetMachineName(const string& _machineName)
 bool PrivilegeEscalationProcess::MachineNameHasBeenSet() const
 {
     return m_machineNameHasBeenSet;
+}
+
+MachineExtraInfo PrivilegeEscalationProcess::GetMachineExtraInfo() const
+{
+    return m_machineExtraInfo;
+}
+
+void PrivilegeEscalationProcess::SetMachineExtraInfo(const MachineExtraInfo& _machineExtraInfo)
+{
+    m_machineExtraInfo = _machineExtraInfo;
+    m_machineExtraInfoHasBeenSet = true;
+}
+
+bool PrivilegeEscalationProcess::MachineExtraInfoHasBeenSet() const
+{
+    return m_machineExtraInfoHasBeenSet;
+}
+
+int64_t PrivilegeEscalationProcess::GetPid() const
+{
+    return m_pid;
+}
+
+void PrivilegeEscalationProcess::SetPid(const int64_t& _pid)
+{
+    m_pid = _pid;
+    m_pidHasBeenSet = true;
+}
+
+bool PrivilegeEscalationProcess::PidHasBeenSet() const
+{
+    return m_pidHasBeenSet;
 }
 

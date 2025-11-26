@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,162 +43,186 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取搜索字段，模糊搜索groupName字段
-                     * @return SearchWord 搜索字段，模糊搜索groupName字段
-                     */
-                    std::string GetSearchWord() const;
-
-                    /**
-                     * 设置搜索字段，模糊搜索groupName字段
-                     * @param SearchWord 搜索字段，模糊搜索groupName字段
-                     */
-                    void SetSearchWord(const std::string& _searchWord);
-
-                    /**
-                     * 判断参数 SearchWord 是否已赋值
-                     * @return SearchWord 是否已赋值
-                     */
-                    bool SearchWordHasBeenSet() const;
-
-                    /**
-                     * 获取分组所属应用ID
-                     * @return ApplicationId 分组所属应用ID
+                     * 获取分组所属【应用ID】，可通过调用[DescribeApplications](https://cloud.tencent.com/document/product/649/36090)查询已创建的应用列表或登录[控制台](https://console.cloud.tencent.com/tsf/app?rid=1)进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/product/649/36094)创建新的应用。
+                     * @return ApplicationId 分组所属【应用ID】，可通过调用[DescribeApplications](https://cloud.tencent.com/document/product/649/36090)查询已创建的应用列表或登录[控制台](https://console.cloud.tencent.com/tsf/app?rid=1)进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/product/649/36094)创建新的应用。
+                     * 
                      */
                     std::string GetApplicationId() const;
 
                     /**
-                     * 设置分组所属应用ID
-                     * @param ApplicationId 分组所属应用ID
+                     * 设置分组所属【应用ID】，可通过调用[DescribeApplications](https://cloud.tencent.com/document/product/649/36090)查询已创建的应用列表或登录[控制台](https://console.cloud.tencent.com/tsf/app?rid=1)进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/product/649/36094)创建新的应用。
+                     * @param _applicationId 分组所属【应用ID】，可通过调用[DescribeApplications](https://cloud.tencent.com/document/product/649/36090)查询已创建的应用列表或登录[控制台](https://console.cloud.tencent.com/tsf/app?rid=1)进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/product/649/36094)创建新的应用。
+                     * 
                      */
                     void SetApplicationId(const std::string& _applicationId);
 
                     /**
                      * 判断参数 ApplicationId 是否已赋值
                      * @return ApplicationId 是否已赋值
+                     * 
                      */
                     bool ApplicationIdHasBeenSet() const;
 
                     /**
+                     * 获取搜索字段，模糊搜索groupName字段
+                     * @return SearchWord 搜索字段，模糊搜索groupName字段
+                     * 
+                     */
+                    std::string GetSearchWord() const;
+
+                    /**
+                     * 设置搜索字段，模糊搜索groupName字段
+                     * @param _searchWord 搜索字段，模糊搜索groupName字段
+                     * 
+                     */
+                    void SetSearchWord(const std::string& _searchWord);
+
+                    /**
+                     * 判断参数 SearchWord 是否已赋值
+                     * @return SearchWord 是否已赋值
+                     * 
+                     */
+                    bool SearchWordHasBeenSet() const;
+
+                    /**
                      * 获取排序字段，默认为 createTime字段，支持id， name， createTime
                      * @return OrderBy 排序字段，默认为 createTime字段，支持id， name， createTime
+                     * 
                      */
                     std::string GetOrderBy() const;
 
                     /**
                      * 设置排序字段，默认为 createTime字段，支持id， name， createTime
-                     * @param OrderBy 排序字段，默认为 createTime字段，支持id， name， createTime
+                     * @param _orderBy 排序字段，默认为 createTime字段，支持id， name， createTime
+                     * 
                      */
                     void SetOrderBy(const std::string& _orderBy);
 
                     /**
                      * 判断参数 OrderBy 是否已赋值
                      * @return OrderBy 是否已赋值
+                     * 
                      */
                     bool OrderByHasBeenSet() const;
 
                     /**
                      * 获取排序方式，默认为1：倒序排序，0：正序，1：倒序
                      * @return OrderType 排序方式，默认为1：倒序排序，0：正序，1：倒序
+                     * 
                      */
                     int64_t GetOrderType() const;
 
                     /**
                      * 设置排序方式，默认为1：倒序排序，0：正序，1：倒序
-                     * @param OrderType 排序方式，默认为1：倒序排序，0：正序，1：倒序
+                     * @param _orderType 排序方式，默认为1：倒序排序，0：正序，1：倒序
+                     * 
                      */
                     void SetOrderType(const int64_t& _orderType);
 
                     /**
                      * 判断参数 OrderType 是否已赋值
                      * @return OrderType 是否已赋值
+                     * 
                      */
                     bool OrderTypeHasBeenSet() const;
 
                     /**
                      * 获取偏移量，取值从0开始
                      * @return Offset 偏移量，取值从0开始
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，取值从0开始
-                     * @param Offset 偏移量，取值从0开始
+                     * @param _offset 偏移量，取值从0开始
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取分页个数，默认为20， 取值应为1~50
                      * @return Limit 分页个数，默认为20， 取值应为1~50
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置分页个数，默认为20， 取值应为1~50
-                     * @param Limit 分页个数，默认为20， 取值应为1~50
+                     * @param _limit 分页个数，默认为20， 取值应为1~50
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取集群ID
-                     * @return ClusterId 集群ID
+                     * 获取分组所属【集群ID】，可通过调用[DescribeClusters](https://cloud.tencent.com/document/product/649/85857)查询已创建的集群列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=docker)进行查看；也可以调用[CreateCluster](https://cloud.tencent.com/document/product/649/36049)创建新的集群。
+                     * @return ClusterId 分组所属【集群ID】，可通过调用[DescribeClusters](https://cloud.tencent.com/document/product/649/85857)查询已创建的集群列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=docker)进行查看；也可以调用[CreateCluster](https://cloud.tencent.com/document/product/649/36049)创建新的集群。
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
-                     * 设置集群ID
-                     * @param ClusterId 集群ID
+                     * 设置分组所属【集群ID】，可通过调用[DescribeClusters](https://cloud.tencent.com/document/product/649/85857)查询已创建的集群列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=docker)进行查看；也可以调用[CreateCluster](https://cloud.tencent.com/document/product/649/36049)创建新的集群。
+                     * @param _clusterId 分组所属【集群ID】，可通过调用[DescribeClusters](https://cloud.tencent.com/document/product/649/85857)查询已创建的集群列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=docker)进行查看；也可以调用[CreateCluster](https://cloud.tencent.com/document/product/649/36049)创建新的集群。
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取命名空间 ID
-                     * @return NamespaceId 命名空间 ID
+                     * 获取分组所属【命名空间 ID】，可通过调用[DescribeSimpleNamespaces](https://cloud.tencent.com/document/product/649/36096)查询已创建的命名空间列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=namespace)进行查看；也可以调用[CreateNamespace](https://cloud.tencent.com/document/product/649/36098)创建新的命名空间。
+                     * @return NamespaceId 分组所属【命名空间 ID】，可通过调用[DescribeSimpleNamespaces](https://cloud.tencent.com/document/product/649/36096)查询已创建的命名空间列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=namespace)进行查看；也可以调用[CreateNamespace](https://cloud.tencent.com/document/product/649/36098)创建新的命名空间。
+                     * 
                      */
                     std::string GetNamespaceId() const;
 
                     /**
-                     * 设置命名空间 ID
-                     * @param NamespaceId 命名空间 ID
+                     * 设置分组所属【命名空间 ID】，可通过调用[DescribeSimpleNamespaces](https://cloud.tencent.com/document/product/649/36096)查询已创建的命名空间列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=namespace)进行查看；也可以调用[CreateNamespace](https://cloud.tencent.com/document/product/649/36098)创建新的命名空间。
+                     * @param _namespaceId 分组所属【命名空间 ID】，可通过调用[DescribeSimpleNamespaces](https://cloud.tencent.com/document/product/649/36096)查询已创建的命名空间列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=namespace)进行查看；也可以调用[CreateNamespace](https://cloud.tencent.com/document/product/649/36098)创建新的命名空间。
+                     * 
                      */
                     void SetNamespaceId(const std::string& _namespaceId);
 
                     /**
                      * 判断参数 NamespaceId 是否已赋值
                      * @return NamespaceId 是否已赋值
+                     * 
                      */
                     bool NamespaceIdHasBeenSet() const;
 
                 private:
 
                     /**
+                     * 分组所属【应用ID】，可通过调用[DescribeApplications](https://cloud.tencent.com/document/product/649/36090)查询已创建的应用列表或登录[控制台](https://console.cloud.tencent.com/tsf/app?rid=1)进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/product/649/36094)创建新的应用。
+                     */
+                    std::string m_applicationId;
+                    bool m_applicationIdHasBeenSet;
+
+                    /**
                      * 搜索字段，模糊搜索groupName字段
                      */
                     std::string m_searchWord;
                     bool m_searchWordHasBeenSet;
-
-                    /**
-                     * 分组所属应用ID
-                     */
-                    std::string m_applicationId;
-                    bool m_applicationIdHasBeenSet;
 
                     /**
                      * 排序字段，默认为 createTime字段，支持id， name， createTime
@@ -225,13 +249,13 @@ namespace TencentCloud
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 集群ID
+                     * 分组所属【集群ID】，可通过调用[DescribeClusters](https://cloud.tencent.com/document/product/649/85857)查询已创建的集群列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=docker)进行查看；也可以调用[CreateCluster](https://cloud.tencent.com/document/product/649/36049)创建新的集群。
                      */
                     std::string m_clusterId;
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * 命名空间 ID
+                     * 分组所属【命名空间 ID】，可通过调用[DescribeSimpleNamespaces](https://cloud.tencent.com/document/product/649/36096)查询已创建的命名空间列表或登录[控制台](https://console.cloud.tencent.com/tsf/resource?rid=1&tab=namespace)进行查看；也可以调用[CreateNamespace](https://cloud.tencent.com/document/product/649/36098)创建新的命名空间。
                      */
                     std::string m_namespaceId;
                     bool m_namespaceIdHasBeenSet;

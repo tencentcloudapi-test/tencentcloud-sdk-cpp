@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,114 +46,105 @@ namespace TencentCloud
                     /**
                      * 获取返回数量，最大值为100。
                      * @return Limit 返回数量，最大值为100。
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置返回数量，最大值为100。
-                     * @param Limit 返回数量，最大值为100。
+                     * @param _limit 返回数量，最大值为100。
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取偏移量，默认为0。
                      * @return Offset 偏移量，默认为0。
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，默认为0。
-                     * @param Offset 偏移量，默认为0。
+                     * @param _offset 偏移量，默认为0。
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取过滤条件。
-<li>Status - String - 是否必填：否 - 处理状态  0 -- 待处理 1 -- 已加白 2 -- 已删除 3 - 已忽略</li>
-<li>ModifyTime - String - 是否必填：否 - 最近发生时间</li>
-<li>Uuid- String - 是否必填：否 - 主机uuid查询</li>
-<li>VulName- string -</li>
-<li>HostIp- string - 是否必填：否 - 主机ip</li>
-<li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li>
-                     * @return Filters 过滤条件。
-<li>Status - String - 是否必填：否 - 处理状态  0 -- 待处理 1 -- 已加白 2 -- 已删除 3 - 已忽略</li>
-<li>ModifyTime - String - 是否必填：否 - 最近发生时间</li>
-<li>Uuid- String - 是否必填：否 - 主机uuid查询</li>
-<li>VulName- string -</li>
-<li>HostIp- string - 是否必填：否 - 主机ip</li>
-<li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li>
+                     * 获取过滤条件。<li>Status - String - 是否必填：否 - 处理状态  0-待处理 1-已加白 2-已删除 3-已修复 5-检测中 6-修复中 8-修复失败</li><li>ModifyTime - String - 是否必填：否 - 最近发生时间</li><li>Uuid- String - 是否必填：否 - 主机uuid查询</li><li>VulName- string -</li><li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li><li>IsSupportDefense - int- 是否必填：否 - 是否支持防御 0:不支持 1:支持</li><li>Labels- string- 是否必填：否 - 标签搜索</li><li>IsSupportAutoFix- string- 是否必填：否 - 是否支持自动修复 0:不支持 1:支持</li><li>CvssScore- string- 是否必填：否 - CvssScore大于多少</li><li>AttackLevel- string- 是否必填：否 - 攻击热度大于多少</li>
+                     * @return Filters 过滤条件。<li>Status - String - 是否必填：否 - 处理状态  0-待处理 1-已加白 2-已删除 3-已修复 5-检测中 6-修复中 8-修复失败</li><li>ModifyTime - String - 是否必填：否 - 最近发生时间</li><li>Uuid- String - 是否必填：否 - 主机uuid查询</li><li>VulName- string -</li><li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li><li>IsSupportDefense - int- 是否必填：否 - 是否支持防御 0:不支持 1:支持</li><li>Labels- string- 是否必填：否 - 标签搜索</li><li>IsSupportAutoFix- string- 是否必填：否 - 是否支持自动修复 0:不支持 1:支持</li><li>CvssScore- string- 是否必填：否 - CvssScore大于多少</li><li>AttackLevel- string- 是否必填：否 - 攻击热度大于多少</li>
+                     * 
                      */
                     std::vector<Filters> GetFilters() const;
 
                     /**
-                     * 设置过滤条件。
-<li>Status - String - 是否必填：否 - 处理状态  0 -- 待处理 1 -- 已加白 2 -- 已删除 3 - 已忽略</li>
-<li>ModifyTime - String - 是否必填：否 - 最近发生时间</li>
-<li>Uuid- String - 是否必填：否 - 主机uuid查询</li>
-<li>VulName- string -</li>
-<li>HostIp- string - 是否必填：否 - 主机ip</li>
-<li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li>
-                     * @param Filters 过滤条件。
-<li>Status - String - 是否必填：否 - 处理状态  0 -- 待处理 1 -- 已加白 2 -- 已删除 3 - 已忽略</li>
-<li>ModifyTime - String - 是否必填：否 - 最近发生时间</li>
-<li>Uuid- String - 是否必填：否 - 主机uuid查询</li>
-<li>VulName- string -</li>
-<li>HostIp- string - 是否必填：否 - 主机ip</li>
-<li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li>
+                     * 设置过滤条件。<li>Status - String - 是否必填：否 - 处理状态  0-待处理 1-已加白 2-已删除 3-已修复 5-检测中 6-修复中 8-修复失败</li><li>ModifyTime - String - 是否必填：否 - 最近发生时间</li><li>Uuid- String - 是否必填：否 - 主机uuid查询</li><li>VulName- string -</li><li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li><li>IsSupportDefense - int- 是否必填：否 - 是否支持防御 0:不支持 1:支持</li><li>Labels- string- 是否必填：否 - 标签搜索</li><li>IsSupportAutoFix- string- 是否必填：否 - 是否支持自动修复 0:不支持 1:支持</li><li>CvssScore- string- 是否必填：否 - CvssScore大于多少</li><li>AttackLevel- string- 是否必填：否 - 攻击热度大于多少</li>
+                     * @param _filters 过滤条件。<li>Status - String - 是否必填：否 - 处理状态  0-待处理 1-已加白 2-已删除 3-已修复 5-检测中 6-修复中 8-修复失败</li><li>ModifyTime - String - 是否必填：否 - 最近发生时间</li><li>Uuid- String - 是否必填：否 - 主机uuid查询</li><li>VulName- string -</li><li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li><li>IsSupportDefense - int- 是否必填：否 - 是否支持防御 0:不支持 1:支持</li><li>Labels- string- 是否必填：否 - 标签搜索</li><li>IsSupportAutoFix- string- 是否必填：否 - 是否支持自动修复 0:不支持 1:支持</li><li>CvssScore- string- 是否必填：否 - CvssScore大于多少</li><li>AttackLevel- string- 是否必填：否 - 攻击热度大于多少</li>
+                     * 
                      */
                     void SetFilters(const std::vector<Filters>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
                      * 获取可选排序字段 Level，LastTime，HostCount
                      * @return By 可选排序字段 Level，LastTime，HostCount
+                     * 
                      */
                     std::string GetBy() const;
 
                     /**
                      * 设置可选排序字段 Level，LastTime，HostCount
-                     * @param By 可选排序字段 Level，LastTime，HostCount
+                     * @param _by 可选排序字段 Level，LastTime，HostCount
+                     * 
                      */
                     void SetBy(const std::string& _by);
 
                     /**
                      * 判断参数 By 是否已赋值
                      * @return By 是否已赋值
+                     * 
                      */
                     bool ByHasBeenSet() const;
 
                     /**
                      * 获取排序顺序：desc  默认asc
                      * @return Order 排序顺序：desc  默认asc
+                     * 
                      */
                     std::string GetOrder() const;
 
                     /**
                      * 设置排序顺序：desc  默认asc
-                     * @param Order 排序顺序：desc  默认asc
+                     * @param _order 排序顺序：desc  默认asc
+                     * 
                      */
                     void SetOrder(const std::string& _order);
 
                     /**
                      * 判断参数 Order 是否已赋值
                      * @return Order 是否已赋值
+                     * 
                      */
                     bool OrderHasBeenSet() const;
 
@@ -172,13 +163,7 @@ namespace TencentCloud
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 过滤条件。
-<li>Status - String - 是否必填：否 - 处理状态  0 -- 待处理 1 -- 已加白 2 -- 已删除 3 - 已忽略</li>
-<li>ModifyTime - String - 是否必填：否 - 最近发生时间</li>
-<li>Uuid- String - 是否必填：否 - 主机uuid查询</li>
-<li>VulName- string -</li>
-<li>HostIp- string - 是否必填：否 - 主机ip</li>
-<li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li>
+                     * 过滤条件。<li>Status - String - 是否必填：否 - 处理状态  0-待处理 1-已加白 2-已删除 3-已修复 5-检测中 6-修复中 8-修复失败</li><li>ModifyTime - String - 是否必填：否 - 最近发生时间</li><li>Uuid- String - 是否必填：否 - 主机uuid查询</li><li>VulName- string -</li><li>VulCategory- string - 是否必填：否 - 漏洞类别 1: web-cms漏洞 2:应用漏洞  4: Linux软件漏洞 5: Windows系统漏洞</li><li>IsSupportDefense - int- 是否必填：否 - 是否支持防御 0:不支持 1:支持</li><li>Labels- string- 是否必填：否 - 标签搜索</li><li>IsSupportAutoFix- string- 是否必填：否 - 是否支持自动修复 0:不支持 1:支持</li><li>CvssScore- string- 是否必填：否 - CvssScore大于多少</li><li>AttackLevel- string- 是否必填：否 - 攻击热度大于多少</li>
                      */
                     std::vector<Filters> m_filters;
                     bool m_filtersHasBeenSet;

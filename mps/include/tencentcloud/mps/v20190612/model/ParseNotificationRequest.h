@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取从 CMQ 获取到的事件通知内容。
                      * @return Content 从 CMQ 获取到的事件通知内容。
+                     * 
                      */
                     std::string GetContent() const;
 
                     /**
                      * 设置从 CMQ 获取到的事件通知内容。
-                     * @param Content 从 CMQ 获取到的事件通知内容。
+                     * @param _content 从 CMQ 获取到的事件通知内容。
+                     * 
                      */
                     void SetContent(const std::string& _content);
 
                     /**
                      * 判断参数 Content 是否已赋值
                      * @return Content 是否已赋值
+                     * 
                      */
                     bool ContentHasBeenSet() const;
 

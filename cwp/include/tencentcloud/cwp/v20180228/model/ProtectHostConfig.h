@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取机器唯一ID
                      * @return Quuid 机器唯一ID
+                     * 
                      */
                     std::string GetQuuid() const;
 
                     /**
                      * 设置机器唯一ID
-                     * @param Quuid 机器唯一ID
+                     * @param _quuid 机器唯一ID
+                     * 
                      */
                     void SetQuuid(const std::string& _quuid);
 
                     /**
                      * 判断参数 Quuid 是否已赋值
                      * @return Quuid 是否已赋值
+                     * 
                      */
                     bool QuuidHasBeenSet() const;
 
                     /**
                      * 获取防护开关 0  关闭 1开启
                      * @return ProtectSwitch 防护开关 0  关闭 1开启
+                     * 
                      */
                     uint64_t GetProtectSwitch() const;
 
                     /**
                      * 设置防护开关 0  关闭 1开启
-                     * @param ProtectSwitch 防护开关 0  关闭 1开启
+                     * @param _protectSwitch 防护开关 0  关闭 1开启
+                     * 
                      */
                     void SetProtectSwitch(const uint64_t& _protectSwitch);
 
                     /**
                      * 判断参数 ProtectSwitch 是否已赋值
                      * @return ProtectSwitch 是否已赋值
+                     * 
                      */
                     bool ProtectSwitchHasBeenSet() const;
 
                     /**
                      * 获取自动恢复开关 0 关闭 1开启
                      * @return AutoRecovery 自动恢复开关 0 关闭 1开启
+                     * 
                      */
                     uint64_t GetAutoRecovery() const;
 
                     /**
                      * 设置自动恢复开关 0 关闭 1开启
-                     * @param AutoRecovery 自动恢复开关 0 关闭 1开启
+                     * @param _autoRecovery 自动恢复开关 0 关闭 1开启
+                     * 
                      */
                     void SetAutoRecovery(const uint64_t& _autoRecovery);
 
                     /**
                      * 判断参数 AutoRecovery 是否已赋值
                      * @return AutoRecovery 是否已赋值
+                     * 
                      */
                     bool AutoRecoveryHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,12 @@ EndPointService::EndPointService() :
     m_autoAcceptFlagHasBeenSet(false),
     m_endPointCountHasBeenSet(false),
     m_endPointSetHasBeenSet(false),
-    m_createTimeHasBeenSet(false)
+    m_createTimeHasBeenSet(false),
+    m_serviceTypeHasBeenSet(false),
+    m_cdcIdHasBeenSet(false),
+    m_serviceUinHasBeenSet(false),
+    m_businessIpTypeHasBeenSet(false),
+    m_tagSetHasBeenSet(false)
 {
 }
 
@@ -149,6 +154,66 @@ CoreInternalOutcome EndPointService::Deserialize(const rapidjson::Value &value)
         m_createTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("ServiceType") && !value["ServiceType"].IsNull())
+    {
+        if (!value["ServiceType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EndPointService.ServiceType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_serviceType = string(value["ServiceType"].GetString());
+        m_serviceTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CdcId") && !value["CdcId"].IsNull())
+    {
+        if (!value["CdcId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EndPointService.CdcId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cdcId = string(value["CdcId"].GetString());
+        m_cdcIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ServiceUin") && !value["ServiceUin"].IsNull())
+    {
+        if (!value["ServiceUin"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EndPointService.ServiceUin` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_serviceUin = string(value["ServiceUin"].GetString());
+        m_serviceUinHasBeenSet = true;
+    }
+
+    if (value.HasMember("BusinessIpType") && !value["BusinessIpType"].IsNull())
+    {
+        if (!value["BusinessIpType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `EndPointService.BusinessIpType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_businessIpType = value["BusinessIpType"].GetInt64();
+        m_businessIpTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("TagSet") && !value["TagSet"].IsNull())
+    {
+        if (!value["TagSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `EndPointService.TagSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TagSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tagSet.push_back(item);
+        }
+        m_tagSetHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -241,6 +306,53 @@ void EndPointService::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "CreateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_createTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_serviceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_serviceType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cdcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CdcId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cdcId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_serviceUinHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceUin";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_serviceUin.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_businessIpTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BusinessIpType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_businessIpType, allocator);
+    }
+
+    if (m_tagSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagSet.begin(); itr != m_tagSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -404,5 +516,85 @@ void EndPointService::SetCreateTime(const string& _createTime)
 bool EndPointService::CreateTimeHasBeenSet() const
 {
     return m_createTimeHasBeenSet;
+}
+
+string EndPointService::GetServiceType() const
+{
+    return m_serviceType;
+}
+
+void EndPointService::SetServiceType(const string& _serviceType)
+{
+    m_serviceType = _serviceType;
+    m_serviceTypeHasBeenSet = true;
+}
+
+bool EndPointService::ServiceTypeHasBeenSet() const
+{
+    return m_serviceTypeHasBeenSet;
+}
+
+string EndPointService::GetCdcId() const
+{
+    return m_cdcId;
+}
+
+void EndPointService::SetCdcId(const string& _cdcId)
+{
+    m_cdcId = _cdcId;
+    m_cdcIdHasBeenSet = true;
+}
+
+bool EndPointService::CdcIdHasBeenSet() const
+{
+    return m_cdcIdHasBeenSet;
+}
+
+string EndPointService::GetServiceUin() const
+{
+    return m_serviceUin;
+}
+
+void EndPointService::SetServiceUin(const string& _serviceUin)
+{
+    m_serviceUin = _serviceUin;
+    m_serviceUinHasBeenSet = true;
+}
+
+bool EndPointService::ServiceUinHasBeenSet() const
+{
+    return m_serviceUinHasBeenSet;
+}
+
+int64_t EndPointService::GetBusinessIpType() const
+{
+    return m_businessIpType;
+}
+
+void EndPointService::SetBusinessIpType(const int64_t& _businessIpType)
+{
+    m_businessIpType = _businessIpType;
+    m_businessIpTypeHasBeenSet = true;
+}
+
+bool EndPointService::BusinessIpTypeHasBeenSet() const
+{
+    return m_businessIpTypeHasBeenSet;
+}
+
+vector<Tag> EndPointService::GetTagSet() const
+{
+    return m_tagSet;
+}
+
+void EndPointService::SetTagSet(const vector<Tag>& _tagSet)
+{
+    m_tagSet = _tagSet;
+    m_tagSetHasBeenSet = true;
+}
+
+bool EndPointService::TagSetHasBeenSet() const
+{
+    return m_tagSetHasBeenSet;
 }
 

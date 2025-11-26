@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,90 +49,105 @@ namespace TencentCloud
                     /**
                      * 获取vm ip
                      * @return VmIp vm ip
+                     * 
                      */
                     std::string GetVmIp() const;
 
                     /**
                      * 设置vm ip
-                     * @param VmIp vm ip
+                     * @param _vmIp vm ip
+                     * 
                      */
                     void SetVmIp(const std::string& _vmIp);
 
                     /**
                      * 判断参数 VmIp 是否已赋值
                      * @return VmIp 是否已赋值
+                     * 
                      */
                     bool VmIpHasBeenSet() const;
 
                     /**
                      * 获取vpc id
                      * @return VpcId vpc id
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置vpc id
-                     * @param VpcId vpc id
+                     * @param _vpcId vpc id
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取vm port
                      * @return VmPort vm port
+                     * 
                      */
                     int64_t GetVmPort() const;
 
                     /**
                      * 设置vm port
-                     * @param VmPort vm port
+                     * @param _vmPort vm port
+                     * 
                      */
                     void SetVmPort(const int64_t& _vmPort);
 
                     /**
                      * 判断参数 VmPort 是否已赋值
                      * @return VmPort 是否已赋值
+                     * 
                      */
                     bool VmPortHasBeenSet() const;
 
                     /**
                      * 获取cvm所在宿主机ip
                      * @return HostIp cvm所在宿主机ip
+                     * 
                      */
                     std::string GetHostIp() const;
 
                     /**
                      * 设置cvm所在宿主机ip
-                     * @param HostIp cvm所在宿主机ip
+                     * @param _hostIp cvm所在宿主机ip
+                     * 
                      */
                     void SetHostIp(const std::string& _hostIp);
 
                     /**
                      * 判断参数 HostIp 是否已赋值
                      * @return HostIp 是否已赋值
+                     * 
                      */
                     bool HostIpHasBeenSet() const;
 
                     /**
                      * 获取docker ip
                      * @return DockerIp docker ip
+                     * 
                      */
                     std::string GetDockerIp() const;
 
                     /**
                      * 设置docker ip
-                     * @param DockerIp docker ip
+                     * @param _dockerIp docker ip
+                     * 
                      */
                     void SetDockerIp(const std::string& _dockerIp);
 
                     /**
                      * 判断参数 DockerIp 是否已赋值
                      * @return DockerIp 是否已赋值
+                     * 
                      */
                     bool DockerIpHasBeenSet() const;
 

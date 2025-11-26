@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取Notebook生命周期脚本名称
                      * @return NotebookLifecycleScriptsName Notebook生命周期脚本名称
+                     * 
                      */
                     std::string GetNotebookLifecycleScriptsName() const;
 
                     /**
                      * 设置Notebook生命周期脚本名称
-                     * @param NotebookLifecycleScriptsName Notebook生命周期脚本名称
+                     * @param _notebookLifecycleScriptsName Notebook生命周期脚本名称
+                     * 
                      */
                     void SetNotebookLifecycleScriptsName(const std::string& _notebookLifecycleScriptsName);
 
                     /**
                      * 判断参数 NotebookLifecycleScriptsName 是否已赋值
                      * @return NotebookLifecycleScriptsName 是否已赋值
+                     * 
                      */
                     bool NotebookLifecycleScriptsNameHasBeenSet() const;
 
@@ -65,20 +68,23 @@ namespace TencentCloud
 base64后的脚本长度不能超过16384个字符
                      * @return CreateScript 创建脚本，base64编码
 base64后的脚本长度不能超过16384个字符
+                     * 
                      */
                     std::string GetCreateScript() const;
 
                     /**
                      * 设置创建脚本，base64编码
 base64后的脚本长度不能超过16384个字符
-                     * @param CreateScript 创建脚本，base64编码
+                     * @param _createScript 创建脚本，base64编码
 base64后的脚本长度不能超过16384个字符
+                     * 
                      */
                     void SetCreateScript(const std::string& _createScript);
 
                     /**
                      * 判断参数 CreateScript 是否已赋值
                      * @return CreateScript 是否已赋值
+                     * 
                      */
                     bool CreateScriptHasBeenSet() const;
 
@@ -87,20 +93,23 @@ base64后的脚本长度不能超过16384个字符
 base64后的脚本长度不能超过16384个字符
                      * @return StartScript 启动脚本，base64编码
 base64后的脚本长度不能超过16384个字符
+                     * 
                      */
                     std::string GetStartScript() const;
 
                     /**
                      * 设置启动脚本，base64编码
 base64后的脚本长度不能超过16384个字符
-                     * @param StartScript 启动脚本，base64编码
+                     * @param _startScript 启动脚本，base64编码
 base64后的脚本长度不能超过16384个字符
+                     * 
                      */
                     void SetStartScript(const std::string& _startScript);
 
                     /**
                      * 判断参数 StartScript 是否已赋值
                      * @return StartScript 是否已赋值
+                     * 
                      */
                     bool StartScriptHasBeenSet() const;
 

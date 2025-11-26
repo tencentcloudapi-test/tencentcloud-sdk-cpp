@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,108 +51,126 @@ namespace TencentCloud
                     /**
                      * 获取就近接入区域
                      * @return NationCountryInnerList 就近接入区域
+                     * 
                      */
                     std::vector<NationCountryInnerInfo> GetNationCountryInnerList() const;
 
                     /**
                      * 设置就近接入区域
-                     * @param NationCountryInnerList 就近接入区域
+                     * @param _nationCountryInnerList 就近接入区域
+                     * 
                      */
                     void SetNationCountryInnerList(const std::vector<NationCountryInnerInfo>& _nationCountryInnerList);
 
                     /**
                      * 判断参数 NationCountryInnerList 是否已赋值
                      * @return NationCountryInnerList 是否已赋值
+                     * 
                      */
                     bool NationCountryInnerListHasBeenSet() const;
 
                     /**
                      * 获取加速区域通道列表
                      * @return ProxyList 加速区域通道列表
+                     * 
                      */
                     std::vector<ProxyIdDict> GetProxyList() const;
 
                     /**
                      * 设置加速区域通道列表
-                     * @param ProxyList 加速区域通道列表
+                     * @param _proxyList 加速区域通道列表
+                     * 
                      */
                     void SetProxyList(const std::vector<ProxyIdDict>& _proxyList);
 
                     /**
                      * 判断参数 ProxyList 是否已赋值
                      * @return ProxyList 是否已赋值
+                     * 
                      */
                     bool ProxyListHasBeenSet() const;
 
                     /**
                      * 获取加速区域ID
                      * @return RegionId 加速区域ID
+                     * 
                      */
                     std::string GetRegionId() const;
 
                     /**
                      * 设置加速区域ID
-                     * @param RegionId 加速区域ID
+                     * @param _regionId 加速区域ID
+                     * 
                      */
                     void SetRegionId(const std::string& _regionId);
 
                     /**
                      * 判断参数 RegionId 是否已赋值
                      * @return RegionId 是否已赋值
+                     * 
                      */
                     bool RegionIdHasBeenSet() const;
 
                     /**
                      * 获取加速区域内部编码
                      * @return GeographicalZoneInnerCode 加速区域内部编码
+                     * 
                      */
                     std::string GetGeographicalZoneInnerCode() const;
 
                     /**
                      * 设置加速区域内部编码
-                     * @param GeographicalZoneInnerCode 加速区域内部编码
+                     * @param _geographicalZoneInnerCode 加速区域内部编码
+                     * 
                      */
                     void SetGeographicalZoneInnerCode(const std::string& _geographicalZoneInnerCode);
 
                     /**
                      * 判断参数 GeographicalZoneInnerCode 是否已赋值
                      * @return GeographicalZoneInnerCode 是否已赋值
+                     * 
                      */
                     bool GeographicalZoneInnerCodeHasBeenSet() const;
 
                     /**
                      * 获取加速区域所属大洲内部编码
                      * @return ContinentInnerCode 加速区域所属大洲内部编码
+                     * 
                      */
                     std::string GetContinentInnerCode() const;
 
                     /**
                      * 设置加速区域所属大洲内部编码
-                     * @param ContinentInnerCode 加速区域所属大洲内部编码
+                     * @param _continentInnerCode 加速区域所属大洲内部编码
+                     * 
                      */
                     void SetContinentInnerCode(const std::string& _continentInnerCode);
 
                     /**
                      * 判断参数 ContinentInnerCode 是否已赋值
                      * @return ContinentInnerCode 是否已赋值
+                     * 
                      */
                     bool ContinentInnerCodeHasBeenSet() const;
 
                     /**
                      * 获取加速区域别名
                      * @return RegionName 加速区域别名
+                     * 
                      */
                     std::string GetRegionName() const;
 
                     /**
                      * 设置加速区域别名
-                     * @param RegionName 加速区域别名
+                     * @param _regionName 加速区域别名
+                     * 
                      */
                     void SetRegionName(const std::string& _regionName);
 
                     /**
                      * 判断参数 RegionName 是否已赋值
                      * @return RegionName 是否已赋值
+                     * 
                      */
                     bool RegionNameHasBeenSet() const;
 

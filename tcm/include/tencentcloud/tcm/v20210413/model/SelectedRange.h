@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取选中的项目详细内容
                      * @return Items 选中的项目详细内容
+                     * 
                      */
                     std::vector<SelectedItems> GetItems() const;
 
                     /**
                      * 设置选中的项目详细内容
-                     * @param Items 选中的项目详细内容
+                     * @param _items 选中的项目详细内容
+                     * 
                      */
                     void SetItems(const std::vector<SelectedItems>& _items);
 
                     /**
                      * 判断参数 Items 是否已赋值
                      * @return Items 是否已赋值
+                     * 
                      */
                     bool ItemsHasBeenSet() const;
 
                     /**
                      * 获取是否全选
                      * @return All 是否全选
+                     * 
                      */
                     bool GetAll() const;
 
                     /**
                      * 设置是否全选
-                     * @param All 是否全选
+                     * @param _all 是否全选
+                     * 
                      */
                     void SetAll(const bool& _all);
 
                     /**
                      * 判断参数 All 是否已赋值
                      * @return All 是否已赋值
+                     * 
                      */
                     bool AllHasBeenSet() const;
 

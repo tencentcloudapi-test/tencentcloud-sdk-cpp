@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ CreateAuditLogFileRequest::CreateAuditLogFileRequest() :
     m_endTimeHasBeenSet(false),
     m_orderHasBeenSet(false),
     m_orderByHasBeenSet(false),
-    m_filterHasBeenSet(false)
+    m_filterHasBeenSet(false),
+    m_logFilterHasBeenSet(false),
+    m_columnFilterHasBeenSet(false)
 {
 }
 
@@ -86,6 +88,34 @@ string CreateAuditLogFileRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_filter.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_logFilterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LogFilter";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_logFilter.begin(); itr != m_logFilter.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_columnFilterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ColumnFilter";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_columnFilter.begin(); itr != m_columnFilter.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 
@@ -190,6 +220,38 @@ void CreateAuditLogFileRequest::SetFilter(const AuditLogFilter& _filter)
 bool CreateAuditLogFileRequest::FilterHasBeenSet() const
 {
     return m_filterHasBeenSet;
+}
+
+vector<InstanceAuditLogFilters> CreateAuditLogFileRequest::GetLogFilter() const
+{
+    return m_logFilter;
+}
+
+void CreateAuditLogFileRequest::SetLogFilter(const vector<InstanceAuditLogFilters>& _logFilter)
+{
+    m_logFilter = _logFilter;
+    m_logFilterHasBeenSet = true;
+}
+
+bool CreateAuditLogFileRequest::LogFilterHasBeenSet() const
+{
+    return m_logFilterHasBeenSet;
+}
+
+vector<string> CreateAuditLogFileRequest::GetColumnFilter() const
+{
+    return m_columnFilter;
+}
+
+void CreateAuditLogFileRequest::SetColumnFilter(const vector<string>& _columnFilter)
+{
+    m_columnFilter = _columnFilter;
+    m_columnFilterHasBeenSet = true;
+}
+
+bool CreateAuditLogFileRequest::ColumnFilterHasBeenSet() const
+{
+    return m_columnFilterHasBeenSet;
 }
 
 

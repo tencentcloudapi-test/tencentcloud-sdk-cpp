@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,9 @@ DescribeTaskDetailResponse::DescribeTaskDetailResponse() :
     m_errorTypeHasBeenSet(false),
     m_errorDescriptionHasBeenSet(false),
     m_createdAtHasBeenSet(false),
-    m_updatedAtHasBeenSet(false)
+    m_updatedAtHasBeenSet(false),
+    m_labelHasBeenSet(false),
+    m_mediaInfoHasBeenSet(false)
 {
 }
 
@@ -253,6 +255,33 @@ CoreInternalOutcome DescribeTaskDetailResponse::Deserialize(const string &payloa
         m_updatedAtHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Label") && !rsp["Label"].IsNull())
+    {
+        if (!rsp["Label"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Label` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_label = string(rsp["Label"].GetString());
+        m_labelHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("MediaInfo") && !rsp["MediaInfo"].IsNull())
+    {
+        if (!rsp["MediaInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `MediaInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_mediaInfo.Deserialize(rsp["MediaInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_mediaInfoHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -398,11 +427,28 @@ string DescribeTaskDetailResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_updatedAt.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_labelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Label";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_label.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_mediaInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MediaInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_mediaInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -558,6 +604,26 @@ string DescribeTaskDetailResponse::GetUpdatedAt() const
 bool DescribeTaskDetailResponse::UpdatedAtHasBeenSet() const
 {
     return m_updatedAtHasBeenSet;
+}
+
+string DescribeTaskDetailResponse::GetLabel() const
+{
+    return m_label;
+}
+
+bool DescribeTaskDetailResponse::LabelHasBeenSet() const
+{
+    return m_labelHasBeenSet;
+}
+
+MediaInfo DescribeTaskDetailResponse::GetMediaInfo() const
+{
+    return m_mediaInfo;
+}
+
+bool DescribeTaskDetailResponse::MediaInfoHasBeenSet() const
+{
+    return m_mediaInfoHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ ReceiveMessageResponse::ReceiveMessageResponse() :
     m_messagePayloadHasBeenSet(false),
     m_ackTopicHasBeenSet(false),
     m_errorMsgHasBeenSet(false),
-    m_subNameHasBeenSet(false)
+    m_subNameHasBeenSet(false),
+    m_messageIDListHasBeenSet(false),
+    m_messagesPayloadHasBeenSet(false)
 {
 }
 
@@ -116,6 +118,26 @@ CoreInternalOutcome ReceiveMessageResponse::Deserialize(const string &payload)
         m_subNameHasBeenSet = true;
     }
 
+    if (rsp.HasMember("MessageIDList") && !rsp["MessageIDList"].IsNull())
+    {
+        if (!rsp["MessageIDList"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `MessageIDList` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_messageIDList = string(rsp["MessageIDList"].GetString());
+        m_messageIDListHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("MessagesPayload") && !rsp["MessagesPayload"].IsNull())
+    {
+        if (!rsp["MessagesPayload"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `MessagesPayload` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_messagesPayload = string(rsp["MessagesPayload"].GetString());
+        m_messagesPayloadHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -166,11 +188,27 @@ string ReceiveMessageResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_subName.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_messageIDListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MessageIDList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_messageIDList.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_messagesPayloadHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MessagesPayload";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_messagesPayload.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -226,6 +264,26 @@ string ReceiveMessageResponse::GetSubName() const
 bool ReceiveMessageResponse::SubNameHasBeenSet() const
 {
     return m_subNameHasBeenSet;
+}
+
+string ReceiveMessageResponse::GetMessageIDList() const
+{
+    return m_messageIDList;
+}
+
+bool ReceiveMessageResponse::MessageIDListHasBeenSet() const
+{
+    return m_messageIDListHasBeenSet;
+}
+
+string ReceiveMessageResponse::GetMessagesPayload() const
+{
+    return m_messagesPayload;
+}
+
+bool ReceiveMessageResponse::MessagesPayloadHasBeenSet() const
+{
+    return m_messagesPayloadHasBeenSet;
 }
 
 

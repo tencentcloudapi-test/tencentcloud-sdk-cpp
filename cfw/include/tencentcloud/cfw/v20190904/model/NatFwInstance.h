@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,124 +49,126 @@ namespace TencentCloud
                     /**
                      * 获取nat实例id
                      * @return NatinsId nat实例id
+                     * 
                      */
                     std::string GetNatinsId() const;
 
                     /**
                      * 设置nat实例id
-                     * @param NatinsId nat实例id
+                     * @param _natinsId nat实例id
+                     * 
                      */
                     void SetNatinsId(const std::string& _natinsId);
 
                     /**
                      * 判断参数 NatinsId 是否已赋值
                      * @return NatinsId 是否已赋值
+                     * 
                      */
                     bool NatinsIdHasBeenSet() const;
 
                     /**
                      * 获取nat实例名称
                      * @return NatinsName nat实例名称
+                     * 
                      */
                     std::string GetNatinsName() const;
 
                     /**
                      * 设置nat实例名称
-                     * @param NatinsName nat实例名称
+                     * @param _natinsName nat实例名称
+                     * 
                      */
                     void SetNatinsName(const std::string& _natinsName);
 
                     /**
                      * 判断参数 NatinsName 是否已赋值
                      * @return NatinsName 是否已赋值
+                     * 
                      */
                     bool NatinsNameHasBeenSet() const;
 
                     /**
                      * 获取实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRegion() const;
 
                     /**
                      * 设置实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Region 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _region 实例所在地域
+                     * 
                      */
                     void SetRegion(const std::string& _region);
 
                     /**
                      * 判断参数 Region 是否已赋值
                      * @return Region 是否已赋值
+                     * 
                      */
                     bool RegionHasBeenSet() const;
 
                     /**
                      * 获取0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FwMode 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetFwMode() const;
 
                     /**
                      * 设置0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FwMode 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _fwMode 0:新增模式，1:接入模式
+                     * 
                      */
                     void SetFwMode(const int64_t& _fwMode);
 
                     /**
                      * 判断参数 FwMode 是否已赋值
                      * @return FwMode 是否已赋值
+                     * 
                      */
                     bool FwModeHasBeenSet() const;
 
                     /**
                      * 获取0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Status 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetStatus() const;
 
                     /**
                      * 设置0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Status 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _status 0:正常状态， 1: 正在创建
+                     * 
                      */
                     void SetStatus(const int64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return NatIp nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetNatIp() const;
 
                     /**
                      * 设置nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param NatIp nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _natIp nat公网ip
+                     * 
                      */
                     void SetNatIp(const std::string& _natIp);
 
                     /**
                      * 判断参数 NatIp 是否已赋值
                      * @return NatIp 是否已赋值
+                     * 
                      */
                     bool NatIpHasBeenSet() const;
 
@@ -186,28 +188,24 @@ namespace TencentCloud
 
                     /**
                      * 实例所在地域
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
 
                     /**
                      * 0:新增模式，1:接入模式
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_fwMode;
                     bool m_fwModeHasBeenSet;
 
                     /**
                      * 0:正常状态， 1: 正在创建
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
                      * nat公网ip
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_natIp;
                     bool m_natIpHasBeenSet;

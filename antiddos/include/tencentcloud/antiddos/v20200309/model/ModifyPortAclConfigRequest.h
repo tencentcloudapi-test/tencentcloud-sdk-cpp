@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,63 @@ namespace TencentCloud
                     /**
                      * 获取资源实例ID
                      * @return InstanceId 资源实例ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置资源实例ID
-                     * @param InstanceId 资源实例ID
+                     * @param _instanceId 资源实例ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取旧端口acl策略
                      * @return OldAclConfig 旧端口acl策略
+                     * 
                      */
                     AclConfig GetOldAclConfig() const;
 
                     /**
                      * 设置旧端口acl策略
-                     * @param OldAclConfig 旧端口acl策略
+                     * @param _oldAclConfig 旧端口acl策略
+                     * 
                      */
                     void SetOldAclConfig(const AclConfig& _oldAclConfig);
 
                     /**
                      * 判断参数 OldAclConfig 是否已赋值
                      * @return OldAclConfig 是否已赋值
+                     * 
                      */
                     bool OldAclConfigHasBeenSet() const;
 
                     /**
                      * 获取新端口acl策略
                      * @return NewAclConfig 新端口acl策略
+                     * 
                      */
                     AclConfig GetNewAclConfig() const;
 
                     /**
                      * 设置新端口acl策略
-                     * @param NewAclConfig 新端口acl策略
+                     * @param _newAclConfig 新端口acl策略
+                     * 
                      */
                     void SetNewAclConfig(const AclConfig& _newAclConfig);
 
                     /**
                      * 判断参数 NewAclConfig 是否已赋值
                      * @return NewAclConfig 是否已赋值
+                     * 
                      */
                     bool NewAclConfigHasBeenSet() const;
 

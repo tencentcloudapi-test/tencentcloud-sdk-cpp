@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,14 @@ AlarmPolicyRule::AlarmPolicyRule() :
     m_filterHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_unitHasBeenSet(false),
-    m_ruleTypeHasBeenSet(false)
+    m_ruleTypeHasBeenSet(false),
+    m_isAdvancedHasBeenSet(false),
+    m_isOpenHasBeenSet(false),
+    m_productIdHasBeenSet(false),
+    m_valueMaxHasBeenSet(false),
+    m_valueMinHasBeenSet(false),
+    m_hierarchicalValueHasBeenSet(false),
+    m_isLatenessMetricHasBeenSet(false)
 {
 }
 
@@ -157,6 +164,83 @@ CoreInternalOutcome AlarmPolicyRule::Deserialize(const rapidjson::Value &value)
         m_ruleTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("IsAdvanced") && !value["IsAdvanced"].IsNull())
+    {
+        if (!value["IsAdvanced"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicyRule.IsAdvanced` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isAdvanced = value["IsAdvanced"].GetInt64();
+        m_isAdvancedHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsOpen") && !value["IsOpen"].IsNull())
+    {
+        if (!value["IsOpen"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicyRule.IsOpen` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isOpen = value["IsOpen"].GetInt64();
+        m_isOpenHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProductId") && !value["ProductId"].IsNull())
+    {
+        if (!value["ProductId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicyRule.ProductId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_productId = string(value["ProductId"].GetString());
+        m_productIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ValueMax") && !value["ValueMax"].IsNull())
+    {
+        if (!value["ValueMax"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicyRule.ValueMax` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_valueMax = value["ValueMax"].GetDouble();
+        m_valueMaxHasBeenSet = true;
+    }
+
+    if (value.HasMember("ValueMin") && !value["ValueMin"].IsNull())
+    {
+        if (!value["ValueMin"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicyRule.ValueMin` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_valueMin = value["ValueMin"].GetDouble();
+        m_valueMinHasBeenSet = true;
+    }
+
+    if (value.HasMember("HierarchicalValue") && !value["HierarchicalValue"].IsNull())
+    {
+        if (!value["HierarchicalValue"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicyRule.HierarchicalValue` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_hierarchicalValue.Deserialize(value["HierarchicalValue"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_hierarchicalValueHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsLatenessMetric") && !value["IsLatenessMetric"].IsNull())
+    {
+        if (!value["IsLatenessMetric"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmPolicyRule.IsLatenessMetric` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isLatenessMetric = value["IsLatenessMetric"].GetInt64();
+        m_isLatenessMetricHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -251,6 +335,63 @@ void AlarmPolicyRule::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "RuleType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_ruleType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isAdvancedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsAdvanced";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isAdvanced, allocator);
+    }
+
+    if (m_isOpenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsOpen";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isOpen, allocator);
+    }
+
+    if (m_productIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProductId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_productId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_valueMaxHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ValueMax";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_valueMax, allocator);
+    }
+
+    if (m_valueMinHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ValueMin";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_valueMin, allocator);
+    }
+
+    if (m_hierarchicalValueHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HierarchicalValue";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_hierarchicalValue.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_isLatenessMetricHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsLatenessMetric";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isLatenessMetric, allocator);
     }
 
 }
@@ -430,5 +571,117 @@ void AlarmPolicyRule::SetRuleType(const string& _ruleType)
 bool AlarmPolicyRule::RuleTypeHasBeenSet() const
 {
     return m_ruleTypeHasBeenSet;
+}
+
+int64_t AlarmPolicyRule::GetIsAdvanced() const
+{
+    return m_isAdvanced;
+}
+
+void AlarmPolicyRule::SetIsAdvanced(const int64_t& _isAdvanced)
+{
+    m_isAdvanced = _isAdvanced;
+    m_isAdvancedHasBeenSet = true;
+}
+
+bool AlarmPolicyRule::IsAdvancedHasBeenSet() const
+{
+    return m_isAdvancedHasBeenSet;
+}
+
+int64_t AlarmPolicyRule::GetIsOpen() const
+{
+    return m_isOpen;
+}
+
+void AlarmPolicyRule::SetIsOpen(const int64_t& _isOpen)
+{
+    m_isOpen = _isOpen;
+    m_isOpenHasBeenSet = true;
+}
+
+bool AlarmPolicyRule::IsOpenHasBeenSet() const
+{
+    return m_isOpenHasBeenSet;
+}
+
+string AlarmPolicyRule::GetProductId() const
+{
+    return m_productId;
+}
+
+void AlarmPolicyRule::SetProductId(const string& _productId)
+{
+    m_productId = _productId;
+    m_productIdHasBeenSet = true;
+}
+
+bool AlarmPolicyRule::ProductIdHasBeenSet() const
+{
+    return m_productIdHasBeenSet;
+}
+
+double AlarmPolicyRule::GetValueMax() const
+{
+    return m_valueMax;
+}
+
+void AlarmPolicyRule::SetValueMax(const double& _valueMax)
+{
+    m_valueMax = _valueMax;
+    m_valueMaxHasBeenSet = true;
+}
+
+bool AlarmPolicyRule::ValueMaxHasBeenSet() const
+{
+    return m_valueMaxHasBeenSet;
+}
+
+double AlarmPolicyRule::GetValueMin() const
+{
+    return m_valueMin;
+}
+
+void AlarmPolicyRule::SetValueMin(const double& _valueMin)
+{
+    m_valueMin = _valueMin;
+    m_valueMinHasBeenSet = true;
+}
+
+bool AlarmPolicyRule::ValueMinHasBeenSet() const
+{
+    return m_valueMinHasBeenSet;
+}
+
+AlarmHierarchicalValue AlarmPolicyRule::GetHierarchicalValue() const
+{
+    return m_hierarchicalValue;
+}
+
+void AlarmPolicyRule::SetHierarchicalValue(const AlarmHierarchicalValue& _hierarchicalValue)
+{
+    m_hierarchicalValue = _hierarchicalValue;
+    m_hierarchicalValueHasBeenSet = true;
+}
+
+bool AlarmPolicyRule::HierarchicalValueHasBeenSet() const
+{
+    return m_hierarchicalValueHasBeenSet;
+}
+
+int64_t AlarmPolicyRule::GetIsLatenessMetric() const
+{
+    return m_isLatenessMetric;
+}
+
+void AlarmPolicyRule::SetIsLatenessMetric(const int64_t& _isLatenessMetric)
+{
+    m_isLatenessMetric = _isLatenessMetric;
+    m_isLatenessMetricHasBeenSet = true;
+}
+
+bool AlarmPolicyRule::IsLatenessMetricHasBeenSet() const
+{
+    return m_isLatenessMetricHasBeenSet;
 }
 

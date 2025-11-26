@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,106 @@ TmsClient::TmsClient(const Credential &credential, const string &region, const C
 }
 
 
+TmsClient::CreateFinancialLLMTaskOutcome TmsClient::CreateFinancialLLMTask(const CreateFinancialLLMTaskRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateFinancialLLMTask");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateFinancialLLMTaskResponse rsp = CreateFinancialLLMTaskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateFinancialLLMTaskOutcome(rsp);
+        else
+            return CreateFinancialLLMTaskOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateFinancialLLMTaskOutcome(outcome.GetError());
+    }
+}
+
+void TmsClient::CreateFinancialLLMTaskAsync(const CreateFinancialLLMTaskRequest& request, const CreateFinancialLLMTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateFinancialLLMTaskRequest&;
+    using Resp = CreateFinancialLLMTaskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateFinancialLLMTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TmsClient::CreateFinancialLLMTaskOutcomeCallable TmsClient::CreateFinancialLLMTaskCallable(const CreateFinancialLLMTaskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateFinancialLLMTaskOutcome>>();
+    CreateFinancialLLMTaskAsync(
+    request,
+    [prom](
+        const TmsClient*,
+        const CreateFinancialLLMTaskRequest&,
+        CreateFinancialLLMTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TmsClient::GetFinancialLLMTaskResultOutcome TmsClient::GetFinancialLLMTaskResult(const GetFinancialLLMTaskResultRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetFinancialLLMTaskResult");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetFinancialLLMTaskResultResponse rsp = GetFinancialLLMTaskResultResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetFinancialLLMTaskResultOutcome(rsp);
+        else
+            return GetFinancialLLMTaskResultOutcome(o.GetError());
+    }
+    else
+    {
+        return GetFinancialLLMTaskResultOutcome(outcome.GetError());
+    }
+}
+
+void TmsClient::GetFinancialLLMTaskResultAsync(const GetFinancialLLMTaskResultRequest& request, const GetFinancialLLMTaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetFinancialLLMTaskResultRequest&;
+    using Resp = GetFinancialLLMTaskResultResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetFinancialLLMTaskResult", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TmsClient::GetFinancialLLMTaskResultOutcomeCallable TmsClient::GetFinancialLLMTaskResultCallable(const GetFinancialLLMTaskResultRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetFinancialLLMTaskResultOutcome>>();
+    GetFinancialLLMTaskResultAsync(
+    request,
+    [prom](
+        const TmsClient*,
+        const GetFinancialLLMTaskResultRequest&,
+        GetFinancialLLMTaskResultOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 TmsClient::TextModerationOutcome TmsClient::TextModeration(const TextModerationRequest &request)
 {
     auto outcome = MakeRequest(request, "TextModeration");
@@ -62,24 +162,31 @@ TmsClient::TextModerationOutcome TmsClient::TextModeration(const TextModerationR
 
 void TmsClient::TextModerationAsync(const TextModerationRequest& request, const TextModerationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TextModeration(request), context);
-    };
+    using Req = const TextModerationRequest&;
+    using Resp = TextModerationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TextModeration", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TmsClient::TextModerationOutcomeCallable TmsClient::TextModerationCallable(const TextModerationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TextModerationOutcome()>>(
-        [this, request]()
-        {
-            return this->TextModeration(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TextModerationOutcome>>();
+    TextModerationAsync(
+    request,
+    [prom](
+        const TmsClient*,
+        const TextModerationRequest&,
+        TextModerationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

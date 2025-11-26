@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取时间
                      * @return DateKey 时间
+                     * 
                      */
                     std::string GetDateKey() const;
 
                     /**
                      * 设置时间
-                     * @param DateKey 时间
+                     * @param _dateKey 时间
+                     * 
                      */
                     void SetDateKey(const std::string& _dateKey);
 
                     /**
                      * 判断参数 DateKey 是否已赋值
                      * @return DateKey 是否已赋值
+                     * 
                      */
                     bool DateKeyHasBeenSet() const;
 
                     /**
                      * 获取Market加载时间
                      * @return MarketLoadTime Market加载时间
+                     * 
                      */
                     double GetMarketLoadTime() const;
 
                     /**
                      * 设置Market加载时间
-                     * @param MarketLoadTime Market加载时间
+                     * @param _marketLoadTime Market加载时间
+                     * 
                      */
                     void SetMarketLoadTime(const double& _marketLoadTime);
 
                     /**
                      * 判断参数 MarketLoadTime 是否已赋值
                      * @return MarketLoadTime 是否已赋值
+                     * 
                      */
                     bool MarketLoadTimeHasBeenSet() const;
 
                     /**
                      * 获取AppId加载时间
                      * @return AppIdLoadTime AppId加载时间
+                     * 
                      */
                     double GetAppIdLoadTime() const;
 
                     /**
                      * 设置AppId加载时间
-                     * @param AppIdLoadTime AppId加载时间
+                     * @param _appIdLoadTime AppId加载时间
+                     * 
                      */
                     void SetAppIdLoadTime(const double& _appIdLoadTime);
 
                     /**
                      * 判断参数 AppIdLoadTime 是否已赋值
                      * @return AppIdLoadTime 是否已赋值
+                     * 
                      */
                     bool AppIdLoadTimeHasBeenSet() const;
 

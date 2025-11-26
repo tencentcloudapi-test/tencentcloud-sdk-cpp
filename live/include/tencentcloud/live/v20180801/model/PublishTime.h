@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 UTC 格式，例如：2018-06-29T19:00:00Z。
                      * @return PublishTime 推流时间。
 UTC 格式，例如：2018-06-29T19:00:00Z。
+                     * 
                      */
                     std::string GetPublishTime() const;
 
                     /**
                      * 设置推流时间。
 UTC 格式，例如：2018-06-29T19:00:00Z。
-                     * @param PublishTime 推流时间。
+                     * @param _publishTime 推流时间。
 UTC 格式，例如：2018-06-29T19:00:00Z。
+                     * 
                      */
                     void SetPublishTime(const std::string& _publishTime);
 
                     /**
                      * 判断参数 PublishTime 是否已赋值
                      * @return PublishTime 是否已赋值
+                     * 
                      */
                     bool PublishTimeHasBeenSet() const;
 

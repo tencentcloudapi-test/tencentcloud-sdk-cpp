@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取事件集合
                      * @return Events 事件集合
+                     * 
                      */
                     std::vector<Event> GetEvents() const;
 
                     /**
                      * 判断参数 Events 是否已赋值
                      * @return Events 是否已赋值
+                     * 
                      */
                     bool EventsHasBeenSet() const;
 
                     /**
                      * 获取容器实例id
                      * @return EksCiId 容器实例id
+                     * 
                      */
                     std::string GetEksCiId() const;
 
                     /**
                      * 判断参数 EksCiId 是否已赋值
                      * @return EksCiId 是否已赋值
+                     * 
                      */
                     bool EksCiIdHasBeenSet() const;
 

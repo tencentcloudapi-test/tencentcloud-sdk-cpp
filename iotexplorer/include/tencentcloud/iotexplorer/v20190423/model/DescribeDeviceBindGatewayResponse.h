@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,47 +45,105 @@ namespace TencentCloud
 
                     /**
                      * 获取网关产品ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return GatewayProductId 网关产品ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetGatewayProductId() const;
 
                     /**
                      * 判断参数 GatewayProductId 是否已赋值
                      * @return GatewayProductId 是否已赋值
+                     * 
                      */
                     bool GatewayProductIdHasBeenSet() const;
 
                     /**
                      * 获取网关设备名
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return GatewayDeviceName 网关设备名
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetGatewayDeviceName() const;
 
                     /**
                      * 判断参数 GatewayDeviceName 是否已赋值
                      * @return GatewayDeviceName 是否已赋值
+                     * 
                      */
                     bool GatewayDeviceNameHasBeenSet() const;
+
+                    /**
+                     * 获取网关产品名称
+                     * @return GatewayName 网关产品名称
+                     * 
+                     */
+                    std::string GetGatewayName() const;
+
+                    /**
+                     * 判断参数 GatewayName 是否已赋值
+                     * @return GatewayName 是否已赋值
+                     * 
+                     */
+                    bool GatewayNameHasBeenSet() const;
+
+                    /**
+                     * 获取设备对应产品所属的主账号名称
+                     * @return GatewayProductOwnerName 设备对应产品所属的主账号名称
+                     * 
+                     */
+                    std::string GetGatewayProductOwnerName() const;
+
+                    /**
+                     * 判断参数 GatewayProductOwnerName 是否已赋值
+                     * @return GatewayProductOwnerName 是否已赋值
+                     * 
+                     */
+                    bool GatewayProductOwnerNameHasBeenSet() const;
+
+                    /**
+                     * 获取设备对应产品所属的主账号 UIN
+                     * @return GatewayProductOwnerUin 设备对应产品所属的主账号 UIN
+                     * 
+                     */
+                    std::string GetGatewayProductOwnerUin() const;
+
+                    /**
+                     * 判断参数 GatewayProductOwnerUin 是否已赋值
+                     * @return GatewayProductOwnerUin 是否已赋值
+                     * 
+                     */
+                    bool GatewayProductOwnerUinHasBeenSet() const;
 
                 private:
 
                     /**
                      * 网关产品ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_gatewayProductId;
                     bool m_gatewayProductIdHasBeenSet;
 
                     /**
                      * 网关设备名
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_gatewayDeviceName;
                     bool m_gatewayDeviceNameHasBeenSet;
+
+                    /**
+                     * 网关产品名称
+                     */
+                    std::string m_gatewayName;
+                    bool m_gatewayNameHasBeenSet;
+
+                    /**
+                     * 设备对应产品所属的主账号名称
+                     */
+                    std::string m_gatewayProductOwnerName;
+                    bool m_gatewayProductOwnerNameHasBeenSet;
+
+                    /**
+                     * 设备对应产品所属的主账号 UIN
+                     */
+                    std::string m_gatewayProductOwnerUin;
+                    bool m_gatewayProductOwnerUinHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,9 @@ RumProject::RumProject() :
     m_instanceKeyHasBeenSet(false),
     m_descHasBeenSet(false),
     m_isStarHasBeenSet(false),
-    m_projectStatusHasBeenSet(false)
+    m_projectStatusHasBeenSet(false),
+    m_accessPointHasBeenSet(false),
+    m_kafkaHasBeenSet(false)
 {
 }
 
@@ -205,6 +207,33 @@ CoreInternalOutcome RumProject::Deserialize(const rapidjson::Value &value)
         m_projectStatusHasBeenSet = true;
     }
 
+    if (value.HasMember("AccessPoint") && !value["AccessPoint"].IsNull())
+    {
+        if (!value["AccessPoint"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RumProject.AccessPoint` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_accessPoint = string(value["AccessPoint"].GetString());
+        m_accessPointHasBeenSet = true;
+    }
+
+    if (value.HasMember("Kafka") && !value["Kafka"].IsNull())
+    {
+        if (!value["Kafka"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RumProject.Kafka` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_kafka.Deserialize(value["Kafka"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_kafkaHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -338,6 +367,23 @@ void RumProject::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "ProjectStatus";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_projectStatus, allocator);
+    }
+
+    if (m_accessPointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccessPoint";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_accessPoint.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_kafkaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Kafka";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_kafka.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -597,5 +643,37 @@ void RumProject::SetProjectStatus(const int64_t& _projectStatus)
 bool RumProject::ProjectStatusHasBeenSet() const
 {
     return m_projectStatusHasBeenSet;
+}
+
+string RumProject::GetAccessPoint() const
+{
+    return m_accessPoint;
+}
+
+void RumProject::SetAccessPoint(const string& _accessPoint)
+{
+    m_accessPoint = _accessPoint;
+    m_accessPointHasBeenSet = true;
+}
+
+bool RumProject::AccessPointHasBeenSet() const
+{
+    return m_accessPointHasBeenSet;
+}
+
+Kafka RumProject::GetKafka() const
+{
+    return m_kafka;
+}
+
+void RumProject::SetKafka(const Kafka& _kafka)
+{
+    m_kafka = _kafka;
+    m_kafkaHasBeenSet = true;
+}
+
+bool RumProject::KafkaHasBeenSet() const
+{
+    return m_kafkaHasBeenSet;
 }
 

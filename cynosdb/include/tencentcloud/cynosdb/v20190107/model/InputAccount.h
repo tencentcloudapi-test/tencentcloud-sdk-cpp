@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取账号
                      * @return AccountName 账号
+                     * 
                      */
                     std::string GetAccountName() const;
 
                     /**
                      * 设置账号
-                     * @param AccountName 账号
+                     * @param _accountName 账号
+                     * 
                      */
                     void SetAccountName(const std::string& _accountName);
 
                     /**
                      * 判断参数 AccountName 是否已赋值
                      * @return AccountName 是否已赋值
+                     * 
                      */
                     bool AccountNameHasBeenSet() const;
 
                     /**
                      * 获取主机，默认‘%’
                      * @return Host 主机，默认‘%’
+                     * 
                      */
                     std::string GetHost() const;
 
                     /**
                      * 设置主机，默认‘%’
-                     * @param Host 主机，默认‘%’
+                     * @param _host 主机，默认‘%’
+                     * 
                      */
                     void SetHost(const std::string& _host);
 
                     /**
                      * 判断参数 Host 是否已赋值
                      * @return Host 是否已赋值
+                     * 
                      */
                     bool HostHasBeenSet() const;
 

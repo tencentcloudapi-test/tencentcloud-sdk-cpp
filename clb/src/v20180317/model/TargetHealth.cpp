@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,10 @@ TargetHealth::TargetHealth() :
     m_portHasBeenSet(false),
     m_healthStatusHasBeenSet(false),
     m_targetIdHasBeenSet(false),
-    m_healthStatusDetialHasBeenSet(false)
+    m_healthStatusDetailHasBeenSet(false),
+    m_healthStatusDetialHasBeenSet(false),
+    m_targetGroupIdHasBeenSet(false),
+    m_weightHasBeenSet(false)
 {
 }
 
@@ -74,6 +77,16 @@ CoreInternalOutcome TargetHealth::Deserialize(const rapidjson::Value &value)
         m_targetIdHasBeenSet = true;
     }
 
+    if (value.HasMember("HealthStatusDetail") && !value["HealthStatusDetail"].IsNull())
+    {
+        if (!value["HealthStatusDetail"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TargetHealth.HealthStatusDetail` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_healthStatusDetail = string(value["HealthStatusDetail"].GetString());
+        m_healthStatusDetailHasBeenSet = true;
+    }
+
     if (value.HasMember("HealthStatusDetial") && !value["HealthStatusDetial"].IsNull())
     {
         if (!value["HealthStatusDetial"].IsString())
@@ -82,6 +95,26 @@ CoreInternalOutcome TargetHealth::Deserialize(const rapidjson::Value &value)
         }
         m_healthStatusDetial = string(value["HealthStatusDetial"].GetString());
         m_healthStatusDetialHasBeenSet = true;
+    }
+
+    if (value.HasMember("TargetGroupId") && !value["TargetGroupId"].IsNull())
+    {
+        if (!value["TargetGroupId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TargetHealth.TargetGroupId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_targetGroupId = string(value["TargetGroupId"].GetString());
+        m_targetGroupIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Weight") && !value["Weight"].IsNull())
+    {
+        if (!value["Weight"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TargetHealth.Weight` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_weight = value["Weight"].GetUint64();
+        m_weightHasBeenSet = true;
     }
 
 
@@ -123,12 +156,36 @@ void TargetHealth::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         value.AddMember(iKey, rapidjson::Value(m_targetId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_healthStatusDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HealthStatusDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_healthStatusDetail.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_healthStatusDetialHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "HealthStatusDetial";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_healthStatusDetial.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_targetGroupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TargetGroupId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_targetGroupId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_weightHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Weight";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_weight, allocator);
     }
 
 }
@@ -198,6 +255,22 @@ bool TargetHealth::TargetIdHasBeenSet() const
     return m_targetIdHasBeenSet;
 }
 
+string TargetHealth::GetHealthStatusDetail() const
+{
+    return m_healthStatusDetail;
+}
+
+void TargetHealth::SetHealthStatusDetail(const string& _healthStatusDetail)
+{
+    m_healthStatusDetail = _healthStatusDetail;
+    m_healthStatusDetailHasBeenSet = true;
+}
+
+bool TargetHealth::HealthStatusDetailHasBeenSet() const
+{
+    return m_healthStatusDetailHasBeenSet;
+}
+
 string TargetHealth::GetHealthStatusDetial() const
 {
     return m_healthStatusDetial;
@@ -212,5 +285,37 @@ void TargetHealth::SetHealthStatusDetial(const string& _healthStatusDetial)
 bool TargetHealth::HealthStatusDetialHasBeenSet() const
 {
     return m_healthStatusDetialHasBeenSet;
+}
+
+string TargetHealth::GetTargetGroupId() const
+{
+    return m_targetGroupId;
+}
+
+void TargetHealth::SetTargetGroupId(const string& _targetGroupId)
+{
+    m_targetGroupId = _targetGroupId;
+    m_targetGroupIdHasBeenSet = true;
+}
+
+bool TargetHealth::TargetGroupIdHasBeenSet() const
+{
+    return m_targetGroupIdHasBeenSet;
+}
+
+uint64_t TargetHealth::GetWeight() const
+{
+    return m_weight;
+}
+
+void TargetHealth::SetWeight(const uint64_t& _weight)
+{
+    m_weight = _weight;
+    m_weightHasBeenSet = true;
+}
+
+bool TargetHealth::WeightHasBeenSet() const
+{
+    return m_weightHasBeenSet;
 }
 

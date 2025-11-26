@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/lighthouse/v20200324/model/DetailPrice.h>
 
 
 namespace TencentCloud
@@ -35,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 关于Lighthouse Instance实例的价格信息
+                * 关于Lighthouse Instance实例的价格信息。
                 */
                 class InstancePrice : public AbstractModel
                 {
@@ -49,74 +50,128 @@ namespace TencentCloud
                     /**
                      * 获取套餐单价原价。
                      * @return OriginalBundlePrice 套餐单价原价。
+                     * 
                      */
                     double GetOriginalBundlePrice() const;
 
                     /**
                      * 设置套餐单价原价。
-                     * @param OriginalBundlePrice 套餐单价原价。
+                     * @param _originalBundlePrice 套餐单价原价。
+                     * 
                      */
                     void SetOriginalBundlePrice(const double& _originalBundlePrice);
 
                     /**
                      * 判断参数 OriginalBundlePrice 是否已赋值
                      * @return OriginalBundlePrice 是否已赋值
+                     * 
                      */
                     bool OriginalBundlePriceHasBeenSet() const;
 
                     /**
                      * 获取原价。
                      * @return OriginalPrice 原价。
+                     * 
                      */
                     double GetOriginalPrice() const;
 
                     /**
                      * 设置原价。
-                     * @param OriginalPrice 原价。
+                     * @param _originalPrice 原价。
+                     * 
                      */
                     void SetOriginalPrice(const double& _originalPrice);
 
                     /**
                      * 判断参数 OriginalPrice 是否已赋值
                      * @return OriginalPrice 是否已赋值
+                     * 
                      */
                     bool OriginalPriceHasBeenSet() const;
 
                     /**
                      * 获取折扣。
                      * @return Discount 折扣。
+                     * 
                      */
-                    int64_t GetDiscount() const;
+                    double GetDiscount() const;
 
                     /**
                      * 设置折扣。
-                     * @param Discount 折扣。
+                     * @param _discount 折扣。
+                     * 
                      */
-                    void SetDiscount(const int64_t& _discount);
+                    void SetDiscount(const double& _discount);
 
                     /**
                      * 判断参数 Discount 是否已赋值
                      * @return Discount 是否已赋值
+                     * 
                      */
                     bool DiscountHasBeenSet() const;
 
                     /**
                      * 获取折后价。
                      * @return DiscountPrice 折后价。
+                     * 
                      */
                     double GetDiscountPrice() const;
 
                     /**
                      * 设置折后价。
-                     * @param DiscountPrice 折后价。
+                     * @param _discountPrice 折后价。
+                     * 
                      */
                     void SetDiscountPrice(const double& _discountPrice);
 
                     /**
                      * 判断参数 DiscountPrice 是否已赋值
                      * @return DiscountPrice 是否已赋值
+                     * 
                      */
                     bool DiscountPriceHasBeenSet() const;
+
+                    /**
+                     * 获取价格货币单位。取值范围CNY:人民币。USD:美元。
+                     * @return Currency 价格货币单位。取值范围CNY:人民币。USD:美元。
+                     * 
+                     */
+                    std::string GetCurrency() const;
+
+                    /**
+                     * 设置价格货币单位。取值范围CNY:人民币。USD:美元。
+                     * @param _currency 价格货币单位。取值范围CNY:人民币。USD:美元。
+                     * 
+                     */
+                    void SetCurrency(const std::string& _currency);
+
+                    /**
+                     * 判断参数 Currency 是否已赋值
+                     * @return Currency 是否已赋值
+                     * 
+                     */
+                    bool CurrencyHasBeenSet() const;
+
+                    /**
+                     * 获取计费项目明细。
+                     * @return DetailPrices 计费项目明细。
+                     * 
+                     */
+                    std::vector<DetailPrice> GetDetailPrices() const;
+
+                    /**
+                     * 设置计费项目明细。
+                     * @param _detailPrices 计费项目明细。
+                     * 
+                     */
+                    void SetDetailPrices(const std::vector<DetailPrice>& _detailPrices);
+
+                    /**
+                     * 判断参数 DetailPrices 是否已赋值
+                     * @return DetailPrices 是否已赋值
+                     * 
+                     */
+                    bool DetailPricesHasBeenSet() const;
 
                 private:
 
@@ -135,7 +190,7 @@ namespace TencentCloud
                     /**
                      * 折扣。
                      */
-                    int64_t m_discount;
+                    double m_discount;
                     bool m_discountHasBeenSet;
 
                     /**
@@ -143,6 +198,18 @@ namespace TencentCloud
                      */
                     double m_discountPrice;
                     bool m_discountPriceHasBeenSet;
+
+                    /**
+                     * 价格货币单位。取值范围CNY:人民币。USD:美元。
+                     */
+                    std::string m_currency;
+                    bool m_currencyHasBeenSet;
+
+                    /**
+                     * 计费项目明细。
+                     */
+                    std::vector<DetailPrice> m_detailPrices;
+                    bool m_detailPricesHasBeenSet;
 
                 };
             }

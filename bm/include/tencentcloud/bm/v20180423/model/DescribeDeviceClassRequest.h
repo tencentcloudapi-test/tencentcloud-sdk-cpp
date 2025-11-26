@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取是否仅查询在售标准机型配置信息。取值0：查询所有机型；1：查询在售机型。默认为1
                      * @return OnSale 是否仅查询在售标准机型配置信息。取值0：查询所有机型；1：查询在售机型。默认为1
+                     * 
                      */
                     uint64_t GetOnSale() const;
 
                     /**
                      * 设置是否仅查询在售标准机型配置信息。取值0：查询所有机型；1：查询在售机型。默认为1
-                     * @param OnSale 是否仅查询在售标准机型配置信息。取值0：查询所有机型；1：查询在售机型。默认为1
+                     * @param _onSale 是否仅查询在售标准机型配置信息。取值0：查询所有机型；1：查询在售机型。默认为1
+                     * 
                      */
                     void SetOnSale(const uint64_t& _onSale);
 
                     /**
                      * 判断参数 OnSale 是否已赋值
                      * @return OnSale 是否已赋值
+                     * 
                      */
                     bool OnSaleHasBeenSet() const;
 
                     /**
                      * 获取是否返回价格信息。取值0：不返回价格信息，接口返回速度更快；1：返回价格信息。默认为1
                      * @return NeedPriceInfo 是否返回价格信息。取值0：不返回价格信息，接口返回速度更快；1：返回价格信息。默认为1
+                     * 
                      */
                     uint64_t GetNeedPriceInfo() const;
 
                     /**
                      * 设置是否返回价格信息。取值0：不返回价格信息，接口返回速度更快；1：返回价格信息。默认为1
-                     * @param NeedPriceInfo 是否返回价格信息。取值0：不返回价格信息，接口返回速度更快；1：返回价格信息。默认为1
+                     * @param _needPriceInfo 是否返回价格信息。取值0：不返回价格信息，接口返回速度更快；1：返回价格信息。默认为1
+                     * 
                      */
                     void SetNeedPriceInfo(const uint64_t& _needPriceInfo);
 
                     /**
                      * 判断参数 NeedPriceInfo 是否已赋值
                      * @return NeedPriceInfo 是否已赋值
+                     * 
                      */
                     bool NeedPriceInfoHasBeenSet() const;
 

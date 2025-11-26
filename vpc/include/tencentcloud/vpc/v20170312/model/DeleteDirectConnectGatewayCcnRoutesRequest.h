@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,65 @@ namespace TencentCloud
                     /**
                      * 获取专线网关ID，形如：dcg-prpqlmg1
                      * @return DirectConnectGatewayId 专线网关ID，形如：dcg-prpqlmg1
+                     * 
                      */
                     std::string GetDirectConnectGatewayId() const;
 
                     /**
                      * 设置专线网关ID，形如：dcg-prpqlmg1
-                     * @param DirectConnectGatewayId 专线网关ID，形如：dcg-prpqlmg1
+                     * @param _directConnectGatewayId 专线网关ID，形如：dcg-prpqlmg1
+                     * 
                      */
                     void SetDirectConnectGatewayId(const std::string& _directConnectGatewayId);
 
                     /**
                      * 判断参数 DirectConnectGatewayId 是否已赋值
                      * @return DirectConnectGatewayId 是否已赋值
+                     * 
                      */
                     bool DirectConnectGatewayIdHasBeenSet() const;
 
                     /**
                      * 获取路由ID。形如：ccnr-f49l6u0z。
                      * @return RouteIds 路由ID。形如：ccnr-f49l6u0z。
+                     * 
                      */
                     std::vector<std::string> GetRouteIds() const;
 
                     /**
                      * 设置路由ID。形如：ccnr-f49l6u0z。
-                     * @param RouteIds 路由ID。形如：ccnr-f49l6u0z。
+                     * @param _routeIds 路由ID。形如：ccnr-f49l6u0z。
+                     * 
                      */
                     void SetRouteIds(const std::vector<std::string>& _routeIds);
 
                     /**
                      * 判断参数 RouteIds 是否已赋值
                      * @return RouteIds 是否已赋值
+                     * 
                      */
                     bool RouteIdsHasBeenSet() const;
+
+                    /**
+                     * 获取地址类型，支持：IPv4、IPv6。默认IPv4。
+                     * @return AddressType 地址类型，支持：IPv4、IPv6。默认IPv4。
+                     * 
+                     */
+                    std::string GetAddressType() const;
+
+                    /**
+                     * 设置地址类型，支持：IPv4、IPv6。默认IPv4。
+                     * @param _addressType 地址类型，支持：IPv4、IPv6。默认IPv4。
+                     * 
+                     */
+                    void SetAddressType(const std::string& _addressType);
+
+                    /**
+                     * 判断参数 AddressType 是否已赋值
+                     * @return AddressType 是否已赋值
+                     * 
+                     */
+                    bool AddressTypeHasBeenSet() const;
 
                 private:
 
@@ -91,6 +118,12 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_routeIds;
                     bool m_routeIdsHasBeenSet;
+
+                    /**
+                     * 地址类型，支持：IPv4、IPv6。默认IPv4。
+                     */
+                    std::string m_addressType;
+                    bool m_addressTypeHasBeenSet;
 
                 };
             }

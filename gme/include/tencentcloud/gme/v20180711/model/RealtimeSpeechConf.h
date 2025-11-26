@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取实时语音服务开关，取值：open/close
                      * @return Status 实时语音服务开关，取值：open/close
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置实时语音服务开关，取值：open/close
-                     * @param Status 实时语音服务开关，取值：open/close
+                     * @param _status 实时语音服务开关，取值：open/close
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取实时语音音质类型，取值：high-高音质
-                     * @return Quality 实时语音音质类型，取值：high-高音质
+                     * 获取实时语音音质类型，取值：high-高音质 ordinary-普通音质
+                     * @return Quality 实时语音音质类型，取值：high-高音质 ordinary-普通音质
+                     * 
                      */
                     std::string GetQuality() const;
 
                     /**
-                     * 设置实时语音音质类型，取值：high-高音质
-                     * @param Quality 实时语音音质类型，取值：high-高音质
+                     * 设置实时语音音质类型，取值：high-高音质 ordinary-普通音质
+                     * @param _quality 实时语音音质类型，取值：high-高音质 ordinary-普通音质
+                     * 
                      */
                     void SetQuality(const std::string& _quality);
 
                     /**
                      * 判断参数 Quality 是否已赋值
                      * @return Quality 是否已赋值
+                     * 
                      */
                     bool QualityHasBeenSet() const;
 
@@ -91,7 +97,7 @@ namespace TencentCloud
                     bool m_statusHasBeenSet;
 
                     /**
-                     * 实时语音音质类型，取值：high-高音质
+                     * 实时语音音质类型，取值：high-高音质 ordinary-普通音质
                      */
                     std::string m_quality;
                     bool m_qualityHasBeenSet;

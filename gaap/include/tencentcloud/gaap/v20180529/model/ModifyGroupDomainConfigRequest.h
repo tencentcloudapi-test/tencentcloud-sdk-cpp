@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,63 @@ namespace TencentCloud
                     /**
                      * 获取通道组ID。
                      * @return GroupId 通道组ID。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置通道组ID。
-                     * @param GroupId 通道组ID。
+                     * @param _groupId 通道组ID。
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取域名解析默认访问IP或域名。
                      * @return DefaultDnsIp 域名解析默认访问IP或域名。
+                     * 
                      */
                     std::string GetDefaultDnsIp() const;
 
                     /**
                      * 设置域名解析默认访问IP或域名。
-                     * @param DefaultDnsIp 域名解析默认访问IP或域名。
+                     * @param _defaultDnsIp 域名解析默认访问IP或域名。
+                     * 
                      */
                     void SetDefaultDnsIp(const std::string& _defaultDnsIp);
 
                     /**
                      * 判断参数 DefaultDnsIp 是否已赋值
                      * @return DefaultDnsIp 是否已赋值
+                     * 
                      */
                     bool DefaultDnsIpHasBeenSet() const;
 
                     /**
                      * 获取就近接入区域配置。
                      * @return AccessRegionList 就近接入区域配置。
+                     * 
                      */
                     std::vector<AccessRegionDomainConf> GetAccessRegionList() const;
 
                     /**
                      * 设置就近接入区域配置。
-                     * @param AccessRegionList 就近接入区域配置。
+                     * @param _accessRegionList 就近接入区域配置。
+                     * 
                      */
                     void SetAccessRegionList(const std::vector<AccessRegionDomainConf>& _accessRegionList);
 
                     /**
                      * 判断参数 AccessRegionList 是否已赋值
                      * @return AccessRegionList 是否已赋值
+                     * 
                      */
                     bool AccessRegionListHasBeenSet() const;
 

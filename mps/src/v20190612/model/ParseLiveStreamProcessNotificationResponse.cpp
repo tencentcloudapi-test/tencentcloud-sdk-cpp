@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,13 @@ ParseLiveStreamProcessNotificationResponse::ParseLiveStreamProcessNotificationRe
     m_processEofInfoHasBeenSet(false),
     m_aiReviewResultInfoHasBeenSet(false),
     m_aiRecognitionResultInfoHasBeenSet(false),
+    m_aiAnalysisResultInfoHasBeenSet(false),
+    m_aiQualityControlResultInfoHasBeenSet(false),
+    m_liveRecordResultInfoHasBeenSet(false),
     m_sessionIdHasBeenSet(false),
-    m_sessionContextHasBeenSet(false)
+    m_sessionContextHasBeenSet(false),
+    m_timestampHasBeenSet(false),
+    m_signHasBeenSet(false)
 {
 }
 
@@ -139,6 +144,57 @@ CoreInternalOutcome ParseLiveStreamProcessNotificationResponse::Deserialize(cons
         m_aiRecognitionResultInfoHasBeenSet = true;
     }
 
+    if (rsp.HasMember("AiAnalysisResultInfo") && !rsp["AiAnalysisResultInfo"].IsNull())
+    {
+        if (!rsp["AiAnalysisResultInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AiAnalysisResultInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_aiAnalysisResultInfo.Deserialize(rsp["AiAnalysisResultInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_aiAnalysisResultInfoHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("AiQualityControlResultInfo") && !rsp["AiQualityControlResultInfo"].IsNull())
+    {
+        if (!rsp["AiQualityControlResultInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AiQualityControlResultInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_aiQualityControlResultInfo.Deserialize(rsp["AiQualityControlResultInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_aiQualityControlResultInfoHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("LiveRecordResultInfo") && !rsp["LiveRecordResultInfo"].IsNull())
+    {
+        if (!rsp["LiveRecordResultInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `LiveRecordResultInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_liveRecordResultInfo.Deserialize(rsp["LiveRecordResultInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_liveRecordResultInfoHasBeenSet = true;
+    }
+
     if (rsp.HasMember("SessionId") && !rsp["SessionId"].IsNull())
     {
         if (!rsp["SessionId"].IsString())
@@ -157,6 +213,26 @@ CoreInternalOutcome ParseLiveStreamProcessNotificationResponse::Deserialize(cons
         }
         m_sessionContext = string(rsp["SessionContext"].GetString());
         m_sessionContextHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Timestamp") && !rsp["Timestamp"].IsNull())
+    {
+        if (!rsp["Timestamp"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Timestamp` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_timestamp = rsp["Timestamp"].GetInt64();
+        m_timestampHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Sign") && !rsp["Sign"].IsNull())
+    {
+        if (!rsp["Sign"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Sign` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sign = string(rsp["Sign"].GetString());
+        m_signHasBeenSet = true;
     }
 
 
@@ -212,6 +288,33 @@ string ParseLiveStreamProcessNotificationResponse::ToJsonString() const
         m_aiRecognitionResultInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_aiAnalysisResultInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AiAnalysisResultInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_aiAnalysisResultInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_aiQualityControlResultInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AiQualityControlResultInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_aiQualityControlResultInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_liveRecordResultInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LiveRecordResultInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_liveRecordResultInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     if (m_sessionIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -228,11 +331,27 @@ string ParseLiveStreamProcessNotificationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_sessionContext.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_timestampHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Timestamp";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_timestamp, allocator);
+    }
+
+    if (m_signHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Sign";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sign.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -290,6 +409,36 @@ bool ParseLiveStreamProcessNotificationResponse::AiRecognitionResultInfoHasBeenS
     return m_aiRecognitionResultInfoHasBeenSet;
 }
 
+LiveStreamAiAnalysisResultInfo ParseLiveStreamProcessNotificationResponse::GetAiAnalysisResultInfo() const
+{
+    return m_aiAnalysisResultInfo;
+}
+
+bool ParseLiveStreamProcessNotificationResponse::AiAnalysisResultInfoHasBeenSet() const
+{
+    return m_aiAnalysisResultInfoHasBeenSet;
+}
+
+LiveStreamAiQualityControlResultInfo ParseLiveStreamProcessNotificationResponse::GetAiQualityControlResultInfo() const
+{
+    return m_aiQualityControlResultInfo;
+}
+
+bool ParseLiveStreamProcessNotificationResponse::AiQualityControlResultInfoHasBeenSet() const
+{
+    return m_aiQualityControlResultInfoHasBeenSet;
+}
+
+LiveStreamRecordResultInfo ParseLiveStreamProcessNotificationResponse::GetLiveRecordResultInfo() const
+{
+    return m_liveRecordResultInfo;
+}
+
+bool ParseLiveStreamProcessNotificationResponse::LiveRecordResultInfoHasBeenSet() const
+{
+    return m_liveRecordResultInfoHasBeenSet;
+}
+
 string ParseLiveStreamProcessNotificationResponse::GetSessionId() const
 {
     return m_sessionId;
@@ -308,6 +457,26 @@ string ParseLiveStreamProcessNotificationResponse::GetSessionContext() const
 bool ParseLiveStreamProcessNotificationResponse::SessionContextHasBeenSet() const
 {
     return m_sessionContextHasBeenSet;
+}
+
+int64_t ParseLiveStreamProcessNotificationResponse::GetTimestamp() const
+{
+    return m_timestamp;
+}
+
+bool ParseLiveStreamProcessNotificationResponse::TimestampHasBeenSet() const
+{
+    return m_timestampHasBeenSet;
+}
+
+string ParseLiveStreamProcessNotificationResponse::GetSign() const
+{
+    return m_sign;
+}
+
+bool ParseLiveStreamProcessNotificationResponse::SignHasBeenSet() const
+{
+    return m_signHasBeenSet;
 }
 
 

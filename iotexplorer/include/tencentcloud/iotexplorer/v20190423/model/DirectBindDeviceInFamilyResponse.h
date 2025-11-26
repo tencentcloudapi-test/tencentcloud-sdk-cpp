@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取返回设备信息
                      * @return AppDeviceInfo 返回设备信息
+                     * 
                      */
                     AppDeviceInfo GetAppDeviceInfo() const;
 
                     /**
                      * 判断参数 AppDeviceInfo 是否已赋值
                      * @return AppDeviceInfo 是否已赋值
+                     * 
                      */
                     bool AppDeviceInfoHasBeenSet() const;
 

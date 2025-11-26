@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@ using namespace std;
 OpenBankPayerInfo::OpenBankPayerInfo() :
     m_payerIdHasBeenSet(false),
     m_payerNameHasBeenSet(false),
-    m_bindSerialNoHasBeenSet(false)
+    m_bindSerialNoHasBeenSet(false),
+    m_accountTypeHasBeenSet(false),
+    m_bankCardTypeHasBeenSet(false)
 {
 }
 
@@ -62,6 +64,26 @@ CoreInternalOutcome OpenBankPayerInfo::Deserialize(const rapidjson::Value &value
         m_bindSerialNoHasBeenSet = true;
     }
 
+    if (value.HasMember("AccountType") && !value["AccountType"].IsNull())
+    {
+        if (!value["AccountType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `OpenBankPayerInfo.AccountType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_accountType = string(value["AccountType"].GetString());
+        m_accountTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("BankCardType") && !value["BankCardType"].IsNull())
+    {
+        if (!value["BankCardType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `OpenBankPayerInfo.BankCardType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_bankCardType = string(value["BankCardType"].GetString());
+        m_bankCardTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +113,22 @@ void OpenBankPayerInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "BindSerialNo";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_bindSerialNo.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_accountTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccountType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_accountType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_bankCardTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BankCardType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_bankCardType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -142,5 +180,37 @@ void OpenBankPayerInfo::SetBindSerialNo(const string& _bindSerialNo)
 bool OpenBankPayerInfo::BindSerialNoHasBeenSet() const
 {
     return m_bindSerialNoHasBeenSet;
+}
+
+string OpenBankPayerInfo::GetAccountType() const
+{
+    return m_accountType;
+}
+
+void OpenBankPayerInfo::SetAccountType(const string& _accountType)
+{
+    m_accountType = _accountType;
+    m_accountTypeHasBeenSet = true;
+}
+
+bool OpenBankPayerInfo::AccountTypeHasBeenSet() const
+{
+    return m_accountTypeHasBeenSet;
+}
+
+string OpenBankPayerInfo::GetBankCardType() const
+{
+    return m_bankCardType;
+}
+
+void OpenBankPayerInfo::SetBankCardType(const string& _bankCardType)
+{
+    m_bankCardType = _bankCardType;
+    m_bankCardTypeHasBeenSet = true;
+}
+
+bool OpenBankPayerInfo::BankCardTypeHasBeenSet() const
+{
+    return m_bankCardTypeHasBeenSet;
 }
 

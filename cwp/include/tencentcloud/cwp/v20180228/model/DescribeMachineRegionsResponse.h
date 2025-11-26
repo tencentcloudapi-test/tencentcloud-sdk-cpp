@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,72 +47,84 @@ namespace TencentCloud
                     /**
                      * 获取CVM 云服务器地域列表
                      * @return CVM CVM 云服务器地域列表
+                     * 
                      */
                     std::vector<RegionInfo> GetCVM() const;
 
                     /**
                      * 判断参数 CVM 是否已赋值
                      * @return CVM 是否已赋值
+                     * 
                      */
                     bool CVMHasBeenSet() const;
 
                     /**
                      * 获取BM 黑石机器地域列表
                      * @return BM BM 黑石机器地域列表
+                     * 
                      */
                     std::vector<RegionInfo> GetBM() const;
 
                     /**
                      * 判断参数 BM 是否已赋值
                      * @return BM 是否已赋值
+                     * 
                      */
                     bool BMHasBeenSet() const;
 
                     /**
                      * 获取LH 轻量应用服务器地域列表
                      * @return LH LH 轻量应用服务器地域列表
+                     * 
                      */
                     std::vector<RegionInfo> GetLH() const;
 
                     /**
                      * 判断参数 LH 是否已赋值
                      * @return LH 是否已赋值
+                     * 
                      */
                     bool LHHasBeenSet() const;
 
                     /**
                      * 获取ECM 边缘计算服务器地域列表
                      * @return ECM ECM 边缘计算服务器地域列表
+                     * 
                      */
                     std::vector<RegionInfo> GetECM() const;
 
                     /**
                      * 判断参数 ECM 是否已赋值
                      * @return ECM 是否已赋值
+                     * 
                      */
                     bool ECMHasBeenSet() const;
 
                     /**
                      * 获取Other 混合云地域列表
                      * @return Other Other 混合云地域列表
+                     * 
                      */
                     std::vector<RegionInfo> GetOther() const;
 
                     /**
                      * 判断参数 Other 是否已赋值
                      * @return Other 是否已赋值
+                     * 
                      */
                     bool OtherHasBeenSet() const;
 
                     /**
                      * 获取所有地域列表(包含以上所有地域)
                      * @return ALL 所有地域列表(包含以上所有地域)
+                     * 
                      */
                     std::vector<RegionInfo> GetALL() const;
 
                     /**
                      * 判断参数 ALL 是否已赋值
                      * @return ALL 是否已赋值
+                     * 
                      */
                     bool ALLHasBeenSet() const;
 

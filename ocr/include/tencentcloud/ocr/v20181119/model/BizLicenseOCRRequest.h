@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,6 +51,7 @@ namespace TencentCloud
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
 支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
 图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+                     * 
                      */
                     std::string GetImageBase64() const;
 
@@ -59,16 +60,18 @@ namespace TencentCloud
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
 支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
 图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
-                     * @param ImageBase64 图片的 Base64 值。
+                     * @param _imageBase64 图片的 Base64 值。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
 支持的图片大小：所下载图片经Base64编码后不超过 7M。图片下载时间不超过 3 秒。
 图片的 ImageUrl、ImageBase64 必须提供一个，如果都提供，只使用 ImageUrl。
+                     * 
                      */
                     void SetImageBase64(const std::string& _imageBase64);
 
                     /**
                      * 判断参数 ImageBase64 是否已赋值
                      * @return ImageBase64 是否已赋值
+                     * 
                      */
                     bool ImageBase64HasBeenSet() const;
 
@@ -83,6 +86,7 @@ namespace TencentCloud
 支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+                     * 
                      */
                     std::string GetImageUrl() const;
 
@@ -92,19 +96,84 @@ namespace TencentCloud
 支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
-                     * @param ImageUrl 图片的 Url 地址。
+                     * @param _imageUrl 图片的 Url 地址。
 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
 支持的图片大小：所下载图片经 Base64 编码后不超过 7M。图片下载时间不超过 3 秒。
 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+                     * 
                      */
                     void SetImageUrl(const std::string& _imageUrl);
 
                     /**
                      * 判断参数 ImageUrl 是否已赋值
                      * @return ImageUrl 是否已赋值
+                     * 
                      */
                     bool ImageUrlHasBeenSet() const;
+
+                    /**
+                     * 获取是否返回告警码，默认为false
+                     * @return EnableCopyWarn 是否返回告警码，默认为false
+                     * 
+                     */
+                    bool GetEnableCopyWarn() const;
+
+                    /**
+                     * 设置是否返回告警码，默认为false
+                     * @param _enableCopyWarn 是否返回告警码，默认为false
+                     * 
+                     */
+                    void SetEnableCopyWarn(const bool& _enableCopyWarn);
+
+                    /**
+                     * 判断参数 EnableCopyWarn 是否已赋值
+                     * @return EnableCopyWarn 是否已赋值
+                     * 
+                     */
+                    bool EnableCopyWarnHasBeenSet() const;
+
+                    /**
+                     * 获取是否返回自动拼接的有效期，默认为true
+                     * @return EnablePeriodComplete 是否返回自动拼接的有效期，默认为true
+                     * 
+                     */
+                    bool GetEnablePeriodComplete() const;
+
+                    /**
+                     * 设置是否返回自动拼接的有效期，默认为true
+                     * @param _enablePeriodComplete 是否返回自动拼接的有效期，默认为true
+                     * 
+                     */
+                    void SetEnablePeriodComplete(const bool& _enablePeriodComplete);
+
+                    /**
+                     * 判断参数 EnablePeriodComplete 是否已赋值
+                     * @return EnablePeriodComplete 是否已赋值
+                     * 
+                     */
+                    bool EnablePeriodCompleteHasBeenSet() const;
+
+                    /**
+                     * 获取是否支持营业类证件识别（包括营业执照和非营业执照的其他证件），默认为false
+                     * @return EnableBusinessCertificate 是否支持营业类证件识别（包括营业执照和非营业执照的其他证件），默认为false
+                     * 
+                     */
+                    bool GetEnableBusinessCertificate() const;
+
+                    /**
+                     * 设置是否支持营业类证件识别（包括营业执照和非营业执照的其他证件），默认为false
+                     * @param _enableBusinessCertificate 是否支持营业类证件识别（包括营业执照和非营业执照的其他证件），默认为false
+                     * 
+                     */
+                    void SetEnableBusinessCertificate(const bool& _enableBusinessCertificate);
+
+                    /**
+                     * 判断参数 EnableBusinessCertificate 是否已赋值
+                     * @return EnableBusinessCertificate 是否已赋值
+                     * 
+                     */
+                    bool EnableBusinessCertificateHasBeenSet() const;
 
                 private:
 
@@ -126,6 +195,24 @@ namespace TencentCloud
                      */
                     std::string m_imageUrl;
                     bool m_imageUrlHasBeenSet;
+
+                    /**
+                     * 是否返回告警码，默认为false
+                     */
+                    bool m_enableCopyWarn;
+                    bool m_enableCopyWarnHasBeenSet;
+
+                    /**
+                     * 是否返回自动拼接的有效期，默认为true
+                     */
+                    bool m_enablePeriodComplete;
+                    bool m_enablePeriodCompleteHasBeenSet;
+
+                    /**
+                     * 是否支持营业类证件识别（包括营业执照和非营业执照的其他证件），默认为false
+                     */
+                    bool m_enableBusinessCertificate;
+                    bool m_enableBusinessCertificateHasBeenSet;
 
                 };
             }

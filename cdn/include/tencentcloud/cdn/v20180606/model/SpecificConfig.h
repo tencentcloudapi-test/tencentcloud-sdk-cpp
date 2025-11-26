@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,20 +53,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Mainland 国内特殊配置。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     MainlandConfig GetMainland() const;
 
                     /**
                      * 设置国内特殊配置。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Mainland 国内特殊配置。
+                     * @param _mainland 国内特殊配置。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMainland(const MainlandConfig& _mainland);
 
                     /**
                      * 判断参数 Mainland 是否已赋值
                      * @return Mainland 是否已赋值
+                     * 
                      */
                     bool MainlandHasBeenSet() const;
 
@@ -75,20 +78,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Overseas 海外特殊配置。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     OverseaConfig GetOverseas() const;
 
                     /**
                      * 设置海外特殊配置。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Overseas 海外特殊配置。
+                     * @param _overseas 海外特殊配置。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetOverseas(const OverseaConfig& _overseas);
 
                     /**
                      * 判断参数 Overseas 是否已赋值
                      * @return Overseas 是否已赋值
+                     * 
                      */
                     bool OverseasHasBeenSet() const;
 

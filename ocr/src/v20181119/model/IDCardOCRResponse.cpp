@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,8 @@ IDCardOCRResponse::IDCardOCRResponse() :
     m_idNumHasBeenSet(false),
     m_authorityHasBeenSet(false),
     m_validDateHasBeenSet(false),
-    m_advancedInfoHasBeenSet(false)
+    m_advancedInfoHasBeenSet(false),
+    m_reflectDetailInfosHasBeenSet(false)
 {
 }
 
@@ -160,6 +161,26 @@ CoreInternalOutcome IDCardOCRResponse::Deserialize(const string &payload)
         m_advancedInfoHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ReflectDetailInfos") && !rsp["ReflectDetailInfos"].IsNull())
+    {
+        if (!rsp["ReflectDetailInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ReflectDetailInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["ReflectDetailInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ReflectDetailInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_reflectDetailInfos.push_back(item);
+        }
+        m_reflectDetailInfosHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -242,11 +263,26 @@ string IDCardOCRResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_advancedInfo.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_reflectDetailInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReflectDetailInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_reflectDetailInfos.begin(); itr != m_reflectDetailInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -342,6 +378,16 @@ string IDCardOCRResponse::GetAdvancedInfo() const
 bool IDCardOCRResponse::AdvancedInfoHasBeenSet() const
 {
     return m_advancedInfoHasBeenSet;
+}
+
+vector<ReflectDetailInfo> IDCardOCRResponse::GetReflectDetailInfos() const
+{
+    return m_reflectDetailInfos;
+}
+
+bool IDCardOCRResponse::ReflectDetailInfosHasBeenSet() const
+{
+    return m_reflectDetailInfosHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 云监控支持的产品简要信息
+                * 云产品监控支持的产品简要信息
                 */
                 class ProductSimple : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取命名空间
                      * @return Namespace 命名空间
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置命名空间
-                     * @param Namespace 命名空间
+                     * @param _namespace 命名空间
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 
                     /**
                      * 获取产品中文名称
                      * @return ProductName 产品中文名称
+                     * 
                      */
                     std::string GetProductName() const;
 
                     /**
                      * 设置产品中文名称
-                     * @param ProductName 产品中文名称
+                     * @param _productName 产品中文名称
+                     * 
                      */
                     void SetProductName(const std::string& _productName);
 
                     /**
                      * 判断参数 ProductName 是否已赋值
                      * @return ProductName 是否已赋值
+                     * 
                      */
                     bool ProductNameHasBeenSet() const;
 
@@ -87,20 +93,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ProductEnName 产品英文名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetProductEnName() const;
 
                     /**
                      * 设置产品英文名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ProductEnName 产品英文名称
+                     * @param _productEnName 产品英文名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetProductEnName(const std::string& _productEnName);
 
                     /**
                      * 判断参数 ProductEnName 是否已赋值
                      * @return ProductEnName 是否已赋值
+                     * 
                      */
                     bool ProductEnNameHasBeenSet() const;
 

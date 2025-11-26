@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,60 +46,70 @@ namespace TencentCloud
                     /**
                      * 获取风险文件数
                      * @return RiskFileCount 风险文件数
+                     * 
                      */
                     uint64_t GetRiskFileCount() const;
 
                     /**
                      * 判断参数 RiskFileCount 是否已赋值
                      * @return RiskFileCount 是否已赋值
+                     * 
                      */
                     bool RiskFileCountHasBeenSet() const;
 
                     /**
                      * 获取今日新增风险文件数
                      * @return AddRiskFileCount 今日新增风险文件数
+                     * 
                      */
                     uint64_t GetAddRiskFileCount() const;
 
                     /**
                      * 判断参数 AddRiskFileCount 是否已赋值
                      * @return AddRiskFileCount 是否已赋值
+                     * 
                      */
                     bool AddRiskFileCountHasBeenSet() const;
 
                     /**
                      * 获取受影响服务器台数
                      * @return ServersCount 受影响服务器台数
+                     * 
                      */
                     uint64_t GetServersCount() const;
 
                     /**
                      * 判断参数 ServersCount 是否已赋值
                      * @return ServersCount 是否已赋值
+                     * 
                      */
                     bool ServersCountHasBeenSet() const;
 
                     /**
                      * 获取是否试用：true-是，false-否
                      * @return IsFirstCheck 是否试用：true-是，false-否
+                     * 
                      */
                     bool GetIsFirstCheck() const;
 
                     /**
                      * 判断参数 IsFirstCheck 是否已赋值
                      * @return IsFirstCheck 是否已赋值
+                     * 
                      */
                     bool IsFirstCheckHasBeenSet() const;
 
                     /**
                      * 获取木马最近检测时间
                      * @return ScanTime 木马最近检测时间
+                     * 
                      */
                     std::string GetScanTime() const;
 
                     /**
                      * 判断参数 ScanTime 是否已赋值
                      * @return ScanTime 是否已赋值
+                     * 
                      */
                     bool ScanTimeHasBeenSet() const;
 

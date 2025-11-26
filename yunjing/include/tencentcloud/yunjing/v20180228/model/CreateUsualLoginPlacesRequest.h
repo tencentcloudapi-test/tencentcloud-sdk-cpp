@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取云镜客户端UUID数组。
                      * @return Uuids 云镜客户端UUID数组。
+                     * 
                      */
                     std::vector<std::string> GetUuids() const;
 
                     /**
                      * 设置云镜客户端UUID数组。
-                     * @param Uuids 云镜客户端UUID数组。
+                     * @param _uuids 云镜客户端UUID数组。
+                     * 
                      */
                     void SetUuids(const std::vector<std::string>& _uuids);
 
                     /**
                      * 判断参数 Uuids 是否已赋值
                      * @return Uuids 是否已赋值
+                     * 
                      */
                     bool UuidsHasBeenSet() const;
 
                     /**
                      * 获取登录地域信息数组。
                      * @return Places 登录地域信息数组。
+                     * 
                      */
                     std::vector<Place> GetPlaces() const;
 
                     /**
                      * 设置登录地域信息数组。
-                     * @param Places 登录地域信息数组。
+                     * @param _places 登录地域信息数组。
+                     * 
                      */
                     void SetPlaces(const std::vector<Place>& _places);
 
                     /**
                      * 判断参数 Places 是否已赋值
                      * @return Places 是否已赋值
+                     * 
                      */
                     bool PlacesHasBeenSet() const;
 

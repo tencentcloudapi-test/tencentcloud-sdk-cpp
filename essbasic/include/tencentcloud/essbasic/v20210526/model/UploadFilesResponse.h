@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,57 +44,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取文件id数组
-                     * @return FileIds 文件id数组
-                     */
-                    std::vector<std::string> GetFileIds() const;
-
-                    /**
-                     * 判断参数 FileIds 是否已赋值
-                     * @return FileIds 是否已赋值
-                     */
-                    bool FileIdsHasBeenSet() const;
-
-                    /**
                      * 获取上传成功文件数量
+注: `如果一个文件上传失败, 则全部文件皆上传失败`
                      * @return TotalCount 上传成功文件数量
+注: `如果一个文件上传失败, 则全部文件皆上传失败`
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取文件Url
-                     * @return FileUrls 文件Url
+                     * 获取文件资源ID数组，每个文件资源ID为32位字符串。
+建议开发者保存此资源ID，后续创建合同或创建合同流程需此资源ID。
+注:`有效期一个小时（超过一小时后系统不定期清理，会有部分时间差）, 有效期内此文件id可以反复使用, 超过有效期无法使用`
+                     * @return FileIds 文件资源ID数组，每个文件资源ID为32位字符串。
+建议开发者保存此资源ID，后续创建合同或创建合同流程需此资源ID。
+注:`有效期一个小时（超过一小时后系统不定期清理，会有部分时间差）, 有效期内此文件id可以反复使用, 超过有效期无法使用`
+                     * 
+                     */
+                    std::vector<std::string> GetFileIds() const;
+
+                    /**
+                     * 判断参数 FileIds 是否已赋值
+                     * @return FileIds 是否已赋值
+                     * 
+                     */
+                    bool FileIdsHasBeenSet() const;
+
+                    /**
+                     * 获取对应上传文件的下载链接，过期时间5分钟
+                     * @return FileUrls 对应上传文件的下载链接，过期时间5分钟
+                     * 
                      */
                     std::vector<std::string> GetFileUrls() const;
 
                     /**
                      * 判断参数 FileUrls 是否已赋值
                      * @return FileUrls 是否已赋值
+                     * 
                      */
                     bool FileUrlsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 文件id数组
-                     */
-                    std::vector<std::string> m_fileIds;
-                    bool m_fileIdsHasBeenSet;
-
-                    /**
                      * 上传成功文件数量
+注: `如果一个文件上传失败, 则全部文件皆上传失败`
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 文件Url
+                     * 文件资源ID数组，每个文件资源ID为32位字符串。
+建议开发者保存此资源ID，后续创建合同或创建合同流程需此资源ID。
+注:`有效期一个小时（超过一小时后系统不定期清理，会有部分时间差）, 有效期内此文件id可以反复使用, 超过有效期无法使用`
+                     */
+                    std::vector<std::string> m_fileIds;
+                    bool m_fileIdsHasBeenSet;
+
+                    /**
+                     * 对应上传文件的下载链接，过期时间5分钟
                      */
                     std::vector<std::string> m_fileUrls;
                     bool m_fileUrlsHasBeenSet;

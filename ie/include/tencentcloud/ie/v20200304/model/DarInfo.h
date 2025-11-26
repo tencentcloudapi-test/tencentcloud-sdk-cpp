@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ namespace TencentCloud
 1：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。
 2：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“。
 默认为2。
+                     * 
                      */
                     uint64_t GetFillMode() const;
 
@@ -63,16 +64,18 @@ namespace TencentCloud
 1：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。
 2：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“。
 默认为2。
-                     * @param FillMode 填充模式，可选值：
+                     * @param _fillMode 填充模式，可选值：
 1：留黑，保持视频宽高比不变，边缘剩余部分使用黑色填充。
 2：拉伸，对每一帧进行拉伸，填满整个画面，可能导致转码后的视频被“压扁“或者“拉长“。
 默认为2。
+                     * 
                      */
                     void SetFillMode(const uint64_t& _fillMode);
 
                     /**
                      * 判断参数 FillMode 是否已赋值
                      * @return FillMode 是否已赋值
+                     * 
                      */
                     bool FillModeHasBeenSet() const;
 

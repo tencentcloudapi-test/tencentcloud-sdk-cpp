@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取TsfPageConfig
                      * @return TotalCount TsfPageConfig
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 设置TsfPageConfig
-                     * @param TotalCount TsfPageConfig
+                     * @param _totalCount TsfPageConfig
+                     * 
                      */
                     void SetTotalCount(const int64_t& _totalCount);
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取配置项列表
                      * @return Content 配置项列表
+                     * 
                      */
                     std::vector<Config> GetContent() const;
 
                     /**
                      * 设置配置项列表
-                     * @param Content 配置项列表
+                     * @param _content 配置项列表
+                     * 
                      */
                     void SetContent(const std::vector<Config>& _content);
 
                     /**
                      * 判断参数 Content 是否已赋值
                      * @return Content 是否已赋值
+                     * 
                      */
                     bool ContentHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ ModifyBackupPlanRequest::ModifyBackupPlanRequest() :
     m_minBackupStartTimeHasBeenSet(false),
     m_maxBackupStartTimeHasBeenSet(false),
     m_baseBackupRetentionPeriodHasBeenSet(false),
-    m_backupPeriodHasBeenSet(false)
+    m_backupPeriodHasBeenSet(false),
+    m_logBackupRetentionPeriodHasBeenSet(false),
+    m_planIdHasBeenSet(false),
+    m_planNameHasBeenSet(false)
 {
 }
 
@@ -81,6 +84,30 @@ string ModifyBackupPlanRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_logBackupRetentionPeriodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LogBackupRetentionPeriod";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_logBackupRetentionPeriod, allocator);
+    }
+
+    if (m_planIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PlanId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_planId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_planNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PlanName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_planName.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -169,6 +196,54 @@ void ModifyBackupPlanRequest::SetBackupPeriod(const vector<string>& _backupPerio
 bool ModifyBackupPlanRequest::BackupPeriodHasBeenSet() const
 {
     return m_backupPeriodHasBeenSet;
+}
+
+uint64_t ModifyBackupPlanRequest::GetLogBackupRetentionPeriod() const
+{
+    return m_logBackupRetentionPeriod;
+}
+
+void ModifyBackupPlanRequest::SetLogBackupRetentionPeriod(const uint64_t& _logBackupRetentionPeriod)
+{
+    m_logBackupRetentionPeriod = _logBackupRetentionPeriod;
+    m_logBackupRetentionPeriodHasBeenSet = true;
+}
+
+bool ModifyBackupPlanRequest::LogBackupRetentionPeriodHasBeenSet() const
+{
+    return m_logBackupRetentionPeriodHasBeenSet;
+}
+
+string ModifyBackupPlanRequest::GetPlanId() const
+{
+    return m_planId;
+}
+
+void ModifyBackupPlanRequest::SetPlanId(const string& _planId)
+{
+    m_planId = _planId;
+    m_planIdHasBeenSet = true;
+}
+
+bool ModifyBackupPlanRequest::PlanIdHasBeenSet() const
+{
+    return m_planIdHasBeenSet;
+}
+
+string ModifyBackupPlanRequest::GetPlanName() const
+{
+    return m_planName;
+}
+
+void ModifyBackupPlanRequest::SetPlanName(const string& _planName)
+{
+    m_planName = _planName;
+    m_planNameHasBeenSet = true;
+}
+
+bool ModifyBackupPlanRequest::PlanNameHasBeenSet() const
+{
+    return m_planNameHasBeenSet;
 }
 
 

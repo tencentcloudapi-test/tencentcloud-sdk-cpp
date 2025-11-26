@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,38 +51,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Keys CalcType 取值
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<int64_t> GetKeys() const;
 
                     /**
                      * 设置CalcType 取值
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Keys CalcType 取值
+                     * @param _keys CalcType 取值
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetKeys(const std::vector<int64_t>& _keys);
 
                     /**
                      * 判断参数 Keys 是否已赋值
                      * @return Keys 是否已赋值
+                     * 
                      */
                     bool KeysHasBeenSet() const;
 
                     /**
                      * 获取是否必须
                      * @return Need 是否必须
+                     * 
                      */
                     bool GetNeed() const;
 
                     /**
                      * 设置是否必须
-                     * @param Need 是否必须
+                     * @param _need 是否必须
+                     * 
                      */
                     void SetNeed(const bool& _need);
 
                     /**
                      * 判断参数 Need 是否已赋值
                      * @return Need 是否已赋值
+                     * 
                      */
                     bool NeedHasBeenSet() const;
 

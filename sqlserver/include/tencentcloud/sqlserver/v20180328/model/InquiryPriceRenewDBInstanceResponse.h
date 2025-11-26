@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取未打折的原价，其值除以100表示最终的价格。例如10094表示100.94元
                      * @return OriginalPrice 未打折的原价，其值除以100表示最终的价格。例如10094表示100.94元
+                     * 
                      */
                     uint64_t GetOriginalPrice() const;
 
                     /**
                      * 判断参数 OriginalPrice 是否已赋值
                      * @return OriginalPrice 是否已赋值
+                     * 
                      */
                     bool OriginalPriceHasBeenSet() const;
 
                     /**
                      * 获取实际需要支付价格，其值除以100表示最终的价格。例如10094表示100.94元
                      * @return Price 实际需要支付价格，其值除以100表示最终的价格。例如10094表示100.94元
+                     * 
                      */
                     uint64_t GetPrice() const;
 
                     /**
                      * 判断参数 Price 是否已赋值
                      * @return Price 是否已赋值
+                     * 
                      */
                     bool PriceHasBeenSet() const;
 

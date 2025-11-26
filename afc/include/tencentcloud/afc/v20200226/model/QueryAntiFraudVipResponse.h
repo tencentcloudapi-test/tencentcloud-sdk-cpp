@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取表示该条记录能否查到：1为能查到，-1为查不到
                      * @return Found 表示该条记录能否查到：1为能查到，-1为查不到
+                     * 
                      */
                     int64_t GetFound() const;
 
                     /**
                      * 判断参数 Found 是否已赋值
                      * @return Found 是否已赋值
+                     * 
                      */
                     bool FoundHasBeenSet() const;
 
                     /**
                      * 获取表示该条Id能否查到：1为能查到，-1为查不到
                      * @return IdFound 表示该条Id能否查到：1为能查到，-1为查不到
+                     * 
                      */
                     int64_t GetIdFound() const;
 
                     /**
                      * 判断参数 IdFound 是否已赋值
                      * @return IdFound 是否已赋值
+                     * 
                      */
                     bool IdFoundHasBeenSet() const;
 
                     /**
-                     * 获取0~100;值越高 欺诈可能性越大
-                     * @return RiskScore 0~100;值越高 欺诈可能性越大
+                     * 获取0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型）
+                     * @return RiskScore 0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型）
+                     * 
                      */
                     uint64_t GetRiskScore() const;
 
                     /**
                      * 判断参数 RiskScore 是否已赋值
                      * @return RiskScore 是否已赋值
+                     * 
                      */
                     bool RiskScoreHasBeenSet() const;
 
@@ -85,12 +91,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RiskInfo 扩展字段，对风险类型的说明
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<RiskDetail> GetRiskInfo() const;
 
                     /**
                      * 判断参数 RiskInfo 是否已赋值
                      * @return RiskInfo 是否已赋值
+                     * 
                      */
                     bool RiskInfoHasBeenSet() const;
 
@@ -99,12 +107,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return CodeDesc 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCodeDesc() const;
 
                     /**
                      * 判断参数 CodeDesc 是否已赋值
                      * @return CodeDesc 是否已赋值
+                     * 
                      */
                     bool CodeDescHasBeenSet() const;
 
@@ -123,7 +133,7 @@ namespace TencentCloud
                     bool m_idFoundHasBeenSet;
 
                     /**
-                     * 0~100;值越高 欺诈可能性越大
+                     * 0~100;值越高 欺诈可能性越大（注：该字段真实类型为有符号整型）
                      */
                     uint64_t m_riskScore;
                     bool m_riskScoreHasBeenSet;

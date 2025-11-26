@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,42 +45,86 @@ namespace TencentCloud
                     /**
                      * 获取集群ID
                      * @return ClusterId 集群ID
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置集群ID
-                     * @param ClusterId 集群ID
+                     * @param _clusterId 集群ID
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取数据库类型，取值范围: 
-<li> MYSQL </li>
-                     * @return DbType 数据库类型，取值范围: 
-<li> MYSQL </li>
+                     * 获取该参数已废用
+                     * @return DbType 该参数已废用
+                     * 
                      */
                     std::string GetDbType() const;
 
                     /**
-                     * 设置数据库类型，取值范围: 
-<li> MYSQL </li>
-                     * @param DbType 数据库类型，取值范围: 
-<li> MYSQL </li>
+                     * 设置该参数已废用
+                     * @param _dbType 该参数已废用
+                     * 
                      */
                     void SetDbType(const std::string& _dbType);
 
                     /**
                      * 判断参数 DbType 是否已赋值
                      * @return DbType 是否已赋值
+                     * 
                      */
                     bool DbTypeHasBeenSet() const;
+
+                    /**
+                     * 获取实例退还原因类型
+                     * @return IsolateReasonTypes 实例退还原因类型
+                     * 
+                     */
+                    std::vector<int64_t> GetIsolateReasonTypes() const;
+
+                    /**
+                     * 设置实例退还原因类型
+                     * @param _isolateReasonTypes 实例退还原因类型
+                     * 
+                     */
+                    void SetIsolateReasonTypes(const std::vector<int64_t>& _isolateReasonTypes);
+
+                    /**
+                     * 判断参数 IsolateReasonTypes 是否已赋值
+                     * @return IsolateReasonTypes 是否已赋值
+                     * 
+                     */
+                    bool IsolateReasonTypesHasBeenSet() const;
+
+                    /**
+                     * 获取实例退还原因补充
+                     * @return IsolateReason 实例退还原因补充
+                     * 
+                     */
+                    std::string GetIsolateReason() const;
+
+                    /**
+                     * 设置实例退还原因补充
+                     * @param _isolateReason 实例退还原因补充
+                     * 
+                     */
+                    void SetIsolateReason(const std::string& _isolateReason);
+
+                    /**
+                     * 判断参数 IsolateReason 是否已赋值
+                     * @return IsolateReason 是否已赋值
+                     * 
+                     */
+                    bool IsolateReasonHasBeenSet() const;
 
                 private:
 
@@ -91,11 +135,22 @@ namespace TencentCloud
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * 数据库类型，取值范围: 
-<li> MYSQL </li>
+                     * 该参数已废用
                      */
                     std::string m_dbType;
                     bool m_dbTypeHasBeenSet;
+
+                    /**
+                     * 实例退还原因类型
+                     */
+                    std::vector<int64_t> m_isolateReasonTypes;
+                    bool m_isolateReasonTypesHasBeenSet;
+
+                    /**
+                     * 实例退还原因补充
+                     */
+                    std::string m_isolateReason;
+                    bool m_isolateReasonHasBeenSet;
 
                 };
             }

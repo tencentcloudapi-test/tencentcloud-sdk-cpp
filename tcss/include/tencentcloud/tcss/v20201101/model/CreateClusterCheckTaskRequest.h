@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取指定要扫描的集群信息
                      * @return ClusterCheckTaskList 指定要扫描的集群信息
+                     * 
                      */
                     std::vector<ClusterCheckTaskItem> GetClusterCheckTaskList() const;
 
                     /**
                      * 设置指定要扫描的集群信息
-                     * @param ClusterCheckTaskList 指定要扫描的集群信息
+                     * @param _clusterCheckTaskList 指定要扫描的集群信息
+                     * 
                      */
                     void SetClusterCheckTaskList(const std::vector<ClusterCheckTaskItem>& _clusterCheckTaskList);
 
                     /**
                      * 判断参数 ClusterCheckTaskList 是否已赋值
                      * @return ClusterCheckTaskList 是否已赋值
+                     * 
                      */
                     bool ClusterCheckTaskListHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,8 @@ BillDetailComponent::BillDetailComponent() :
     m_priceUnitHasBeenSet(false),
     m_usedAmountHasBeenSet(false),
     m_usedAmountUnitHasBeenSet(false),
+    m_realTotalMeasureHasBeenSet(false),
+    m_deductedMeasureHasBeenSet(false),
     m_timeSpanHasBeenSet(false),
     m_timeUnitNameHasBeenSet(false),
     m_costHasBeenSet(false),
@@ -37,9 +39,18 @@ BillDetailComponent::BillDetailComponent() :
     m_voucherPayAmountHasBeenSet(false),
     m_cashPayAmountHasBeenSet(false),
     m_incentivePayAmountHasBeenSet(false),
+    m_transferPayAmountHasBeenSet(false),
     m_itemCodeHasBeenSet(false),
     m_componentCodeHasBeenSet(false),
-    m_contractPriceHasBeenSet(false)
+    m_contractPriceHasBeenSet(false),
+    m_instanceTypeHasBeenSet(false),
+    m_riTimeSpanHasBeenSet(false),
+    m_originalCostWithRIHasBeenSet(false),
+    m_sPDeductionRateHasBeenSet(false),
+    m_sPDeductionHasBeenSet(false),
+    m_originalCostWithSPHasBeenSet(false),
+    m_blendedDiscountHasBeenSet(false),
+    m_componentConfigHasBeenSet(false)
 {
 }
 
@@ -116,6 +127,26 @@ CoreInternalOutcome BillDetailComponent::Deserialize(const rapidjson::Value &val
         }
         m_usedAmountUnit = string(value["UsedAmountUnit"].GetString());
         m_usedAmountUnitHasBeenSet = true;
+    }
+
+    if (value.HasMember("RealTotalMeasure") && !value["RealTotalMeasure"].IsNull())
+    {
+        if (!value["RealTotalMeasure"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.RealTotalMeasure` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_realTotalMeasure = string(value["RealTotalMeasure"].GetString());
+        m_realTotalMeasureHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeductedMeasure") && !value["DeductedMeasure"].IsNull())
+    {
+        if (!value["DeductedMeasure"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.DeductedMeasure` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_deductedMeasure = string(value["DeductedMeasure"].GetString());
+        m_deductedMeasureHasBeenSet = true;
     }
 
     if (value.HasMember("TimeSpan") && !value["TimeSpan"].IsNull())
@@ -208,6 +239,16 @@ CoreInternalOutcome BillDetailComponent::Deserialize(const rapidjson::Value &val
         m_incentivePayAmountHasBeenSet = true;
     }
 
+    if (value.HasMember("TransferPayAmount") && !value["TransferPayAmount"].IsNull())
+    {
+        if (!value["TransferPayAmount"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.TransferPayAmount` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_transferPayAmount = string(value["TransferPayAmount"].GetString());
+        m_transferPayAmountHasBeenSet = true;
+    }
+
     if (value.HasMember("ItemCode") && !value["ItemCode"].IsNull())
     {
         if (!value["ItemCode"].IsString())
@@ -236,6 +277,96 @@ CoreInternalOutcome BillDetailComponent::Deserialize(const rapidjson::Value &val
         }
         m_contractPrice = string(value["ContractPrice"].GetString());
         m_contractPriceHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceType") && !value["InstanceType"].IsNull())
+    {
+        if (!value["InstanceType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.InstanceType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceType = string(value["InstanceType"].GetString());
+        m_instanceTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RiTimeSpan") && !value["RiTimeSpan"].IsNull())
+    {
+        if (!value["RiTimeSpan"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.RiTimeSpan` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_riTimeSpan = string(value["RiTimeSpan"].GetString());
+        m_riTimeSpanHasBeenSet = true;
+    }
+
+    if (value.HasMember("OriginalCostWithRI") && !value["OriginalCostWithRI"].IsNull())
+    {
+        if (!value["OriginalCostWithRI"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.OriginalCostWithRI` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_originalCostWithRI = string(value["OriginalCostWithRI"].GetString());
+        m_originalCostWithRIHasBeenSet = true;
+    }
+
+    if (value.HasMember("SPDeductionRate") && !value["SPDeductionRate"].IsNull())
+    {
+        if (!value["SPDeductionRate"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.SPDeductionRate` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sPDeductionRate = string(value["SPDeductionRate"].GetString());
+        m_sPDeductionRateHasBeenSet = true;
+    }
+
+    if (value.HasMember("SPDeduction") && !value["SPDeduction"].IsNull())
+    {
+        if (!value["SPDeduction"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.SPDeduction` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sPDeduction = string(value["SPDeduction"].GetString());
+        m_sPDeductionHasBeenSet = true;
+    }
+
+    if (value.HasMember("OriginalCostWithSP") && !value["OriginalCostWithSP"].IsNull())
+    {
+        if (!value["OriginalCostWithSP"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.OriginalCostWithSP` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_originalCostWithSP = string(value["OriginalCostWithSP"].GetString());
+        m_originalCostWithSPHasBeenSet = true;
+    }
+
+    if (value.HasMember("BlendedDiscount") && !value["BlendedDiscount"].IsNull())
+    {
+        if (!value["BlendedDiscount"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.BlendedDiscount` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_blendedDiscount = string(value["BlendedDiscount"].GetString());
+        m_blendedDiscountHasBeenSet = true;
+    }
+
+    if (value.HasMember("ComponentConfig") && !value["ComponentConfig"].IsNull())
+    {
+        if (!value["ComponentConfig"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `BillDetailComponent.ComponentConfig` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ComponentConfig"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            BillDetailComponentConfig item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_componentConfig.push_back(item);
+        }
+        m_componentConfigHasBeenSet = true;
     }
 
 
@@ -299,6 +430,22 @@ void BillDetailComponent::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "UsedAmountUnit";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_usedAmountUnit.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_realTotalMeasureHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RealTotalMeasure";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_realTotalMeasure.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deductedMeasureHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeductedMeasure";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_deductedMeasure.c_str(), allocator).Move(), allocator);
     }
 
     if (m_timeSpanHasBeenSet)
@@ -373,6 +520,14 @@ void BillDetailComponent::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         value.AddMember(iKey, rapidjson::Value(m_incentivePayAmount.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_transferPayAmountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TransferPayAmount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_transferPayAmount.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_itemCodeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -395,6 +550,77 @@ void BillDetailComponent::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "ContractPrice";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_contractPrice.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_riTimeSpanHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RiTimeSpan";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_riTimeSpan.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_originalCostWithRIHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OriginalCostWithRI";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_originalCostWithRI.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sPDeductionRateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SPDeductionRate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sPDeductionRate.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sPDeductionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SPDeduction";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sPDeduction.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_originalCostWithSPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OriginalCostWithSP";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_originalCostWithSP.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_blendedDiscountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BlendedDiscount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_blendedDiscount.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_componentConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ComponentConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_componentConfig.begin(); itr != m_componentConfig.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -510,6 +736,38 @@ void BillDetailComponent::SetUsedAmountUnit(const string& _usedAmountUnit)
 bool BillDetailComponent::UsedAmountUnitHasBeenSet() const
 {
     return m_usedAmountUnitHasBeenSet;
+}
+
+string BillDetailComponent::GetRealTotalMeasure() const
+{
+    return m_realTotalMeasure;
+}
+
+void BillDetailComponent::SetRealTotalMeasure(const string& _realTotalMeasure)
+{
+    m_realTotalMeasure = _realTotalMeasure;
+    m_realTotalMeasureHasBeenSet = true;
+}
+
+bool BillDetailComponent::RealTotalMeasureHasBeenSet() const
+{
+    return m_realTotalMeasureHasBeenSet;
+}
+
+string BillDetailComponent::GetDeductedMeasure() const
+{
+    return m_deductedMeasure;
+}
+
+void BillDetailComponent::SetDeductedMeasure(const string& _deductedMeasure)
+{
+    m_deductedMeasure = _deductedMeasure;
+    m_deductedMeasureHasBeenSet = true;
+}
+
+bool BillDetailComponent::DeductedMeasureHasBeenSet() const
+{
+    return m_deductedMeasureHasBeenSet;
 }
 
 string BillDetailComponent::GetTimeSpan() const
@@ -656,6 +914,22 @@ bool BillDetailComponent::IncentivePayAmountHasBeenSet() const
     return m_incentivePayAmountHasBeenSet;
 }
 
+string BillDetailComponent::GetTransferPayAmount() const
+{
+    return m_transferPayAmount;
+}
+
+void BillDetailComponent::SetTransferPayAmount(const string& _transferPayAmount)
+{
+    m_transferPayAmount = _transferPayAmount;
+    m_transferPayAmountHasBeenSet = true;
+}
+
+bool BillDetailComponent::TransferPayAmountHasBeenSet() const
+{
+    return m_transferPayAmountHasBeenSet;
+}
+
 string BillDetailComponent::GetItemCode() const
 {
     return m_itemCode;
@@ -702,5 +976,133 @@ void BillDetailComponent::SetContractPrice(const string& _contractPrice)
 bool BillDetailComponent::ContractPriceHasBeenSet() const
 {
     return m_contractPriceHasBeenSet;
+}
+
+string BillDetailComponent::GetInstanceType() const
+{
+    return m_instanceType;
+}
+
+void BillDetailComponent::SetInstanceType(const string& _instanceType)
+{
+    m_instanceType = _instanceType;
+    m_instanceTypeHasBeenSet = true;
+}
+
+bool BillDetailComponent::InstanceTypeHasBeenSet() const
+{
+    return m_instanceTypeHasBeenSet;
+}
+
+string BillDetailComponent::GetRiTimeSpan() const
+{
+    return m_riTimeSpan;
+}
+
+void BillDetailComponent::SetRiTimeSpan(const string& _riTimeSpan)
+{
+    m_riTimeSpan = _riTimeSpan;
+    m_riTimeSpanHasBeenSet = true;
+}
+
+bool BillDetailComponent::RiTimeSpanHasBeenSet() const
+{
+    return m_riTimeSpanHasBeenSet;
+}
+
+string BillDetailComponent::GetOriginalCostWithRI() const
+{
+    return m_originalCostWithRI;
+}
+
+void BillDetailComponent::SetOriginalCostWithRI(const string& _originalCostWithRI)
+{
+    m_originalCostWithRI = _originalCostWithRI;
+    m_originalCostWithRIHasBeenSet = true;
+}
+
+bool BillDetailComponent::OriginalCostWithRIHasBeenSet() const
+{
+    return m_originalCostWithRIHasBeenSet;
+}
+
+string BillDetailComponent::GetSPDeductionRate() const
+{
+    return m_sPDeductionRate;
+}
+
+void BillDetailComponent::SetSPDeductionRate(const string& _sPDeductionRate)
+{
+    m_sPDeductionRate = _sPDeductionRate;
+    m_sPDeductionRateHasBeenSet = true;
+}
+
+bool BillDetailComponent::SPDeductionRateHasBeenSet() const
+{
+    return m_sPDeductionRateHasBeenSet;
+}
+
+string BillDetailComponent::GetSPDeduction() const
+{
+    return m_sPDeduction;
+}
+
+void BillDetailComponent::SetSPDeduction(const string& _sPDeduction)
+{
+    m_sPDeduction = _sPDeduction;
+    m_sPDeductionHasBeenSet = true;
+}
+
+bool BillDetailComponent::SPDeductionHasBeenSet() const
+{
+    return m_sPDeductionHasBeenSet;
+}
+
+string BillDetailComponent::GetOriginalCostWithSP() const
+{
+    return m_originalCostWithSP;
+}
+
+void BillDetailComponent::SetOriginalCostWithSP(const string& _originalCostWithSP)
+{
+    m_originalCostWithSP = _originalCostWithSP;
+    m_originalCostWithSPHasBeenSet = true;
+}
+
+bool BillDetailComponent::OriginalCostWithSPHasBeenSet() const
+{
+    return m_originalCostWithSPHasBeenSet;
+}
+
+string BillDetailComponent::GetBlendedDiscount() const
+{
+    return m_blendedDiscount;
+}
+
+void BillDetailComponent::SetBlendedDiscount(const string& _blendedDiscount)
+{
+    m_blendedDiscount = _blendedDiscount;
+    m_blendedDiscountHasBeenSet = true;
+}
+
+bool BillDetailComponent::BlendedDiscountHasBeenSet() const
+{
+    return m_blendedDiscountHasBeenSet;
+}
+
+vector<BillDetailComponentConfig> BillDetailComponent::GetComponentConfig() const
+{
+    return m_componentConfig;
+}
+
+void BillDetailComponent::SetComponentConfig(const vector<BillDetailComponentConfig>& _componentConfig)
+{
+    m_componentConfig = _componentConfig;
+    m_componentConfigHasBeenSet = true;
+}
+
+bool BillDetailComponent::ComponentConfigHasBeenSet() const
+{
+    return m_componentConfigHasBeenSet;
 }
 

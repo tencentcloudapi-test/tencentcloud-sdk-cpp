@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 小程序智能识别概要元信息
+                * 小程序音视频审核概要元信息
                 */
                 class MediaMiniProgramReviewElem : public AbstractModel
                 {
@@ -47,7 +47,7 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取智能识别类型。 
+                     * 获取音视频审核类型。 
 <li>Porn：画面涉及令人反感的信息，</li>
 <li>Porn.Ocr：文字涉及令人反感的信息，</li>
 <li>Porn.Asr：声音涉及令人反感的信息，</li>
@@ -55,7 +55,7 @@ namespace TencentCloud
 <li>Political：画面涉及令人不适宜的信息，</li>
 <li>Political.Ocr：文字涉及令人不适宜的信息，</li>
 <li>Political.Asr：声音涉及令人不适宜的信息。</li>
-                     * @return Type 智能识别类型。 
+                     * @return Type 音视频审核类型。 
 <li>Porn：画面涉及令人反感的信息，</li>
 <li>Porn.Ocr：文字涉及令人反感的信息，</li>
 <li>Porn.Asr：声音涉及令人反感的信息，</li>
@@ -63,11 +63,12 @@ namespace TencentCloud
 <li>Political：画面涉及令人不适宜的信息，</li>
 <li>Political.Ocr：文字涉及令人不适宜的信息，</li>
 <li>Political.Asr：声音涉及令人不适宜的信息。</li>
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置智能识别类型。 
+                     * 设置音视频审核类型。 
 <li>Porn：画面涉及令人反感的信息，</li>
 <li>Porn.Ocr：文字涉及令人反感的信息，</li>
 <li>Porn.Asr：声音涉及令人反感的信息，</li>
@@ -75,7 +76,7 @@ namespace TencentCloud
 <li>Political：画面涉及令人不适宜的信息，</li>
 <li>Political.Ocr：文字涉及令人不适宜的信息，</li>
 <li>Political.Asr：声音涉及令人不适宜的信息。</li>
-                     * @param Type 智能识别类型。 
+                     * @param _type 音视频审核类型。 
 <li>Porn：画面涉及令人反感的信息，</li>
 <li>Porn.Ocr：文字涉及令人反感的信息，</li>
 <li>Porn.Asr：声音涉及令人反感的信息，</li>
@@ -83,67 +84,75 @@ namespace TencentCloud
 <li>Political：画面涉及令人不适宜的信息，</li>
 <li>Political.Ocr：文字涉及令人不适宜的信息，</li>
 <li>Political.Asr：声音涉及令人不适宜的信息。</li>
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取智能识别意见。
+                     * 获取音视频审核意见。
 <li>pass：确认正常，</li>
 <li>block：确认违规，</li>
 <li>review：疑似违规。</li>
-                     * @return Suggestion 智能识别意见。
+                     * @return Suggestion 音视频审核意见。
 <li>pass：确认正常，</li>
 <li>block：确认违规，</li>
 <li>review：疑似违规。</li>
+                     * 
                      */
                     std::string GetSuggestion() const;
 
                     /**
-                     * 设置智能识别意见。
+                     * 设置音视频审核意见。
 <li>pass：确认正常，</li>
 <li>block：确认违规，</li>
 <li>review：疑似违规。</li>
-                     * @param Suggestion 智能识别意见。
+                     * @param _suggestion 音视频审核意见。
 <li>pass：确认正常，</li>
 <li>block：确认违规，</li>
 <li>review：疑似违规。</li>
+                     * 
                      */
                     void SetSuggestion(const std::string& _suggestion);
 
                     /**
                      * 判断参数 Suggestion 是否已赋值
                      * @return Suggestion 是否已赋值
+                     * 
                      */
                     bool SuggestionHasBeenSet() const;
 
                     /**
-                     * 获取智能识别结果置信度。取值 0~100。
-                     * @return Confidence 智能识别结果置信度。取值 0~100。
+                     * 获取音视频审核结果置信度。取值 0~100。
+                     * @return Confidence 音视频审核结果置信度。取值 0~100。
+                     * 
                      */
                     double GetConfidence() const;
 
                     /**
-                     * 设置智能识别结果置信度。取值 0~100。
-                     * @param Confidence 智能识别结果置信度。取值 0~100。
+                     * 设置音视频审核结果置信度。取值 0~100。
+                     * @param _confidence 音视频审核结果置信度。取值 0~100。
+                     * 
                      */
                     void SetConfidence(const double& _confidence);
 
                     /**
                      * 判断参数 Confidence 是否已赋值
                      * @return Confidence 是否已赋值
+                     * 
                      */
                     bool ConfidenceHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 智能识别类型。 
+                     * 音视频审核类型。 
 <li>Porn：画面涉及令人反感的信息，</li>
 <li>Porn.Ocr：文字涉及令人反感的信息，</li>
 <li>Porn.Asr：声音涉及令人反感的信息，</li>
@@ -156,7 +165,7 @@ namespace TencentCloud
                     bool m_typeHasBeenSet;
 
                     /**
-                     * 智能识别意见。
+                     * 音视频审核意见。
 <li>pass：确认正常，</li>
 <li>block：确认违规，</li>
 <li>review：疑似违规。</li>
@@ -165,7 +174,7 @@ namespace TencentCloud
                     bool m_suggestionHasBeenSet;
 
                     /**
-                     * 智能识别结果置信度。取值 0~100。
+                     * 音视频审核结果置信度。取值 0~100。
                      */
                     double m_confidence;
                     bool m_confidenceHasBeenSet;

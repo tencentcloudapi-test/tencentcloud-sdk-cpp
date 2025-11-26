@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,38 +52,44 @@ namespace TencentCloud
 例："2xx", "3xx", "4xx", "5xx"。
                      * @return HttpCode HTTP协议返回码。
 例："2xx", "3xx", "4xx", "5xx"。
+                     * 
                      */
                     std::string GetHttpCode() const;
 
                     /**
                      * 设置HTTP协议返回码。
 例："2xx", "3xx", "4xx", "5xx"。
-                     * @param HttpCode HTTP协议返回码。
+                     * @param _httpCode HTTP协议返回码。
 例："2xx", "3xx", "4xx", "5xx"。
+                     * 
                      */
                     void SetHttpCode(const std::string& _httpCode);
 
                     /**
                      * 判断参数 HttpCode 是否已赋值
                      * @return HttpCode 是否已赋值
+                     * 
                      */
                     bool HttpCodeHasBeenSet() const;
 
                     /**
                      * 获取统计信息，对于无数据的时间点，会补0。
                      * @return ValueList 统计信息，对于无数据的时间点，会补0。
+                     * 
                      */
                     std::vector<HttpCodeValue> GetValueList() const;
 
                     /**
                      * 设置统计信息，对于无数据的时间点，会补0。
-                     * @param ValueList 统计信息，对于无数据的时间点，会补0。
+                     * @param _valueList 统计信息，对于无数据的时间点，会补0。
+                     * 
                      */
                     void SetValueList(const std::vector<HttpCodeValue>& _valueList);
 
                     /**
                      * 判断参数 ValueList 是否已赋值
                      * @return ValueList 是否已赋值
+                     * 
                      */
                     bool ValueListHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,12 @@ ApiGroupInfo::ApiGroupInfo() :
     m_descriptionHasBeenSet(false),
     m_groupTypeHasBeenSet(false),
     m_gatewayInstanceTypeHasBeenSet(false),
-    m_gatewayInstanceIdHasBeenSet(false)
+    m_gatewayInstanceIdHasBeenSet(false),
+    m_namespaceNameKeyHasBeenSet(false),
+    m_serviceNameKeyHasBeenSet(false),
+    m_namespaceNameKeyPositionHasBeenSet(false),
+    m_serviceNameKeyPositionHasBeenSet(false),
+    m_gatewayInstanceIdListHasBeenSet(false)
 {
 }
 
@@ -193,6 +198,59 @@ CoreInternalOutcome ApiGroupInfo::Deserialize(const rapidjson::Value &value)
         m_gatewayInstanceIdHasBeenSet = true;
     }
 
+    if (value.HasMember("NamespaceNameKey") && !value["NamespaceNameKey"].IsNull())
+    {
+        if (!value["NamespaceNameKey"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiGroupInfo.NamespaceNameKey` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_namespaceNameKey = string(value["NamespaceNameKey"].GetString());
+        m_namespaceNameKeyHasBeenSet = true;
+    }
+
+    if (value.HasMember("ServiceNameKey") && !value["ServiceNameKey"].IsNull())
+    {
+        if (!value["ServiceNameKey"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiGroupInfo.ServiceNameKey` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_serviceNameKey = string(value["ServiceNameKey"].GetString());
+        m_serviceNameKeyHasBeenSet = true;
+    }
+
+    if (value.HasMember("NamespaceNameKeyPosition") && !value["NamespaceNameKeyPosition"].IsNull())
+    {
+        if (!value["NamespaceNameKeyPosition"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiGroupInfo.NamespaceNameKeyPosition` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_namespaceNameKeyPosition = string(value["NamespaceNameKeyPosition"].GetString());
+        m_namespaceNameKeyPositionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ServiceNameKeyPosition") && !value["ServiceNameKeyPosition"].IsNull())
+    {
+        if (!value["ServiceNameKeyPosition"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiGroupInfo.ServiceNameKeyPosition` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_serviceNameKeyPosition = string(value["ServiceNameKeyPosition"].GetString());
+        m_serviceNameKeyPositionHasBeenSet = true;
+    }
+
+    if (value.HasMember("GatewayInstanceIdList") && !value["GatewayInstanceIdList"].IsNull())
+    {
+        if (!value["GatewayInstanceIdList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ApiGroupInfo.GatewayInstanceIdList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["GatewayInstanceIdList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_gatewayInstanceIdList.push_back((*itr).GetString());
+        }
+        m_gatewayInstanceIdListHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -317,6 +375,51 @@ void ApiGroupInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "GatewayInstanceId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_gatewayInstanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_namespaceNameKeyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NamespaceNameKey";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_namespaceNameKey.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_serviceNameKeyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceNameKey";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_serviceNameKey.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_namespaceNameKeyPositionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NamespaceNameKeyPosition";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_namespaceNameKeyPosition.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_serviceNameKeyPositionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceNameKeyPosition";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_serviceNameKeyPosition.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gatewayInstanceIdListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GatewayInstanceIdList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_gatewayInstanceIdList.begin(); itr != m_gatewayInstanceIdList.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 }
@@ -544,5 +647,85 @@ void ApiGroupInfo::SetGatewayInstanceId(const string& _gatewayInstanceId)
 bool ApiGroupInfo::GatewayInstanceIdHasBeenSet() const
 {
     return m_gatewayInstanceIdHasBeenSet;
+}
+
+string ApiGroupInfo::GetNamespaceNameKey() const
+{
+    return m_namespaceNameKey;
+}
+
+void ApiGroupInfo::SetNamespaceNameKey(const string& _namespaceNameKey)
+{
+    m_namespaceNameKey = _namespaceNameKey;
+    m_namespaceNameKeyHasBeenSet = true;
+}
+
+bool ApiGroupInfo::NamespaceNameKeyHasBeenSet() const
+{
+    return m_namespaceNameKeyHasBeenSet;
+}
+
+string ApiGroupInfo::GetServiceNameKey() const
+{
+    return m_serviceNameKey;
+}
+
+void ApiGroupInfo::SetServiceNameKey(const string& _serviceNameKey)
+{
+    m_serviceNameKey = _serviceNameKey;
+    m_serviceNameKeyHasBeenSet = true;
+}
+
+bool ApiGroupInfo::ServiceNameKeyHasBeenSet() const
+{
+    return m_serviceNameKeyHasBeenSet;
+}
+
+string ApiGroupInfo::GetNamespaceNameKeyPosition() const
+{
+    return m_namespaceNameKeyPosition;
+}
+
+void ApiGroupInfo::SetNamespaceNameKeyPosition(const string& _namespaceNameKeyPosition)
+{
+    m_namespaceNameKeyPosition = _namespaceNameKeyPosition;
+    m_namespaceNameKeyPositionHasBeenSet = true;
+}
+
+bool ApiGroupInfo::NamespaceNameKeyPositionHasBeenSet() const
+{
+    return m_namespaceNameKeyPositionHasBeenSet;
+}
+
+string ApiGroupInfo::GetServiceNameKeyPosition() const
+{
+    return m_serviceNameKeyPosition;
+}
+
+void ApiGroupInfo::SetServiceNameKeyPosition(const string& _serviceNameKeyPosition)
+{
+    m_serviceNameKeyPosition = _serviceNameKeyPosition;
+    m_serviceNameKeyPositionHasBeenSet = true;
+}
+
+bool ApiGroupInfo::ServiceNameKeyPositionHasBeenSet() const
+{
+    return m_serviceNameKeyPositionHasBeenSet;
+}
+
+vector<string> ApiGroupInfo::GetGatewayInstanceIdList() const
+{
+    return m_gatewayInstanceIdList;
+}
+
+void ApiGroupInfo::SetGatewayInstanceIdList(const vector<string>& _gatewayInstanceIdList)
+{
+    m_gatewayInstanceIdList = _gatewayInstanceIdList;
+    m_gatewayInstanceIdListHasBeenSet = true;
+}
+
+bool ApiGroupInfo::GatewayInstanceIdListHasBeenSet() const
+{
+    return m_gatewayInstanceIdListHasBeenSet;
 }
 

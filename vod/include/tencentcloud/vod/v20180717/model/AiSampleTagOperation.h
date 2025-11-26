@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取操作类型，可选值：add（添加）、delete（删除）、reset（重置）。
                      * @return Type 操作类型，可选值：add（添加）、delete（删除）、reset（重置）。
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置操作类型，可选值：add（添加）、delete（删除）、reset（重置）。
-                     * @param Type 操作类型，可选值：add（添加）、delete（删除）、reset（重置）。
+                     * @param _type 操作类型，可选值：add（添加）、delete（删除）、reset（重置）。
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取标签，长度限制：128 个字符。
                      * @return Tags 标签，长度限制：128 个字符。
+                     * 
                      */
                     std::vector<std::string> GetTags() const;
 
                     /**
                      * 设置标签，长度限制：128 个字符。
-                     * @param Tags 标签，长度限制：128 个字符。
+                     * @param _tags 标签，长度限制：128 个字符。
+                     * 
                      */
                     void SetTags(const std::vector<std::string>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 

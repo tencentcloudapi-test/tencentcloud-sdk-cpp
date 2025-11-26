@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,6 +39,7 @@ JobV1::JobV1() :
     m_lastOpResultHasBeenSet(false),
     m_clusterNameHasBeenSet(false),
     m_latestJobConfigVersionHasBeenSet(false),
+    m_latestValidJobConfigVersionHasBeenSet(false),
     m_publishedJobConfigVersionHasBeenSet(false),
     m_runningCuNumHasBeenSet(false),
     m_cuMemHasBeenSet(false),
@@ -51,7 +52,17 @@ JobV1::JobV1() :
     m_runningCuHasBeenSet(false),
     m_flinkVersionHasBeenSet(false),
     m_workSpaceIdHasBeenSet(false),
-    m_workSpaceNameHasBeenSet(false)
+    m_workSpaceNameHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_eventInfoHasBeenSet(false),
+    m_descriptionHasBeenSet(false),
+    m_scalingTypeHasBeenSet(false),
+    m_runningCpuHasBeenSet(false),
+    m_runningMemHasBeenSet(false),
+    m_openJobDefaultAlarmHasBeenSet(false),
+    m_progressDescHasBeenSet(false),
+    m_continueAlarmHasBeenSet(false),
+    m_restartCountHasBeenSet(false)
 {
 }
 
@@ -240,6 +251,16 @@ CoreInternalOutcome JobV1::Deserialize(const rapidjson::Value &value)
         m_latestJobConfigVersionHasBeenSet = true;
     }
 
+    if (value.HasMember("LatestValidJobConfigVersion") && !value["LatestValidJobConfigVersion"].IsNull())
+    {
+        if (!value["LatestValidJobConfigVersion"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.LatestValidJobConfigVersion` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_latestValidJobConfigVersion = value["LatestValidJobConfigVersion"].GetInt64();
+        m_latestValidJobConfigVersionHasBeenSet = true;
+    }
+
     if (value.HasMember("PublishedJobConfigVersion") && !value["PublishedJobConfigVersion"].IsNull())
     {
         if (!value["PublishedJobConfigVersion"].IsInt64())
@@ -368,6 +389,123 @@ CoreInternalOutcome JobV1::Deserialize(const rapidjson::Value &value)
         }
         m_workSpaceName = string(value["WorkSpaceName"].GetString());
         m_workSpaceNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `JobV1.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("EventInfo") && !value["EventInfo"].IsNull())
+    {
+        if (!value["EventInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.EventInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_eventInfo.Deserialize(value["EventInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_eventInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("Description") && !value["Description"].IsNull())
+    {
+        if (!value["Description"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.Description` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_description = string(value["Description"].GetString());
+        m_descriptionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ScalingType") && !value["ScalingType"].IsNull())
+    {
+        if (!value["ScalingType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.ScalingType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_scalingType = value["ScalingType"].GetInt64();
+        m_scalingTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RunningCpu") && !value["RunningCpu"].IsNull())
+    {
+        if (!value["RunningCpu"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.RunningCpu` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_runningCpu = value["RunningCpu"].GetDouble();
+        m_runningCpuHasBeenSet = true;
+    }
+
+    if (value.HasMember("RunningMem") && !value["RunningMem"].IsNull())
+    {
+        if (!value["RunningMem"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.RunningMem` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_runningMem = value["RunningMem"].GetDouble();
+        m_runningMemHasBeenSet = true;
+    }
+
+    if (value.HasMember("OpenJobDefaultAlarm") && !value["OpenJobDefaultAlarm"].IsNull())
+    {
+        if (!value["OpenJobDefaultAlarm"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.OpenJobDefaultAlarm` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_openJobDefaultAlarm = value["OpenJobDefaultAlarm"].GetInt64();
+        m_openJobDefaultAlarmHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProgressDesc") && !value["ProgressDesc"].IsNull())
+    {
+        if (!value["ProgressDesc"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.ProgressDesc` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_progressDesc = string(value["ProgressDesc"].GetString());
+        m_progressDescHasBeenSet = true;
+    }
+
+    if (value.HasMember("ContinueAlarm") && !value["ContinueAlarm"].IsNull())
+    {
+        if (!value["ContinueAlarm"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.ContinueAlarm` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_continueAlarm = value["ContinueAlarm"].GetInt64();
+        m_continueAlarmHasBeenSet = true;
+    }
+
+    if (value.HasMember("RestartCount") && !value["RestartCount"].IsNull())
+    {
+        if (!value["RestartCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobV1.RestartCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_restartCount = value["RestartCount"].GetInt64();
+        m_restartCountHasBeenSet = true;
     }
 
 
@@ -521,6 +659,14 @@ void JobV1::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocator
         value.AddMember(iKey, m_latestJobConfigVersion, allocator);
     }
 
+    if (m_latestValidJobConfigVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LatestValidJobConfigVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_latestValidJobConfigVersion, allocator);
+    }
+
     if (m_publishedJobConfigVersionHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -623,6 +769,94 @@ void JobV1::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocator
         string key = "WorkSpaceName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_workSpaceName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_eventInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EventInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_eventInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_descriptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Description";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_scalingTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScalingType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_scalingType, allocator);
+    }
+
+    if (m_runningCpuHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RunningCpu";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_runningCpu, allocator);
+    }
+
+    if (m_runningMemHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RunningMem";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_runningMem, allocator);
+    }
+
+    if (m_openJobDefaultAlarmHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OpenJobDefaultAlarm";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_openJobDefaultAlarm, allocator);
+    }
+
+    if (m_progressDescHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProgressDesc";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_progressDesc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_continueAlarmHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContinueAlarm";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_continueAlarm, allocator);
+    }
+
+    if (m_restartCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RestartCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_restartCount, allocator);
     }
 
 }
@@ -916,6 +1150,22 @@ bool JobV1::LatestJobConfigVersionHasBeenSet() const
     return m_latestJobConfigVersionHasBeenSet;
 }
 
+int64_t JobV1::GetLatestValidJobConfigVersion() const
+{
+    return m_latestValidJobConfigVersion;
+}
+
+void JobV1::SetLatestValidJobConfigVersion(const int64_t& _latestValidJobConfigVersion)
+{
+    m_latestValidJobConfigVersion = _latestValidJobConfigVersion;
+    m_latestValidJobConfigVersionHasBeenSet = true;
+}
+
+bool JobV1::LatestValidJobConfigVersionHasBeenSet() const
+{
+    return m_latestValidJobConfigVersionHasBeenSet;
+}
+
 int64_t JobV1::GetPublishedJobConfigVersion() const
 {
     return m_publishedJobConfigVersion;
@@ -1122,5 +1372,165 @@ void JobV1::SetWorkSpaceName(const string& _workSpaceName)
 bool JobV1::WorkSpaceNameHasBeenSet() const
 {
     return m_workSpaceNameHasBeenSet;
+}
+
+vector<Tag> JobV1::GetTags() const
+{
+    return m_tags;
+}
+
+void JobV1::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool JobV1::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+JobEventInfo JobV1::GetEventInfo() const
+{
+    return m_eventInfo;
+}
+
+void JobV1::SetEventInfo(const JobEventInfo& _eventInfo)
+{
+    m_eventInfo = _eventInfo;
+    m_eventInfoHasBeenSet = true;
+}
+
+bool JobV1::EventInfoHasBeenSet() const
+{
+    return m_eventInfoHasBeenSet;
+}
+
+string JobV1::GetDescription() const
+{
+    return m_description;
+}
+
+void JobV1::SetDescription(const string& _description)
+{
+    m_description = _description;
+    m_descriptionHasBeenSet = true;
+}
+
+bool JobV1::DescriptionHasBeenSet() const
+{
+    return m_descriptionHasBeenSet;
+}
+
+int64_t JobV1::GetScalingType() const
+{
+    return m_scalingType;
+}
+
+void JobV1::SetScalingType(const int64_t& _scalingType)
+{
+    m_scalingType = _scalingType;
+    m_scalingTypeHasBeenSet = true;
+}
+
+bool JobV1::ScalingTypeHasBeenSet() const
+{
+    return m_scalingTypeHasBeenSet;
+}
+
+double JobV1::GetRunningCpu() const
+{
+    return m_runningCpu;
+}
+
+void JobV1::SetRunningCpu(const double& _runningCpu)
+{
+    m_runningCpu = _runningCpu;
+    m_runningCpuHasBeenSet = true;
+}
+
+bool JobV1::RunningCpuHasBeenSet() const
+{
+    return m_runningCpuHasBeenSet;
+}
+
+double JobV1::GetRunningMem() const
+{
+    return m_runningMem;
+}
+
+void JobV1::SetRunningMem(const double& _runningMem)
+{
+    m_runningMem = _runningMem;
+    m_runningMemHasBeenSet = true;
+}
+
+bool JobV1::RunningMemHasBeenSet() const
+{
+    return m_runningMemHasBeenSet;
+}
+
+int64_t JobV1::GetOpenJobDefaultAlarm() const
+{
+    return m_openJobDefaultAlarm;
+}
+
+void JobV1::SetOpenJobDefaultAlarm(const int64_t& _openJobDefaultAlarm)
+{
+    m_openJobDefaultAlarm = _openJobDefaultAlarm;
+    m_openJobDefaultAlarmHasBeenSet = true;
+}
+
+bool JobV1::OpenJobDefaultAlarmHasBeenSet() const
+{
+    return m_openJobDefaultAlarmHasBeenSet;
+}
+
+string JobV1::GetProgressDesc() const
+{
+    return m_progressDesc;
+}
+
+void JobV1::SetProgressDesc(const string& _progressDesc)
+{
+    m_progressDesc = _progressDesc;
+    m_progressDescHasBeenSet = true;
+}
+
+bool JobV1::ProgressDescHasBeenSet() const
+{
+    return m_progressDescHasBeenSet;
+}
+
+int64_t JobV1::GetContinueAlarm() const
+{
+    return m_continueAlarm;
+}
+
+void JobV1::SetContinueAlarm(const int64_t& _continueAlarm)
+{
+    m_continueAlarm = _continueAlarm;
+    m_continueAlarmHasBeenSet = true;
+}
+
+bool JobV1::ContinueAlarmHasBeenSet() const
+{
+    return m_continueAlarmHasBeenSet;
+}
+
+int64_t JobV1::GetRestartCount() const
+{
+    return m_restartCount;
+}
+
+void JobV1::SetRestartCount(const int64_t& _restartCount)
+{
+    m_restartCount = _restartCount;
+    m_restartCountHasBeenSet = true;
+}
+
+bool JobV1::RestartCountHasBeenSet() const
+{
+    return m_restartCountHasBeenSet;
 }
 

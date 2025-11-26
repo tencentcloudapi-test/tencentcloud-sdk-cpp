@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取获取短信模板信息响应
                      * @return DescribeTemplateStatusSet 获取短信模板信息响应
+                     * 
                      */
                     std::vector<DescribeTemplateListStatus> GetDescribeTemplateStatusSet() const;
 
                     /**
                      * 判断参数 DescribeTemplateStatusSet 是否已赋值
                      * @return DescribeTemplateStatusSet 是否已赋值
+                     * 
                      */
                     bool DescribeTemplateStatusSetHasBeenSet() const;
 

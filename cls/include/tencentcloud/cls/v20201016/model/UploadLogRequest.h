@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,75 +43,99 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取主题id
-                     * @return TopicId 主题id
+                     * 获取日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * @return TopicId 日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * 
                      */
                     std::string GetTopicId() const;
 
                     /**
-                     * 设置主题id
-                     * @param TopicId 主题id
+                     * 设置日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * @param _topicId 日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * 
                      */
                     void SetTopicId(const std::string& _topicId);
 
                     /**
                      * 判断参数 TopicId 是否已赋值
                      * @return TopicId 是否已赋值
+                     * 
                      */
                     bool TopicIdHasBeenSet() const;
 
                     /**
-                     * 获取根据 hashkey 写入相应范围的主题分区
-                     * @return HashKey 根据 hashkey 写入相应范围的主题分区
+                     * 获取该参数已废弃，请勿使用
+                     * @return HashKey 该参数已废弃，请勿使用
+                     * @deprecated
                      */
                     std::string GetHashKey() const;
 
                     /**
-                     * 设置根据 hashkey 写入相应范围的主题分区
-                     * @param HashKey 根据 hashkey 写入相应范围的主题分区
+                     * 设置该参数已废弃，请勿使用
+                     * @param _hashKey 该参数已废弃，请勿使用
+                     * @deprecated
                      */
                     void SetHashKey(const std::string& _hashKey);
 
                     /**
                      * 判断参数 HashKey 是否已赋值
                      * @return HashKey 是否已赋值
+                     * @deprecated
                      */
                     bool HashKeyHasBeenSet() const;
 
                     /**
-                     * 获取压缩方法
-                     * @return CompressType 压缩方法
+                     * 获取压缩方法，目前支持
+- lz4
+- zstd
+                     * @return CompressType 压缩方法，目前支持
+- lz4
+- zstd
+                     * 
                      */
                     std::string GetCompressType() const;
 
                     /**
-                     * 设置压缩方法
-                     * @param CompressType 压缩方法
+                     * 设置压缩方法，目前支持
+- lz4
+- zstd
+                     * @param _compressType 压缩方法，目前支持
+- lz4
+- zstd
+                     * 
                      */
                     void SetCompressType(const std::string& _compressType);
 
                     /**
                      * 判断参数 CompressType 是否已赋值
                      * @return CompressType 是否已赋值
+                     * 
                      */
                     bool CompressTypeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 主题id
+                     * 日志主题id
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;
 
                     /**
-                     * 根据 hashkey 写入相应范围的主题分区
+                     * 该参数已废弃，请勿使用
                      */
                     std::string m_hashKey;
                     bool m_hashKeyHasBeenSet;
 
                     /**
-                     * 压缩方法
+                     * 压缩方法，目前支持
+- lz4
+- zstd
                      */
                     std::string m_compressType;
                     bool m_compressTypeHasBeenSet;

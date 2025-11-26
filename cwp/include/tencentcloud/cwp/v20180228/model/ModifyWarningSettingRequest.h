@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,27 +44,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取告警设置的修改内容
-                     * @return WarningObjects 告警设置的修改内容
+                     * 获取修改告警设置的内容
+                     * @return WarningObjects 修改告警设置的内容
+                     * 
                      */
                     std::vector<WarningObject> GetWarningObjects() const;
 
                     /**
-                     * 设置告警设置的修改内容
-                     * @param WarningObjects 告警设置的修改内容
+                     * 设置修改告警设置的内容
+                     * @param _warningObjects 修改告警设置的内容
+                     * 
                      */
                     void SetWarningObjects(const std::vector<WarningObject>& _warningObjects);
 
                     /**
                      * 判断参数 WarningObjects 是否已赋值
                      * @return WarningObjects 是否已赋值
+                     * 
                      */
                     bool WarningObjectsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 告警设置的修改内容
+                     * 修改告警设置的内容
                      */
                     std::vector<WarningObject> m_warningObjects;
                     bool m_warningObjectsHasBeenSet;

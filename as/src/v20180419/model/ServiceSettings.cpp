@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,11 @@ using namespace std;
 ServiceSettings::ServiceSettings() :
     m_replaceMonitorUnhealthyHasBeenSet(false),
     m_scalingModeHasBeenSet(false),
-    m_replaceLoadBalancerUnhealthyHasBeenSet(false)
+    m_replaceLoadBalancerUnhealthyHasBeenSet(false),
+    m_replaceModeHasBeenSet(false),
+    m_autoUpdateInstanceTagsHasBeenSet(false),
+    m_desiredCapacitySyncWithMaxMinSizeHasBeenSet(false),
+    m_priorityScaleInUnhealthyHasBeenSet(false)
 {
 }
 
@@ -62,6 +66,46 @@ CoreInternalOutcome ServiceSettings::Deserialize(const rapidjson::Value &value)
         m_replaceLoadBalancerUnhealthyHasBeenSet = true;
     }
 
+    if (value.HasMember("ReplaceMode") && !value["ReplaceMode"].IsNull())
+    {
+        if (!value["ReplaceMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ServiceSettings.ReplaceMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_replaceMode = string(value["ReplaceMode"].GetString());
+        m_replaceModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoUpdateInstanceTags") && !value["AutoUpdateInstanceTags"].IsNull())
+    {
+        if (!value["AutoUpdateInstanceTags"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ServiceSettings.AutoUpdateInstanceTags` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoUpdateInstanceTags = value["AutoUpdateInstanceTags"].GetBool();
+        m_autoUpdateInstanceTagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("DesiredCapacitySyncWithMaxMinSize") && !value["DesiredCapacitySyncWithMaxMinSize"].IsNull())
+    {
+        if (!value["DesiredCapacitySyncWithMaxMinSize"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ServiceSettings.DesiredCapacitySyncWithMaxMinSize` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_desiredCapacitySyncWithMaxMinSize = value["DesiredCapacitySyncWithMaxMinSize"].GetBool();
+        m_desiredCapacitySyncWithMaxMinSizeHasBeenSet = true;
+    }
+
+    if (value.HasMember("PriorityScaleInUnhealthy") && !value["PriorityScaleInUnhealthy"].IsNull())
+    {
+        if (!value["PriorityScaleInUnhealthy"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ServiceSettings.PriorityScaleInUnhealthy` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_priorityScaleInUnhealthy = value["PriorityScaleInUnhealthy"].GetBool();
+        m_priorityScaleInUnhealthyHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +135,38 @@ void ServiceSettings::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "ReplaceLoadBalancerUnhealthy";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_replaceLoadBalancerUnhealthy, allocator);
+    }
+
+    if (m_replaceModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReplaceMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_replaceMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoUpdateInstanceTagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoUpdateInstanceTags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoUpdateInstanceTags, allocator);
+    }
+
+    if (m_desiredCapacitySyncWithMaxMinSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DesiredCapacitySyncWithMaxMinSize";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_desiredCapacitySyncWithMaxMinSize, allocator);
+    }
+
+    if (m_priorityScaleInUnhealthyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PriorityScaleInUnhealthy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_priorityScaleInUnhealthy, allocator);
     }
 
 }
@@ -142,5 +218,69 @@ void ServiceSettings::SetReplaceLoadBalancerUnhealthy(const bool& _replaceLoadBa
 bool ServiceSettings::ReplaceLoadBalancerUnhealthyHasBeenSet() const
 {
     return m_replaceLoadBalancerUnhealthyHasBeenSet;
+}
+
+string ServiceSettings::GetReplaceMode() const
+{
+    return m_replaceMode;
+}
+
+void ServiceSettings::SetReplaceMode(const string& _replaceMode)
+{
+    m_replaceMode = _replaceMode;
+    m_replaceModeHasBeenSet = true;
+}
+
+bool ServiceSettings::ReplaceModeHasBeenSet() const
+{
+    return m_replaceModeHasBeenSet;
+}
+
+bool ServiceSettings::GetAutoUpdateInstanceTags() const
+{
+    return m_autoUpdateInstanceTags;
+}
+
+void ServiceSettings::SetAutoUpdateInstanceTags(const bool& _autoUpdateInstanceTags)
+{
+    m_autoUpdateInstanceTags = _autoUpdateInstanceTags;
+    m_autoUpdateInstanceTagsHasBeenSet = true;
+}
+
+bool ServiceSettings::AutoUpdateInstanceTagsHasBeenSet() const
+{
+    return m_autoUpdateInstanceTagsHasBeenSet;
+}
+
+bool ServiceSettings::GetDesiredCapacitySyncWithMaxMinSize() const
+{
+    return m_desiredCapacitySyncWithMaxMinSize;
+}
+
+void ServiceSettings::SetDesiredCapacitySyncWithMaxMinSize(const bool& _desiredCapacitySyncWithMaxMinSize)
+{
+    m_desiredCapacitySyncWithMaxMinSize = _desiredCapacitySyncWithMaxMinSize;
+    m_desiredCapacitySyncWithMaxMinSizeHasBeenSet = true;
+}
+
+bool ServiceSettings::DesiredCapacitySyncWithMaxMinSizeHasBeenSet() const
+{
+    return m_desiredCapacitySyncWithMaxMinSizeHasBeenSet;
+}
+
+bool ServiceSettings::GetPriorityScaleInUnhealthy() const
+{
+    return m_priorityScaleInUnhealthy;
+}
+
+void ServiceSettings::SetPriorityScaleInUnhealthy(const bool& _priorityScaleInUnhealthy)
+{
+    m_priorityScaleInUnhealthy = _priorityScaleInUnhealthy;
+    m_priorityScaleInUnhealthyHasBeenSet = true;
+}
+
+bool ServiceSettings::PriorityScaleInUnhealthyHasBeenSet() const
+{
+    return m_priorityScaleInUnhealthyHasBeenSet;
 }
 

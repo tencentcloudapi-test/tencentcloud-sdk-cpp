@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取目标文件名
                      * @return FileName 目标文件名
+                     * 
                      */
                     std::string GetFileName() const;
 
                     /**
                      * 设置目标文件名
-                     * @param FileName 目标文件名
+                     * @param _fileName 目标文件名
+                     * 
                      */
                     void SetFileName(const std::string& _fileName);
 
                     /**
                      * 判断参数 FileName 是否已赋值
                      * @return FileName 是否已赋值
+                     * 
                      */
                     bool FileNameHasBeenSet() const;
 
                     /**
                      * 获取目标文件切片信息
                      * @return SegmentInfo 目标文件切片信息
+                     * 
                      */
                     SegmentInfo GetSegmentInfo() const;
 
                     /**
                      * 设置目标文件切片信息
-                     * @param SegmentInfo 目标文件切片信息
+                     * @param _segmentInfo 目标文件切片信息
+                     * 
                      */
                     void SetSegmentInfo(const SegmentInfo& _segmentInfo);
 
                     /**
                      * 判断参数 SegmentInfo 是否已赋值
                      * @return SegmentInfo 是否已赋值
+                     * 
                      */
                     bool SegmentInfoHasBeenSet() const;
 

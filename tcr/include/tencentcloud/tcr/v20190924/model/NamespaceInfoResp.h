@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取命名空间数量
                      * @return NamespaceCount 命名空间数量
+                     * 
                      */
                     int64_t GetNamespaceCount() const;
 
                     /**
                      * 设置命名空间数量
-                     * @param NamespaceCount 命名空间数量
+                     * @param _namespaceCount 命名空间数量
+                     * 
                      */
                     void SetNamespaceCount(const int64_t& _namespaceCount);
 
                     /**
                      * 判断参数 NamespaceCount 是否已赋值
                      * @return NamespaceCount 是否已赋值
+                     * 
                      */
                     bool NamespaceCountHasBeenSet() const;
 
                     /**
                      * 获取命名空间信息
                      * @return NamespaceInfo 命名空间信息
+                     * 
                      */
                     std::vector<NamespaceInfo> GetNamespaceInfo() const;
 
                     /**
                      * 设置命名空间信息
-                     * @param NamespaceInfo 命名空间信息
+                     * @param _namespaceInfo 命名空间信息
+                     * 
                      */
                     void SetNamespaceInfo(const std::vector<NamespaceInfo>& _namespaceInfo);
 
                     /**
                      * 判断参数 NamespaceInfo 是否已赋值
                      * @return NamespaceInfo 是否已赋值
+                     * 
                      */
                     bool NamespaceInfoHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取此次操作支付成功的子订单号数组
                      * @return OrderIds 此次操作支付成功的子订单号数组
+                     * 
                      */
                     std::vector<std::string> GetOrderIds() const;
 
                     /**
                      * 判断参数 OrderIds 是否已赋值
                      * @return OrderIds 是否已赋值
+                     * 
                      */
                     bool OrderIdsHasBeenSet() const;
 
                     /**
                      * 获取此次操作支付成功的资源Id数组
                      * @return ResourceIds 此次操作支付成功的资源Id数组
+                     * 
                      */
                     std::vector<std::string> GetResourceIds() const;
 
                     /**
                      * 判断参数 ResourceIds 是否已赋值
                      * @return ResourceIds 是否已赋值
+                     * 
                      */
                     bool ResourceIdsHasBeenSet() const;
 
                     /**
                      * 获取此次操作支付成功的大订单号数组
                      * @return BigDealIds 此次操作支付成功的大订单号数组
+                     * 
                      */
                     std::vector<std::string> GetBigDealIds() const;
 
                     /**
                      * 判断参数 BigDealIds 是否已赋值
                      * @return BigDealIds 是否已赋值
+                     * 
                      */
                     bool BigDealIdsHasBeenSet() const;
 

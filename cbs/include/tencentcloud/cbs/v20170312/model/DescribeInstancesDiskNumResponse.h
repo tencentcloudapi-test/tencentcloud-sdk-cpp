@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取各个云服务器已挂载和可挂载弹性云盘的数量。
                      * @return AttachDetail 各个云服务器已挂载和可挂载弹性云盘的数量。
+                     * 
                      */
                     std::vector<AttachDetail> GetAttachDetail() const;
 
                     /**
                      * 判断参数 AttachDetail 是否已赋值
                      * @return AttachDetail 是否已赋值
+                     * 
                      */
                     bool AttachDetailHasBeenSet() const;
 

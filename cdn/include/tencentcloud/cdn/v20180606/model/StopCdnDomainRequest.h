@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,20 +47,23 @@ namespace TencentCloud
 域名需要为【已启动】状态
                      * @return Domain 域名
 域名需要为【已启动】状态
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置域名
 域名需要为【已启动】状态
-                     * @param Domain 域名
+                     * @param _domain 域名
 域名需要为【已启动】状态
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 

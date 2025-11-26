@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取流程ID
                      * @return FlowId 流程ID
+                     * 
                      */
                     std::string GetFlowId() const;
 
                     /**
                      * 设置流程ID
-                     * @param FlowId 流程ID
+                     * @param _flowId 流程ID
+                     * 
                      */
                     void SetFlowId(const std::string& _flowId);
 
                     /**
                      * 判断参数 FlowId 是否已赋值
                      * @return FlowId 是否已赋值
+                     * 
                      */
                     bool FlowIdHasBeenSet() const;
 
                     /**
                      * 获取参与者列表
                      * @return Approvers 参与者列表
+                     * 
                      */
                     std::vector<FlowApproverInfo> GetApprovers() const;
 
                     /**
                      * 设置参与者列表
-                     * @param Approvers 参与者列表
+                     * @param _approvers 参与者列表
+                     * 
                      */
                     void SetApprovers(const std::vector<FlowApproverInfo>& _approvers);
 
                     /**
                      * 判断参数 Approvers 是否已赋值
                      * @return Approvers 是否已赋值
+                     * 
                      */
                     bool ApproversHasBeenSet() const;
 

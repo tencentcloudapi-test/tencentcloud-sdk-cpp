@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取云服务器ID
                      * @return Quuid 云服务器ID
+                     * 
                      */
                     std::string GetQuuid() const;
 
                     /**
                      * 设置云服务器ID
-                     * @param Quuid 云服务器ID
+                     * @param _quuid 云服务器ID
+                     * 
                      */
                     void SetQuuid(const std::string& _quuid);
 
                     /**
                      * 判断参数 Quuid 是否已赋值
                      * @return Quuid 是否已赋值
+                     * 
                      */
                     bool QuuidHasBeenSet() const;
 
                     /**
                      * 获取标签ID
                      * @return TagId 标签ID
+                     * 
                      */
                     uint64_t GetTagId() const;
 
                     /**
                      * 设置标签ID
-                     * @param TagId 标签ID
+                     * @param _tagId 标签ID
+                     * 
                      */
                     void SetTagId(const uint64_t& _tagId);
 
                     /**
                      * 判断参数 TagId 是否已赋值
                      * @return TagId 是否已赋值
+                     * 
                      */
                     bool TagIdHasBeenSet() const;
 
                     /**
                      * 获取云服务器地区
                      * @return MRegion 云服务器地区
+                     * 
                      */
                     std::string GetMRegion() const;
 
                     /**
                      * 设置云服务器地区
-                     * @param MRegion 云服务器地区
+                     * @param _mRegion 云服务器地区
+                     * 
                      */
                     void SetMRegion(const std::string& _mRegion);
 
                     /**
                      * 判断参数 MRegion 是否已赋值
                      * @return MRegion 是否已赋值
+                     * 
                      */
                     bool MRegionHasBeenSet() const;
 
                     /**
                      * 获取云服务器类型(CVM|BM)
                      * @return MArea 云服务器类型(CVM|BM)
+                     * 
                      */
                     std::string GetMArea() const;
 
                     /**
                      * 设置云服务器类型(CVM|BM)
-                     * @param MArea 云服务器类型(CVM|BM)
+                     * @param _mArea 云服务器类型(CVM|BM)
+                     * 
                      */
                     void SetMArea(const std::string& _mArea);
 
                     /**
                      * 判断参数 MArea 是否已赋值
                      * @return MArea 是否已赋值
+                     * 
                      */
                     bool MAreaHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取参数修改事件总数，以参数为统计粒度
                      * @return TotalCount 参数修改事件总数，以参数为统计粒度
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取实例参数修改事件详情
                      * @return EventItems 实例参数修改事件详情
+                     * 
                      */
                     std::vector<EventItem> GetEventItems() const;
 
                     /**
                      * 判断参数 EventItems 是否已赋值
                      * @return EventItems 是否已赋值
+                     * 
                      */
                     bool EventItemsHasBeenSet() const;
 

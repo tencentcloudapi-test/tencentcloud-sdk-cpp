@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@ OverrideTranscodeParameter::OverrideTranscodeParameter() :
     m_removeAudioHasBeenSet(false),
     m_videoTemplateHasBeenSet(false),
     m_audioTemplateHasBeenSet(false),
-    m_tEHDConfigHasBeenSet(false)
+    m_tEHDConfigHasBeenSet(false),
+    m_subtitleTemplateHasBeenSet(false),
+    m_addonAudioStreamHasBeenSet(false),
+    m_stdExtInfoHasBeenSet(false),
+    m_addOnSubtitlesHasBeenSet(false)
 {
 }
 
@@ -116,6 +120,73 @@ CoreInternalOutcome OverrideTranscodeParameter::Deserialize(const rapidjson::Val
         m_tEHDConfigHasBeenSet = true;
     }
 
+    if (value.HasMember("SubtitleTemplate") && !value["SubtitleTemplate"].IsNull())
+    {
+        if (!value["SubtitleTemplate"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `OverrideTranscodeParameter.SubtitleTemplate` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_subtitleTemplate.Deserialize(value["SubtitleTemplate"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_subtitleTemplateHasBeenSet = true;
+    }
+
+    if (value.HasMember("AddonAudioStream") && !value["AddonAudioStream"].IsNull())
+    {
+        if (!value["AddonAudioStream"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `OverrideTranscodeParameter.AddonAudioStream` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["AddonAudioStream"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            MediaInputInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_addonAudioStream.push_back(item);
+        }
+        m_addonAudioStreamHasBeenSet = true;
+    }
+
+    if (value.HasMember("StdExtInfo") && !value["StdExtInfo"].IsNull())
+    {
+        if (!value["StdExtInfo"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `OverrideTranscodeParameter.StdExtInfo` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_stdExtInfo = string(value["StdExtInfo"].GetString());
+        m_stdExtInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("AddOnSubtitles") && !value["AddOnSubtitles"].IsNull())
+    {
+        if (!value["AddOnSubtitles"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `OverrideTranscodeParameter.AddOnSubtitles` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["AddOnSubtitles"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            AddOnSubtitle item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_addOnSubtitles.push_back(item);
+        }
+        m_addOnSubtitlesHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -172,6 +243,53 @@ void OverrideTranscodeParameter::ToJsonObject(rapidjson::Value &value, rapidjson
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_tEHDConfig.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_subtitleTemplateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubtitleTemplate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_subtitleTemplate.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_addonAudioStreamHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AddonAudioStream";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_addonAudioStream.begin(); itr != m_addonAudioStream.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_stdExtInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StdExtInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_stdExtInfo.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_addOnSubtitlesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AddOnSubtitles";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_addOnSubtitles.begin(); itr != m_addOnSubtitles.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -271,5 +389,69 @@ void OverrideTranscodeParameter::SetTEHDConfig(const TEHDConfigForUpdate& _tEHDC
 bool OverrideTranscodeParameter::TEHDConfigHasBeenSet() const
 {
     return m_tEHDConfigHasBeenSet;
+}
+
+SubtitleTemplate OverrideTranscodeParameter::GetSubtitleTemplate() const
+{
+    return m_subtitleTemplate;
+}
+
+void OverrideTranscodeParameter::SetSubtitleTemplate(const SubtitleTemplate& _subtitleTemplate)
+{
+    m_subtitleTemplate = _subtitleTemplate;
+    m_subtitleTemplateHasBeenSet = true;
+}
+
+bool OverrideTranscodeParameter::SubtitleTemplateHasBeenSet() const
+{
+    return m_subtitleTemplateHasBeenSet;
+}
+
+vector<MediaInputInfo> OverrideTranscodeParameter::GetAddonAudioStream() const
+{
+    return m_addonAudioStream;
+}
+
+void OverrideTranscodeParameter::SetAddonAudioStream(const vector<MediaInputInfo>& _addonAudioStream)
+{
+    m_addonAudioStream = _addonAudioStream;
+    m_addonAudioStreamHasBeenSet = true;
+}
+
+bool OverrideTranscodeParameter::AddonAudioStreamHasBeenSet() const
+{
+    return m_addonAudioStreamHasBeenSet;
+}
+
+string OverrideTranscodeParameter::GetStdExtInfo() const
+{
+    return m_stdExtInfo;
+}
+
+void OverrideTranscodeParameter::SetStdExtInfo(const string& _stdExtInfo)
+{
+    m_stdExtInfo = _stdExtInfo;
+    m_stdExtInfoHasBeenSet = true;
+}
+
+bool OverrideTranscodeParameter::StdExtInfoHasBeenSet() const
+{
+    return m_stdExtInfoHasBeenSet;
+}
+
+vector<AddOnSubtitle> OverrideTranscodeParameter::GetAddOnSubtitles() const
+{
+    return m_addOnSubtitles;
+}
+
+void OverrideTranscodeParameter::SetAddOnSubtitles(const vector<AddOnSubtitle>& _addOnSubtitles)
+{
+    m_addOnSubtitles = _addOnSubtitles;
+    m_addOnSubtitlesHasBeenSet = true;
+}
+
+bool OverrideTranscodeParameter::AddOnSubtitlesHasBeenSet() const
+{
+    return m_addOnSubtitlesHasBeenSet;
 }
 

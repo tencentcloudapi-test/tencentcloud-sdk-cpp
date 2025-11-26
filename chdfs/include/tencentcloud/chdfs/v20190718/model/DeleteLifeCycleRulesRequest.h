@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取多个生命周期规则ID，上限为10
                      * @return LifeCycleRuleIds 多个生命周期规则ID，上限为10
+                     * 
                      */
                     std::vector<uint64_t> GetLifeCycleRuleIds() const;
 
                     /**
                      * 设置多个生命周期规则ID，上限为10
-                     * @param LifeCycleRuleIds 多个生命周期规则ID，上限为10
+                     * @param _lifeCycleRuleIds 多个生命周期规则ID，上限为10
+                     * 
                      */
                     void SetLifeCycleRuleIds(const std::vector<uint64_t>& _lifeCycleRuleIds);
 
                     /**
                      * 判断参数 LifeCycleRuleIds 是否已赋值
                      * @return LifeCycleRuleIds 是否已赋值
+                     * 
                      */
                     bool LifeCycleRuleIdsHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,21 +44,26 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取动作顺序(2,1 or 1,2) 。1代表张嘴，2代表闭眼。
-                     * @return ActionSequence 动作顺序(2,1 or 1,2) 。1代表张嘴，2代表闭眼。
+                     * 获取动作顺序，例如：2,1 or 1,2。
+- 1代表张嘴，2代表闭眼。
+                     * @return ActionSequence 动作顺序，例如：2,1 or 1,2。
+- 1代表张嘴，2代表闭眼。
+                     * 
                      */
                     std::string GetActionSequence() const;
 
                     /**
                      * 判断参数 ActionSequence 是否已赋值
                      * @return ActionSequence 是否已赋值
+                     * 
                      */
                     bool ActionSequenceHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 动作顺序(2,1 or 1,2) 。1代表张嘴，2代表闭眼。
+                     * 动作顺序，例如：2,1 or 1,2。
+- 1代表张嘴，2代表闭眼。
                      */
                     std::string m_actionSequence;
                     bool m_actionSequenceHasBeenSet;

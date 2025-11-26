@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,74 +49,107 @@ namespace TencentCloud
                     /**
                      * 获取用户网关唯一ID
                      * @return CustomerGatewayId 用户网关唯一ID
+                     * 
                      */
                     std::string GetCustomerGatewayId() const;
 
                     /**
                      * 设置用户网关唯一ID
-                     * @param CustomerGatewayId 用户网关唯一ID
+                     * @param _customerGatewayId 用户网关唯一ID
+                     * 
                      */
                     void SetCustomerGatewayId(const std::string& _customerGatewayId);
 
                     /**
                      * 判断参数 CustomerGatewayId 是否已赋值
                      * @return CustomerGatewayId 是否已赋值
+                     * 
                      */
                     bool CustomerGatewayIdHasBeenSet() const;
 
                     /**
                      * 获取网关名称
                      * @return CustomerGatewayName 网关名称
+                     * 
                      */
                     std::string GetCustomerGatewayName() const;
 
                     /**
                      * 设置网关名称
-                     * @param CustomerGatewayName 网关名称
+                     * @param _customerGatewayName 网关名称
+                     * 
                      */
                     void SetCustomerGatewayName(const std::string& _customerGatewayName);
 
                     /**
                      * 判断参数 CustomerGatewayName 是否已赋值
                      * @return CustomerGatewayName 是否已赋值
+                     * 
                      */
                     bool CustomerGatewayNameHasBeenSet() const;
 
                     /**
                      * 获取公网地址
                      * @return IpAddress 公网地址
+                     * 
                      */
                     std::string GetIpAddress() const;
 
                     /**
                      * 设置公网地址
-                     * @param IpAddress 公网地址
+                     * @param _ipAddress 公网地址
+                     * 
                      */
                     void SetIpAddress(const std::string& _ipAddress);
 
                     /**
                      * 判断参数 IpAddress 是否已赋值
                      * @return IpAddress 是否已赋值
+                     * 
                      */
                     bool IpAddressHasBeenSet() const;
 
                     /**
                      * 获取创建时间
                      * @return CreatedTime 创建时间
+                     * 
                      */
                     std::string GetCreatedTime() const;
 
                     /**
                      * 设置创建时间
-                     * @param CreatedTime 创建时间
+                     * @param _createdTime 创建时间
+                     * 
                      */
                     void SetCreatedTime(const std::string& _createdTime);
 
                     /**
                      * 判断参数 CreatedTime 是否已赋值
                      * @return CreatedTime 是否已赋值
+                     * 
                      */
                     bool CreatedTimeHasBeenSet() const;
+
+                    /**
+                     * 获取BGP ASN。
+                     * @return BgpAsn BGP ASN。
+                     * 
+                     */
+                    uint64_t GetBgpAsn() const;
+
+                    /**
+                     * 设置BGP ASN。
+                     * @param _bgpAsn BGP ASN。
+                     * 
+                     */
+                    void SetBgpAsn(const uint64_t& _bgpAsn);
+
+                    /**
+                     * 判断参数 BgpAsn 是否已赋值
+                     * @return BgpAsn 是否已赋值
+                     * 
+                     */
+                    bool BgpAsnHasBeenSet() const;
 
                 private:
 
@@ -143,6 +176,12 @@ namespace TencentCloud
                      */
                     std::string m_createdTime;
                     bool m_createdTimeHasBeenSet;
+
+                    /**
+                     * BGP ASN。
+                     */
+                    uint64_t m_bgpAsn;
+                    bool m_bgpAsnHasBeenSet;
 
                 };
             }

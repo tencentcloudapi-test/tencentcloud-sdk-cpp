@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 接口调用者信息
+                * 接口调用的员工信息
                 */
                 class UserInfo : public AbstractModel
                 {
@@ -47,123 +47,173 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取自定义用户编号
-                     * @return CustomUserId 自定义用户编号
-                     */
-                    std::string GetCustomUserId() const;
+                     * 获取第三方应用平台自定义，对应第三方平台子客企业员工的唯一标识。
 
-                    /**
-                     * 设置自定义用户编号
-                     * @param CustomUserId 自定义用户编号
-                     */
-                    void SetCustomUserId(const std::string& _customUserId);
 
-                    /**
-                     * 判断参数 CustomUserId 是否已赋值
-                     * @return CustomUserId 是否已赋值
-                     */
-                    bool CustomUserIdHasBeenSet() const;
+注意:
+1. OpenId在子客企业对应一个真实员工，**本应用唯一, 不可重复使用**，最大64位字符串
+2. 可使用用户在贵方企业系统中的Userid或者hash值作为子客企业的员工OpenId
+3. **员工加入企业后**, 可以通过<a href="https://qian.tencent.com/developers/partnerApis/accounts/CreateConsoleLoginUrl" target="_blank">生成子客登录链接</a>登录子客控制台后, 在**组织架构**模块查看员工们的OpenId, 样式如下图
+![image](https://qcloudimg.tencent-cloud.cn/raw/bb67fb66c926759df3a0af5838fdafd5.png)
+                     * @return OpenId 第三方应用平台自定义，对应第三方平台子客企业员工的唯一标识。
 
-                    /**
-                     * 获取用户的来源渠道
-                     * @return Channel 用户的来源渠道
-                     */
-                    std::string GetChannel() const;
 
-                    /**
-                     * 设置用户的来源渠道
-                     * @param Channel 用户的来源渠道
-                     */
-                    void SetChannel(const std::string& _channel);
-
-                    /**
-                     * 判断参数 Channel 是否已赋值
-                     * @return Channel 是否已赋值
-                     */
-                    bool ChannelHasBeenSet() const;
-
-                    /**
-                     * 获取用户在渠道的编号
-                     * @return OpenId 用户在渠道的编号
+注意:
+1. OpenId在子客企业对应一个真实员工，**本应用唯一, 不可重复使用**，最大64位字符串
+2. 可使用用户在贵方企业系统中的Userid或者hash值作为子客企业的员工OpenId
+3. **员工加入企业后**, 可以通过<a href="https://qian.tencent.com/developers/partnerApis/accounts/CreateConsoleLoginUrl" target="_blank">生成子客登录链接</a>登录子客控制台后, 在**组织架构**模块查看员工们的OpenId, 样式如下图
+![image](https://qcloudimg.tencent-cloud.cn/raw/bb67fb66c926759df3a0af5838fdafd5.png)
+                     * 
                      */
                     std::string GetOpenId() const;
 
                     /**
-                     * 设置用户在渠道的编号
-                     * @param OpenId 用户在渠道的编号
+                     * 设置第三方应用平台自定义，对应第三方平台子客企业员工的唯一标识。
+
+
+注意:
+1. OpenId在子客企业对应一个真实员工，**本应用唯一, 不可重复使用**，最大64位字符串
+2. 可使用用户在贵方企业系统中的Userid或者hash值作为子客企业的员工OpenId
+3. **员工加入企业后**, 可以通过<a href="https://qian.tencent.com/developers/partnerApis/accounts/CreateConsoleLoginUrl" target="_blank">生成子客登录链接</a>登录子客控制台后, 在**组织架构**模块查看员工们的OpenId, 样式如下图
+![image](https://qcloudimg.tencent-cloud.cn/raw/bb67fb66c926759df3a0af5838fdafd5.png)
+                     * @param _openId 第三方应用平台自定义，对应第三方平台子客企业员工的唯一标识。
+
+
+注意:
+1. OpenId在子客企业对应一个真实员工，**本应用唯一, 不可重复使用**，最大64位字符串
+2. 可使用用户在贵方企业系统中的Userid或者hash值作为子客企业的员工OpenId
+3. **员工加入企业后**, 可以通过<a href="https://qian.tencent.com/developers/partnerApis/accounts/CreateConsoleLoginUrl" target="_blank">生成子客登录链接</a>登录子客控制台后, 在**组织架构**模块查看员工们的OpenId, 样式如下图
+![image](https://qcloudimg.tencent-cloud.cn/raw/bb67fb66c926759df3a0af5838fdafd5.png)
+                     * 
                      */
                     void SetOpenId(const std::string& _openId);
 
                     /**
                      * 判断参数 OpenId 是否已赋值
                      * @return OpenId 是否已赋值
+                     * 
                      */
                     bool OpenIdHasBeenSet() const;
 
                     /**
-                     * 获取用户真实IP
-                     * @return ClientIp 用户真实IP
+                     * 获取内部参数，暂未开放使用
+                     * @return Channel 内部参数，暂未开放使用
+                     * @deprecated
+                     */
+                    std::string GetChannel() const;
+
+                    /**
+                     * 设置内部参数，暂未开放使用
+                     * @param _channel 内部参数，暂未开放使用
+                     * @deprecated
+                     */
+                    void SetChannel(const std::string& _channel);
+
+                    /**
+                     * 判断参数 Channel 是否已赋值
+                     * @return Channel 是否已赋值
+                     * @deprecated
+                     */
+                    bool ChannelHasBeenSet() const;
+
+                    /**
+                     * 获取内部参数，暂未开放使用
+                     * @return CustomUserId 内部参数，暂未开放使用
+                     * @deprecated
+                     */
+                    std::string GetCustomUserId() const;
+
+                    /**
+                     * 设置内部参数，暂未开放使用
+                     * @param _customUserId 内部参数，暂未开放使用
+                     * @deprecated
+                     */
+                    void SetCustomUserId(const std::string& _customUserId);
+
+                    /**
+                     * 判断参数 CustomUserId 是否已赋值
+                     * @return CustomUserId 是否已赋值
+                     * @deprecated
+                     */
+                    bool CustomUserIdHasBeenSet() const;
+
+                    /**
+                     * 获取内部参数，暂未开放使用
+                     * @return ClientIp 内部参数，暂未开放使用
+                     * @deprecated
                      */
                     std::string GetClientIp() const;
 
                     /**
-                     * 设置用户真实IP
-                     * @param ClientIp 用户真实IP
+                     * 设置内部参数，暂未开放使用
+                     * @param _clientIp 内部参数，暂未开放使用
+                     * @deprecated
                      */
                     void SetClientIp(const std::string& _clientIp);
 
                     /**
                      * 判断参数 ClientIp 是否已赋值
                      * @return ClientIp 是否已赋值
+                     * @deprecated
                      */
                     bool ClientIpHasBeenSet() const;
 
                     /**
-                     * 获取用户代理IP
-                     * @return ProxyIp 用户代理IP
+                     * 获取内部参数，暂未开放使用
+                     * @return ProxyIp 内部参数，暂未开放使用
+                     * @deprecated
                      */
                     std::string GetProxyIp() const;
 
                     /**
-                     * 设置用户代理IP
-                     * @param ProxyIp 用户代理IP
+                     * 设置内部参数，暂未开放使用
+                     * @param _proxyIp 内部参数，暂未开放使用
+                     * @deprecated
                      */
                     void SetProxyIp(const std::string& _proxyIp);
 
                     /**
                      * 判断参数 ProxyIp 是否已赋值
                      * @return ProxyIp 是否已赋值
+                     * @deprecated
                      */
                     bool ProxyIpHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 自定义用户编号
-                     */
-                    std::string m_customUserId;
-                    bool m_customUserIdHasBeenSet;
+                     * 第三方应用平台自定义，对应第三方平台子客企业员工的唯一标识。
 
-                    /**
-                     * 用户的来源渠道
-                     */
-                    std::string m_channel;
-                    bool m_channelHasBeenSet;
 
-                    /**
-                     * 用户在渠道的编号
+注意:
+1. OpenId在子客企业对应一个真实员工，**本应用唯一, 不可重复使用**，最大64位字符串
+2. 可使用用户在贵方企业系统中的Userid或者hash值作为子客企业的员工OpenId
+3. **员工加入企业后**, 可以通过<a href="https://qian.tencent.com/developers/partnerApis/accounts/CreateConsoleLoginUrl" target="_blank">生成子客登录链接</a>登录子客控制台后, 在**组织架构**模块查看员工们的OpenId, 样式如下图
+![image](https://qcloudimg.tencent-cloud.cn/raw/bb67fb66c926759df3a0af5838fdafd5.png)
                      */
                     std::string m_openId;
                     bool m_openIdHasBeenSet;
 
                     /**
-                     * 用户真实IP
+                     * 内部参数，暂未开放使用
+                     */
+                    std::string m_channel;
+                    bool m_channelHasBeenSet;
+
+                    /**
+                     * 内部参数，暂未开放使用
+                     */
+                    std::string m_customUserId;
+                    bool m_customUserIdHasBeenSet;
+
+                    /**
+                     * 内部参数，暂未开放使用
                      */
                     std::string m_clientIp;
                     bool m_clientIpHasBeenSet;
 
                     /**
-                     * 用户代理IP
+                     * 内部参数，暂未开放使用
                      */
                     std::string m_proxyIp;
                     bool m_proxyIpHasBeenSet;

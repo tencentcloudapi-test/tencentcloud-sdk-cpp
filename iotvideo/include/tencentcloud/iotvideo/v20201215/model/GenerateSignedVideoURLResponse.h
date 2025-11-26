@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,14 @@ namespace TencentCloud
                     /**
                      * 获取视频防盗链播放URL
                      * @return SignedVideoURL 视频防盗链播放URL
+                     * 
                      */
                     std::string GetSignedVideoURL() const;
 
                     /**
                      * 判断参数 SignedVideoURL 是否已赋值
                      * @return SignedVideoURL 是否已赋值
+                     * 
                      */
                     bool SignedVideoURLHasBeenSet() const;
 

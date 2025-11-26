@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,20 +44,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取网络探测实例`ID`数组。形如：[`netd-12345678`]
-                     * @return NetDetectIds 网络探测实例`ID`数组。形如：[`netd-12345678`]
+                     * 获取网络探测实例`ID`数组。形如：[`netd-12345678`]。
+                     * @return NetDetectIds 网络探测实例`ID`数组。形如：[`netd-12345678`]。
+                     * 
                      */
                     std::vector<std::string> GetNetDetectIds() const;
 
                     /**
-                     * 设置网络探测实例`ID`数组。形如：[`netd-12345678`]
-                     * @param NetDetectIds 网络探测实例`ID`数组。形如：[`netd-12345678`]
+                     * 设置网络探测实例`ID`数组。形如：[`netd-12345678`]。
+                     * @param _netDetectIds 网络探测实例`ID`数组。形如：[`netd-12345678`]。
+                     * 
                      */
                     void SetNetDetectIds(const std::vector<std::string>& _netDetectIds);
 
                     /**
                      * 判断参数 NetDetectIds 是否已赋值
                      * @return NetDetectIds 是否已赋值
+                     * 
                      */
                     bool NetDetectIdsHasBeenSet() const;
 
@@ -72,6 +75,7 @@ namespace TencentCloud
 <li>net-detect-id - String - （过滤条件）网络探测实例ID，形如：netd-12345678</li>
 <li>subnet-id - String - （过滤条件）子网实例ID，形如：subnet-12345678</li>
 <li>net-detect-name - String - （过滤条件）网络探测名称</li>
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
@@ -81,60 +85,68 @@ namespace TencentCloud
 <li>net-detect-id - String - （过滤条件）网络探测实例ID，形如：netd-12345678</li>
 <li>subnet-id - String - （过滤条件）子网实例ID，形如：subnet-12345678</li>
 <li>net-detect-name - String - （过滤条件）网络探测名称</li>
-                     * @param Filters 过滤条件，参数不支持同时指定NetDetectIds和Filters。
+                     * @param _filters 过滤条件，参数不支持同时指定NetDetectIds和Filters。
 <li>vpc-id - String - （过滤条件）VPC实例ID，形如：vpc-12345678</li>
 <li>net-detect-id - String - （过滤条件）网络探测实例ID，形如：netd-12345678</li>
 <li>subnet-id - String - （过滤条件）子网实例ID，形如：subnet-12345678</li>
 <li>net-detect-name - String - （过滤条件）网络探测名称</li>
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
                      * 获取偏移量，默认为0。
                      * @return Offset 偏移量，默认为0。
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，默认为0。
-                     * @param Offset 偏移量，默认为0。
+                     * @param _offset 偏移量，默认为0。
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取返回数量，默认为20，最大值为100。
                      * @return Limit 返回数量，默认为20，最大值为100。
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置返回数量，默认为20，最大值为100。
-                     * @param Limit 返回数量，默认为20，最大值为100。
+                     * @param _limit 返回数量，默认为20，最大值为100。
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 网络探测实例`ID`数组。形如：[`netd-12345678`]
+                     * 网络探测实例`ID`数组。形如：[`netd-12345678`]。
                      */
                     std::vector<std::string> m_netDetectIds;
                     bool m_netDetectIdsHasBeenSet;

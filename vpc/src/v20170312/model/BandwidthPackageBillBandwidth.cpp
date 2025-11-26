@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,11 +32,11 @@ CoreInternalOutcome BandwidthPackageBillBandwidth::Deserialize(const rapidjson::
 
     if (value.HasMember("BandwidthUsage") && !value["BandwidthUsage"].IsNull())
     {
-        if (!value["BandwidthUsage"].IsUint64())
+        if (!value["BandwidthUsage"].IsLosslessDouble())
         {
-            return CoreInternalOutcome(Core::Error("response `BandwidthPackageBillBandwidth.BandwidthUsage` IsUint64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `BandwidthPackageBillBandwidth.BandwidthUsage` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
         }
-        m_bandwidthUsage = value["BandwidthUsage"].GetUint64();
+        m_bandwidthUsage = value["BandwidthUsage"].GetDouble();
         m_bandwidthUsageHasBeenSet = true;
     }
 
@@ -58,12 +58,12 @@ void BandwidthPackageBillBandwidth::ToJsonObject(rapidjson::Value &value, rapidj
 }
 
 
-uint64_t BandwidthPackageBillBandwidth::GetBandwidthUsage() const
+double BandwidthPackageBillBandwidth::GetBandwidthUsage() const
 {
     return m_bandwidthUsage;
 }
 
-void BandwidthPackageBillBandwidth::SetBandwidthUsage(const uint64_t& _bandwidthUsage)
+void BandwidthPackageBillBandwidth::SetBandwidthUsage(const double& _bandwidthUsage)
 {
     m_bandwidthUsage = _bandwidthUsage;
     m_bandwidthUsageHasBeenSet = true;

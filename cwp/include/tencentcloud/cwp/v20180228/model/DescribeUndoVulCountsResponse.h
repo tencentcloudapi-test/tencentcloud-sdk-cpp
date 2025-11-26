@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,43 +45,43 @@ namespace TencentCloud
 
                     /**
                      * 获取未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return UndoVulCount 未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetUndoVulCount() const;
 
                     /**
                      * 判断参数 UndoVulCount 是否已赋值
                      * @return UndoVulCount 是否已赋值
+                     * 
                      */
                     bool UndoVulCountHasBeenSet() const;
 
                     /**
                      * 获取未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return UndoHostCount 未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetUndoHostCount() const;
 
                     /**
                      * 判断参数 UndoHostCount 是否已赋值
                      * @return UndoHostCount 是否已赋值
+                     * 
                      */
                     bool UndoHostCountHasBeenSet() const;
 
                     /**
                      * 获取普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return NotProfessionCount 普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetNotProfessionCount() const;
 
                     /**
                      * 判断参数 NotProfessionCount 是否已赋值
                      * @return NotProfessionCount 是否已赋值
+                     * 
                      */
                     bool NotProfessionCountHasBeenSet() const;
 
@@ -89,21 +89,18 @@ namespace TencentCloud
 
                     /**
                      * 未处理的漏洞数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_undoVulCount;
                     bool m_undoVulCountHasBeenSet;
 
                     /**
                      * 未处理的主机数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_undoHostCount;
                     bool m_undoHostCountHasBeenSet;
 
                     /**
                      * 普通版主机数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_notProfessionCount;
                     bool m_notProfessionCountHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DownloadUserCertResponse::DownloadUserCertResponse() :
     m_certNameHasBeenSet(false),
-    m_certCtxHasBeenSet(false)
+    m_certCtxHasBeenSet(false),
+    m_certHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome DownloadUserCertResponse::Deserialize(const string &payload)
         m_certCtxHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Cert") && !rsp["Cert"].IsNull())
+    {
+        if (!rsp["Cert"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Cert` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cert = string(rsp["Cert"].GetString());
+        m_certHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string DownloadUserCertResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_certCtx.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_certHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Cert";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cert.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ string DownloadUserCertResponse::GetCertCtx() const
 bool DownloadUserCertResponse::CertCtxHasBeenSet() const
 {
     return m_certCtxHasBeenSet;
+}
+
+string DownloadUserCertResponse::GetCert() const
+{
+    return m_cert;
+}
+
+bool DownloadUserCertResponse::CertHasBeenSet() const
+{
+    return m_certHasBeenSet;
 }
 
 

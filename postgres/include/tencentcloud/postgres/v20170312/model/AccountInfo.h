@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,110 +49,203 @@ namespace TencentCloud
                     /**
                      * 获取实例ID，形如postgres-lnp6j617
                      * @return DBInstanceId 实例ID，形如postgres-lnp6j617
+                     * 
                      */
                     std::string GetDBInstanceId() const;
 
                     /**
                      * 设置实例ID，形如postgres-lnp6j617
-                     * @param DBInstanceId 实例ID，形如postgres-lnp6j617
+                     * @param _dBInstanceId 实例ID，形如postgres-lnp6j617
+                     * 
                      */
                     void SetDBInstanceId(const std::string& _dBInstanceId);
 
                     /**
                      * 判断参数 DBInstanceId 是否已赋值
                      * @return DBInstanceId 是否已赋值
+                     * 
                      */
                     bool DBInstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取帐号
-                     * @return UserName 帐号
+                     * 获取账号
+                     * @return UserName 账号
+                     * 
                      */
                     std::string GetUserName() const;
 
                     /**
-                     * 设置帐号
-                     * @param UserName 帐号
+                     * 设置账号
+                     * @param _userName 账号
+                     * 
                      */
                     void SetUserName(const std::string& _userName);
 
                     /**
                      * 判断参数 UserName 是否已赋值
                      * @return UserName 是否已赋值
+                     * 
                      */
                     bool UserNameHasBeenSet() const;
 
                     /**
-                     * 获取帐号备注
-                     * @return Remark 帐号备注
+                     * 获取账号备注
+                     * @return Remark 账号备注
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置帐号备注
-                     * @param Remark 帐号备注
+                     * 设置账号备注
+                     * @param _remark 账号备注
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取帐号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，-1-删除中
-                     * @return Status 帐号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，-1-删除中
+                     * 获取账号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，5-锁定中，-1-删除中
+                     * @return Status 账号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，5-锁定中，-1-删除中
+                     * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置帐号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，-1-删除中
-                     * @param Status 帐号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，-1-删除中
+                     * 设置账号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，5-锁定中，-1-删除中
+                     * @param _status 账号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，5-锁定中，-1-删除中
+                     * 
                      */
                     void SetStatus(const int64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取帐号创建时间
-                     * @return CreateTime 帐号创建时间
+                     * 获取账号创建时间
+                     * @return CreateTime 账号创建时间
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置帐号创建时间
-                     * @param CreateTime 帐号创建时间
+                     * 设置账号创建时间
+                     * @param _createTime 账号创建时间
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取帐号最后一次更新时间
-                     * @return UpdateTime 帐号最后一次更新时间
+                     * 获取账号最后一次更新时间
+                     * @return UpdateTime 账号最后一次更新时间
+                     * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置帐号最后一次更新时间
-                     * @param UpdateTime 帐号最后一次更新时间
+                     * 设置账号最后一次更新时间
+                     * @param _updateTime 账号最后一次更新时间
+                     * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
 
                     /**
                      * 判断参数 UpdateTime 是否已赋值
                      * @return UpdateTime 是否已赋值
+                     * 
                      */
                     bool UpdateTimeHasBeenSet() const;
+
+                    /**
+                     * 获取账号密码最近一次修改时间。
+
+此字段只在2025-10-31后才生效，之前无论是否修改密码，该值统一为默认值：0000-00-00 00:00:00
+同时仅通过云API或者管控控制台修改密码，才会更新该字段。
+                     * @return PasswordUpdateTime 账号密码最近一次修改时间。
+
+此字段只在2025-10-31后才生效，之前无论是否修改密码，该值统一为默认值：0000-00-00 00:00:00
+同时仅通过云API或者管控控制台修改密码，才会更新该字段。
+                     * 
+                     */
+                    std::string GetPasswordUpdateTime() const;
+
+                    /**
+                     * 设置账号密码最近一次修改时间。
+
+此字段只在2025-10-31后才生效，之前无论是否修改密码，该值统一为默认值：0000-00-00 00:00:00
+同时仅通过云API或者管控控制台修改密码，才会更新该字段。
+                     * @param _passwordUpdateTime 账号密码最近一次修改时间。
+
+此字段只在2025-10-31后才生效，之前无论是否修改密码，该值统一为默认值：0000-00-00 00:00:00
+同时仅通过云API或者管控控制台修改密码，才会更新该字段。
+                     * 
+                     */
+                    void SetPasswordUpdateTime(const std::string& _passwordUpdateTime);
+
+                    /**
+                     * 判断参数 PasswordUpdateTime 是否已赋值
+                     * @return PasswordUpdateTime 是否已赋值
+                     * 
+                     */
+                    bool PasswordUpdateTimeHasBeenSet() const;
+
+                    /**
+                     * 获取账号类型。支持normal、tencentDBSuper。normal指代普通用户，tencentDBSuper为拥有pg_tencentdb_superuser角色的账号。
+                     * @return UserType 账号类型。支持normal、tencentDBSuper。normal指代普通用户，tencentDBSuper为拥有pg_tencentdb_superuser角色的账号。
+                     * 
+                     */
+                    std::string GetUserType() const;
+
+                    /**
+                     * 设置账号类型。支持normal、tencentDBSuper。normal指代普通用户，tencentDBSuper为拥有pg_tencentdb_superuser角色的账号。
+                     * @param _userType 账号类型。支持normal、tencentDBSuper。normal指代普通用户，tencentDBSuper为拥有pg_tencentdb_superuser角色的账号。
+                     * 
+                     */
+                    void SetUserType(const std::string& _userType);
+
+                    /**
+                     * 判断参数 UserType 是否已赋值
+                     * @return UserType 是否已赋值
+                     * 
+                     */
+                    bool UserTypeHasBeenSet() const;
+
+                    /**
+                     * 获取用户账号是否启用CAM验证
+                     * @return OpenCam 用户账号是否启用CAM验证
+                     * 
+                     */
+                    bool GetOpenCam() const;
+
+                    /**
+                     * 设置用户账号是否启用CAM验证
+                     * @param _openCam 用户账号是否启用CAM验证
+                     * 
+                     */
+                    void SetOpenCam(const bool& _openCam);
+
+                    /**
+                     * 判断参数 OpenCam 是否已赋值
+                     * @return OpenCam 是否已赋值
+                     * 
+                     */
+                    bool OpenCamHasBeenSet() const;
 
                 private:
 
@@ -163,34 +256,55 @@ namespace TencentCloud
                     bool m_dBInstanceIdHasBeenSet;
 
                     /**
-                     * 帐号
+                     * 账号
                      */
                     std::string m_userName;
                     bool m_userNameHasBeenSet;
 
                     /**
-                     * 帐号备注
+                     * 账号备注
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * 帐号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，-1-删除中
+                     * 账号状态。 1-创建中，2-正常，3-修改中，4-密码重置中，5-锁定中，-1-删除中
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * 帐号创建时间
+                     * 账号创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * 帐号最后一次更新时间
+                     * 账号最后一次更新时间
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
+
+                    /**
+                     * 账号密码最近一次修改时间。
+
+此字段只在2025-10-31后才生效，之前无论是否修改密码，该值统一为默认值：0000-00-00 00:00:00
+同时仅通过云API或者管控控制台修改密码，才会更新该字段。
+                     */
+                    std::string m_passwordUpdateTime;
+                    bool m_passwordUpdateTimeHasBeenSet;
+
+                    /**
+                     * 账号类型。支持normal、tencentDBSuper。normal指代普通用户，tencentDBSuper为拥有pg_tencentdb_superuser角色的账号。
+                     */
+                    std::string m_userType;
+                    bool m_userTypeHasBeenSet;
+
+                    /**
+                     * 用户账号是否启用CAM验证
+                     */
+                    bool m_openCam;
+                    bool m_openCamHasBeenSet;
 
                 };
             }

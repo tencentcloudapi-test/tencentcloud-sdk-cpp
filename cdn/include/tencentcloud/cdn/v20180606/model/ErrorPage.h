@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,32 +48,35 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取状态码重定向配置开关
+                     * 获取状态码重定向配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Switch 状态码重定向配置开关
+                     * @return Switch 状态码重定向配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置状态码重定向配置开关
+                     * 设置状态码重定向配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Switch 状态码重定向配置开关
+                     * @param _switch 状态码重定向配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -82,27 +85,30 @@ off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PageRules 状态码重定向规则配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ErrorPageRule> GetPageRules() const;
 
                     /**
                      * 设置状态码重定向规则配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PageRules 状态码重定向规则配置
+                     * @param _pageRules 状态码重定向规则配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPageRules(const std::vector<ErrorPageRule>& _pageRules);
 
                     /**
                      * 判断参数 PageRules 是否已赋值
                      * @return PageRules 是否已赋值
+                     * 
                      */
                     bool PageRulesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 状态码重定向配置开关
+                     * 状态码重定向配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。

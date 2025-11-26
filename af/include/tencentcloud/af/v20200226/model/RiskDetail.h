@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取风险码 参数详细定义请加微信：TYXGJ-01
                      * @return RiskCode 风险码 参数详细定义请加微信：TYXGJ-01
+                     * 
                      */
                     uint64_t GetRiskCode() const;
 
                     /**
                      * 设置风险码 参数详细定义请加微信：TYXGJ-01
-                     * @param RiskCode 风险码 参数详细定义请加微信：TYXGJ-01
+                     * @param _riskCode 风险码 参数详细定义请加微信：TYXGJ-01
+                     * 
                      */
                     void SetRiskCode(const uint64_t& _riskCode);
 
                     /**
                      * 判断参数 RiskCode 是否已赋值
                      * @return RiskCode 是否已赋值
+                     * 
                      */
                     bool RiskCodeHasBeenSet() const;
 

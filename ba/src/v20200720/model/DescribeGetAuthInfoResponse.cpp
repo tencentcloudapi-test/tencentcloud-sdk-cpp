@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ using namespace std;
 DescribeGetAuthInfoResponse::DescribeGetAuthInfoResponse() :
     m_isTenPayMaskedHasBeenSet(false),
     m_isAuthenticatedHasBeenSet(false),
-    m_typeHasBeenSet(false)
+    m_typeHasBeenSet(false),
+    m_levelHasBeenSet(false)
 {
 }
 
@@ -94,6 +95,16 @@ CoreInternalOutcome DescribeGetAuthInfoResponse::Deserialize(const string &paylo
         m_typeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Level") && !rsp["Level"].IsNull())
+    {
+        if (!rsp["Level"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Level` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_level = string(rsp["Level"].GetString());
+        m_levelHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -128,11 +139,19 @@ string DescribeGetAuthInfoResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_levelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Level";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_level.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -168,6 +187,16 @@ string DescribeGetAuthInfoResponse::GetType() const
 bool DescribeGetAuthInfoResponse::TypeHasBeenSet() const
 {
     return m_typeHasBeenSet;
+}
+
+string DescribeGetAuthInfoResponse::GetLevel() const
+{
+    return m_level;
+}
+
+bool DescribeGetAuthInfoResponse::LevelHasBeenSet() const
+{
+    return m_levelHasBeenSet;
 }
 
 

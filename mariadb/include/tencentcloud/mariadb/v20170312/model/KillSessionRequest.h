@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,65 @@ namespace TencentCloud
                     /**
                      * 获取实例ID
                      * @return InstanceId 实例ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * @param _instanceId 实例ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取会话ID列表
                      * @return SessionId 会话ID列表
+                     * 
                      */
                     std::vector<int64_t> GetSessionId() const;
 
                     /**
                      * 设置会话ID列表
-                     * @param SessionId 会话ID列表
+                     * @param _sessionId 会话ID列表
+                     * 
                      */
                     void SetSessionId(const std::vector<int64_t>& _sessionId);
 
                     /**
                      * 判断参数 SessionId 是否已赋值
                      * @return SessionId 是否已赋值
+                     * 
                      */
                     bool SessionIdHasBeenSet() const;
+
+                    /**
+                     * 获取节点ID，可指定主节点或者备节点进行kill。可选参数，不传默认为主节点。
+                     * @return NodeId 节点ID，可指定主节点或者备节点进行kill。可选参数，不传默认为主节点。
+                     * 
+                     */
+                    std::string GetNodeId() const;
+
+                    /**
+                     * 设置节点ID，可指定主节点或者备节点进行kill。可选参数，不传默认为主节点。
+                     * @param _nodeId 节点ID，可指定主节点或者备节点进行kill。可选参数，不传默认为主节点。
+                     * 
+                     */
+                    void SetNodeId(const std::string& _nodeId);
+
+                    /**
+                     * 判断参数 NodeId 是否已赋值
+                     * @return NodeId 是否已赋值
+                     * 
+                     */
+                    bool NodeIdHasBeenSet() const;
 
                 private:
 
@@ -91,6 +118,12 @@ namespace TencentCloud
                      */
                     std::vector<int64_t> m_sessionId;
                     bool m_sessionIdHasBeenSet;
+
+                    /**
+                     * 节点ID，可指定主节点或者备节点进行kill。可选参数，不传默认为主节点。
+                     */
+                    std::string m_nodeId;
+                    bool m_nodeIdHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 合同（流程）下载信息
+                * 签署流程下载信息
                 */
                 class DownloadFlowInfo : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取文件夹名称
                      * @return FileName 文件夹名称
+                     * 
                      */
                     std::string GetFileName() const;
 
                     /**
                      * 设置文件夹名称
-                     * @param FileName 文件夹名称
+                     * @param _fileName 文件夹名称
+                     * 
                      */
                     void SetFileName(const std::string& _fileName);
 
                     /**
                      * 判断参数 FileName 是否已赋值
                      * @return FileName 是否已赋值
+                     * 
                      */
                     bool FileNameHasBeenSet() const;
 
                     /**
-                     * 获取合同（流程）的标识数组
-                     * @return FlowIdList 合同（流程）的标识数组
+                     * 获取签署流程的标识数组
+                     * @return FlowIdList 签署流程的标识数组
+                     * 
                      */
                     std::vector<std::string> GetFlowIdList() const;
 
                     /**
-                     * 设置合同（流程）的标识数组
-                     * @param FlowIdList 合同（流程）的标识数组
+                     * 设置签署流程的标识数组
+                     * @param _flowIdList 签署流程的标识数组
+                     * 
                      */
                     void SetFlowIdList(const std::vector<std::string>& _flowIdList);
 
                     /**
                      * 判断参数 FlowIdList 是否已赋值
                      * @return FlowIdList 是否已赋值
+                     * 
                      */
                     bool FlowIdListHasBeenSet() const;
 
@@ -91,7 +97,7 @@ namespace TencentCloud
                     bool m_fileNameHasBeenSet;
 
                     /**
-                     * 合同（流程）的标识数组
+                     * 签署流程的标识数组
                      */
                     std::vector<std::string> m_flowIdList;
                     bool m_flowIdListHasBeenSet;

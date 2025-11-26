@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取是否大小写敏感
                      * @return CaseSensitive 是否大小写敏感
+                     * 
                      */
                     bool GetCaseSensitive() const;
 
                     /**
                      * 设置是否大小写敏感
-                     * @param CaseSensitive 是否大小写敏感
+                     * @param _caseSensitive 是否大小写敏感
+                     * 
                      */
                     void SetCaseSensitive(const bool& _caseSensitive);
 
                     /**
                      * 判断参数 CaseSensitive 是否已赋值
                      * @return CaseSensitive 是否已赋值
+                     * 
                      */
                     bool CaseSensitiveHasBeenSet() const;
 
                     /**
-                     * 获取需要建立索引的键值对信息；最大只能配置100个键值对
-                     * @return KeyValues 需要建立索引的键值对信息；最大只能配置100个键值对
+                     * 获取需要建立索引的键值对信息
+                     * @return KeyValues 需要建立索引的键值对信息
+                     * 
                      */
                     std::vector<KeyValueInfo> GetKeyValues() const;
 
                     /**
-                     * 设置需要建立索引的键值对信息；最大只能配置100个键值对
-                     * @param KeyValues 需要建立索引的键值对信息；最大只能配置100个键值对
+                     * 设置需要建立索引的键值对信息
+                     * @param _keyValues 需要建立索引的键值对信息
+                     * 
                      */
                     void SetKeyValues(const std::vector<KeyValueInfo>& _keyValues);
 
                     /**
                      * 判断参数 KeyValues 是否已赋值
                      * @return KeyValues 是否已赋值
+                     * 
                      */
                     bool KeyValuesHasBeenSet() const;
 
@@ -92,7 +98,7 @@ namespace TencentCloud
                     bool m_caseSensitiveHasBeenSet;
 
                     /**
-                     * 需要建立索引的键值对信息；最大只能配置100个键值对
+                     * 需要建立索引的键值对信息
                      */
                     std::vector<KeyValueInfo> m_keyValues;
                     bool m_keyValuesHasBeenSet;

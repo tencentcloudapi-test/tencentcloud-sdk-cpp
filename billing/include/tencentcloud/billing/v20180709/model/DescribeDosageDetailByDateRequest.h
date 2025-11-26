@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取查询账单开始日期，如 2019-01-01
                      * @return StartDate 查询账单开始日期，如 2019-01-01
+                     * 
                      */
                     std::string GetStartDate() const;
 
                     /**
                      * 设置查询账单开始日期，如 2019-01-01
-                     * @param StartDate 查询账单开始日期，如 2019-01-01
+                     * @param _startDate 查询账单开始日期，如 2019-01-01
+                     * 
                      */
                     void SetStartDate(const std::string& _startDate);
 
                     /**
                      * 判断参数 StartDate 是否已赋值
                      * @return StartDate 是否已赋值
+                     * 
                      */
                     bool StartDateHasBeenSet() const;
 
                     /**
                      * 获取查询账单结束日期，如 2019-01-01， 时间跨度不超过7天
                      * @return EndDate 查询账单结束日期，如 2019-01-01， 时间跨度不超过7天
+                     * 
                      */
                     std::string GetEndDate() const;
 
                     /**
                      * 设置查询账单结束日期，如 2019-01-01， 时间跨度不超过7天
-                     * @param EndDate 查询账单结束日期，如 2019-01-01， 时间跨度不超过7天
+                     * @param _endDate 查询账单结束日期，如 2019-01-01， 时间跨度不超过7天
+                     * 
                      */
                     void SetEndDate(const std::string& _endDate);
 
                     /**
                      * 判断参数 EndDate 是否已赋值
                      * @return EndDate 是否已赋值
+                     * 
                      */
                     bool EndDateHasBeenSet() const;
 
@@ -84,12 +90,10 @@ namespace TencentCloud
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -99,17 +103,17 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
                      * @return ProductCode 互动直播：
 10194   互动直播-核心机房           :
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -119,6 +123,9 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
+                     * 
                      */
                     std::string GetProductCode() const;
 
@@ -128,12 +135,10 @@ cdn业务：
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -143,17 +148,17 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
-                     * @param ProductCode 互动直播：
+
+仅支持以上产品
+                     * @param _productCode 互动直播：
 10194   互动直播-核心机房           :
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -163,12 +168,16 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
+                     * 
                      */
                     void SetProductCode(const std::string& _productCode);
 
                     /**
                      * 判断参数 ProductCode 是否已赋值
                      * @return ProductCode 是否已赋值
+                     * 
                      */
                     bool ProductCodeHasBeenSet() const;
 
@@ -177,20 +186,23 @@ cdn业务：
 非CDN业务查询时传入空字符串，返回的值为空
                      * @return Domain 查询域名 例如 www.qq.com
 非CDN业务查询时传入空字符串，返回的值为空
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置查询域名 例如 www.qq.com
 非CDN业务查询时传入空字符串，返回的值为空
-                     * @param Domain 查询域名 例如 www.qq.com
+                     * @param _domain 查询域名 例如 www.qq.com
 非CDN业务查询时传入空字符串，返回的值为空
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
@@ -199,22 +211,46 @@ cdn业务：
 2、如果传入实例名，则返回该实例明细
                      * @return InstanceID 1、如果为空，则返回EIP或CLB所有实例的明细；
 2、如果传入实例名，则返回该实例明细
+                     * 
                      */
                     std::string GetInstanceID() const;
 
                     /**
                      * 设置1、如果为空，则返回EIP或CLB所有实例的明细；
 2、如果传入实例名，则返回该实例明细
-                     * @param InstanceID 1、如果为空，则返回EIP或CLB所有实例的明细；
+                     * @param _instanceID 1、如果为空，则返回EIP或CLB所有实例的明细；
 2、如果传入实例名，则返回该实例明细
+                     * 
                      */
                     void SetInstanceID(const std::string& _instanceID);
 
                     /**
                      * 判断参数 InstanceID 是否已赋值
                      * @return InstanceID 是否已赋值
+                     * 
                      */
                     bool InstanceIDHasBeenSet() const;
+
+                    /**
+                     * 获取支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
+                     * @return PayerUin 支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
+                     * 
+                     */
+                    std::string GetPayerUin() const;
+
+                    /**
+                     * 设置支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
+                     * @param _payerUin 支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
+                     * 
+                     */
+                    void SetPayerUin(const std::string& _payerUin);
+
+                    /**
+                     * 判断参数 PayerUin 是否已赋值
+                     * @return PayerUin 是否已赋值
+                     * 
+                     */
+                    bool PayerUinHasBeenSet() const;
 
                 private:
 
@@ -236,12 +272,10 @@ cdn业务：
 10195   互动直播-边缘机房
 
 cdn业务：
-10180：CDN静态加速流量(国内)
-10181：CDN静态加速带宽(国内)
-10182：CDN静态加速普通流量
-10183：CDN静态加速普通带宽
-10231：CDN静态加速流量(海外)
-10232：CDN静态加速带宽(海外)
+102383：CDN静态加速流量(国内)
+102384：CDN静态加速带宽(国内)
+102385：CDN静态加速流量(海外)
+102386：CDN静态加速带宽(海外)
 
 100967：弹性公网IP-按流量计费
 101065：公网负载均衡-按流量计费
@@ -251,6 +285,8 @@ cdn业务：
 10227 视频直播带宽(国内)
 100763 视频直播流量(海外)
 100762 视频直播宽带(海外)
+
+仅支持以上产品
                      */
                     std::string m_productCode;
                     bool m_productCodeHasBeenSet;
@@ -268,6 +304,12 @@ cdn业务：
                      */
                     std::string m_instanceID;
                     bool m_instanceIDHasBeenSet;
+
+                    /**
+                     * 支付者的账号 ID（账号 ID 是用户在腾讯云的唯一账号标识），默认查询本账号账单，如集团管理账号需查询成员账号自付的账单，该字段需入参成员账号UIN
+                     */
+                    std::string m_payerUin;
+                    bool m_payerUinHasBeenSet;
 
                 };
             }

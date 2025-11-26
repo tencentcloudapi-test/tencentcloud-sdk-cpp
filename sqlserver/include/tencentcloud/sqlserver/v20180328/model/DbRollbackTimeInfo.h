@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取数据库名称
                      * @return DBName 数据库名称
+                     * 
                      */
                     std::string GetDBName() const;
 
                     /**
                      * 设置数据库名称
-                     * @param DBName 数据库名称
+                     * @param _dBName 数据库名称
+                     * 
                      */
                     void SetDBName(const std::string& _dBName);
 
                     /**
                      * 判断参数 DBName 是否已赋值
                      * @return DBName 是否已赋值
+                     * 
                      */
                     bool DBNameHasBeenSet() const;
 
                     /**
                      * 获取可回档开始时间
                      * @return StartTime 可回档开始时间
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
                      * 设置可回档开始时间
-                     * @param StartTime 可回档开始时间
+                     * @param _startTime 可回档开始时间
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
                      * 获取可回档结束时间
                      * @return EndTime 可回档结束时间
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
                      * 设置可回档结束时间
-                     * @param EndTime 可回档结束时间
+                     * @param _endTime 可回档结束时间
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 

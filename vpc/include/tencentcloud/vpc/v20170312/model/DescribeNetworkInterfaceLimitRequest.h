@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取要查询的CVM实例ID或弹性网卡ID
-                     * @return InstanceId 要查询的CVM实例ID或弹性网卡ID
+                     * 获取要查询的CVM实例ID或弹性网卡ID。
+                     * @return InstanceId 要查询的CVM实例ID或弹性网卡ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置要查询的CVM实例ID或弹性网卡ID
-                     * @param InstanceId 要查询的CVM实例ID或弹性网卡ID
+                     * 设置要查询的CVM实例ID或弹性网卡ID。
+                     * @param _instanceId 要查询的CVM实例ID或弹性网卡ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 要查询的CVM实例ID或弹性网卡ID
+                     * 要查询的CVM实例ID或弹性网卡ID。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;

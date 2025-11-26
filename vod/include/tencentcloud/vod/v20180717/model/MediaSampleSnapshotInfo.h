@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取特定规格的采样截图信息集合，每个元素代表一套相同规格的采样截图。
                      * @return SampleSnapshotSet 特定规格的采样截图信息集合，每个元素代表一套相同规格的采样截图。
+                     * 
                      */
                     std::vector<MediaSampleSnapshotItem> GetSampleSnapshotSet() const;
 
                     /**
                      * 设置特定规格的采样截图信息集合，每个元素代表一套相同规格的采样截图。
-                     * @param SampleSnapshotSet 特定规格的采样截图信息集合，每个元素代表一套相同规格的采样截图。
+                     * @param _sampleSnapshotSet 特定规格的采样截图信息集合，每个元素代表一套相同规格的采样截图。
+                     * 
                      */
                     void SetSampleSnapshotSet(const std::vector<MediaSampleSnapshotItem>& _sampleSnapshotSet);
 
                     /**
                      * 判断参数 SampleSnapshotSet 是否已赋值
                      * @return SampleSnapshotSet 是否已赋值
+                     * 
                      */
                     bool SampleSnapshotSetHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,90 +45,105 @@ namespace TencentCloud
                     /**
                      * 获取实例ID，形如mssql-k8voqdlz
                      * @return InstanceId 实例ID，形如mssql-k8voqdlz
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID，形如mssql-k8voqdlz
-                     * @param InstanceId 实例ID，形如mssql-k8voqdlz
+                     * @param _instanceId 实例ID，形如mssql-k8voqdlz
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取查询开始时间
-                     * @return StartTime 查询开始时间
+                     * 获取开始时间(yyyy-MM-dd HH:mm:ss)
+                     * @return StartTime 开始时间(yyyy-MM-dd HH:mm:ss)
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置查询开始时间
-                     * @param StartTime 查询开始时间
+                     * 设置开始时间(yyyy-MM-dd HH:mm:ss)
+                     * @param _startTime 开始时间(yyyy-MM-dd HH:mm:ss)
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取查询结束时间
-                     * @return EndTime 查询结束时间
+                     * 获取结束时间(yyyy-MM-dd HH:mm:ss)
+                     * @return EndTime 结束时间(yyyy-MM-dd HH:mm:ss)
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置查询结束时间
-                     * @param EndTime 查询结束时间
+                     * 设置结束时间(yyyy-MM-dd HH:mm:ss)
+                     * @param _endTime 结束时间(yyyy-MM-dd HH:mm:ss)
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
                      * 获取分页返回，每页返回的数目，取值为1-100，默认值为20
                      * @return Limit 分页返回，每页返回的数目，取值为1-100，默认值为20
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置分页返回，每页返回的数目，取值为1-100，默认值为20
-                     * @param Limit 分页返回，每页返回的数目，取值为1-100，默认值为20
+                     * @param _limit 分页返回，每页返回的数目，取值为1-100，默认值为20
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取分页返回，页编号，默认值为第0页
                      * @return Offset 分页返回，页编号，默认值为第0页
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置分页返回，页编号，默认值为第0页
-                     * @param Offset 分页返回，页编号，默认值为第0页
+                     * @param _offset 分页返回，页编号，默认值为第0页
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
@@ -141,13 +156,13 @@ namespace TencentCloud
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 查询开始时间
+                     * 开始时间(yyyy-MM-dd HH:mm:ss)
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * 查询结束时间
+                     * 结束时间(yyyy-MM-dd HH:mm:ss)
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;

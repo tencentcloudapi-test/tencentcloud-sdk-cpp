@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ DescribeBizTrendRequest::DescribeBizTrendRequest() :
     m_idHasBeenSet(false),
     m_metricNameHasBeenSet(false),
     m_domainHasBeenSet(false),
-    m_protoInfoHasBeenSet(false)
+    m_protoInfoHasBeenSet(false),
+    m_businessTypeHasBeenSet(false)
 {
 }
 
@@ -119,6 +120,14 @@ string DescribeBizTrendRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_businessTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BusinessType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_businessType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -271,6 +280,22 @@ void DescribeBizTrendRequest::SetProtoInfo(const vector<ProtocolPort>& _protoInf
 bool DescribeBizTrendRequest::ProtoInfoHasBeenSet() const
 {
     return m_protoInfoHasBeenSet;
+}
+
+string DescribeBizTrendRequest::GetBusinessType() const
+{
+    return m_businessType;
+}
+
+void DescribeBizTrendRequest::SetBusinessType(const string& _businessType)
+{
+    m_businessType = _businessType;
+    m_businessTypeHasBeenSet = true;
+}
+
+bool DescribeBizTrendRequest::BusinessTypeHasBeenSet() const
+{
+    return m_businessTypeHasBeenSet;
 }
 
 

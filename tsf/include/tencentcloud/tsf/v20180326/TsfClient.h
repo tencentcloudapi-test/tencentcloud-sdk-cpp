@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,10 @@
 #include <tencentcloud/tsf/v20180326/model/AddClusterInstancesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/AddInstancesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/AddInstancesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/AssociateBusinessLogConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/AssociateBusinessLogConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/AssociateConfigWithGroupRequest.h>
+#include <tencentcloud/tsf/v20180326/model/AssociateConfigWithGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/BindApiGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/BindApiGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/BindPluginRequest.h>
@@ -41,16 +45,26 @@
 #include <tencentcloud/tsf/v20180326/model/CreateApiGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateApiRateLimitRuleRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateApiRateLimitRuleResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateApiRateLimitRuleWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateApiRateLimitRuleWithDetailRespResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateApplicationRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateApplicationResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateClusterRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateClusterResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateConfigTemplateRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateConfigTemplateResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateConfigTemplateWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateConfigTemplateWithDetailRespResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateConfigWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateConfigWithDetailRespResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateContainGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateContainGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateFileConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateFileConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateFileConfigWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateFileConfigWithDetailRespResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateGatewayApiRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateGatewayApiResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateGroupRequest.h>
@@ -61,30 +75,50 @@
 #include <tencentcloud/tsf/v20180326/model/CreateLaneRuleResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateMicroserviceRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateMicroserviceResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateMicroserviceWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateMicroserviceWithDetailRespResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateNamespaceRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateNamespaceResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreatePathRewritesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreatePathRewritesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreatePathRewritesWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreatePathRewritesWithDetailRespResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateProgramRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateProgramResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreatePublicConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreatePublicConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreatePublicConfigWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreatePublicConfigWithDetailRespResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateRepositoryRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateRepositoryResponse.h>
-#include <tencentcloud/tsf/v20180326/model/CreateServerlessGroupRequest.h>
-#include <tencentcloud/tsf/v20180326/model/CreateServerlessGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateTaskRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateTaskResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateTaskFlowRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateTaskFlowResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateUnitNamespacesRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateUnitNamespacesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/CreateUnitRuleRequest.h>
 #include <tencentcloud/tsf/v20180326/model/CreateUnitRuleResponse.h>
+#include <tencentcloud/tsf/v20180326/model/CreateUnitRuleWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/CreateUnitRuleWithDetailRespResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteApiGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteApiGroupResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteApiRateLimitRuleRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteApiRateLimitRuleResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteApplicationRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteApplicationResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteClusterRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteClusterResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteConfigTemplateRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteConfigTemplateResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteContainerGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteContainerGroupResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteFileConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteFileConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteGatewayApiRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DeleteGatewayApiResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteImageTagsRequest.h>
@@ -113,12 +147,12 @@
 #include <tencentcloud/tsf/v20180326/model/DeleteUnitNamespacesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteUnitRuleRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeleteUnitRuleResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DeployContainerApplicationRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DeployContainerApplicationResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeployContainerGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeployContainerGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DeployGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DeployGroupResponse.h>
-#include <tencentcloud/tsf/v20180326/model/DeployServerlessGroupRequest.h>
-#include <tencentcloud/tsf/v20180326/model/DeployServerlessGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeApiDetailRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeApiDetailResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeApiGroupRequest.h>
@@ -139,8 +173,14 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeApplicationsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeBasicResourceUsageRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeBasicResourceUsageResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeBusinessLogConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeBusinessLogConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeBusinessLogConfigsRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeBusinessLogConfigsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeClusterInstancesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeClusterInstancesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeClustersRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeClustersResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigReleaseLogsRequest.h>
@@ -149,10 +189,14 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigReleasesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigSummaryRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigSummaryResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeConfigTemplateRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeConfigTemplateResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigsRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeConfigsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeContainerEventsRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeContainerEventsResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeContainerGroupAttributeRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeContainerGroupAttributeResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeContainerGroupDeployInfoRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeContainerGroupDeployInfoResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeContainerGroupDetailRequest.h>
@@ -161,10 +205,18 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeContainerGroupsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeCreateGatewayApiStatusRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeCreateGatewayApiStatusResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeDeliveryConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeDeliveryConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeDeliveryConfigByGroupIdRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeDeliveryConfigByGroupIdResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeDeliveryConfigsRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeDeliveryConfigsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeDownloadInfoRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeDownloadInfoResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeEnabledUnitRuleRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeEnabledUnitRuleResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeFileConfigReleasesRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeFileConfigReleasesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeFileConfigsRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeFileConfigsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeFlowLastBatchStateRequest.h>
@@ -181,6 +233,8 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeGroupAttributeResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeGroupBindedGatewaysRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeGroupBindedGatewaysResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeGroupBusinessLogConfigsRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeGroupBusinessLogConfigsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeGroupGatewaysRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeGroupGatewaysResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeGroupInstancesRequest.h>
@@ -199,6 +253,8 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeImageTagsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeInovcationIndicatorsRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeInovcationIndicatorsResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeInstancesRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeInstancesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeInvocationMetricDataCurveRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeInvocationMetricDataCurveResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeInvocationMetricDataDimensionRequest.h>
@@ -213,10 +269,16 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeLaneRulesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeLanesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeLanesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeLicensesRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeLicensesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeLogCapacityRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeLogCapacityResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeMicroserviceRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeMicroserviceResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeMicroservicesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeMicroservicesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeMicroservicesByGroupIdsRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeMicroservicesByGroupIdsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeMsApiListRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeMsApiListResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeOverviewInvocationRequest.h>
@@ -231,6 +293,8 @@
 #include <tencentcloud/tsf/v20180326/model/DescribePluginInstancesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribePodInstancesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribePodInstancesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeProgramsRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeProgramsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribePublicConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribePublicConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribePublicConfigReleaseLogsRequest.h>
@@ -247,10 +311,10 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeRepositoriesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeRepositoryRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeRepositoryResponse.h>
-#include <tencentcloud/tsf/v20180326/model/DescribeServerlessGroupRequest.h>
-#include <tencentcloud/tsf/v20180326/model/DescribeServerlessGroupResponse.h>
-#include <tencentcloud/tsf/v20180326/model/DescribeServerlessGroupsRequest.h>
-#include <tencentcloud/tsf/v20180326/model/DescribeServerlessGroupsResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeResourceConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeResourceConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeResourceTaskStatusRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeResourceTaskStatusResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeSimpleApplicationsRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeSimpleApplicationsResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeSimpleClustersRequest.h>
@@ -275,10 +339,14 @@
 #include <tencentcloud/tsf/v20180326/model/DescribeUnitRuleResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeUnitRulesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeUnitRulesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeUnitRulesV2Request.h>
+#include <tencentcloud/tsf/v20180326/model/DescribeUnitRulesV2Response.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeUploadInfoRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeUploadInfoResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeUsableUnitNamespacesRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DescribeUsableUnitNamespacesResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DisableLaneRuleRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DisableLaneRuleResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DisableTaskRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DisableTaskResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DisableTaskFlowRequest.h>
@@ -287,8 +355,14 @@
 #include <tencentcloud/tsf/v20180326/model/DisableUnitRouteResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DisableUnitRuleRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DisableUnitRuleResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DisassociateBusinessLogConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DisassociateBusinessLogConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/DisassociateKafkaConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/DisassociateKafkaConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/DraftApiGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/DraftApiGroupResponse.h>
+#include <tencentcloud/tsf/v20180326/model/EnableLaneRuleRequest.h>
+#include <tencentcloud/tsf/v20180326/model/EnableLaneRuleResponse.h>
 #include <tencentcloud/tsf/v20180326/model/EnableTaskRequest.h>
 #include <tencentcloud/tsf/v20180326/model/EnableTaskResponse.h>
 #include <tencentcloud/tsf/v20180326/model/EnableTaskFlowRequest.h>
@@ -303,24 +377,38 @@
 #include <tencentcloud/tsf/v20180326/model/ExecuteTaskFlowResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ExpandGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ExpandGroupResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyApplicationRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyApplicationResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyClusterRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyClusterResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyContainerGroupRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyContainerGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyContainerReplicasRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyContainerReplicasResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyGroupRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyGroupResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyGroupLaneRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyGroupLaneResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyLaneRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyLaneResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyLaneRuleRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyLaneRuleResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyMicroserviceRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyMicroserviceResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyNamespaceRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyNamespaceResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyPathRewriteRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyPathRewriteResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyProgramRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ModifyProgramResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyTaskRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyTaskResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyUploadInfoRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ModifyUploadInfoResponse.h>
 #include <tencentcloud/tsf/v20180326/model/OperateApplicationTcrBindingRequest.h>
 #include <tencentcloud/tsf/v20180326/model/OperateApplicationTcrBindingResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ReassociateBusinessLogConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ReassociateBusinessLogConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/RedoTaskRequest.h>
 #include <tencentcloud/tsf/v20180326/model/RedoTaskResponse.h>
 #include <tencentcloud/tsf/v20180326/model/RedoTaskBatchRequest.h>
@@ -333,6 +421,8 @@
 #include <tencentcloud/tsf/v20180326/model/ReleaseApiGroupResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ReleaseConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ReleaseConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/ReleaseConfigWithDetailRespRequest.h>
+#include <tencentcloud/tsf/v20180326/model/ReleaseConfigWithDetailRespResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ReleaseFileConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/ReleaseFileConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/ReleasePublicConfigRequest.h>
@@ -343,6 +433,8 @@
 #include <tencentcloud/tsf/v20180326/model/RevocationConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/RevocationPublicConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/RevocationPublicConfigResponse.h>
+#include <tencentcloud/tsf/v20180326/model/RevokeFileConfigRequest.h>
+#include <tencentcloud/tsf/v20180326/model/RevokeFileConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/RollbackConfigRequest.h>
 #include <tencentcloud/tsf/v20180326/model/RollbackConfigResponse.h>
 #include <tencentcloud/tsf/v20180326/model/SearchBusinessLogRequest.h>
@@ -377,6 +469,8 @@
 #include <tencentcloud/tsf/v20180326/model/UpdateApiRateLimitRulesResponse.h>
 #include <tencentcloud/tsf/v20180326/model/UpdateApiTimeoutsRequest.h>
 #include <tencentcloud/tsf/v20180326/model/UpdateApiTimeoutsResponse.h>
+#include <tencentcloud/tsf/v20180326/model/UpdateConfigTemplateRequest.h>
+#include <tencentcloud/tsf/v20180326/model/UpdateConfigTemplateResponse.h>
 #include <tencentcloud/tsf/v20180326/model/UpdateGatewayApiRequest.h>
 #include <tencentcloud/tsf/v20180326/model/UpdateGatewayApiResponse.h>
 #include <tencentcloud/tsf/v20180326/model/UpdateHealthCheckSettingsRequest.h>
@@ -405,6 +499,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::AddInstancesResponse> AddInstancesOutcome;
                 typedef std::future<AddInstancesOutcome> AddInstancesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::AddInstancesRequest&, AddInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AddInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::AssociateBusinessLogConfigResponse> AssociateBusinessLogConfigOutcome;
+                typedef std::future<AssociateBusinessLogConfigOutcome> AssociateBusinessLogConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::AssociateBusinessLogConfigRequest&, AssociateBusinessLogConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AssociateBusinessLogConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::AssociateConfigWithGroupResponse> AssociateConfigWithGroupOutcome;
+                typedef std::future<AssociateConfigWithGroupOutcome> AssociateConfigWithGroupOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::AssociateConfigWithGroupRequest&, AssociateConfigWithGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AssociateConfigWithGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::BindApiGroupResponse> BindApiGroupOutcome;
                 typedef std::future<BindApiGroupOutcome> BindApiGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::BindApiGroupRequest&, BindApiGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BindApiGroupAsyncHandler;
@@ -426,6 +526,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateApiRateLimitRuleResponse> CreateApiRateLimitRuleOutcome;
                 typedef std::future<CreateApiRateLimitRuleOutcome> CreateApiRateLimitRuleOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateApiRateLimitRuleRequest&, CreateApiRateLimitRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateApiRateLimitRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateApiRateLimitRuleWithDetailRespResponse> CreateApiRateLimitRuleWithDetailRespOutcome;
+                typedef std::future<CreateApiRateLimitRuleWithDetailRespOutcome> CreateApiRateLimitRuleWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateApiRateLimitRuleWithDetailRespRequest&, CreateApiRateLimitRuleWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateApiRateLimitRuleWithDetailRespAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateApplicationResponse> CreateApplicationOutcome;
                 typedef std::future<CreateApplicationOutcome> CreateApplicationOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateApplicationRequest&, CreateApplicationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateApplicationAsyncHandler;
@@ -435,12 +538,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateConfigResponse> CreateConfigOutcome;
                 typedef std::future<CreateConfigOutcome> CreateConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateConfigRequest&, CreateConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateConfigTemplateResponse> CreateConfigTemplateOutcome;
+                typedef std::future<CreateConfigTemplateOutcome> CreateConfigTemplateOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateConfigTemplateRequest&, CreateConfigTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateConfigTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateConfigTemplateWithDetailRespResponse> CreateConfigTemplateWithDetailRespOutcome;
+                typedef std::future<CreateConfigTemplateWithDetailRespOutcome> CreateConfigTemplateWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateConfigTemplateWithDetailRespRequest&, CreateConfigTemplateWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateConfigTemplateWithDetailRespAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateConfigWithDetailRespResponse> CreateConfigWithDetailRespOutcome;
+                typedef std::future<CreateConfigWithDetailRespOutcome> CreateConfigWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateConfigWithDetailRespRequest&, CreateConfigWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateConfigWithDetailRespAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateContainGroupResponse> CreateContainGroupOutcome;
                 typedef std::future<CreateContainGroupOutcome> CreateContainGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateContainGroupRequest&, CreateContainGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateContainGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateFileConfigResponse> CreateFileConfigOutcome;
                 typedef std::future<CreateFileConfigOutcome> CreateFileConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateFileConfigRequest&, CreateFileConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateFileConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateFileConfigWithDetailRespResponse> CreateFileConfigWithDetailRespOutcome;
+                typedef std::future<CreateFileConfigWithDetailRespOutcome> CreateFileConfigWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateFileConfigWithDetailRespRequest&, CreateFileConfigWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateFileConfigWithDetailRespAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateGatewayApiResponse> CreateGatewayApiOutcome;
                 typedef std::future<CreateGatewayApiOutcome> CreateGatewayApiOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateGatewayApiRequest&, CreateGatewayApiOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateGatewayApiAsyncHandler;
@@ -456,42 +571,72 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateMicroserviceResponse> CreateMicroserviceOutcome;
                 typedef std::future<CreateMicroserviceOutcome> CreateMicroserviceOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateMicroserviceRequest&, CreateMicroserviceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMicroserviceAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateMicroserviceWithDetailRespResponse> CreateMicroserviceWithDetailRespOutcome;
+                typedef std::future<CreateMicroserviceWithDetailRespOutcome> CreateMicroserviceWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateMicroserviceWithDetailRespRequest&, CreateMicroserviceWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMicroserviceWithDetailRespAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateNamespaceResponse> CreateNamespaceOutcome;
                 typedef std::future<CreateNamespaceOutcome> CreateNamespaceOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateNamespaceRequest&, CreateNamespaceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateNamespaceAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreatePathRewritesResponse> CreatePathRewritesOutcome;
                 typedef std::future<CreatePathRewritesOutcome> CreatePathRewritesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreatePathRewritesRequest&, CreatePathRewritesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreatePathRewritesAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreatePathRewritesWithDetailRespResponse> CreatePathRewritesWithDetailRespOutcome;
+                typedef std::future<CreatePathRewritesWithDetailRespOutcome> CreatePathRewritesWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreatePathRewritesWithDetailRespRequest&, CreatePathRewritesWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreatePathRewritesWithDetailRespAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateProgramResponse> CreateProgramOutcome;
+                typedef std::future<CreateProgramOutcome> CreateProgramOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateProgramRequest&, CreateProgramOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateProgramAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreatePublicConfigResponse> CreatePublicConfigOutcome;
                 typedef std::future<CreatePublicConfigOutcome> CreatePublicConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreatePublicConfigRequest&, CreatePublicConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreatePublicConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreatePublicConfigWithDetailRespResponse> CreatePublicConfigWithDetailRespOutcome;
+                typedef std::future<CreatePublicConfigWithDetailRespOutcome> CreatePublicConfigWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreatePublicConfigWithDetailRespRequest&, CreatePublicConfigWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreatePublicConfigWithDetailRespAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateRepositoryResponse> CreateRepositoryOutcome;
                 typedef std::future<CreateRepositoryOutcome> CreateRepositoryOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateRepositoryRequest&, CreateRepositoryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateRepositoryAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateServerlessGroupResponse> CreateServerlessGroupOutcome;
-                typedef std::future<CreateServerlessGroupOutcome> CreateServerlessGroupOutcomeCallable;
-                typedef std::function<void(const TsfClient*, const Model::CreateServerlessGroupRequest&, CreateServerlessGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateServerlessGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateTaskResponse> CreateTaskOutcome;
                 typedef std::future<CreateTaskOutcome> CreateTaskOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateTaskRequest&, CreateTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateTaskFlowResponse> CreateTaskFlowOutcome;
                 typedef std::future<CreateTaskFlowOutcome> CreateTaskFlowOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateTaskFlowRequest&, CreateTaskFlowOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateTaskFlowAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateUnitNamespacesResponse> CreateUnitNamespacesOutcome;
+                typedef std::future<CreateUnitNamespacesOutcome> CreateUnitNamespacesOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateUnitNamespacesRequest&, CreateUnitNamespacesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateUnitNamespacesAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateUnitRuleResponse> CreateUnitRuleOutcome;
                 typedef std::future<CreateUnitRuleOutcome> CreateUnitRuleOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::CreateUnitRuleRequest&, CreateUnitRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateUnitRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateUnitRuleWithDetailRespResponse> CreateUnitRuleWithDetailRespOutcome;
+                typedef std::future<CreateUnitRuleWithDetailRespOutcome> CreateUnitRuleWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::CreateUnitRuleWithDetailRespRequest&, CreateUnitRuleWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateUnitRuleWithDetailRespAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteApiGroupResponse> DeleteApiGroupOutcome;
                 typedef std::future<DeleteApiGroupOutcome> DeleteApiGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeleteApiGroupRequest&, DeleteApiGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteApiGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteApiRateLimitRuleResponse> DeleteApiRateLimitRuleOutcome;
+                typedef std::future<DeleteApiRateLimitRuleOutcome> DeleteApiRateLimitRuleOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DeleteApiRateLimitRuleRequest&, DeleteApiRateLimitRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteApiRateLimitRuleAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteApplicationResponse> DeleteApplicationOutcome;
                 typedef std::future<DeleteApplicationOutcome> DeleteApplicationOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeleteApplicationRequest&, DeleteApplicationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteApplicationAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteClusterResponse> DeleteClusterOutcome;
+                typedef std::future<DeleteClusterOutcome> DeleteClusterOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DeleteClusterRequest&, DeleteClusterOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteClusterAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteConfigResponse> DeleteConfigOutcome;
                 typedef std::future<DeleteConfigOutcome> DeleteConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeleteConfigRequest&, DeleteConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteConfigTemplateResponse> DeleteConfigTemplateOutcome;
+                typedef std::future<DeleteConfigTemplateOutcome> DeleteConfigTemplateOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DeleteConfigTemplateRequest&, DeleteConfigTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteConfigTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteContainerGroupResponse> DeleteContainerGroupOutcome;
                 typedef std::future<DeleteContainerGroupOutcome> DeleteContainerGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeleteContainerGroupRequest&, DeleteContainerGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteContainerGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteFileConfigResponse> DeleteFileConfigOutcome;
+                typedef std::future<DeleteFileConfigOutcome> DeleteFileConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DeleteFileConfigRequest&, DeleteFileConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteFileConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteGatewayApiResponse> DeleteGatewayApiOutcome;
+                typedef std::future<DeleteGatewayApiOutcome> DeleteGatewayApiOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DeleteGatewayApiRequest&, DeleteGatewayApiOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteGatewayApiAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteGroupResponse> DeleteGroupOutcome;
                 typedef std::future<DeleteGroupOutcome> DeleteGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeleteGroupRequest&, DeleteGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteGroupAsyncHandler;
@@ -534,15 +679,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteUnitRuleResponse> DeleteUnitRuleOutcome;
                 typedef std::future<DeleteUnitRuleOutcome> DeleteUnitRuleOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeleteUnitRuleRequest&, DeleteUnitRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteUnitRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeployContainerApplicationResponse> DeployContainerApplicationOutcome;
+                typedef std::future<DeployContainerApplicationOutcome> DeployContainerApplicationOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DeployContainerApplicationRequest&, DeployContainerApplicationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeployContainerApplicationAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeployContainerGroupResponse> DeployContainerGroupOutcome;
                 typedef std::future<DeployContainerGroupOutcome> DeployContainerGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeployContainerGroupRequest&, DeployContainerGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeployContainerGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeployGroupResponse> DeployGroupOutcome;
                 typedef std::future<DeployGroupOutcome> DeployGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DeployGroupRequest&, DeployGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeployGroupAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeployServerlessGroupResponse> DeployServerlessGroupOutcome;
-                typedef std::future<DeployServerlessGroupOutcome> DeployServerlessGroupOutcomeCallable;
-                typedef std::function<void(const TsfClient*, const Model::DeployServerlessGroupRequest&, DeployServerlessGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeployServerlessGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeApiDetailResponse> DescribeApiDetailOutcome;
                 typedef std::future<DescribeApiDetailOutcome> DescribeApiDetailOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeApiDetailRequest&, DescribeApiDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApiDetailAsyncHandler;
@@ -573,9 +718,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeBasicResourceUsageResponse> DescribeBasicResourceUsageOutcome;
                 typedef std::future<DescribeBasicResourceUsageOutcome> DescribeBasicResourceUsageOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeBasicResourceUsageRequest&, DescribeBasicResourceUsageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBasicResourceUsageAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBusinessLogConfigResponse> DescribeBusinessLogConfigOutcome;
+                typedef std::future<DescribeBusinessLogConfigOutcome> DescribeBusinessLogConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeBusinessLogConfigRequest&, DescribeBusinessLogConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBusinessLogConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBusinessLogConfigsResponse> DescribeBusinessLogConfigsOutcome;
+                typedef std::future<DescribeBusinessLogConfigsOutcome> DescribeBusinessLogConfigsOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeBusinessLogConfigsRequest&, DescribeBusinessLogConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBusinessLogConfigsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeClusterInstancesResponse> DescribeClusterInstancesOutcome;
                 typedef std::future<DescribeClusterInstancesOutcome> DescribeClusterInstancesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeClusterInstancesRequest&, DescribeClusterInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClusterInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeClustersResponse> DescribeClustersOutcome;
+                typedef std::future<DescribeClustersOutcome> DescribeClustersOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeClustersRequest&, DescribeClustersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClustersAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeConfigResponse> DescribeConfigOutcome;
                 typedef std::future<DescribeConfigOutcome> DescribeConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeConfigRequest&, DescribeConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeConfigAsyncHandler;
@@ -588,12 +742,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeConfigSummaryResponse> DescribeConfigSummaryOutcome;
                 typedef std::future<DescribeConfigSummaryOutcome> DescribeConfigSummaryOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeConfigSummaryRequest&, DescribeConfigSummaryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeConfigSummaryAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeConfigTemplateResponse> DescribeConfigTemplateOutcome;
+                typedef std::future<DescribeConfigTemplateOutcome> DescribeConfigTemplateOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeConfigTemplateRequest&, DescribeConfigTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeConfigTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeConfigsResponse> DescribeConfigsOutcome;
                 typedef std::future<DescribeConfigsOutcome> DescribeConfigsOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeConfigsRequest&, DescribeConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeConfigsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeContainerEventsResponse> DescribeContainerEventsOutcome;
                 typedef std::future<DescribeContainerEventsOutcome> DescribeContainerEventsOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeContainerEventsRequest&, DescribeContainerEventsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeContainerEventsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeContainerGroupAttributeResponse> DescribeContainerGroupAttributeOutcome;
+                typedef std::future<DescribeContainerGroupAttributeOutcome> DescribeContainerGroupAttributeOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeContainerGroupAttributeRequest&, DescribeContainerGroupAttributeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeContainerGroupAttributeAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeContainerGroupDeployInfoResponse> DescribeContainerGroupDeployInfoOutcome;
                 typedef std::future<DescribeContainerGroupDeployInfoOutcome> DescribeContainerGroupDeployInfoOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeContainerGroupDeployInfoRequest&, DescribeContainerGroupDeployInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeContainerGroupDeployInfoAsyncHandler;
@@ -606,12 +766,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeCreateGatewayApiStatusResponse> DescribeCreateGatewayApiStatusOutcome;
                 typedef std::future<DescribeCreateGatewayApiStatusOutcome> DescribeCreateGatewayApiStatusOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeCreateGatewayApiStatusRequest&, DescribeCreateGatewayApiStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCreateGatewayApiStatusAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDeliveryConfigResponse> DescribeDeliveryConfigOutcome;
+                typedef std::future<DescribeDeliveryConfigOutcome> DescribeDeliveryConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeDeliveryConfigRequest&, DescribeDeliveryConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeliveryConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDeliveryConfigByGroupIdResponse> DescribeDeliveryConfigByGroupIdOutcome;
+                typedef std::future<DescribeDeliveryConfigByGroupIdOutcome> DescribeDeliveryConfigByGroupIdOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeDeliveryConfigByGroupIdRequest&, DescribeDeliveryConfigByGroupIdOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeliveryConfigByGroupIdAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDeliveryConfigsResponse> DescribeDeliveryConfigsOutcome;
+                typedef std::future<DescribeDeliveryConfigsOutcome> DescribeDeliveryConfigsOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeDeliveryConfigsRequest&, DescribeDeliveryConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeliveryConfigsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDownloadInfoResponse> DescribeDownloadInfoOutcome;
                 typedef std::future<DescribeDownloadInfoOutcome> DescribeDownloadInfoOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeDownloadInfoRequest&, DescribeDownloadInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDownloadInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeEnabledUnitRuleResponse> DescribeEnabledUnitRuleOutcome;
                 typedef std::future<DescribeEnabledUnitRuleOutcome> DescribeEnabledUnitRuleOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeEnabledUnitRuleRequest&, DescribeEnabledUnitRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeEnabledUnitRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeFileConfigReleasesResponse> DescribeFileConfigReleasesOutcome;
+                typedef std::future<DescribeFileConfigReleasesOutcome> DescribeFileConfigReleasesOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeFileConfigReleasesRequest&, DescribeFileConfigReleasesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFileConfigReleasesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeFileConfigsResponse> DescribeFileConfigsOutcome;
                 typedef std::future<DescribeFileConfigsOutcome> DescribeFileConfigsOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeFileConfigsRequest&, DescribeFileConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFileConfigsAsyncHandler;
@@ -636,6 +808,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeGroupBindedGatewaysResponse> DescribeGroupBindedGatewaysOutcome;
                 typedef std::future<DescribeGroupBindedGatewaysOutcome> DescribeGroupBindedGatewaysOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeGroupBindedGatewaysRequest&, DescribeGroupBindedGatewaysOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeGroupBindedGatewaysAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeGroupBusinessLogConfigsResponse> DescribeGroupBusinessLogConfigsOutcome;
+                typedef std::future<DescribeGroupBusinessLogConfigsOutcome> DescribeGroupBusinessLogConfigsOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeGroupBusinessLogConfigsRequest&, DescribeGroupBusinessLogConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeGroupBusinessLogConfigsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeGroupGatewaysResponse> DescribeGroupGatewaysOutcome;
                 typedef std::future<DescribeGroupGatewaysOutcome> DescribeGroupGatewaysOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeGroupGatewaysRequest&, DescribeGroupGatewaysOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeGroupGatewaysAsyncHandler;
@@ -663,6 +838,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeInovcationIndicatorsResponse> DescribeInovcationIndicatorsOutcome;
                 typedef std::future<DescribeInovcationIndicatorsOutcome> DescribeInovcationIndicatorsOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeInovcationIndicatorsRequest&, DescribeInovcationIndicatorsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInovcationIndicatorsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeInstancesResponse> DescribeInstancesOutcome;
+                typedef std::future<DescribeInstancesOutcome> DescribeInstancesOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeInstancesRequest&, DescribeInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInstancesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeInvocationMetricDataCurveResponse> DescribeInvocationMetricDataCurveOutcome;
                 typedef std::future<DescribeInvocationMetricDataCurveOutcome> DescribeInvocationMetricDataCurveOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeInvocationMetricDataCurveRequest&, DescribeInvocationMetricDataCurveOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInvocationMetricDataCurveAsyncHandler;
@@ -684,12 +862,21 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeLanesResponse> DescribeLanesOutcome;
                 typedef std::future<DescribeLanesOutcome> DescribeLanesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeLanesRequest&, DescribeLanesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLanesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeLicensesResponse> DescribeLicensesOutcome;
+                typedef std::future<DescribeLicensesOutcome> DescribeLicensesOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeLicensesRequest&, DescribeLicensesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLicensesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeLogCapacityResponse> DescribeLogCapacityOutcome;
+                typedef std::future<DescribeLogCapacityOutcome> DescribeLogCapacityOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeLogCapacityRequest&, DescribeLogCapacityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLogCapacityAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeMicroserviceResponse> DescribeMicroserviceOutcome;
                 typedef std::future<DescribeMicroserviceOutcome> DescribeMicroserviceOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeMicroserviceRequest&, DescribeMicroserviceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMicroserviceAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeMicroservicesResponse> DescribeMicroservicesOutcome;
                 typedef std::future<DescribeMicroservicesOutcome> DescribeMicroservicesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeMicroservicesRequest&, DescribeMicroservicesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMicroservicesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMicroservicesByGroupIdsResponse> DescribeMicroservicesByGroupIdsOutcome;
+                typedef std::future<DescribeMicroservicesByGroupIdsOutcome> DescribeMicroservicesByGroupIdsOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeMicroservicesByGroupIdsRequest&, DescribeMicroservicesByGroupIdsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMicroservicesByGroupIdsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeMsApiListResponse> DescribeMsApiListOutcome;
                 typedef std::future<DescribeMsApiListOutcome> DescribeMsApiListOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeMsApiListRequest&, DescribeMsApiListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMsApiListAsyncHandler;
@@ -711,6 +898,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribePodInstancesResponse> DescribePodInstancesOutcome;
                 typedef std::future<DescribePodInstancesOutcome> DescribePodInstancesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribePodInstancesRequest&, DescribePodInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePodInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeProgramsResponse> DescribeProgramsOutcome;
+                typedef std::future<DescribeProgramsOutcome> DescribeProgramsOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeProgramsRequest&, DescribeProgramsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProgramsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribePublicConfigResponse> DescribePublicConfigOutcome;
                 typedef std::future<DescribePublicConfigOutcome> DescribePublicConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribePublicConfigRequest&, DescribePublicConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePublicConfigAsyncHandler;
@@ -735,12 +925,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeRepositoryResponse> DescribeRepositoryOutcome;
                 typedef std::future<DescribeRepositoryOutcome> DescribeRepositoryOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeRepositoryRequest&, DescribeRepositoryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRepositoryAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeServerlessGroupResponse> DescribeServerlessGroupOutcome;
-                typedef std::future<DescribeServerlessGroupOutcome> DescribeServerlessGroupOutcomeCallable;
-                typedef std::function<void(const TsfClient*, const Model::DescribeServerlessGroupRequest&, DescribeServerlessGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeServerlessGroupAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeServerlessGroupsResponse> DescribeServerlessGroupsOutcome;
-                typedef std::future<DescribeServerlessGroupsOutcome> DescribeServerlessGroupsOutcomeCallable;
-                typedef std::function<void(const TsfClient*, const Model::DescribeServerlessGroupsRequest&, DescribeServerlessGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeServerlessGroupsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeResourceConfigResponse> DescribeResourceConfigOutcome;
+                typedef std::future<DescribeResourceConfigOutcome> DescribeResourceConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeResourceConfigRequest&, DescribeResourceConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourceConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeResourceTaskStatusResponse> DescribeResourceTaskStatusOutcome;
+                typedef std::future<DescribeResourceTaskStatusOutcome> DescribeResourceTaskStatusOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeResourceTaskStatusRequest&, DescribeResourceTaskStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourceTaskStatusAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeSimpleApplicationsResponse> DescribeSimpleApplicationsOutcome;
                 typedef std::future<DescribeSimpleApplicationsOutcome> DescribeSimpleApplicationsOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeSimpleApplicationsRequest&, DescribeSimpleApplicationsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSimpleApplicationsAsyncHandler;
@@ -777,12 +967,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeUnitRulesResponse> DescribeUnitRulesOutcome;
                 typedef std::future<DescribeUnitRulesOutcome> DescribeUnitRulesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeUnitRulesRequest&, DescribeUnitRulesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUnitRulesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeUnitRulesV2Response> DescribeUnitRulesV2Outcome;
+                typedef std::future<DescribeUnitRulesV2Outcome> DescribeUnitRulesV2OutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DescribeUnitRulesV2Request&, DescribeUnitRulesV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUnitRulesV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUploadInfoResponse> DescribeUploadInfoOutcome;
                 typedef std::future<DescribeUploadInfoOutcome> DescribeUploadInfoOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeUploadInfoRequest&, DescribeUploadInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUploadInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUsableUnitNamespacesResponse> DescribeUsableUnitNamespacesOutcome;
                 typedef std::future<DescribeUsableUnitNamespacesOutcome> DescribeUsableUnitNamespacesOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DescribeUsableUnitNamespacesRequest&, DescribeUsableUnitNamespacesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUsableUnitNamespacesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DisableLaneRuleResponse> DisableLaneRuleOutcome;
+                typedef std::future<DisableLaneRuleOutcome> DisableLaneRuleOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DisableLaneRuleRequest&, DisableLaneRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableLaneRuleAsyncHandler;
                 typedef Outcome<Core::Error, Model::DisableTaskResponse> DisableTaskOutcome;
                 typedef std::future<DisableTaskOutcome> DisableTaskOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DisableTaskRequest&, DisableTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableTaskAsyncHandler;
@@ -795,9 +991,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DisableUnitRuleResponse> DisableUnitRuleOutcome;
                 typedef std::future<DisableUnitRuleOutcome> DisableUnitRuleOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DisableUnitRuleRequest&, DisableUnitRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableUnitRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::DisassociateBusinessLogConfigResponse> DisassociateBusinessLogConfigOutcome;
+                typedef std::future<DisassociateBusinessLogConfigOutcome> DisassociateBusinessLogConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DisassociateBusinessLogConfigRequest&, DisassociateBusinessLogConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisassociateBusinessLogConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DisassociateKafkaConfigResponse> DisassociateKafkaConfigOutcome;
+                typedef std::future<DisassociateKafkaConfigOutcome> DisassociateKafkaConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::DisassociateKafkaConfigRequest&, DisassociateKafkaConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisassociateKafkaConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::DraftApiGroupResponse> DraftApiGroupOutcome;
                 typedef std::future<DraftApiGroupOutcome> DraftApiGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::DraftApiGroupRequest&, DraftApiGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DraftApiGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::EnableLaneRuleResponse> EnableLaneRuleOutcome;
+                typedef std::future<EnableLaneRuleOutcome> EnableLaneRuleOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::EnableLaneRuleRequest&, EnableLaneRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableLaneRuleAsyncHandler;
                 typedef Outcome<Core::Error, Model::EnableTaskResponse> EnableTaskOutcome;
                 typedef std::future<EnableTaskOutcome> EnableTaskOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::EnableTaskRequest&, EnableTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableTaskAsyncHandler;
@@ -819,12 +1024,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ExpandGroupResponse> ExpandGroupOutcome;
                 typedef std::future<ExpandGroupOutcome> ExpandGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ExpandGroupRequest&, ExpandGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExpandGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyApplicationResponse> ModifyApplicationOutcome;
+                typedef std::future<ModifyApplicationOutcome> ModifyApplicationOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ModifyApplicationRequest&, ModifyApplicationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyApplicationAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyClusterResponse> ModifyClusterOutcome;
+                typedef std::future<ModifyClusterOutcome> ModifyClusterOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ModifyClusterRequest&, ModifyClusterOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyClusterAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyContainerGroupResponse> ModifyContainerGroupOutcome;
                 typedef std::future<ModifyContainerGroupOutcome> ModifyContainerGroupOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ModifyContainerGroupRequest&, ModifyContainerGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyContainerGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyContainerReplicasResponse> ModifyContainerReplicasOutcome;
                 typedef std::future<ModifyContainerReplicasOutcome> ModifyContainerReplicasOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ModifyContainerReplicasRequest&, ModifyContainerReplicasOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyContainerReplicasAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyGroupResponse> ModifyGroupOutcome;
+                typedef std::future<ModifyGroupOutcome> ModifyGroupOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ModifyGroupRequest&, ModifyGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyGroupLaneResponse> ModifyGroupLaneOutcome;
+                typedef std::future<ModifyGroupLaneOutcome> ModifyGroupLaneOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ModifyGroupLaneRequest&, ModifyGroupLaneOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyGroupLaneAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyLaneResponse> ModifyLaneOutcome;
                 typedef std::future<ModifyLaneOutcome> ModifyLaneOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ModifyLaneRequest&, ModifyLaneOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyLaneAsyncHandler;
@@ -834,9 +1051,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyMicroserviceResponse> ModifyMicroserviceOutcome;
                 typedef std::future<ModifyMicroserviceOutcome> ModifyMicroserviceOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ModifyMicroserviceRequest&, ModifyMicroserviceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyMicroserviceAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyNamespaceResponse> ModifyNamespaceOutcome;
+                typedef std::future<ModifyNamespaceOutcome> ModifyNamespaceOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ModifyNamespaceRequest&, ModifyNamespaceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyNamespaceAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyPathRewriteResponse> ModifyPathRewriteOutcome;
                 typedef std::future<ModifyPathRewriteOutcome> ModifyPathRewriteOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ModifyPathRewriteRequest&, ModifyPathRewriteOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyPathRewriteAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyProgramResponse> ModifyProgramOutcome;
+                typedef std::future<ModifyProgramOutcome> ModifyProgramOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ModifyProgramRequest&, ModifyProgramOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyProgramAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyTaskResponse> ModifyTaskOutcome;
                 typedef std::future<ModifyTaskOutcome> ModifyTaskOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ModifyTaskRequest&, ModifyTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyTaskAsyncHandler;
@@ -846,6 +1069,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::OperateApplicationTcrBindingResponse> OperateApplicationTcrBindingOutcome;
                 typedef std::future<OperateApplicationTcrBindingOutcome> OperateApplicationTcrBindingOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::OperateApplicationTcrBindingRequest&, OperateApplicationTcrBindingOutcome, const std::shared_ptr<const AsyncCallerContext>&)> OperateApplicationTcrBindingAsyncHandler;
+                typedef Outcome<Core::Error, Model::ReassociateBusinessLogConfigResponse> ReassociateBusinessLogConfigOutcome;
+                typedef std::future<ReassociateBusinessLogConfigOutcome> ReassociateBusinessLogConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ReassociateBusinessLogConfigRequest&, ReassociateBusinessLogConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ReassociateBusinessLogConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::RedoTaskResponse> RedoTaskOutcome;
                 typedef std::future<RedoTaskOutcome> RedoTaskOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::RedoTaskRequest&, RedoTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RedoTaskAsyncHandler;
@@ -864,6 +1090,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ReleaseConfigResponse> ReleaseConfigOutcome;
                 typedef std::future<ReleaseConfigOutcome> ReleaseConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ReleaseConfigRequest&, ReleaseConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ReleaseConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::ReleaseConfigWithDetailRespResponse> ReleaseConfigWithDetailRespOutcome;
+                typedef std::future<ReleaseConfigWithDetailRespOutcome> ReleaseConfigWithDetailRespOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::ReleaseConfigWithDetailRespRequest&, ReleaseConfigWithDetailRespOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ReleaseConfigWithDetailRespAsyncHandler;
                 typedef Outcome<Core::Error, Model::ReleaseFileConfigResponse> ReleaseFileConfigOutcome;
                 typedef std::future<ReleaseFileConfigOutcome> ReleaseFileConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::ReleaseFileConfigRequest&, ReleaseFileConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ReleaseFileConfigAsyncHandler;
@@ -879,6 +1108,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::RevocationPublicConfigResponse> RevocationPublicConfigOutcome;
                 typedef std::future<RevocationPublicConfigOutcome> RevocationPublicConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::RevocationPublicConfigRequest&, RevocationPublicConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RevocationPublicConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::RevokeFileConfigResponse> RevokeFileConfigOutcome;
+                typedef std::future<RevokeFileConfigOutcome> RevokeFileConfigOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::RevokeFileConfigRequest&, RevokeFileConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RevokeFileConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::RollbackConfigResponse> RollbackConfigOutcome;
                 typedef std::future<RollbackConfigOutcome> RollbackConfigOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::RollbackConfigRequest&, RollbackConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RollbackConfigAsyncHandler;
@@ -930,6 +1162,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::UpdateApiTimeoutsResponse> UpdateApiTimeoutsOutcome;
                 typedef std::future<UpdateApiTimeoutsOutcome> UpdateApiTimeoutsOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::UpdateApiTimeoutsRequest&, UpdateApiTimeoutsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateApiTimeoutsAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateConfigTemplateResponse> UpdateConfigTemplateOutcome;
+                typedef std::future<UpdateConfigTemplateOutcome> UpdateConfigTemplateOutcomeCallable;
+                typedef std::function<void(const TsfClient*, const Model::UpdateConfigTemplateRequest&, UpdateConfigTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateConfigTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::UpdateGatewayApiResponse> UpdateGatewayApiOutcome;
                 typedef std::future<UpdateGatewayApiOutcome> UpdateGatewayApiOutcomeCallable;
                 typedef std::function<void(const TsfClient*, const Model::UpdateGatewayApiRequest&, UpdateGatewayApiOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateGatewayApiAsyncHandler;
@@ -962,6 +1197,24 @@ namespace TencentCloud
                 AddInstancesOutcome AddInstances(const Model::AddInstancesRequest &request);
                 void AddInstancesAsync(const Model::AddInstancesRequest& request, const AddInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 AddInstancesOutcomeCallable AddInstancesCallable(const Model::AddInstancesRequest& request);
+
+                /**
+                 *关联日志配置项到应用
+                 * @param req AssociateBusinessLogConfigRequest
+                 * @return AssociateBusinessLogConfigOutcome
+                 */
+                AssociateBusinessLogConfigOutcome AssociateBusinessLogConfig(const Model::AssociateBusinessLogConfigRequest &request);
+                void AssociateBusinessLogConfigAsync(const Model::AssociateBusinessLogConfigRequest& request, const AssociateBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                AssociateBusinessLogConfigOutcomeCallable AssociateBusinessLogConfigCallable(const Model::AssociateBusinessLogConfigRequest& request);
+
+                /**
+                 *关联投递配置到部署组
+                 * @param req AssociateConfigWithGroupRequest
+                 * @return AssociateConfigWithGroupOutcome
+                 */
+                AssociateConfigWithGroupOutcome AssociateConfigWithGroup(const Model::AssociateConfigWithGroupRequest &request);
+                void AssociateConfigWithGroupAsync(const Model::AssociateConfigWithGroupRequest& request, const AssociateConfigWithGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                AssociateConfigWithGroupOutcomeCallable AssociateConfigWithGroupCallable(const Model::AssociateConfigWithGroupRequest& request);
 
                 /**
                  *网关与API分组批量绑定
@@ -1027,6 +1280,15 @@ namespace TencentCloud
                 CreateApiRateLimitRuleOutcomeCallable CreateApiRateLimitRuleCallable(const Model::CreateApiRateLimitRuleRequest& request);
 
                 /**
+                 *创建API限流规则,并返回规则信息
+                 * @param req CreateApiRateLimitRuleWithDetailRespRequest
+                 * @return CreateApiRateLimitRuleWithDetailRespOutcome
+                 */
+                CreateApiRateLimitRuleWithDetailRespOutcome CreateApiRateLimitRuleWithDetailResp(const Model::CreateApiRateLimitRuleWithDetailRespRequest &request);
+                void CreateApiRateLimitRuleWithDetailRespAsync(const Model::CreateApiRateLimitRuleWithDetailRespRequest& request, const CreateApiRateLimitRuleWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateApiRateLimitRuleWithDetailRespOutcomeCallable CreateApiRateLimitRuleWithDetailRespCallable(const Model::CreateApiRateLimitRuleWithDetailRespRequest& request);
+
+                /**
                  *创建应用
                  * @param req CreateApplicationRequest
                  * @return CreateApplicationOutcome
@@ -1054,7 +1316,34 @@ namespace TencentCloud
                 CreateConfigOutcomeCallable CreateConfigCallable(const Model::CreateConfigRequest& request);
 
                 /**
-                 *创建容器部署组
+                 *创建参数模板
+                 * @param req CreateConfigTemplateRequest
+                 * @return CreateConfigTemplateOutcome
+                 */
+                CreateConfigTemplateOutcome CreateConfigTemplate(const Model::CreateConfigTemplateRequest &request);
+                void CreateConfigTemplateAsync(const Model::CreateConfigTemplateRequest& request, const CreateConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateConfigTemplateOutcomeCallable CreateConfigTemplateCallable(const Model::CreateConfigTemplateRequest& request);
+
+                /**
+                 *创建参数模板，并返回模板详细信息
+                 * @param req CreateConfigTemplateWithDetailRespRequest
+                 * @return CreateConfigTemplateWithDetailRespOutcome
+                 */
+                CreateConfigTemplateWithDetailRespOutcome CreateConfigTemplateWithDetailResp(const Model::CreateConfigTemplateWithDetailRespRequest &request);
+                void CreateConfigTemplateWithDetailRespAsync(const Model::CreateConfigTemplateWithDetailRespRequest& request, const CreateConfigTemplateWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateConfigTemplateWithDetailRespOutcomeCallable CreateConfigTemplateWithDetailRespCallable(const Model::CreateConfigTemplateWithDetailRespRequest& request);
+
+                /**
+                 *创建配置项，返回详细信息
+                 * @param req CreateConfigWithDetailRespRequest
+                 * @return CreateConfigWithDetailRespOutcome
+                 */
+                CreateConfigWithDetailRespOutcome CreateConfigWithDetailResp(const Model::CreateConfigWithDetailRespRequest &request);
+                void CreateConfigWithDetailRespAsync(const Model::CreateConfigWithDetailRespRequest& request, const CreateConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateConfigWithDetailRespOutcomeCallable CreateConfigWithDetailRespCallable(const Model::CreateConfigWithDetailRespRequest& request);
+
+                /**
+                 *（已废弃，请使用 CreateGroup 和 DeployContainerGroup 创建和部署容器部署组）创建容器部署组
                  * @param req CreateContainGroupRequest
                  * @return CreateContainGroupOutcome
                  */
@@ -1070,6 +1359,15 @@ namespace TencentCloud
                 CreateFileConfigOutcome CreateFileConfig(const Model::CreateFileConfigRequest &request);
                 void CreateFileConfigAsync(const Model::CreateFileConfigRequest& request, const CreateFileConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateFileConfigOutcomeCallable CreateFileConfigCallable(const Model::CreateFileConfigRequest& request);
+
+                /**
+                 *创建文件配置项，返回详细信息。
+                 * @param req CreateFileConfigWithDetailRespRequest
+                 * @return CreateFileConfigWithDetailRespOutcome
+                 */
+                CreateFileConfigWithDetailRespOutcome CreateFileConfigWithDetailResp(const Model::CreateFileConfigWithDetailRespRequest &request);
+                void CreateFileConfigWithDetailRespAsync(const Model::CreateFileConfigWithDetailRespRequest& request, const CreateFileConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateFileConfigWithDetailRespOutcomeCallable CreateFileConfigWithDetailRespCallable(const Model::CreateFileConfigWithDetailRespRequest& request);
 
                 /**
                  *批量导入API至api分组(也支持新建API到分组)
@@ -1090,7 +1388,7 @@ namespace TencentCloud
                 CreateGroupOutcomeCallable CreateGroupCallable(const Model::CreateGroupRequest& request);
 
                 /**
-                 *创建泳道
+                 *创建泳道配置
                  * @param req CreateLaneRequest
                  * @return CreateLaneOutcome
                  */
@@ -1099,7 +1397,7 @@ namespace TencentCloud
                 CreateLaneOutcomeCallable CreateLaneCallable(const Model::CreateLaneRequest& request);
 
                 /**
-                 *创建泳道规则
+                 *创建灰度发布规则
                  * @param req CreateLaneRuleRequest
                  * @return CreateLaneRuleOutcome
                  */
@@ -1115,6 +1413,15 @@ namespace TencentCloud
                 CreateMicroserviceOutcome CreateMicroservice(const Model::CreateMicroserviceRequest &request);
                 void CreateMicroserviceAsync(const Model::CreateMicroserviceRequest& request, const CreateMicroserviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateMicroserviceOutcomeCallable CreateMicroserviceCallable(const Model::CreateMicroserviceRequest& request);
+
+                /**
+                 *新增微服务返回ID
+                 * @param req CreateMicroserviceWithDetailRespRequest
+                 * @return CreateMicroserviceWithDetailRespOutcome
+                 */
+                CreateMicroserviceWithDetailRespOutcome CreateMicroserviceWithDetailResp(const Model::CreateMicroserviceWithDetailRespRequest &request);
+                void CreateMicroserviceWithDetailRespAsync(const Model::CreateMicroserviceWithDetailRespRequest& request, const CreateMicroserviceWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateMicroserviceWithDetailRespOutcomeCallable CreateMicroserviceWithDetailRespCallable(const Model::CreateMicroserviceWithDetailRespRequest& request);
 
                 /**
                  *创建命名空间
@@ -1135,6 +1442,24 @@ namespace TencentCloud
                 CreatePathRewritesOutcomeCallable CreatePathRewritesCallable(const Model::CreatePathRewritesRequest& request);
 
                 /**
+                 *创建路径重写，并返回路径重写规则信息
+                 * @param req CreatePathRewritesWithDetailRespRequest
+                 * @return CreatePathRewritesWithDetailRespOutcome
+                 */
+                CreatePathRewritesWithDetailRespOutcome CreatePathRewritesWithDetailResp(const Model::CreatePathRewritesWithDetailRespRequest &request);
+                void CreatePathRewritesWithDetailRespAsync(const Model::CreatePathRewritesWithDetailRespRequest& request, const CreatePathRewritesWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreatePathRewritesWithDetailRespOutcomeCallable CreatePathRewritesWithDetailRespCallable(const Model::CreatePathRewritesWithDetailRespRequest& request);
+
+                /**
+                 *创建数据集
+                 * @param req CreateProgramRequest
+                 * @return CreateProgramOutcome
+                 */
+                CreateProgramOutcome CreateProgram(const Model::CreateProgramRequest &request);
+                void CreateProgramAsync(const Model::CreateProgramRequest& request, const CreateProgramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateProgramOutcomeCallable CreateProgramCallable(const Model::CreateProgramRequest& request);
+
+                /**
                  *创建公共配置项
                  * @param req CreatePublicConfigRequest
                  * @return CreatePublicConfigOutcome
@@ -1144,6 +1469,15 @@ namespace TencentCloud
                 CreatePublicConfigOutcomeCallable CreatePublicConfigCallable(const Model::CreatePublicConfigRequest& request);
 
                 /**
+                 *创建公共配置项，并返回配置项详细信息。
+                 * @param req CreatePublicConfigWithDetailRespRequest
+                 * @return CreatePublicConfigWithDetailRespOutcome
+                 */
+                CreatePublicConfigWithDetailRespOutcome CreatePublicConfigWithDetailResp(const Model::CreatePublicConfigWithDetailRespRequest &request);
+                void CreatePublicConfigWithDetailRespAsync(const Model::CreatePublicConfigWithDetailRespRequest& request, const CreatePublicConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreatePublicConfigWithDetailRespOutcomeCallable CreatePublicConfigWithDetailRespCallable(const Model::CreatePublicConfigWithDetailRespRequest& request);
+
+                /**
                  *创建仓库
                  * @param req CreateRepositoryRequest
                  * @return CreateRepositoryOutcome
@@ -1151,15 +1485,6 @@ namespace TencentCloud
                 CreateRepositoryOutcome CreateRepository(const Model::CreateRepositoryRequest &request);
                 void CreateRepositoryAsync(const Model::CreateRepositoryRequest& request, const CreateRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateRepositoryOutcomeCallable CreateRepositoryCallable(const Model::CreateRepositoryRequest& request);
-
-                /**
-                 *创建Serverless部署组
-                 * @param req CreateServerlessGroupRequest
-                 * @return CreateServerlessGroupOutcome
-                 */
-                CreateServerlessGroupOutcome CreateServerlessGroup(const Model::CreateServerlessGroupRequest &request);
-                void CreateServerlessGroupAsync(const Model::CreateServerlessGroupRequest& request, const CreateServerlessGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateServerlessGroupOutcomeCallable CreateServerlessGroupCallable(const Model::CreateServerlessGroupRequest& request);
 
                 /**
                  *创建任务
@@ -1180,6 +1505,15 @@ namespace TencentCloud
                 CreateTaskFlowOutcomeCallable CreateTaskFlowCallable(const Model::CreateTaskFlowRequest& request);
 
                 /**
+                 *批量创建单元化命名空间
+                 * @param req CreateUnitNamespacesRequest
+                 * @return CreateUnitNamespacesOutcome
+                 */
+                CreateUnitNamespacesOutcome CreateUnitNamespaces(const Model::CreateUnitNamespacesRequest &request);
+                void CreateUnitNamespacesAsync(const Model::CreateUnitNamespacesRequest& request, const CreateUnitNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateUnitNamespacesOutcomeCallable CreateUnitNamespacesCallable(const Model::CreateUnitNamespacesRequest& request);
+
+                /**
                  *创建单元化规则
                  * @param req CreateUnitRuleRequest
                  * @return CreateUnitRuleOutcome
@@ -1187,6 +1521,15 @@ namespace TencentCloud
                 CreateUnitRuleOutcome CreateUnitRule(const Model::CreateUnitRuleRequest &request);
                 void CreateUnitRuleAsync(const Model::CreateUnitRuleRequest& request, const CreateUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateUnitRuleOutcomeCallable CreateUnitRuleCallable(const Model::CreateUnitRuleRequest& request);
+
+                /**
+                 *创建单元化规则, 并返回详细信息
+                 * @param req CreateUnitRuleWithDetailRespRequest
+                 * @return CreateUnitRuleWithDetailRespOutcome
+                 */
+                CreateUnitRuleWithDetailRespOutcome CreateUnitRuleWithDetailResp(const Model::CreateUnitRuleWithDetailRespRequest &request);
+                void CreateUnitRuleWithDetailRespAsync(const Model::CreateUnitRuleWithDetailRespRequest& request, const CreateUnitRuleWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateUnitRuleWithDetailRespOutcomeCallable CreateUnitRuleWithDetailRespCallable(const Model::CreateUnitRuleWithDetailRespRequest& request);
 
                 /**
                  *删除Api分组
@@ -1198,6 +1541,15 @@ namespace TencentCloud
                 DeleteApiGroupOutcomeCallable DeleteApiGroupCallable(const Model::DeleteApiGroupRequest& request);
 
                 /**
+                 *删除API限流规则
+                 * @param req DeleteApiRateLimitRuleRequest
+                 * @return DeleteApiRateLimitRuleOutcome
+                 */
+                DeleteApiRateLimitRuleOutcome DeleteApiRateLimitRule(const Model::DeleteApiRateLimitRuleRequest &request);
+                void DeleteApiRateLimitRuleAsync(const Model::DeleteApiRateLimitRuleRequest& request, const DeleteApiRateLimitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteApiRateLimitRuleOutcomeCallable DeleteApiRateLimitRuleCallable(const Model::DeleteApiRateLimitRuleRequest& request);
+
+                /**
                  *删除应用
                  * @param req DeleteApplicationRequest
                  * @return DeleteApplicationOutcome
@@ -1205,6 +1557,15 @@ namespace TencentCloud
                 DeleteApplicationOutcome DeleteApplication(const Model::DeleteApplicationRequest &request);
                 void DeleteApplicationAsync(const Model::DeleteApplicationRequest& request, const DeleteApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteApplicationOutcomeCallable DeleteApplicationCallable(const Model::DeleteApplicationRequest& request);
+
+                /**
+                 *删除集群
+                 * @param req DeleteClusterRequest
+                 * @return DeleteClusterOutcome
+                 */
+                DeleteClusterOutcome DeleteCluster(const Model::DeleteClusterRequest &request);
+                void DeleteClusterAsync(const Model::DeleteClusterRequest& request, const DeleteClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteClusterOutcomeCallable DeleteClusterCallable(const Model::DeleteClusterRequest& request);
 
                 /**
                  *删除配置项
@@ -1216,6 +1577,15 @@ namespace TencentCloud
                 DeleteConfigOutcomeCallable DeleteConfigCallable(const Model::DeleteConfigRequest& request);
 
                 /**
+                 *删除模板
+                 * @param req DeleteConfigTemplateRequest
+                 * @return DeleteConfigTemplateOutcome
+                 */
+                DeleteConfigTemplateOutcome DeleteConfigTemplate(const Model::DeleteConfigTemplateRequest &request);
+                void DeleteConfigTemplateAsync(const Model::DeleteConfigTemplateRequest& request, const DeleteConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteConfigTemplateOutcomeCallable DeleteConfigTemplateCallable(const Model::DeleteConfigTemplateRequest& request);
+
+                /**
                  *删除容器部署组
                  * @param req DeleteContainerGroupRequest
                  * @return DeleteContainerGroupOutcome
@@ -1223,6 +1593,24 @@ namespace TencentCloud
                 DeleteContainerGroupOutcome DeleteContainerGroup(const Model::DeleteContainerGroupRequest &request);
                 void DeleteContainerGroupAsync(const Model::DeleteContainerGroupRequest& request, const DeleteContainerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteContainerGroupOutcomeCallable DeleteContainerGroupCallable(const Model::DeleteContainerGroupRequest& request);
+
+                /**
+                 *删除文件配置项
+                 * @param req DeleteFileConfigRequest
+                 * @return DeleteFileConfigOutcome
+                 */
+                DeleteFileConfigOutcome DeleteFileConfig(const Model::DeleteFileConfigRequest &request);
+                void DeleteFileConfigAsync(const Model::DeleteFileConfigRequest& request, const DeleteFileConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteFileConfigOutcomeCallable DeleteFileConfigCallable(const Model::DeleteFileConfigRequest& request);
+
+                /**
+                 *批量删除API
+                 * @param req DeleteGatewayApiRequest
+                 * @return DeleteGatewayApiOutcome
+                 */
+                DeleteGatewayApiOutcome DeleteGatewayApi(const Model::DeleteGatewayApiRequest &request);
+                void DeleteGatewayApiAsync(const Model::DeleteGatewayApiRequest& request, const DeleteGatewayApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteGatewayApiOutcomeCallable DeleteGatewayApiCallable(const Model::DeleteGatewayApiRequest& request);
 
                 /**
                  *删除容器部署组
@@ -1243,7 +1631,7 @@ namespace TencentCloud
                 DeleteImageTagsOutcomeCallable DeleteImageTagsCallable(const Model::DeleteImageTagsRequest& request);
 
                 /**
-                 *删除泳道
+                 *删除泳道配置
                  * @param req DeleteLaneRequest
                  * @return DeleteLaneOutcome
                  */
@@ -1252,7 +1640,7 @@ namespace TencentCloud
                 DeleteLaneOutcomeCallable DeleteLaneCallable(const Model::DeleteLaneRequest& request);
 
                 /**
-                 *删除泳道规则
+                 *删除灰度发布规则
                  * @param req DeleteLaneRuleRequest
                  * @return DeleteLaneRuleOutcome
                  */
@@ -1316,7 +1704,9 @@ namespace TencentCloud
                 DeleteRepositoryOutcomeCallable DeleteRepositoryCallable(const Model::DeleteRepositoryRequest& request);
 
                 /**
-                 *删除Serverless部署组
+                 *serverless 能力已下线。下线对应接口。
+
+删除Serverless部署组
                  * @param req DeleteServerlessGroupRequest
                  * @return DeleteServerlessGroupOutcome
                  */
@@ -1353,6 +1743,15 @@ namespace TencentCloud
 
                 /**
                  *部署容器应用-更新
+                 * @param req DeployContainerApplicationRequest
+                 * @return DeployContainerApplicationOutcome
+                 */
+                DeployContainerApplicationOutcome DeployContainerApplication(const Model::DeployContainerApplicationRequest &request);
+                void DeployContainerApplicationAsync(const Model::DeployContainerApplicationRequest& request, const DeployContainerApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeployContainerApplicationOutcomeCallable DeployContainerApplicationCallable(const Model::DeployContainerApplicationRequest& request);
+
+                /**
+                 *部署容器应用-更新
                  * @param req DeployContainerGroupRequest
                  * @return DeployContainerGroupOutcome
                  */
@@ -1368,15 +1767,6 @@ namespace TencentCloud
                 DeployGroupOutcome DeployGroup(const Model::DeployGroupRequest &request);
                 void DeployGroupAsync(const Model::DeployGroupRequest& request, const DeployGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeployGroupOutcomeCallable DeployGroupCallable(const Model::DeployGroupRequest& request);
-
-                /**
-                 *部署Serverless应用
-                 * @param req DeployServerlessGroupRequest
-                 * @return DeployServerlessGroupOutcome
-                 */
-                DeployServerlessGroupOutcome DeployServerlessGroup(const Model::DeployServerlessGroupRequest &request);
-                void DeployServerlessGroupAsync(const Model::DeployServerlessGroupRequest& request, const DeployServerlessGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeployServerlessGroupOutcomeCallable DeployServerlessGroupCallable(const Model::DeployServerlessGroupRequest& request);
 
                 /**
                  *查询API详情
@@ -1424,7 +1814,7 @@ namespace TencentCloud
                 DescribeApiUseDetailOutcomeCallable DescribeApiUseDetailCallable(const Model::DescribeApiUseDetailRequest& request);
 
                 /**
-                 *查询API 版本
+                 *查询API版本
                  * @param req DescribeApiVersionsRequest
                  * @return DescribeApiVersionsOutcome
                  */
@@ -1469,6 +1859,24 @@ namespace TencentCloud
                 DescribeBasicResourceUsageOutcomeCallable DescribeBasicResourceUsageCallable(const Model::DescribeBasicResourceUsageRequest& request);
 
                 /**
+                 *查询业务日志配置项信息
+                 * @param req DescribeBusinessLogConfigRequest
+                 * @return DescribeBusinessLogConfigOutcome
+                 */
+                DescribeBusinessLogConfigOutcome DescribeBusinessLogConfig(const Model::DescribeBusinessLogConfigRequest &request);
+                void DescribeBusinessLogConfigAsync(const Model::DescribeBusinessLogConfigRequest& request, const DescribeBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBusinessLogConfigOutcomeCallable DescribeBusinessLogConfigCallable(const Model::DescribeBusinessLogConfigRequest& request);
+
+                /**
+                 *查询日志配置项列表
+                 * @param req DescribeBusinessLogConfigsRequest
+                 * @return DescribeBusinessLogConfigsOutcome
+                 */
+                DescribeBusinessLogConfigsOutcome DescribeBusinessLogConfigs(const Model::DescribeBusinessLogConfigsRequest &request);
+                void DescribeBusinessLogConfigsAsync(const Model::DescribeBusinessLogConfigsRequest& request, const DescribeBusinessLogConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBusinessLogConfigsOutcomeCallable DescribeBusinessLogConfigsCallable(const Model::DescribeBusinessLogConfigsRequest& request);
+
+                /**
                  *查询集群实例
                  * @param req DescribeClusterInstancesRequest
                  * @return DescribeClusterInstancesOutcome
@@ -1476,6 +1884,15 @@ namespace TencentCloud
                 DescribeClusterInstancesOutcome DescribeClusterInstances(const Model::DescribeClusterInstancesRequest &request);
                 void DescribeClusterInstancesAsync(const Model::DescribeClusterInstancesRequest& request, const DescribeClusterInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeClusterInstancesOutcomeCallable DescribeClusterInstancesCallable(const Model::DescribeClusterInstancesRequest& request);
+
+                /**
+                 *获取集群列表
+                 * @param req DescribeClustersRequest
+                 * @return DescribeClustersOutcome
+                 */
+                DescribeClustersOutcome DescribeClusters(const Model::DescribeClustersRequest &request);
+                void DescribeClustersAsync(const Model::DescribeClustersRequest& request, const DescribeClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeClustersOutcomeCallable DescribeClustersCallable(const Model::DescribeClustersRequest& request);
 
                 /**
                  *查询配置
@@ -1514,6 +1931,15 @@ namespace TencentCloud
                 DescribeConfigSummaryOutcomeCallable DescribeConfigSummaryCallable(const Model::DescribeConfigSummaryRequest& request);
 
                 /**
+                 *导入配置
+                 * @param req DescribeConfigTemplateRequest
+                 * @return DescribeConfigTemplateOutcome
+                 */
+                DescribeConfigTemplateOutcome DescribeConfigTemplate(const Model::DescribeConfigTemplateRequest &request);
+                void DescribeConfigTemplateAsync(const Model::DescribeConfigTemplateRequest& request, const DescribeConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeConfigTemplateOutcomeCallable DescribeConfigTemplateCallable(const Model::DescribeConfigTemplateRequest& request);
+
+                /**
                  *查询配置项列表
                  * @param req DescribeConfigsRequest
                  * @return DescribeConfigsOutcome
@@ -1524,6 +1950,9 @@ namespace TencentCloud
 
                 /**
                  *获取容器事件列表
+参数限制
+
+- 当类型是 instance 时，GroupId是必填项
                  * @param req DescribeContainerEventsRequest
                  * @return DescribeContainerEventsOutcome
                  */
@@ -1532,7 +1961,16 @@ namespace TencentCloud
                 DescribeContainerEventsOutcomeCallable DescribeContainerEventsCallable(const Model::DescribeContainerEventsRequest& request);
 
                 /**
-                 * 获取部署组详情
+                 *获取部署组其他字段-用于前端并发调用
+                 * @param req DescribeContainerGroupAttributeRequest
+                 * @return DescribeContainerGroupAttributeOutcome
+                 */
+                DescribeContainerGroupAttributeOutcome DescribeContainerGroupAttribute(const Model::DescribeContainerGroupAttributeRequest &request);
+                void DescribeContainerGroupAttributeAsync(const Model::DescribeContainerGroupAttributeRequest& request, const DescribeContainerGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeContainerGroupAttributeOutcomeCallable DescribeContainerGroupAttributeCallable(const Model::DescribeContainerGroupAttributeRequest& request);
+
+                /**
+                 *获取部署组详情
                  * @param req DescribeContainerGroupDeployInfoRequest
                  * @return DescribeContainerGroupDeployInfoOutcome
                  */
@@ -1541,7 +1979,7 @@ namespace TencentCloud
                 DescribeContainerGroupDeployInfoOutcomeCallable DescribeContainerGroupDeployInfoCallable(const Model::DescribeContainerGroupDeployInfoRequest& request);
 
                 /**
-                 * 容器部署组详情（已废弃，请使用  DescribeContainerGroupDeployInfo）
+                 *容器部署组详情（已废弃，请使用  [DescribeContainerGroupDeployInfo](https://cloud.tencent.com/document/product/649/67221)）
                  * @param req DescribeContainerGroupDetailRequest
                  * @return DescribeContainerGroupDetailOutcome
                  */
@@ -1568,8 +2006,35 @@ namespace TencentCloud
                 DescribeCreateGatewayApiStatusOutcomeCallable DescribeCreateGatewayApiStatusCallable(const Model::DescribeCreateGatewayApiStatusRequest& request);
 
                 /**
+                 *获取单个投递项配置信息
+                 * @param req DescribeDeliveryConfigRequest
+                 * @return DescribeDeliveryConfigOutcome
+                 */
+                DescribeDeliveryConfigOutcome DescribeDeliveryConfig(const Model::DescribeDeliveryConfigRequest &request);
+                void DescribeDeliveryConfigAsync(const Model::DescribeDeliveryConfigRequest& request, const DescribeDeliveryConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDeliveryConfigOutcomeCallable DescribeDeliveryConfigCallable(const Model::DescribeDeliveryConfigRequest& request);
+
+                /**
+                 *用部署组id获取绑定信息
+                 * @param req DescribeDeliveryConfigByGroupIdRequest
+                 * @return DescribeDeliveryConfigByGroupIdOutcome
+                 */
+                DescribeDeliveryConfigByGroupIdOutcome DescribeDeliveryConfigByGroupId(const Model::DescribeDeliveryConfigByGroupIdRequest &request);
+                void DescribeDeliveryConfigByGroupIdAsync(const Model::DescribeDeliveryConfigByGroupIdRequest& request, const DescribeDeliveryConfigByGroupIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDeliveryConfigByGroupIdOutcomeCallable DescribeDeliveryConfigByGroupIdCallable(const Model::DescribeDeliveryConfigByGroupIdRequest& request);
+
+                /**
+                 *获取多个投递项配置
+                 * @param req DescribeDeliveryConfigsRequest
+                 * @return DescribeDeliveryConfigsOutcome
+                 */
+                DescribeDeliveryConfigsOutcome DescribeDeliveryConfigs(const Model::DescribeDeliveryConfigsRequest &request);
+                void DescribeDeliveryConfigsAsync(const Model::DescribeDeliveryConfigsRequest& request, const DescribeDeliveryConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDeliveryConfigsOutcomeCallable DescribeDeliveryConfigsCallable(const Model::DescribeDeliveryConfigsRequest& request);
+
+                /**
                  *TSF上传的程序包存放在腾讯云对象存储（COS）中，通过该API可以获取从COS下载程序包需要的信息，包括包所在的桶、存储路径、鉴权信息等，之后使用COS API（或SDK）进行下载。
-COS相关文档请查阅：https://cloud.tencent.com/document/product/436
+请查阅[COS相关文档](https://cloud.tencent.com/document/product/436)
                  * @param req DescribeDownloadInfoRequest
                  * @return DescribeDownloadInfoOutcome
                  */
@@ -1585,6 +2050,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeEnabledUnitRuleOutcome DescribeEnabledUnitRule(const Model::DescribeEnabledUnitRuleRequest &request);
                 void DescribeEnabledUnitRuleAsync(const Model::DescribeEnabledUnitRuleRequest& request, const DescribeEnabledUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeEnabledUnitRuleOutcomeCallable DescribeEnabledUnitRuleCallable(const Model::DescribeEnabledUnitRuleRequest& request);
+
+                /**
+                 *查询文件配置项发布信息
+                 * @param req DescribeFileConfigReleasesRequest
+                 * @return DescribeFileConfigReleasesOutcome
+                 */
+                DescribeFileConfigReleasesOutcome DescribeFileConfigReleases(const Model::DescribeFileConfigReleasesRequest &request);
+                void DescribeFileConfigReleasesAsync(const Model::DescribeFileConfigReleasesRequest& request, const DescribeFileConfigReleasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeFileConfigReleasesOutcomeCallable DescribeFileConfigReleasesCallable(const Model::DescribeFileConfigReleasesRequest& request);
 
                 /**
                  *查询文件配置项列表
@@ -1659,6 +2133,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeGroupBindedGatewaysOutcomeCallable DescribeGroupBindedGatewaysCallable(const Model::DescribeGroupBindedGatewaysRequest& request);
 
                 /**
+                 *查询分组管理日志配置列表
+                 * @param req DescribeGroupBusinessLogConfigsRequest
+                 * @return DescribeGroupBusinessLogConfigsOutcome
+                 */
+                DescribeGroupBusinessLogConfigsOutcome DescribeGroupBusinessLogConfigs(const Model::DescribeGroupBusinessLogConfigsRequest &request);
+                void DescribeGroupBusinessLogConfigsAsync(const Model::DescribeGroupBusinessLogConfigsRequest& request, const DescribeGroupBusinessLogConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeGroupBusinessLogConfigsOutcomeCallable DescribeGroupBusinessLogConfigsCallable(const Model::DescribeGroupBusinessLogConfigsRequest& request);
+
+                /**
                  *查询某个网关绑定的API 分组信息列表
                  * @param req DescribeGroupGatewaysRequest
                  * @return DescribeGroupGatewaysOutcome
@@ -1713,7 +2196,7 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeGroupsWithPluginOutcomeCallable DescribeGroupsWithPluginCallable(const Model::DescribeGroupsWithPluginRequest& request);
 
                 /**
-                 *镜像仓库列表 
+                 *查询镜像仓库列表
                  * @param req DescribeImageRepositoryRequest
                  * @return DescribeImageRepositoryOutcome
                  */
@@ -1731,13 +2214,24 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeImageTagsOutcomeCallable DescribeImageTagsCallable(const Model::DescribeImageTagsRequest& request);
 
                 /**
-                 *查询调用监控指标
+                 *废弃接口
+
+废弃
                  * @param req DescribeInovcationIndicatorsRequest
                  * @return DescribeInovcationIndicatorsOutcome
                  */
                 DescribeInovcationIndicatorsOutcome DescribeInovcationIndicators(const Model::DescribeInovcationIndicatorsRequest &request);
                 void DescribeInovcationIndicatorsAsync(const Model::DescribeInovcationIndicatorsRequest& request, const DescribeInovcationIndicatorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeInovcationIndicatorsOutcomeCallable DescribeInovcationIndicatorsCallable(const Model::DescribeInovcationIndicatorsRequest& request);
+
+                /**
+                 *无
+                 * @param req DescribeInstancesRequest
+                 * @return DescribeInstancesOutcome
+                 */
+                DescribeInstancesOutcome DescribeInstances(const Model::DescribeInstancesRequest &request);
+                void DescribeInstancesAsync(const Model::DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeInstancesOutcomeCallable DescribeInstancesCallable(const Model::DescribeInstancesRequest& request);
 
                 /**
                  *查询调用指标数据变化曲线
@@ -1785,7 +2279,7 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeJvmMonitorOutcomeCallable DescribeJvmMonitorCallable(const Model::DescribeJvmMonitorRequest& request);
 
                 /**
-                 *查询泳道规则列表
+                 *查询灰度发布规则列表
                  * @param req DescribeLaneRulesRequest
                  * @return DescribeLaneRulesOutcome
                  */
@@ -1794,13 +2288,31 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeLaneRulesOutcomeCallable DescribeLaneRulesCallable(const Model::DescribeLaneRulesRequest& request);
 
                 /**
-                 *查询泳道列表
+                 *查询泳道配置列表
                  * @param req DescribeLanesRequest
                  * @return DescribeLanesOutcome
                  */
                 DescribeLanesOutcome DescribeLanes(const Model::DescribeLanesRequest &request);
                 void DescribeLanesAsync(const Model::DescribeLanesRequest& request, const DescribeLanesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeLanesOutcomeCallable DescribeLanesCallable(const Model::DescribeLanesRequest& request);
+
+                /**
+                 *查询许可列表
+                 * @param req DescribeLicensesRequest
+                 * @return DescribeLicensesOutcome
+                 */
+                DescribeLicensesOutcome DescribeLicenses(const Model::DescribeLicensesRequest &request);
+                void DescribeLicensesAsync(const Model::DescribeLicensesRequest& request, const DescribeLicensesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeLicensesOutcomeCallable DescribeLicensesCallable(const Model::DescribeLicensesRequest& request);
+
+                /**
+                 *获取用户日志使用量
+                 * @param req DescribeLogCapacityRequest
+                 * @return DescribeLogCapacityOutcome
+                 */
+                DescribeLogCapacityOutcome DescribeLogCapacity(const Model::DescribeLogCapacityRequest &request);
+                void DescribeLogCapacityAsync(const Model::DescribeLogCapacityRequest& request, const DescribeLogCapacityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeLogCapacityOutcomeCallable DescribeLogCapacityCallable(const Model::DescribeLogCapacityRequest& request);
 
                 /**
                  *查询微服务详情
@@ -1819,6 +2331,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeMicroservicesOutcome DescribeMicroservices(const Model::DescribeMicroservicesRequest &request);
                 void DescribeMicroservicesAsync(const Model::DescribeMicroservicesRequest& request, const DescribeMicroservicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeMicroservicesOutcomeCallable DescribeMicroservicesCallable(const Model::DescribeMicroservicesRequest& request);
+
+                /**
+                 *通过部署组ID获取微服务
+                 * @param req DescribeMicroservicesByGroupIdsRequest
+                 * @return DescribeMicroservicesByGroupIdsOutcome
+                 */
+                DescribeMicroservicesByGroupIdsOutcome DescribeMicroservicesByGroupIds(const Model::DescribeMicroservicesByGroupIdsRequest &request);
+                void DescribeMicroservicesByGroupIdsAsync(const Model::DescribeMicroservicesByGroupIdsRequest& request, const DescribeMicroservicesByGroupIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMicroservicesByGroupIdsOutcomeCallable DescribeMicroservicesByGroupIdsCallable(const Model::DescribeMicroservicesByGroupIdsRequest& request);
 
                 /**
                  *查询服务API列表
@@ -1884,6 +2405,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribePodInstancesOutcomeCallable DescribePodInstancesCallable(const Model::DescribePodInstancesRequest& request);
 
                 /**
+                 *查询数据集列表
+                 * @param req DescribeProgramsRequest
+                 * @return DescribeProgramsOutcome
+                 */
+                DescribeProgramsOutcome DescribePrograms(const Model::DescribeProgramsRequest &request);
+                void DescribeProgramsAsync(const Model::DescribeProgramsRequest& request, const DescribeProgramsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeProgramsOutcomeCallable DescribeProgramsCallable(const Model::DescribeProgramsRequest& request);
+
+                /**
                  *查询公共配置（单条）
                  * @param req DescribePublicConfigRequest
                  * @return DescribePublicConfigOutcome
@@ -1929,7 +2459,7 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribePublicConfigsOutcomeCallable DescribePublicConfigsCallable(const Model::DescribePublicConfigsRequest& request);
 
                 /**
-                 *查询group发布的配置
+                 *查询部署组发布的配置
                  * @param req DescribeReleasedConfigRequest
                  * @return DescribeReleasedConfigOutcome
                  */
@@ -1956,22 +2486,22 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeRepositoryOutcomeCallable DescribeRepositoryCallable(const Model::DescribeRepositoryRequest& request);
 
                 /**
-                 *查询Serverless部署组明细
-                 * @param req DescribeServerlessGroupRequest
-                 * @return DescribeServerlessGroupOutcome
+                 *无
+                 * @param req DescribeResourceConfigRequest
+                 * @return DescribeResourceConfigOutcome
                  */
-                DescribeServerlessGroupOutcome DescribeServerlessGroup(const Model::DescribeServerlessGroupRequest &request);
-                void DescribeServerlessGroupAsync(const Model::DescribeServerlessGroupRequest& request, const DescribeServerlessGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeServerlessGroupOutcomeCallable DescribeServerlessGroupCallable(const Model::DescribeServerlessGroupRequest& request);
+                DescribeResourceConfigOutcome DescribeResourceConfig(const Model::DescribeResourceConfigRequest &request);
+                void DescribeResourceConfigAsync(const Model::DescribeResourceConfigRequest& request, const DescribeResourceConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeResourceConfigOutcomeCallable DescribeResourceConfigCallable(const Model::DescribeResourceConfigRequest& request);
 
                 /**
-                 *查询Serverless部署组列表
-                 * @param req DescribeServerlessGroupsRequest
-                 * @return DescribeServerlessGroupsOutcome
+                 *资源任务的执行状态描述接口
+                 * @param req DescribeResourceTaskStatusRequest
+                 * @return DescribeResourceTaskStatusOutcome
                  */
-                DescribeServerlessGroupsOutcome DescribeServerlessGroups(const Model::DescribeServerlessGroupsRequest &request);
-                void DescribeServerlessGroupsAsync(const Model::DescribeServerlessGroupsRequest& request, const DescribeServerlessGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeServerlessGroupsOutcomeCallable DescribeServerlessGroupsCallable(const Model::DescribeServerlessGroupsRequest& request);
+                DescribeResourceTaskStatusOutcome DescribeResourceTaskStatus(const Model::DescribeResourceTaskStatusRequest &request);
+                void DescribeResourceTaskStatusAsync(const Model::DescribeResourceTaskStatusRequest& request, const DescribeResourceTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeResourceTaskStatusOutcomeCallable DescribeResourceTaskStatusCallable(const Model::DescribeResourceTaskStatusRequest& request);
 
                 /**
                  *查询简单应用列表
@@ -2001,7 +2531,7 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeSimpleGroupsOutcomeCallable DescribeSimpleGroupsCallable(const Model::DescribeSimpleGroupsRequest& request);
 
                 /**
-                 *查询简单命名空间列表 
+                 *查询简单命名空间列表
                  * @param req DescribeSimpleNamespacesRequest
                  * @return DescribeSimpleNamespacesOutcome
                  */
@@ -2082,8 +2612,17 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeUnitRulesOutcomeCallable DescribeUnitRulesCallable(const Model::DescribeUnitRulesRequest& request);
 
                 /**
+                 *查询单元化规则列表V2
+                 * @param req DescribeUnitRulesV2Request
+                 * @return DescribeUnitRulesV2Outcome
+                 */
+                DescribeUnitRulesV2Outcome DescribeUnitRulesV2(const Model::DescribeUnitRulesV2Request &request);
+                void DescribeUnitRulesV2Async(const Model::DescribeUnitRulesV2Request& request, const DescribeUnitRulesV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeUnitRulesV2OutcomeCallable DescribeUnitRulesV2Callable(const Model::DescribeUnitRulesV2Request& request);
+
+                /**
                  *TSF会将软件包上传到腾讯云对象存储（COS）。调用此接口获取上传信息，如目标地域，桶，包Id，存储路径，鉴权信息等，之后请使用COS API（或SDK）进行上传。
-COS相关文档请查阅：https://cloud.tencent.com/document/product/436
+请查阅[COS相关文档](https://cloud.tencent.com/document/product/436)
                  * @param req DescribeUploadInfoRequest
                  * @return DescribeUploadInfoOutcome
                  */
@@ -2099,6 +2638,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DescribeUsableUnitNamespacesOutcome DescribeUsableUnitNamespaces(const Model::DescribeUsableUnitNamespacesRequest &request);
                 void DescribeUsableUnitNamespacesAsync(const Model::DescribeUsableUnitNamespacesRequest& request, const DescribeUsableUnitNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeUsableUnitNamespacesOutcomeCallable DescribeUsableUnitNamespacesCallable(const Model::DescribeUsableUnitNamespacesRequest& request);
+
+                /**
+                 *禁用灰度发布规则
+                 * @param req DisableLaneRuleRequest
+                 * @return DisableLaneRuleOutcome
+                 */
+                DisableLaneRuleOutcome DisableLaneRule(const Model::DisableLaneRuleRequest &request);
+                void DisableLaneRuleAsync(const Model::DisableLaneRuleRequest& request, const DisableLaneRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DisableLaneRuleOutcomeCallable DisableLaneRuleCallable(const Model::DisableLaneRuleRequest& request);
 
                 /**
                  *停用任务
@@ -2137,6 +2685,24 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DisableUnitRuleOutcomeCallable DisableUnitRuleCallable(const Model::DisableUnitRuleRequest& request);
 
                 /**
+                 *取消关联业务日志配置项和应用
+                 * @param req DisassociateBusinessLogConfigRequest
+                 * @return DisassociateBusinessLogConfigOutcome
+                 */
+                DisassociateBusinessLogConfigOutcome DisassociateBusinessLogConfig(const Model::DisassociateBusinessLogConfigRequest &request);
+                void DisassociateBusinessLogConfigAsync(const Model::DisassociateBusinessLogConfigRequest& request, const DisassociateBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DisassociateBusinessLogConfigOutcomeCallable DisassociateBusinessLogConfigCallable(const Model::DisassociateBusinessLogConfigRequest& request);
+
+                /**
+                 *取消关联投递信息和部署组
+                 * @param req DisassociateKafkaConfigRequest
+                 * @return DisassociateKafkaConfigOutcome
+                 */
+                DisassociateKafkaConfigOutcome DisassociateKafkaConfig(const Model::DisassociateKafkaConfigRequest &request);
+                void DisassociateKafkaConfigAsync(const Model::DisassociateKafkaConfigRequest& request, const DisassociateKafkaConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DisassociateKafkaConfigOutcomeCallable DisassociateKafkaConfigCallable(const Model::DisassociateKafkaConfigRequest& request);
+
+                /**
                  *下线Api分组
                  * @param req DraftApiGroupRequest
                  * @return DraftApiGroupOutcome
@@ -2144,6 +2710,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 DraftApiGroupOutcome DraftApiGroup(const Model::DraftApiGroupRequest &request);
                 void DraftApiGroupAsync(const Model::DraftApiGroupRequest& request, const DraftApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DraftApiGroupOutcomeCallable DraftApiGroupCallable(const Model::DraftApiGroupRequest& request);
+
+                /**
+                 *启用灰度发布规则
+                 * @param req EnableLaneRuleRequest
+                 * @return EnableLaneRuleOutcome
+                 */
+                EnableLaneRuleOutcome EnableLaneRule(const Model::EnableLaneRuleRequest &request);
+                void EnableLaneRuleAsync(const Model::EnableLaneRuleRequest& request, const EnableLaneRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                EnableLaneRuleOutcomeCallable EnableLaneRuleCallable(const Model::EnableLaneRuleRequest& request);
 
                 /**
                  *启用任务
@@ -2182,7 +2757,7 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 EnableUnitRuleOutcomeCallable EnableUnitRuleCallable(const Model::EnableUnitRuleRequest& request);
 
                 /**
-                 *手动执行一次任务。
+                 *手动执行一次任务
                  * @param req ExecuteTaskRequest
                  * @return ExecuteTaskOutcome
                  */
@@ -2209,6 +2784,24 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 ExpandGroupOutcomeCallable ExpandGroupCallable(const Model::ExpandGroupRequest& request);
 
                 /**
+                 *修改应用
+                 * @param req ModifyApplicationRequest
+                 * @return ModifyApplicationOutcome
+                 */
+                ModifyApplicationOutcome ModifyApplication(const Model::ModifyApplicationRequest &request);
+                void ModifyApplicationAsync(const Model::ModifyApplicationRequest& request, const ModifyApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyApplicationOutcomeCallable ModifyApplicationCallable(const Model::ModifyApplicationRequest& request);
+
+                /**
+                 *修改集群信息
+                 * @param req ModifyClusterRequest
+                 * @return ModifyClusterOutcome
+                 */
+                ModifyClusterOutcome ModifyCluster(const Model::ModifyClusterRequest &request);
+                void ModifyClusterAsync(const Model::ModifyClusterRequest& request, const ModifyClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyClusterOutcomeCallable ModifyClusterCallable(const Model::ModifyClusterRequest& request);
+
+                /**
                  *修改容器部署组
                  * @param req ModifyContainerGroupRequest
                  * @return ModifyContainerGroupOutcome
@@ -2227,7 +2820,25 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 ModifyContainerReplicasOutcomeCallable ModifyContainerReplicasCallable(const Model::ModifyContainerReplicasRequest& request);
 
                 /**
-                 *更新泳道信息
+                 *更新部署组信息
+                 * @param req ModifyGroupRequest
+                 * @return ModifyGroupOutcome
+                 */
+                ModifyGroupOutcome ModifyGroup(const Model::ModifyGroupRequest &request);
+                void ModifyGroupAsync(const Model::ModifyGroupRequest& request, const ModifyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyGroupOutcomeCallable ModifyGroupCallable(const Model::ModifyGroupRequest& request);
+
+                /**
+                 *更新部署组泳道信息
+                 * @param req ModifyGroupLaneRequest
+                 * @return ModifyGroupLaneOutcome
+                 */
+                ModifyGroupLaneOutcome ModifyGroupLane(const Model::ModifyGroupLaneRequest &request);
+                void ModifyGroupLaneAsync(const Model::ModifyGroupLaneRequest& request, const ModifyGroupLaneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyGroupLaneOutcomeCallable ModifyGroupLaneCallable(const Model::ModifyGroupLaneRequest& request);
+
+                /**
+                 *更新泳道配置信息
                  * @param req ModifyLaneRequest
                  * @return ModifyLaneOutcome
                  */
@@ -2236,7 +2847,7 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 ModifyLaneOutcomeCallable ModifyLaneCallable(const Model::ModifyLaneRequest& request);
 
                 /**
-                 *更新泳道规则
+                 *更新灰度发布规则
                  * @param req ModifyLaneRuleRequest
                  * @return ModifyLaneRuleOutcome
                  */
@@ -2254,6 +2865,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 ModifyMicroserviceOutcomeCallable ModifyMicroserviceCallable(const Model::ModifyMicroserviceRequest& request);
 
                 /**
+                 *修改命名空间
+                 * @param req ModifyNamespaceRequest
+                 * @return ModifyNamespaceOutcome
+                 */
+                ModifyNamespaceOutcome ModifyNamespace(const Model::ModifyNamespaceRequest &request);
+                void ModifyNamespaceAsync(const Model::ModifyNamespaceRequest& request, const ModifyNamespaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyNamespaceOutcomeCallable ModifyNamespaceCallable(const Model::ModifyNamespaceRequest& request);
+
+                /**
                  *修改路径重写
                  * @param req ModifyPathRewriteRequest
                  * @return ModifyPathRewriteOutcome
@@ -2261,6 +2881,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 ModifyPathRewriteOutcome ModifyPathRewrite(const Model::ModifyPathRewriteRequest &request);
                 void ModifyPathRewriteAsync(const Model::ModifyPathRewriteRequest& request, const ModifyPathRewriteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyPathRewriteOutcomeCallable ModifyPathRewriteCallable(const Model::ModifyPathRewriteRequest& request);
+
+                /**
+                 *更新数据集
+                 * @param req ModifyProgramRequest
+                 * @return ModifyProgramOutcome
+                 */
+                ModifyProgramOutcome ModifyProgram(const Model::ModifyProgramRequest &request);
+                void ModifyProgramAsync(const Model::ModifyProgramRequest& request, const ModifyProgramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyProgramOutcomeCallable ModifyProgramCallable(const Model::ModifyProgramRequest& request);
 
                 /**
                  *修改任务
@@ -2289,6 +2918,17 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 OperateApplicationTcrBindingOutcome OperateApplicationTcrBinding(const Model::OperateApplicationTcrBindingRequest &request);
                 void OperateApplicationTcrBindingAsync(const Model::OperateApplicationTcrBindingRequest& request, const OperateApplicationTcrBindingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 OperateApplicationTcrBindingOutcomeCallable OperateApplicationTcrBindingCallable(const Model::OperateApplicationTcrBindingRequest& request);
+
+                /**
+                 *后端服务已经删除这个接口,  API 接口下线处理
+
+重关联业务日志配置
+                 * @param req ReassociateBusinessLogConfigRequest
+                 * @return ReassociateBusinessLogConfigOutcome
+                 */
+                ReassociateBusinessLogConfigOutcome ReassociateBusinessLogConfig(const Model::ReassociateBusinessLogConfigRequest &request);
+                void ReassociateBusinessLogConfigAsync(const Model::ReassociateBusinessLogConfigRequest& request, const ReassociateBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ReassociateBusinessLogConfigOutcomeCallable ReassociateBusinessLogConfigCallable(const Model::ReassociateBusinessLogConfigRequest& request);
 
                 /**
                  *重新执行任务
@@ -2345,6 +2985,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 ReleaseConfigOutcomeCallable ReleaseConfigCallable(const Model::ReleaseConfigRequest& request);
 
                 /**
+                 *发布配置，并且返回配置ID。
+                 * @param req ReleaseConfigWithDetailRespRequest
+                 * @return ReleaseConfigWithDetailRespOutcome
+                 */
+                ReleaseConfigWithDetailRespOutcome ReleaseConfigWithDetailResp(const Model::ReleaseConfigWithDetailRespRequest &request);
+                void ReleaseConfigWithDetailRespAsync(const Model::ReleaseConfigWithDetailRespRequest& request, const ReleaseConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ReleaseConfigWithDetailRespOutcomeCallable ReleaseConfigWithDetailRespCallable(const Model::ReleaseConfigWithDetailRespRequest& request);
+
+                /**
                  *发布文件配置
                  * @param req ReleaseFileConfigRequest
                  * @return ReleaseFileConfigOutcome
@@ -2388,6 +3037,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 RevocationPublicConfigOutcome RevocationPublicConfig(const Model::RevocationPublicConfigRequest &request);
                 void RevocationPublicConfigAsync(const Model::RevocationPublicConfigRequest& request, const RevocationPublicConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 RevocationPublicConfigOutcomeCallable RevocationPublicConfigCallable(const Model::RevocationPublicConfigRequest& request);
+
+                /**
+                 *撤回已发布的文件配置
+                 * @param req RevokeFileConfigRequest
+                 * @return RevokeFileConfigOutcome
+                 */
+                RevokeFileConfigOutcome RevokeFileConfig(const Model::RevokeFileConfigRequest &request);
+                void RevokeFileConfigAsync(const Model::RevokeFileConfigRequest& request, const RevokeFileConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                RevokeFileConfigOutcomeCallable RevokeFileConfigCallable(const Model::RevokeFileConfigRequest& request);
 
                 /**
                  *回滚配置
@@ -2541,6 +3199,15 @@ COS相关文档请查阅：https://cloud.tencent.com/document/product/436
                 UpdateApiTimeoutsOutcome UpdateApiTimeouts(const Model::UpdateApiTimeoutsRequest &request);
                 void UpdateApiTimeoutsAsync(const Model::UpdateApiTimeoutsRequest& request, const UpdateApiTimeoutsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 UpdateApiTimeoutsOutcomeCallable UpdateApiTimeoutsCallable(const Model::UpdateApiTimeoutsRequest& request);
+
+                /**
+                 *更新参数模板
+                 * @param req UpdateConfigTemplateRequest
+                 * @return UpdateConfigTemplateOutcome
+                 */
+                UpdateConfigTemplateOutcome UpdateConfigTemplate(const Model::UpdateConfigTemplateRequest &request);
+                void UpdateConfigTemplateAsync(const Model::UpdateConfigTemplateRequest& request, const UpdateConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateConfigTemplateOutcomeCallable UpdateConfigTemplateCallable(const Model::UpdateConfigTemplateRequest& request);
 
                 /**
                  *更新API

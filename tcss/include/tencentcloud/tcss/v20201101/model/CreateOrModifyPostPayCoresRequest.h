@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取弹性计费上限，最小值500
                      * @return CoresCnt 弹性计费上限，最小值500
+                     * 
                      */
                     uint64_t GetCoresCnt() const;
 
                     /**
                      * 设置弹性计费上限，最小值500
-                     * @param CoresCnt 弹性计费上限，最小值500
+                     * @param _coresCnt 弹性计费上限，最小值500
+                     * 
                      */
                     void SetCoresCnt(const uint64_t& _coresCnt);
 
                     /**
                      * 判断参数 CoresCnt 是否已赋值
                      * @return CoresCnt 是否已赋值
+                     * 
                      */
                     bool CoresCntHasBeenSet() const;
 

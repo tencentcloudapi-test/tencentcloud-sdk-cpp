@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取描述了实例价格。
                      * @return InstancePrice 描述了实例价格。
+                     * 
                      */
                     ItemPrice GetInstancePrice() const;
 
                     /**
                      * 设置描述了实例价格。
-                     * @param InstancePrice 描述了实例价格。
+                     * @param _instancePrice 描述了实例价格。
+                     * 
                      */
                     void SetInstancePrice(const ItemPrice& _instancePrice);
 
                     /**
                      * 判断参数 InstancePrice 是否已赋值
                      * @return InstancePrice 是否已赋值
+                     * 
                      */
                     bool InstancePriceHasBeenSet() const;
 
                     /**
                      * 获取描述了网络价格。
                      * @return BandwidthPrice 描述了网络价格。
+                     * 
                      */
                     ItemPrice GetBandwidthPrice() const;
 
                     /**
                      * 设置描述了网络价格。
-                     * @param BandwidthPrice 描述了网络价格。
+                     * @param _bandwidthPrice 描述了网络价格。
+                     * 
                      */
                     void SetBandwidthPrice(const ItemPrice& _bandwidthPrice);
 
                     /**
                      * 判断参数 BandwidthPrice 是否已赋值
                      * @return BandwidthPrice 是否已赋值
+                     * 
                      */
                     bool BandwidthPriceHasBeenSet() const;
 

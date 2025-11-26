@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,13 @@ Blueprint::Blueprint() :
     m_blueprintNameHasBeenSet(false),
     m_supportAutomationToolsHasBeenSet(false),
     m_requiredMemorySizeHasBeenSet(false),
-    m_imageIdHasBeenSet(false)
+    m_imageIdHasBeenSet(false),
+    m_communityUrlHasBeenSet(false),
+    m_guideUrlHasBeenSet(false),
+    m_sceneIdSetHasBeenSet(false),
+    m_dockerVersionHasBeenSet(false),
+    m_blueprintSharedHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -205,6 +211,79 @@ CoreInternalOutcome Blueprint::Deserialize(const rapidjson::Value &value)
         m_imageIdHasBeenSet = true;
     }
 
+    if (value.HasMember("CommunityUrl") && !value["CommunityUrl"].IsNull())
+    {
+        if (!value["CommunityUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Blueprint.CommunityUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_communityUrl = string(value["CommunityUrl"].GetString());
+        m_communityUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("GuideUrl") && !value["GuideUrl"].IsNull())
+    {
+        if (!value["GuideUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Blueprint.GuideUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_guideUrl = string(value["GuideUrl"].GetString());
+        m_guideUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("SceneIdSet") && !value["SceneIdSet"].IsNull())
+    {
+        if (!value["SceneIdSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Blueprint.SceneIdSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["SceneIdSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_sceneIdSet.push_back((*itr).GetString());
+        }
+        m_sceneIdSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("DockerVersion") && !value["DockerVersion"].IsNull())
+    {
+        if (!value["DockerVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Blueprint.DockerVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dockerVersion = string(value["DockerVersion"].GetString());
+        m_dockerVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("BlueprintShared") && !value["BlueprintShared"].IsNull())
+    {
+        if (!value["BlueprintShared"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Blueprint.BlueprintShared` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_blueprintShared = value["BlueprintShared"].GetBool();
+        m_blueprintSharedHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Blueprint.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -338,6 +417,66 @@ void Blueprint::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "ImageId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_imageId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_communityUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CommunityUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_communityUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_guideUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GuideUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_guideUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sceneIdSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SceneIdSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_sceneIdSet.begin(); itr != m_sceneIdSet.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_dockerVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DockerVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dockerVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_blueprintSharedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BlueprintShared";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_blueprintShared, allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -597,5 +736,101 @@ void Blueprint::SetImageId(const string& _imageId)
 bool Blueprint::ImageIdHasBeenSet() const
 {
     return m_imageIdHasBeenSet;
+}
+
+string Blueprint::GetCommunityUrl() const
+{
+    return m_communityUrl;
+}
+
+void Blueprint::SetCommunityUrl(const string& _communityUrl)
+{
+    m_communityUrl = _communityUrl;
+    m_communityUrlHasBeenSet = true;
+}
+
+bool Blueprint::CommunityUrlHasBeenSet() const
+{
+    return m_communityUrlHasBeenSet;
+}
+
+string Blueprint::GetGuideUrl() const
+{
+    return m_guideUrl;
+}
+
+void Blueprint::SetGuideUrl(const string& _guideUrl)
+{
+    m_guideUrl = _guideUrl;
+    m_guideUrlHasBeenSet = true;
+}
+
+bool Blueprint::GuideUrlHasBeenSet() const
+{
+    return m_guideUrlHasBeenSet;
+}
+
+vector<string> Blueprint::GetSceneIdSet() const
+{
+    return m_sceneIdSet;
+}
+
+void Blueprint::SetSceneIdSet(const vector<string>& _sceneIdSet)
+{
+    m_sceneIdSet = _sceneIdSet;
+    m_sceneIdSetHasBeenSet = true;
+}
+
+bool Blueprint::SceneIdSetHasBeenSet() const
+{
+    return m_sceneIdSetHasBeenSet;
+}
+
+string Blueprint::GetDockerVersion() const
+{
+    return m_dockerVersion;
+}
+
+void Blueprint::SetDockerVersion(const string& _dockerVersion)
+{
+    m_dockerVersion = _dockerVersion;
+    m_dockerVersionHasBeenSet = true;
+}
+
+bool Blueprint::DockerVersionHasBeenSet() const
+{
+    return m_dockerVersionHasBeenSet;
+}
+
+bool Blueprint::GetBlueprintShared() const
+{
+    return m_blueprintShared;
+}
+
+void Blueprint::SetBlueprintShared(const bool& _blueprintShared)
+{
+    m_blueprintShared = _blueprintShared;
+    m_blueprintSharedHasBeenSet = true;
+}
+
+bool Blueprint::BlueprintSharedHasBeenSet() const
+{
+    return m_blueprintSharedHasBeenSet;
+}
+
+vector<Tag> Blueprint::GetTags() const
+{
+    return m_tags;
+}
+
+void Blueprint::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool Blueprint::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 

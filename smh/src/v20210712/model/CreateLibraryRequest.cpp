@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,10 +24,10 @@ using namespace std;
 
 CreateLibraryRequest::CreateLibraryRequest() :
     m_nameHasBeenSet(false),
+    m_remarkHasBeenSet(false),
     m_bucketNameHasBeenSet(false),
     m_bucketRegionHasBeenSet(false),
-    m_libraryExtensionHasBeenSet(false),
-    m_remarkHasBeenSet(false)
+    m_libraryExtensionHasBeenSet(false)
 {
 }
 
@@ -44,6 +44,14 @@ string CreateLibraryRequest::ToJsonString() const
         string key = "Name";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_name.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
     }
 
     if (m_bucketNameHasBeenSet)
@@ -71,14 +79,6 @@ string CreateLibraryRequest::ToJsonString() const
         m_libraryExtension.ToJsonObject(d[key.c_str()], allocator);
     }
 
-    if (m_remarkHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Remark";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -101,6 +101,22 @@ void CreateLibraryRequest::SetName(const string& _name)
 bool CreateLibraryRequest::NameHasBeenSet() const
 {
     return m_nameHasBeenSet;
+}
+
+string CreateLibraryRequest::GetRemark() const
+{
+    return m_remark;
+}
+
+void CreateLibraryRequest::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool CreateLibraryRequest::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
 }
 
 string CreateLibraryRequest::GetBucketName() const
@@ -149,22 +165,6 @@ void CreateLibraryRequest::SetLibraryExtension(const LibraryExtension& _libraryE
 bool CreateLibraryRequest::LibraryExtensionHasBeenSet() const
 {
     return m_libraryExtensionHasBeenSet;
-}
-
-string CreateLibraryRequest::GetRemark() const
-{
-    return m_remark;
-}
-
-void CreateLibraryRequest::SetRemark(const string& _remark)
-{
-    m_remark = _remark;
-    m_remarkHasBeenSet = true;
-}
-
-bool CreateLibraryRequest::RemarkHasBeenSet() const
-{
-    return m_remarkHasBeenSet;
 }
 
 

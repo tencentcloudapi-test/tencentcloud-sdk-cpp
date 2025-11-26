@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,65 @@ namespace TencentCloud
                     /**
                      * 获取资源实例ID
                      * @return InstanceId 资源实例ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置资源实例ID
-                     * @param InstanceId 资源实例ID
+                     * @param _instanceId 资源实例ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取水印开启/关闭状态，1表示开启；0表示关闭
                      * @return OpenStatus 水印开启/关闭状态，1表示开启；0表示关闭
+                     * 
                      */
                     int64_t GetOpenStatus() const;
 
                     /**
                      * 设置水印开启/关闭状态，1表示开启；0表示关闭
-                     * @param OpenStatus 水印开启/关闭状态，1表示开启；0表示关闭
+                     * @param _openStatus 水印开启/关闭状态，1表示开启；0表示关闭
+                     * 
                      */
                     void SetOpenStatus(const int64_t& _openStatus);
 
                     /**
                      * 判断参数 OpenStatus 是否已赋值
                      * @return OpenStatus 是否已赋值
+                     * 
                      */
                     bool OpenStatusHasBeenSet() const;
+
+                    /**
+                     * 获取是否开启代理，1开启则忽略IP+端口校验；0关闭则需要IP+端口校验
+                     * @return CloudSdkProxy 是否开启代理，1开启则忽略IP+端口校验；0关闭则需要IP+端口校验
+                     * 
+                     */
+                    int64_t GetCloudSdkProxy() const;
+
+                    /**
+                     * 设置是否开启代理，1开启则忽略IP+端口校验；0关闭则需要IP+端口校验
+                     * @param _cloudSdkProxy 是否开启代理，1开启则忽略IP+端口校验；0关闭则需要IP+端口校验
+                     * 
+                     */
+                    void SetCloudSdkProxy(const int64_t& _cloudSdkProxy);
+
+                    /**
+                     * 判断参数 CloudSdkProxy 是否已赋值
+                     * @return CloudSdkProxy 是否已赋值
+                     * 
+                     */
+                    bool CloudSdkProxyHasBeenSet() const;
 
                 private:
 
@@ -91,6 +118,12 @@ namespace TencentCloud
                      */
                     int64_t m_openStatus;
                     bool m_openStatusHasBeenSet;
+
+                    /**
+                     * 是否开启代理，1开启则忽略IP+端口校验；0关闭则需要IP+端口校验
+                     */
+                    int64_t m_cloudSdkProxy;
+                    bool m_cloudSdkProxyHasBeenSet;
 
                 };
             }

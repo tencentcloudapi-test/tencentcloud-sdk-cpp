@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取余额币种
                      * @return Currency 余额币种
+                     * 
                      */
                     std::string GetCurrency() const;
 
                     /**
                      * 设置余额币种
-                     * @param Currency 余额币种
+                     * @param _currency 余额币种
+                     * 
                      */
                     void SetCurrency(const std::string& _currency);
 
                     /**
                      * 判断参数 Currency 是否已赋值
                      * @return Currency 是否已赋值
+                     * 
                      */
                     bool CurrencyHasBeenSet() const;
 
                     /**
                      * 获取账户余额
                      * @return Balance 账户余额
+                     * 
                      */
                     std::string GetBalance() const;
 
                     /**
                      * 设置账户余额
-                     * @param Balance 账户余额
+                     * @param _balance 账户余额
+                     * 
                      */
                     void SetBalance(const std::string& _balance);
 
                     /**
                      * 判断参数 Balance 是否已赋值
                      * @return Balance 是否已赋值
+                     * 
                      */
                     bool BalanceHasBeenSet() const;
 
                     /**
                      * 获取商户ID
                      * @return MerchantId 商户ID
+                     * 
                      */
                     std::string GetMerchantId() const;
 
                     /**
                      * 设置商户ID
-                     * @param MerchantId 商户ID
+                     * @param _merchantId 商户ID
+                     * 
                      */
                     void SetMerchantId(const std::string& _merchantId);
 
                     /**
                      * 判断参数 MerchantId 是否已赋值
                      * @return MerchantId 是否已赋值
+                     * 
                      */
                     bool MerchantIdHasBeenSet() const;
 

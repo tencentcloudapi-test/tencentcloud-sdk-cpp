@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeVpcEndPointServiceResponse::DescribeVpcEndPointServiceResponse() :
     m_endPointServiceSetHasBeenSet(false),
-    m_totalCountHasBeenSet(false)
+    m_totalCountHasBeenSet(false),
+    m_nextTokenHasBeenSet(false)
 {
 }
 
@@ -93,6 +94,16 @@ CoreInternalOutcome DescribeVpcEndPointServiceResponse::Deserialize(const string
         m_totalCountHasBeenSet = true;
     }
 
+    if (rsp.HasMember("NextToken") && !rsp["NextToken"].IsNull())
+    {
+        if (!rsp["NextToken"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NextToken` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nextToken = string(rsp["NextToken"].GetString());
+        m_nextTokenHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,11 +137,19 @@ string DescribeVpcEndPointServiceResponse::ToJsonString() const
         value.AddMember(iKey, m_totalCount, allocator);
     }
 
+    if (m_nextTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NextToken";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nextToken.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -156,6 +175,16 @@ uint64_t DescribeVpcEndPointServiceResponse::GetTotalCount() const
 bool DescribeVpcEndPointServiceResponse::TotalCountHasBeenSet() const
 {
     return m_totalCountHasBeenSet;
+}
+
+string DescribeVpcEndPointServiceResponse::GetNextToken() const
+{
+    return m_nextToken;
+}
+
+bool DescribeVpcEndPointServiceResponse::NextTokenHasBeenSet() const
+{
+    return m_nextTokenHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取内容标签。
                      * @return ContentLabel 内容标签。
+                     * 
                      */
                     std::string GetContentLabel() const;
 
                     /**
                      * 设置内容标签。
-                     * @param ContentLabel 内容标签。
+                     * @param _contentLabel 内容标签。
+                     * 
                      */
                     void SetContentLabel(const std::string& _contentLabel);
 
                     /**
                      * 判断参数 ContentLabel 是否已赋值
                      * @return ContentLabel 是否已赋值
+                     * 
                      */
                     bool ContentLabelHasBeenSet() const;
 
@@ -71,6 +74,7 @@ namespace TencentCloud
                      * @return ContentRiskLevel 内容风险等级：
 0：正常。
 1：可疑。
+                     * 
                      */
                     int64_t GetContentRiskLevel() const;
 
@@ -78,15 +82,17 @@ namespace TencentCloud
                      * 设置内容风险等级：
 0：正常。
 1：可疑。
-                     * @param ContentRiskLevel 内容风险等级：
+                     * @param _contentRiskLevel 内容风险等级：
 0：正常。
 1：可疑。
+                     * 
                      */
                     void SetContentRiskLevel(const int64_t& _contentRiskLevel);
 
                     /**
                      * 判断参数 ContentRiskLevel 是否已赋值
                      * @return ContentRiskLevel 是否已赋值
+                     * 
                      */
                     bool ContentRiskLevelHasBeenSet() const;
 
@@ -97,6 +103,7 @@ namespace TencentCloud
                      * @return ContentType 内容产生形式：
 0：对话。
 1：广播。
+                     * 
                      */
                     int64_t GetContentType() const;
 
@@ -104,51 +111,67 @@ namespace TencentCloud
                      * 设置内容产生形式：
 0：对话。
 1：广播。
-                     * @param ContentType 内容产生形式：
+                     * @param _contentType 内容产生形式：
 0：对话。
 1：广播。
+                     * 
                      */
                     void SetContentType(const int64_t& _contentType);
 
                     /**
                      * 判断参数 ContentType 是否已赋值
                      * @return ContentType 是否已赋值
+                     * 
                      */
                     bool ContentTypeHasBeenSet() const;
 
                     /**
-                     * 获取类型
-                     * @return FraudType 类型
+                     * 获取账号类型
+1：手机号
+2：uin账号
+                     * @return FraudType 账号类型
+1：手机号
+2：uin账号
+                     * 
                      */
                     int64_t GetFraudType() const;
 
                     /**
-                     * 设置类型
-                     * @param FraudType 类型
+                     * 设置账号类型
+1：手机号
+2：uin账号
+                     * @param _fraudType 账号类型
+1：手机号
+2：uin账号
+                     * 
                      */
                     void SetFraudType(const int64_t& _fraudType);
 
                     /**
                      * 判断参数 FraudType 是否已赋值
                      * @return FraudType 是否已赋值
+                     * 
                      */
                     bool FraudTypeHasBeenSet() const;
 
                     /**
                      * 获取账号
                      * @return FraudAccount 账号
+                     * 
                      */
                     std::string GetFraudAccount() const;
 
                     /**
                      * 设置账号
-                     * @param FraudAccount 账号
+                     * @param _fraudAccount 账号
+                     * 
                      */
                     void SetFraudAccount(const std::string& _fraudAccount);
 
                     /**
                      * 判断参数 FraudAccount 是否已赋值
                      * @return FraudAccount 是否已赋值
+                     * 
                      */
                     bool FraudAccountHasBeenSet() const;
 
@@ -177,7 +200,9 @@ namespace TencentCloud
                     bool m_contentTypeHasBeenSet;
 
                     /**
-                     * 类型
+                     * 账号类型
+1：手机号
+2：uin账号
                      */
                     int64_t m_fraudType;
                     bool m_fraudTypeHasBeenSet;

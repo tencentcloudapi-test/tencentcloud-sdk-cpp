@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,63 @@ namespace TencentCloud
                     /**
                      * 获取负载均衡实例ID，可通过接口DescribeLoadBalancers查询。
                      * @return LoadBalancerId 负载均衡实例ID，可通过接口DescribeLoadBalancers查询。
+                     * 
                      */
                     std::string GetLoadBalancerId() const;
 
                     /**
                      * 设置负载均衡实例ID，可通过接口DescribeLoadBalancers查询。
-                     * @param LoadBalancerId 负载均衡实例ID，可通过接口DescribeLoadBalancers查询。
+                     * @param _loadBalancerId 负载均衡实例ID，可通过接口DescribeLoadBalancers查询。
+                     * 
                      */
                     void SetLoadBalancerId(const std::string& _loadBalancerId);
 
                     /**
                      * 判断参数 LoadBalancerId 是否已赋值
                      * @return LoadBalancerId 是否已赋值
+                     * 
                      */
                     bool LoadBalancerIdHasBeenSet() const;
 
                     /**
                      * 获取负载均衡四层监听器ID，可通过接口DescribeL4Listeners查询。
                      * @return ListenerId 负载均衡四层监听器ID，可通过接口DescribeL4Listeners查询。
+                     * 
                      */
                     std::string GetListenerId() const;
 
                     /**
                      * 设置负载均衡四层监听器ID，可通过接口DescribeL4Listeners查询。
-                     * @param ListenerId 负载均衡四层监听器ID，可通过接口DescribeL4Listeners查询。
+                     * @param _listenerId 负载均衡四层监听器ID，可通过接口DescribeL4Listeners查询。
+                     * 
                      */
                     void SetListenerId(const std::string& _listenerId);
 
                     /**
                      * 判断参数 ListenerId 是否已赋值
                      * @return ListenerId 是否已赋值
+                     * 
                      */
                     bool ListenerIdHasBeenSet() const;
 
                     /**
                      * 获取待查询的主机信息。
                      * @return BackendSet 待查询的主机信息。
+                     * 
                      */
                     std::vector<DescribeL4Backend> GetBackendSet() const;
 
                     /**
                      * 设置待查询的主机信息。
-                     * @param BackendSet 待查询的主机信息。
+                     * @param _backendSet 待查询的主机信息。
+                     * 
                      */
                     void SetBackendSet(const std::vector<DescribeL4Backend>& _backendSet);
 
                     /**
                      * 判断参数 BackendSet 是否已赋值
                      * @return BackendSet 是否已赋值
+                     * 
                      */
                     bool BackendSetHasBeenSet() const;
 

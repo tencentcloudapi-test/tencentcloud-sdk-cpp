@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,25 +62,32 @@ FacefusionClient::DescribeMaterialListOutcome FacefusionClient::DescribeMaterial
 
 void FacefusionClient::DescribeMaterialListAsync(const DescribeMaterialListRequest& request, const DescribeMaterialListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeMaterialList(request), context);
-    };
+    using Req = const DescribeMaterialListRequest&;
+    using Resp = DescribeMaterialListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeMaterialList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FacefusionClient::DescribeMaterialListOutcomeCallable FacefusionClient::DescribeMaterialListCallable(const DescribeMaterialListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeMaterialListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeMaterialList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeMaterialListOutcome>>();
+    DescribeMaterialListAsync(
+    request,
+    [prom](
+        const FacefusionClient*,
+        const DescribeMaterialListRequest&,
+        DescribeMaterialListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FacefusionClient::FaceFusionOutcome FacefusionClient::FaceFusion(const FaceFusionRequest &request)
@@ -105,68 +112,32 @@ FacefusionClient::FaceFusionOutcome FacefusionClient::FaceFusion(const FaceFusio
 
 void FacefusionClient::FaceFusionAsync(const FaceFusionRequest& request, const FaceFusionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->FaceFusion(request), context);
-    };
+    using Req = const FaceFusionRequest&;
+    using Resp = FaceFusionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "FaceFusion", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FacefusionClient::FaceFusionOutcomeCallable FacefusionClient::FaceFusionCallable(const FaceFusionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<FaceFusionOutcome()>>(
-        [this, request]()
-        {
-            return this->FaceFusion(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-FacefusionClient::FaceFusionLiteOutcome FacefusionClient::FaceFusionLite(const FaceFusionLiteRequest &request)
-{
-    auto outcome = MakeRequest(request, "FaceFusionLite");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<FaceFusionOutcome>>();
+    FaceFusionAsync(
+    request,
+    [prom](
+        const FacefusionClient*,
+        const FaceFusionRequest&,
+        FaceFusionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        FaceFusionLiteResponse rsp = FaceFusionLiteResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return FaceFusionLiteOutcome(rsp);
-        else
-            return FaceFusionLiteOutcome(o.GetError());
-    }
-    else
-    {
-        return FaceFusionLiteOutcome(outcome.GetError());
-    }
-}
-
-void FacefusionClient::FaceFusionLiteAsync(const FaceFusionLiteRequest& request, const FaceFusionLiteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->FaceFusionLite(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-FacefusionClient::FaceFusionLiteOutcomeCallable FacefusionClient::FaceFusionLiteCallable(const FaceFusionLiteRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<FaceFusionLiteOutcome()>>(
-        [this, request]()
-        {
-            return this->FaceFusionLite(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FacefusionClient::FuseFaceOutcome FacefusionClient::FuseFace(const FuseFaceRequest &request)
@@ -191,24 +162,31 @@ FacefusionClient::FuseFaceOutcome FacefusionClient::FuseFace(const FuseFaceReque
 
 void FacefusionClient::FuseFaceAsync(const FuseFaceRequest& request, const FuseFaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->FuseFace(request), context);
-    };
+    using Req = const FuseFaceRequest&;
+    using Resp = FuseFaceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "FuseFace", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FacefusionClient::FuseFaceOutcomeCallable FacefusionClient::FuseFaceCallable(const FuseFaceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<FuseFaceOutcome()>>(
-        [this, request]()
-        {
-            return this->FuseFace(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<FuseFaceOutcome>>();
+    FuseFaceAsync(
+    request,
+    [prom](
+        const FacefusionClient*,
+        const FuseFaceRequest&,
+        FuseFaceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -77,11 +77,11 @@ CoreInternalOutcome DiscountDetail::Deserialize(const rapidjson::Value &value)
 
     if (value.HasMember("Discount") && !value["Discount"].IsNull())
     {
-        if (!value["Discount"].IsInt64())
+        if (!value["Discount"].IsLosslessDouble())
         {
-            return CoreInternalOutcome(Core::Error("response `DiscountDetail.Discount` IsInt64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `DiscountDetail.Discount` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
         }
-        m_discount = value["Discount"].GetInt64();
+        m_discount = value["Discount"].GetDouble();
         m_discountHasBeenSet = true;
     }
 
@@ -225,12 +225,12 @@ bool DiscountDetail::RealTotalCostHasBeenSet() const
     return m_realTotalCostHasBeenSet;
 }
 
-int64_t DiscountDetail::GetDiscount() const
+double DiscountDetail::GetDiscount() const
 {
     return m_discount;
 }
 
-void DiscountDetail::SetDiscount(const int64_t& _discount)
+void DiscountDetail::SetDiscount(const double& _discount)
 {
     m_discount = _discount;
     m_discountHasBeenSet = true;

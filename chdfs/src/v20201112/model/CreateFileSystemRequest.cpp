@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,14 +24,15 @@ using namespace std;
 
 CreateFileSystemRequest::CreateFileSystemRequest() :
     m_fileSystemNameHasBeenSet(false),
-    m_capacityQuotaHasBeenSet(false),
     m_posixAclHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_capacityQuotaHasBeenSet(false),
     m_superUsersHasBeenSet(false),
     m_rootInodeUserHasBeenSet(false),
     m_rootInodeGroupHasBeenSet(false),
     m_enableRangerHasBeenSet(false),
-    m_rangerServiceAddressesHasBeenSet(false)
+    m_rangerServiceAddressesHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -50,14 +51,6 @@ string CreateFileSystemRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_fileSystemName.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_capacityQuotaHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CapacityQuota";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_capacityQuota, allocator);
-    }
-
     if (m_posixAclHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -72,6 +65,14 @@ string CreateFileSystemRequest::ToJsonString() const
         string key = "Description";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_capacityQuotaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CapacityQuota";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_capacityQuota, allocator);
     }
 
     if (m_superUsersHasBeenSet)
@@ -124,6 +125,21 @@ string CreateFileSystemRequest::ToJsonString() const
         }
     }
 
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -146,22 +162,6 @@ void CreateFileSystemRequest::SetFileSystemName(const string& _fileSystemName)
 bool CreateFileSystemRequest::FileSystemNameHasBeenSet() const
 {
     return m_fileSystemNameHasBeenSet;
-}
-
-uint64_t CreateFileSystemRequest::GetCapacityQuota() const
-{
-    return m_capacityQuota;
-}
-
-void CreateFileSystemRequest::SetCapacityQuota(const uint64_t& _capacityQuota)
-{
-    m_capacityQuota = _capacityQuota;
-    m_capacityQuotaHasBeenSet = true;
-}
-
-bool CreateFileSystemRequest::CapacityQuotaHasBeenSet() const
-{
-    return m_capacityQuotaHasBeenSet;
 }
 
 bool CreateFileSystemRequest::GetPosixAcl() const
@@ -194,6 +194,22 @@ void CreateFileSystemRequest::SetDescription(const string& _description)
 bool CreateFileSystemRequest::DescriptionHasBeenSet() const
 {
     return m_descriptionHasBeenSet;
+}
+
+uint64_t CreateFileSystemRequest::GetCapacityQuota() const
+{
+    return m_capacityQuota;
+}
+
+void CreateFileSystemRequest::SetCapacityQuota(const uint64_t& _capacityQuota)
+{
+    m_capacityQuota = _capacityQuota;
+    m_capacityQuotaHasBeenSet = true;
+}
+
+bool CreateFileSystemRequest::CapacityQuotaHasBeenSet() const
+{
+    return m_capacityQuotaHasBeenSet;
 }
 
 vector<string> CreateFileSystemRequest::GetSuperUsers() const
@@ -274,6 +290,22 @@ void CreateFileSystemRequest::SetRangerServiceAddresses(const vector<string>& _r
 bool CreateFileSystemRequest::RangerServiceAddressesHasBeenSet() const
 {
     return m_rangerServiceAddressesHasBeenSet;
+}
+
+vector<Tag> CreateFileSystemRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateFileSystemRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateFileSystemRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 
 

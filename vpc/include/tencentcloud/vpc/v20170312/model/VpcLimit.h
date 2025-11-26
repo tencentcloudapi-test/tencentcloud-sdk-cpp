@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取私有网络配额描述
                      * @return LimitType 私有网络配额描述
+                     * 
                      */
                     std::string GetLimitType() const;
 
                     /**
                      * 设置私有网络配额描述
-                     * @param LimitType 私有网络配额描述
+                     * @param _limitType 私有网络配额描述
+                     * 
                      */
                     void SetLimitType(const std::string& _limitType);
 
                     /**
                      * 判断参数 LimitType 是否已赋值
                      * @return LimitType 是否已赋值
+                     * 
                      */
                     bool LimitTypeHasBeenSet() const;
 
                     /**
                      * 获取私有网络配额值
                      * @return LimitValue 私有网络配额值
+                     * 
                      */
                     uint64_t GetLimitValue() const;
 
                     /**
                      * 设置私有网络配额值
-                     * @param LimitValue 私有网络配额值
+                     * @param _limitValue 私有网络配额值
+                     * 
                      */
                     void SetLimitValue(const uint64_t& _limitValue);
 
                     /**
                      * 判断参数 LimitValue 是否已赋值
                      * @return LimitValue 是否已赋值
+                     * 
                      */
                     bool LimitValueHasBeenSet() const;
 

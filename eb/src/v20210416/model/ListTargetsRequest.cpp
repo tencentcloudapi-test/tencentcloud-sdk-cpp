@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@ using namespace TencentCloud::Eb::V20210416::Model;
 using namespace std;
 
 ListTargetsRequest::ListTargetsRequest() :
-    m_ruleIdHasBeenSet(false),
     m_eventBusIdHasBeenSet(false),
+    m_ruleIdHasBeenSet(false),
     m_orderByHasBeenSet(false),
     m_limitHasBeenSet(false),
     m_offsetHasBeenSet(false),
@@ -39,20 +39,20 @@ string ListTargetsRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_ruleIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RuleId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_ruleId.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_eventBusIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "EventBusId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_eventBusId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ruleIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuleId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ruleId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_orderByHasBeenSet)
@@ -95,22 +95,6 @@ string ListTargetsRequest::ToJsonString() const
 }
 
 
-string ListTargetsRequest::GetRuleId() const
-{
-    return m_ruleId;
-}
-
-void ListTargetsRequest::SetRuleId(const string& _ruleId)
-{
-    m_ruleId = _ruleId;
-    m_ruleIdHasBeenSet = true;
-}
-
-bool ListTargetsRequest::RuleIdHasBeenSet() const
-{
-    return m_ruleIdHasBeenSet;
-}
-
 string ListTargetsRequest::GetEventBusId() const
 {
     return m_eventBusId;
@@ -125,6 +109,22 @@ void ListTargetsRequest::SetEventBusId(const string& _eventBusId)
 bool ListTargetsRequest::EventBusIdHasBeenSet() const
 {
     return m_eventBusIdHasBeenSet;
+}
+
+string ListTargetsRequest::GetRuleId() const
+{
+    return m_ruleId;
+}
+
+void ListTargetsRequest::SetRuleId(const string& _ruleId)
+{
+    m_ruleId = _ruleId;
+    m_ruleIdHasBeenSet = true;
+}
+
+bool ListTargetsRequest::RuleIdHasBeenSet() const
+{
+    return m_ruleIdHasBeenSet;
 }
 
 string ListTargetsRequest::GetOrderBy() const

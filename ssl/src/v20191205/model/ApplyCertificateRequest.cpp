@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,10 @@ ApplyCertificateRequest::ApplyCertificateRequest() :
     m_csrKeyParameterHasBeenSet(false),
     m_csrKeyPasswordHasBeenSet(false),
     m_aliasHasBeenSet(false),
-    m_oldCertificateIdHasBeenSet(false)
+    m_oldCertificateIdHasBeenSet(false),
+    m_packageIdHasBeenSet(false),
+    m_deleteDnsAutoRecordHasBeenSet(false),
+    m_dnsNamesHasBeenSet(false)
 {
 }
 
@@ -139,6 +142,35 @@ string ApplyCertificateRequest::ToJsonString() const
         string key = "OldCertificateId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_oldCertificateId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_packageIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PackageId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_packageId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deleteDnsAutoRecordHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeleteDnsAutoRecord";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_deleteDnsAutoRecord, allocator);
+    }
+
+    if (m_dnsNamesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DnsNames";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_dnsNames.begin(); itr != m_dnsNames.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 
@@ -339,6 +371,54 @@ void ApplyCertificateRequest::SetOldCertificateId(const string& _oldCertificateI
 bool ApplyCertificateRequest::OldCertificateIdHasBeenSet() const
 {
     return m_oldCertificateIdHasBeenSet;
+}
+
+string ApplyCertificateRequest::GetPackageId() const
+{
+    return m_packageId;
+}
+
+void ApplyCertificateRequest::SetPackageId(const string& _packageId)
+{
+    m_packageId = _packageId;
+    m_packageIdHasBeenSet = true;
+}
+
+bool ApplyCertificateRequest::PackageIdHasBeenSet() const
+{
+    return m_packageIdHasBeenSet;
+}
+
+bool ApplyCertificateRequest::GetDeleteDnsAutoRecord() const
+{
+    return m_deleteDnsAutoRecord;
+}
+
+void ApplyCertificateRequest::SetDeleteDnsAutoRecord(const bool& _deleteDnsAutoRecord)
+{
+    m_deleteDnsAutoRecord = _deleteDnsAutoRecord;
+    m_deleteDnsAutoRecordHasBeenSet = true;
+}
+
+bool ApplyCertificateRequest::DeleteDnsAutoRecordHasBeenSet() const
+{
+    return m_deleteDnsAutoRecordHasBeenSet;
+}
+
+vector<string> ApplyCertificateRequest::GetDnsNames() const
+{
+    return m_dnsNames;
+}
+
+void ApplyCertificateRequest::SetDnsNames(const vector<string>& _dnsNames)
+{
+    m_dnsNames = _dnsNames;
+    m_dnsNamesHasBeenSet = true;
+}
+
+bool ApplyCertificateRequest::DnsNamesHasBeenSet() const
+{
+    return m_dnsNamesHasBeenSet;
 }
 
 

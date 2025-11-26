@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,36 +48,42 @@ namespace TencentCloud
                     /**
                      * 获取符合条件的媒体记录总数。
                      * @return MaterialTotalCount 符合条件的媒体记录总数。
+                     * 
                      */
                     int64_t GetMaterialTotalCount() const;
 
                     /**
                      * 判断参数 MaterialTotalCount 是否已赋值
                      * @return MaterialTotalCount 是否已赋值
+                     * 
                      */
                     bool MaterialTotalCountHasBeenSet() const;
 
                     /**
                      * 获取浏览分类路径下的媒体列表信息。
                      * @return MaterialInfoSet 浏览分类路径下的媒体列表信息。
+                     * 
                      */
                     std::vector<MaterialInfo> GetMaterialInfoSet() const;
 
                     /**
                      * 判断参数 MaterialInfoSet 是否已赋值
                      * @return MaterialInfoSet 是否已赋值
+                     * 
                      */
                     bool MaterialInfoSetHasBeenSet() const;
 
                     /**
                      * 获取浏览分类路径下的一级子类。
                      * @return ClassInfoSet 浏览分类路径下的一级子类。
+                     * 
                      */
                     std::vector<ClassInfo> GetClassInfoSet() const;
 
                     /**
                      * 判断参数 ClassInfoSet 是否已赋值
                      * @return ClassInfoSet 是否已赋值
+                     * 
                      */
                     bool ClassInfoSetHasBeenSet() const;
 

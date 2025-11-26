@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,11 @@ AccountDetail::AccountDetail() :
     m_passTimeHasBeenSet(false),
     m_internalStatusHasBeenSet(false),
     m_dbsHasBeenSet(false),
-    m_isAdminHasBeenSet(false)
+    m_isAdminHasBeenSet(false),
+    m_isCamHasBeenSet(false),
+    m_authenticationHasBeenSet(false),
+    m_hostHasBeenSet(false),
+    m_accountTypeHasBeenSet(false)
 {
 }
 
@@ -138,6 +142,46 @@ CoreInternalOutcome AccountDetail::Deserialize(const rapidjson::Value &value)
         m_isAdminHasBeenSet = true;
     }
 
+    if (value.HasMember("IsCam") && !value["IsCam"].IsNull())
+    {
+        if (!value["IsCam"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountDetail.IsCam` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isCam = value["IsCam"].GetBool();
+        m_isCamHasBeenSet = true;
+    }
+
+    if (value.HasMember("Authentication") && !value["Authentication"].IsNull())
+    {
+        if (!value["Authentication"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountDetail.Authentication` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_authentication = string(value["Authentication"].GetString());
+        m_authenticationHasBeenSet = true;
+    }
+
+    if (value.HasMember("Host") && !value["Host"].IsNull())
+    {
+        if (!value["Host"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountDetail.Host` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_host = string(value["Host"].GetString());
+        m_hostHasBeenSet = true;
+    }
+
+    if (value.HasMember("AccountType") && !value["AccountType"].IsNull())
+    {
+        if (!value["AccountType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountDetail.AccountType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_accountType = string(value["AccountType"].GetString());
+        m_accountTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -222,6 +266,38 @@ void AccountDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "IsAdmin";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_isAdmin, allocator);
+    }
+
+    if (m_isCamHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsCam";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isCam, allocator);
+    }
+
+    if (m_authenticationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Authentication";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_authentication.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hostHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Host";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_host.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_accountTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccountType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_accountType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -369,5 +445,69 @@ void AccountDetail::SetIsAdmin(const bool& _isAdmin)
 bool AccountDetail::IsAdminHasBeenSet() const
 {
     return m_isAdminHasBeenSet;
+}
+
+bool AccountDetail::GetIsCam() const
+{
+    return m_isCam;
+}
+
+void AccountDetail::SetIsCam(const bool& _isCam)
+{
+    m_isCam = _isCam;
+    m_isCamHasBeenSet = true;
+}
+
+bool AccountDetail::IsCamHasBeenSet() const
+{
+    return m_isCamHasBeenSet;
+}
+
+string AccountDetail::GetAuthentication() const
+{
+    return m_authentication;
+}
+
+void AccountDetail::SetAuthentication(const string& _authentication)
+{
+    m_authentication = _authentication;
+    m_authenticationHasBeenSet = true;
+}
+
+bool AccountDetail::AuthenticationHasBeenSet() const
+{
+    return m_authenticationHasBeenSet;
+}
+
+string AccountDetail::GetHost() const
+{
+    return m_host;
+}
+
+void AccountDetail::SetHost(const string& _host)
+{
+    m_host = _host;
+    m_hostHasBeenSet = true;
+}
+
+bool AccountDetail::HostHasBeenSet() const
+{
+    return m_hostHasBeenSet;
+}
+
+string AccountDetail::GetAccountType() const
+{
+    return m_accountType;
+}
+
+void AccountDetail::SetAccountType(const string& _accountType)
+{
+    m_accountType = _accountType;
+    m_accountTypeHasBeenSet = true;
+}
+
+bool AccountDetail::AccountTypeHasBeenSet() const
+{
+    return m_accountTypeHasBeenSet;
 }
 

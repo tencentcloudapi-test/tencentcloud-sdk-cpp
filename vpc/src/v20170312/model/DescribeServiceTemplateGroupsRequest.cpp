@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,12 @@ using namespace std;
 DescribeServiceTemplateGroupsRequest::DescribeServiceTemplateGroupsRequest() :
     m_filtersHasBeenSet(false),
     m_offsetHasBeenSet(false),
-    m_limitHasBeenSet(false)
+    m_limitHasBeenSet(false),
+    m_needMemberInfoHasBeenSet(false),
+    m_orderFieldHasBeenSet(false),
+    m_orderDirectionHasBeenSet(false),
+    m_memberOrderFieldHasBeenSet(false),
+    m_memberOrderDirectionHasBeenSet(false)
 {
 }
 
@@ -65,6 +70,46 @@ string DescribeServiceTemplateGroupsRequest::ToJsonString() const
         string key = "Limit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_limit.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_needMemberInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NeedMemberInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_needMemberInfo, allocator);
+    }
+
+    if (m_orderFieldHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderField";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_orderField.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orderDirectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderDirection";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_orderDirection.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_memberOrderFieldHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MemberOrderField";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_memberOrderField.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_memberOrderDirectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MemberOrderDirection";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_memberOrderDirection.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -121,6 +166,86 @@ void DescribeServiceTemplateGroupsRequest::SetLimit(const string& _limit)
 bool DescribeServiceTemplateGroupsRequest::LimitHasBeenSet() const
 {
     return m_limitHasBeenSet;
+}
+
+bool DescribeServiceTemplateGroupsRequest::GetNeedMemberInfo() const
+{
+    return m_needMemberInfo;
+}
+
+void DescribeServiceTemplateGroupsRequest::SetNeedMemberInfo(const bool& _needMemberInfo)
+{
+    m_needMemberInfo = _needMemberInfo;
+    m_needMemberInfoHasBeenSet = true;
+}
+
+bool DescribeServiceTemplateGroupsRequest::NeedMemberInfoHasBeenSet() const
+{
+    return m_needMemberInfoHasBeenSet;
+}
+
+string DescribeServiceTemplateGroupsRequest::GetOrderField() const
+{
+    return m_orderField;
+}
+
+void DescribeServiceTemplateGroupsRequest::SetOrderField(const string& _orderField)
+{
+    m_orderField = _orderField;
+    m_orderFieldHasBeenSet = true;
+}
+
+bool DescribeServiceTemplateGroupsRequest::OrderFieldHasBeenSet() const
+{
+    return m_orderFieldHasBeenSet;
+}
+
+string DescribeServiceTemplateGroupsRequest::GetOrderDirection() const
+{
+    return m_orderDirection;
+}
+
+void DescribeServiceTemplateGroupsRequest::SetOrderDirection(const string& _orderDirection)
+{
+    m_orderDirection = _orderDirection;
+    m_orderDirectionHasBeenSet = true;
+}
+
+bool DescribeServiceTemplateGroupsRequest::OrderDirectionHasBeenSet() const
+{
+    return m_orderDirectionHasBeenSet;
+}
+
+string DescribeServiceTemplateGroupsRequest::GetMemberOrderField() const
+{
+    return m_memberOrderField;
+}
+
+void DescribeServiceTemplateGroupsRequest::SetMemberOrderField(const string& _memberOrderField)
+{
+    m_memberOrderField = _memberOrderField;
+    m_memberOrderFieldHasBeenSet = true;
+}
+
+bool DescribeServiceTemplateGroupsRequest::MemberOrderFieldHasBeenSet() const
+{
+    return m_memberOrderFieldHasBeenSet;
+}
+
+string DescribeServiceTemplateGroupsRequest::GetMemberOrderDirection() const
+{
+    return m_memberOrderDirection;
+}
+
+void DescribeServiceTemplateGroupsRequest::SetMemberOrderDirection(const string& _memberOrderDirection)
+{
+    m_memberOrderDirection = _memberOrderDirection;
+    m_memberOrderDirectionHasBeenSet = true;
+}
+
+bool DescribeServiceTemplateGroupsRequest::MemberOrderDirectionHasBeenSet() const
+{
+    return m_memberOrderDirectionHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,56 +49,86 @@ namespace TencentCloud
                     /**
                      * 获取DB节点ID
                      * @return NodeId DB节点ID
+                     * 
                      */
                     std::string GetNodeId() const;
 
                     /**
                      * 设置DB节点ID
-                     * @param NodeId DB节点ID
+                     * @param _nodeId DB节点ID
+                     * 
                      */
                     void SetNodeId(const std::string& _nodeId);
 
                     /**
                      * 判断参数 NodeId 是否已赋值
                      * @return NodeId 是否已赋值
+                     * 
                      */
                     bool NodeIdHasBeenSet() const;
 
                     /**
                      * 获取DB节点角色，取值为master或者slave
                      * @return Role DB节点角色，取值为master或者slave
+                     * 
                      */
                     std::string GetRole() const;
 
                     /**
                      * 设置DB节点角色，取值为master或者slave
-                     * @param Role DB节点角色，取值为master或者slave
+                     * @param _role DB节点角色，取值为master或者slave
+                     * 
                      */
                     void SetRole(const std::string& _role);
 
                     /**
                      * 判断参数 Role 是否已赋值
                      * @return Role 是否已赋值
+                     * 
                      */
                     bool RoleHasBeenSet() const;
 
                     /**
                      * 获取节点所属分片的分片ID
                      * @return ShardId 节点所属分片的分片ID
+                     * 
                      */
                     std::string GetShardId() const;
 
                     /**
                      * 设置节点所属分片的分片ID
-                     * @param ShardId 节点所属分片的分片ID
+                     * @param _shardId 节点所属分片的分片ID
+                     * 
                      */
                     void SetShardId(const std::string& _shardId);
 
                     /**
                      * 判断参数 ShardId 是否已赋值
                      * @return ShardId 是否已赋值
+                     * 
                      */
                     bool ShardIdHasBeenSet() const;
+
+                    /**
+                     * 获取节点所在可用区
+                     * @return Zone 节点所在可用区
+                     * 
+                     */
+                    std::string GetZone() const;
+
+                    /**
+                     * 设置节点所在可用区
+                     * @param _zone 节点所在可用区
+                     * 
+                     */
+                    void SetZone(const std::string& _zone);
+
+                    /**
+                     * 判断参数 Zone 是否已赋值
+                     * @return Zone 是否已赋值
+                     * 
+                     */
+                    bool ZoneHasBeenSet() const;
 
                 private:
 
@@ -119,6 +149,12 @@ namespace TencentCloud
                      */
                     std::string m_shardId;
                     bool m_shardIdHasBeenSet;
+
+                    /**
+                     * 节点所在可用区
+                     */
+                    std::string m_zone;
+                    bool m_zoneHasBeenSet;
 
                 };
             }

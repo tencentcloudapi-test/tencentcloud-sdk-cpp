@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,14 @@ CreateAlarmPolicyRequest::CreateAlarmPolicyRequest() :
     m_noticeIdsHasBeenSet(false),
     m_triggerTasksHasBeenSet(false),
     m_filterHasBeenSet(false),
-    m_groupByHasBeenSet(false)
+    m_groupByHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_logAlarmReqInfoHasBeenSet(false),
+    m_hierarchicalNoticesHasBeenSet(false),
+    m_migrateFlagHasBeenSet(false),
+    m_ebSubjectHasBeenSet(false),
+    m_additionalAlarmContentHasBeenSet(false),
+    m_noticeContentTmplBindInfosHasBeenSet(false)
 {
 }
 
@@ -176,6 +183,84 @@ string CreateAlarmPolicyRequest::ToJsonString() const
         for (auto itr = m_groupBy.begin(); itr != m_groupBy.end(); ++itr)
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_logAlarmReqInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LogAlarmReqInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_logAlarmReqInfo.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_hierarchicalNoticesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HierarchicalNotices";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_hierarchicalNotices.begin(); itr != m_hierarchicalNotices.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_migrateFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MigrateFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_migrateFlag, allocator);
+    }
+
+    if (m_ebSubjectHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EbSubject";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ebSubject.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_additionalAlarmContentHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdditionalAlarmContent";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_additionalAlarmContent.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_noticeContentTmplBindInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NoticeContentTmplBindInfos";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_noticeContentTmplBindInfos.begin(); itr != m_noticeContentTmplBindInfos.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
     }
 
@@ -409,6 +494,118 @@ void CreateAlarmPolicyRequest::SetGroupBy(const vector<string>& _groupBy)
 bool CreateAlarmPolicyRequest::GroupByHasBeenSet() const
 {
     return m_groupByHasBeenSet;
+}
+
+vector<Tag> CreateAlarmPolicyRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateAlarmPolicyRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateAlarmPolicyRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+LogAlarmReq CreateAlarmPolicyRequest::GetLogAlarmReqInfo() const
+{
+    return m_logAlarmReqInfo;
+}
+
+void CreateAlarmPolicyRequest::SetLogAlarmReqInfo(const LogAlarmReq& _logAlarmReqInfo)
+{
+    m_logAlarmReqInfo = _logAlarmReqInfo;
+    m_logAlarmReqInfoHasBeenSet = true;
+}
+
+bool CreateAlarmPolicyRequest::LogAlarmReqInfoHasBeenSet() const
+{
+    return m_logAlarmReqInfoHasBeenSet;
+}
+
+vector<AlarmHierarchicalNotice> CreateAlarmPolicyRequest::GetHierarchicalNotices() const
+{
+    return m_hierarchicalNotices;
+}
+
+void CreateAlarmPolicyRequest::SetHierarchicalNotices(const vector<AlarmHierarchicalNotice>& _hierarchicalNotices)
+{
+    m_hierarchicalNotices = _hierarchicalNotices;
+    m_hierarchicalNoticesHasBeenSet = true;
+}
+
+bool CreateAlarmPolicyRequest::HierarchicalNoticesHasBeenSet() const
+{
+    return m_hierarchicalNoticesHasBeenSet;
+}
+
+int64_t CreateAlarmPolicyRequest::GetMigrateFlag() const
+{
+    return m_migrateFlag;
+}
+
+void CreateAlarmPolicyRequest::SetMigrateFlag(const int64_t& _migrateFlag)
+{
+    m_migrateFlag = _migrateFlag;
+    m_migrateFlagHasBeenSet = true;
+}
+
+bool CreateAlarmPolicyRequest::MigrateFlagHasBeenSet() const
+{
+    return m_migrateFlagHasBeenSet;
+}
+
+string CreateAlarmPolicyRequest::GetEbSubject() const
+{
+    return m_ebSubject;
+}
+
+void CreateAlarmPolicyRequest::SetEbSubject(const string& _ebSubject)
+{
+    m_ebSubject = _ebSubject;
+    m_ebSubjectHasBeenSet = true;
+}
+
+bool CreateAlarmPolicyRequest::EbSubjectHasBeenSet() const
+{
+    return m_ebSubjectHasBeenSet;
+}
+
+string CreateAlarmPolicyRequest::GetAdditionalAlarmContent() const
+{
+    return m_additionalAlarmContent;
+}
+
+void CreateAlarmPolicyRequest::SetAdditionalAlarmContent(const string& _additionalAlarmContent)
+{
+    m_additionalAlarmContent = _additionalAlarmContent;
+    m_additionalAlarmContentHasBeenSet = true;
+}
+
+bool CreateAlarmPolicyRequest::AdditionalAlarmContentHasBeenSet() const
+{
+    return m_additionalAlarmContentHasBeenSet;
+}
+
+vector<NoticeContentTmplBindInfo> CreateAlarmPolicyRequest::GetNoticeContentTmplBindInfos() const
+{
+    return m_noticeContentTmplBindInfos;
+}
+
+void CreateAlarmPolicyRequest::SetNoticeContentTmplBindInfos(const vector<NoticeContentTmplBindInfo>& _noticeContentTmplBindInfos)
+{
+    m_noticeContentTmplBindInfos = _noticeContentTmplBindInfos;
+    m_noticeContentTmplBindInfosHasBeenSet = true;
+}
+
+bool CreateAlarmPolicyRequest::NoticeContentTmplBindInfosHasBeenSet() const
+{
+    return m_noticeContentTmplBindInfosHasBeenSet;
 }
 
 

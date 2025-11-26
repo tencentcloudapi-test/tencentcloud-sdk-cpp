@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取站点ID。
                      * @return SiteId 站点ID。
+                     * 
                      */
                     uint64_t GetSiteId() const;
 
                     /**
                      * 设置站点ID。
-                     * @param SiteId 站点ID。
+                     * @param _siteId 站点ID。
+                     * 
                      */
                     void SetSiteId(const uint64_t& _siteId);
 
                     /**
                      * 判断参数 SiteId 是否已赋值
                      * @return SiteId 是否已赋值
+                     * 
                      */
                     bool SiteIdHasBeenSet() const;
 
                     /**
                      * 获取站点Url。
                      * @return Url 站点Url。
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置站点Url。
-                     * @param Url 站点Url。
+                     * @param _url 站点Url。
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 

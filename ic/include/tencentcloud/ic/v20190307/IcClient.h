@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,12 @@
 #include <tencentcloud/ic/v20190307/model/DescribeCardResponse.h>
 #include <tencentcloud/ic/v20190307/model/DescribeCardsRequest.h>
 #include <tencentcloud/ic/v20190307/model/DescribeCardsResponse.h>
+#include <tencentcloud/ic/v20190307/model/DescribeSmsRequest.h>
+#include <tencentcloud/ic/v20190307/model/DescribeSmsResponse.h>
 #include <tencentcloud/ic/v20190307/model/ModifyUserCardRemarkRequest.h>
 #include <tencentcloud/ic/v20190307/model/ModifyUserCardRemarkResponse.h>
+#include <tencentcloud/ic/v20190307/model/PayForExtendDataRequest.h>
+#include <tencentcloud/ic/v20190307/model/PayForExtendDataResponse.h>
 #include <tencentcloud/ic/v20190307/model/RenewCardsRequest.h>
 #include <tencentcloud/ic/v20190307/model/RenewCardsResponse.h>
 #include <tencentcloud/ic/v20190307/model/SendMultiSmsRequest.h>
@@ -60,9 +64,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeCardsResponse> DescribeCardsOutcome;
                 typedef std::future<DescribeCardsOutcome> DescribeCardsOutcomeCallable;
                 typedef std::function<void(const IcClient*, const Model::DescribeCardsRequest&, DescribeCardsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCardsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeSmsResponse> DescribeSmsOutcome;
+                typedef std::future<DescribeSmsOutcome> DescribeSmsOutcomeCallable;
+                typedef std::function<void(const IcClient*, const Model::DescribeSmsRequest&, DescribeSmsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSmsAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyUserCardRemarkResponse> ModifyUserCardRemarkOutcome;
                 typedef std::future<ModifyUserCardRemarkOutcome> ModifyUserCardRemarkOutcomeCallable;
                 typedef std::function<void(const IcClient*, const Model::ModifyUserCardRemarkRequest&, ModifyUserCardRemarkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyUserCardRemarkAsyncHandler;
+                typedef Outcome<Core::Error, Model::PayForExtendDataResponse> PayForExtendDataOutcome;
+                typedef std::future<PayForExtendDataOutcome> PayForExtendDataOutcomeCallable;
+                typedef std::function<void(const IcClient*, const Model::PayForExtendDataRequest&, PayForExtendDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> PayForExtendDataAsyncHandler;
                 typedef Outcome<Core::Error, Model::RenewCardsResponse> RenewCardsOutcome;
                 typedef std::future<RenewCardsOutcome> RenewCardsOutcomeCallable;
                 typedef std::function<void(const IcClient*, const Model::RenewCardsRequest&, RenewCardsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RenewCardsAsyncHandler;
@@ -103,6 +113,15 @@ namespace TencentCloud
                 DescribeCardsOutcomeCallable DescribeCardsCallable(const Model::DescribeCardsRequest& request);
 
                 /**
+                 *查询短信列表
+                 * @param req DescribeSmsRequest
+                 * @return DescribeSmsOutcome
+                 */
+                DescribeSmsOutcome DescribeSms(const Model::DescribeSmsRequest &request);
+                void DescribeSmsAsync(const Model::DescribeSmsRequest& request, const DescribeSmsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeSmsOutcomeCallable DescribeSmsCallable(const Model::DescribeSmsRequest& request);
+
+                /**
                  *编辑卡片备注
                  * @param req ModifyUserCardRemarkRequest
                  * @return ModifyUserCardRemarkOutcome
@@ -110,6 +129,15 @@ namespace TencentCloud
                 ModifyUserCardRemarkOutcome ModifyUserCardRemark(const Model::ModifyUserCardRemarkRequest &request);
                 void ModifyUserCardRemarkAsync(const Model::ModifyUserCardRemarkRequest& request, const ModifyUserCardRemarkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyUserCardRemarkOutcomeCallable ModifyUserCardRemarkCallable(const Model::ModifyUserCardRemarkRequest& request);
+
+                /**
+                 *购买套外流量包
+                 * @param req PayForExtendDataRequest
+                 * @return PayForExtendDataOutcome
+                 */
+                PayForExtendDataOutcome PayForExtendData(const Model::PayForExtendDataRequest &request);
+                void PayForExtendDataAsync(const Model::PayForExtendDataRequest& request, const PayForExtendDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                PayForExtendDataOutcomeCallable PayForExtendDataCallable(const Model::PayForExtendDataRequest& request);
 
                 /**
                  *批量为卡片续费，此接口建议调用至少间隔10s,如果出现返回deal lock failed相关的错误，请过10s再重试。

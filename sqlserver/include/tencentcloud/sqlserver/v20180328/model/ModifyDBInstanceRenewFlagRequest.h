@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取实例续费状态标记信息
                      * @return RenewFlags 实例续费状态标记信息
+                     * 
                      */
                     std::vector<InstanceRenewInfo> GetRenewFlags() const;
 
                     /**
                      * 设置实例续费状态标记信息
-                     * @param RenewFlags 实例续费状态标记信息
+                     * @param _renewFlags 实例续费状态标记信息
+                     * 
                      */
                     void SetRenewFlags(const std::vector<InstanceRenewInfo>& _renewFlags);
 
                     /**
                      * 判断参数 RenewFlags 是否已赋值
                      * @return RenewFlags 是否已赋值
+                     * 
                      */
                     bool RenewFlagsHasBeenSet() const;
 

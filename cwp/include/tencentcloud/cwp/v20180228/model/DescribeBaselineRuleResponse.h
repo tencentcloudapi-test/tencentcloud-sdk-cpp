@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,40 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取分页查询记录总数
                      * @return TotalCount 分页查询记录总数
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return BaselineRuleList 基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<BaselineRuleInfo> GetBaselineRuleList() const;
 
                     /**
                      * 判断参数 BaselineRuleList 是否已赋值
                      * @return BaselineRuleList 是否已赋值
+                     * 
                      */
                     bool BaselineRuleListHasBeenSet() const;
 
                     /**
                      * 获取是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ShowRuleRemark 是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     bool GetShowRuleRemark() const;
 
                     /**
                      * 判断参数 ShowRuleRemark 是否已赋值
                      * @return ShowRuleRemark 是否已赋值
+                     * 
                      */
                     bool ShowRuleRemarkHasBeenSet() const;
 
@@ -94,14 +96,12 @@ namespace TencentCloud
 
                     /**
                      * 基线检测项列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<BaselineRuleInfo> m_baselineRuleList;
                     bool m_baselineRuleListHasBeenSet;
 
                     /**
                      * 是否显示说明列：true-是，false-否
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_showRuleRemark;
                     bool m_showRuleRemarkHasBeenSet;

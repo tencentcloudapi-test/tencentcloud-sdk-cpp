@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,30 +43,114 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取SSL-VPN-CLIENT 实例ID。
-                     * @return SslVpnClientId SSL-VPN-CLIENT 实例ID。
+                     * 获取SSL-VPN-CLIENT 实例ID。不可以和SslVpnClientIds同时使用。
+                     * @return SslVpnClientId SSL-VPN-CLIENT 实例ID。不可以和SslVpnClientIds同时使用。
+                     * 
                      */
                     std::string GetSslVpnClientId() const;
 
                     /**
-                     * 设置SSL-VPN-CLIENT 实例ID。
-                     * @param SslVpnClientId SSL-VPN-CLIENT 实例ID。
+                     * 设置SSL-VPN-CLIENT 实例ID。不可以和SslVpnClientIds同时使用。
+                     * @param _sslVpnClientId SSL-VPN-CLIENT 实例ID。不可以和SslVpnClientIds同时使用。
+                     * 
                      */
                     void SetSslVpnClientId(const std::string& _sslVpnClientId);
 
                     /**
                      * 判断参数 SslVpnClientId 是否已赋值
                      * @return SslVpnClientId 是否已赋值
+                     * 
                      */
                     bool SslVpnClientIdHasBeenSet() const;
+
+                    /**
+                     * 获取SAML Token（SAML令牌）。
+                     * @return SamlToken SAML Token（SAML令牌）。
+                     * 
+                     */
+                    std::string GetSamlToken() const;
+
+                    /**
+                     * 设置SAML Token（SAML令牌）。
+                     * @param _samlToken SAML Token（SAML令牌）。
+                     * 
+                     */
+                    void SetSamlToken(const std::string& _samlToken);
+
+                    /**
+                     * 判断参数 SamlToken 是否已赋值
+                     * @return SamlToken 是否已赋值
+                     * 
+                     */
+                    bool SamlTokenHasBeenSet() const;
+
+                    /**
+                     * 获取VPN门户网站使用。默认False
+                     * @return IsVpnPortal VPN门户网站使用。默认False
+                     * 
+                     */
+                    bool GetIsVpnPortal() const;
+
+                    /**
+                     * 设置VPN门户网站使用。默认False
+                     * @param _isVpnPortal VPN门户网站使用。默认False
+                     * 
+                     */
+                    void SetIsVpnPortal(const bool& _isVpnPortal);
+
+                    /**
+                     * 判断参数 IsVpnPortal 是否已赋值
+                     * @return IsVpnPortal 是否已赋值
+                     * 
+                     */
+                    bool IsVpnPortalHasBeenSet() const;
+
+                    /**
+                     * 获取SSL-VPN-CLIENT 实例ID列表。批量下载时使用。不可以和SslVpnClientId同时使用。
+                     * @return SslVpnClientIds SSL-VPN-CLIENT 实例ID列表。批量下载时使用。不可以和SslVpnClientId同时使用。
+                     * 
+                     */
+                    std::vector<std::string> GetSslVpnClientIds() const;
+
+                    /**
+                     * 设置SSL-VPN-CLIENT 实例ID列表。批量下载时使用。不可以和SslVpnClientId同时使用。
+                     * @param _sslVpnClientIds SSL-VPN-CLIENT 实例ID列表。批量下载时使用。不可以和SslVpnClientId同时使用。
+                     * 
+                     */
+                    void SetSslVpnClientIds(const std::vector<std::string>& _sslVpnClientIds);
+
+                    /**
+                     * 判断参数 SslVpnClientIds 是否已赋值
+                     * @return SslVpnClientIds 是否已赋值
+                     * 
+                     */
+                    bool SslVpnClientIdsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * SSL-VPN-CLIENT 实例ID。
+                     * SSL-VPN-CLIENT 实例ID。不可以和SslVpnClientIds同时使用。
                      */
                     std::string m_sslVpnClientId;
                     bool m_sslVpnClientIdHasBeenSet;
+
+                    /**
+                     * SAML Token（SAML令牌）。
+                     */
+                    std::string m_samlToken;
+                    bool m_samlTokenHasBeenSet;
+
+                    /**
+                     * VPN门户网站使用。默认False
+                     */
+                    bool m_isVpnPortal;
+                    bool m_isVpnPortalHasBeenSet;
+
+                    /**
+                     * SSL-VPN-CLIENT 实例ID列表。批量下载时使用。不可以和SslVpnClientId同时使用。
+                     */
+                    std::vector<std::string> m_sslVpnClientIds;
+                    bool m_sslVpnClientIdsHasBeenSet;
 
                 };
             }

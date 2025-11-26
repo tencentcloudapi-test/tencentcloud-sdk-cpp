@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cdb/v20170320/model/AuditLogFilter.h>
+#include <tencentcloud/cdb/v20170320/model/InstanceAuditLogFilters.h>
 
 
 namespace TencentCloud
@@ -44,165 +45,222 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-                     * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * 获取实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * @return InstanceId 实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-                     * @param InstanceId 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * 设置实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * @param _instanceId 实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取开始时间，格式为："2017-07-12 10:29:20"。
-                     * @return StartTime 开始时间，格式为："2017-07-12 10:29:20"。
+                     * 获取开始时间(建议开始到结束时间区间最大7天)。
+                     * @return StartTime 开始时间(建议开始到结束时间区间最大7天)。
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置开始时间，格式为："2017-07-12 10:29:20"。
-                     * @param StartTime 开始时间，格式为："2017-07-12 10:29:20"。
+                     * 设置开始时间(建议开始到结束时间区间最大7天)。
+                     * @param _startTime 开始时间(建议开始到结束时间区间最大7天)。
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取结束时间，格式为："2017-07-12 10:29:20"。
-                     * @return EndTime 结束时间，格式为："2017-07-12 10:29:20"。
+                     * 获取结束时间(建议开始到结束时间区间最大7天）。
+                     * @return EndTime 结束时间(建议开始到结束时间区间最大7天）。
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置结束时间，格式为："2017-07-12 10:29:20"。
-                     * @param EndTime 结束时间，格式为："2017-07-12 10:29:20"。
+                     * 设置结束时间(建议开始到结束时间区间最大7天）。
+                     * @param _endTime 结束时间(建议开始到结束时间区间最大7天）。
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取排序方式。支持值包括："ASC" - 升序，"DESC" - 降序。
-                     * @return Order 排序方式。支持值包括："ASC" - 升序，"DESC" - 降序。
+                     * 获取排序方式。支持值包括："ASC" - 升序，"DESC" - 降序，默认降序排序。
+                     * @return Order 排序方式。支持值包括："ASC" - 升序，"DESC" - 降序，默认降序排序。
+                     * 
                      */
                     std::string GetOrder() const;
 
                     /**
-                     * 设置排序方式。支持值包括："ASC" - 升序，"DESC" - 降序。
-                     * @param Order 排序方式。支持值包括："ASC" - 升序，"DESC" - 降序。
+                     * 设置排序方式。支持值包括："ASC" - 升序，"DESC" - 降序，默认降序排序。
+                     * @param _order 排序方式。支持值包括："ASC" - 升序，"DESC" - 降序，默认降序排序。
+                     * 
                      */
                     void SetOrder(const std::string& _order);
 
                     /**
                      * 判断参数 Order 是否已赋值
                      * @return Order 是否已赋值
+                     * 
                      */
                     bool OrderHasBeenSet() const;
 
                     /**
-                     * 获取排序字段。支持值包括：
-"timestamp" - 时间戳；
-"affectRows" - 影响行数；
-"execTime" - 执行时间。
-                     * @return OrderBy 排序字段。支持值包括：
-"timestamp" - 时间戳；
-"affectRows" - 影响行数；
-"execTime" - 执行时间。
+                     * 获取排序字段。支持值包括(默认按照时间戳排序)： "timestamp" - 时间戳； "affectRows" - 影响行数； "execTime" - 执行时间。
+                     * @return OrderBy 排序字段。支持值包括(默认按照时间戳排序)： "timestamp" - 时间戳； "affectRows" - 影响行数； "execTime" - 执行时间。
+                     * 
                      */
                     std::string GetOrderBy() const;
 
                     /**
-                     * 设置排序字段。支持值包括：
-"timestamp" - 时间戳；
-"affectRows" - 影响行数；
-"execTime" - 执行时间。
-                     * @param OrderBy 排序字段。支持值包括：
-"timestamp" - 时间戳；
-"affectRows" - 影响行数；
-"execTime" - 执行时间。
+                     * 设置排序字段。支持值包括(默认按照时间戳排序)： "timestamp" - 时间戳； "affectRows" - 影响行数； "execTime" - 执行时间。
+                     * @param _orderBy 排序字段。支持值包括(默认按照时间戳排序)： "timestamp" - 时间戳； "affectRows" - 影响行数； "execTime" - 执行时间。
+                     * 
                      */
                     void SetOrderBy(const std::string& _orderBy);
 
                     /**
                      * 判断参数 OrderBy 是否已赋值
                      * @return OrderBy 是否已赋值
+                     * 
                      */
                     bool OrderByHasBeenSet() const;
 
                     /**
-                     * 获取过滤条件。可按设置的过滤条件过滤日志。
-                     * @return Filter 过滤条件。可按设置的过滤条件过滤日志。
+                     * 获取已废弃。
+                     * @return Filter 已废弃。
+                     * @deprecated
                      */
                     AuditLogFilter GetFilter() const;
 
                     /**
-                     * 设置过滤条件。可按设置的过滤条件过滤日志。
-                     * @param Filter 过滤条件。可按设置的过滤条件过滤日志。
+                     * 设置已废弃。
+                     * @param _filter 已废弃。
+                     * @deprecated
                      */
                     void SetFilter(const AuditLogFilter& _filter);
 
                     /**
                      * 判断参数 Filter 是否已赋值
                      * @return Filter 是否已赋值
+                     * @deprecated
                      */
                     bool FilterHasBeenSet() const;
+
+                    /**
+                     * 获取过滤条件。可按设置的过滤条件过滤日志。
+                     * @return LogFilter 过滤条件。可按设置的过滤条件过滤日志。
+                     * 
+                     */
+                    std::vector<InstanceAuditLogFilters> GetLogFilter() const;
+
+                    /**
+                     * 设置过滤条件。可按设置的过滤条件过滤日志。
+                     * @param _logFilter 过滤条件。可按设置的过滤条件过滤日志。
+                     * 
+                     */
+                    void SetLogFilter(const std::vector<InstanceAuditLogFilters>& _logFilter);
+
+                    /**
+                     * 判断参数 LogFilter 是否已赋值
+                     * @return LogFilter 是否已赋值
+                     * 
+                     */
+                    bool LogFilterHasBeenSet() const;
+
+                    /**
+                     * 获取下载筛选列
+                     * @return ColumnFilter 下载筛选列
+                     * 
+                     */
+                    std::vector<std::string> GetColumnFilter() const;
+
+                    /**
+                     * 设置下载筛选列
+                     * @param _columnFilter 下载筛选列
+                     * 
+                     */
+                    void SetColumnFilter(const std::vector<std::string>& _columnFilter);
+
+                    /**
+                     * 判断参数 ColumnFilter 是否已赋值
+                     * @return ColumnFilter 是否已赋值
+                     * 
+                     */
+                    bool ColumnFilterHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例 ID，格式如：cdb-c1nl9rpv 或者 cdbro-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * 实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 开始时间，格式为："2017-07-12 10:29:20"。
+                     * 开始时间(建议开始到结束时间区间最大7天)。
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * 结束时间，格式为："2017-07-12 10:29:20"。
+                     * 结束时间(建议开始到结束时间区间最大7天）。
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * 排序方式。支持值包括："ASC" - 升序，"DESC" - 降序。
+                     * 排序方式。支持值包括："ASC" - 升序，"DESC" - 降序，默认降序排序。
                      */
                     std::string m_order;
                     bool m_orderHasBeenSet;
 
                     /**
-                     * 排序字段。支持值包括：
-"timestamp" - 时间戳；
-"affectRows" - 影响行数；
-"execTime" - 执行时间。
+                     * 排序字段。支持值包括(默认按照时间戳排序)： "timestamp" - 时间戳； "affectRows" - 影响行数； "execTime" - 执行时间。
                      */
                     std::string m_orderBy;
                     bool m_orderByHasBeenSet;
 
                     /**
-                     * 过滤条件。可按设置的过滤条件过滤日志。
+                     * 已废弃。
                      */
                     AuditLogFilter m_filter;
                     bool m_filterHasBeenSet;
+
+                    /**
+                     * 过滤条件。可按设置的过滤条件过滤日志。
+                     */
+                    std::vector<InstanceAuditLogFilters> m_logFilter;
+                    bool m_logFilterHasBeenSet;
+
+                    /**
+                     * 下载筛选列
+                     */
+                    std::vector<std::string> m_columnFilter;
+                    bool m_columnFilterHasBeenSet;
 
                 };
             }

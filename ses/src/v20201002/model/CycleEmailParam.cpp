@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 CycleEmailParam::CycleEmailParam() :
     m_beginTimeHasBeenSet(false),
-    m_intervalTimeHasBeenSet(false)
+    m_intervalTimeHasBeenSet(false),
+    m_termCycleHasBeenSet(false)
 {
 }
 
@@ -51,6 +52,16 @@ CoreInternalOutcome CycleEmailParam::Deserialize(const rapidjson::Value &value)
         m_intervalTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("TermCycle") && !value["TermCycle"].IsNull())
+    {
+        if (!value["TermCycle"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CycleEmailParam.TermCycle` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_termCycle = value["TermCycle"].GetUint64();
+        m_termCycleHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +83,14 @@ void CycleEmailParam::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "IntervalTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_intervalTime, allocator);
+    }
+
+    if (m_termCycleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TermCycle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_termCycle, allocator);
     }
 
 }
@@ -107,5 +126,21 @@ void CycleEmailParam::SetIntervalTime(const uint64_t& _intervalTime)
 bool CycleEmailParam::IntervalTimeHasBeenSet() const
 {
     return m_intervalTimeHasBeenSet;
+}
+
+uint64_t CycleEmailParam::GetTermCycle() const
+{
+    return m_termCycle;
+}
+
+void CycleEmailParam::SetTermCycle(const uint64_t& _termCycle)
+{
+    m_termCycle = _termCycle;
+    m_termCycleHasBeenSet = true;
+}
+
+bool CycleEmailParam::TermCycleHasBeenSet() const
+{
+    return m_termCycleHasBeenSet;
 }
 

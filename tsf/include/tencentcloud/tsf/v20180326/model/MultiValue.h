@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,23 +48,22 @@ namespace TencentCloud
 
                     /**
                      * 获取数据点
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Values 数据点
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<double> GetValues() const;
 
                     /**
                      * 设置数据点
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Values 数据点
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _values 数据点
+                     * 
                      */
                     void SetValues(const std::vector<double>& _values);
 
                     /**
                      * 判断参数 Values 是否已赋值
                      * @return Values 是否已赋值
+                     * 
                      */
                     bool ValuesHasBeenSet() const;
 
@@ -72,7 +71,6 @@ namespace TencentCloud
 
                     /**
                      * 数据点
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<double> m_values;
                     bool m_valuesHasBeenSet;

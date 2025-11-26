@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,8 @@
 #include <tencentcloud/dcdb/v20180411/model/AssociateSecurityGroupsResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/CancelDcnJobRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/CancelDcnJobResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/CancelOnlineDDLJobRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/CancelOnlineDDLJobResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/CloneAccountRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/CloneAccountResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/CloseDBExtranetAccessRequest.h>
@@ -43,12 +45,22 @@
 #include <tencentcloud/dcdb/v20180411/model/CreateDedicatedClusterDCDBInstanceResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/CreateHourDCDBInstanceRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/CreateHourDCDBInstanceResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/CreateOnlineDDLJobRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/CreateOnlineDDLJobResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/CreateTmpDCDBInstanceRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/CreateTmpDCDBInstanceResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DeleteAccountRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DeleteAccountResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeAccountPrivilegesRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeAccountPrivilegesResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeAccountsRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeAccountsResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeBackupConfigsRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeBackupConfigsResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeBackupFilesRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeBackupFilesResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDBEncryptAttributesRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDBEncryptAttributesResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDBLogFilesRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDBLogFilesResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDBParametersRequest.h>
@@ -59,6 +71,12 @@
 #include <tencentcloud/dcdb/v20180411/model/DescribeDBSlowLogsResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDBSyncModeRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDBSyncModeResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDBTmpInstancesRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDBTmpInstancesResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDCDBBinlogTimeRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDCDBBinlogTimeResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDCDBInstanceDetailRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeDCDBInstanceDetailResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDCDBInstanceNodeInfoRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDCDBInstanceNodeInfoResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeDCDBInstancesRequest.h>
@@ -85,16 +103,22 @@
 #include <tencentcloud/dcdb/v20180411/model/DescribeFileDownloadUrlResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeFlowRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeFlowResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeInstanceSSLAttributesRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeInstanceSSLAttributesResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeLogFileRetentionPeriodRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeLogFileRetentionPeriodResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeOnlineDDLJobRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeOnlineDDLJobResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeOrdersRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeOrdersResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeProcessListRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/DescribeProcessListResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeProjectSecurityGroupsRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeProjectSecurityGroupsResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeProjectsRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeProjectsResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeShardSpecRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeShardSpecResponse.h>
-#include <tencentcloud/dcdb/v20180411/model/DescribeSqlLogsRequest.h>
-#include <tencentcloud/dcdb/v20180411/model/DescribeSqlLogsResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeUserTasksRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/DescribeUserTasksResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/DestroyDCDBInstanceRequest.h>
@@ -109,12 +133,26 @@
 #include <tencentcloud/dcdb/v20180411/model/GrantAccountPrivilegesResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/InitDCDBInstancesRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/InitDCDBInstancesResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/IsolateDCDBInstanceRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/IsolateDCDBInstanceResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/IsolateDedicatedDBInstanceRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/IsolateDedicatedDBInstanceResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/IsolateHourDCDBInstanceRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/IsolateHourDCDBInstanceResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/KillSessionRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/KillSessionResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyAccountConfigRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyAccountConfigResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyAccountDescriptionRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyAccountDescriptionResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyAccountPrivilegesRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyAccountPrivilegesResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyBackupConfigsRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyBackupConfigsResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyDBEncryptAttributesRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyDBEncryptAttributesResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyDBInstanceNameRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyDBInstanceNameResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyDBInstanceSecurityGroupsRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyDBInstanceSecurityGroupsResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyDBInstancesProjectRequest.h>
@@ -123,6 +161,16 @@
 #include <tencentcloud/dcdb/v20180411/model/ModifyDBParametersResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyDBSyncModeRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyDBSyncModeResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceNetworkRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceNetworkResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceProtectedPropertyRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceProtectedPropertyResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceSSLAttributesRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceSSLAttributesResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceVipRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceVipResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceVportRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/ModifyInstanceVportResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyRealServerAccessStrategyRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/ModifyRealServerAccessStrategyResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/OpenDBExtranetAccessRequest.h>
@@ -133,8 +181,14 @@
 #include <tencentcloud/dcdb/v20180411/model/ResetAccountPasswordResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/SwitchDBInstanceHARequest.h>
 #include <tencentcloud/dcdb/v20180411/model/SwitchDBInstanceHAResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/TerminateDedicatedDBInstanceRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/TerminateDedicatedDBInstanceResponse.h>
 #include <tencentcloud/dcdb/v20180411/model/UpgradeDCDBInstanceRequest.h>
 #include <tencentcloud/dcdb/v20180411/model/UpgradeDCDBInstanceResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/UpgradeDedicatedDCDBInstanceRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/UpgradeDedicatedDCDBInstanceResponse.h>
+#include <tencentcloud/dcdb/v20180411/model/UpgradeHourDCDBInstanceRequest.h>
+#include <tencentcloud/dcdb/v20180411/model/UpgradeHourDCDBInstanceResponse.h>
 
 
 namespace TencentCloud
@@ -158,6 +212,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CancelDcnJobResponse> CancelDcnJobOutcome;
                 typedef std::future<CancelDcnJobOutcome> CancelDcnJobOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::CancelDcnJobRequest&, CancelDcnJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CancelDcnJobAsyncHandler;
+                typedef Outcome<Core::Error, Model::CancelOnlineDDLJobResponse> CancelOnlineDDLJobOutcome;
+                typedef std::future<CancelOnlineDDLJobOutcome> CancelOnlineDDLJobOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::CancelOnlineDDLJobRequest&, CancelOnlineDDLJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CancelOnlineDDLJobAsyncHandler;
                 typedef Outcome<Core::Error, Model::CloneAccountResponse> CloneAccountOutcome;
                 typedef std::future<CloneAccountOutcome> CloneAccountOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::CloneAccountRequest&, CloneAccountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CloneAccountAsyncHandler;
@@ -179,6 +236,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateHourDCDBInstanceResponse> CreateHourDCDBInstanceOutcome;
                 typedef std::future<CreateHourDCDBInstanceOutcome> CreateHourDCDBInstanceOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::CreateHourDCDBInstanceRequest&, CreateHourDCDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateHourDCDBInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateOnlineDDLJobResponse> CreateOnlineDDLJobOutcome;
+                typedef std::future<CreateOnlineDDLJobOutcome> CreateOnlineDDLJobOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::CreateOnlineDDLJobRequest&, CreateOnlineDDLJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateOnlineDDLJobAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateTmpDCDBInstanceResponse> CreateTmpDCDBInstanceOutcome;
+                typedef std::future<CreateTmpDCDBInstanceOutcome> CreateTmpDCDBInstanceOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::CreateTmpDCDBInstanceRequest&, CreateTmpDCDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateTmpDCDBInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteAccountResponse> DeleteAccountOutcome;
                 typedef std::future<DeleteAccountOutcome> DeleteAccountOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DeleteAccountRequest&, DeleteAccountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAccountAsyncHandler;
@@ -188,6 +251,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAccountsResponse> DescribeAccountsOutcome;
                 typedef std::future<DescribeAccountsOutcome> DescribeAccountsOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeAccountsRequest&, DescribeAccountsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAccountsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBackupConfigsResponse> DescribeBackupConfigsOutcome;
+                typedef std::future<DescribeBackupConfigsOutcome> DescribeBackupConfigsOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeBackupConfigsRequest&, DescribeBackupConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBackupConfigsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBackupFilesResponse> DescribeBackupFilesOutcome;
+                typedef std::future<DescribeBackupFilesOutcome> DescribeBackupFilesOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeBackupFilesRequest&, DescribeBackupFilesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBackupFilesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDBEncryptAttributesResponse> DescribeDBEncryptAttributesOutcome;
+                typedef std::future<DescribeDBEncryptAttributesOutcome> DescribeDBEncryptAttributesOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeDBEncryptAttributesRequest&, DescribeDBEncryptAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBEncryptAttributesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDBLogFilesResponse> DescribeDBLogFilesOutcome;
                 typedef std::future<DescribeDBLogFilesOutcome> DescribeDBLogFilesOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeDBLogFilesRequest&, DescribeDBLogFilesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBLogFilesAsyncHandler;
@@ -203,6 +275,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDBSyncModeResponse> DescribeDBSyncModeOutcome;
                 typedef std::future<DescribeDBSyncModeOutcome> DescribeDBSyncModeOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeDBSyncModeRequest&, DescribeDBSyncModeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBSyncModeAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDBTmpInstancesResponse> DescribeDBTmpInstancesOutcome;
+                typedef std::future<DescribeDBTmpInstancesOutcome> DescribeDBTmpInstancesOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeDBTmpInstancesRequest&, DescribeDBTmpInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBTmpInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDCDBBinlogTimeResponse> DescribeDCDBBinlogTimeOutcome;
+                typedef std::future<DescribeDCDBBinlogTimeOutcome> DescribeDCDBBinlogTimeOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeDCDBBinlogTimeRequest&, DescribeDCDBBinlogTimeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDCDBBinlogTimeAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDCDBInstanceDetailResponse> DescribeDCDBInstanceDetailOutcome;
+                typedef std::future<DescribeDCDBInstanceDetailOutcome> DescribeDCDBInstanceDetailOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeDCDBInstanceDetailRequest&, DescribeDCDBInstanceDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDCDBInstanceDetailAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDCDBInstanceNodeInfoResponse> DescribeDCDBInstanceNodeInfoOutcome;
                 typedef std::future<DescribeDCDBInstanceNodeInfoOutcome> DescribeDCDBInstanceNodeInfoOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeDCDBInstanceNodeInfoRequest&, DescribeDCDBInstanceNodeInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDCDBInstanceNodeInfoAsyncHandler;
@@ -242,9 +323,21 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeFlowResponse> DescribeFlowOutcome;
                 typedef std::future<DescribeFlowOutcome> DescribeFlowOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeFlowRequest&, DescribeFlowOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFlowAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeInstanceSSLAttributesResponse> DescribeInstanceSSLAttributesOutcome;
+                typedef std::future<DescribeInstanceSSLAttributesOutcome> DescribeInstanceSSLAttributesOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeInstanceSSLAttributesRequest&, DescribeInstanceSSLAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInstanceSSLAttributesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeLogFileRetentionPeriodResponse> DescribeLogFileRetentionPeriodOutcome;
+                typedef std::future<DescribeLogFileRetentionPeriodOutcome> DescribeLogFileRetentionPeriodOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeLogFileRetentionPeriodRequest&, DescribeLogFileRetentionPeriodOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLogFileRetentionPeriodAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeOnlineDDLJobResponse> DescribeOnlineDDLJobOutcome;
+                typedef std::future<DescribeOnlineDDLJobOutcome> DescribeOnlineDDLJobOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeOnlineDDLJobRequest&, DescribeOnlineDDLJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOnlineDDLJobAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeOrdersResponse> DescribeOrdersOutcome;
                 typedef std::future<DescribeOrdersOutcome> DescribeOrdersOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeOrdersRequest&, DescribeOrdersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOrdersAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeProcessListResponse> DescribeProcessListOutcome;
+                typedef std::future<DescribeProcessListOutcome> DescribeProcessListOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::DescribeProcessListRequest&, DescribeProcessListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProcessListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeProjectSecurityGroupsResponse> DescribeProjectSecurityGroupsOutcome;
                 typedef std::future<DescribeProjectSecurityGroupsOutcome> DescribeProjectSecurityGroupsOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeProjectSecurityGroupsRequest&, DescribeProjectSecurityGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProjectSecurityGroupsAsyncHandler;
@@ -254,9 +347,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeShardSpecResponse> DescribeShardSpecOutcome;
                 typedef std::future<DescribeShardSpecOutcome> DescribeShardSpecOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeShardSpecRequest&, DescribeShardSpecOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeShardSpecAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeSqlLogsResponse> DescribeSqlLogsOutcome;
-                typedef std::future<DescribeSqlLogsOutcome> DescribeSqlLogsOutcomeCallable;
-                typedef std::function<void(const DcdbClient*, const Model::DescribeSqlLogsRequest&, DescribeSqlLogsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSqlLogsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUserTasksResponse> DescribeUserTasksOutcome;
                 typedef std::future<DescribeUserTasksOutcome> DescribeUserTasksOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::DescribeUserTasksRequest&, DescribeUserTasksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUserTasksAsyncHandler;
@@ -278,15 +368,36 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::InitDCDBInstancesResponse> InitDCDBInstancesOutcome;
                 typedef std::future<InitDCDBInstancesOutcome> InitDCDBInstancesOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::InitDCDBInstancesRequest&, InitDCDBInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InitDCDBInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::IsolateDCDBInstanceResponse> IsolateDCDBInstanceOutcome;
+                typedef std::future<IsolateDCDBInstanceOutcome> IsolateDCDBInstanceOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::IsolateDCDBInstanceRequest&, IsolateDCDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> IsolateDCDBInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::IsolateDedicatedDBInstanceResponse> IsolateDedicatedDBInstanceOutcome;
+                typedef std::future<IsolateDedicatedDBInstanceOutcome> IsolateDedicatedDBInstanceOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::IsolateDedicatedDBInstanceRequest&, IsolateDedicatedDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> IsolateDedicatedDBInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::IsolateHourDCDBInstanceResponse> IsolateHourDCDBInstanceOutcome;
                 typedef std::future<IsolateHourDCDBInstanceOutcome> IsolateHourDCDBInstanceOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::IsolateHourDCDBInstanceRequest&, IsolateHourDCDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> IsolateHourDCDBInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::KillSessionResponse> KillSessionOutcome;
                 typedef std::future<KillSessionOutcome> KillSessionOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::KillSessionRequest&, KillSessionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> KillSessionAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyAccountConfigResponse> ModifyAccountConfigOutcome;
+                typedef std::future<ModifyAccountConfigOutcome> ModifyAccountConfigOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyAccountConfigRequest&, ModifyAccountConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAccountConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyAccountDescriptionResponse> ModifyAccountDescriptionOutcome;
                 typedef std::future<ModifyAccountDescriptionOutcome> ModifyAccountDescriptionOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::ModifyAccountDescriptionRequest&, ModifyAccountDescriptionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAccountDescriptionAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyAccountPrivilegesResponse> ModifyAccountPrivilegesOutcome;
+                typedef std::future<ModifyAccountPrivilegesOutcome> ModifyAccountPrivilegesOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyAccountPrivilegesRequest&, ModifyAccountPrivilegesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAccountPrivilegesAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyBackupConfigsResponse> ModifyBackupConfigsOutcome;
+                typedef std::future<ModifyBackupConfigsOutcome> ModifyBackupConfigsOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyBackupConfigsRequest&, ModifyBackupConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyBackupConfigsAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyDBEncryptAttributesResponse> ModifyDBEncryptAttributesOutcome;
+                typedef std::future<ModifyDBEncryptAttributesOutcome> ModifyDBEncryptAttributesOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyDBEncryptAttributesRequest&, ModifyDBEncryptAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDBEncryptAttributesAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyDBInstanceNameResponse> ModifyDBInstanceNameOutcome;
+                typedef std::future<ModifyDBInstanceNameOutcome> ModifyDBInstanceNameOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyDBInstanceNameRequest&, ModifyDBInstanceNameOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDBInstanceNameAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyDBInstanceSecurityGroupsResponse> ModifyDBInstanceSecurityGroupsOutcome;
                 typedef std::future<ModifyDBInstanceSecurityGroupsOutcome> ModifyDBInstanceSecurityGroupsOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::ModifyDBInstanceSecurityGroupsRequest&, ModifyDBInstanceSecurityGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDBInstanceSecurityGroupsAsyncHandler;
@@ -299,6 +410,21 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyDBSyncModeResponse> ModifyDBSyncModeOutcome;
                 typedef std::future<ModifyDBSyncModeOutcome> ModifyDBSyncModeOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::ModifyDBSyncModeRequest&, ModifyDBSyncModeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDBSyncModeAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceNetworkResponse> ModifyInstanceNetworkOutcome;
+                typedef std::future<ModifyInstanceNetworkOutcome> ModifyInstanceNetworkOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyInstanceNetworkRequest&, ModifyInstanceNetworkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceNetworkAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceProtectedPropertyResponse> ModifyInstanceProtectedPropertyOutcome;
+                typedef std::future<ModifyInstanceProtectedPropertyOutcome> ModifyInstanceProtectedPropertyOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyInstanceProtectedPropertyRequest&, ModifyInstanceProtectedPropertyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceProtectedPropertyAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceSSLAttributesResponse> ModifyInstanceSSLAttributesOutcome;
+                typedef std::future<ModifyInstanceSSLAttributesOutcome> ModifyInstanceSSLAttributesOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyInstanceSSLAttributesRequest&, ModifyInstanceSSLAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceSSLAttributesAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceVipResponse> ModifyInstanceVipOutcome;
+                typedef std::future<ModifyInstanceVipOutcome> ModifyInstanceVipOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyInstanceVipRequest&, ModifyInstanceVipOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceVipAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceVportResponse> ModifyInstanceVportOutcome;
+                typedef std::future<ModifyInstanceVportOutcome> ModifyInstanceVportOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::ModifyInstanceVportRequest&, ModifyInstanceVportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceVportAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyRealServerAccessStrategyResponse> ModifyRealServerAccessStrategyOutcome;
                 typedef std::future<ModifyRealServerAccessStrategyOutcome> ModifyRealServerAccessStrategyOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::ModifyRealServerAccessStrategyRequest&, ModifyRealServerAccessStrategyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRealServerAccessStrategyAsyncHandler;
@@ -314,14 +440,23 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::SwitchDBInstanceHAResponse> SwitchDBInstanceHAOutcome;
                 typedef std::future<SwitchDBInstanceHAOutcome> SwitchDBInstanceHAOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::SwitchDBInstanceHARequest&, SwitchDBInstanceHAOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SwitchDBInstanceHAAsyncHandler;
+                typedef Outcome<Core::Error, Model::TerminateDedicatedDBInstanceResponse> TerminateDedicatedDBInstanceOutcome;
+                typedef std::future<TerminateDedicatedDBInstanceOutcome> TerminateDedicatedDBInstanceOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::TerminateDedicatedDBInstanceRequest&, TerminateDedicatedDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateDedicatedDBInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::UpgradeDCDBInstanceResponse> UpgradeDCDBInstanceOutcome;
                 typedef std::future<UpgradeDCDBInstanceOutcome> UpgradeDCDBInstanceOutcomeCallable;
                 typedef std::function<void(const DcdbClient*, const Model::UpgradeDCDBInstanceRequest&, UpgradeDCDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpgradeDCDBInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpgradeDedicatedDCDBInstanceResponse> UpgradeDedicatedDCDBInstanceOutcome;
+                typedef std::future<UpgradeDedicatedDCDBInstanceOutcome> UpgradeDedicatedDCDBInstanceOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::UpgradeDedicatedDCDBInstanceRequest&, UpgradeDedicatedDCDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpgradeDedicatedDCDBInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpgradeHourDCDBInstanceResponse> UpgradeHourDCDBInstanceOutcome;
+                typedef std::future<UpgradeHourDCDBInstanceOutcome> UpgradeHourDCDBInstanceOutcomeCallable;
+                typedef std::function<void(const DcdbClient*, const Model::UpgradeHourDCDBInstanceRequest&, UpgradeHourDCDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpgradeHourDCDBInstanceAsyncHandler;
 
 
 
                 /**
-                 *解隔离DCDB后付费实例
+                 *解隔离TDSQL按量计费实例
                  * @param req ActiveHourDCDBInstanceRequest
                  * @return ActiveHourDCDBInstanceOutcome
                  */
@@ -339,13 +474,22 @@ namespace TencentCloud
                 AssociateSecurityGroupsOutcomeCallable AssociateSecurityGroupsCallable(const Model::AssociateSecurityGroupsRequest& request);
 
                 /**
-                 *取消DCN同步
+                 *本接口（CancelDcnJob）用于取消DCN同步
                  * @param req CancelDcnJobRequest
                  * @return CancelDcnJobOutcome
                  */
                 CancelDcnJobOutcome CancelDcnJob(const Model::CancelDcnJobRequest &request);
                 void CancelDcnJobAsync(const Model::CancelDcnJobRequest& request, const CancelDcnJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CancelDcnJobOutcomeCallable CancelDcnJobCallable(const Model::CancelDcnJobRequest& request);
+
+                /**
+                 *取消 Online DDL 任务
+                 * @param req CancelOnlineDDLJobRequest
+                 * @return CancelOnlineDDLJobOutcome
+                 */
+                CancelOnlineDDLJobOutcome CancelOnlineDDLJob(const Model::CancelOnlineDDLJobRequest &request);
+                void CancelOnlineDDLJobAsync(const Model::CancelOnlineDDLJobRequest& request, const CancelOnlineDDLJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CancelOnlineDDLJobOutcomeCallable CancelOnlineDDLJobCallable(const Model::CancelOnlineDDLJobRequest& request);
 
                 /**
                  *本接口（CloneAccount）用于克隆实例账户。
@@ -385,7 +529,7 @@ namespace TencentCloud
                 CreateAccountOutcomeCallable CreateAccountCallable(const Model::CreateAccountRequest& request);
 
                 /**
-                 *本接口（CreateDCDBInstance）用于创建包年包月的云数据库实例，可通过传入实例规格、数据库版本号、购买时长等信息创建云数据库实例。
+                 *本接口（CreateDCDBInstance）用于创建包年包月的TDSQL实例，可通过传入实例规格、数据库版本号、购买时长等信息创建云数据库实例。
                  * @param req CreateDCDBInstanceRequest
                  * @return CreateDCDBInstanceOutcome
                  */
@@ -394,7 +538,7 @@ namespace TencentCloud
                 CreateDCDBInstanceOutcomeCallable CreateDCDBInstanceCallable(const Model::CreateDCDBInstanceRequest& request);
 
                 /**
-                 *创建独享集群DCDB实例
+                 *创建TDSQL独享集群实例
                  * @param req CreateDedicatedClusterDCDBInstanceRequest
                  * @return CreateDedicatedClusterDCDBInstanceOutcome
                  */
@@ -403,13 +547,31 @@ namespace TencentCloud
                 CreateDedicatedClusterDCDBInstanceOutcomeCallable CreateDedicatedClusterDCDBInstanceCallable(const Model::CreateDedicatedClusterDCDBInstanceRequest& request);
 
                 /**
-                 *创建DCDB后付费实例
+                 *创建TDSQL按量计费实例
                  * @param req CreateHourDCDBInstanceRequest
                  * @return CreateHourDCDBInstanceOutcome
                  */
                 CreateHourDCDBInstanceOutcome CreateHourDCDBInstance(const Model::CreateHourDCDBInstanceRequest &request);
                 void CreateHourDCDBInstanceAsync(const Model::CreateHourDCDBInstanceRequest& request, const CreateHourDCDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateHourDCDBInstanceOutcomeCallable CreateHourDCDBInstanceCallable(const Model::CreateHourDCDBInstanceRequest& request);
+
+                /**
+                 *创建在线DDL任务
+                 * @param req CreateOnlineDDLJobRequest
+                 * @return CreateOnlineDDLJobOutcome
+                 */
+                CreateOnlineDDLJobOutcome CreateOnlineDDLJob(const Model::CreateOnlineDDLJobRequest &request);
+                void CreateOnlineDDLJobAsync(const Model::CreateOnlineDDLJobRequest& request, const CreateOnlineDDLJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateOnlineDDLJobOutcomeCallable CreateOnlineDDLJobCallable(const Model::CreateOnlineDDLJobRequest& request);
+
+                /**
+                 *回档TDSQL实例
+                 * @param req CreateTmpDCDBInstanceRequest
+                 * @return CreateTmpDCDBInstanceOutcome
+                 */
+                CreateTmpDCDBInstanceOutcome CreateTmpDCDBInstance(const Model::CreateTmpDCDBInstanceRequest &request);
+                void CreateTmpDCDBInstanceAsync(const Model::CreateTmpDCDBInstanceRequest& request, const CreateTmpDCDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateTmpDCDBInstanceOutcomeCallable CreateTmpDCDBInstanceCallable(const Model::CreateTmpDCDBInstanceRequest& request);
 
                 /**
                  *本接口（DeleteAccount）用于删除云数据库账号。用户名+host唯一确定一个账号。
@@ -438,6 +600,33 @@ namespace TencentCloud
                 DescribeAccountsOutcome DescribeAccounts(const Model::DescribeAccountsRequest &request);
                 void DescribeAccountsAsync(const Model::DescribeAccountsRequest& request, const DescribeAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeAccountsOutcomeCallable DescribeAccountsCallable(const Model::DescribeAccountsRequest& request);
+
+                /**
+                 *本接口(DescribeBackupConfigs)用于查询数据库备份配置信息。
+                 * @param req DescribeBackupConfigsRequest
+                 * @return DescribeBackupConfigsOutcome
+                 */
+                DescribeBackupConfigsOutcome DescribeBackupConfigs(const Model::DescribeBackupConfigsRequest &request);
+                void DescribeBackupConfigsAsync(const Model::DescribeBackupConfigsRequest& request, const DescribeBackupConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBackupConfigsOutcomeCallable DescribeBackupConfigsCallable(const Model::DescribeBackupConfigsRequest& request);
+
+                /**
+                 *本接口(DescribeBackupFiles)用于查看备份文件列表。
+                 * @param req DescribeBackupFilesRequest
+                 * @return DescribeBackupFilesOutcome
+                 */
+                DescribeBackupFilesOutcome DescribeBackupFiles(const Model::DescribeBackupFilesRequest &request);
+                void DescribeBackupFilesAsync(const Model::DescribeBackupFilesRequest& request, const DescribeBackupFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBackupFilesOutcomeCallable DescribeBackupFilesCallable(const Model::DescribeBackupFilesRequest& request);
+
+                /**
+                 *本接口(DescribeDBEncryptAttributes)用于查询实例数据加密状态。
+                 * @param req DescribeDBEncryptAttributesRequest
+                 * @return DescribeDBEncryptAttributesOutcome
+                 */
+                DescribeDBEncryptAttributesOutcome DescribeDBEncryptAttributes(const Model::DescribeDBEncryptAttributesRequest &request);
+                void DescribeDBEncryptAttributesAsync(const Model::DescribeDBEncryptAttributesRequest& request, const DescribeDBEncryptAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDBEncryptAttributesOutcomeCallable DescribeDBEncryptAttributesCallable(const Model::DescribeDBEncryptAttributesRequest& request);
 
                 /**
                  *本接口(DescribeDBLogFiles)用于获取数据库的各种日志列表，包括冷备、binlog、errlog和slowlog。
@@ -483,6 +672,33 @@ namespace TencentCloud
                 DescribeDBSyncModeOutcome DescribeDBSyncMode(const Model::DescribeDBSyncModeRequest &request);
                 void DescribeDBSyncModeAsync(const Model::DescribeDBSyncModeRequest& request, const DescribeDBSyncModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDBSyncModeOutcomeCallable DescribeDBSyncModeCallable(const Model::DescribeDBSyncModeRequest& request);
+
+                /**
+                 *本接口（DescribeDBTmpInstances）用于获取实例回档生成的临时实例
+                 * @param req DescribeDBTmpInstancesRequest
+                 * @return DescribeDBTmpInstancesOutcome
+                 */
+                DescribeDBTmpInstancesOutcome DescribeDBTmpInstances(const Model::DescribeDBTmpInstancesRequest &request);
+                void DescribeDBTmpInstancesAsync(const Model::DescribeDBTmpInstancesRequest& request, const DescribeDBTmpInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDBTmpInstancesOutcomeCallable DescribeDBTmpInstancesCallable(const Model::DescribeDBTmpInstancesRequest& request);
+
+                /**
+                 *获取实例回档时可选的时间范围
+                 * @param req DescribeDCDBBinlogTimeRequest
+                 * @return DescribeDCDBBinlogTimeOutcome
+                 */
+                DescribeDCDBBinlogTimeOutcome DescribeDCDBBinlogTime(const Model::DescribeDCDBBinlogTimeRequest &request);
+                void DescribeDCDBBinlogTimeAsync(const Model::DescribeDCDBBinlogTimeRequest& request, const DescribeDCDBBinlogTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDCDBBinlogTimeOutcomeCallable DescribeDCDBBinlogTimeCallable(const Model::DescribeDCDBBinlogTimeRequest& request);
+
+                /**
+                 *本接口（DescribeDCDBInstanceDetail）用于获取TDSQL实例详情
+                 * @param req DescribeDCDBInstanceDetailRequest
+                 * @return DescribeDCDBInstanceDetailOutcome
+                 */
+                DescribeDCDBInstanceDetailOutcome DescribeDCDBInstanceDetail(const Model::DescribeDCDBInstanceDetailRequest &request);
+                void DescribeDCDBInstanceDetailAsync(const Model::DescribeDCDBInstanceDetailRequest& request, const DescribeDCDBInstanceDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDCDBInstanceDetailOutcomeCallable DescribeDCDBInstanceDetailCallable(const Model::DescribeDCDBInstanceDetailRequest& request);
 
                 /**
                  *本接口（DescribeDCDBInstanceNodeInfo）用于获取实例节点信息
@@ -603,6 +819,33 @@ namespace TencentCloud
                 DescribeFlowOutcomeCallable DescribeFlowCallable(const Model::DescribeFlowRequest& request);
 
                 /**
+                 *本接口（DescribeInstanceSSLAttributes）用于拉取实例SSL认证属性
+                 * @param req DescribeInstanceSSLAttributesRequest
+                 * @return DescribeInstanceSSLAttributesOutcome
+                 */
+                DescribeInstanceSSLAttributesOutcome DescribeInstanceSSLAttributes(const Model::DescribeInstanceSSLAttributesRequest &request);
+                void DescribeInstanceSSLAttributesAsync(const Model::DescribeInstanceSSLAttributesRequest& request, const DescribeInstanceSSLAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeInstanceSSLAttributesOutcomeCallable DescribeInstanceSSLAttributesCallable(const Model::DescribeInstanceSSLAttributesRequest& request);
+
+                /**
+                 *本接口(DescribeLogFileRetentionPeriod)用于查看数据库备份日志的备份天数的设置情况。
+                 * @param req DescribeLogFileRetentionPeriodRequest
+                 * @return DescribeLogFileRetentionPeriodOutcome
+                 */
+                DescribeLogFileRetentionPeriodOutcome DescribeLogFileRetentionPeriod(const Model::DescribeLogFileRetentionPeriodRequest &request);
+                void DescribeLogFileRetentionPeriodAsync(const Model::DescribeLogFileRetentionPeriodRequest& request, const DescribeLogFileRetentionPeriodAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeLogFileRetentionPeriodOutcomeCallable DescribeLogFileRetentionPeriodCallable(const Model::DescribeLogFileRetentionPeriodRequest& request);
+
+                /**
+                 *查询Online DDL 任务详情
+                 * @param req DescribeOnlineDDLJobRequest
+                 * @return DescribeOnlineDDLJobOutcome
+                 */
+                DescribeOnlineDDLJobOutcome DescribeOnlineDDLJob(const Model::DescribeOnlineDDLJobRequest &request);
+                void DescribeOnlineDDLJobAsync(const Model::DescribeOnlineDDLJobRequest& request, const DescribeOnlineDDLJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeOnlineDDLJobOutcomeCallable DescribeOnlineDDLJobCallable(const Model::DescribeOnlineDDLJobRequest& request);
+
+                /**
                  *本接口（DescribeOrders）用于查询分布式数据库订单信息。传入订单ID来查询订单关联的分布式数据库实例，和对应的任务流程ID。
                  * @param req DescribeOrdersRequest
                  * @return DescribeOrdersOutcome
@@ -610,6 +853,18 @@ namespace TencentCloud
                 DescribeOrdersOutcome DescribeOrders(const Model::DescribeOrdersRequest &request);
                 void DescribeOrdersAsync(const Model::DescribeOrdersRequest& request, const DescribeOrdersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeOrdersOutcomeCallable DescribeOrdersCallable(const Model::DescribeOrdersRequest& request);
+
+                /**
+                 *本接口 (DescribeProcessList) 用于查询当前正在运行的线程（连接/查询）信息。
+
+- 可以根据客户端IP，DB，执行时间等信息来查询实例正在运行的线程信息。过滤信息详细请见过滤器Filter。
+- 如果参数为空，返回当前用户一定数量（Limit所指定的数量，默认为20）的线程信息。
+                 * @param req DescribeProcessListRequest
+                 * @return DescribeProcessListOutcome
+                 */
+                DescribeProcessListOutcome DescribeProcessList(const Model::DescribeProcessListRequest &request);
+                void DescribeProcessListAsync(const Model::DescribeProcessListRequest& request, const DescribeProcessListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeProcessListOutcomeCallable DescribeProcessListCallable(const Model::DescribeProcessListRequest& request);
 
                 /**
                  *本接口（DescribeProjectSecurityGroups）用于查询项目安全组信息
@@ -639,15 +894,6 @@ namespace TencentCloud
                 DescribeShardSpecOutcomeCallable DescribeShardSpecCallable(const Model::DescribeShardSpecRequest& request);
 
                 /**
-                 *本接口（DescribeSqlLogs）用于获取实例SQL日志。
-                 * @param req DescribeSqlLogsRequest
-                 * @return DescribeSqlLogsOutcome
-                 */
-                DescribeSqlLogsOutcome DescribeSqlLogs(const Model::DescribeSqlLogsRequest &request);
-                void DescribeSqlLogsAsync(const Model::DescribeSqlLogsRequest& request, const DescribeSqlLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeSqlLogsOutcomeCallable DescribeSqlLogsCallable(const Model::DescribeSqlLogsRequest& request);
-
-                /**
                  *本接口（DescribeUserTasks）用于拉取用户任务列表
                  * @param req DescribeUserTasksRequest
                  * @return DescribeUserTasksOutcome
@@ -657,7 +903,7 @@ namespace TencentCloud
                 DescribeUserTasksOutcomeCallable DescribeUserTasksCallable(const Model::DescribeUserTasksRequest& request);
 
                 /**
-                 *本接口(DestroyDCDBInstance)用于销毁已隔离的包年包月实例。
+                 *本接口(DestroyDCDBInstance)用于销毁已隔离的TDSQL包年包月实例。
                  * @param req DestroyDCDBInstanceRequest
                  * @return DestroyDCDBInstanceOutcome
                  */
@@ -666,7 +912,7 @@ namespace TencentCloud
                 DestroyDCDBInstanceOutcomeCallable DestroyDCDBInstanceCallable(const Model::DestroyDCDBInstanceRequest& request);
 
                 /**
-                 *本接口（DestroyHourDCDBInstance）用于销毁按量计费实例。
+                 *本接口（DestroyHourDCDBInstance）用于TDSQL销毁按量计费实例。
                  * @param req DestroyHourDCDBInstanceRequest
                  * @return DestroyHourDCDBInstanceOutcome
                  */
@@ -712,7 +958,25 @@ namespace TencentCloud
                 InitDCDBInstancesOutcomeCallable InitDCDBInstancesCallable(const Model::InitDCDBInstancesRequest& request);
 
                 /**
-                 *隔离DCDB后付费实例
+                 *本接口(IsolateDCDBInstance)用于隔离分布式数据库TDSQL实例（包年包月），隔离后不能通过IP和端口访问数据库。隔离的实例可在回收站中进行开机。若为欠费隔离，请尽快进行充值。
+                 * @param req IsolateDCDBInstanceRequest
+                 * @return IsolateDCDBInstanceOutcome
+                 */
+                IsolateDCDBInstanceOutcome IsolateDCDBInstance(const Model::IsolateDCDBInstanceRequest &request);
+                void IsolateDCDBInstanceAsync(const Model::IsolateDCDBInstanceRequest& request, const IsolateDCDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                IsolateDCDBInstanceOutcomeCallable IsolateDCDBInstanceCallable(const Model::IsolateDCDBInstanceRequest& request);
+
+                /**
+                 *本接口（IsolateDedicatedDBInstance）用于隔离独享云数据库实例。
+                 * @param req IsolateDedicatedDBInstanceRequest
+                 * @return IsolateDedicatedDBInstanceOutcome
+                 */
+                IsolateDedicatedDBInstanceOutcome IsolateDedicatedDBInstance(const Model::IsolateDedicatedDBInstanceRequest &request);
+                void IsolateDedicatedDBInstanceAsync(const Model::IsolateDedicatedDBInstanceRequest& request, const IsolateDedicatedDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                IsolateDedicatedDBInstanceOutcomeCallable IsolateDedicatedDBInstanceCallable(const Model::IsolateDedicatedDBInstanceRequest& request);
+
+                /**
+                 *隔离TDSQL按量计费实例
                  * @param req IsolateHourDCDBInstanceRequest
                  * @return IsolateHourDCDBInstanceOutcome
                  */
@@ -730,6 +994,15 @@ namespace TencentCloud
                 KillSessionOutcomeCallable KillSessionCallable(const Model::KillSessionRequest& request);
 
                 /**
+                 *修改账号的一些配置，比如 max_user_connections
+                 * @param req ModifyAccountConfigRequest
+                 * @return ModifyAccountConfigOutcome
+                 */
+                ModifyAccountConfigOutcome ModifyAccountConfig(const Model::ModifyAccountConfigRequest &request);
+                void ModifyAccountConfigAsync(const Model::ModifyAccountConfigRequest& request, const ModifyAccountConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyAccountConfigOutcomeCallable ModifyAccountConfigCallable(const Model::ModifyAccountConfigRequest& request);
+
+                /**
                  *本接口（ModifyAccountDescription）用于修改云数据库账号备注。
 注意：相同用户名，不同Host是不同的账号。
                  * @param req ModifyAccountDescriptionRequest
@@ -738,6 +1011,49 @@ namespace TencentCloud
                 ModifyAccountDescriptionOutcome ModifyAccountDescription(const Model::ModifyAccountDescriptionRequest &request);
                 void ModifyAccountDescriptionAsync(const Model::ModifyAccountDescriptionRequest& request, const ModifyAccountDescriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyAccountDescriptionOutcomeCallable ModifyAccountDescriptionCallable(const Model::ModifyAccountDescriptionRequest& request);
+
+                /**
+                 *本接口(ModifyAccountPrivileges)用于修改云数据库的账户的权限信息。
+
+**注意**
+- 系统保留库："mysql"，只开放["SELECT"]权限
+- 只读账号授予读写权限会报错
+- 不传权限参数表示保留现有权限，如需清除，请在复杂类型Privileges字段传空数组
+                 * @param req ModifyAccountPrivilegesRequest
+                 * @return ModifyAccountPrivilegesOutcome
+                 */
+                ModifyAccountPrivilegesOutcome ModifyAccountPrivileges(const Model::ModifyAccountPrivilegesRequest &request);
+                void ModifyAccountPrivilegesAsync(const Model::ModifyAccountPrivilegesRequest& request, const ModifyAccountPrivilegesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyAccountPrivilegesOutcomeCallable ModifyAccountPrivilegesCallable(const Model::ModifyAccountPrivilegesRequest& request);
+
+                /**
+                 *本接口(ModifyBackupConfigs)用于修改数据库备份配置信息。
+
+1. 修改数据库超期备份配置，目前按年、按月、按日只支持一种，存在互斥关系，如当前策略按年备份，如果传入按月备份策略将会覆盖当前的按年备份策略，务必注意。
+                 * @param req ModifyBackupConfigsRequest
+                 * @return ModifyBackupConfigsOutcome
+                 */
+                ModifyBackupConfigsOutcome ModifyBackupConfigs(const Model::ModifyBackupConfigsRequest &request);
+                void ModifyBackupConfigsAsync(const Model::ModifyBackupConfigsRequest& request, const ModifyBackupConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyBackupConfigsOutcomeCallable ModifyBackupConfigsCallable(const Model::ModifyBackupConfigsRequest& request);
+
+                /**
+                 *本接口(ModifyDBEncryptAttributes)用于修改实例数据加密。
+                 * @param req ModifyDBEncryptAttributesRequest
+                 * @return ModifyDBEncryptAttributesOutcome
+                 */
+                ModifyDBEncryptAttributesOutcome ModifyDBEncryptAttributes(const Model::ModifyDBEncryptAttributesRequest &request);
+                void ModifyDBEncryptAttributesAsync(const Model::ModifyDBEncryptAttributesRequest& request, const ModifyDBEncryptAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyDBEncryptAttributesOutcomeCallable ModifyDBEncryptAttributesCallable(const Model::ModifyDBEncryptAttributesRequest& request);
+
+                /**
+                 *本接口（ModifyDBInstanceName）用于修改实例名字
+                 * @param req ModifyDBInstanceNameRequest
+                 * @return ModifyDBInstanceNameOutcome
+                 */
+                ModifyDBInstanceNameOutcome ModifyDBInstanceName(const Model::ModifyDBInstanceNameRequest &request);
+                void ModifyDBInstanceNameAsync(const Model::ModifyDBInstanceNameRequest& request, const ModifyDBInstanceNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyDBInstanceNameOutcomeCallable ModifyDBInstanceNameCallable(const Model::ModifyDBInstanceNameRequest& request);
 
                 /**
                  *本接口（ModifyDBInstanceSecurityGroups）用于修改云数据库安全组
@@ -774,6 +1090,51 @@ namespace TencentCloud
                 ModifyDBSyncModeOutcome ModifyDBSyncMode(const Model::ModifyDBSyncModeRequest &request);
                 void ModifyDBSyncModeAsync(const Model::ModifyDBSyncModeRequest& request, const ModifyDBSyncModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyDBSyncModeOutcomeCallable ModifyDBSyncModeCallable(const Model::ModifyDBSyncModeRequest& request);
+
+                /**
+                 *本接口（ModifyInstanceNetwork）用于修改实例所属网络。
+                 * @param req ModifyInstanceNetworkRequest
+                 * @return ModifyInstanceNetworkOutcome
+                 */
+                ModifyInstanceNetworkOutcome ModifyInstanceNetwork(const Model::ModifyInstanceNetworkRequest &request);
+                void ModifyInstanceNetworkAsync(const Model::ModifyInstanceNetworkRequest& request, const ModifyInstanceNetworkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceNetworkOutcomeCallable ModifyInstanceNetworkCallable(const Model::ModifyInstanceNetworkRequest& request);
+
+                /**
+                 *该接口用于修改实例的保护属性
+                 * @param req ModifyInstanceProtectedPropertyRequest
+                 * @return ModifyInstanceProtectedPropertyOutcome
+                 */
+                ModifyInstanceProtectedPropertyOutcome ModifyInstanceProtectedProperty(const Model::ModifyInstanceProtectedPropertyRequest &request);
+                void ModifyInstanceProtectedPropertyAsync(const Model::ModifyInstanceProtectedPropertyRequest& request, const ModifyInstanceProtectedPropertyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceProtectedPropertyOutcomeCallable ModifyInstanceProtectedPropertyCallable(const Model::ModifyInstanceProtectedPropertyRequest& request);
+
+                /**
+                 *本接口  （ModifyInstanceSSLAttributes）用于修改实例SSL认证功能属性
+                 * @param req ModifyInstanceSSLAttributesRequest
+                 * @return ModifyInstanceSSLAttributesOutcome
+                 */
+                ModifyInstanceSSLAttributesOutcome ModifyInstanceSSLAttributes(const Model::ModifyInstanceSSLAttributesRequest &request);
+                void ModifyInstanceSSLAttributesAsync(const Model::ModifyInstanceSSLAttributesRequest& request, const ModifyInstanceSSLAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceSSLAttributesOutcomeCallable ModifyInstanceSSLAttributesCallable(const Model::ModifyInstanceSSLAttributesRequest& request);
+
+                /**
+                 *本接口（ModifyInstanceVip）用于修改实例Vip
+                 * @param req ModifyInstanceVipRequest
+                 * @return ModifyInstanceVipOutcome
+                 */
+                ModifyInstanceVipOutcome ModifyInstanceVip(const Model::ModifyInstanceVipRequest &request);
+                void ModifyInstanceVipAsync(const Model::ModifyInstanceVipRequest& request, const ModifyInstanceVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceVipOutcomeCallable ModifyInstanceVipCallable(const Model::ModifyInstanceVipRequest& request);
+
+                /**
+                 *本接口（ModifyInstanceVport）用于修改实例VPORT
+                 * @param req ModifyInstanceVportRequest
+                 * @return ModifyInstanceVportOutcome
+                 */
+                ModifyInstanceVportOutcome ModifyInstanceVport(const Model::ModifyInstanceVportRequest &request);
+                void ModifyInstanceVportAsync(const Model::ModifyInstanceVportRequest& request, const ModifyInstanceVportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceVportOutcomeCallable ModifyInstanceVportCallable(const Model::ModifyInstanceVportRequest& request);
 
                 /**
                  *本接口(ModifyRealServerAccessStrategy)用于修改云数据库的VPCGW到RS的访问策略。
@@ -827,6 +1188,15 @@ namespace TencentCloud
                 SwitchDBInstanceHAOutcomeCallable SwitchDBInstanceHACallable(const Model::SwitchDBInstanceHARequest& request);
 
                 /**
+                 *本接口（TerminateDedicatedDBInstance）用于销毁已隔离的独享分布式数据库实例。
+                 * @param req TerminateDedicatedDBInstanceRequest
+                 * @return TerminateDedicatedDBInstanceOutcome
+                 */
+                TerminateDedicatedDBInstanceOutcome TerminateDedicatedDBInstance(const Model::TerminateDedicatedDBInstanceRequest &request);
+                void TerminateDedicatedDBInstanceAsync(const Model::TerminateDedicatedDBInstanceRequest& request, const TerminateDedicatedDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                TerminateDedicatedDBInstanceOutcomeCallable TerminateDedicatedDBInstanceCallable(const Model::TerminateDedicatedDBInstanceRequest& request);
+
+                /**
                  *本接口（UpgradeDCDBInstance）用于升级分布式数据库实例。本接口完成下单和支付两个动作，如果发生支付失败的错误，调用用户账户相关接口中的支付订单接口（PayDeals）重新支付即可。
                  * @param req UpgradeDCDBInstanceRequest
                  * @return UpgradeDCDBInstanceOutcome
@@ -834,6 +1204,24 @@ namespace TencentCloud
                 UpgradeDCDBInstanceOutcome UpgradeDCDBInstance(const Model::UpgradeDCDBInstanceRequest &request);
                 void UpgradeDCDBInstanceAsync(const Model::UpgradeDCDBInstanceRequest& request, const UpgradeDCDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 UpgradeDCDBInstanceOutcomeCallable UpgradeDCDBInstanceCallable(const Model::UpgradeDCDBInstanceRequest& request);
+
+                /**
+                 *本接口（UpgradeDedicatedDCDBInstance）用于升级TDSQL独享集群实例
+                 * @param req UpgradeDedicatedDCDBInstanceRequest
+                 * @return UpgradeDedicatedDCDBInstanceOutcome
+                 */
+                UpgradeDedicatedDCDBInstanceOutcome UpgradeDedicatedDCDBInstance(const Model::UpgradeDedicatedDCDBInstanceRequest &request);
+                void UpgradeDedicatedDCDBInstanceAsync(const Model::UpgradeDedicatedDCDBInstanceRequest& request, const UpgradeDedicatedDCDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpgradeDedicatedDCDBInstanceOutcomeCallable UpgradeDedicatedDCDBInstanceCallable(const Model::UpgradeDedicatedDCDBInstanceRequest& request);
+
+                /**
+                 *本接口（UpgradeHourDCDBInstance）用于升级分布式数据库TDSQL按量计费实例。
+                 * @param req UpgradeHourDCDBInstanceRequest
+                 * @return UpgradeHourDCDBInstanceOutcome
+                 */
+                UpgradeHourDCDBInstanceOutcome UpgradeHourDCDBInstance(const Model::UpgradeHourDCDBInstanceRequest &request);
+                void UpgradeHourDCDBInstanceAsync(const Model::UpgradeHourDCDBInstanceRequest& request, const UpgradeHourDCDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpgradeHourDCDBInstanceOutcomeCallable UpgradeHourDCDBInstanceCallable(const Model::UpgradeHourDCDBInstanceRequest& request);
 
             };
         }

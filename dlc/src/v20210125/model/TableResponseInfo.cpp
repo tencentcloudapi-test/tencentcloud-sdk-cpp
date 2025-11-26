@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,10 @@ TableResponseInfo::TableResponseInfo() :
     m_createTimeHasBeenSet(false),
     m_inputFormatHasBeenSet(false),
     m_storageSizeHasBeenSet(false),
-    m_recordCountHasBeenSet(false)
+    m_recordCountHasBeenSet(false),
+    m_mapMaterializedViewNameHasBeenSet(false),
+    m_heatValueHasBeenSet(false),
+    m_inputFormatShortHasBeenSet(false)
 {
 }
 
@@ -176,6 +179,36 @@ CoreInternalOutcome TableResponseInfo::Deserialize(const rapidjson::Value &value
         m_recordCountHasBeenSet = true;
     }
 
+    if (value.HasMember("MapMaterializedViewName") && !value["MapMaterializedViewName"].IsNull())
+    {
+        if (!value["MapMaterializedViewName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableResponseInfo.MapMaterializedViewName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_mapMaterializedViewName = string(value["MapMaterializedViewName"].GetString());
+        m_mapMaterializedViewNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("HeatValue") && !value["HeatValue"].IsNull())
+    {
+        if (!value["HeatValue"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableResponseInfo.HeatValue` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_heatValue = value["HeatValue"].GetInt64();
+        m_heatValueHasBeenSet = true;
+    }
+
+    if (value.HasMember("InputFormatShort") && !value["InputFormatShort"].IsNull())
+    {
+        if (!value["InputFormatShort"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableResponseInfo.InputFormatShort` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_inputFormatShort = string(value["InputFormatShort"].GetString());
+        m_inputFormatShortHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -283,6 +316,30 @@ void TableResponseInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "RecordCount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_recordCount, allocator);
+    }
+
+    if (m_mapMaterializedViewNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MapMaterializedViewName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_mapMaterializedViewName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_heatValueHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HeatValue";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_heatValue, allocator);
+    }
+
+    if (m_inputFormatShortHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InputFormatShort";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_inputFormatShort.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -446,5 +503,53 @@ void TableResponseInfo::SetRecordCount(const int64_t& _recordCount)
 bool TableResponseInfo::RecordCountHasBeenSet() const
 {
     return m_recordCountHasBeenSet;
+}
+
+string TableResponseInfo::GetMapMaterializedViewName() const
+{
+    return m_mapMaterializedViewName;
+}
+
+void TableResponseInfo::SetMapMaterializedViewName(const string& _mapMaterializedViewName)
+{
+    m_mapMaterializedViewName = _mapMaterializedViewName;
+    m_mapMaterializedViewNameHasBeenSet = true;
+}
+
+bool TableResponseInfo::MapMaterializedViewNameHasBeenSet() const
+{
+    return m_mapMaterializedViewNameHasBeenSet;
+}
+
+int64_t TableResponseInfo::GetHeatValue() const
+{
+    return m_heatValue;
+}
+
+void TableResponseInfo::SetHeatValue(const int64_t& _heatValue)
+{
+    m_heatValue = _heatValue;
+    m_heatValueHasBeenSet = true;
+}
+
+bool TableResponseInfo::HeatValueHasBeenSet() const
+{
+    return m_heatValueHasBeenSet;
+}
+
+string TableResponseInfo::GetInputFormatShort() const
+{
+    return m_inputFormatShort;
+}
+
+void TableResponseInfo::SetInputFormatShort(const string& _inputFormatShort)
+{
+    m_inputFormatShort = _inputFormatShort;
+    m_inputFormatShortHasBeenSet = true;
+}
+
+bool TableResponseInfo::InputFormatShortHasBeenSet() const
+{
+    return m_inputFormatShortHasBeenSet;
 }
 

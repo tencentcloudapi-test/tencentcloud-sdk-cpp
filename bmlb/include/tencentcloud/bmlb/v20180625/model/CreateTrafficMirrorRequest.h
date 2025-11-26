@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取流量镜像实例别名。
                      * @return Alias 流量镜像实例别名。
+                     * 
                      */
                     std::string GetAlias() const;
 
                     /**
                      * 设置流量镜像实例别名。
-                     * @param Alias 流量镜像实例别名。
+                     * @param _alias 流量镜像实例别名。
+                     * 
                      */
                     void SetAlias(const std::string& _alias);
 
                     /**
                      * 判断参数 Alias 是否已赋值
                      * @return Alias 是否已赋值
+                     * 
                      */
                     bool AliasHasBeenSet() const;
 
                     /**
                      * 获取流量镜像实例所属的私有网络ID，形如：vpc-xxx。
                      * @return VpcId 流量镜像实例所属的私有网络ID，形如：vpc-xxx。
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置流量镜像实例所属的私有网络ID，形如：vpc-xxx。
-                     * @param VpcId 流量镜像实例所属的私有网络ID，形如：vpc-xxx。
+                     * @param _vpcId 流量镜像实例所属的私有网络ID，形如：vpc-xxx。
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 

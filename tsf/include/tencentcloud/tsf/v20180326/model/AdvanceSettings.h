@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取子任务单机并发数限制，默认值为2
                      * @return SubTaskConcurrency 子任务单机并发数限制，默认值为2
+                     * 
                      */
                     int64_t GetSubTaskConcurrency() const;
 
                     /**
                      * 设置子任务单机并发数限制，默认值为2
-                     * @param SubTaskConcurrency 子任务单机并发数限制，默认值为2
+                     * @param _subTaskConcurrency 子任务单机并发数限制，默认值为2
+                     * 
                      */
                     void SetSubTaskConcurrency(const int64_t& _subTaskConcurrency);
 
                     /**
                      * 判断参数 SubTaskConcurrency 是否已赋值
                      * @return SubTaskConcurrency 是否已赋值
+                     * 
                      */
                     bool SubTaskConcurrencyHasBeenSet() const;
 

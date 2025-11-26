@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,24 @@ AbnormalProcessEventInfo::AbnormalProcessEventInfo() :
     m_ruleExistHasBeenSet(false),
     m_eventCountHasBeenSet(false),
     m_latestFoundTimeHasBeenSet(false),
-    m_ruleIdHasBeenSet(false)
+    m_ruleIdHasBeenSet(false),
+    m_matchGroupNameHasBeenSet(false),
+    m_matchRuleLevelHasBeenSet(false),
+    m_containerNetStatusHasBeenSet(false),
+    m_containerNetSubStatusHasBeenSet(false),
+    m_containerIsolateOperationSrcHasBeenSet(false),
+    m_containerStatusHasBeenSet(false),
+    m_clusterIDHasBeenSet(false),
+    m_nodeTypeHasBeenSet(false),
+    m_podNameHasBeenSet(false),
+    m_podIPHasBeenSet(false),
+    m_nodeUniqueIDHasBeenSet(false),
+    m_publicIPHasBeenSet(false),
+    m_nodeNameHasBeenSet(false),
+    m_nodeIDHasBeenSet(false),
+    m_hostIDHasBeenSet(false),
+    m_hostIPHasBeenSet(false),
+    m_clusterNameHasBeenSet(false)
 {
 }
 
@@ -249,6 +266,176 @@ CoreInternalOutcome AbnormalProcessEventInfo::Deserialize(const rapidjson::Value
         m_ruleIdHasBeenSet = true;
     }
 
+    if (value.HasMember("MatchGroupName") && !value["MatchGroupName"].IsNull())
+    {
+        if (!value["MatchGroupName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.MatchGroupName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_matchGroupName = string(value["MatchGroupName"].GetString());
+        m_matchGroupNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("MatchRuleLevel") && !value["MatchRuleLevel"].IsNull())
+    {
+        if (!value["MatchRuleLevel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.MatchRuleLevel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_matchRuleLevel = string(value["MatchRuleLevel"].GetString());
+        m_matchRuleLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("ContainerNetStatus") && !value["ContainerNetStatus"].IsNull())
+    {
+        if (!value["ContainerNetStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.ContainerNetStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_containerNetStatus = string(value["ContainerNetStatus"].GetString());
+        m_containerNetStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("ContainerNetSubStatus") && !value["ContainerNetSubStatus"].IsNull())
+    {
+        if (!value["ContainerNetSubStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.ContainerNetSubStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_containerNetSubStatus = string(value["ContainerNetSubStatus"].GetString());
+        m_containerNetSubStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("ContainerIsolateOperationSrc") && !value["ContainerIsolateOperationSrc"].IsNull())
+    {
+        if (!value["ContainerIsolateOperationSrc"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.ContainerIsolateOperationSrc` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_containerIsolateOperationSrc = string(value["ContainerIsolateOperationSrc"].GetString());
+        m_containerIsolateOperationSrcHasBeenSet = true;
+    }
+
+    if (value.HasMember("ContainerStatus") && !value["ContainerStatus"].IsNull())
+    {
+        if (!value["ContainerStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.ContainerStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_containerStatus = string(value["ContainerStatus"].GetString());
+        m_containerStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterID") && !value["ClusterID"].IsNull())
+    {
+        if (!value["ClusterID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.ClusterID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterID = string(value["ClusterID"].GetString());
+        m_clusterIDHasBeenSet = true;
+    }
+
+    if (value.HasMember("NodeType") && !value["NodeType"].IsNull())
+    {
+        if (!value["NodeType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.NodeType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeType = string(value["NodeType"].GetString());
+        m_nodeTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("PodName") && !value["PodName"].IsNull())
+    {
+        if (!value["PodName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.PodName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_podName = string(value["PodName"].GetString());
+        m_podNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("PodIP") && !value["PodIP"].IsNull())
+    {
+        if (!value["PodIP"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.PodIP` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_podIP = string(value["PodIP"].GetString());
+        m_podIPHasBeenSet = true;
+    }
+
+    if (value.HasMember("NodeUniqueID") && !value["NodeUniqueID"].IsNull())
+    {
+        if (!value["NodeUniqueID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.NodeUniqueID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeUniqueID = string(value["NodeUniqueID"].GetString());
+        m_nodeUniqueIDHasBeenSet = true;
+    }
+
+    if (value.HasMember("PublicIP") && !value["PublicIP"].IsNull())
+    {
+        if (!value["PublicIP"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.PublicIP` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_publicIP = string(value["PublicIP"].GetString());
+        m_publicIPHasBeenSet = true;
+    }
+
+    if (value.HasMember("NodeName") && !value["NodeName"].IsNull())
+    {
+        if (!value["NodeName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.NodeName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeName = string(value["NodeName"].GetString());
+        m_nodeNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("NodeID") && !value["NodeID"].IsNull())
+    {
+        if (!value["NodeID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.NodeID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeID = string(value["NodeID"].GetString());
+        m_nodeIDHasBeenSet = true;
+    }
+
+    if (value.HasMember("HostID") && !value["HostID"].IsNull())
+    {
+        if (!value["HostID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.HostID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostID = string(value["HostID"].GetString());
+        m_hostIDHasBeenSet = true;
+    }
+
+    if (value.HasMember("HostIP") && !value["HostIP"].IsNull())
+    {
+        if (!value["HostIP"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.HostIP` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostIP = string(value["HostIP"].GetString());
+        m_hostIPHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterName") && !value["ClusterName"].IsNull())
+    {
+        if (!value["ClusterName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.ClusterName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterName = string(value["ClusterName"].GetString());
+        m_clusterNameHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -414,6 +601,142 @@ void AbnormalProcessEventInfo::ToJsonObject(rapidjson::Value &value, rapidjson::
         string key = "RuleId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_ruleId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_matchGroupNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MatchGroupName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_matchGroupName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_matchRuleLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MatchRuleLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_matchRuleLevel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_containerNetStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerNetStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_containerNetStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_containerNetSubStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerNetSubStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_containerNetSubStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_containerIsolateOperationSrcHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerIsolateOperationSrc";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_containerIsolateOperationSrc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_containerStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_containerStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterID.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nodeType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_podNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PodName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_podName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_podIPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PodIP";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_podIP.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeUniqueIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeUniqueID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nodeUniqueID.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_publicIPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PublicIP";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_publicIP.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nodeName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nodeID.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hostIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hostID.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hostIPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostIP";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hostIP.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -737,5 +1060,277 @@ void AbnormalProcessEventInfo::SetRuleId(const string& _ruleId)
 bool AbnormalProcessEventInfo::RuleIdHasBeenSet() const
 {
     return m_ruleIdHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetMatchGroupName() const
+{
+    return m_matchGroupName;
+}
+
+void AbnormalProcessEventInfo::SetMatchGroupName(const string& _matchGroupName)
+{
+    m_matchGroupName = _matchGroupName;
+    m_matchGroupNameHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::MatchGroupNameHasBeenSet() const
+{
+    return m_matchGroupNameHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetMatchRuleLevel() const
+{
+    return m_matchRuleLevel;
+}
+
+void AbnormalProcessEventInfo::SetMatchRuleLevel(const string& _matchRuleLevel)
+{
+    m_matchRuleLevel = _matchRuleLevel;
+    m_matchRuleLevelHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::MatchRuleLevelHasBeenSet() const
+{
+    return m_matchRuleLevelHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetContainerNetStatus() const
+{
+    return m_containerNetStatus;
+}
+
+void AbnormalProcessEventInfo::SetContainerNetStatus(const string& _containerNetStatus)
+{
+    m_containerNetStatus = _containerNetStatus;
+    m_containerNetStatusHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::ContainerNetStatusHasBeenSet() const
+{
+    return m_containerNetStatusHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetContainerNetSubStatus() const
+{
+    return m_containerNetSubStatus;
+}
+
+void AbnormalProcessEventInfo::SetContainerNetSubStatus(const string& _containerNetSubStatus)
+{
+    m_containerNetSubStatus = _containerNetSubStatus;
+    m_containerNetSubStatusHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::ContainerNetSubStatusHasBeenSet() const
+{
+    return m_containerNetSubStatusHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetContainerIsolateOperationSrc() const
+{
+    return m_containerIsolateOperationSrc;
+}
+
+void AbnormalProcessEventInfo::SetContainerIsolateOperationSrc(const string& _containerIsolateOperationSrc)
+{
+    m_containerIsolateOperationSrc = _containerIsolateOperationSrc;
+    m_containerIsolateOperationSrcHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::ContainerIsolateOperationSrcHasBeenSet() const
+{
+    return m_containerIsolateOperationSrcHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetContainerStatus() const
+{
+    return m_containerStatus;
+}
+
+void AbnormalProcessEventInfo::SetContainerStatus(const string& _containerStatus)
+{
+    m_containerStatus = _containerStatus;
+    m_containerStatusHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::ContainerStatusHasBeenSet() const
+{
+    return m_containerStatusHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetClusterID() const
+{
+    return m_clusterID;
+}
+
+void AbnormalProcessEventInfo::SetClusterID(const string& _clusterID)
+{
+    m_clusterID = _clusterID;
+    m_clusterIDHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::ClusterIDHasBeenSet() const
+{
+    return m_clusterIDHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetNodeType() const
+{
+    return m_nodeType;
+}
+
+void AbnormalProcessEventInfo::SetNodeType(const string& _nodeType)
+{
+    m_nodeType = _nodeType;
+    m_nodeTypeHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::NodeTypeHasBeenSet() const
+{
+    return m_nodeTypeHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetPodName() const
+{
+    return m_podName;
+}
+
+void AbnormalProcessEventInfo::SetPodName(const string& _podName)
+{
+    m_podName = _podName;
+    m_podNameHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::PodNameHasBeenSet() const
+{
+    return m_podNameHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetPodIP() const
+{
+    return m_podIP;
+}
+
+void AbnormalProcessEventInfo::SetPodIP(const string& _podIP)
+{
+    m_podIP = _podIP;
+    m_podIPHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::PodIPHasBeenSet() const
+{
+    return m_podIPHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetNodeUniqueID() const
+{
+    return m_nodeUniqueID;
+}
+
+void AbnormalProcessEventInfo::SetNodeUniqueID(const string& _nodeUniqueID)
+{
+    m_nodeUniqueID = _nodeUniqueID;
+    m_nodeUniqueIDHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::NodeUniqueIDHasBeenSet() const
+{
+    return m_nodeUniqueIDHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetPublicIP() const
+{
+    return m_publicIP;
+}
+
+void AbnormalProcessEventInfo::SetPublicIP(const string& _publicIP)
+{
+    m_publicIP = _publicIP;
+    m_publicIPHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::PublicIPHasBeenSet() const
+{
+    return m_publicIPHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetNodeName() const
+{
+    return m_nodeName;
+}
+
+void AbnormalProcessEventInfo::SetNodeName(const string& _nodeName)
+{
+    m_nodeName = _nodeName;
+    m_nodeNameHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::NodeNameHasBeenSet() const
+{
+    return m_nodeNameHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetNodeID() const
+{
+    return m_nodeID;
+}
+
+void AbnormalProcessEventInfo::SetNodeID(const string& _nodeID)
+{
+    m_nodeID = _nodeID;
+    m_nodeIDHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::NodeIDHasBeenSet() const
+{
+    return m_nodeIDHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetHostID() const
+{
+    return m_hostID;
+}
+
+void AbnormalProcessEventInfo::SetHostID(const string& _hostID)
+{
+    m_hostID = _hostID;
+    m_hostIDHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::HostIDHasBeenSet() const
+{
+    return m_hostIDHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetHostIP() const
+{
+    return m_hostIP;
+}
+
+void AbnormalProcessEventInfo::SetHostIP(const string& _hostIP)
+{
+    m_hostIP = _hostIP;
+    m_hostIPHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::HostIPHasBeenSet() const
+{
+    return m_hostIPHasBeenSet;
+}
+
+string AbnormalProcessEventInfo::GetClusterName() const
+{
+    return m_clusterName;
+}
+
+void AbnormalProcessEventInfo::SetClusterName(const string& _clusterName)
+{
+    m_clusterName = _clusterName;
+    m_clusterNameHasBeenSet = true;
+}
+
+bool AbnormalProcessEventInfo::ClusterNameHasBeenSet() const
+{
+    return m_clusterNameHasBeenSet;
 }
 

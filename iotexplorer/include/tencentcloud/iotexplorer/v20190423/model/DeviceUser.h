@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,38 +49,86 @@ namespace TencentCloud
                     /**
                      * 获取用户ID
                      * @return UserId 用户ID
+                     * 
                      */
                     std::string GetUserId() const;
 
                     /**
                      * 设置用户ID
-                     * @param UserId 用户ID
+                     * @param _userId 用户ID
+                     * 
                      */
                     void SetUserId(const std::string& _userId);
 
                     /**
                      * 判断参数 UserId 是否已赋值
                      * @return UserId 是否已赋值
+                     * 
                      */
                     bool UserIdHasBeenSet() const;
 
                     /**
                      * 获取用户角色 1所有者，0：其他分享者
                      * @return Role 用户角色 1所有者，0：其他分享者
+                     * 
                      */
                     int64_t GetRole() const;
 
                     /**
                      * 设置用户角色 1所有者，0：其他分享者
-                     * @param Role 用户角色 1所有者，0：其他分享者
+                     * @param _role 用户角色 1所有者，0：其他分享者
+                     * 
                      */
                     void SetRole(const int64_t& _role);
 
                     /**
                      * 判断参数 Role 是否已赋值
                      * @return Role 是否已赋值
+                     * 
                      */
                     bool RoleHasBeenSet() const;
+
+                    /**
+                     * 获取家庭ID，所有者带该参数
+                     * @return FamilyId 家庭ID，所有者带该参数
+                     * 
+                     */
+                    std::string GetFamilyId() const;
+
+                    /**
+                     * 设置家庭ID，所有者带该参数
+                     * @param _familyId 家庭ID，所有者带该参数
+                     * 
+                     */
+                    void SetFamilyId(const std::string& _familyId);
+
+                    /**
+                     * 判断参数 FamilyId 是否已赋值
+                     * @return FamilyId 是否已赋值
+                     * 
+                     */
+                    bool FamilyIdHasBeenSet() const;
+
+                    /**
+                     * 获取家庭名称，所有者带该参数
+                     * @return FamilyName 家庭名称，所有者带该参数
+                     * 
+                     */
+                    std::string GetFamilyName() const;
+
+                    /**
+                     * 设置家庭名称，所有者带该参数
+                     * @param _familyName 家庭名称，所有者带该参数
+                     * 
+                     */
+                    void SetFamilyName(const std::string& _familyName);
+
+                    /**
+                     * 判断参数 FamilyName 是否已赋值
+                     * @return FamilyName 是否已赋值
+                     * 
+                     */
+                    bool FamilyNameHasBeenSet() const;
 
                 private:
 
@@ -95,6 +143,18 @@ namespace TencentCloud
                      */
                     int64_t m_role;
                     bool m_roleHasBeenSet;
+
+                    /**
+                     * 家庭ID，所有者带该参数
+                     */
+                    std::string m_familyId;
+                    bool m_familyIdHasBeenSet;
+
+                    /**
+                     * 家庭名称，所有者带该参数
+                     */
+                    std::string m_familyName;
+                    bool m_familyNameHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,10 @@ ModifyInstanceAttributesRequest::ModifyInstanceAttributesRequest() :
     m_dynamicRetentionConfigHasBeenSet(false),
     m_rebalanceTimeHasBeenSet(false),
     m_publicNetworkHasBeenSet(false),
-    m_dynamicDiskConfigHasBeenSet(false)
+    m_dynamicDiskConfigHasBeenSet(false),
+    m_maxMessageByteHasBeenSet(false),
+    m_uncleanLeaderElectionEnableHasBeenSet(false),
+    m_deleteProtectionEnableHasBeenSet(false)
 {
 }
 
@@ -106,6 +109,30 @@ string ModifyInstanceAttributesRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_dynamicDiskConfig.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_maxMessageByteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxMessageByte";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_maxMessageByte, allocator);
+    }
+
+    if (m_uncleanLeaderElectionEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UncleanLeaderElectionEnable";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_uncleanLeaderElectionEnable, allocator);
+    }
+
+    if (m_deleteProtectionEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeleteProtectionEnable";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_deleteProtectionEnable, allocator);
     }
 
 
@@ -242,6 +269,54 @@ void ModifyInstanceAttributesRequest::SetDynamicDiskConfig(const DynamicDiskConf
 bool ModifyInstanceAttributesRequest::DynamicDiskConfigHasBeenSet() const
 {
     return m_dynamicDiskConfigHasBeenSet;
+}
+
+uint64_t ModifyInstanceAttributesRequest::GetMaxMessageByte() const
+{
+    return m_maxMessageByte;
+}
+
+void ModifyInstanceAttributesRequest::SetMaxMessageByte(const uint64_t& _maxMessageByte)
+{
+    m_maxMessageByte = _maxMessageByte;
+    m_maxMessageByteHasBeenSet = true;
+}
+
+bool ModifyInstanceAttributesRequest::MaxMessageByteHasBeenSet() const
+{
+    return m_maxMessageByteHasBeenSet;
+}
+
+int64_t ModifyInstanceAttributesRequest::GetUncleanLeaderElectionEnable() const
+{
+    return m_uncleanLeaderElectionEnable;
+}
+
+void ModifyInstanceAttributesRequest::SetUncleanLeaderElectionEnable(const int64_t& _uncleanLeaderElectionEnable)
+{
+    m_uncleanLeaderElectionEnable = _uncleanLeaderElectionEnable;
+    m_uncleanLeaderElectionEnableHasBeenSet = true;
+}
+
+bool ModifyInstanceAttributesRequest::UncleanLeaderElectionEnableHasBeenSet() const
+{
+    return m_uncleanLeaderElectionEnableHasBeenSet;
+}
+
+int64_t ModifyInstanceAttributesRequest::GetDeleteProtectionEnable() const
+{
+    return m_deleteProtectionEnable;
+}
+
+void ModifyInstanceAttributesRequest::SetDeleteProtectionEnable(const int64_t& _deleteProtectionEnable)
+{
+    m_deleteProtectionEnable = _deleteProtectionEnable;
+    m_deleteProtectionEnableHasBeenSet = true;
+}
+
+bool ModifyInstanceAttributesRequest::DeleteProtectionEnableHasBeenSet() const
+{
+    return m_deleteProtectionEnableHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,34 @@ Certificates::Certificates() :
     m_projectInfoHasBeenSet(false),
     m_boundResourceHasBeenSet(false),
     m_deployableHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_isIgnoreHasBeenSet(false),
+    m_isSMHasBeenSet(false),
+    m_encryptAlgorithmHasBeenSet(false),
+    m_cAEncryptAlgorithmsHasBeenSet(false),
+    m_cAEndTimesHasBeenSet(false),
+    m_cACommonNamesHasBeenSet(false),
+    m_preAuditInfoHasBeenSet(false),
+    m_autoRenewFlagHasBeenSet(false),
+    m_hostingStatusHasBeenSet(false),
+    m_hostingCompleteTimeHasBeenSet(false),
+    m_hostingRenewCertIdHasBeenSet(false),
+    m_hasRenewOrderHasBeenSet(false),
+    m_replaceOriCertIsDeleteHasBeenSet(false),
+    m_isExpiringHasBeenSet(false),
+    m_dVAuthDeadlineHasBeenSet(false),
+    m_validationPassedTimeHasBeenSet(false),
+    m_certSANsHasBeenSet(false),
+    m_awaitingValidationMsgHasBeenSet(false),
+    m_allowDownloadHasBeenSet(false),
+    m_isDNSPODResolveHasBeenSet(false),
+    m_isPackageHasBeenSet(false),
+    m_keyPasswordCustomFlagHasBeenSet(false),
+    m_supportDownloadTypeHasBeenSet(false),
+    m_certRevokedTimeHasBeenSet(false),
+    m_hostingResourceTypesHasBeenSet(false),
+    m_hostingConfigHasBeenSet(false),
+    m_isHostingUploadRenewCertHasBeenSet(false)
 {
 }
 
@@ -389,6 +416,312 @@ CoreInternalOutcome Certificates::Deserialize(const rapidjson::Value &value)
         m_tagsHasBeenSet = true;
     }
 
+    if (value.HasMember("IsIgnore") && !value["IsIgnore"].IsNull())
+    {
+        if (!value["IsIgnore"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.IsIgnore` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isIgnore = value["IsIgnore"].GetBool();
+        m_isIgnoreHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsSM") && !value["IsSM"].IsNull())
+    {
+        if (!value["IsSM"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.IsSM` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSM = value["IsSM"].GetBool();
+        m_isSMHasBeenSet = true;
+    }
+
+    if (value.HasMember("EncryptAlgorithm") && !value["EncryptAlgorithm"].IsNull())
+    {
+        if (!value["EncryptAlgorithm"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.EncryptAlgorithm` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptAlgorithm = string(value["EncryptAlgorithm"].GetString());
+        m_encryptAlgorithmHasBeenSet = true;
+    }
+
+    if (value.HasMember("CAEncryptAlgorithms") && !value["CAEncryptAlgorithms"].IsNull())
+    {
+        if (!value["CAEncryptAlgorithms"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Certificates.CAEncryptAlgorithms` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CAEncryptAlgorithms"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_cAEncryptAlgorithms.push_back((*itr).GetString());
+        }
+        m_cAEncryptAlgorithmsHasBeenSet = true;
+    }
+
+    if (value.HasMember("CAEndTimes") && !value["CAEndTimes"].IsNull())
+    {
+        if (!value["CAEndTimes"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Certificates.CAEndTimes` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CAEndTimes"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_cAEndTimes.push_back((*itr).GetString());
+        }
+        m_cAEndTimesHasBeenSet = true;
+    }
+
+    if (value.HasMember("CACommonNames") && !value["CACommonNames"].IsNull())
+    {
+        if (!value["CACommonNames"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Certificates.CACommonNames` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CACommonNames"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_cACommonNames.push_back((*itr).GetString());
+        }
+        m_cACommonNamesHasBeenSet = true;
+    }
+
+    if (value.HasMember("PreAuditInfo") && !value["PreAuditInfo"].IsNull())
+    {
+        if (!value["PreAuditInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.PreAuditInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_preAuditInfo.Deserialize(value["PreAuditInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_preAuditInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoRenewFlag") && !value["AutoRenewFlag"].IsNull())
+    {
+        if (!value["AutoRenewFlag"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.AutoRenewFlag` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoRenewFlag = value["AutoRenewFlag"].GetInt64();
+        m_autoRenewFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("HostingStatus") && !value["HostingStatus"].IsNull())
+    {
+        if (!value["HostingStatus"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.HostingStatus` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostingStatus = value["HostingStatus"].GetInt64();
+        m_hostingStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("HostingCompleteTime") && !value["HostingCompleteTime"].IsNull())
+    {
+        if (!value["HostingCompleteTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.HostingCompleteTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostingCompleteTime = string(value["HostingCompleteTime"].GetString());
+        m_hostingCompleteTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("HostingRenewCertId") && !value["HostingRenewCertId"].IsNull())
+    {
+        if (!value["HostingRenewCertId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.HostingRenewCertId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostingRenewCertId = string(value["HostingRenewCertId"].GetString());
+        m_hostingRenewCertIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("HasRenewOrder") && !value["HasRenewOrder"].IsNull())
+    {
+        if (!value["HasRenewOrder"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.HasRenewOrder` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hasRenewOrder = string(value["HasRenewOrder"].GetString());
+        m_hasRenewOrderHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReplaceOriCertIsDelete") && !value["ReplaceOriCertIsDelete"].IsNull())
+    {
+        if (!value["ReplaceOriCertIsDelete"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.ReplaceOriCertIsDelete` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_replaceOriCertIsDelete = value["ReplaceOriCertIsDelete"].GetBool();
+        m_replaceOriCertIsDeleteHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsExpiring") && !value["IsExpiring"].IsNull())
+    {
+        if (!value["IsExpiring"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.IsExpiring` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isExpiring = value["IsExpiring"].GetBool();
+        m_isExpiringHasBeenSet = true;
+    }
+
+    if (value.HasMember("DVAuthDeadline") && !value["DVAuthDeadline"].IsNull())
+    {
+        if (!value["DVAuthDeadline"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.DVAuthDeadline` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dVAuthDeadline = string(value["DVAuthDeadline"].GetString());
+        m_dVAuthDeadlineHasBeenSet = true;
+    }
+
+    if (value.HasMember("ValidationPassedTime") && !value["ValidationPassedTime"].IsNull())
+    {
+        if (!value["ValidationPassedTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.ValidationPassedTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_validationPassedTime = string(value["ValidationPassedTime"].GetString());
+        m_validationPassedTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CertSANs") && !value["CertSANs"].IsNull())
+    {
+        if (!value["CertSANs"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Certificates.CertSANs` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CertSANs"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_certSANs.push_back((*itr).GetString());
+        }
+        m_certSANsHasBeenSet = true;
+    }
+
+    if (value.HasMember("AwaitingValidationMsg") && !value["AwaitingValidationMsg"].IsNull())
+    {
+        if (!value["AwaitingValidationMsg"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.AwaitingValidationMsg` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_awaitingValidationMsg = string(value["AwaitingValidationMsg"].GetString());
+        m_awaitingValidationMsgHasBeenSet = true;
+    }
+
+    if (value.HasMember("AllowDownload") && !value["AllowDownload"].IsNull())
+    {
+        if (!value["AllowDownload"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.AllowDownload` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_allowDownload = value["AllowDownload"].GetBool();
+        m_allowDownloadHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsDNSPODResolve") && !value["IsDNSPODResolve"].IsNull())
+    {
+        if (!value["IsDNSPODResolve"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.IsDNSPODResolve` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isDNSPODResolve = value["IsDNSPODResolve"].GetBool();
+        m_isDNSPODResolveHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsPackage") && !value["IsPackage"].IsNull())
+    {
+        if (!value["IsPackage"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.IsPackage` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isPackage = value["IsPackage"].GetBool();
+        m_isPackageHasBeenSet = true;
+    }
+
+    if (value.HasMember("KeyPasswordCustomFlag") && !value["KeyPasswordCustomFlag"].IsNull())
+    {
+        if (!value["KeyPasswordCustomFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.KeyPasswordCustomFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_keyPasswordCustomFlag = value["KeyPasswordCustomFlag"].GetBool();
+        m_keyPasswordCustomFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("SupportDownloadType") && !value["SupportDownloadType"].IsNull())
+    {
+        if (!value["SupportDownloadType"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.SupportDownloadType` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_supportDownloadType.Deserialize(value["SupportDownloadType"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_supportDownloadTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CertRevokedTime") && !value["CertRevokedTime"].IsNull())
+    {
+        if (!value["CertRevokedTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.CertRevokedTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_certRevokedTime = string(value["CertRevokedTime"].GetString());
+        m_certRevokedTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("HostingResourceTypes") && !value["HostingResourceTypes"].IsNull())
+    {
+        if (!value["HostingResourceTypes"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Certificates.HostingResourceTypes` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["HostingResourceTypes"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_hostingResourceTypes.push_back((*itr).GetString());
+        }
+        m_hostingResourceTypesHasBeenSet = true;
+    }
+
+    if (value.HasMember("HostingConfig") && !value["HostingConfig"].IsNull())
+    {
+        if (!value["HostingConfig"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.HostingConfig` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_hostingConfig.Deserialize(value["HostingConfig"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_hostingConfigHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsHostingUploadRenewCert") && !value["IsHostingUploadRenewCert"].IsNull())
+    {
+        if (!value["IsHostingUploadRenewCert"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Certificates.IsHostingUploadRenewCert` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isHostingUploadRenewCert = value["IsHostingUploadRenewCert"].GetBool();
+        m_isHostingUploadRenewCertHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -653,6 +986,250 @@ void Certificates::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_isIgnoreHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsIgnore";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isIgnore, allocator);
+    }
+
+    if (m_isSMHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSM";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSM, allocator);
+    }
+
+    if (m_encryptAlgorithmHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptAlgorithm";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptAlgorithm.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cAEncryptAlgorithmsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CAEncryptAlgorithms";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_cAEncryptAlgorithms.begin(); itr != m_cAEncryptAlgorithms.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_cAEndTimesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CAEndTimes";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_cAEndTimes.begin(); itr != m_cAEndTimes.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_cACommonNamesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CACommonNames";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_cACommonNames.begin(); itr != m_cACommonNames.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_preAuditInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PreAuditInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_preAuditInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_autoRenewFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRenewFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoRenewFlag, allocator);
+    }
+
+    if (m_hostingStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostingStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_hostingStatus, allocator);
+    }
+
+    if (m_hostingCompleteTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostingCompleteTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hostingCompleteTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hostingRenewCertIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostingRenewCertId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hostingRenewCertId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hasRenewOrderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HasRenewOrder";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hasRenewOrder.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_replaceOriCertIsDeleteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReplaceOriCertIsDelete";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_replaceOriCertIsDelete, allocator);
+    }
+
+    if (m_isExpiringHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsExpiring";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isExpiring, allocator);
+    }
+
+    if (m_dVAuthDeadlineHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DVAuthDeadline";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dVAuthDeadline.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_validationPassedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ValidationPassedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_validationPassedTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_certSANsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CertSANs";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_certSANs.begin(); itr != m_certSANs.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_awaitingValidationMsgHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AwaitingValidationMsg";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_awaitingValidationMsg.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_allowDownloadHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AllowDownload";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_allowDownload, allocator);
+    }
+
+    if (m_isDNSPODResolveHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsDNSPODResolve";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isDNSPODResolve, allocator);
+    }
+
+    if (m_isPackageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsPackage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isPackage, allocator);
+    }
+
+    if (m_keyPasswordCustomFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KeyPasswordCustomFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_keyPasswordCustomFlag, allocator);
+    }
+
+    if (m_supportDownloadTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SupportDownloadType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_supportDownloadType.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_certRevokedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CertRevokedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_certRevokedTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hostingResourceTypesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostingResourceTypes";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_hostingResourceTypes.begin(); itr != m_hostingResourceTypes.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_hostingConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostingConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_hostingConfig.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_isHostingUploadRenewCertHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsHostingUploadRenewCert";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isHostingUploadRenewCert, allocator);
     }
 
 }
@@ -1136,5 +1713,437 @@ void Certificates::SetTags(const vector<Tags>& _tags)
 bool Certificates::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+bool Certificates::GetIsIgnore() const
+{
+    return m_isIgnore;
+}
+
+void Certificates::SetIsIgnore(const bool& _isIgnore)
+{
+    m_isIgnore = _isIgnore;
+    m_isIgnoreHasBeenSet = true;
+}
+
+bool Certificates::IsIgnoreHasBeenSet() const
+{
+    return m_isIgnoreHasBeenSet;
+}
+
+bool Certificates::GetIsSM() const
+{
+    return m_isSM;
+}
+
+void Certificates::SetIsSM(const bool& _isSM)
+{
+    m_isSM = _isSM;
+    m_isSMHasBeenSet = true;
+}
+
+bool Certificates::IsSMHasBeenSet() const
+{
+    return m_isSMHasBeenSet;
+}
+
+string Certificates::GetEncryptAlgorithm() const
+{
+    return m_encryptAlgorithm;
+}
+
+void Certificates::SetEncryptAlgorithm(const string& _encryptAlgorithm)
+{
+    m_encryptAlgorithm = _encryptAlgorithm;
+    m_encryptAlgorithmHasBeenSet = true;
+}
+
+bool Certificates::EncryptAlgorithmHasBeenSet() const
+{
+    return m_encryptAlgorithmHasBeenSet;
+}
+
+vector<string> Certificates::GetCAEncryptAlgorithms() const
+{
+    return m_cAEncryptAlgorithms;
+}
+
+void Certificates::SetCAEncryptAlgorithms(const vector<string>& _cAEncryptAlgorithms)
+{
+    m_cAEncryptAlgorithms = _cAEncryptAlgorithms;
+    m_cAEncryptAlgorithmsHasBeenSet = true;
+}
+
+bool Certificates::CAEncryptAlgorithmsHasBeenSet() const
+{
+    return m_cAEncryptAlgorithmsHasBeenSet;
+}
+
+vector<string> Certificates::GetCAEndTimes() const
+{
+    return m_cAEndTimes;
+}
+
+void Certificates::SetCAEndTimes(const vector<string>& _cAEndTimes)
+{
+    m_cAEndTimes = _cAEndTimes;
+    m_cAEndTimesHasBeenSet = true;
+}
+
+bool Certificates::CAEndTimesHasBeenSet() const
+{
+    return m_cAEndTimesHasBeenSet;
+}
+
+vector<string> Certificates::GetCACommonNames() const
+{
+    return m_cACommonNames;
+}
+
+void Certificates::SetCACommonNames(const vector<string>& _cACommonNames)
+{
+    m_cACommonNames = _cACommonNames;
+    m_cACommonNamesHasBeenSet = true;
+}
+
+bool Certificates::CACommonNamesHasBeenSet() const
+{
+    return m_cACommonNamesHasBeenSet;
+}
+
+PreAuditInfo Certificates::GetPreAuditInfo() const
+{
+    return m_preAuditInfo;
+}
+
+void Certificates::SetPreAuditInfo(const PreAuditInfo& _preAuditInfo)
+{
+    m_preAuditInfo = _preAuditInfo;
+    m_preAuditInfoHasBeenSet = true;
+}
+
+bool Certificates::PreAuditInfoHasBeenSet() const
+{
+    return m_preAuditInfoHasBeenSet;
+}
+
+int64_t Certificates::GetAutoRenewFlag() const
+{
+    return m_autoRenewFlag;
+}
+
+void Certificates::SetAutoRenewFlag(const int64_t& _autoRenewFlag)
+{
+    m_autoRenewFlag = _autoRenewFlag;
+    m_autoRenewFlagHasBeenSet = true;
+}
+
+bool Certificates::AutoRenewFlagHasBeenSet() const
+{
+    return m_autoRenewFlagHasBeenSet;
+}
+
+int64_t Certificates::GetHostingStatus() const
+{
+    return m_hostingStatus;
+}
+
+void Certificates::SetHostingStatus(const int64_t& _hostingStatus)
+{
+    m_hostingStatus = _hostingStatus;
+    m_hostingStatusHasBeenSet = true;
+}
+
+bool Certificates::HostingStatusHasBeenSet() const
+{
+    return m_hostingStatusHasBeenSet;
+}
+
+string Certificates::GetHostingCompleteTime() const
+{
+    return m_hostingCompleteTime;
+}
+
+void Certificates::SetHostingCompleteTime(const string& _hostingCompleteTime)
+{
+    m_hostingCompleteTime = _hostingCompleteTime;
+    m_hostingCompleteTimeHasBeenSet = true;
+}
+
+bool Certificates::HostingCompleteTimeHasBeenSet() const
+{
+    return m_hostingCompleteTimeHasBeenSet;
+}
+
+string Certificates::GetHostingRenewCertId() const
+{
+    return m_hostingRenewCertId;
+}
+
+void Certificates::SetHostingRenewCertId(const string& _hostingRenewCertId)
+{
+    m_hostingRenewCertId = _hostingRenewCertId;
+    m_hostingRenewCertIdHasBeenSet = true;
+}
+
+bool Certificates::HostingRenewCertIdHasBeenSet() const
+{
+    return m_hostingRenewCertIdHasBeenSet;
+}
+
+string Certificates::GetHasRenewOrder() const
+{
+    return m_hasRenewOrder;
+}
+
+void Certificates::SetHasRenewOrder(const string& _hasRenewOrder)
+{
+    m_hasRenewOrder = _hasRenewOrder;
+    m_hasRenewOrderHasBeenSet = true;
+}
+
+bool Certificates::HasRenewOrderHasBeenSet() const
+{
+    return m_hasRenewOrderHasBeenSet;
+}
+
+bool Certificates::GetReplaceOriCertIsDelete() const
+{
+    return m_replaceOriCertIsDelete;
+}
+
+void Certificates::SetReplaceOriCertIsDelete(const bool& _replaceOriCertIsDelete)
+{
+    m_replaceOriCertIsDelete = _replaceOriCertIsDelete;
+    m_replaceOriCertIsDeleteHasBeenSet = true;
+}
+
+bool Certificates::ReplaceOriCertIsDeleteHasBeenSet() const
+{
+    return m_replaceOriCertIsDeleteHasBeenSet;
+}
+
+bool Certificates::GetIsExpiring() const
+{
+    return m_isExpiring;
+}
+
+void Certificates::SetIsExpiring(const bool& _isExpiring)
+{
+    m_isExpiring = _isExpiring;
+    m_isExpiringHasBeenSet = true;
+}
+
+bool Certificates::IsExpiringHasBeenSet() const
+{
+    return m_isExpiringHasBeenSet;
+}
+
+string Certificates::GetDVAuthDeadline() const
+{
+    return m_dVAuthDeadline;
+}
+
+void Certificates::SetDVAuthDeadline(const string& _dVAuthDeadline)
+{
+    m_dVAuthDeadline = _dVAuthDeadline;
+    m_dVAuthDeadlineHasBeenSet = true;
+}
+
+bool Certificates::DVAuthDeadlineHasBeenSet() const
+{
+    return m_dVAuthDeadlineHasBeenSet;
+}
+
+string Certificates::GetValidationPassedTime() const
+{
+    return m_validationPassedTime;
+}
+
+void Certificates::SetValidationPassedTime(const string& _validationPassedTime)
+{
+    m_validationPassedTime = _validationPassedTime;
+    m_validationPassedTimeHasBeenSet = true;
+}
+
+bool Certificates::ValidationPassedTimeHasBeenSet() const
+{
+    return m_validationPassedTimeHasBeenSet;
+}
+
+vector<string> Certificates::GetCertSANs() const
+{
+    return m_certSANs;
+}
+
+void Certificates::SetCertSANs(const vector<string>& _certSANs)
+{
+    m_certSANs = _certSANs;
+    m_certSANsHasBeenSet = true;
+}
+
+bool Certificates::CertSANsHasBeenSet() const
+{
+    return m_certSANsHasBeenSet;
+}
+
+string Certificates::GetAwaitingValidationMsg() const
+{
+    return m_awaitingValidationMsg;
+}
+
+void Certificates::SetAwaitingValidationMsg(const string& _awaitingValidationMsg)
+{
+    m_awaitingValidationMsg = _awaitingValidationMsg;
+    m_awaitingValidationMsgHasBeenSet = true;
+}
+
+bool Certificates::AwaitingValidationMsgHasBeenSet() const
+{
+    return m_awaitingValidationMsgHasBeenSet;
+}
+
+bool Certificates::GetAllowDownload() const
+{
+    return m_allowDownload;
+}
+
+void Certificates::SetAllowDownload(const bool& _allowDownload)
+{
+    m_allowDownload = _allowDownload;
+    m_allowDownloadHasBeenSet = true;
+}
+
+bool Certificates::AllowDownloadHasBeenSet() const
+{
+    return m_allowDownloadHasBeenSet;
+}
+
+bool Certificates::GetIsDNSPODResolve() const
+{
+    return m_isDNSPODResolve;
+}
+
+void Certificates::SetIsDNSPODResolve(const bool& _isDNSPODResolve)
+{
+    m_isDNSPODResolve = _isDNSPODResolve;
+    m_isDNSPODResolveHasBeenSet = true;
+}
+
+bool Certificates::IsDNSPODResolveHasBeenSet() const
+{
+    return m_isDNSPODResolveHasBeenSet;
+}
+
+bool Certificates::GetIsPackage() const
+{
+    return m_isPackage;
+}
+
+void Certificates::SetIsPackage(const bool& _isPackage)
+{
+    m_isPackage = _isPackage;
+    m_isPackageHasBeenSet = true;
+}
+
+bool Certificates::IsPackageHasBeenSet() const
+{
+    return m_isPackageHasBeenSet;
+}
+
+bool Certificates::GetKeyPasswordCustomFlag() const
+{
+    return m_keyPasswordCustomFlag;
+}
+
+void Certificates::SetKeyPasswordCustomFlag(const bool& _keyPasswordCustomFlag)
+{
+    m_keyPasswordCustomFlag = _keyPasswordCustomFlag;
+    m_keyPasswordCustomFlagHasBeenSet = true;
+}
+
+bool Certificates::KeyPasswordCustomFlagHasBeenSet() const
+{
+    return m_keyPasswordCustomFlagHasBeenSet;
+}
+
+SupportDownloadType Certificates::GetSupportDownloadType() const
+{
+    return m_supportDownloadType;
+}
+
+void Certificates::SetSupportDownloadType(const SupportDownloadType& _supportDownloadType)
+{
+    m_supportDownloadType = _supportDownloadType;
+    m_supportDownloadTypeHasBeenSet = true;
+}
+
+bool Certificates::SupportDownloadTypeHasBeenSet() const
+{
+    return m_supportDownloadTypeHasBeenSet;
+}
+
+string Certificates::GetCertRevokedTime() const
+{
+    return m_certRevokedTime;
+}
+
+void Certificates::SetCertRevokedTime(const string& _certRevokedTime)
+{
+    m_certRevokedTime = _certRevokedTime;
+    m_certRevokedTimeHasBeenSet = true;
+}
+
+bool Certificates::CertRevokedTimeHasBeenSet() const
+{
+    return m_certRevokedTimeHasBeenSet;
+}
+
+vector<string> Certificates::GetHostingResourceTypes() const
+{
+    return m_hostingResourceTypes;
+}
+
+void Certificates::SetHostingResourceTypes(const vector<string>& _hostingResourceTypes)
+{
+    m_hostingResourceTypes = _hostingResourceTypes;
+    m_hostingResourceTypesHasBeenSet = true;
+}
+
+bool Certificates::HostingResourceTypesHasBeenSet() const
+{
+    return m_hostingResourceTypesHasBeenSet;
+}
+
+HostingConfig Certificates::GetHostingConfig() const
+{
+    return m_hostingConfig;
+}
+
+void Certificates::SetHostingConfig(const HostingConfig& _hostingConfig)
+{
+    m_hostingConfig = _hostingConfig;
+    m_hostingConfigHasBeenSet = true;
+}
+
+bool Certificates::HostingConfigHasBeenSet() const
+{
+    return m_hostingConfigHasBeenSet;
+}
+
+bool Certificates::GetIsHostingUploadRenewCert() const
+{
+    return m_isHostingUploadRenewCert;
+}
+
+void Certificates::SetIsHostingUploadRenewCert(const bool& _isHostingUploadRenewCert)
+{
+    m_isHostingUploadRenewCert = _isHostingUploadRenewCert;
+    m_isHostingUploadRenewCertHasBeenSet = true;
+}
+
+bool Certificates::IsHostingUploadRenewCertHasBeenSet() const
+{
+    return m_isHostingUploadRenewCertHasBeenSet;
 }
 

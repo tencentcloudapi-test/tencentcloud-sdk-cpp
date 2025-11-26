@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,87 +44,99 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取模板 ID。
-                     * @return TemplateId 模板 ID。
+                     * 获取模板 ID。可通过 [DescribeParamTemplates](https://cloud.tencent.com/document/api/236/32659) 接口获取。
+                     * @return TemplateId 模板 ID。可通过 [DescribeParamTemplates](https://cloud.tencent.com/document/api/236/32659) 接口获取。
+                     * 
                      */
                     int64_t GetTemplateId() const;
 
                     /**
-                     * 设置模板 ID。
-                     * @param TemplateId 模板 ID。
+                     * 设置模板 ID。可通过 [DescribeParamTemplates](https://cloud.tencent.com/document/api/236/32659) 接口获取。
+                     * @param _templateId 模板 ID。可通过 [DescribeParamTemplates](https://cloud.tencent.com/document/api/236/32659) 接口获取。
+                     * 
                      */
                     void SetTemplateId(const int64_t& _templateId);
 
                     /**
                      * 判断参数 TemplateId 是否已赋值
                      * @return TemplateId 是否已赋值
+                     * 
                      */
                     bool TemplateIdHasBeenSet() const;
 
                     /**
-                     * 获取模板名称，长度不超过64。
-                     * @return Name 模板名称，长度不超过64。
+                     * 获取模板名称，仅支持数字、英文大小写字母、中文以及特殊字符_-./()（）[]+=：:@,且长度不能超过60。
+                     * @return Name 模板名称，仅支持数字、英文大小写字母、中文以及特殊字符_-./()（）[]+=：:@,且长度不能超过60。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置模板名称，长度不超过64。
-                     * @param Name 模板名称，长度不超过64。
+                     * 设置模板名称，仅支持数字、英文大小写字母、中文以及特殊字符_-./()（）[]+=：:@,且长度不能超过60。
+                     * @param _name 模板名称，仅支持数字、英文大小写字母、中文以及特殊字符_-./()（）[]+=：:@,且长度不能超过60。
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取模板描述，长度不超过255。
                      * @return Description 模板描述，长度不超过255。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置模板描述，长度不超过255。
-                     * @param Description 模板描述，长度不超过255。
+                     * @param _description 模板描述，长度不超过255。
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取参数列表。
                      * @return ParamList 参数列表。
+                     * 
                      */
                     std::vector<Parameter> GetParamList() const;
 
                     /**
                      * 设置参数列表。
-                     * @param ParamList 参数列表。
+                     * @param _paramList 参数列表。
+                     * 
                      */
                     void SetParamList(const std::vector<Parameter>& _paramList);
 
                     /**
                      * 判断参数 ParamList 是否已赋值
                      * @return ParamList 是否已赋值
+                     * 
                      */
                     bool ParamListHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 模板 ID。
+                     * 模板 ID。可通过 [DescribeParamTemplates](https://cloud.tencent.com/document/api/236/32659) 接口获取。
                      */
                     int64_t m_templateId;
                     bool m_templateIdHasBeenSet;
 
                     /**
-                     * 模板名称，长度不超过64。
+                     * 模板名称，仅支持数字、英文大小写字母、中文以及特殊字符_-./()（）[]+=：:@,且长度不能超过60。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;

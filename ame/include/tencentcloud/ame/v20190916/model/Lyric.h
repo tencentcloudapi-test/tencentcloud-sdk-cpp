@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取歌词cdn地址
                      * @return Url 歌词cdn地址
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置歌词cdn地址
-                     * @param Url 歌词cdn地址
+                     * @param _url 歌词cdn地址
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
                      * 获取歌词后缀名
                      * @return FileNameExt 歌词后缀名
+                     * 
                      */
                     std::string GetFileNameExt() const;
 
                     /**
                      * 设置歌词后缀名
-                     * @param FileNameExt 歌词后缀名
+                     * @param _fileNameExt 歌词后缀名
+                     * 
                      */
                     void SetFileNameExt(const std::string& _fileNameExt);
 
                     /**
                      * 判断参数 FileNameExt 是否已赋值
                      * @return FileNameExt 是否已赋值
+                     * 
                      */
                     bool FileNameExtHasBeenSet() const;
 
                     /**
                      * 获取歌词类型
                      * @return SubItemType 歌词类型
+                     * 
                      */
                     std::string GetSubItemType() const;
 
                     /**
                      * 设置歌词类型
-                     * @param SubItemType 歌词类型
+                     * @param _subItemType 歌词类型
+                     * 
                      */
                     void SetSubItemType(const std::string& _subItemType);
 
                     /**
                      * 判断参数 SubItemType 是否已赋值
                      * @return SubItemType 是否已赋值
+                     * 
                      */
                     bool SubItemTypeHasBeenSet() const;
 

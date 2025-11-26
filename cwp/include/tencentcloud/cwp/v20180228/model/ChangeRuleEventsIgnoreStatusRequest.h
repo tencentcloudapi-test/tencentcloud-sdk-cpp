@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取忽略状态 0:取消忽略 ； 1:忽略
                      * @return IgnoreStatus 忽略状态 0:取消忽略 ； 1:忽略
+                     * 
                      */
                     uint64_t GetIgnoreStatus() const;
 
                     /**
                      * 设置忽略状态 0:取消忽略 ； 1:忽略
-                     * @param IgnoreStatus 忽略状态 0:取消忽略 ； 1:忽略
+                     * @param _ignoreStatus 忽略状态 0:取消忽略 ； 1:忽略
+                     * 
                      */
                     void SetIgnoreStatus(const uint64_t& _ignoreStatus);
 
                     /**
                      * 判断参数 IgnoreStatus 是否已赋值
                      * @return IgnoreStatus 是否已赋值
+                     * 
                      */
                     bool IgnoreStatusHasBeenSet() const;
 
                     /**
                      * 获取检测项id数组
                      * @return RuleIdList 检测项id数组
+                     * 
                      */
                     std::vector<uint64_t> GetRuleIdList() const;
 
                     /**
                      * 设置检测项id数组
-                     * @param RuleIdList 检测项id数组
+                     * @param _ruleIdList 检测项id数组
+                     * 
                      */
                     void SetRuleIdList(const std::vector<uint64_t>& _ruleIdList);
 
                     /**
                      * 判断参数 RuleIdList 是否已赋值
                      * @return RuleIdList 是否已赋值
+                     * 
                      */
                     bool RuleIdListHasBeenSet() const;
 
                     /**
                      * 获取事件id数组
                      * @return EventIdList 事件id数组
+                     * 
                      */
                     std::vector<uint64_t> GetEventIdList() const;
 
                     /**
                      * 设置事件id数组
-                     * @param EventIdList 事件id数组
+                     * @param _eventIdList 事件id数组
+                     * 
                      */
                     void SetEventIdList(const std::vector<uint64_t>& _eventIdList);
 
                     /**
                      * 判断参数 EventIdList 是否已赋值
                      * @return EventIdList 是否已赋值
+                     * 
                      */
                     bool EventIdListHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,24 +48,39 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取鉴权开关，on或off
+                     * 获取回源鉴权高级配置开关，取值有：
+on：开启
+off：关闭
+
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Switch 鉴权开关，on或off
+                     * @return Switch 回源鉴权高级配置开关，取值有：
+on：开启
+off：关闭
+
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置鉴权开关，on或off
+                     * 设置回源鉴权高级配置开关，取值有：
+on：开启
+off：关闭
+
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Switch 鉴权开关，on或off
+                     * @param _switch 回源鉴权高级配置开关，取值有：
+on：开启
+off：关闭
+
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -74,27 +89,33 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return TypeA 鉴权类型A配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     OriginAuthenticationTypeA GetTypeA() const;
 
                     /**
                      * 设置鉴权类型A配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TypeA 鉴权类型A配置
+                     * @param _typeA 鉴权类型A配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTypeA(const OriginAuthenticationTypeA& _typeA);
 
                     /**
                      * 判断参数 TypeA 是否已赋值
                      * @return TypeA 是否已赋值
+                     * 
                      */
                     bool TypeAHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 鉴权开关，on或off
+                     * 回源鉴权高级配置开关，取值有：
+on：开启
+off：关闭
+
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_switch;

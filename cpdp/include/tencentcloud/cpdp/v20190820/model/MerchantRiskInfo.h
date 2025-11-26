@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RiskLevel 恶意注册等级，0-9级，9级最高
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetRiskLevel() const;
 
                     /**
                      * 设置恶意注册等级，0-9级，9级最高
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RiskLevel 恶意注册等级，0-9级，9级最高
+                     * @param _riskLevel 恶意注册等级，0-9级，9级最高
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRiskLevel(const int64_t& _riskLevel);
 
                     /**
                      * 判断参数 RiskLevel 是否已赋值
                      * @return RiskLevel 是否已赋值
+                     * 
                      */
                     bool RiskLevelHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RiskTypes 恶意注册代码，代码以|分割，如"G001|T002"
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRiskTypes() const;
 
                     /**
                      * 设置恶意注册代码，代码以|分割，如"G001|T002"
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RiskTypes 恶意注册代码，代码以|分割，如"G001|T002"
+                     * @param _riskTypes 恶意注册代码，代码以|分割，如"G001|T002"
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRiskTypes(const std::string& _riskTypes);
 
                     /**
                      * 判断参数 RiskTypes 是否已赋值
                      * @return RiskTypes 是否已赋值
+                     * 
                      */
                     bool RiskTypesHasBeenSet() const;
 

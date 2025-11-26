@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,14 @@ namespace TencentCloud
                     /**
                      * 获取当通过本接口来创建实例启动模板时会返回该参数，表示创建成功的实例启动模板`ID`。
                      * @return LaunchTemplateId 当通过本接口来创建实例启动模板时会返回该参数，表示创建成功的实例启动模板`ID`。
+                     * 
                      */
                     std::string GetLaunchTemplateId() const;
 
                     /**
                      * 判断参数 LaunchTemplateId 是否已赋值
                      * @return LaunchTemplateId 是否已赋值
+                     * 
                      */
                     bool LaunchTemplateIdHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 SecretIdLastUsed::SecretIdLastUsed() :
     m_secretIdHasBeenSet(false),
-    m_lastUsedDateHasBeenSet(false)
+    m_lastUsedDateHasBeenSet(false),
+    m_lastSecretUsedDateHasBeenSet(false)
 {
 }
 
@@ -51,6 +52,16 @@ CoreInternalOutcome SecretIdLastUsed::Deserialize(const rapidjson::Value &value)
         m_lastUsedDateHasBeenSet = true;
     }
 
+    if (value.HasMember("LastSecretUsedDate") && !value["LastSecretUsedDate"].IsNull())
+    {
+        if (!value["LastSecretUsedDate"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SecretIdLastUsed.LastSecretUsedDate` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_lastSecretUsedDate = value["LastSecretUsedDate"].GetUint64();
+        m_lastSecretUsedDateHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +83,14 @@ void SecretIdLastUsed::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "LastUsedDate";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_lastUsedDate.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_lastSecretUsedDateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LastSecretUsedDate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_lastSecretUsedDate, allocator);
     }
 
 }
@@ -107,5 +126,21 @@ void SecretIdLastUsed::SetLastUsedDate(const string& _lastUsedDate)
 bool SecretIdLastUsed::LastUsedDateHasBeenSet() const
 {
     return m_lastUsedDateHasBeenSet;
+}
+
+uint64_t SecretIdLastUsed::GetLastSecretUsedDate() const
+{
+    return m_lastSecretUsedDate;
+}
+
+void SecretIdLastUsed::SetLastSecretUsedDate(const uint64_t& _lastSecretUsedDate)
+{
+    m_lastSecretUsedDate = _lastSecretUsedDate;
+    m_lastSecretUsedDateHasBeenSet = true;
+}
+
+bool SecretIdLastUsed::LastSecretUsedDateHasBeenSet() const
+{
+    return m_lastSecretUsedDateHasBeenSet;
 }
 

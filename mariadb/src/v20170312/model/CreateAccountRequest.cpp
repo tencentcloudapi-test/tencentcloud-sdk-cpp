@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,10 @@ CreateAccountRequest::CreateAccountRequest() :
     m_passwordHasBeenSet(false),
     m_readOnlyHasBeenSet(false),
     m_descriptionHasBeenSet(false),
-    m_delayThreshHasBeenSet(false)
+    m_delayThreshHasBeenSet(false),
+    m_slaveConstHasBeenSet(false),
+    m_maxUserConnectionsHasBeenSet(false),
+    m_encryptedPasswordHasBeenSet(false)
 {
 }
 
@@ -94,6 +97,30 @@ string CreateAccountRequest::ToJsonString() const
         string key = "DelayThresh";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_delayThresh, allocator);
+    }
+
+    if (m_slaveConstHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SlaveConst";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_slaveConst, allocator);
+    }
+
+    if (m_maxUserConnectionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxUserConnections";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_maxUserConnections, allocator);
+    }
+
+    if (m_encryptedPasswordHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptedPassword";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_encryptedPassword.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -214,6 +241,54 @@ void CreateAccountRequest::SetDelayThresh(const int64_t& _delayThresh)
 bool CreateAccountRequest::DelayThreshHasBeenSet() const
 {
     return m_delayThreshHasBeenSet;
+}
+
+int64_t CreateAccountRequest::GetSlaveConst() const
+{
+    return m_slaveConst;
+}
+
+void CreateAccountRequest::SetSlaveConst(const int64_t& _slaveConst)
+{
+    m_slaveConst = _slaveConst;
+    m_slaveConstHasBeenSet = true;
+}
+
+bool CreateAccountRequest::SlaveConstHasBeenSet() const
+{
+    return m_slaveConstHasBeenSet;
+}
+
+uint64_t CreateAccountRequest::GetMaxUserConnections() const
+{
+    return m_maxUserConnections;
+}
+
+void CreateAccountRequest::SetMaxUserConnections(const uint64_t& _maxUserConnections)
+{
+    m_maxUserConnections = _maxUserConnections;
+    m_maxUserConnectionsHasBeenSet = true;
+}
+
+bool CreateAccountRequest::MaxUserConnectionsHasBeenSet() const
+{
+    return m_maxUserConnectionsHasBeenSet;
+}
+
+string CreateAccountRequest::GetEncryptedPassword() const
+{
+    return m_encryptedPassword;
+}
+
+void CreateAccountRequest::SetEncryptedPassword(const string& _encryptedPassword)
+{
+    m_encryptedPassword = _encryptedPassword;
+    m_encryptedPasswordHasBeenSet = true;
+}
+
+bool CreateAccountRequest::EncryptedPasswordHasBeenSet() const
+{
+    return m_encryptedPasswordHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@ ServiceGovernanceInfo::ServiceGovernanceInfo() :
     m_vpcInfosHasBeenSet(false),
     m_authOpenHasBeenSet(false),
     m_featuresHasBeenSet(false),
-    m_mainPasswordHasBeenSet(false)
+    m_mainPasswordHasBeenSet(false),
+    m_pgwVpcInfosHasBeenSet(false),
+    m_limiterVpcInfosHasBeenSet(false),
+    m_cLSTopicsHasBeenSet(false),
+    m_subPasswordHasBeenSet(false)
 {
 }
 
@@ -118,6 +122,76 @@ CoreInternalOutcome ServiceGovernanceInfo::Deserialize(const rapidjson::Value &v
         m_mainPasswordHasBeenSet = true;
     }
 
+    if (value.HasMember("PgwVpcInfos") && !value["PgwVpcInfos"].IsNull())
+    {
+        if (!value["PgwVpcInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ServiceGovernanceInfo.PgwVpcInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["PgwVpcInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            VpcInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_pgwVpcInfos.push_back(item);
+        }
+        m_pgwVpcInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("LimiterVpcInfos") && !value["LimiterVpcInfos"].IsNull())
+    {
+        if (!value["LimiterVpcInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ServiceGovernanceInfo.LimiterVpcInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["LimiterVpcInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            VpcInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_limiterVpcInfos.push_back(item);
+        }
+        m_limiterVpcInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("CLSTopics") && !value["CLSTopics"].IsNull())
+    {
+        if (!value["CLSTopics"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ServiceGovernanceInfo.CLSTopics` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CLSTopics"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            PolarisCLSTopicInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_cLSTopics.push_back(item);
+        }
+        m_cLSTopicsHasBeenSet = true;
+    }
+
+    if (value.HasMember("SubPassword") && !value["SubPassword"].IsNull())
+    {
+        if (!value["SubPassword"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ServiceGovernanceInfo.SubPassword` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_subPassword = string(value["SubPassword"].GetString());
+        m_subPasswordHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -190,6 +264,59 @@ void ServiceGovernanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Doc
         string key = "MainPassword";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_mainPassword.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_pgwVpcInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PgwVpcInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_pgwVpcInfos.begin(); itr != m_pgwVpcInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_limiterVpcInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LimiterVpcInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_limiterVpcInfos.begin(); itr != m_limiterVpcInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_cLSTopicsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CLSTopics";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_cLSTopics.begin(); itr != m_cLSTopics.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_subPasswordHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubPassword";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_subPassword.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -289,5 +416,69 @@ void ServiceGovernanceInfo::SetMainPassword(const string& _mainPassword)
 bool ServiceGovernanceInfo::MainPasswordHasBeenSet() const
 {
     return m_mainPasswordHasBeenSet;
+}
+
+vector<VpcInfo> ServiceGovernanceInfo::GetPgwVpcInfos() const
+{
+    return m_pgwVpcInfos;
+}
+
+void ServiceGovernanceInfo::SetPgwVpcInfos(const vector<VpcInfo>& _pgwVpcInfos)
+{
+    m_pgwVpcInfos = _pgwVpcInfos;
+    m_pgwVpcInfosHasBeenSet = true;
+}
+
+bool ServiceGovernanceInfo::PgwVpcInfosHasBeenSet() const
+{
+    return m_pgwVpcInfosHasBeenSet;
+}
+
+vector<VpcInfo> ServiceGovernanceInfo::GetLimiterVpcInfos() const
+{
+    return m_limiterVpcInfos;
+}
+
+void ServiceGovernanceInfo::SetLimiterVpcInfos(const vector<VpcInfo>& _limiterVpcInfos)
+{
+    m_limiterVpcInfos = _limiterVpcInfos;
+    m_limiterVpcInfosHasBeenSet = true;
+}
+
+bool ServiceGovernanceInfo::LimiterVpcInfosHasBeenSet() const
+{
+    return m_limiterVpcInfosHasBeenSet;
+}
+
+vector<PolarisCLSTopicInfo> ServiceGovernanceInfo::GetCLSTopics() const
+{
+    return m_cLSTopics;
+}
+
+void ServiceGovernanceInfo::SetCLSTopics(const vector<PolarisCLSTopicInfo>& _cLSTopics)
+{
+    m_cLSTopics = _cLSTopics;
+    m_cLSTopicsHasBeenSet = true;
+}
+
+bool ServiceGovernanceInfo::CLSTopicsHasBeenSet() const
+{
+    return m_cLSTopicsHasBeenSet;
+}
+
+string ServiceGovernanceInfo::GetSubPassword() const
+{
+    return m_subPassword;
+}
+
+void ServiceGovernanceInfo::SetSubPassword(const string& _subPassword)
+{
+    m_subPassword = _subPassword;
+    m_subPasswordHasBeenSet = true;
+}
+
+bool ServiceGovernanceInfo::SubPasswordHasBeenSet() const
+{
+    return m_subPasswordHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,10 @@ CreateDedicatedClusterDBInstanceRequest::CreateDedicatedClusterDBInstanceRequest
     m_initParamsHasBeenSet(false),
     m_nodeNumHasBeenSet(false),
     m_masterHostIdHasBeenSet(false),
-    m_slaveHostIdsHasBeenSet(false)
+    m_slaveHostIdsHasBeenSet(false),
+    m_rollbackInstanceIdHasBeenSet(false),
+    m_rollbackTimeHasBeenSet(false),
+    m_dcnSyncModeHasBeenSet(false)
 {
 }
 
@@ -262,6 +265,30 @@ string CreateDedicatedClusterDBInstanceRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_rollbackInstanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RollbackInstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_rollbackInstanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_rollbackTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RollbackTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_rollbackTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dcnSyncModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DcnSyncMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_dcnSyncMode, allocator);
     }
 
 
@@ -638,6 +665,54 @@ void CreateDedicatedClusterDBInstanceRequest::SetSlaveHostIds(const vector<strin
 bool CreateDedicatedClusterDBInstanceRequest::SlaveHostIdsHasBeenSet() const
 {
     return m_slaveHostIdsHasBeenSet;
+}
+
+string CreateDedicatedClusterDBInstanceRequest::GetRollbackInstanceId() const
+{
+    return m_rollbackInstanceId;
+}
+
+void CreateDedicatedClusterDBInstanceRequest::SetRollbackInstanceId(const string& _rollbackInstanceId)
+{
+    m_rollbackInstanceId = _rollbackInstanceId;
+    m_rollbackInstanceIdHasBeenSet = true;
+}
+
+bool CreateDedicatedClusterDBInstanceRequest::RollbackInstanceIdHasBeenSet() const
+{
+    return m_rollbackInstanceIdHasBeenSet;
+}
+
+string CreateDedicatedClusterDBInstanceRequest::GetRollbackTime() const
+{
+    return m_rollbackTime;
+}
+
+void CreateDedicatedClusterDBInstanceRequest::SetRollbackTime(const string& _rollbackTime)
+{
+    m_rollbackTime = _rollbackTime;
+    m_rollbackTimeHasBeenSet = true;
+}
+
+bool CreateDedicatedClusterDBInstanceRequest::RollbackTimeHasBeenSet() const
+{
+    return m_rollbackTimeHasBeenSet;
+}
+
+int64_t CreateDedicatedClusterDBInstanceRequest::GetDcnSyncMode() const
+{
+    return m_dcnSyncMode;
+}
+
+void CreateDedicatedClusterDBInstanceRequest::SetDcnSyncMode(const int64_t& _dcnSyncMode)
+{
+    m_dcnSyncMode = _dcnSyncMode;
+    m_dcnSyncModeHasBeenSet = true;
+}
+
+bool CreateDedicatedClusterDBInstanceRequest::DcnSyncModeHasBeenSet() const
+{
+    return m_dcnSyncModeHasBeenSet;
 }
 
 

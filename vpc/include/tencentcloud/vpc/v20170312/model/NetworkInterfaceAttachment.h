@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,84 +47,90 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取云主机实例ID。
-                     * @return InstanceId 云主机实例ID。
-                     */
-                    std::string GetInstanceId() const;
-
-                    /**
-                     * 设置云主机实例ID。
-                     * @param InstanceId 云主机实例ID。
-                     */
-                    void SetInstanceId(const std::string& _instanceId);
-
-                    /**
-                     * 判断参数 InstanceId 是否已赋值
-                     * @return InstanceId 是否已赋值
-                     */
-                    bool InstanceIdHasBeenSet() const;
-
-                    /**
                      * 获取网卡在云主机实例内的序号。
                      * @return DeviceIndex 网卡在云主机实例内的序号。
+                     * 
                      */
                     uint64_t GetDeviceIndex() const;
 
                     /**
                      * 设置网卡在云主机实例内的序号。
-                     * @param DeviceIndex 网卡在云主机实例内的序号。
+                     * @param _deviceIndex 网卡在云主机实例内的序号。
+                     * 
                      */
                     void SetDeviceIndex(const uint64_t& _deviceIndex);
 
                     /**
                      * 判断参数 DeviceIndex 是否已赋值
                      * @return DeviceIndex 是否已赋值
+                     * 
                      */
                     bool DeviceIndexHasBeenSet() const;
 
                     /**
                      * 获取云主机所有者账户信息。
                      * @return InstanceAccountId 云主机所有者账户信息。
+                     * 
                      */
                     std::string GetInstanceAccountId() const;
 
                     /**
                      * 设置云主机所有者账户信息。
-                     * @param InstanceAccountId 云主机所有者账户信息。
+                     * @param _instanceAccountId 云主机所有者账户信息。
+                     * 
                      */
                     void SetInstanceAccountId(const std::string& _instanceAccountId);
 
                     /**
                      * 判断参数 InstanceAccountId 是否已赋值
                      * @return InstanceAccountId 是否已赋值
+                     * 
                      */
                     bool InstanceAccountIdHasBeenSet() const;
 
                     /**
                      * 获取绑定时间。
                      * @return AttachTime 绑定时间。
+                     * 
                      */
                     std::string GetAttachTime() const;
 
                     /**
                      * 设置绑定时间。
-                     * @param AttachTime 绑定时间。
+                     * @param _attachTime 绑定时间。
+                     * 
                      */
                     void SetAttachTime(const std::string& _attachTime);
 
                     /**
                      * 判断参数 AttachTime 是否已赋值
                      * @return AttachTime 是否已赋值
+                     * 
                      */
                     bool AttachTimeHasBeenSet() const;
 
-                private:
+                    /**
+                     * 获取云主机实例ID。
+                     * @return InstanceId 云主机实例ID。
+                     * 
+                     */
+                    std::string GetInstanceId() const;
 
                     /**
-                     * 云主机实例ID。
+                     * 设置云主机实例ID。
+                     * @param _instanceId 云主机实例ID。
+                     * 
                      */
-                    std::string m_instanceId;
-                    bool m_instanceIdHasBeenSet;
+                    void SetInstanceId(const std::string& _instanceId);
+
+                    /**
+                     * 判断参数 InstanceId 是否已赋值
+                     * @return InstanceId 是否已赋值
+                     * 
+                     */
+                    bool InstanceIdHasBeenSet() const;
+
+                private:
 
                     /**
                      * 网卡在云主机实例内的序号。
@@ -143,6 +149,12 @@ namespace TencentCloud
                      */
                     std::string m_attachTime;
                     bool m_attachTimeHasBeenSet;
+
+                    /**
+                     * 云主机实例ID。
+                     */
+                    std::string m_instanceId;
+                    bool m_instanceIdHasBeenSet;
 
                 };
             }

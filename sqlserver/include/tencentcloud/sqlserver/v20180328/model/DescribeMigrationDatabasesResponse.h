@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,30 @@ namespace TencentCloud
                     /**
                      * 获取数据库数量
                      * @return Amount 数据库数量
+                     * 
                      */
                     int64_t GetAmount() const;
 
                     /**
                      * 判断参数 Amount 是否已赋值
                      * @return Amount 是否已赋值
+                     * 
                      */
                     bool AmountHasBeenSet() const;
 
                     /**
                      * 获取数据库名称数组
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return MigrateDBSet 数据库名称数组
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetMigrateDBSet() const;
 
                     /**
                      * 判断参数 MigrateDBSet 是否已赋值
                      * @return MigrateDBSet 是否已赋值
+                     * 
                      */
                     bool MigrateDBSetHasBeenSet() const;
 
@@ -77,6 +83,7 @@ namespace TencentCloud
 
                     /**
                      * 数据库名称数组
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_migrateDBSet;
                     bool m_migrateDBSetHasBeenSet;

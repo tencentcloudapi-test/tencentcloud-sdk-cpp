@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,13 @@ using namespace TencentCloud::Waf::V20180125::Model;
 using namespace std;
 
 DescribeAccessFastAnalysisRequest::DescribeAccessFastAnalysisRequest() :
-    m_topicIdHasBeenSet(false),
     m_fromHasBeenSet(false),
     m_toHasBeenSet(false),
     m_queryHasBeenSet(false),
-    m_fieldNameHasBeenSet(false)
+    m_fieldNameHasBeenSet(false),
+    m_topicIdHasBeenSet(false),
+    m_sortHasBeenSet(false),
+    m_countHasBeenSet(false)
 {
 }
 
@@ -37,14 +39,6 @@ string DescribeAccessFastAnalysisRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
-
-    if (m_topicIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TopicId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_topicId.c_str(), allocator).Move(), allocator);
-    }
 
     if (m_fromHasBeenSet)
     {
@@ -78,6 +72,30 @@ string DescribeAccessFastAnalysisRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_fieldName.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_topicIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TopicId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_topicId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sortHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Sort";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_sort.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_countHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Count";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_count, allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -85,22 +103,6 @@ string DescribeAccessFastAnalysisRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-string DescribeAccessFastAnalysisRequest::GetTopicId() const
-{
-    return m_topicId;
-}
-
-void DescribeAccessFastAnalysisRequest::SetTopicId(const string& _topicId)
-{
-    m_topicId = _topicId;
-    m_topicIdHasBeenSet = true;
-}
-
-bool DescribeAccessFastAnalysisRequest::TopicIdHasBeenSet() const
-{
-    return m_topicIdHasBeenSet;
-}
 
 int64_t DescribeAccessFastAnalysisRequest::GetFrom() const
 {
@@ -164,6 +166,54 @@ void DescribeAccessFastAnalysisRequest::SetFieldName(const string& _fieldName)
 bool DescribeAccessFastAnalysisRequest::FieldNameHasBeenSet() const
 {
     return m_fieldNameHasBeenSet;
+}
+
+string DescribeAccessFastAnalysisRequest::GetTopicId() const
+{
+    return m_topicId;
+}
+
+void DescribeAccessFastAnalysisRequest::SetTopicId(const string& _topicId)
+{
+    m_topicId = _topicId;
+    m_topicIdHasBeenSet = true;
+}
+
+bool DescribeAccessFastAnalysisRequest::TopicIdHasBeenSet() const
+{
+    return m_topicIdHasBeenSet;
+}
+
+string DescribeAccessFastAnalysisRequest::GetSort() const
+{
+    return m_sort;
+}
+
+void DescribeAccessFastAnalysisRequest::SetSort(const string& _sort)
+{
+    m_sort = _sort;
+    m_sortHasBeenSet = true;
+}
+
+bool DescribeAccessFastAnalysisRequest::SortHasBeenSet() const
+{
+    return m_sortHasBeenSet;
+}
+
+int64_t DescribeAccessFastAnalysisRequest::GetCount() const
+{
+    return m_count;
+}
+
+void DescribeAccessFastAnalysisRequest::SetCount(const int64_t& _count)
+{
+    m_count = _count;
+    m_countHasBeenSet = true;
+}
+
+bool DescribeAccessFastAnalysisRequest::CountHasBeenSet() const
+{
+    return m_countHasBeenSet;
 }
 
 

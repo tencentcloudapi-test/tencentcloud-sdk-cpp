@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,10 +35,12 @@ CreateTopicRequest::CreateTopicRequest() :
     m_uncleanLeaderElectionEnableHasBeenSet(false),
     m_retentionMsHasBeenSet(false),
     m_segmentMsHasBeenSet(false),
+    m_maxMessageBytesHasBeenSet(false),
     m_enableAclRuleHasBeenSet(false),
     m_aclRuleNameHasBeenSet(false),
     m_retentionBytesHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_logMsgTimestampTypeHasBeenSet(false)
 {
 }
 
@@ -150,6 +152,14 @@ string CreateTopicRequest::ToJsonString() const
         d.AddMember(iKey, m_segmentMs, allocator);
     }
 
+    if (m_maxMessageBytesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxMessageBytes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_maxMessageBytes, allocator);
+    }
+
     if (m_enableAclRuleHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -187,6 +197,14 @@ string CreateTopicRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_logMsgTimestampTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LogMsgTimestampType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_logMsgTimestampType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -389,6 +407,22 @@ bool CreateTopicRequest::SegmentMsHasBeenSet() const
     return m_segmentMsHasBeenSet;
 }
 
+int64_t CreateTopicRequest::GetMaxMessageBytes() const
+{
+    return m_maxMessageBytes;
+}
+
+void CreateTopicRequest::SetMaxMessageBytes(const int64_t& _maxMessageBytes)
+{
+    m_maxMessageBytes = _maxMessageBytes;
+    m_maxMessageBytesHasBeenSet = true;
+}
+
+bool CreateTopicRequest::MaxMessageBytesHasBeenSet() const
+{
+    return m_maxMessageBytesHasBeenSet;
+}
+
 int64_t CreateTopicRequest::GetEnableAclRule() const
 {
     return m_enableAclRule;
@@ -451,6 +485,22 @@ void CreateTopicRequest::SetTags(const vector<Tag>& _tags)
 bool CreateTopicRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+string CreateTopicRequest::GetLogMsgTimestampType() const
+{
+    return m_logMsgTimestampType;
+}
+
+void CreateTopicRequest::SetLogMsgTimestampType(const string& _logMsgTimestampType)
+{
+    m_logMsgTimestampType = _logMsgTimestampType;
+    m_logMsgTimestampTypeHasBeenSet = true;
+}
+
+bool CreateTopicRequest::LogMsgTimestampTypeHasBeenSet() const
+{
+    return m_logMsgTimestampTypeHasBeenSet;
 }
 
 

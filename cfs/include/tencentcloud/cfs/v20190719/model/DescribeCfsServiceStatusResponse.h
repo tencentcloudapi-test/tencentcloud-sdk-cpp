@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,14 @@ namespace TencentCloud
                     /**
                      * 获取该用户当前 CFS 服务的状态，none 为未开通，creating 为开通中，created 为已开通
                      * @return CfsServiceStatus 该用户当前 CFS 服务的状态，none 为未开通，creating 为开通中，created 为已开通
+                     * 
                      */
                     std::string GetCfsServiceStatus() const;
 
                     /**
                      * 判断参数 CfsServiceStatus 是否已赋值
                      * @return CfsServiceStatus 是否已赋值
+                     * 
                      */
                     bool CfsServiceStatusHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,11 @@ AssetMachineBaseInfo::AssetMachineBaseInfo() :
     m_cpuSizeHasBeenSet(false),
     m_cpuLoadHasBeenSet(false),
     m_tagHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false),
+    m_isNewHasBeenSet(false),
+    m_firstTimeHasBeenSet(false),
+    m_machineExtraInfoHasBeenSet(false),
+    m_cpuLoadNumHasBeenSet(false)
 {
 }
 
@@ -226,6 +230,53 @@ CoreInternalOutcome AssetMachineBaseInfo::Deserialize(const rapidjson::Value &va
         m_updateTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("IsNew") && !value["IsNew"].IsNull())
+    {
+        if (!value["IsNew"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetMachineBaseInfo.IsNew` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isNew = value["IsNew"].GetInt64();
+        m_isNewHasBeenSet = true;
+    }
+
+    if (value.HasMember("FirstTime") && !value["FirstTime"].IsNull())
+    {
+        if (!value["FirstTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetMachineBaseInfo.FirstTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_firstTime = string(value["FirstTime"].GetString());
+        m_firstTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("MachineExtraInfo") && !value["MachineExtraInfo"].IsNull())
+    {
+        if (!value["MachineExtraInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetMachineBaseInfo.MachineExtraInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_machineExtraInfo.Deserialize(value["MachineExtraInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_machineExtraInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("CpuLoadNum") && !value["CpuLoadNum"].IsNull())
+    {
+        if (!value["CpuLoadNum"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetMachineBaseInfo.CpuLoadNum` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cpuLoadNum = string(value["CpuLoadNum"].GetString());
+        m_cpuLoadNumHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -374,6 +425,39 @@ void AssetMachineBaseInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isNewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsNew";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isNew, allocator);
+    }
+
+    if (m_firstTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FirstTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_firstTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_machineExtraInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MachineExtraInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_machineExtraInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_cpuLoadNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CpuLoadNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cpuLoadNum.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -649,5 +733,69 @@ void AssetMachineBaseInfo::SetUpdateTime(const string& _updateTime)
 bool AssetMachineBaseInfo::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
+}
+
+int64_t AssetMachineBaseInfo::GetIsNew() const
+{
+    return m_isNew;
+}
+
+void AssetMachineBaseInfo::SetIsNew(const int64_t& _isNew)
+{
+    m_isNew = _isNew;
+    m_isNewHasBeenSet = true;
+}
+
+bool AssetMachineBaseInfo::IsNewHasBeenSet() const
+{
+    return m_isNewHasBeenSet;
+}
+
+string AssetMachineBaseInfo::GetFirstTime() const
+{
+    return m_firstTime;
+}
+
+void AssetMachineBaseInfo::SetFirstTime(const string& _firstTime)
+{
+    m_firstTime = _firstTime;
+    m_firstTimeHasBeenSet = true;
+}
+
+bool AssetMachineBaseInfo::FirstTimeHasBeenSet() const
+{
+    return m_firstTimeHasBeenSet;
+}
+
+MachineExtraInfo AssetMachineBaseInfo::GetMachineExtraInfo() const
+{
+    return m_machineExtraInfo;
+}
+
+void AssetMachineBaseInfo::SetMachineExtraInfo(const MachineExtraInfo& _machineExtraInfo)
+{
+    m_machineExtraInfo = _machineExtraInfo;
+    m_machineExtraInfoHasBeenSet = true;
+}
+
+bool AssetMachineBaseInfo::MachineExtraInfoHasBeenSet() const
+{
+    return m_machineExtraInfoHasBeenSet;
+}
+
+string AssetMachineBaseInfo::GetCpuLoadNum() const
+{
+    return m_cpuLoadNum;
+}
+
+void AssetMachineBaseInfo::SetCpuLoadNum(const string& _cpuLoadNum)
+{
+    m_cpuLoadNum = _cpuLoadNum;
+    m_cpuLoadNumHasBeenSet = true;
+}
+
+bool AssetMachineBaseInfo::CpuLoadNumHasBeenSet() const
+{
+    return m_cpuLoadNumHasBeenSet;
 }
 

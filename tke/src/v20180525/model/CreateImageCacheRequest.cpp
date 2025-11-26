@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,11 @@ CreateImageCacheRequest::CreateImageCacheRequest() :
     m_autoCreateEipHasBeenSet(false),
     m_autoCreateEipAttributeHasBeenSet(false),
     m_imageCacheSizeHasBeenSet(false),
-    m_retentionDaysHasBeenSet(false)
+    m_retentionDaysHasBeenSet(false),
+    m_registrySkipVerifyListHasBeenSet(false),
+    m_registryHttpEndPointListHasBeenSet(false),
+    m_resolveConfigHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -148,6 +152,55 @@ string CreateImageCacheRequest::ToJsonString() const
         string key = "RetentionDays";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_retentionDays, allocator);
+    }
+
+    if (m_registrySkipVerifyListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegistrySkipVerifyList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_registrySkipVerifyList.begin(); itr != m_registrySkipVerifyList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_registryHttpEndPointListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegistryHttpEndPointList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_registryHttpEndPointList.begin(); itr != m_registryHttpEndPointList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_resolveConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResolveConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_resolveConfig.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -332,6 +385,70 @@ void CreateImageCacheRequest::SetRetentionDays(const uint64_t& _retentionDays)
 bool CreateImageCacheRequest::RetentionDaysHasBeenSet() const
 {
     return m_retentionDaysHasBeenSet;
+}
+
+vector<string> CreateImageCacheRequest::GetRegistrySkipVerifyList() const
+{
+    return m_registrySkipVerifyList;
+}
+
+void CreateImageCacheRequest::SetRegistrySkipVerifyList(const vector<string>& _registrySkipVerifyList)
+{
+    m_registrySkipVerifyList = _registrySkipVerifyList;
+    m_registrySkipVerifyListHasBeenSet = true;
+}
+
+bool CreateImageCacheRequest::RegistrySkipVerifyListHasBeenSet() const
+{
+    return m_registrySkipVerifyListHasBeenSet;
+}
+
+vector<string> CreateImageCacheRequest::GetRegistryHttpEndPointList() const
+{
+    return m_registryHttpEndPointList;
+}
+
+void CreateImageCacheRequest::SetRegistryHttpEndPointList(const vector<string>& _registryHttpEndPointList)
+{
+    m_registryHttpEndPointList = _registryHttpEndPointList;
+    m_registryHttpEndPointListHasBeenSet = true;
+}
+
+bool CreateImageCacheRequest::RegistryHttpEndPointListHasBeenSet() const
+{
+    return m_registryHttpEndPointListHasBeenSet;
+}
+
+string CreateImageCacheRequest::GetResolveConfig() const
+{
+    return m_resolveConfig;
+}
+
+void CreateImageCacheRequest::SetResolveConfig(const string& _resolveConfig)
+{
+    m_resolveConfig = _resolveConfig;
+    m_resolveConfigHasBeenSet = true;
+}
+
+bool CreateImageCacheRequest::ResolveConfigHasBeenSet() const
+{
+    return m_resolveConfigHasBeenSet;
+}
+
+vector<Tag> CreateImageCacheRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateImageCacheRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateImageCacheRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 
 

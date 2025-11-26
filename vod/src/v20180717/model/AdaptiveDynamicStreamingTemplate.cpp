@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,11 +27,13 @@ AdaptiveDynamicStreamingTemplate::AdaptiveDynamicStreamingTemplate() :
     m_commentHasBeenSet(false),
     m_formatHasBeenSet(false),
     m_drmTypeHasBeenSet(false),
+    m_drmKeyProviderHasBeenSet(false),
     m_streamInfosHasBeenSet(false),
     m_disableHigherVideoBitrateHasBeenSet(false),
     m_disableHigherVideoResolutionHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false),
+    m_segmentTypeHasBeenSet(false)
 {
 }
 
@@ -100,6 +102,16 @@ CoreInternalOutcome AdaptiveDynamicStreamingTemplate::Deserialize(const rapidjso
         m_drmTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("DrmKeyProvider") && !value["DrmKeyProvider"].IsNull())
+    {
+        if (!value["DrmKeyProvider"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AdaptiveDynamicStreamingTemplate.DrmKeyProvider` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_drmKeyProvider = string(value["DrmKeyProvider"].GetString());
+        m_drmKeyProviderHasBeenSet = true;
+    }
+
     if (value.HasMember("StreamInfos") && !value["StreamInfos"].IsNull())
     {
         if (!value["StreamInfos"].IsArray())
@@ -160,6 +172,16 @@ CoreInternalOutcome AdaptiveDynamicStreamingTemplate::Deserialize(const rapidjso
         m_updateTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("SegmentType") && !value["SegmentType"].IsNull())
+    {
+        if (!value["SegmentType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AdaptiveDynamicStreamingTemplate.SegmentType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_segmentType = string(value["SegmentType"].GetString());
+        m_segmentTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -215,6 +237,14 @@ void AdaptiveDynamicStreamingTemplate::ToJsonObject(rapidjson::Value &value, rap
         value.AddMember(iKey, rapidjson::Value(m_drmType.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_drmKeyProviderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DrmKeyProvider";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_drmKeyProvider.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_streamInfosHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -260,6 +290,14 @@ void AdaptiveDynamicStreamingTemplate::ToJsonObject(rapidjson::Value &value, rap
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_segmentTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SegmentType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_segmentType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -361,6 +399,22 @@ bool AdaptiveDynamicStreamingTemplate::DrmTypeHasBeenSet() const
     return m_drmTypeHasBeenSet;
 }
 
+string AdaptiveDynamicStreamingTemplate::GetDrmKeyProvider() const
+{
+    return m_drmKeyProvider;
+}
+
+void AdaptiveDynamicStreamingTemplate::SetDrmKeyProvider(const string& _drmKeyProvider)
+{
+    m_drmKeyProvider = _drmKeyProvider;
+    m_drmKeyProviderHasBeenSet = true;
+}
+
+bool AdaptiveDynamicStreamingTemplate::DrmKeyProviderHasBeenSet() const
+{
+    return m_drmKeyProviderHasBeenSet;
+}
+
 vector<AdaptiveStreamTemplate> AdaptiveDynamicStreamingTemplate::GetStreamInfos() const
 {
     return m_streamInfos;
@@ -439,5 +493,21 @@ void AdaptiveDynamicStreamingTemplate::SetUpdateTime(const string& _updateTime)
 bool AdaptiveDynamicStreamingTemplate::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
+}
+
+string AdaptiveDynamicStreamingTemplate::GetSegmentType() const
+{
+    return m_segmentType;
+}
+
+void AdaptiveDynamicStreamingTemplate::SetSegmentType(const string& _segmentType)
+{
+    m_segmentType = _segmentType;
+    m_segmentTypeHasBeenSet = true;
+}
+
+bool AdaptiveDynamicStreamingTemplate::SegmentTypeHasBeenSet() const
+{
+    return m_segmentTypeHasBeenSet;
 }
 

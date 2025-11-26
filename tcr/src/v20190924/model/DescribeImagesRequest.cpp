@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ DescribeImagesRequest::DescribeImagesRequest() :
     m_repositoryNameHasBeenSet(false),
     m_imageVersionHasBeenSet(false),
     m_limitHasBeenSet(false),
-    m_offsetHasBeenSet(false)
+    m_offsetHasBeenSet(false),
+    m_digestHasBeenSet(false),
+    m_exactMatchHasBeenSet(false)
 {
 }
 
@@ -85,6 +87,22 @@ string DescribeImagesRequest::ToJsonString() const
         string key = "Offset";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_offset, allocator);
+    }
+
+    if (m_digestHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Digest";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_digest.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_exactMatchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExactMatch";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_exactMatch, allocator);
     }
 
 
@@ -189,6 +207,38 @@ void DescribeImagesRequest::SetOffset(const int64_t& _offset)
 bool DescribeImagesRequest::OffsetHasBeenSet() const
 {
     return m_offsetHasBeenSet;
+}
+
+string DescribeImagesRequest::GetDigest() const
+{
+    return m_digest;
+}
+
+void DescribeImagesRequest::SetDigest(const string& _digest)
+{
+    m_digest = _digest;
+    m_digestHasBeenSet = true;
+}
+
+bool DescribeImagesRequest::DigestHasBeenSet() const
+{
+    return m_digestHasBeenSet;
+}
+
+bool DescribeImagesRequest::GetExactMatch() const
+{
+    return m_exactMatch;
+}
+
+void DescribeImagesRequest::SetExactMatch(const bool& _exactMatch)
+{
+    m_exactMatch = _exactMatch;
+    m_exactMatchHasBeenSet = true;
+}
+
+bool DescribeImagesRequest::ExactMatchHasBeenSet() const
+{
+    return m_exactMatchHasBeenSet;
 }
 
 

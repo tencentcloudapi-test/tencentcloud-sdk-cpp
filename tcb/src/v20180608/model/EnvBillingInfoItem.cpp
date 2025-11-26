@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,11 @@ EnvBillingInfoItem::EnvBillingInfoItem() :
     m_isAlwaysFreeHasBeenSet(false),
     m_paymentChannelHasBeenSet(false),
     m_orderInfoHasBeenSet(false),
-    m_freeQuotaHasBeenSet(false)
+    m_freeQuotaHasBeenSet(false),
+    m_enableOverrunHasBeenSet(false),
+    m_extPackageTypeHasBeenSet(false),
+    m_envChargedHasBeenSet(false),
+    m_envActivatedHasBeenSet(false)
 {
 }
 
@@ -179,6 +183,46 @@ CoreInternalOutcome EnvBillingInfoItem::Deserialize(const rapidjson::Value &valu
         m_freeQuotaHasBeenSet = true;
     }
 
+    if (value.HasMember("EnableOverrun") && !value["EnableOverrun"].IsNull())
+    {
+        if (!value["EnableOverrun"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvBillingInfoItem.EnableOverrun` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_enableOverrun = value["EnableOverrun"].GetBool();
+        m_enableOverrunHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExtPackageType") && !value["ExtPackageType"].IsNull())
+    {
+        if (!value["ExtPackageType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvBillingInfoItem.ExtPackageType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_extPackageType = string(value["ExtPackageType"].GetString());
+        m_extPackageTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnvCharged") && !value["EnvCharged"].IsNull())
+    {
+        if (!value["EnvCharged"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvBillingInfoItem.EnvCharged` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_envCharged = string(value["EnvCharged"].GetString());
+        m_envChargedHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnvActivated") && !value["EnvActivated"].IsNull())
+    {
+        if (!value["EnvActivated"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvBillingInfoItem.EnvActivated` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_envActivated = string(value["EnvActivated"].GetString());
+        m_envActivatedHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -289,6 +333,38 @@ void EnvBillingInfoItem::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "FreeQuota";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_freeQuota.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enableOverrunHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableOverrun";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enableOverrun, allocator);
+    }
+
+    if (m_extPackageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExtPackageType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_extPackageType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_envChargedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnvCharged";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_envCharged.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_envActivatedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnvActivated";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_envActivated.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -500,5 +576,69 @@ void EnvBillingInfoItem::SetFreeQuota(const string& _freeQuota)
 bool EnvBillingInfoItem::FreeQuotaHasBeenSet() const
 {
     return m_freeQuotaHasBeenSet;
+}
+
+bool EnvBillingInfoItem::GetEnableOverrun() const
+{
+    return m_enableOverrun;
+}
+
+void EnvBillingInfoItem::SetEnableOverrun(const bool& _enableOverrun)
+{
+    m_enableOverrun = _enableOverrun;
+    m_enableOverrunHasBeenSet = true;
+}
+
+bool EnvBillingInfoItem::EnableOverrunHasBeenSet() const
+{
+    return m_enableOverrunHasBeenSet;
+}
+
+string EnvBillingInfoItem::GetExtPackageType() const
+{
+    return m_extPackageType;
+}
+
+void EnvBillingInfoItem::SetExtPackageType(const string& _extPackageType)
+{
+    m_extPackageType = _extPackageType;
+    m_extPackageTypeHasBeenSet = true;
+}
+
+bool EnvBillingInfoItem::ExtPackageTypeHasBeenSet() const
+{
+    return m_extPackageTypeHasBeenSet;
+}
+
+string EnvBillingInfoItem::GetEnvCharged() const
+{
+    return m_envCharged;
+}
+
+void EnvBillingInfoItem::SetEnvCharged(const string& _envCharged)
+{
+    m_envCharged = _envCharged;
+    m_envChargedHasBeenSet = true;
+}
+
+bool EnvBillingInfoItem::EnvChargedHasBeenSet() const
+{
+    return m_envChargedHasBeenSet;
+}
+
+string EnvBillingInfoItem::GetEnvActivated() const
+{
+    return m_envActivated;
+}
+
+void EnvBillingInfoItem::SetEnvActivated(const string& _envActivated)
+{
+    m_envActivated = _envActivated;
+    m_envActivatedHasBeenSet = true;
+}
+
+bool EnvBillingInfoItem::EnvActivatedHasBeenSet() const
+{
+    return m_envActivatedHasBeenSet;
 }
 

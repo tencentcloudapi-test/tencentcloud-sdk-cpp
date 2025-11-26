@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取节点名称
                      * @return PeerName 节点名称
+                     * 
                      */
                     std::string GetPeerName() const;
 
                     /**
                      * 设置节点名称
-                     * @param PeerName 节点名称
+                     * @param _peerName 节点名称
+                     * 
                      */
                     void SetPeerName(const std::string& _peerName);
 
                     /**
                      * 判断参数 PeerName 是否已赋值
                      * @return PeerName 是否已赋值
+                     * 
                      */
                     bool PeerNameHasBeenSet() const;
 
                     /**
                      * 获取组织名称
                      * @return OrgName 组织名称
+                     * 
                      */
                     std::string GetOrgName() const;
 
                     /**
                      * 设置组织名称
-                     * @param OrgName 组织名称
+                     * @param _orgName 组织名称
+                     * 
                      */
                     void SetOrgName(const std::string& _orgName);
 
                     /**
                      * 判断参数 OrgName 是否已赋值
                      * @return OrgName 是否已赋值
+                     * 
                      */
                     bool OrgNameHasBeenSet() const;
 

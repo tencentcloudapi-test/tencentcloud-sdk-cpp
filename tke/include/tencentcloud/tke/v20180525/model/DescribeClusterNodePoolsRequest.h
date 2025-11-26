@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,108 +46,94 @@ namespace TencentCloud
                     /**
                      * 获取ClusterId（集群id）
                      * @return ClusterId ClusterId（集群id）
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置ClusterId（集群id）
-                     * @param ClusterId ClusterId（集群id）
+                     * @param _clusterId ClusterId（集群id）
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取·  NodePoolsName
+                     * 获取· "Name":"NodePoolsName","Values": ["test"]
     按照【节点池名】进行过滤。
     类型：String
     必选：否
 
-·  NodePoolsId
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
     按照【节点池id】进行过滤。
     类型：String
     必选：否
 
-·  tags
+·  "Name":"Tags","Values": ["product:tke"]
     按照【标签键值对】进行过滤。
     类型：String
     必选：否
-
-·  tag:tag-key
-    按照【标签键值对】进行过滤。
-    类型：String
-    必选：否
-                     * @return Filters ·  NodePoolsName
+                     * @return Filters · "Name":"NodePoolsName","Values": ["test"]
     按照【节点池名】进行过滤。
     类型：String
     必选：否
 
-·  NodePoolsId
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
     按照【节点池id】进行过滤。
     类型：String
     必选：否
 
-·  tags
+·  "Name":"Tags","Values": ["product:tke"]
     按照【标签键值对】进行过滤。
     类型：String
     必选：否
-
-·  tag:tag-key
-    按照【标签键值对】进行过滤。
-    类型：String
-    必选：否
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置·  NodePoolsName
+                     * 设置· "Name":"NodePoolsName","Values": ["test"]
     按照【节点池名】进行过滤。
     类型：String
     必选：否
 
-·  NodePoolsId
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
     按照【节点池id】进行过滤。
     类型：String
     必选：否
 
-·  tags
+·  "Name":"Tags","Values": ["product:tke"]
     按照【标签键值对】进行过滤。
     类型：String
     必选：否
-
-·  tag:tag-key
-    按照【标签键值对】进行过滤。
-    类型：String
-    必选：否
-                     * @param Filters ·  NodePoolsName
+                     * @param _filters · "Name":"NodePoolsName","Values": ["test"]
     按照【节点池名】进行过滤。
     类型：String
     必选：否
 
-·  NodePoolsId
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
     按照【节点池id】进行过滤。
     类型：String
     必选：否
 
-·  tags
+·  "Name":"Tags","Values": ["product:tke"]
     按照【标签键值对】进行过滤。
     类型：String
     必选：否
-
-·  tag:tag-key
-    按照【标签键值对】进行过滤。
-    类型：String
-    必选：否
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
@@ -160,22 +146,17 @@ namespace TencentCloud
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * ·  NodePoolsName
+                     * · "Name":"NodePoolsName","Values": ["test"]
     按照【节点池名】进行过滤。
     类型：String
     必选：否
 
-·  NodePoolsId
+·  "Name":"NodePoolsId","Values": ["np-d2mb2zb"]
     按照【节点池id】进行过滤。
     类型：String
     必选：否
 
-·  tags
-    按照【标签键值对】进行过滤。
-    类型：String
-    必选：否
-
-·  tag:tag-key
+·  "Name":"Tags","Values": ["product:tke"]
     按照【标签键值对】进行过滤。
     类型：String
     必选：否

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取集群 ID，请填写 查询集群列表 接口中返回的 clusterId 字段
                      * @return ClusterId 集群 ID，请填写 查询集群列表 接口中返回的 clusterId 字段
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置集群 ID，请填写 查询集群列表 接口中返回的 clusterId 字段
-                     * @param ClusterId 集群 ID，请填写 查询集群列表 接口中返回的 clusterId 字段
+                     * @param _clusterId 集群 ID，请填写 查询集群列表 接口中返回的 clusterId 字段
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 

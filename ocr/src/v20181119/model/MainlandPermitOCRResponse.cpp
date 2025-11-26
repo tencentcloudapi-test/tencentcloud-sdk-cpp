@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,9 @@ MainlandPermitOCRResponse::MainlandPermitOCRResponse() :
     m_issueAddressHasBeenSet(false),
     m_issueNumberHasBeenSet(false),
     m_typeHasBeenSet(false),
-    m_profileHasBeenSet(false)
+    m_profileHasBeenSet(false),
+    m_nationalityHasBeenSet(false),
+    m_mainlandTravelPermitBackInfosHasBeenSet(false)
 {
 }
 
@@ -182,6 +184,33 @@ CoreInternalOutcome MainlandPermitOCRResponse::Deserialize(const string &payload
         m_profileHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Nationality") && !rsp["Nationality"].IsNull())
+    {
+        if (!rsp["Nationality"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Nationality` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nationality = string(rsp["Nationality"].GetString());
+        m_nationalityHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("MainlandTravelPermitBackInfos") && !rsp["MainlandTravelPermitBackInfos"].IsNull())
+    {
+        if (!rsp["MainlandTravelPermitBackInfos"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `MainlandTravelPermitBackInfos` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_mainlandTravelPermitBackInfos.Deserialize(rsp["MainlandTravelPermitBackInfos"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_mainlandTravelPermitBackInfosHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -280,11 +309,28 @@ string MainlandPermitOCRResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_profile.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_nationalityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Nationality";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nationality.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_mainlandTravelPermitBackInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MainlandTravelPermitBackInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_mainlandTravelPermitBackInfos.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -400,6 +446,26 @@ string MainlandPermitOCRResponse::GetProfile() const
 bool MainlandPermitOCRResponse::ProfileHasBeenSet() const
 {
     return m_profileHasBeenSet;
+}
+
+string MainlandPermitOCRResponse::GetNationality() const
+{
+    return m_nationality;
+}
+
+bool MainlandPermitOCRResponse::NationalityHasBeenSet() const
+{
+    return m_nationalityHasBeenSet;
+}
+
+MainlandTravelPermitBackInfos MainlandPermitOCRResponse::GetMainlandTravelPermitBackInfos() const
+{
+    return m_mainlandTravelPermitBackInfos;
+}
+
+bool MainlandPermitOCRResponse::MainlandTravelPermitBackInfosHasBeenSet() const
+{
+    return m_mainlandTravelPermitBackInfosHasBeenSet;
 }
 
 

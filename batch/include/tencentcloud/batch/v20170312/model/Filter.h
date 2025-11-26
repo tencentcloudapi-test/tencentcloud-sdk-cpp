@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,10 +39,10 @@ namespace TencentCloud
 > * 若存在多个`Filter`时，`Filter`间的关系为逻辑与（`AND`）关系。
 > * 若同一个`Filter`存在多个`Values`，同一`Filter`下`Values`间的关系为逻辑或（`OR`）关系。
 >
-> 以[DescribeInstances](https://cloud.tencent.com/document/api/213/15728)接口的`Filter`为例。若我们需要查询可用区（`zone`）为广州一区 ***并且*** 实例计费模式（`instance-charge-type`）为包年包月 ***或者*** 按量计费的实例时，可如下实现：
+> 以[DescribeInstances](https://cloud.tencent.com/document/api/213/15728)接口的`Filter`为例。若我们需要查询可用区（`zone`）为广州六区 ***并且*** 实例计费模式（`instance-charge-type`）为包年包月 ***或者*** 按量计费的实例时，可如下实现：
 ```
 Filters.0.Name=zone
-&Filters.0.Values.0=ap-guangzhou-1
+&Filters.0.Values.0=ap-guangzhou-6
 &Filters.1.Name=instance-charge-type
 &Filters.1.Values.0=PREPAID
 &Filters.1.Values.1=POSTPAID_BY_HOUR
@@ -60,36 +60,42 @@ Filters.0.Name=zone
                     /**
                      * 获取需要过滤的字段。
                      * @return Name 需要过滤的字段。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置需要过滤的字段。
-                     * @param Name 需要过滤的字段。
+                     * @param _name 需要过滤的字段。
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取字段的过滤值。
                      * @return Values 字段的过滤值。
+                     * 
                      */
                     std::vector<std::string> GetValues() const;
 
                     /**
                      * 设置字段的过滤值。
-                     * @param Values 字段的过滤值。
+                     * @param _values 字段的过滤值。
+                     * 
                      */
                     void SetValues(const std::vector<std::string>& _values);
 
                     /**
                      * 判断参数 Values 是否已赋值
                      * @return Values 是否已赋值
+                     * 
                      */
                     bool ValuesHasBeenSet() const;
 

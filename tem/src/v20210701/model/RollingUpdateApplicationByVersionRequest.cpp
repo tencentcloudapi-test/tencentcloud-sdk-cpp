@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,8 @@ RollingUpdateApplicationByVersionRequest::RollingUpdateApplicationByVersionReque
     m_totalBatchCountHasBeenSet(false),
     m_batchIntervalHasBeenSet(false),
     m_betaBatchNumHasBeenSet(false),
-    m_minAvailableHasBeenSet(false)
+    m_minAvailableHasBeenSet(false),
+    m_forceHasBeenSet(false)
 {
 }
 
@@ -121,6 +122,14 @@ string RollingUpdateApplicationByVersionRequest::ToJsonString() const
         string key = "MinAvailable";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_minAvailable, allocator);
+    }
+
+    if (m_forceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Force";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_force, allocator);
     }
 
 
@@ -289,6 +298,22 @@ void RollingUpdateApplicationByVersionRequest::SetMinAvailable(const int64_t& _m
 bool RollingUpdateApplicationByVersionRequest::MinAvailableHasBeenSet() const
 {
     return m_minAvailableHasBeenSet;
+}
+
+bool RollingUpdateApplicationByVersionRequest::GetForce() const
+{
+    return m_force;
+}
+
+void RollingUpdateApplicationByVersionRequest::SetForce(const bool& _force)
+{
+    m_force = _force;
+    m_forceHasBeenSet = true;
+}
+
+bool RollingUpdateApplicationByVersionRequest::ForceHasBeenSet() const
+{
+    return m_forceHasBeenSet;
 }
 
 

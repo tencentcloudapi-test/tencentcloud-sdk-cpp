@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,9 @@ FlowLog::FlowLog() :
     m_tagSetHasBeenSet(false),
     m_enableHasBeenSet(false),
     m_storageTypeHasBeenSet(false),
-    m_flowLogStorageHasBeenSet(false)
+    m_flowLogStorageHasBeenSet(false),
+    m_cloudLogRegionHasBeenSet(false),
+    m_periodHasBeenSet(false)
 {
 }
 
@@ -200,6 +202,26 @@ CoreInternalOutcome FlowLog::Deserialize(const rapidjson::Value &value)
         m_flowLogStorageHasBeenSet = true;
     }
 
+    if (value.HasMember("CloudLogRegion") && !value["CloudLogRegion"].IsNull())
+    {
+        if (!value["CloudLogRegion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowLog.CloudLogRegion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cloudLogRegion = string(value["CloudLogRegion"].GetString());
+        m_cloudLogRegionHasBeenSet = true;
+    }
+
+    if (value.HasMember("Period") && !value["Period"].IsNull())
+    {
+        if (!value["Period"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowLog.Period` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_period = value["Period"].GetUint64();
+        m_periodHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -325,6 +347,22 @@ void FlowLog::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_flowLogStorage.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_cloudLogRegionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CloudLogRegion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cloudLogRegion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_periodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Period";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_period, allocator);
     }
 
 }
@@ -552,5 +590,37 @@ void FlowLog::SetFlowLogStorage(const FlowLogStorage& _flowLogStorage)
 bool FlowLog::FlowLogStorageHasBeenSet() const
 {
     return m_flowLogStorageHasBeenSet;
+}
+
+string FlowLog::GetCloudLogRegion() const
+{
+    return m_cloudLogRegion;
+}
+
+void FlowLog::SetCloudLogRegion(const string& _cloudLogRegion)
+{
+    m_cloudLogRegion = _cloudLogRegion;
+    m_cloudLogRegionHasBeenSet = true;
+}
+
+bool FlowLog::CloudLogRegionHasBeenSet() const
+{
+    return m_cloudLogRegionHasBeenSet;
+}
+
+uint64_t FlowLog::GetPeriod() const
+{
+    return m_period;
+}
+
+void FlowLog::SetPeriod(const uint64_t& _period)
+{
+    m_period = _period;
+    m_periodHasBeenSet = true;
+}
+
+bool FlowLog::PeriodHasBeenSet() const
+{
+    return m_periodHasBeenSet;
 }
 

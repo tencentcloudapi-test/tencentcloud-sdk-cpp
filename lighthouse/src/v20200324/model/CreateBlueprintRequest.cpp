@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ using namespace std;
 CreateBlueprintRequest::CreateBlueprintRequest() :
     m_blueprintNameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
-    m_instanceIdHasBeenSet(false)
+    m_instanceIdHasBeenSet(false),
+    m_forcePowerOffHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -58,6 +60,29 @@ string CreateBlueprintRequest::ToJsonString() const
         string key = "InstanceId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_forcePowerOffHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ForcePowerOff";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_forcePowerOff, allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -114,6 +139,38 @@ void CreateBlueprintRequest::SetInstanceId(const string& _instanceId)
 bool CreateBlueprintRequest::InstanceIdHasBeenSet() const
 {
     return m_instanceIdHasBeenSet;
+}
+
+bool CreateBlueprintRequest::GetForcePowerOff() const
+{
+    return m_forcePowerOff;
+}
+
+void CreateBlueprintRequest::SetForcePowerOff(const bool& _forcePowerOff)
+{
+    m_forcePowerOff = _forcePowerOff;
+    m_forcePowerOffHasBeenSet = true;
+}
+
+bool CreateBlueprintRequest::ForcePowerOffHasBeenSet() const
+{
+    return m_forcePowerOffHasBeenSet;
+}
+
+vector<Tag> CreateBlueprintRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateBlueprintRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateBlueprintRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 
 

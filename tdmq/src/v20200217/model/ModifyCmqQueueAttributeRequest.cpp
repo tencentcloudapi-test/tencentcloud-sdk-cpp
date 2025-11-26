@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,8 @@ ModifyCmqQueueAttributeRequest::ModifyCmqQueueAttributeRequest() :
     m_maxReceiveCountHasBeenSet(false),
     m_policyHasBeenSet(false),
     m_traceHasBeenSet(false),
-    m_transactionHasBeenSet(false)
+    m_transactionHasBeenSet(false),
+    m_retentionSizeInMBHasBeenSet(false)
 {
 }
 
@@ -166,6 +167,14 @@ string ModifyCmqQueueAttributeRequest::ToJsonString() const
         string key = "Transaction";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_transaction, allocator);
+    }
+
+    if (m_retentionSizeInMBHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RetentionSizeInMB";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_retentionSizeInMB, allocator);
     }
 
 
@@ -414,6 +423,22 @@ void ModifyCmqQueueAttributeRequest::SetTransaction(const uint64_t& _transaction
 bool ModifyCmqQueueAttributeRequest::TransactionHasBeenSet() const
 {
     return m_transactionHasBeenSet;
+}
+
+uint64_t ModifyCmqQueueAttributeRequest::GetRetentionSizeInMB() const
+{
+    return m_retentionSizeInMB;
+}
+
+void ModifyCmqQueueAttributeRequest::SetRetentionSizeInMB(const uint64_t& _retentionSizeInMB)
+{
+    m_retentionSizeInMB = _retentionSizeInMB;
+    m_retentionSizeInMBHasBeenSet = true;
+}
+
+bool ModifyCmqQueueAttributeRequest::RetentionSizeInMBHasBeenSet() const
+{
+    return m_retentionSizeInMBHasBeenSet;
 }
 
 

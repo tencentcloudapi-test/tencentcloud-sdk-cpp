@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ApplicationId App ID
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetApplicationId() const;
 
                     /**
                      * 设置App ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ApplicationId App ID
+                     * @param _applicationId App ID
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetApplicationId(const std::string& _applicationId);
 
                     /**
                      * 判断参数 ApplicationId 是否已赋值
                      * @return ApplicationId 是否已赋值
+                     * 
                      */
                     bool ApplicationIdHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ApplicationName App 名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetApplicationName() const;
 
                     /**
                      * 设置App 名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ApplicationName App 名称
+                     * @param _applicationName App 名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetApplicationName(const std::string& _applicationName);
 
                     /**
                      * 判断参数 ApplicationName 是否已赋值
                      * @return ApplicationName 是否已赋值
+                     * 
                      */
                     bool ApplicationNameHasBeenSet() const;
 
@@ -95,20 +101,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PkgVersion App 包版本
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPkgVersion() const;
 
                     /**
                      * 设置App 包版本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PkgVersion App 包版本
+                     * @param _pkgVersion App 包版本
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPkgVersion(const std::string& _pkgVersion);
 
                     /**
                      * 判断参数 PkgVersion 是否已赋值
                      * @return PkgVersion 是否已赋值
+                     * 
                      */
                     bool PkgVersionHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,74 +45,128 @@ namespace TencentCloud
                     /**
                      * 获取实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
                      * @return InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
-                     * @param InstanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * @param _instanceId 实例 ID，格式如：cdb-c1nl9rpv，与云数据库控制台页面中显示的实例 ID 相同。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取记录偏移量，默认值为0。
                      * @return Offset 记录偏移量，默认值为0。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置记录偏移量，默认值为0。
-                     * @param Offset 记录偏移量，默认值为0。
+                     * @param _offset 记录偏移量，默认值为0。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取单次请求返回的数量，默认值为20，最小值为1，最大值为100。
                      * @return Limit 单次请求返回的数量，默认值为20，最小值为1，最大值为100。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置单次请求返回的数量，默认值为20，最小值为1，最大值为100。
-                     * @param Limit 单次请求返回的数量，默认值为20，最小值为1，最大值为100。
+                     * @param _limit 单次请求返回的数量，默认值为20，最小值为1，最大值为100。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取匹配账号名的正则表达式，规则同 MySQL 官网。
                      * @return AccountRegexp 匹配账号名的正则表达式，规则同 MySQL 官网。
+                     * 
                      */
                     std::string GetAccountRegexp() const;
 
                     /**
                      * 设置匹配账号名的正则表达式，规则同 MySQL 官网。
-                     * @param AccountRegexp 匹配账号名的正则表达式，规则同 MySQL 官网。
+                     * @param _accountRegexp 匹配账号名的正则表达式，规则同 MySQL 官网。
+                     * 
                      */
                     void SetAccountRegexp(const std::string& _accountRegexp);
 
                     /**
                      * 判断参数 AccountRegexp 是否已赋值
                      * @return AccountRegexp 是否已赋值
+                     * 
                      */
                     bool AccountRegexpHasBeenSet() const;
+
+                    /**
+                     * 获取默认无排序，支持：ASC、DESC、asc、desc
+                     * @return SortBy 默认无排序，支持：ASC、DESC、asc、desc
+                     * 
+                     */
+                    std::string GetSortBy() const;
+
+                    /**
+                     * 设置默认无排序，支持：ASC、DESC、asc、desc
+                     * @param _sortBy 默认无排序，支持：ASC、DESC、asc、desc
+                     * 
+                     */
+                    void SetSortBy(const std::string& _sortBy);
+
+                    /**
+                     * 判断参数 SortBy 是否已赋值
+                     * @return SortBy 是否已赋值
+                     * 
+                     */
+                    bool SortByHasBeenSet() const;
+
+                    /**
+                     * 获取待排序的时间字段，可选：CreateTime(账号创建时间)、ModifyTime(账号更新时间)、ModifyPasswordTime(密码修改时间)
+                     * @return OrderBy 待排序的时间字段，可选：CreateTime(账号创建时间)、ModifyTime(账号更新时间)、ModifyPasswordTime(密码修改时间)
+                     * 
+                     */
+                    std::string GetOrderBy() const;
+
+                    /**
+                     * 设置待排序的时间字段，可选：CreateTime(账号创建时间)、ModifyTime(账号更新时间)、ModifyPasswordTime(密码修改时间)
+                     * @param _orderBy 待排序的时间字段，可选：CreateTime(账号创建时间)、ModifyTime(账号更新时间)、ModifyPasswordTime(密码修改时间)
+                     * 
+                     */
+                    void SetOrderBy(const std::string& _orderBy);
+
+                    /**
+                     * 判断参数 OrderBy 是否已赋值
+                     * @return OrderBy 是否已赋值
+                     * 
+                     */
+                    bool OrderByHasBeenSet() const;
 
                 private:
 
@@ -139,6 +193,18 @@ namespace TencentCloud
                      */
                     std::string m_accountRegexp;
                     bool m_accountRegexpHasBeenSet;
+
+                    /**
+                     * 默认无排序，支持：ASC、DESC、asc、desc
+                     */
+                    std::string m_sortBy;
+                    bool m_sortByHasBeenSet;
+
+                    /**
+                     * 待排序的时间字段，可选：CreateTime(账号创建时间)、ModifyTime(账号更新时间)、ModifyPasswordTime(密码修改时间)
+                     */
+                    std::string m_orderBy;
+                    bool m_orderByHasBeenSet;
 
                 };
             }

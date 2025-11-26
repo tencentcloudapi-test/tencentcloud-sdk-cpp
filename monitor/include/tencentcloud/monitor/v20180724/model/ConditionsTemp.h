@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 告警条件模版
+                * 告警条件模板
                 */
                 class ConditionsTemp : public AbstractModel
                 {
@@ -49,24 +49,27 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取模版名称
+                     * 获取模板名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TemplateName 模版名称
+                     * @return TemplateName 模板名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetTemplateName() const;
 
                     /**
-                     * 设置模版名称
+                     * 设置模板名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TemplateName 模版名称
+                     * @param _templateName 模板名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTemplateName(const std::string& _templateName);
 
                     /**
                      * 判断参数 TemplateName 是否已赋值
                      * @return TemplateName 是否已赋值
+                     * 
                      */
                     bool TemplateNameHasBeenSet() const;
 
@@ -75,20 +78,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Condition 指标触发条件
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AlarmPolicyCondition GetCondition() const;
 
                     /**
                      * 设置指标触发条件
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Condition 指标触发条件
+                     * @param _condition 指标触发条件
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCondition(const AlarmPolicyCondition& _condition);
 
                     /**
                      * 判断参数 Condition 是否已赋值
                      * @return Condition 是否已赋值
+                     * 
                      */
                     bool ConditionHasBeenSet() const;
 
@@ -97,27 +103,30 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return EventCondition 事件触发条件
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AlarmPolicyEventCondition GetEventCondition() const;
 
                     /**
                      * 设置事件触发条件
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EventCondition 事件触发条件
+                     * @param _eventCondition 事件触发条件
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetEventCondition(const AlarmPolicyEventCondition& _eventCondition);
 
                     /**
                      * 判断参数 EventCondition 是否已赋值
                      * @return EventCondition 是否已赋值
+                     * 
                      */
                     bool EventConditionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 模版名称
+                     * 模板名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_templateName;

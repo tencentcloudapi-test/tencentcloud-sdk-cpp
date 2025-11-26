@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,86 @@ namespace TencentCloud
                     /**
                      * 获取实例ID。
                      * @return InstanceId 实例ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID。
-                     * @param InstanceId 实例ID。
+                     * @param _instanceId 实例ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取销毁节点ID。该参数为预留参数，用户无需配置。
                      * @return ResourceIds 销毁节点ID。该参数为预留参数，用户无需配置。
+                     * 
                      */
                     std::vector<std::string> GetResourceIds() const;
 
                     /**
                      * 设置销毁节点ID。该参数为预留参数，用户无需配置。
-                     * @param ResourceIds 销毁节点ID。该参数为预留参数，用户无需配置。
+                     * @param _resourceIds 销毁节点ID。该参数为预留参数，用户无需配置。
+                     * 
                      */
                     void SetResourceIds(const std::vector<std::string>& _resourceIds);
 
                     /**
                      * 判断参数 ResourceIds 是否已赋值
                      * @return ResourceIds 是否已赋值
+                     * 
                      */
                     bool ResourceIdsHasBeenSet() const;
+
+                    /**
+                     * 获取类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+                     * @return ResourceBaseType 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+                     * 
+                     */
+                    std::string GetResourceBaseType() const;
+
+                    /**
+                     * 设置类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+                     * @param _resourceBaseType 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+                     * 
+                     */
+                    void SetResourceBaseType(const std::string& _resourceBaseType);
+
+                    /**
+                     * 判断参数 ResourceBaseType 是否已赋值
+                     * @return ResourceBaseType 是否已赋值
+                     * 
+                     */
+                    bool ResourceBaseTypeHasBeenSet() const;
+
+                    /**
+                     * 获取计算资源ID
+                     * @return ComputeResourceId 计算资源ID
+                     * 
+                     */
+                    std::string GetComputeResourceId() const;
+
+                    /**
+                     * 设置计算资源ID
+                     * @param _computeResourceId 计算资源ID
+                     * 
+                     */
+                    void SetComputeResourceId(const std::string& _computeResourceId);
+
+                    /**
+                     * 判断参数 ComputeResourceId 是否已赋值
+                     * @return ComputeResourceId 是否已赋值
+                     * 
+                     */
+                    bool ComputeResourceIdHasBeenSet() const;
 
                 private:
 
@@ -91,6 +139,18 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_resourceIds;
                     bool m_resourceIdsHasBeenSet;
+
+                    /**
+                     * 类型为ComputeResource和EMR以及默认，默认为EMR,类型为EMR时,InstanceId生效,类型为ComputeResource时,使用ComputeResourceId标识
+                     */
+                    std::string m_resourceBaseType;
+                    bool m_resourceBaseTypeHasBeenSet;
+
+                    /**
+                     * 计算资源ID
+                     */
+                    std::string m_computeResourceId;
+                    bool m_computeResourceIdHasBeenSet;
 
                 };
             }

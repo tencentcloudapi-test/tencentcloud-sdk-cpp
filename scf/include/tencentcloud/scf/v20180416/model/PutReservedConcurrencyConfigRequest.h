@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取需要设置最大独占配额的函数的名称
                      * @return FunctionName 需要设置最大独占配额的函数的名称
+                     * 
                      */
                     std::string GetFunctionName() const;
 
                     /**
                      * 设置需要设置最大独占配额的函数的名称
-                     * @param FunctionName 需要设置最大独占配额的函数的名称
+                     * @param _functionName 需要设置最大独占配额的函数的名称
+                     * 
                      */
                     void SetFunctionName(const std::string& _functionName);
 
                     /**
                      * 判断参数 FunctionName 是否已赋值
                      * @return FunctionName 是否已赋值
+                     * 
                      */
                     bool FunctionNameHasBeenSet() const;
 
                     /**
                      * 获取函数最大独占配额，注：函数的最大独占配额内存总和上限：用户总并发内存配额 - 12800
                      * @return ReservedConcurrencyMem 函数最大独占配额，注：函数的最大独占配额内存总和上限：用户总并发内存配额 - 12800
+                     * 
                      */
                     uint64_t GetReservedConcurrencyMem() const;
 
                     /**
                      * 设置函数最大独占配额，注：函数的最大独占配额内存总和上限：用户总并发内存配额 - 12800
-                     * @param ReservedConcurrencyMem 函数最大独占配额，注：函数的最大独占配额内存总和上限：用户总并发内存配额 - 12800
+                     * @param _reservedConcurrencyMem 函数最大独占配额，注：函数的最大独占配额内存总和上限：用户总并发内存配额 - 12800
+                     * 
                      */
                     void SetReservedConcurrencyMem(const uint64_t& _reservedConcurrencyMem);
 
                     /**
                      * 判断参数 ReservedConcurrencyMem 是否已赋值
                      * @return ReservedConcurrencyMem 是否已赋值
+                     * 
                      */
                     bool ReservedConcurrencyMemHasBeenSet() const;
 
                     /**
                      * 获取函数所属命名空间，默认为default
                      * @return Namespace 函数所属命名空间，默认为default
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置函数所属命名空间，默认为default
-                     * @param Namespace 函数所属命名空间，默认为default
+                     * @param _namespace 函数所属命名空间，默认为default
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 

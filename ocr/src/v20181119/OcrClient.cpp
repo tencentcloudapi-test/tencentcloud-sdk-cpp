@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,25 +62,32 @@ OcrClient::AdvertiseOCROutcome OcrClient::AdvertiseOCR(const AdvertiseOCRRequest
 
 void OcrClient::AdvertiseOCRAsync(const AdvertiseOCRRequest& request, const AdvertiseOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AdvertiseOCR(request), context);
-    };
+    using Req = const AdvertiseOCRRequest&;
+    using Resp = AdvertiseOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AdvertiseOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::AdvertiseOCROutcomeCallable OcrClient::AdvertiseOCRCallable(const AdvertiseOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AdvertiseOCROutcome()>>(
-        [this, request]()
-        {
-            return this->AdvertiseOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<AdvertiseOCROutcome>>();
+    AdvertiseOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const AdvertiseOCRRequest&,
+        AdvertiseOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::ArithmeticOCROutcome OcrClient::ArithmeticOCR(const ArithmeticOCRRequest &request)
@@ -105,25 +112,32 @@ OcrClient::ArithmeticOCROutcome OcrClient::ArithmeticOCR(const ArithmeticOCRRequ
 
 void OcrClient::ArithmeticOCRAsync(const ArithmeticOCRRequest& request, const ArithmeticOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ArithmeticOCR(request), context);
-    };
+    using Req = const ArithmeticOCRRequest&;
+    using Resp = ArithmeticOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ArithmeticOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::ArithmeticOCROutcomeCallable OcrClient::ArithmeticOCRCallable(const ArithmeticOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ArithmeticOCROutcome()>>(
-        [this, request]()
-        {
-            return this->ArithmeticOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ArithmeticOCROutcome>>();
+    ArithmeticOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ArithmeticOCRRequest&,
+        ArithmeticOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::BankCardOCROutcome OcrClient::BankCardOCR(const BankCardOCRRequest &request)
@@ -148,25 +162,32 @@ OcrClient::BankCardOCROutcome OcrClient::BankCardOCR(const BankCardOCRRequest &r
 
 void OcrClient::BankCardOCRAsync(const BankCardOCRRequest& request, const BankCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BankCardOCR(request), context);
-    };
+    using Req = const BankCardOCRRequest&;
+    using Resp = BankCardOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BankCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::BankCardOCROutcomeCallable OcrClient::BankCardOCRCallable(const BankCardOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BankCardOCROutcome()>>(
-        [this, request]()
-        {
-            return this->BankCardOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<BankCardOCROutcome>>();
+    BankCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const BankCardOCRRequest&,
+        BankCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::BankSlipOCROutcome OcrClient::BankSlipOCR(const BankSlipOCRRequest &request)
@@ -191,25 +212,32 @@ OcrClient::BankSlipOCROutcome OcrClient::BankSlipOCR(const BankSlipOCRRequest &r
 
 void OcrClient::BankSlipOCRAsync(const BankSlipOCRRequest& request, const BankSlipOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BankSlipOCR(request), context);
-    };
+    using Req = const BankSlipOCRRequest&;
+    using Resp = BankSlipOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BankSlipOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::BankSlipOCROutcomeCallable OcrClient::BankSlipOCRCallable(const BankSlipOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BankSlipOCROutcome()>>(
-        [this, request]()
-        {
-            return this->BankSlipOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<BankSlipOCROutcome>>();
+    BankSlipOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const BankSlipOCRRequest&,
+        BankSlipOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::BizLicenseOCROutcome OcrClient::BizLicenseOCR(const BizLicenseOCRRequest &request)
@@ -234,25 +262,32 @@ OcrClient::BizLicenseOCROutcome OcrClient::BizLicenseOCR(const BizLicenseOCRRequ
 
 void OcrClient::BizLicenseOCRAsync(const BizLicenseOCRRequest& request, const BizLicenseOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BizLicenseOCR(request), context);
-    };
+    using Req = const BizLicenseOCRRequest&;
+    using Resp = BizLicenseOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BizLicenseOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::BizLicenseOCROutcomeCallable OcrClient::BizLicenseOCRCallable(const BizLicenseOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BizLicenseOCROutcome()>>(
-        [this, request]()
-        {
-            return this->BizLicenseOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<BizLicenseOCROutcome>>();
+    BizLicenseOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const BizLicenseOCRRequest&,
+        BizLicenseOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::BusInvoiceOCROutcome OcrClient::BusInvoiceOCR(const BusInvoiceOCRRequest &request)
@@ -277,25 +312,32 @@ OcrClient::BusInvoiceOCROutcome OcrClient::BusInvoiceOCR(const BusInvoiceOCRRequ
 
 void OcrClient::BusInvoiceOCRAsync(const BusInvoiceOCRRequest& request, const BusInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BusInvoiceOCR(request), context);
-    };
+    using Req = const BusInvoiceOCRRequest&;
+    using Resp = BusInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BusInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::BusInvoiceOCROutcomeCallable OcrClient::BusInvoiceOCRCallable(const BusInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BusInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->BusInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<BusInvoiceOCROutcome>>();
+    BusInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const BusInvoiceOCRRequest&,
+        BusInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::BusinessCardOCROutcome OcrClient::BusinessCardOCR(const BusinessCardOCRRequest &request)
@@ -320,25 +362,32 @@ OcrClient::BusinessCardOCROutcome OcrClient::BusinessCardOCR(const BusinessCardO
 
 void OcrClient::BusinessCardOCRAsync(const BusinessCardOCRRequest& request, const BusinessCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BusinessCardOCR(request), context);
-    };
+    using Req = const BusinessCardOCRRequest&;
+    using Resp = BusinessCardOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BusinessCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::BusinessCardOCROutcomeCallable OcrClient::BusinessCardOCRCallable(const BusinessCardOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BusinessCardOCROutcome()>>(
-        [this, request]()
-        {
-            return this->BusinessCardOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<BusinessCardOCROutcome>>();
+    BusinessCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const BusinessCardOCRRequest&,
+        BusinessCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::CarInvoiceOCROutcome OcrClient::CarInvoiceOCR(const CarInvoiceOCRRequest &request)
@@ -363,25 +412,32 @@ OcrClient::CarInvoiceOCROutcome OcrClient::CarInvoiceOCR(const CarInvoiceOCRRequ
 
 void OcrClient::CarInvoiceOCRAsync(const CarInvoiceOCRRequest& request, const CarInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CarInvoiceOCR(request), context);
-    };
+    using Req = const CarInvoiceOCRRequest&;
+    using Resp = CarInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CarInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::CarInvoiceOCROutcomeCallable OcrClient::CarInvoiceOCRCallable(const CarInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CarInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->CarInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CarInvoiceOCROutcome>>();
+    CarInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const CarInvoiceOCRRequest&,
+        CarInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::ClassifyDetectOCROutcome OcrClient::ClassifyDetectOCR(const ClassifyDetectOCRRequest &request)
@@ -406,25 +462,132 @@ OcrClient::ClassifyDetectOCROutcome OcrClient::ClassifyDetectOCR(const ClassifyD
 
 void OcrClient::ClassifyDetectOCRAsync(const ClassifyDetectOCRRequest& request, const ClassifyDetectOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ClassifyDetectOCR(request), context);
-    };
+    using Req = const ClassifyDetectOCRRequest&;
+    using Resp = ClassifyDetectOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ClassifyDetectOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::ClassifyDetectOCROutcomeCallable OcrClient::ClassifyDetectOCRCallable(const ClassifyDetectOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ClassifyDetectOCROutcome()>>(
-        [this, request]()
-        {
-            return this->ClassifyDetectOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ClassifyDetectOCROutcome>>();
+    ClassifyDetectOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ClassifyDetectOCRRequest&,
+        ClassifyDetectOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::ClassifyStoreNameOutcome OcrClient::ClassifyStoreName(const ClassifyStoreNameRequest &request)
+{
+    auto outcome = MakeRequest(request, "ClassifyStoreName");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ClassifyStoreNameResponse rsp = ClassifyStoreNameResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ClassifyStoreNameOutcome(rsp);
+        else
+            return ClassifyStoreNameOutcome(o.GetError());
+    }
+    else
+    {
+        return ClassifyStoreNameOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::ClassifyStoreNameAsync(const ClassifyStoreNameRequest& request, const ClassifyStoreNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ClassifyStoreNameRequest&;
+    using Resp = ClassifyStoreNameResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ClassifyStoreName", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::ClassifyStoreNameOutcomeCallable OcrClient::ClassifyStoreNameCallable(const ClassifyStoreNameRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ClassifyStoreNameOutcome>>();
+    ClassifyStoreNameAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ClassifyStoreNameRequest&,
+        ClassifyStoreNameOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::DescribeExtractDocAgentJobOutcome OcrClient::DescribeExtractDocAgentJob(const DescribeExtractDocAgentJobRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeExtractDocAgentJob");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeExtractDocAgentJobResponse rsp = DescribeExtractDocAgentJobResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeExtractDocAgentJobOutcome(rsp);
+        else
+            return DescribeExtractDocAgentJobOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeExtractDocAgentJobOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::DescribeExtractDocAgentJobAsync(const DescribeExtractDocAgentJobRequest& request, const DescribeExtractDocAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeExtractDocAgentJobRequest&;
+    using Resp = DescribeExtractDocAgentJobResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeExtractDocAgentJob", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::DescribeExtractDocAgentJobOutcomeCallable OcrClient::DescribeExtractDocAgentJobCallable(const DescribeExtractDocAgentJobRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeExtractDocAgentJobOutcome>>();
+    DescribeExtractDocAgentJobAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const DescribeExtractDocAgentJobRequest&,
+        DescribeExtractDocAgentJobOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::DriverLicenseOCROutcome OcrClient::DriverLicenseOCR(const DriverLicenseOCRRequest &request)
@@ -449,25 +612,32 @@ OcrClient::DriverLicenseOCROutcome OcrClient::DriverLicenseOCR(const DriverLicen
 
 void OcrClient::DriverLicenseOCRAsync(const DriverLicenseOCRRequest& request, const DriverLicenseOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DriverLicenseOCR(request), context);
-    };
+    using Req = const DriverLicenseOCRRequest&;
+    using Resp = DriverLicenseOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DriverLicenseOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::DriverLicenseOCROutcomeCallable OcrClient::DriverLicenseOCRCallable(const DriverLicenseOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DriverLicenseOCROutcome()>>(
-        [this, request]()
-        {
-            return this->DriverLicenseOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DriverLicenseOCROutcome>>();
+    DriverLicenseOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const DriverLicenseOCRRequest&,
+        DriverLicenseOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::DutyPaidProofOCROutcome OcrClient::DutyPaidProofOCR(const DutyPaidProofOCRRequest &request)
@@ -492,25 +662,32 @@ OcrClient::DutyPaidProofOCROutcome OcrClient::DutyPaidProofOCR(const DutyPaidPro
 
 void OcrClient::DutyPaidProofOCRAsync(const DutyPaidProofOCRRequest& request, const DutyPaidProofOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DutyPaidProofOCR(request), context);
-    };
+    using Req = const DutyPaidProofOCRRequest&;
+    using Resp = DutyPaidProofOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DutyPaidProofOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::DutyPaidProofOCROutcomeCallable OcrClient::DutyPaidProofOCRCallable(const DutyPaidProofOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DutyPaidProofOCROutcome()>>(
-        [this, request]()
-        {
-            return this->DutyPaidProofOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DutyPaidProofOCROutcome>>();
+    DutyPaidProofOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const DutyPaidProofOCRRequest&,
+        DutyPaidProofOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::EduPaperOCROutcome OcrClient::EduPaperOCR(const EduPaperOCRRequest &request)
@@ -535,25 +712,32 @@ OcrClient::EduPaperOCROutcome OcrClient::EduPaperOCR(const EduPaperOCRRequest &r
 
 void OcrClient::EduPaperOCRAsync(const EduPaperOCRRequest& request, const EduPaperOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EduPaperOCR(request), context);
-    };
+    using Req = const EduPaperOCRRequest&;
+    using Resp = EduPaperOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EduPaperOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::EduPaperOCROutcomeCallable OcrClient::EduPaperOCRCallable(const EduPaperOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EduPaperOCROutcome()>>(
-        [this, request]()
-        {
-            return this->EduPaperOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<EduPaperOCROutcome>>();
+    EduPaperOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const EduPaperOCRRequest&,
+        EduPaperOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::EnglishOCROutcome OcrClient::EnglishOCR(const EnglishOCRRequest &request)
@@ -578,25 +762,32 @@ OcrClient::EnglishOCROutcome OcrClient::EnglishOCR(const EnglishOCRRequest &requ
 
 void OcrClient::EnglishOCRAsync(const EnglishOCRRequest& request, const EnglishOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnglishOCR(request), context);
-    };
+    using Req = const EnglishOCRRequest&;
+    using Resp = EnglishOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EnglishOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::EnglishOCROutcomeCallable OcrClient::EnglishOCRCallable(const EnglishOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EnglishOCROutcome()>>(
-        [this, request]()
-        {
-            return this->EnglishOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<EnglishOCROutcome>>();
+    EnglishOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const EnglishOCRRequest&,
+        EnglishOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::EnterpriseLicenseOCROutcome OcrClient::EnterpriseLicenseOCR(const EnterpriseLicenseOCRRequest &request)
@@ -621,25 +812,32 @@ OcrClient::EnterpriseLicenseOCROutcome OcrClient::EnterpriseLicenseOCR(const Ent
 
 void OcrClient::EnterpriseLicenseOCRAsync(const EnterpriseLicenseOCRRequest& request, const EnterpriseLicenseOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnterpriseLicenseOCR(request), context);
-    };
+    using Req = const EnterpriseLicenseOCRRequest&;
+    using Resp = EnterpriseLicenseOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EnterpriseLicenseOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::EnterpriseLicenseOCROutcomeCallable OcrClient::EnterpriseLicenseOCRCallable(const EnterpriseLicenseOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EnterpriseLicenseOCROutcome()>>(
-        [this, request]()
-        {
-            return this->EnterpriseLicenseOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<EnterpriseLicenseOCROutcome>>();
+    EnterpriseLicenseOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const EnterpriseLicenseOCRRequest&,
+        EnterpriseLicenseOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::EstateCertOCROutcome OcrClient::EstateCertOCR(const EstateCertOCRRequest &request)
@@ -664,25 +862,182 @@ OcrClient::EstateCertOCROutcome OcrClient::EstateCertOCR(const EstateCertOCRRequ
 
 void OcrClient::EstateCertOCRAsync(const EstateCertOCRRequest& request, const EstateCertOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EstateCertOCR(request), context);
-    };
+    using Req = const EstateCertOCRRequest&;
+    using Resp = EstateCertOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EstateCertOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::EstateCertOCROutcomeCallable OcrClient::EstateCertOCRCallable(const EstateCertOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EstateCertOCROutcome()>>(
-        [this, request]()
-        {
-            return this->EstateCertOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<EstateCertOCROutcome>>();
+    EstateCertOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const EstateCertOCRRequest&,
+        EstateCertOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::ExtractDocBasicOutcome OcrClient::ExtractDocBasic(const ExtractDocBasicRequest &request)
+{
+    auto outcome = MakeRequest(request, "ExtractDocBasic");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ExtractDocBasicResponse rsp = ExtractDocBasicResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ExtractDocBasicOutcome(rsp);
+        else
+            return ExtractDocBasicOutcome(o.GetError());
+    }
+    else
+    {
+        return ExtractDocBasicOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::ExtractDocBasicAsync(const ExtractDocBasicRequest& request, const ExtractDocBasicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ExtractDocBasicRequest&;
+    using Resp = ExtractDocBasicResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ExtractDocBasic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::ExtractDocBasicOutcomeCallable OcrClient::ExtractDocBasicCallable(const ExtractDocBasicRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ExtractDocBasicOutcome>>();
+    ExtractDocBasicAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ExtractDocBasicRequest&,
+        ExtractDocBasicOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::ExtractDocMultiOutcome OcrClient::ExtractDocMulti(const ExtractDocMultiRequest &request)
+{
+    auto outcome = MakeRequest(request, "ExtractDocMulti");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ExtractDocMultiResponse rsp = ExtractDocMultiResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ExtractDocMultiOutcome(rsp);
+        else
+            return ExtractDocMultiOutcome(o.GetError());
+    }
+    else
+    {
+        return ExtractDocMultiOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::ExtractDocMultiAsync(const ExtractDocMultiRequest& request, const ExtractDocMultiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ExtractDocMultiRequest&;
+    using Resp = ExtractDocMultiResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ExtractDocMulti", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::ExtractDocMultiOutcomeCallable OcrClient::ExtractDocMultiCallable(const ExtractDocMultiRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ExtractDocMultiOutcome>>();
+    ExtractDocMultiAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ExtractDocMultiRequest&,
+        ExtractDocMultiOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::ExtractDocMultiProOutcome OcrClient::ExtractDocMultiPro(const ExtractDocMultiProRequest &request)
+{
+    auto outcome = MakeRequest(request, "ExtractDocMultiPro");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ExtractDocMultiProResponse rsp = ExtractDocMultiProResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ExtractDocMultiProOutcome(rsp);
+        else
+            return ExtractDocMultiProOutcome(o.GetError());
+    }
+    else
+    {
+        return ExtractDocMultiProOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::ExtractDocMultiProAsync(const ExtractDocMultiProRequest& request, const ExtractDocMultiProAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ExtractDocMultiProRequest&;
+    using Resp = ExtractDocMultiProResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ExtractDocMultiPro", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::ExtractDocMultiProOutcomeCallable OcrClient::ExtractDocMultiProCallable(const ExtractDocMultiProRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ExtractDocMultiProOutcome>>();
+    ExtractDocMultiProAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ExtractDocMultiProRequest&,
+        ExtractDocMultiProOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::FinanBillOCROutcome OcrClient::FinanBillOCR(const FinanBillOCRRequest &request)
@@ -707,25 +1062,32 @@ OcrClient::FinanBillOCROutcome OcrClient::FinanBillOCR(const FinanBillOCRRequest
 
 void OcrClient::FinanBillOCRAsync(const FinanBillOCRRequest& request, const FinanBillOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->FinanBillOCR(request), context);
-    };
+    using Req = const FinanBillOCRRequest&;
+    using Resp = FinanBillOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "FinanBillOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::FinanBillOCROutcomeCallable OcrClient::FinanBillOCRCallable(const FinanBillOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<FinanBillOCROutcome()>>(
-        [this, request]()
-        {
-            return this->FinanBillOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<FinanBillOCROutcome>>();
+    FinanBillOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const FinanBillOCRRequest&,
+        FinanBillOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::FinanBillSliceOCROutcome OcrClient::FinanBillSliceOCR(const FinanBillSliceOCRRequest &request)
@@ -750,25 +1112,32 @@ OcrClient::FinanBillSliceOCROutcome OcrClient::FinanBillSliceOCR(const FinanBill
 
 void OcrClient::FinanBillSliceOCRAsync(const FinanBillSliceOCRRequest& request, const FinanBillSliceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->FinanBillSliceOCR(request), context);
-    };
+    using Req = const FinanBillSliceOCRRequest&;
+    using Resp = FinanBillSliceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "FinanBillSliceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::FinanBillSliceOCROutcomeCallable OcrClient::FinanBillSliceOCRCallable(const FinanBillSliceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<FinanBillSliceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->FinanBillSliceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<FinanBillSliceOCROutcome>>();
+    FinanBillSliceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const FinanBillSliceOCRRequest&,
+        FinanBillSliceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::FlightInvoiceOCROutcome OcrClient::FlightInvoiceOCR(const FlightInvoiceOCRRequest &request)
@@ -793,25 +1162,32 @@ OcrClient::FlightInvoiceOCROutcome OcrClient::FlightInvoiceOCR(const FlightInvoi
 
 void OcrClient::FlightInvoiceOCRAsync(const FlightInvoiceOCRRequest& request, const FlightInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->FlightInvoiceOCR(request), context);
-    };
+    using Req = const FlightInvoiceOCRRequest&;
+    using Resp = FlightInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "FlightInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::FlightInvoiceOCROutcomeCallable OcrClient::FlightInvoiceOCRCallable(const FlightInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<FlightInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->FlightInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<FlightInvoiceOCROutcome>>();
+    FlightInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const FlightInvoiceOCRRequest&,
+        FlightInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::FormulaOCROutcome OcrClient::FormulaOCR(const FormulaOCRRequest &request)
@@ -836,25 +1212,32 @@ OcrClient::FormulaOCROutcome OcrClient::FormulaOCR(const FormulaOCRRequest &requ
 
 void OcrClient::FormulaOCRAsync(const FormulaOCRRequest& request, const FormulaOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->FormulaOCR(request), context);
-    };
+    using Req = const FormulaOCRRequest&;
+    using Resp = FormulaOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "FormulaOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::FormulaOCROutcomeCallable OcrClient::FormulaOCRCallable(const FormulaOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<FormulaOCROutcome()>>(
-        [this, request]()
-        {
-            return this->FormulaOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<FormulaOCROutcome>>();
+    FormulaOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const FormulaOCRRequest&,
+        FormulaOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::GeneralAccurateOCROutcome OcrClient::GeneralAccurateOCR(const GeneralAccurateOCRRequest &request)
@@ -879,25 +1262,32 @@ OcrClient::GeneralAccurateOCROutcome OcrClient::GeneralAccurateOCR(const General
 
 void OcrClient::GeneralAccurateOCRAsync(const GeneralAccurateOCRRequest& request, const GeneralAccurateOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GeneralAccurateOCR(request), context);
-    };
+    using Req = const GeneralAccurateOCRRequest&;
+    using Resp = GeneralAccurateOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GeneralAccurateOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::GeneralAccurateOCROutcomeCallable OcrClient::GeneralAccurateOCRCallable(const GeneralAccurateOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GeneralAccurateOCROutcome()>>(
-        [this, request]()
-        {
-            return this->GeneralAccurateOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GeneralAccurateOCROutcome>>();
+    GeneralAccurateOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const GeneralAccurateOCRRequest&,
+        GeneralAccurateOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::GeneralBasicOCROutcome OcrClient::GeneralBasicOCR(const GeneralBasicOCRRequest &request)
@@ -922,25 +1312,32 @@ OcrClient::GeneralBasicOCROutcome OcrClient::GeneralBasicOCR(const GeneralBasicO
 
 void OcrClient::GeneralBasicOCRAsync(const GeneralBasicOCRRequest& request, const GeneralBasicOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GeneralBasicOCR(request), context);
-    };
+    using Req = const GeneralBasicOCRRequest&;
+    using Resp = GeneralBasicOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GeneralBasicOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::GeneralBasicOCROutcomeCallable OcrClient::GeneralBasicOCRCallable(const GeneralBasicOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GeneralBasicOCROutcome()>>(
-        [this, request]()
-        {
-            return this->GeneralBasicOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GeneralBasicOCROutcome>>();
+    GeneralBasicOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const GeneralBasicOCRRequest&,
+        GeneralBasicOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::GeneralEfficientOCROutcome OcrClient::GeneralEfficientOCR(const GeneralEfficientOCRRequest &request)
@@ -965,25 +1362,32 @@ OcrClient::GeneralEfficientOCROutcome OcrClient::GeneralEfficientOCR(const Gener
 
 void OcrClient::GeneralEfficientOCRAsync(const GeneralEfficientOCRRequest& request, const GeneralEfficientOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GeneralEfficientOCR(request), context);
-    };
+    using Req = const GeneralEfficientOCRRequest&;
+    using Resp = GeneralEfficientOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GeneralEfficientOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::GeneralEfficientOCROutcomeCallable OcrClient::GeneralEfficientOCRCallable(const GeneralEfficientOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GeneralEfficientOCROutcome()>>(
-        [this, request]()
-        {
-            return this->GeneralEfficientOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GeneralEfficientOCROutcome>>();
+    GeneralEfficientOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const GeneralEfficientOCRRequest&,
+        GeneralEfficientOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::GeneralFastOCROutcome OcrClient::GeneralFastOCR(const GeneralFastOCRRequest &request)
@@ -1008,25 +1412,32 @@ OcrClient::GeneralFastOCROutcome OcrClient::GeneralFastOCR(const GeneralFastOCRR
 
 void OcrClient::GeneralFastOCRAsync(const GeneralFastOCRRequest& request, const GeneralFastOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GeneralFastOCR(request), context);
-    };
+    using Req = const GeneralFastOCRRequest&;
+    using Resp = GeneralFastOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GeneralFastOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::GeneralFastOCROutcomeCallable OcrClient::GeneralFastOCRCallable(const GeneralFastOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GeneralFastOCROutcome()>>(
-        [this, request]()
-        {
-            return this->GeneralFastOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GeneralFastOCROutcome>>();
+    GeneralFastOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const GeneralFastOCRRequest&,
+        GeneralFastOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::GeneralHandwritingOCROutcome OcrClient::GeneralHandwritingOCR(const GeneralHandwritingOCRRequest &request)
@@ -1051,25 +1462,132 @@ OcrClient::GeneralHandwritingOCROutcome OcrClient::GeneralHandwritingOCR(const G
 
 void OcrClient::GeneralHandwritingOCRAsync(const GeneralHandwritingOCRRequest& request, const GeneralHandwritingOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GeneralHandwritingOCR(request), context);
-    };
+    using Req = const GeneralHandwritingOCRRequest&;
+    using Resp = GeneralHandwritingOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GeneralHandwritingOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::GeneralHandwritingOCROutcomeCallable OcrClient::GeneralHandwritingOCRCallable(const GeneralHandwritingOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GeneralHandwritingOCROutcome()>>(
-        [this, request]()
-        {
-            return this->GeneralHandwritingOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<GeneralHandwritingOCROutcome>>();
+    GeneralHandwritingOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const GeneralHandwritingOCRRequest&,
+        GeneralHandwritingOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::GetOCRResultOutcome OcrClient::GetOCRResult(const GetOCRResultRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetOCRResult");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetOCRResultResponse rsp = GetOCRResultResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetOCRResultOutcome(rsp);
+        else
+            return GetOCRResultOutcome(o.GetError());
+    }
+    else
+    {
+        return GetOCRResultOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::GetOCRResultAsync(const GetOCRResultRequest& request, const GetOCRResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetOCRResultRequest&;
+    using Resp = GetOCRResultResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetOCRResult", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::GetOCRResultOutcomeCallable OcrClient::GetOCRResultCallable(const GetOCRResultRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetOCRResultOutcome>>();
+    GetOCRResultAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const GetOCRResultRequest&,
+        GetOCRResultOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::GetOCRTokenOutcome OcrClient::GetOCRToken(const GetOCRTokenRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetOCRToken");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetOCRTokenResponse rsp = GetOCRTokenResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetOCRTokenOutcome(rsp);
+        else
+            return GetOCRTokenOutcome(o.GetError());
+    }
+    else
+    {
+        return GetOCRTokenOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::GetOCRTokenAsync(const GetOCRTokenRequest& request, const GetOCRTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetOCRTokenRequest&;
+    using Resp = GetOCRTokenResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetOCRToken", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::GetOCRTokenOutcomeCallable OcrClient::GetOCRTokenCallable(const GetOCRTokenRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetOCRTokenOutcome>>();
+    GetOCRTokenAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const GetOCRTokenRequest&,
+        GetOCRTokenOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::HKIDCardOCROutcome OcrClient::HKIDCardOCR(const HKIDCardOCRRequest &request)
@@ -1094,25 +1612,82 @@ OcrClient::HKIDCardOCROutcome OcrClient::HKIDCardOCR(const HKIDCardOCRRequest &r
 
 void OcrClient::HKIDCardOCRAsync(const HKIDCardOCRRequest& request, const HKIDCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->HKIDCardOCR(request), context);
-    };
+    using Req = const HKIDCardOCRRequest&;
+    using Resp = HKIDCardOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "HKIDCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::HKIDCardOCROutcomeCallable OcrClient::HKIDCardOCRCallable(const HKIDCardOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<HKIDCardOCROutcome()>>(
-        [this, request]()
-        {
-            return this->HKIDCardOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<HKIDCardOCROutcome>>();
+    HKIDCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const HKIDCardOCRRequest&,
+        HKIDCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::HandwritingEssayOCROutcome OcrClient::HandwritingEssayOCR(const HandwritingEssayOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "HandwritingEssayOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        HandwritingEssayOCRResponse rsp = HandwritingEssayOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return HandwritingEssayOCROutcome(rsp);
+        else
+            return HandwritingEssayOCROutcome(o.GetError());
+    }
+    else
+    {
+        return HandwritingEssayOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::HandwritingEssayOCRAsync(const HandwritingEssayOCRRequest& request, const HandwritingEssayOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const HandwritingEssayOCRRequest&;
+    using Resp = HandwritingEssayOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "HandwritingEssayOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::HandwritingEssayOCROutcomeCallable OcrClient::HandwritingEssayOCRCallable(const HandwritingEssayOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<HandwritingEssayOCROutcome>>();
+    HandwritingEssayOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const HandwritingEssayOCRRequest&,
+        HandwritingEssayOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::HmtResidentPermitOCROutcome OcrClient::HmtResidentPermitOCR(const HmtResidentPermitOCRRequest &request)
@@ -1137,25 +1712,32 @@ OcrClient::HmtResidentPermitOCROutcome OcrClient::HmtResidentPermitOCR(const Hmt
 
 void OcrClient::HmtResidentPermitOCRAsync(const HmtResidentPermitOCRRequest& request, const HmtResidentPermitOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->HmtResidentPermitOCR(request), context);
-    };
+    using Req = const HmtResidentPermitOCRRequest&;
+    using Resp = HmtResidentPermitOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "HmtResidentPermitOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::HmtResidentPermitOCROutcomeCallable OcrClient::HmtResidentPermitOCRCallable(const HmtResidentPermitOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<HmtResidentPermitOCROutcome()>>(
-        [this, request]()
-        {
-            return this->HmtResidentPermitOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<HmtResidentPermitOCROutcome>>();
+    HmtResidentPermitOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const HmtResidentPermitOCRRequest&,
+        HmtResidentPermitOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::IDCardOCROutcome OcrClient::IDCardOCR(const IDCardOCRRequest &request)
@@ -1180,68 +1762,82 @@ OcrClient::IDCardOCROutcome OcrClient::IDCardOCR(const IDCardOCRRequest &request
 
 void OcrClient::IDCardOCRAsync(const IDCardOCRRequest& request, const IDCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->IDCardOCR(request), context);
-    };
+    using Req = const IDCardOCRRequest&;
+    using Resp = IDCardOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "IDCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::IDCardOCROutcomeCallable OcrClient::IDCardOCRCallable(const IDCardOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<IDCardOCROutcome()>>(
-        [this, request]()
-        {
-            return this->IDCardOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<IDCardOCROutcome>>();
+    IDCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const IDCardOCRRequest&,
+        IDCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-OcrClient::InstitutionOCROutcome OcrClient::InstitutionOCR(const InstitutionOCRRequest &request)
+OcrClient::ImageEnhancementOutcome OcrClient::ImageEnhancement(const ImageEnhancementRequest &request)
 {
-    auto outcome = MakeRequest(request, "InstitutionOCR");
+    auto outcome = MakeRequest(request, "ImageEnhancement");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        InstitutionOCRResponse rsp = InstitutionOCRResponse();
+        ImageEnhancementResponse rsp = ImageEnhancementResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return InstitutionOCROutcome(rsp);
+            return ImageEnhancementOutcome(rsp);
         else
-            return InstitutionOCROutcome(o.GetError());
+            return ImageEnhancementOutcome(o.GetError());
     }
     else
     {
-        return InstitutionOCROutcome(outcome.GetError());
+        return ImageEnhancementOutcome(outcome.GetError());
     }
 }
 
-void OcrClient::InstitutionOCRAsync(const InstitutionOCRRequest& request, const InstitutionOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void OcrClient::ImageEnhancementAsync(const ImageEnhancementRequest& request, const ImageEnhancementAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->InstitutionOCR(request), context);
-    };
+    using Req = const ImageEnhancementRequest&;
+    using Resp = ImageEnhancementResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ImageEnhancement", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-OcrClient::InstitutionOCROutcomeCallable OcrClient::InstitutionOCRCallable(const InstitutionOCRRequest &request)
+OcrClient::ImageEnhancementOutcomeCallable OcrClient::ImageEnhancementCallable(const ImageEnhancementRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<InstitutionOCROutcome()>>(
-        [this, request]()
-        {
-            return this->InstitutionOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ImageEnhancementOutcome>>();
+    ImageEnhancementAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ImageEnhancementRequest&,
+        ImageEnhancementOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::InsuranceBillOCROutcome OcrClient::InsuranceBillOCR(const InsuranceBillOCRRequest &request)
@@ -1266,25 +1862,32 @@ OcrClient::InsuranceBillOCROutcome OcrClient::InsuranceBillOCR(const InsuranceBi
 
 void OcrClient::InsuranceBillOCRAsync(const InsuranceBillOCRRequest& request, const InsuranceBillOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->InsuranceBillOCR(request), context);
-    };
+    using Req = const InsuranceBillOCRRequest&;
+    using Resp = InsuranceBillOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "InsuranceBillOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::InsuranceBillOCROutcomeCallable OcrClient::InsuranceBillOCRCallable(const InsuranceBillOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<InsuranceBillOCROutcome()>>(
-        [this, request]()
-        {
-            return this->InsuranceBillOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<InsuranceBillOCROutcome>>();
+    InsuranceBillOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const InsuranceBillOCRRequest&,
+        InsuranceBillOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::InvoiceGeneralOCROutcome OcrClient::InvoiceGeneralOCR(const InvoiceGeneralOCRRequest &request)
@@ -1309,25 +1912,32 @@ OcrClient::InvoiceGeneralOCROutcome OcrClient::InvoiceGeneralOCR(const InvoiceGe
 
 void OcrClient::InvoiceGeneralOCRAsync(const InvoiceGeneralOCRRequest& request, const InvoiceGeneralOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->InvoiceGeneralOCR(request), context);
-    };
+    using Req = const InvoiceGeneralOCRRequest&;
+    using Resp = InvoiceGeneralOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "InvoiceGeneralOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::InvoiceGeneralOCROutcomeCallable OcrClient::InvoiceGeneralOCRCallable(const InvoiceGeneralOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<InvoiceGeneralOCROutcome()>>(
-        [this, request]()
-        {
-            return this->InvoiceGeneralOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<InvoiceGeneralOCROutcome>>();
+    InvoiceGeneralOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const InvoiceGeneralOCRRequest&,
+        InvoiceGeneralOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::LicensePlateOCROutcome OcrClient::LicensePlateOCR(const LicensePlateOCRRequest &request)
@@ -1352,25 +1962,32 @@ OcrClient::LicensePlateOCROutcome OcrClient::LicensePlateOCR(const LicensePlateO
 
 void OcrClient::LicensePlateOCRAsync(const LicensePlateOCRRequest& request, const LicensePlateOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->LicensePlateOCR(request), context);
-    };
+    using Req = const LicensePlateOCRRequest&;
+    using Resp = LicensePlateOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "LicensePlateOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::LicensePlateOCROutcomeCallable OcrClient::LicensePlateOCRCallable(const LicensePlateOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<LicensePlateOCROutcome()>>(
-        [this, request]()
-        {
-            return this->LicensePlateOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<LicensePlateOCROutcome>>();
+    LicensePlateOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const LicensePlateOCRRequest&,
+        LicensePlateOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::MLIDCardOCROutcome OcrClient::MLIDCardOCR(const MLIDCardOCRRequest &request)
@@ -1395,25 +2012,32 @@ OcrClient::MLIDCardOCROutcome OcrClient::MLIDCardOCR(const MLIDCardOCRRequest &r
 
 void OcrClient::MLIDCardOCRAsync(const MLIDCardOCRRequest& request, const MLIDCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->MLIDCardOCR(request), context);
-    };
+    using Req = const MLIDCardOCRRequest&;
+    using Resp = MLIDCardOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "MLIDCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::MLIDCardOCROutcomeCallable OcrClient::MLIDCardOCRCallable(const MLIDCardOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<MLIDCardOCROutcome()>>(
-        [this, request]()
-        {
-            return this->MLIDCardOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<MLIDCardOCROutcome>>();
+    MLIDCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const MLIDCardOCRRequest&,
+        MLIDCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::MLIDPassportOCROutcome OcrClient::MLIDPassportOCR(const MLIDPassportOCRRequest &request)
@@ -1438,25 +2062,32 @@ OcrClient::MLIDPassportOCROutcome OcrClient::MLIDPassportOCR(const MLIDPassportO
 
 void OcrClient::MLIDPassportOCRAsync(const MLIDPassportOCRRequest& request, const MLIDPassportOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->MLIDPassportOCR(request), context);
-    };
+    using Req = const MLIDPassportOCRRequest&;
+    using Resp = MLIDPassportOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "MLIDPassportOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::MLIDPassportOCROutcomeCallable OcrClient::MLIDPassportOCRCallable(const MLIDPassportOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<MLIDPassportOCROutcome()>>(
-        [this, request]()
-        {
-            return this->MLIDPassportOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<MLIDPassportOCROutcome>>();
+    MLIDPassportOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const MLIDPassportOCRRequest&,
+        MLIDPassportOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::MainlandPermitOCROutcome OcrClient::MainlandPermitOCR(const MainlandPermitOCRRequest &request)
@@ -1481,25 +2112,32 @@ OcrClient::MainlandPermitOCROutcome OcrClient::MainlandPermitOCR(const MainlandP
 
 void OcrClient::MainlandPermitOCRAsync(const MainlandPermitOCRRequest& request, const MainlandPermitOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->MainlandPermitOCR(request), context);
-    };
+    using Req = const MainlandPermitOCRRequest&;
+    using Resp = MainlandPermitOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "MainlandPermitOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::MainlandPermitOCROutcomeCallable OcrClient::MainlandPermitOCRCallable(const MainlandPermitOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<MainlandPermitOCROutcome()>>(
-        [this, request]()
-        {
-            return this->MainlandPermitOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<MainlandPermitOCROutcome>>();
+    MainlandPermitOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const MainlandPermitOCRRequest&,
+        MainlandPermitOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::MixedInvoiceDetectOutcome OcrClient::MixedInvoiceDetect(const MixedInvoiceDetectRequest &request)
@@ -1524,25 +2162,32 @@ OcrClient::MixedInvoiceDetectOutcome OcrClient::MixedInvoiceDetect(const MixedIn
 
 void OcrClient::MixedInvoiceDetectAsync(const MixedInvoiceDetectRequest& request, const MixedInvoiceDetectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->MixedInvoiceDetect(request), context);
-    };
+    using Req = const MixedInvoiceDetectRequest&;
+    using Resp = MixedInvoiceDetectResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "MixedInvoiceDetect", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::MixedInvoiceDetectOutcomeCallable OcrClient::MixedInvoiceDetectCallable(const MixedInvoiceDetectRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<MixedInvoiceDetectOutcome()>>(
-        [this, request]()
-        {
-            return this->MixedInvoiceDetect(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<MixedInvoiceDetectOutcome>>();
+    MixedInvoiceDetectAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const MixedInvoiceDetectRequest&,
+        MixedInvoiceDetectOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::MixedInvoiceOCROutcome OcrClient::MixedInvoiceOCR(const MixedInvoiceOCRRequest &request)
@@ -1567,68 +2212,32 @@ OcrClient::MixedInvoiceOCROutcome OcrClient::MixedInvoiceOCR(const MixedInvoiceO
 
 void OcrClient::MixedInvoiceOCRAsync(const MixedInvoiceOCRRequest& request, const MixedInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->MixedInvoiceOCR(request), context);
-    };
+    using Req = const MixedInvoiceOCRRequest&;
+    using Resp = MixedInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "MixedInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::MixedInvoiceOCROutcomeCallable OcrClient::MixedInvoiceOCRCallable(const MixedInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<MixedInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->MixedInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-OcrClient::OrgCodeCertOCROutcome OcrClient::OrgCodeCertOCR(const OrgCodeCertOCRRequest &request)
-{
-    auto outcome = MakeRequest(request, "OrgCodeCertOCR");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<MixedInvoiceOCROutcome>>();
+    MixedInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const MixedInvoiceOCRRequest&,
+        MixedInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        OrgCodeCertOCRResponse rsp = OrgCodeCertOCRResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return OrgCodeCertOCROutcome(rsp);
-        else
-            return OrgCodeCertOCROutcome(o.GetError());
-    }
-    else
-    {
-        return OrgCodeCertOCROutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::OrgCodeCertOCRAsync(const OrgCodeCertOCRRequest& request, const OrgCodeCertOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->OrgCodeCertOCR(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-OcrClient::OrgCodeCertOCROutcomeCallable OcrClient::OrgCodeCertOCRCallable(const OrgCodeCertOCRRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<OrgCodeCertOCROutcome()>>(
-        [this, request]()
-        {
-            return this->OrgCodeCertOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::PassportOCROutcome OcrClient::PassportOCR(const PassportOCRRequest &request)
@@ -1653,25 +2262,32 @@ OcrClient::PassportOCROutcome OcrClient::PassportOCR(const PassportOCRRequest &r
 
 void OcrClient::PassportOCRAsync(const PassportOCRRequest& request, const PassportOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PassportOCR(request), context);
-    };
+    using Req = const PassportOCRRequest&;
+    using Resp = PassportOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "PassportOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::PassportOCROutcomeCallable OcrClient::PassportOCRCallable(const PassportOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<PassportOCROutcome()>>(
-        [this, request]()
-        {
-            return this->PassportOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<PassportOCROutcome>>();
+    PassportOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const PassportOCRRequest&,
+        PassportOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::PermitOCROutcome OcrClient::PermitOCR(const PermitOCRRequest &request)
@@ -1696,68 +2312,32 @@ OcrClient::PermitOCROutcome OcrClient::PermitOCR(const PermitOCRRequest &request
 
 void OcrClient::PermitOCRAsync(const PermitOCRRequest& request, const PermitOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PermitOCR(request), context);
-    };
+    using Req = const PermitOCRRequest&;
+    using Resp = PermitOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "PermitOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::PermitOCROutcomeCallable OcrClient::PermitOCRCallable(const PermitOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<PermitOCROutcome()>>(
-        [this, request]()
-        {
-            return this->PermitOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-OcrClient::PropOwnerCertOCROutcome OcrClient::PropOwnerCertOCR(const PropOwnerCertOCRRequest &request)
-{
-    auto outcome = MakeRequest(request, "PropOwnerCertOCR");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<PermitOCROutcome>>();
+    PermitOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const PermitOCRRequest&,
+        PermitOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        PropOwnerCertOCRResponse rsp = PropOwnerCertOCRResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return PropOwnerCertOCROutcome(rsp);
-        else
-            return PropOwnerCertOCROutcome(o.GetError());
-    }
-    else
-    {
-        return PropOwnerCertOCROutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::PropOwnerCertOCRAsync(const PropOwnerCertOCRRequest& request, const PropOwnerCertOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PropOwnerCertOCR(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-OcrClient::PropOwnerCertOCROutcomeCallable OcrClient::PropOwnerCertOCRCallable(const PropOwnerCertOCRRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<PropOwnerCertOCROutcome()>>(
-        [this, request]()
-        {
-            return this->PropOwnerCertOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::QrcodeOCROutcome OcrClient::QrcodeOCR(const QrcodeOCRRequest &request)
@@ -1782,68 +2362,182 @@ OcrClient::QrcodeOCROutcome OcrClient::QrcodeOCR(const QrcodeOCRRequest &request
 
 void OcrClient::QrcodeOCRAsync(const QrcodeOCRRequest& request, const QrcodeOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QrcodeOCR(request), context);
-    };
+    using Req = const QrcodeOCRRequest&;
+    using Resp = QrcodeOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QrcodeOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::QrcodeOCROutcomeCallable OcrClient::QrcodeOCRCallable(const QrcodeOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QrcodeOCROutcome()>>(
-        [this, request]()
-        {
-            return this->QrcodeOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QrcodeOCROutcome>>();
+    QrcodeOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const QrcodeOCRRequest&,
+        QrcodeOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-OcrClient::QueryBarCodeOutcome OcrClient::QueryBarCode(const QueryBarCodeRequest &request)
+OcrClient::QuestionOCROutcome OcrClient::QuestionOCR(const QuestionOCRRequest &request)
 {
-    auto outcome = MakeRequest(request, "QueryBarCode");
+    auto outcome = MakeRequest(request, "QuestionOCR");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        QueryBarCodeResponse rsp = QueryBarCodeResponse();
+        QuestionOCRResponse rsp = QuestionOCRResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return QueryBarCodeOutcome(rsp);
+            return QuestionOCROutcome(rsp);
         else
-            return QueryBarCodeOutcome(o.GetError());
+            return QuestionOCROutcome(o.GetError());
     }
     else
     {
-        return QueryBarCodeOutcome(outcome.GetError());
+        return QuestionOCROutcome(outcome.GetError());
     }
 }
 
-void OcrClient::QueryBarCodeAsync(const QueryBarCodeRequest& request, const QueryBarCodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void OcrClient::QuestionOCRAsync(const QuestionOCRRequest& request, const QuestionOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryBarCode(request), context);
-    };
+    using Req = const QuestionOCRRequest&;
+    using Resp = QuestionOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QuestionOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-OcrClient::QueryBarCodeOutcomeCallable OcrClient::QueryBarCodeCallable(const QueryBarCodeRequest &request)
+OcrClient::QuestionOCROutcomeCallable OcrClient::QuestionOCRCallable(const QuestionOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryBarCodeOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryBarCode(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QuestionOCROutcome>>();
+    QuestionOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const QuestionOCRRequest&,
+        QuestionOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::QuestionSplitLayoutOCROutcome OcrClient::QuestionSplitLayoutOCR(const QuestionSplitLayoutOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "QuestionSplitLayoutOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QuestionSplitLayoutOCRResponse rsp = QuestionSplitLayoutOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QuestionSplitLayoutOCROutcome(rsp);
+        else
+            return QuestionSplitLayoutOCROutcome(o.GetError());
+    }
+    else
+    {
+        return QuestionSplitLayoutOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::QuestionSplitLayoutOCRAsync(const QuestionSplitLayoutOCRRequest& request, const QuestionSplitLayoutOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QuestionSplitLayoutOCRRequest&;
+    using Resp = QuestionSplitLayoutOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QuestionSplitLayoutOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::QuestionSplitLayoutOCROutcomeCallable OcrClient::QuestionSplitLayoutOCRCallable(const QuestionSplitLayoutOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QuestionSplitLayoutOCROutcome>>();
+    QuestionSplitLayoutOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const QuestionSplitLayoutOCRRequest&,
+        QuestionSplitLayoutOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::QuestionSplitOCROutcome OcrClient::QuestionSplitOCR(const QuestionSplitOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "QuestionSplitOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QuestionSplitOCRResponse rsp = QuestionSplitOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QuestionSplitOCROutcome(rsp);
+        else
+            return QuestionSplitOCROutcome(o.GetError());
+    }
+    else
+    {
+        return QuestionSplitOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::QuestionSplitOCRAsync(const QuestionSplitOCRRequest& request, const QuestionSplitOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QuestionSplitOCRRequest&;
+    using Resp = QuestionSplitOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QuestionSplitOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::QuestionSplitOCROutcomeCallable OcrClient::QuestionSplitOCRCallable(const QuestionSplitOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QuestionSplitOCROutcome>>();
+    QuestionSplitOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const QuestionSplitOCRRequest&,
+        QuestionSplitOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::QuotaInvoiceOCROutcome OcrClient::QuotaInvoiceOCR(const QuotaInvoiceOCRRequest &request)
@@ -1868,25 +2562,32 @@ OcrClient::QuotaInvoiceOCROutcome OcrClient::QuotaInvoiceOCR(const QuotaInvoiceO
 
 void OcrClient::QuotaInvoiceOCRAsync(const QuotaInvoiceOCRRequest& request, const QuotaInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QuotaInvoiceOCR(request), context);
-    };
+    using Req = const QuotaInvoiceOCRRequest&;
+    using Resp = QuotaInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QuotaInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::QuotaInvoiceOCROutcomeCallable OcrClient::QuotaInvoiceOCRCallable(const QuotaInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QuotaInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->QuotaInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QuotaInvoiceOCROutcome>>();
+    QuotaInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const QuotaInvoiceOCRRequest&,
+        QuotaInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RecognizeContainerOCROutcome OcrClient::RecognizeContainerOCR(const RecognizeContainerOCRRequest &request)
@@ -1911,25 +2612,232 @@ OcrClient::RecognizeContainerOCROutcome OcrClient::RecognizeContainerOCR(const R
 
 void OcrClient::RecognizeContainerOCRAsync(const RecognizeContainerOCRRequest& request, const RecognizeContainerOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeContainerOCR(request), context);
-    };
+    using Req = const RecognizeContainerOCRRequest&;
+    using Resp = RecognizeContainerOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RecognizeContainerOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RecognizeContainerOCROutcomeCallable OcrClient::RecognizeContainerOCRCallable(const RecognizeContainerOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RecognizeContainerOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeContainerOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<RecognizeContainerOCROutcome>>();
+    RecognizeContainerOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeContainerOCRRequest&,
+        RecognizeContainerOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::RecognizeEncryptedIDCardOCROutcome OcrClient::RecognizeEncryptedIDCardOCR(const RecognizeEncryptedIDCardOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeEncryptedIDCardOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeEncryptedIDCardOCRResponse rsp = RecognizeEncryptedIDCardOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeEncryptedIDCardOCROutcome(rsp);
+        else
+            return RecognizeEncryptedIDCardOCROutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeEncryptedIDCardOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeEncryptedIDCardOCRAsync(const RecognizeEncryptedIDCardOCRRequest& request, const RecognizeEncryptedIDCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeEncryptedIDCardOCRRequest&;
+    using Resp = RecognizeEncryptedIDCardOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeEncryptedIDCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeEncryptedIDCardOCROutcomeCallable OcrClient::RecognizeEncryptedIDCardOCRCallable(const RecognizeEncryptedIDCardOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeEncryptedIDCardOCROutcome>>();
+    RecognizeEncryptedIDCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeEncryptedIDCardOCRRequest&,
+        RecognizeEncryptedIDCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::RecognizeFormulaOCROutcome OcrClient::RecognizeFormulaOCR(const RecognizeFormulaOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeFormulaOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeFormulaOCRResponse rsp = RecognizeFormulaOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeFormulaOCROutcome(rsp);
+        else
+            return RecognizeFormulaOCROutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeFormulaOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeFormulaOCRAsync(const RecognizeFormulaOCRRequest& request, const RecognizeFormulaOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeFormulaOCRRequest&;
+    using Resp = RecognizeFormulaOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeFormulaOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeFormulaOCROutcomeCallable OcrClient::RecognizeFormulaOCRCallable(const RecognizeFormulaOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeFormulaOCROutcome>>();
+    RecognizeFormulaOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeFormulaOCRRequest&,
+        RecognizeFormulaOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::RecognizeGeneralCardWarnOutcome OcrClient::RecognizeGeneralCardWarn(const RecognizeGeneralCardWarnRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeGeneralCardWarn");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeGeneralCardWarnResponse rsp = RecognizeGeneralCardWarnResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeGeneralCardWarnOutcome(rsp);
+        else
+            return RecognizeGeneralCardWarnOutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeGeneralCardWarnOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeGeneralCardWarnAsync(const RecognizeGeneralCardWarnRequest& request, const RecognizeGeneralCardWarnAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeGeneralCardWarnRequest&;
+    using Resp = RecognizeGeneralCardWarnResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeGeneralCardWarn", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeGeneralCardWarnOutcomeCallable OcrClient::RecognizeGeneralCardWarnCallable(const RecognizeGeneralCardWarnRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeGeneralCardWarnOutcome>>();
+    RecognizeGeneralCardWarnAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeGeneralCardWarnRequest&,
+        RecognizeGeneralCardWarnOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::RecognizeGeneralInvoiceOutcome OcrClient::RecognizeGeneralInvoice(const RecognizeGeneralInvoiceRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeGeneralInvoice");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeGeneralInvoiceResponse rsp = RecognizeGeneralInvoiceResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeGeneralInvoiceOutcome(rsp);
+        else
+            return RecognizeGeneralInvoiceOutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeGeneralInvoiceOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeGeneralInvoiceAsync(const RecognizeGeneralInvoiceRequest& request, const RecognizeGeneralInvoiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeGeneralInvoiceRequest&;
+    using Resp = RecognizeGeneralInvoiceResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeGeneralInvoice", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeGeneralInvoiceOutcomeCallable OcrClient::RecognizeGeneralInvoiceCallable(const RecognizeGeneralInvoiceRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeGeneralInvoiceOutcome>>();
+    RecognizeGeneralInvoiceAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeGeneralInvoiceRequest&,
+        RecognizeGeneralInvoiceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RecognizeHealthCodeOCROutcome OcrClient::RecognizeHealthCodeOCR(const RecognizeHealthCodeOCRRequest &request)
@@ -1954,25 +2862,82 @@ OcrClient::RecognizeHealthCodeOCROutcome OcrClient::RecognizeHealthCodeOCR(const
 
 void OcrClient::RecognizeHealthCodeOCRAsync(const RecognizeHealthCodeOCRRequest& request, const RecognizeHealthCodeOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeHealthCodeOCR(request), context);
-    };
+    using Req = const RecognizeHealthCodeOCRRequest&;
+    using Resp = RecognizeHealthCodeOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RecognizeHealthCodeOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RecognizeHealthCodeOCROutcomeCallable OcrClient::RecognizeHealthCodeOCRCallable(const RecognizeHealthCodeOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RecognizeHealthCodeOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeHealthCodeOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<RecognizeHealthCodeOCROutcome>>();
+    RecognizeHealthCodeOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeHealthCodeOCRRequest&,
+        RecognizeHealthCodeOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::RecognizeMedicalInvoiceOCROutcome OcrClient::RecognizeMedicalInvoiceOCR(const RecognizeMedicalInvoiceOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeMedicalInvoiceOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeMedicalInvoiceOCRResponse rsp = RecognizeMedicalInvoiceOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeMedicalInvoiceOCROutcome(rsp);
+        else
+            return RecognizeMedicalInvoiceOCROutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeMedicalInvoiceOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeMedicalInvoiceOCRAsync(const RecognizeMedicalInvoiceOCRRequest& request, const RecognizeMedicalInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeMedicalInvoiceOCRRequest&;
+    using Resp = RecognizeMedicalInvoiceOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeMedicalInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeMedicalInvoiceOCROutcomeCallable OcrClient::RecognizeMedicalInvoiceOCRCallable(const RecognizeMedicalInvoiceOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeMedicalInvoiceOCROutcome>>();
+    RecognizeMedicalInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeMedicalInvoiceOCRRequest&,
+        RecognizeMedicalInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RecognizeOnlineTaxiItineraryOCROutcome OcrClient::RecognizeOnlineTaxiItineraryOCR(const RecognizeOnlineTaxiItineraryOCRRequest &request)
@@ -1997,25 +2962,182 @@ OcrClient::RecognizeOnlineTaxiItineraryOCROutcome OcrClient::RecognizeOnlineTaxi
 
 void OcrClient::RecognizeOnlineTaxiItineraryOCRAsync(const RecognizeOnlineTaxiItineraryOCRRequest& request, const RecognizeOnlineTaxiItineraryOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeOnlineTaxiItineraryOCR(request), context);
-    };
+    using Req = const RecognizeOnlineTaxiItineraryOCRRequest&;
+    using Resp = RecognizeOnlineTaxiItineraryOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RecognizeOnlineTaxiItineraryOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RecognizeOnlineTaxiItineraryOCROutcomeCallable OcrClient::RecognizeOnlineTaxiItineraryOCRCallable(const RecognizeOnlineTaxiItineraryOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RecognizeOnlineTaxiItineraryOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeOnlineTaxiItineraryOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<RecognizeOnlineTaxiItineraryOCROutcome>>();
+    RecognizeOnlineTaxiItineraryOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeOnlineTaxiItineraryOCRRequest&,
+        RecognizeOnlineTaxiItineraryOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::RecognizeStoreNameOutcome OcrClient::RecognizeStoreName(const RecognizeStoreNameRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeStoreName");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeStoreNameResponse rsp = RecognizeStoreNameResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeStoreNameOutcome(rsp);
+        else
+            return RecognizeStoreNameOutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeStoreNameOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeStoreNameAsync(const RecognizeStoreNameRequest& request, const RecognizeStoreNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeStoreNameRequest&;
+    using Resp = RecognizeStoreNameResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeStoreName", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeStoreNameOutcomeCallable OcrClient::RecognizeStoreNameCallable(const RecognizeStoreNameRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeStoreNameOutcome>>();
+    RecognizeStoreNameAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeStoreNameRequest&,
+        RecognizeStoreNameOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::RecognizeTableAccurateOCROutcome OcrClient::RecognizeTableAccurateOCR(const RecognizeTableAccurateOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeTableAccurateOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeTableAccurateOCRResponse rsp = RecognizeTableAccurateOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeTableAccurateOCROutcome(rsp);
+        else
+            return RecognizeTableAccurateOCROutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeTableAccurateOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeTableAccurateOCRAsync(const RecognizeTableAccurateOCRRequest& request, const RecognizeTableAccurateOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeTableAccurateOCRRequest&;
+    using Resp = RecognizeTableAccurateOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeTableAccurateOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeTableAccurateOCROutcomeCallable OcrClient::RecognizeTableAccurateOCRCallable(const RecognizeTableAccurateOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeTableAccurateOCROutcome>>();
+    RecognizeTableAccurateOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeTableAccurateOCRRequest&,
+        RecognizeTableAccurateOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+OcrClient::RecognizeTableMultiOCROutcome OcrClient::RecognizeTableMultiOCR(const RecognizeTableMultiOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeTableMultiOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeTableMultiOCRResponse rsp = RecognizeTableMultiOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeTableMultiOCROutcome(rsp);
+        else
+            return RecognizeTableMultiOCROutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeTableMultiOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeTableMultiOCRAsync(const RecognizeTableMultiOCRRequest& request, const RecognizeTableMultiOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeTableMultiOCRRequest&;
+    using Resp = RecognizeTableMultiOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeTableMultiOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeTableMultiOCROutcomeCallable OcrClient::RecognizeTableMultiOCRCallable(const RecognizeTableMultiOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeTableMultiOCROutcome>>();
+    RecognizeTableMultiOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeTableMultiOCRRequest&,
+        RecognizeTableMultiOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RecognizeTableOCROutcome OcrClient::RecognizeTableOCR(const RecognizeTableOCRRequest &request)
@@ -2040,25 +3162,32 @@ OcrClient::RecognizeTableOCROutcome OcrClient::RecognizeTableOCR(const Recognize
 
 void OcrClient::RecognizeTableOCRAsync(const RecognizeTableOCRRequest& request, const RecognizeTableOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeTableOCR(request), context);
-    };
+    using Req = const RecognizeTableOCRRequest&;
+    using Resp = RecognizeTableOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RecognizeTableOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RecognizeTableOCROutcomeCallable OcrClient::RecognizeTableOCRCallable(const RecognizeTableOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RecognizeTableOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeTableOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RecognizeTableOCROutcome>>();
+    RecognizeTableOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeTableOCRRequest&,
+        RecognizeTableOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RecognizeThaiIDCardOCROutcome OcrClient::RecognizeThaiIDCardOCR(const RecognizeThaiIDCardOCRRequest &request)
@@ -2083,25 +3212,32 @@ OcrClient::RecognizeThaiIDCardOCROutcome OcrClient::RecognizeThaiIDCardOCR(const
 
 void OcrClient::RecognizeThaiIDCardOCRAsync(const RecognizeThaiIDCardOCRRequest& request, const RecognizeThaiIDCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeThaiIDCardOCR(request), context);
-    };
+    using Req = const RecognizeThaiIDCardOCRRequest&;
+    using Resp = RecognizeThaiIDCardOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RecognizeThaiIDCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RecognizeThaiIDCardOCROutcomeCallable OcrClient::RecognizeThaiIDCardOCRCallable(const RecognizeThaiIDCardOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RecognizeThaiIDCardOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeThaiIDCardOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RecognizeThaiIDCardOCROutcome>>();
+    RecognizeThaiIDCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeThaiIDCardOCRRequest&,
+        RecognizeThaiIDCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RecognizeTravelCardOCROutcome OcrClient::RecognizeTravelCardOCR(const RecognizeTravelCardOCRRequest &request)
@@ -2126,25 +3262,82 @@ OcrClient::RecognizeTravelCardOCROutcome OcrClient::RecognizeTravelCardOCR(const
 
 void OcrClient::RecognizeTravelCardOCRAsync(const RecognizeTravelCardOCRRequest& request, const RecognizeTravelCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RecognizeTravelCardOCR(request), context);
-    };
+    using Req = const RecognizeTravelCardOCRRequest&;
+    using Resp = RecognizeTravelCardOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RecognizeTravelCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RecognizeTravelCardOCROutcomeCallable OcrClient::RecognizeTravelCardOCRCallable(const RecognizeTravelCardOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RecognizeTravelCardOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RecognizeTravelCardOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<RecognizeTravelCardOCROutcome>>();
+    RecognizeTravelCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeTravelCardOCRRequest&,
+        RecognizeTravelCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::RecognizeValidIDCardOCROutcome OcrClient::RecognizeValidIDCardOCR(const RecognizeValidIDCardOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeValidIDCardOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeValidIDCardOCRResponse rsp = RecognizeValidIDCardOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeValidIDCardOCROutcome(rsp);
+        else
+            return RecognizeValidIDCardOCROutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeValidIDCardOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeValidIDCardOCRAsync(const RecognizeValidIDCardOCRRequest& request, const RecognizeValidIDCardOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeValidIDCardOCRRequest&;
+    using Resp = RecognizeValidIDCardOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeValidIDCardOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeValidIDCardOCROutcomeCallable OcrClient::RecognizeValidIDCardOCRCallable(const RecognizeValidIDCardOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeValidIDCardOCROutcome>>();
+    RecognizeValidIDCardOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeValidIDCardOCRRequest&,
+        RecognizeValidIDCardOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::ResidenceBookletOCROutcome OcrClient::ResidenceBookletOCR(const ResidenceBookletOCRRequest &request)
@@ -2169,25 +3362,32 @@ OcrClient::ResidenceBookletOCROutcome OcrClient::ResidenceBookletOCR(const Resid
 
 void OcrClient::ResidenceBookletOCRAsync(const ResidenceBookletOCRRequest& request, const ResidenceBookletOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ResidenceBookletOCR(request), context);
-    };
+    using Req = const ResidenceBookletOCRRequest&;
+    using Resp = ResidenceBookletOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ResidenceBookletOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::ResidenceBookletOCROutcomeCallable OcrClient::ResidenceBookletOCRCallable(const ResidenceBookletOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ResidenceBookletOCROutcome()>>(
-        [this, request]()
-        {
-            return this->ResidenceBookletOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ResidenceBookletOCROutcome>>();
+    ResidenceBookletOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ResidenceBookletOCRRequest&,
+        ResidenceBookletOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RideHailingDriverLicenseOCROutcome OcrClient::RideHailingDriverLicenseOCR(const RideHailingDriverLicenseOCRRequest &request)
@@ -2212,25 +3412,32 @@ OcrClient::RideHailingDriverLicenseOCROutcome OcrClient::RideHailingDriverLicens
 
 void OcrClient::RideHailingDriverLicenseOCRAsync(const RideHailingDriverLicenseOCRRequest& request, const RideHailingDriverLicenseOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RideHailingDriverLicenseOCR(request), context);
-    };
+    using Req = const RideHailingDriverLicenseOCRRequest&;
+    using Resp = RideHailingDriverLicenseOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RideHailingDriverLicenseOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RideHailingDriverLicenseOCROutcomeCallable OcrClient::RideHailingDriverLicenseOCRCallable(const RideHailingDriverLicenseOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RideHailingDriverLicenseOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RideHailingDriverLicenseOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RideHailingDriverLicenseOCROutcome>>();
+    RideHailingDriverLicenseOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RideHailingDriverLicenseOCRRequest&,
+        RideHailingDriverLicenseOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::RideHailingTransportLicenseOCROutcome OcrClient::RideHailingTransportLicenseOCR(const RideHailingTransportLicenseOCRRequest &request)
@@ -2255,25 +3462,32 @@ OcrClient::RideHailingTransportLicenseOCROutcome OcrClient::RideHailingTransport
 
 void OcrClient::RideHailingTransportLicenseOCRAsync(const RideHailingTransportLicenseOCRRequest& request, const RideHailingTransportLicenseOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RideHailingTransportLicenseOCR(request), context);
-    };
+    using Req = const RideHailingTransportLicenseOCRRequest&;
+    using Resp = RideHailingTransportLicenseOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RideHailingTransportLicenseOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::RideHailingTransportLicenseOCROutcomeCallable OcrClient::RideHailingTransportLicenseOCRCallable(const RideHailingTransportLicenseOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RideHailingTransportLicenseOCROutcome()>>(
-        [this, request]()
-        {
-            return this->RideHailingTransportLicenseOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RideHailingTransportLicenseOCROutcome>>();
+    RideHailingTransportLicenseOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RideHailingTransportLicenseOCRRequest&,
+        RideHailingTransportLicenseOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::SealOCROutcome OcrClient::SealOCR(const SealOCRRequest &request)
@@ -2298,25 +3512,32 @@ OcrClient::SealOCROutcome OcrClient::SealOCR(const SealOCRRequest &request)
 
 void OcrClient::SealOCRAsync(const SealOCRRequest& request, const SealOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SealOCR(request), context);
-    };
+    using Req = const SealOCRRequest&;
+    using Resp = SealOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SealOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::SealOCROutcomeCallable OcrClient::SealOCRCallable(const SealOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SealOCROutcome()>>(
-        [this, request]()
-        {
-            return this->SealOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<SealOCROutcome>>();
+    SealOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const SealOCRRequest&,
+        SealOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::ShipInvoiceOCROutcome OcrClient::ShipInvoiceOCR(const ShipInvoiceOCRRequest &request)
@@ -2341,25 +3562,32 @@ OcrClient::ShipInvoiceOCROutcome OcrClient::ShipInvoiceOCR(const ShipInvoiceOCRR
 
 void OcrClient::ShipInvoiceOCRAsync(const ShipInvoiceOCRRequest& request, const ShipInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ShipInvoiceOCR(request), context);
-    };
+    using Req = const ShipInvoiceOCRRequest&;
+    using Resp = ShipInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ShipInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::ShipInvoiceOCROutcomeCallable OcrClient::ShipInvoiceOCRCallable(const ShipInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ShipInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->ShipInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ShipInvoiceOCROutcome>>();
+    ShipInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const ShipInvoiceOCRRequest&,
+        ShipInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::SmartStructuralOCROutcome OcrClient::SmartStructuralOCR(const SmartStructuralOCRRequest &request)
@@ -2384,25 +3612,82 @@ OcrClient::SmartStructuralOCROutcome OcrClient::SmartStructuralOCR(const SmartSt
 
 void OcrClient::SmartStructuralOCRAsync(const SmartStructuralOCRRequest& request, const SmartStructuralOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SmartStructuralOCR(request), context);
-    };
+    using Req = const SmartStructuralOCRRequest&;
+    using Resp = SmartStructuralOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SmartStructuralOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::SmartStructuralOCROutcomeCallable OcrClient::SmartStructuralOCRCallable(const SmartStructuralOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SmartStructuralOCROutcome()>>(
-        [this, request]()
-        {
-            return this->SmartStructuralOCR(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<SmartStructuralOCROutcome>>();
+    SmartStructuralOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const SmartStructuralOCRRequest&,
+        SmartStructuralOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+OcrClient::SubmitExtractDocAgentJobOutcome OcrClient::SubmitExtractDocAgentJob(const SubmitExtractDocAgentJobRequest &request)
+{
+    auto outcome = MakeRequest(request, "SubmitExtractDocAgentJob");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        SubmitExtractDocAgentJobResponse rsp = SubmitExtractDocAgentJobResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return SubmitExtractDocAgentJobOutcome(rsp);
+        else
+            return SubmitExtractDocAgentJobOutcome(o.GetError());
+    }
+    else
+    {
+        return SubmitExtractDocAgentJobOutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::SubmitExtractDocAgentJobAsync(const SubmitExtractDocAgentJobRequest& request, const SubmitExtractDocAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const SubmitExtractDocAgentJobRequest&;
+    using Resp = SubmitExtractDocAgentJobResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "SubmitExtractDocAgentJob", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::SubmitExtractDocAgentJobOutcomeCallable OcrClient::SubmitExtractDocAgentJobCallable(const SubmitExtractDocAgentJobRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<SubmitExtractDocAgentJobOutcome>>();
+    SubmitExtractDocAgentJobAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const SubmitExtractDocAgentJobRequest&,
+        SubmitExtractDocAgentJobOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::TableOCROutcome OcrClient::TableOCR(const TableOCRRequest &request)
@@ -2427,25 +3712,32 @@ OcrClient::TableOCROutcome OcrClient::TableOCR(const TableOCRRequest &request)
 
 void OcrClient::TableOCRAsync(const TableOCRRequest& request, const TableOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TableOCR(request), context);
-    };
+    using Req = const TableOCRRequest&;
+    using Resp = TableOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TableOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::TableOCROutcomeCallable OcrClient::TableOCRCallable(const TableOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TableOCROutcome()>>(
-        [this, request]()
-        {
-            return this->TableOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TableOCROutcome>>();
+    TableOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const TableOCRRequest&,
+        TableOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::TaxiInvoiceOCROutcome OcrClient::TaxiInvoiceOCR(const TaxiInvoiceOCRRequest &request)
@@ -2470,25 +3762,32 @@ OcrClient::TaxiInvoiceOCROutcome OcrClient::TaxiInvoiceOCR(const TaxiInvoiceOCRR
 
 void OcrClient::TaxiInvoiceOCRAsync(const TaxiInvoiceOCRRequest& request, const TaxiInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TaxiInvoiceOCR(request), context);
-    };
+    using Req = const TaxiInvoiceOCRRequest&;
+    using Resp = TaxiInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TaxiInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::TaxiInvoiceOCROutcomeCallable OcrClient::TaxiInvoiceOCRCallable(const TaxiInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TaxiInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->TaxiInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TaxiInvoiceOCROutcome>>();
+    TaxiInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const TaxiInvoiceOCRRequest&,
+        TaxiInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::TextDetectOutcome OcrClient::TextDetect(const TextDetectRequest &request)
@@ -2513,25 +3812,32 @@ OcrClient::TextDetectOutcome OcrClient::TextDetect(const TextDetectRequest &requ
 
 void OcrClient::TextDetectAsync(const TextDetectRequest& request, const TextDetectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TextDetect(request), context);
-    };
+    using Req = const TextDetectRequest&;
+    using Resp = TextDetectResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TextDetect", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::TextDetectOutcomeCallable OcrClient::TextDetectCallable(const TextDetectRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TextDetectOutcome()>>(
-        [this, request]()
-        {
-            return this->TextDetect(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TextDetectOutcome>>();
+    TextDetectAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const TextDetectRequest&,
+        TextDetectOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::TollInvoiceOCROutcome OcrClient::TollInvoiceOCR(const TollInvoiceOCRRequest &request)
@@ -2556,25 +3862,32 @@ OcrClient::TollInvoiceOCROutcome OcrClient::TollInvoiceOCR(const TollInvoiceOCRR
 
 void OcrClient::TollInvoiceOCRAsync(const TollInvoiceOCRRequest& request, const TollInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TollInvoiceOCR(request), context);
-    };
+    using Req = const TollInvoiceOCRRequest&;
+    using Resp = TollInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TollInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::TollInvoiceOCROutcomeCallable OcrClient::TollInvoiceOCRCallable(const TollInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TollInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->TollInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TollInvoiceOCROutcome>>();
+    TollInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const TollInvoiceOCRRequest&,
+        TollInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::TrainTicketOCROutcome OcrClient::TrainTicketOCR(const TrainTicketOCRRequest &request)
@@ -2599,25 +3912,32 @@ OcrClient::TrainTicketOCROutcome OcrClient::TrainTicketOCR(const TrainTicketOCRR
 
 void OcrClient::TrainTicketOCRAsync(const TrainTicketOCRRequest& request, const TrainTicketOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TrainTicketOCR(request), context);
-    };
+    using Req = const TrainTicketOCRRequest&;
+    using Resp = TrainTicketOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TrainTicketOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::TrainTicketOCROutcomeCallable OcrClient::TrainTicketOCRCallable(const TrainTicketOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TrainTicketOCROutcome()>>(
-        [this, request]()
-        {
-            return this->TrainTicketOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TrainTicketOCROutcome>>();
+    TrainTicketOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const TrainTicketOCRRequest&,
+        TrainTicketOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::VatInvoiceOCROutcome OcrClient::VatInvoiceOCR(const VatInvoiceOCRRequest &request)
@@ -2642,68 +3962,82 @@ OcrClient::VatInvoiceOCROutcome OcrClient::VatInvoiceOCR(const VatInvoiceOCRRequ
 
 void OcrClient::VatInvoiceOCRAsync(const VatInvoiceOCRRequest& request, const VatInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VatInvoiceOCR(request), context);
-    };
+    using Req = const VatInvoiceOCRRequest&;
+    using Resp = VatInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VatInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::VatInvoiceOCROutcomeCallable OcrClient::VatInvoiceOCRCallable(const VatInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VatInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->VatInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<VatInvoiceOCROutcome>>();
+    VatInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const VatInvoiceOCRRequest&,
+        VatInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-OcrClient::VatInvoiceVerifyOutcome OcrClient::VatInvoiceVerify(const VatInvoiceVerifyRequest &request)
+OcrClient::VatInvoiceVerifyNewOutcome OcrClient::VatInvoiceVerifyNew(const VatInvoiceVerifyNewRequest &request)
 {
-    auto outcome = MakeRequest(request, "VatInvoiceVerify");
+    auto outcome = MakeRequest(request, "VatInvoiceVerifyNew");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        VatInvoiceVerifyResponse rsp = VatInvoiceVerifyResponse();
+        VatInvoiceVerifyNewResponse rsp = VatInvoiceVerifyNewResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return VatInvoiceVerifyOutcome(rsp);
+            return VatInvoiceVerifyNewOutcome(rsp);
         else
-            return VatInvoiceVerifyOutcome(o.GetError());
+            return VatInvoiceVerifyNewOutcome(o.GetError());
     }
     else
     {
-        return VatInvoiceVerifyOutcome(outcome.GetError());
+        return VatInvoiceVerifyNewOutcome(outcome.GetError());
     }
 }
 
-void OcrClient::VatInvoiceVerifyAsync(const VatInvoiceVerifyRequest& request, const VatInvoiceVerifyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void OcrClient::VatInvoiceVerifyNewAsync(const VatInvoiceVerifyNewRequest& request, const VatInvoiceVerifyNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VatInvoiceVerify(request), context);
-    };
+    using Req = const VatInvoiceVerifyNewRequest&;
+    using Resp = VatInvoiceVerifyNewResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VatInvoiceVerifyNew", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-OcrClient::VatInvoiceVerifyOutcomeCallable OcrClient::VatInvoiceVerifyCallable(const VatInvoiceVerifyRequest &request)
+OcrClient::VatInvoiceVerifyNewOutcomeCallable OcrClient::VatInvoiceVerifyNewCallable(const VatInvoiceVerifyNewRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VatInvoiceVerifyOutcome()>>(
-        [this, request]()
-        {
-            return this->VatInvoiceVerify(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<VatInvoiceVerifyNewOutcome>>();
+    VatInvoiceVerifyNewAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const VatInvoiceVerifyNewRequest&,
+        VatInvoiceVerifyNewOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::VatRollInvoiceOCROutcome OcrClient::VatRollInvoiceOCR(const VatRollInvoiceOCRRequest &request)
@@ -2728,25 +4062,32 @@ OcrClient::VatRollInvoiceOCROutcome OcrClient::VatRollInvoiceOCR(const VatRollIn
 
 void OcrClient::VatRollInvoiceOCRAsync(const VatRollInvoiceOCRRequest& request, const VatRollInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VatRollInvoiceOCR(request), context);
-    };
+    using Req = const VatRollInvoiceOCRRequest&;
+    using Resp = VatRollInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VatRollInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::VatRollInvoiceOCROutcomeCallable OcrClient::VatRollInvoiceOCRCallable(const VatRollInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VatRollInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->VatRollInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<VatRollInvoiceOCROutcome>>();
+    VatRollInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const VatRollInvoiceOCRRequest&,
+        VatRollInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::VehicleLicenseOCROutcome OcrClient::VehicleLicenseOCR(const VehicleLicenseOCRRequest &request)
@@ -2771,25 +4112,32 @@ OcrClient::VehicleLicenseOCROutcome OcrClient::VehicleLicenseOCR(const VehicleLi
 
 void OcrClient::VehicleLicenseOCRAsync(const VehicleLicenseOCRRequest& request, const VehicleLicenseOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VehicleLicenseOCR(request), context);
-    };
+    using Req = const VehicleLicenseOCRRequest&;
+    using Resp = VehicleLicenseOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VehicleLicenseOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::VehicleLicenseOCROutcomeCallable OcrClient::VehicleLicenseOCRCallable(const VehicleLicenseOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VehicleLicenseOCROutcome()>>(
-        [this, request]()
-        {
-            return this->VehicleLicenseOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<VehicleLicenseOCROutcome>>();
+    VehicleLicenseOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const VehicleLicenseOCRRequest&,
+        VehicleLicenseOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::VehicleRegCertOCROutcome OcrClient::VehicleRegCertOCR(const VehicleRegCertOCRRequest &request)
@@ -2814,154 +4162,32 @@ OcrClient::VehicleRegCertOCROutcome OcrClient::VehicleRegCertOCR(const VehicleRe
 
 void OcrClient::VehicleRegCertOCRAsync(const VehicleRegCertOCRRequest& request, const VehicleRegCertOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VehicleRegCertOCR(request), context);
-    };
+    using Req = const VehicleRegCertOCRRequest&;
+    using Resp = VehicleRegCertOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VehicleRegCertOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::VehicleRegCertOCROutcomeCallable OcrClient::VehicleRegCertOCRCallable(const VehicleRegCertOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VehicleRegCertOCROutcome()>>(
-        [this, request]()
-        {
-            return this->VehicleRegCertOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-OcrClient::VerifyBasicBizLicenseOutcome OcrClient::VerifyBasicBizLicense(const VerifyBasicBizLicenseRequest &request)
-{
-    auto outcome = MakeRequest(request, "VerifyBasicBizLicense");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<VehicleRegCertOCROutcome>>();
+    VehicleRegCertOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const VehicleRegCertOCRRequest&,
+        VehicleRegCertOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        VerifyBasicBizLicenseResponse rsp = VerifyBasicBizLicenseResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return VerifyBasicBizLicenseOutcome(rsp);
-        else
-            return VerifyBasicBizLicenseOutcome(o.GetError());
-    }
-    else
-    {
-        return VerifyBasicBizLicenseOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::VerifyBasicBizLicenseAsync(const VerifyBasicBizLicenseRequest& request, const VerifyBasicBizLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VerifyBasicBizLicense(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-OcrClient::VerifyBasicBizLicenseOutcomeCallable OcrClient::VerifyBasicBizLicenseCallable(const VerifyBasicBizLicenseRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<VerifyBasicBizLicenseOutcome()>>(
-        [this, request]()
-        {
-            return this->VerifyBasicBizLicense(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-OcrClient::VerifyBizLicenseOutcome OcrClient::VerifyBizLicense(const VerifyBizLicenseRequest &request)
-{
-    auto outcome = MakeRequest(request, "VerifyBizLicense");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        VerifyBizLicenseResponse rsp = VerifyBizLicenseResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return VerifyBizLicenseOutcome(rsp);
-        else
-            return VerifyBizLicenseOutcome(o.GetError());
-    }
-    else
-    {
-        return VerifyBizLicenseOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::VerifyBizLicenseAsync(const VerifyBizLicenseRequest& request, const VerifyBizLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VerifyBizLicense(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-OcrClient::VerifyBizLicenseOutcomeCallable OcrClient::VerifyBizLicenseCallable(const VerifyBizLicenseRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<VerifyBizLicenseOutcome()>>(
-        [this, request]()
-        {
-            return this->VerifyBizLicense(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-OcrClient::VerifyEnterpriseFourFactorsOutcome OcrClient::VerifyEnterpriseFourFactors(const VerifyEnterpriseFourFactorsRequest &request)
-{
-    auto outcome = MakeRequest(request, "VerifyEnterpriseFourFactors");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        VerifyEnterpriseFourFactorsResponse rsp = VerifyEnterpriseFourFactorsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return VerifyEnterpriseFourFactorsOutcome(rsp);
-        else
-            return VerifyEnterpriseFourFactorsOutcome(o.GetError());
-    }
-    else
-    {
-        return VerifyEnterpriseFourFactorsOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::VerifyEnterpriseFourFactorsAsync(const VerifyEnterpriseFourFactorsRequest& request, const VerifyEnterpriseFourFactorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VerifyEnterpriseFourFactors(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-OcrClient::VerifyEnterpriseFourFactorsOutcomeCallable OcrClient::VerifyEnterpriseFourFactorsCallable(const VerifyEnterpriseFourFactorsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<VerifyEnterpriseFourFactorsOutcome()>>(
-        [this, request]()
-        {
-            return this->VerifyEnterpriseFourFactors(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::VerifyOfdVatInvoiceOCROutcome OcrClient::VerifyOfdVatInvoiceOCR(const VerifyOfdVatInvoiceOCRRequest &request)
@@ -2986,25 +4212,32 @@ OcrClient::VerifyOfdVatInvoiceOCROutcome OcrClient::VerifyOfdVatInvoiceOCR(const
 
 void OcrClient::VerifyOfdVatInvoiceOCRAsync(const VerifyOfdVatInvoiceOCRRequest& request, const VerifyOfdVatInvoiceOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VerifyOfdVatInvoiceOCR(request), context);
-    };
+    using Req = const VerifyOfdVatInvoiceOCRRequest&;
+    using Resp = VerifyOfdVatInvoiceOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VerifyOfdVatInvoiceOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::VerifyOfdVatInvoiceOCROutcomeCallable OcrClient::VerifyOfdVatInvoiceOCRCallable(const VerifyOfdVatInvoiceOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VerifyOfdVatInvoiceOCROutcome()>>(
-        [this, request]()
-        {
-            return this->VerifyOfdVatInvoiceOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<VerifyOfdVatInvoiceOCROutcome>>();
+    VerifyOfdVatInvoiceOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const VerifyOfdVatInvoiceOCRRequest&,
+        VerifyOfdVatInvoiceOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::VinOCROutcome OcrClient::VinOCR(const VinOCRRequest &request)
@@ -3029,25 +4262,32 @@ OcrClient::VinOCROutcome OcrClient::VinOCR(const VinOCRRequest &request)
 
 void OcrClient::VinOCRAsync(const VinOCRRequest& request, const VinOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VinOCR(request), context);
-    };
+    using Req = const VinOCRRequest&;
+    using Resp = VinOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VinOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::VinOCROutcomeCallable OcrClient::VinOCRCallable(const VinOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VinOCROutcome()>>(
-        [this, request]()
-        {
-            return this->VinOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<VinOCROutcome>>();
+    VinOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const VinOCRRequest&,
+        VinOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 OcrClient::WaybillOCROutcome OcrClient::WaybillOCR(const WaybillOCRRequest &request)
@@ -3072,24 +4312,31 @@ OcrClient::WaybillOCROutcome OcrClient::WaybillOCR(const WaybillOCRRequest &requ
 
 void OcrClient::WaybillOCRAsync(const WaybillOCRRequest& request, const WaybillOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->WaybillOCR(request), context);
-    };
+    using Req = const WaybillOCRRequest&;
+    using Resp = WaybillOCRResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "WaybillOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 OcrClient::WaybillOCROutcomeCallable OcrClient::WaybillOCRCallable(const WaybillOCRRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<WaybillOCROutcome()>>(
-        [this, request]()
-        {
-            return this->WaybillOCR(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<WaybillOCROutcome>>();
+    WaybillOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const WaybillOCRRequest&,
+        WaybillOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

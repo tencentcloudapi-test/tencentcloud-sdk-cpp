@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取所查询域名名称
                      * @return DomainName 所查询域名名称
+                     * 
                      */
                     std::string GetDomainName() const;
 
                     /**
                      * 设置所查询域名名称
-                     * @param DomainName 所查询域名名称
+                     * @param _domainName 所查询域名名称
+                     * 
                      */
                     void SetDomainName(const std::string& _domainName);
 
                     /**
                      * 判断参数 DomainName 是否已赋值
                      * @return DomainName 是否已赋值
+                     * 
                      */
                     bool DomainNameHasBeenSet() const;
 
                     /**
                      * 获取年限。该参数为空时无法查询溢价词域名
                      * @return Period 年限。该参数为空时无法查询溢价词域名
+                     * 
                      */
                     std::string GetPeriod() const;
 
                     /**
                      * 设置年限。该参数为空时无法查询溢价词域名
-                     * @param Period 年限。该参数为空时无法查询溢价词域名
+                     * @param _period 年限。该参数为空时无法查询溢价词域名
+                     * 
                      */
                     void SetPeriod(const std::string& _period);
 
                     /**
                      * 判断参数 Period 是否已赋值
                      * @return Period 是否已赋值
+                     * 
                      */
                     bool PeriodHasBeenSet() const;
 

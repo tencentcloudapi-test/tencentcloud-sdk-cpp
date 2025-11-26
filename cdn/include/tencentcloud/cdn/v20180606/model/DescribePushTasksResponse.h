@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,29 +46,29 @@ namespace TencentCloud
 
                     /**
                      * 获取预热历史记录
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PushLogs 预热历史记录
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<PushTask> GetPushLogs() const;
 
                     /**
                      * 判断参数 PushLogs 是否已赋值
                      * @return PushLogs 是否已赋值
+                     * 
                      */
                     bool PushLogsHasBeenSet() const;
 
                     /**
                      * 获取任务总数，用于分页
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCount 任务总数，用于分页
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
@@ -76,14 +76,12 @@ namespace TencentCloud
 
                     /**
                      * 预热历史记录
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<PushTask> m_pushLogs;
                     bool m_pushLogsHasBeenSet;
 
                     /**
                      * 任务总数，用于分页
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

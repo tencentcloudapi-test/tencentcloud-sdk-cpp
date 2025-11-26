@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取删除成功的人脸数量
                      * @return SucDeletedNum 删除成功的人脸数量
+                     * 
                      */
                     uint64_t GetSucDeletedNum() const;
 
                     /**
                      * 判断参数 SucDeletedNum 是否已赋值
                      * @return SucDeletedNum 是否已赋值
+                     * 
                      */
                     bool SucDeletedNumHasBeenSet() const;
 
                     /**
                      * 获取删除成功的人脸ID列表
                      * @return SucFaceIds 删除成功的人脸ID列表
+                     * 
                      */
                     std::vector<std::string> GetSucFaceIds() const;
 
                     /**
                      * 判断参数 SucFaceIds 是否已赋值
                      * @return SucFaceIds 是否已赋值
+                     * 
                      */
                     bool SucFaceIdsHasBeenSet() const;
 

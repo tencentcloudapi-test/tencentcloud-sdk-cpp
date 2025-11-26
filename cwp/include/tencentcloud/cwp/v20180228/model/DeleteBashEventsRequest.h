@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,30 +43,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取ID数组，最大100条。
-                     * @return Ids ID数组，最大100条。
+                     * 获取ID数组，最大1000条。
+                     * @return Ids ID数组，最大1000条。
+                     * 
                      */
                     std::vector<uint64_t> GetIds() const;
 
                     /**
-                     * 设置ID数组，最大100条。
-                     * @param Ids ID数组，最大100条。
+                     * 设置ID数组，最大1000条。
+                     * @param _ids ID数组，最大1000条。
+                     * 
                      */
                     void SetIds(const std::vector<uint64_t>& _ids);
 
                     /**
                      * 判断参数 Ids 是否已赋值
                      * @return Ids 是否已赋值
+                     * 
                      */
                     bool IdsHasBeenSet() const;
+
+                    /**
+                     * 获取是否删除全部
+                     * @return All 是否删除全部
+                     * 
+                     */
+                    bool GetAll() const;
+
+                    /**
+                     * 设置是否删除全部
+                     * @param _all 是否删除全部
+                     * 
+                     */
+                    void SetAll(const bool& _all);
+
+                    /**
+                     * 判断参数 All 是否已赋值
+                     * @return All 是否已赋值
+                     * 
+                     */
+                    bool AllHasBeenSet() const;
 
                 private:
 
                     /**
-                     * ID数组，最大100条。
+                     * ID数组，最大1000条。
                      */
                     std::vector<uint64_t> m_ids;
                     bool m_idsHasBeenSet;
+
+                    /**
+                     * 是否删除全部
+                     */
+                    bool m_all;
+                    bool m_allHasBeenSet;
 
                 };
             }

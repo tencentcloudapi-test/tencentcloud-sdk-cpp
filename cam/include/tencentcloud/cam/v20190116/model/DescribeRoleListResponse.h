@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,27 +46,29 @@ namespace TencentCloud
 
                     /**
                      * 获取角色详情列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return List 角色详情列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<RoleInfo> GetList() const;
 
                     /**
                      * 判断参数 List 是否已赋值
                      * @return List 是否已赋值
+                     * 
                      */
                     bool ListHasBeenSet() const;
 
                     /**
                      * 获取角色总数
                      * @return TotalNum 角色总数
+                     * 
                      */
                     uint64_t GetTotalNum() const;
 
                     /**
                      * 判断参数 TotalNum 是否已赋值
                      * @return TotalNum 是否已赋值
+                     * 
                      */
                     bool TotalNumHasBeenSet() const;
 
@@ -74,7 +76,6 @@ namespace TencentCloud
 
                     /**
                      * 角色详情列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<RoleInfo> m_list;
                     bool m_listHasBeenSet;

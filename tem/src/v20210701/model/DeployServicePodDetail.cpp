@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ DeployServicePodDetail::DeployServicePodDetail() :
     m_podVersionHasBeenSet(false),
     m_createTimeHasBeenSet(false),
     m_zoneHasBeenSet(false),
-    m_webshellHasBeenSet(false)
+    m_webshellHasBeenSet(false),
+    m_statusHasBeenSet(false)
 {
 }
 
@@ -98,6 +99,16 @@ CoreInternalOutcome DeployServicePodDetail::Deserialize(const rapidjson::Value &
         m_webshellHasBeenSet = true;
     }
 
+    if (value.HasMember("Status") && !value["Status"].IsNull())
+    {
+        if (!value["Status"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DeployServicePodDetail.Status` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_status = string(value["Status"].GetString());
+        m_statusHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -156,6 +167,14 @@ void DeployServicePodDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Do
         string key = "Webshell";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_webshell.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_statusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Status";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_status.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -255,5 +274,21 @@ void DeployServicePodDetail::SetWebshell(const string& _webshell)
 bool DeployServicePodDetail::WebshellHasBeenSet() const
 {
     return m_webshellHasBeenSet;
+}
+
+string DeployServicePodDetail::GetStatus() const
+{
+    return m_status;
+}
+
+void DeployServicePodDetail::SetStatus(const string& _status)
+{
+    m_status = _status;
+    m_statusHasBeenSet = true;
+}
+
+bool DeployServicePodDetail::StatusHasBeenSet() const
+{
+    return m_statusHasBeenSet;
 }
 

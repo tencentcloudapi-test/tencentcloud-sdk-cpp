@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取统计周期： 单位ms
                      * @return Interval 统计周期： 单位ms
+                     * 
                      */
                     int64_t GetInterval() const;
 
                     /**
                      * 判断参数 Interval 是否已赋值
                      * @return Interval 是否已赋值
+                     * 
                      */
                     bool IntervalHasBeenSet() const;
 
                     /**
                      * 获取命中关键字的日志总条数
                      * @return TotalCount 命中关键字的日志总条数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取周期内统计结果详情
                      * @return HistogramInfos 周期内统计结果详情
+                     * 
                      */
                     std::vector<HistogramInfo> GetHistogramInfos() const;
 
                     /**
                      * 判断参数 HistogramInfos 是否已赋值
                      * @return HistogramInfos 是否已赋值
+                     * 
                      */
                     bool HistogramInfosHasBeenSet() const;
 

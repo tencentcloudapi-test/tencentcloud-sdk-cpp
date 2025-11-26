@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取异常规则的总数
                      * @return Total 异常规则的总数
+                     * 
                      */
                     uint64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
                     /**
                      * 获取异常规则列表，返回值说明: Key值为规则ID，Value值为异常IP，多个IP用","分割
                      * @return ErrHealths 异常规则列表，返回值说明: Key值为规则ID，Value值为异常IP，多个IP用","分割
+                     * 
                      */
                     std::vector<KeyValue> GetErrHealths() const;
 
                     /**
                      * 判断参数 ErrHealths 是否已赋值
                      * @return ErrHealths 是否已赋值
+                     * 
                      */
                     bool ErrHealthsHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,27 +47,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取语音过滤总时长
-                     * @return Duration 语音过滤总时长
+                     * 获取语音过滤总时长，单位为min
+                     * @return Duration 语音过滤总时长，单位为min
+                     * 
                      */
                     uint64_t GetDuration() const;
 
                     /**
-                     * 设置语音过滤总时长
-                     * @param Duration 语音过滤总时长
+                     * 设置语音过滤总时长，单位为min
+                     * @param _duration 语音过滤总时长，单位为min
+                     * 
                      */
                     void SetDuration(const uint64_t& _duration);
 
                     /**
                      * 判断参数 Duration 是否已赋值
                      * @return Duration 是否已赋值
+                     * 
                      */
                     bool DurationHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 语音过滤总时长
+                     * 语音过滤总时长，单位为min
                      */
                     uint64_t m_duration;
                     bool m_durationHasBeenSet;

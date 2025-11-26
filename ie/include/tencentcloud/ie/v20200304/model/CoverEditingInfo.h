@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取是否开启智能封面。0为关闭，1为开启。其他非0非1值默认为0。
                      * @return Switch 是否开启智能封面。0为关闭，1为开启。其他非0非1值默认为0。
+                     * 
                      */
                     int64_t GetSwitch() const;
 
                     /**
                      * 设置是否开启智能封面。0为关闭，1为开启。其他非0非1值默认为0。
-                     * @param Switch 是否开启智能封面。0为关闭，1为开启。其他非0非1值默认为0。
+                     * @param _switch 是否开启智能封面。0为关闭，1为开启。其他非0非1值默认为0。
+                     * 
                      */
                     void SetSwitch(const int64_t& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
                     /**
                      * 获取额外定制化服务参数。参数为序列化的Json字符串，例如：{"k1":"v1"}。
                      * @return CustomInfo 额外定制化服务参数。参数为序列化的Json字符串，例如：{"k1":"v1"}。
+                     * 
                      */
                     std::string GetCustomInfo() const;
 
                     /**
                      * 设置额外定制化服务参数。参数为序列化的Json字符串，例如：{"k1":"v1"}。
-                     * @param CustomInfo 额外定制化服务参数。参数为序列化的Json字符串，例如：{"k1":"v1"}。
+                     * @param _customInfo 额外定制化服务参数。参数为序列化的Json字符串，例如：{"k1":"v1"}。
+                     * 
                      */
                     void SetCustomInfo(const std::string& _customInfo);
 
                     /**
                      * 判断参数 CustomInfo 是否已赋值
                      * @return CustomInfo 是否已赋值
+                     * 
                      */
                     bool CustomInfoHasBeenSet() const;
 

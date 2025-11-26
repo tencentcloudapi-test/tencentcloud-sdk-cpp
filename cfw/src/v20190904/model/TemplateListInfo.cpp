@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,11 @@ TemplateListInfo::TemplateListInfo() :
     m_insertTimeHasBeenSet(false),
     m_updateTimeHasBeenSet(false),
     m_typeHasBeenSet(false),
-    m_rulesNumHasBeenSet(false)
+    m_rulesNumHasBeenSet(false),
+    m_templateIdHasBeenSet(false),
+    m_protocolTypeHasBeenSet(false),
+    m_iPNumHasBeenSet(false),
+    m_ipVersionHasBeenSet(false)
 {
 }
 
@@ -117,6 +121,46 @@ CoreInternalOutcome TemplateListInfo::Deserialize(const rapidjson::Value &value)
         m_rulesNumHasBeenSet = true;
     }
 
+    if (value.HasMember("TemplateId") && !value["TemplateId"].IsNull())
+    {
+        if (!value["TemplateId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateListInfo.TemplateId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_templateId = string(value["TemplateId"].GetString());
+        m_templateIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProtocolType") && !value["ProtocolType"].IsNull())
+    {
+        if (!value["ProtocolType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateListInfo.ProtocolType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_protocolType = string(value["ProtocolType"].GetString());
+        m_protocolTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IPNum") && !value["IPNum"].IsNull())
+    {
+        if (!value["IPNum"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateListInfo.IPNum` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_iPNum = value["IPNum"].GetInt64();
+        m_iPNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("IpVersion") && !value["IpVersion"].IsNull())
+    {
+        if (!value["IpVersion"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateListInfo.IpVersion` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_ipVersion = value["IpVersion"].GetInt64();
+        m_ipVersionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -186,6 +230,38 @@ void TemplateListInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "RulesNum";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_rulesNum, allocator);
+    }
+
+    if (m_templateIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TemplateId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_templateId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_protocolTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProtocolType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_protocolType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iPNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_iPNum, allocator);
+    }
+
+    if (m_ipVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IpVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_ipVersion, allocator);
     }
 
 }
@@ -317,5 +393,69 @@ void TemplateListInfo::SetRulesNum(const int64_t& _rulesNum)
 bool TemplateListInfo::RulesNumHasBeenSet() const
 {
     return m_rulesNumHasBeenSet;
+}
+
+string TemplateListInfo::GetTemplateId() const
+{
+    return m_templateId;
+}
+
+void TemplateListInfo::SetTemplateId(const string& _templateId)
+{
+    m_templateId = _templateId;
+    m_templateIdHasBeenSet = true;
+}
+
+bool TemplateListInfo::TemplateIdHasBeenSet() const
+{
+    return m_templateIdHasBeenSet;
+}
+
+string TemplateListInfo::GetProtocolType() const
+{
+    return m_protocolType;
+}
+
+void TemplateListInfo::SetProtocolType(const string& _protocolType)
+{
+    m_protocolType = _protocolType;
+    m_protocolTypeHasBeenSet = true;
+}
+
+bool TemplateListInfo::ProtocolTypeHasBeenSet() const
+{
+    return m_protocolTypeHasBeenSet;
+}
+
+int64_t TemplateListInfo::GetIPNum() const
+{
+    return m_iPNum;
+}
+
+void TemplateListInfo::SetIPNum(const int64_t& _iPNum)
+{
+    m_iPNum = _iPNum;
+    m_iPNumHasBeenSet = true;
+}
+
+bool TemplateListInfo::IPNumHasBeenSet() const
+{
+    return m_iPNumHasBeenSet;
+}
+
+int64_t TemplateListInfo::GetIpVersion() const
+{
+    return m_ipVersion;
+}
+
+void TemplateListInfo::SetIpVersion(const int64_t& _ipVersion)
+{
+    m_ipVersion = _ipVersion;
+    m_ipVersionHasBeenSet = true;
+}
+
+bool TemplateListInfo::IpVersionHasBeenSet() const
+{
+    return m_ipVersionHasBeenSet;
 }
 

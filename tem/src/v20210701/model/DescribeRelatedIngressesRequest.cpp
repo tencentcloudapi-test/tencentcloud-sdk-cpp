@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,8 @@ using namespace std;
 DescribeRelatedIngressesRequest::DescribeRelatedIngressesRequest() :
     m_environmentIdHasBeenSet(false),
     m_clusterNamespaceHasBeenSet(false),
-    m_sourceChannelHasBeenSet(false),
-    m_applicationIdHasBeenSet(false)
+    m_applicationIdHasBeenSet(false),
+    m_sourceChannelHasBeenSet(false)
 {
 }
 
@@ -53,20 +53,20 @@ string DescribeRelatedIngressesRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_clusterNamespace.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_sourceChannelHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SourceChannel";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_sourceChannel, allocator);
-    }
-
     if (m_applicationIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "ApplicationId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_applicationId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sourceChannelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SourceChannel";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_sourceChannel, allocator);
     }
 
 
@@ -109,22 +109,6 @@ bool DescribeRelatedIngressesRequest::ClusterNamespaceHasBeenSet() const
     return m_clusterNamespaceHasBeenSet;
 }
 
-int64_t DescribeRelatedIngressesRequest::GetSourceChannel() const
-{
-    return m_sourceChannel;
-}
-
-void DescribeRelatedIngressesRequest::SetSourceChannel(const int64_t& _sourceChannel)
-{
-    m_sourceChannel = _sourceChannel;
-    m_sourceChannelHasBeenSet = true;
-}
-
-bool DescribeRelatedIngressesRequest::SourceChannelHasBeenSet() const
-{
-    return m_sourceChannelHasBeenSet;
-}
-
 string DescribeRelatedIngressesRequest::GetApplicationId() const
 {
     return m_applicationId;
@@ -139,6 +123,22 @@ void DescribeRelatedIngressesRequest::SetApplicationId(const string& _applicatio
 bool DescribeRelatedIngressesRequest::ApplicationIdHasBeenSet() const
 {
     return m_applicationIdHasBeenSet;
+}
+
+int64_t DescribeRelatedIngressesRequest::GetSourceChannel() const
+{
+    return m_sourceChannel;
+}
+
+void DescribeRelatedIngressesRequest::SetSourceChannel(const int64_t& _sourceChannel)
+{
+    m_sourceChannel = _sourceChannel;
+    m_sourceChannelHasBeenSet = true;
+}
+
+bool DescribeRelatedIngressesRequest::SourceChannelHasBeenSet() const
+{
+    return m_sourceChannelHasBeenSet;
 }
 
 

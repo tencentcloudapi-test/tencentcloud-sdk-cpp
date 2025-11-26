@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取监控指标。
                      * @return Series 监控指标。
+                     * 
                      */
                     std::vector<MonitorMetric> GetSeries() const;
 
                     /**
                      * 设置监控指标。
-                     * @param Series 监控指标。
+                     * @param _series 监控指标。
+                     * 
                      */
                     void SetSeries(const std::vector<MonitorMetric>& _series);
 
                     /**
                      * 判断参数 Series 是否已赋值
                      * @return Series 是否已赋值
+                     * 
                      */
                     bool SeriesHasBeenSet() const;
 
                     /**
-                     * 获取监控指标对应的时间戳。
-                     * @return Timestamp 监控指标对应的时间戳。
+                     * 获取监控指标对应的时间戳。（精度：秒）
+                     * @return Timestamp 监控指标对应的时间戳。（精度：秒）
+                     * 
                      */
                     std::vector<int64_t> GetTimestamp() const;
 
                     /**
-                     * 设置监控指标对应的时间戳。
-                     * @param Timestamp 监控指标对应的时间戳。
+                     * 设置监控指标对应的时间戳。（精度：秒）
+                     * @param _timestamp 监控指标对应的时间戳。（精度：秒）
+                     * 
                      */
                     void SetTimestamp(const std::vector<int64_t>& _timestamp);
 
                     /**
                      * 判断参数 Timestamp 是否已赋值
                      * @return Timestamp 是否已赋值
+                     * 
                      */
                     bool TimestampHasBeenSet() const;
 
@@ -92,7 +98,7 @@ namespace TencentCloud
                     bool m_seriesHasBeenSet;
 
                     /**
-                     * 监控指标对应的时间戳。
+                     * 监控指标对应的时间戳。（精度：秒）
                      */
                     std::vector<int64_t> m_timestamp;
                     bool m_timestampHasBeenSet;

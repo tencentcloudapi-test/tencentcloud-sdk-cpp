@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ DBAccount::DBAccount() :
     m_createTimeHasBeenSet(false),
     m_updateTimeHasBeenSet(false),
     m_readOnlyHasBeenSet(false),
-    m_delayThreshHasBeenSet(false)
+    m_delayThreshHasBeenSet(false),
+    m_slaveConstHasBeenSet(false),
+    m_maxUserConnectionsHasBeenSet(false)
 {
 }
 
@@ -106,6 +108,26 @@ CoreInternalOutcome DBAccount::Deserialize(const rapidjson::Value &value)
         m_delayThreshHasBeenSet = true;
     }
 
+    if (value.HasMember("SlaveConst") && !value["SlaveConst"].IsNull())
+    {
+        if (!value["SlaveConst"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBAccount.SlaveConst` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_slaveConst = value["SlaveConst"].GetInt64();
+        m_slaveConstHasBeenSet = true;
+    }
+
+    if (value.HasMember("MaxUserConnections") && !value["MaxUserConnections"].IsNull())
+    {
+        if (!value["MaxUserConnections"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBAccount.MaxUserConnections` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_maxUserConnections = value["MaxUserConnections"].GetInt64();
+        m_maxUserConnectionsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -167,6 +189,22 @@ void DBAccount::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "DelayThresh";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_delayThresh, allocator);
+    }
+
+    if (m_slaveConstHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SlaveConst";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_slaveConst, allocator);
+    }
+
+    if (m_maxUserConnectionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxUserConnections";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_maxUserConnections, allocator);
     }
 
 }
@@ -282,5 +320,37 @@ void DBAccount::SetDelayThresh(const int64_t& _delayThresh)
 bool DBAccount::DelayThreshHasBeenSet() const
 {
     return m_delayThreshHasBeenSet;
+}
+
+int64_t DBAccount::GetSlaveConst() const
+{
+    return m_slaveConst;
+}
+
+void DBAccount::SetSlaveConst(const int64_t& _slaveConst)
+{
+    m_slaveConst = _slaveConst;
+    m_slaveConstHasBeenSet = true;
+}
+
+bool DBAccount::SlaveConstHasBeenSet() const
+{
+    return m_slaveConstHasBeenSet;
+}
+
+int64_t DBAccount::GetMaxUserConnections() const
+{
+    return m_maxUserConnections;
+}
+
+void DBAccount::SetMaxUserConnections(const int64_t& _maxUserConnections)
+{
+    m_maxUserConnections = _maxUserConnections;
+    m_maxUserConnectionsHasBeenSet = true;
+}
+
+bool DBAccount::MaxUserConnectionsHasBeenSet() const
+{
+    return m_maxUserConnectionsHasBeenSet;
 }
 

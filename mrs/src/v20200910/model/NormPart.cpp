@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ NormPart::NormPart() :
     m_partDirectionHasBeenSet(false),
     m_tissueHasBeenSet(false),
     m_tissueDirectionHasBeenSet(false),
-    m_upperHasBeenSet(false)
+    m_upperHasBeenSet(false),
+    m_partDetailHasBeenSet(false),
+    m_partDetailListHasBeenSet(false)
 {
 }
 
@@ -84,6 +86,43 @@ CoreInternalOutcome NormPart::Deserialize(const rapidjson::Value &value)
         m_upperHasBeenSet = true;
     }
 
+    if (value.HasMember("PartDetail") && !value["PartDetail"].IsNull())
+    {
+        if (!value["PartDetail"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `NormPart.PartDetail` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_partDetail.Deserialize(value["PartDetail"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_partDetailHasBeenSet = true;
+    }
+
+    if (value.HasMember("PartDetailList") && !value["PartDetailList"].IsNull())
+    {
+        if (!value["PartDetailList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `NormPart.PartDetailList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["PartDetailList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            PartDesc item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_partDetailList.push_back(item);
+        }
+        m_partDetailListHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +168,30 @@ void NormPart::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "Upper";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_upper.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_partDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PartDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_partDetail.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_partDetailListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PartDetailList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_partDetailList.begin(); itr != m_partDetailList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -212,5 +275,37 @@ void NormPart::SetUpper(const string& _upper)
 bool NormPart::UpperHasBeenSet() const
 {
     return m_upperHasBeenSet;
+}
+
+PartDesc NormPart::GetPartDetail() const
+{
+    return m_partDetail;
+}
+
+void NormPart::SetPartDetail(const PartDesc& _partDetail)
+{
+    m_partDetail = _partDetail;
+    m_partDetailHasBeenSet = true;
+}
+
+bool NormPart::PartDetailHasBeenSet() const
+{
+    return m_partDetailHasBeenSet;
+}
+
+vector<PartDesc> NormPart::GetPartDetailList() const
+{
+    return m_partDetailList;
+}
+
+void NormPart::SetPartDetailList(const vector<PartDesc>& _partDetailList)
+{
+    m_partDetailList = _partDetailList;
+    m_partDetailListHasBeenSet = true;
+}
+
+bool NormPart::PartDetailListHasBeenSet() const
+{
+    return m_partDetailListHasBeenSet;
 }
 

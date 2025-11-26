@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,13 @@ Cluster::Cluster() :
     m_containerRuntimeHasBeenSet(false),
     m_createdTimeHasBeenSet(false),
     m_deletionProtectionHasBeenSet(false),
-    m_enableExternalNodeHasBeenSet(false)
+    m_enableExternalNodeHasBeenSet(false),
+    m_clusterLevelHasBeenSet(false),
+    m_autoUpgradeClusterLevelHasBeenSet(false),
+    m_qGPUShareEnableHasBeenSet(false),
+    m_runtimeVersionHasBeenSet(false),
+    m_clusterEtcdNodeNumHasBeenSet(false),
+    m_cdcIdHasBeenSet(false)
 {
 }
 
@@ -255,6 +261,66 @@ CoreInternalOutcome Cluster::Deserialize(const rapidjson::Value &value)
         m_enableExternalNodeHasBeenSet = true;
     }
 
+    if (value.HasMember("ClusterLevel") && !value["ClusterLevel"].IsNull())
+    {
+        if (!value["ClusterLevel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Cluster.ClusterLevel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterLevel = string(value["ClusterLevel"].GetString());
+        m_clusterLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoUpgradeClusterLevel") && !value["AutoUpgradeClusterLevel"].IsNull())
+    {
+        if (!value["AutoUpgradeClusterLevel"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Cluster.AutoUpgradeClusterLevel` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoUpgradeClusterLevel = value["AutoUpgradeClusterLevel"].GetBool();
+        m_autoUpgradeClusterLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("QGPUShareEnable") && !value["QGPUShareEnable"].IsNull())
+    {
+        if (!value["QGPUShareEnable"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Cluster.QGPUShareEnable` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_qGPUShareEnable = value["QGPUShareEnable"].GetBool();
+        m_qGPUShareEnableHasBeenSet = true;
+    }
+
+    if (value.HasMember("RuntimeVersion") && !value["RuntimeVersion"].IsNull())
+    {
+        if (!value["RuntimeVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Cluster.RuntimeVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_runtimeVersion = string(value["RuntimeVersion"].GetString());
+        m_runtimeVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterEtcdNodeNum") && !value["ClusterEtcdNodeNum"].IsNull())
+    {
+        if (!value["ClusterEtcdNodeNum"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Cluster.ClusterEtcdNodeNum` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterEtcdNodeNum = value["ClusterEtcdNodeNum"].GetUint64();
+        m_clusterEtcdNodeNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("CdcId") && !value["CdcId"].IsNull())
+    {
+        if (!value["CdcId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Cluster.CdcId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cdcId = string(value["CdcId"].GetString());
+        m_cdcIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -420,6 +486,54 @@ void Cluster::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "EnableExternalNode";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_enableExternalNode, allocator);
+    }
+
+    if (m_clusterLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterLevel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoUpgradeClusterLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoUpgradeClusterLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoUpgradeClusterLevel, allocator);
+    }
+
+    if (m_qGPUShareEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QGPUShareEnable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_qGPUShareEnable, allocator);
+    }
+
+    if (m_runtimeVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuntimeVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_runtimeVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterEtcdNodeNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterEtcdNodeNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_clusterEtcdNodeNum, allocator);
+    }
+
+    if (m_cdcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CdcId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cdcId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -727,5 +841,101 @@ void Cluster::SetEnableExternalNode(const bool& _enableExternalNode)
 bool Cluster::EnableExternalNodeHasBeenSet() const
 {
     return m_enableExternalNodeHasBeenSet;
+}
+
+string Cluster::GetClusterLevel() const
+{
+    return m_clusterLevel;
+}
+
+void Cluster::SetClusterLevel(const string& _clusterLevel)
+{
+    m_clusterLevel = _clusterLevel;
+    m_clusterLevelHasBeenSet = true;
+}
+
+bool Cluster::ClusterLevelHasBeenSet() const
+{
+    return m_clusterLevelHasBeenSet;
+}
+
+bool Cluster::GetAutoUpgradeClusterLevel() const
+{
+    return m_autoUpgradeClusterLevel;
+}
+
+void Cluster::SetAutoUpgradeClusterLevel(const bool& _autoUpgradeClusterLevel)
+{
+    m_autoUpgradeClusterLevel = _autoUpgradeClusterLevel;
+    m_autoUpgradeClusterLevelHasBeenSet = true;
+}
+
+bool Cluster::AutoUpgradeClusterLevelHasBeenSet() const
+{
+    return m_autoUpgradeClusterLevelHasBeenSet;
+}
+
+bool Cluster::GetQGPUShareEnable() const
+{
+    return m_qGPUShareEnable;
+}
+
+void Cluster::SetQGPUShareEnable(const bool& _qGPUShareEnable)
+{
+    m_qGPUShareEnable = _qGPUShareEnable;
+    m_qGPUShareEnableHasBeenSet = true;
+}
+
+bool Cluster::QGPUShareEnableHasBeenSet() const
+{
+    return m_qGPUShareEnableHasBeenSet;
+}
+
+string Cluster::GetRuntimeVersion() const
+{
+    return m_runtimeVersion;
+}
+
+void Cluster::SetRuntimeVersion(const string& _runtimeVersion)
+{
+    m_runtimeVersion = _runtimeVersion;
+    m_runtimeVersionHasBeenSet = true;
+}
+
+bool Cluster::RuntimeVersionHasBeenSet() const
+{
+    return m_runtimeVersionHasBeenSet;
+}
+
+uint64_t Cluster::GetClusterEtcdNodeNum() const
+{
+    return m_clusterEtcdNodeNum;
+}
+
+void Cluster::SetClusterEtcdNodeNum(const uint64_t& _clusterEtcdNodeNum)
+{
+    m_clusterEtcdNodeNum = _clusterEtcdNodeNum;
+    m_clusterEtcdNodeNumHasBeenSet = true;
+}
+
+bool Cluster::ClusterEtcdNodeNumHasBeenSet() const
+{
+    return m_clusterEtcdNodeNumHasBeenSet;
+}
+
+string Cluster::GetCdcId() const
+{
+    return m_cdcId;
+}
+
+void Cluster::SetCdcId(const string& _cdcId)
+{
+    m_cdcId = _cdcId;
+    m_cdcIdHasBeenSet = true;
+}
+
+bool Cluster::CdcIdHasBeenSet() const
+{
+    return m_cdcIdHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取设备所属产品id
                      * @return ProductId 设备所属产品id
+                     * 
                      */
                     std::string GetProductId() const;
 
                     /**
                      * 设置设备所属产品id
-                     * @param ProductId 设备所属产品id
+                     * @param _productId 设备所属产品id
+                     * 
                      */
                     void SetProductId(const std::string& _productId);
 
                     /**
                      * 判断参数 ProductId 是否已赋值
                      * @return ProductId 是否已赋值
+                     * 
                      */
                     bool ProductIdHasBeenSet() const;
 
                     /**
                      * 获取设备名称
                      * @return DeviceName 设备名称
+                     * 
                      */
                     std::string GetDeviceName() const;
 
                     /**
                      * 设置设备名称
-                     * @param DeviceName 设备名称
+                     * @param _deviceName 设备名称
+                     * 
                      */
                     void SetDeviceName(const std::string& _deviceName);
 
                     /**
                      * 判断参数 DeviceName 是否已赋值
                      * @return DeviceName 是否已赋值
+                     * 
                      */
                     bool DeviceNameHasBeenSet() const;
 
                     /**
                      * 获取要设置的设备状态，1为启用，0为禁用
                      * @return EnableState 要设置的设备状态，1为启用，0为禁用
+                     * 
                      */
                     uint64_t GetEnableState() const;
 
                     /**
                      * 设置要设置的设备状态，1为启用，0为禁用
-                     * @param EnableState 要设置的设备状态，1为启用，0为禁用
+                     * @param _enableState 要设置的设备状态，1为启用，0为禁用
+                     * 
                      */
                     void SetEnableState(const uint64_t& _enableState);
 
                     /**
                      * 判断参数 EnableState 是否已赋值
                      * @return EnableState 是否已赋值
+                     * 
                      */
                     bool EnableStateHasBeenSet() const;
 

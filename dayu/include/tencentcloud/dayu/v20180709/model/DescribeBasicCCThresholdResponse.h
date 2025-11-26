@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取CC启动开关（0:关闭；1:开启）
                      * @return CCEnable CC启动开关（0:关闭；1:开启）
+                     * 
                      */
                     uint64_t GetCCEnable() const;
 
                     /**
                      * 判断参数 CCEnable 是否已赋值
                      * @return CCEnable 是否已赋值
+                     * 
                      */
                     bool CCEnableHasBeenSet() const;
 
                     /**
                      * 获取CC防护阈值
                      * @return CCThreshold CC防护阈值
+                     * 
                      */
                     uint64_t GetCCThreshold() const;
 
                     /**
                      * 判断参数 CCThreshold 是否已赋值
                      * @return CCThreshold 是否已赋值
+                     * 
                      */
                     bool CCThresholdHasBeenSet() const;
 

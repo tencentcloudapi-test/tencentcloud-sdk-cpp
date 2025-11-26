@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,25 +62,32 @@ TsfClient::AddClusterInstancesOutcome TsfClient::AddClusterInstances(const AddCl
 
 void TsfClient::AddClusterInstancesAsync(const AddClusterInstancesRequest& request, const AddClusterInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AddClusterInstances(request), context);
-    };
+    using Req = const AddClusterInstancesRequest&;
+    using Resp = AddClusterInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AddClusterInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::AddClusterInstancesOutcomeCallable TsfClient::AddClusterInstancesCallable(const AddClusterInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AddClusterInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->AddClusterInstances(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<AddClusterInstancesOutcome>>();
+    AddClusterInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const AddClusterInstancesRequest&,
+        AddClusterInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::AddInstancesOutcome TsfClient::AddInstances(const AddInstancesRequest &request)
@@ -105,25 +112,132 @@ TsfClient::AddInstancesOutcome TsfClient::AddInstances(const AddInstancesRequest
 
 void TsfClient::AddInstancesAsync(const AddInstancesRequest& request, const AddInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AddInstances(request), context);
-    };
+    using Req = const AddInstancesRequest&;
+    using Resp = AddInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AddInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::AddInstancesOutcomeCallable TsfClient::AddInstancesCallable(const AddInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AddInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->AddInstances(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<AddInstancesOutcome>>();
+    AddInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const AddInstancesRequest&,
+        AddInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::AssociateBusinessLogConfigOutcome TsfClient::AssociateBusinessLogConfig(const AssociateBusinessLogConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "AssociateBusinessLogConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AssociateBusinessLogConfigResponse rsp = AssociateBusinessLogConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AssociateBusinessLogConfigOutcome(rsp);
+        else
+            return AssociateBusinessLogConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return AssociateBusinessLogConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::AssociateBusinessLogConfigAsync(const AssociateBusinessLogConfigRequest& request, const AssociateBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AssociateBusinessLogConfigRequest&;
+    using Resp = AssociateBusinessLogConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AssociateBusinessLogConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::AssociateBusinessLogConfigOutcomeCallable TsfClient::AssociateBusinessLogConfigCallable(const AssociateBusinessLogConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AssociateBusinessLogConfigOutcome>>();
+    AssociateBusinessLogConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const AssociateBusinessLogConfigRequest&,
+        AssociateBusinessLogConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::AssociateConfigWithGroupOutcome TsfClient::AssociateConfigWithGroup(const AssociateConfigWithGroupRequest &request)
+{
+    auto outcome = MakeRequest(request, "AssociateConfigWithGroup");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AssociateConfigWithGroupResponse rsp = AssociateConfigWithGroupResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AssociateConfigWithGroupOutcome(rsp);
+        else
+            return AssociateConfigWithGroupOutcome(o.GetError());
+    }
+    else
+    {
+        return AssociateConfigWithGroupOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::AssociateConfigWithGroupAsync(const AssociateConfigWithGroupRequest& request, const AssociateConfigWithGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AssociateConfigWithGroupRequest&;
+    using Resp = AssociateConfigWithGroupResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AssociateConfigWithGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::AssociateConfigWithGroupOutcomeCallable TsfClient::AssociateConfigWithGroupCallable(const AssociateConfigWithGroupRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AssociateConfigWithGroupOutcome>>();
+    AssociateConfigWithGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const AssociateConfigWithGroupRequest&,
+        AssociateConfigWithGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::BindApiGroupOutcome TsfClient::BindApiGroup(const BindApiGroupRequest &request)
@@ -148,25 +262,32 @@ TsfClient::BindApiGroupOutcome TsfClient::BindApiGroup(const BindApiGroupRequest
 
 void TsfClient::BindApiGroupAsync(const BindApiGroupRequest& request, const BindApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BindApiGroup(request), context);
-    };
+    using Req = const BindApiGroupRequest&;
+    using Resp = BindApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BindApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::BindApiGroupOutcomeCallable TsfClient::BindApiGroupCallable(const BindApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BindApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->BindApiGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<BindApiGroupOutcome>>();
+    BindApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const BindApiGroupRequest&,
+        BindApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::BindPluginOutcome TsfClient::BindPlugin(const BindPluginRequest &request)
@@ -191,25 +312,32 @@ TsfClient::BindPluginOutcome TsfClient::BindPlugin(const BindPluginRequest &requ
 
 void TsfClient::BindPluginAsync(const BindPluginRequest& request, const BindPluginAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BindPlugin(request), context);
-    };
+    using Req = const BindPluginRequest&;
+    using Resp = BindPluginResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BindPlugin", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::BindPluginOutcomeCallable TsfClient::BindPluginCallable(const BindPluginRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BindPluginOutcome()>>(
-        [this, request]()
-        {
-            return this->BindPlugin(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<BindPluginOutcome>>();
+    BindPluginAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const BindPluginRequest&,
+        BindPluginOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ChangeApiUsableStatusOutcome TsfClient::ChangeApiUsableStatus(const ChangeApiUsableStatusRequest &request)
@@ -234,25 +362,32 @@ TsfClient::ChangeApiUsableStatusOutcome TsfClient::ChangeApiUsableStatus(const C
 
 void TsfClient::ChangeApiUsableStatusAsync(const ChangeApiUsableStatusRequest& request, const ChangeApiUsableStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ChangeApiUsableStatus(request), context);
-    };
+    using Req = const ChangeApiUsableStatusRequest&;
+    using Resp = ChangeApiUsableStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ChangeApiUsableStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ChangeApiUsableStatusOutcomeCallable TsfClient::ChangeApiUsableStatusCallable(const ChangeApiUsableStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ChangeApiUsableStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ChangeApiUsableStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ChangeApiUsableStatusOutcome>>();
+    ChangeApiUsableStatusAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ChangeApiUsableStatusRequest&,
+        ChangeApiUsableStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ContinueRunFailedTaskBatchOutcome TsfClient::ContinueRunFailedTaskBatch(const ContinueRunFailedTaskBatchRequest &request)
@@ -277,25 +412,32 @@ TsfClient::ContinueRunFailedTaskBatchOutcome TsfClient::ContinueRunFailedTaskBat
 
 void TsfClient::ContinueRunFailedTaskBatchAsync(const ContinueRunFailedTaskBatchRequest& request, const ContinueRunFailedTaskBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ContinueRunFailedTaskBatch(request), context);
-    };
+    using Req = const ContinueRunFailedTaskBatchRequest&;
+    using Resp = ContinueRunFailedTaskBatchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ContinueRunFailedTaskBatch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ContinueRunFailedTaskBatchOutcomeCallable TsfClient::ContinueRunFailedTaskBatchCallable(const ContinueRunFailedTaskBatchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ContinueRunFailedTaskBatchOutcome()>>(
-        [this, request]()
-        {
-            return this->ContinueRunFailedTaskBatch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ContinueRunFailedTaskBatchOutcome>>();
+    ContinueRunFailedTaskBatchAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ContinueRunFailedTaskBatchRequest&,
+        ContinueRunFailedTaskBatchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateAllGatewayApiAsyncOutcome TsfClient::CreateAllGatewayApiAsync(const CreateAllGatewayApiAsyncRequest &request)
@@ -320,25 +462,32 @@ TsfClient::CreateAllGatewayApiAsyncOutcome TsfClient::CreateAllGatewayApiAsync(c
 
 void TsfClient::CreateAllGatewayApiAsyncAsync(const CreateAllGatewayApiAsyncRequest& request, const CreateAllGatewayApiAsyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateAllGatewayApiAsync(request), context);
-    };
+    using Req = const CreateAllGatewayApiAsyncRequest&;
+    using Resp = CreateAllGatewayApiAsyncResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateAllGatewayApiAsync", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateAllGatewayApiAsyncOutcomeCallable TsfClient::CreateAllGatewayApiAsyncCallable(const CreateAllGatewayApiAsyncRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateAllGatewayApiAsyncOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateAllGatewayApiAsync(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateAllGatewayApiAsyncOutcome>>();
+    CreateAllGatewayApiAsyncAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateAllGatewayApiAsyncRequest&,
+        CreateAllGatewayApiAsyncOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateApiGroupOutcome TsfClient::CreateApiGroup(const CreateApiGroupRequest &request)
@@ -363,25 +512,32 @@ TsfClient::CreateApiGroupOutcome TsfClient::CreateApiGroup(const CreateApiGroupR
 
 void TsfClient::CreateApiGroupAsync(const CreateApiGroupRequest& request, const CreateApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateApiGroup(request), context);
-    };
+    using Req = const CreateApiGroupRequest&;
+    using Resp = CreateApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateApiGroupOutcomeCallable TsfClient::CreateApiGroupCallable(const CreateApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateApiGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateApiGroupOutcome>>();
+    CreateApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateApiGroupRequest&,
+        CreateApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateApiRateLimitRuleOutcome TsfClient::CreateApiRateLimitRule(const CreateApiRateLimitRuleRequest &request)
@@ -406,25 +562,82 @@ TsfClient::CreateApiRateLimitRuleOutcome TsfClient::CreateApiRateLimitRule(const
 
 void TsfClient::CreateApiRateLimitRuleAsync(const CreateApiRateLimitRuleRequest& request, const CreateApiRateLimitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateApiRateLimitRule(request), context);
-    };
+    using Req = const CreateApiRateLimitRuleRequest&;
+    using Resp = CreateApiRateLimitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateApiRateLimitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateApiRateLimitRuleOutcomeCallable TsfClient::CreateApiRateLimitRuleCallable(const CreateApiRateLimitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateApiRateLimitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateApiRateLimitRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateApiRateLimitRuleOutcome>>();
+    CreateApiRateLimitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateApiRateLimitRuleRequest&,
+        CreateApiRateLimitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreateApiRateLimitRuleWithDetailRespOutcome TsfClient::CreateApiRateLimitRuleWithDetailResp(const CreateApiRateLimitRuleWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateApiRateLimitRuleWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateApiRateLimitRuleWithDetailRespResponse rsp = CreateApiRateLimitRuleWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateApiRateLimitRuleWithDetailRespOutcome(rsp);
+        else
+            return CreateApiRateLimitRuleWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateApiRateLimitRuleWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateApiRateLimitRuleWithDetailRespAsync(const CreateApiRateLimitRuleWithDetailRespRequest& request, const CreateApiRateLimitRuleWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateApiRateLimitRuleWithDetailRespRequest&;
+    using Resp = CreateApiRateLimitRuleWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateApiRateLimitRuleWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateApiRateLimitRuleWithDetailRespOutcomeCallable TsfClient::CreateApiRateLimitRuleWithDetailRespCallable(const CreateApiRateLimitRuleWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateApiRateLimitRuleWithDetailRespOutcome>>();
+    CreateApiRateLimitRuleWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateApiRateLimitRuleWithDetailRespRequest&,
+        CreateApiRateLimitRuleWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateApplicationOutcome TsfClient::CreateApplication(const CreateApplicationRequest &request)
@@ -449,25 +662,32 @@ TsfClient::CreateApplicationOutcome TsfClient::CreateApplication(const CreateApp
 
 void TsfClient::CreateApplicationAsync(const CreateApplicationRequest& request, const CreateApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateApplication(request), context);
-    };
+    using Req = const CreateApplicationRequest&;
+    using Resp = CreateApplicationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateApplicationOutcomeCallable TsfClient::CreateApplicationCallable(const CreateApplicationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateApplicationOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateApplication(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateApplicationOutcome>>();
+    CreateApplicationAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateApplicationRequest&,
+        CreateApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateClusterOutcome TsfClient::CreateCluster(const CreateClusterRequest &request)
@@ -492,25 +712,32 @@ TsfClient::CreateClusterOutcome TsfClient::CreateCluster(const CreateClusterRequ
 
 void TsfClient::CreateClusterAsync(const CreateClusterRequest& request, const CreateClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateCluster(request), context);
-    };
+    using Req = const CreateClusterRequest&;
+    using Resp = CreateClusterResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateCluster", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateClusterOutcomeCallable TsfClient::CreateClusterCallable(const CreateClusterRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateClusterOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateCluster(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateClusterOutcome>>();
+    CreateClusterAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateClusterRequest&,
+        CreateClusterOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateConfigOutcome TsfClient::CreateConfig(const CreateConfigRequest &request)
@@ -535,25 +762,182 @@ TsfClient::CreateConfigOutcome TsfClient::CreateConfig(const CreateConfigRequest
 
 void TsfClient::CreateConfigAsync(const CreateConfigRequest& request, const CreateConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateConfig(request), context);
-    };
+    using Req = const CreateConfigRequest&;
+    using Resp = CreateConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateConfigOutcomeCallable TsfClient::CreateConfigCallable(const CreateConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateConfig(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateConfigOutcome>>();
+    CreateConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateConfigRequest&,
+        CreateConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreateConfigTemplateOutcome TsfClient::CreateConfigTemplate(const CreateConfigTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateConfigTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateConfigTemplateResponse rsp = CreateConfigTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateConfigTemplateOutcome(rsp);
+        else
+            return CreateConfigTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateConfigTemplateOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateConfigTemplateAsync(const CreateConfigTemplateRequest& request, const CreateConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateConfigTemplateRequest&;
+    using Resp = CreateConfigTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateConfigTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateConfigTemplateOutcomeCallable TsfClient::CreateConfigTemplateCallable(const CreateConfigTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateConfigTemplateOutcome>>();
+    CreateConfigTemplateAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateConfigTemplateRequest&,
+        CreateConfigTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::CreateConfigTemplateWithDetailRespOutcome TsfClient::CreateConfigTemplateWithDetailResp(const CreateConfigTemplateWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateConfigTemplateWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateConfigTemplateWithDetailRespResponse rsp = CreateConfigTemplateWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateConfigTemplateWithDetailRespOutcome(rsp);
+        else
+            return CreateConfigTemplateWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateConfigTemplateWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateConfigTemplateWithDetailRespAsync(const CreateConfigTemplateWithDetailRespRequest& request, const CreateConfigTemplateWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateConfigTemplateWithDetailRespRequest&;
+    using Resp = CreateConfigTemplateWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateConfigTemplateWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateConfigTemplateWithDetailRespOutcomeCallable TsfClient::CreateConfigTemplateWithDetailRespCallable(const CreateConfigTemplateWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateConfigTemplateWithDetailRespOutcome>>();
+    CreateConfigTemplateWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateConfigTemplateWithDetailRespRequest&,
+        CreateConfigTemplateWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::CreateConfigWithDetailRespOutcome TsfClient::CreateConfigWithDetailResp(const CreateConfigWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateConfigWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateConfigWithDetailRespResponse rsp = CreateConfigWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateConfigWithDetailRespOutcome(rsp);
+        else
+            return CreateConfigWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateConfigWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateConfigWithDetailRespAsync(const CreateConfigWithDetailRespRequest& request, const CreateConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateConfigWithDetailRespRequest&;
+    using Resp = CreateConfigWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateConfigWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateConfigWithDetailRespOutcomeCallable TsfClient::CreateConfigWithDetailRespCallable(const CreateConfigWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateConfigWithDetailRespOutcome>>();
+    CreateConfigWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateConfigWithDetailRespRequest&,
+        CreateConfigWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateContainGroupOutcome TsfClient::CreateContainGroup(const CreateContainGroupRequest &request)
@@ -578,25 +962,32 @@ TsfClient::CreateContainGroupOutcome TsfClient::CreateContainGroup(const CreateC
 
 void TsfClient::CreateContainGroupAsync(const CreateContainGroupRequest& request, const CreateContainGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateContainGroup(request), context);
-    };
+    using Req = const CreateContainGroupRequest&;
+    using Resp = CreateContainGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateContainGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateContainGroupOutcomeCallable TsfClient::CreateContainGroupCallable(const CreateContainGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateContainGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateContainGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateContainGroupOutcome>>();
+    CreateContainGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateContainGroupRequest&,
+        CreateContainGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateFileConfigOutcome TsfClient::CreateFileConfig(const CreateFileConfigRequest &request)
@@ -621,25 +1012,82 @@ TsfClient::CreateFileConfigOutcome TsfClient::CreateFileConfig(const CreateFileC
 
 void TsfClient::CreateFileConfigAsync(const CreateFileConfigRequest& request, const CreateFileConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateFileConfig(request), context);
-    };
+    using Req = const CreateFileConfigRequest&;
+    using Resp = CreateFileConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateFileConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateFileConfigOutcomeCallable TsfClient::CreateFileConfigCallable(const CreateFileConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateFileConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateFileConfig(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateFileConfigOutcome>>();
+    CreateFileConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateFileConfigRequest&,
+        CreateFileConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreateFileConfigWithDetailRespOutcome TsfClient::CreateFileConfigWithDetailResp(const CreateFileConfigWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateFileConfigWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateFileConfigWithDetailRespResponse rsp = CreateFileConfigWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateFileConfigWithDetailRespOutcome(rsp);
+        else
+            return CreateFileConfigWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateFileConfigWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateFileConfigWithDetailRespAsync(const CreateFileConfigWithDetailRespRequest& request, const CreateFileConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateFileConfigWithDetailRespRequest&;
+    using Resp = CreateFileConfigWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateFileConfigWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateFileConfigWithDetailRespOutcomeCallable TsfClient::CreateFileConfigWithDetailRespCallable(const CreateFileConfigWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateFileConfigWithDetailRespOutcome>>();
+    CreateFileConfigWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateFileConfigWithDetailRespRequest&,
+        CreateFileConfigWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateGatewayApiOutcome TsfClient::CreateGatewayApi(const CreateGatewayApiRequest &request)
@@ -664,25 +1112,32 @@ TsfClient::CreateGatewayApiOutcome TsfClient::CreateGatewayApi(const CreateGatew
 
 void TsfClient::CreateGatewayApiAsync(const CreateGatewayApiRequest& request, const CreateGatewayApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateGatewayApi(request), context);
-    };
+    using Req = const CreateGatewayApiRequest&;
+    using Resp = CreateGatewayApiResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateGatewayApi", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateGatewayApiOutcomeCallable TsfClient::CreateGatewayApiCallable(const CreateGatewayApiRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateGatewayApiOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateGatewayApi(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateGatewayApiOutcome>>();
+    CreateGatewayApiAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateGatewayApiRequest&,
+        CreateGatewayApiOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateGroupOutcome TsfClient::CreateGroup(const CreateGroupRequest &request)
@@ -707,25 +1162,32 @@ TsfClient::CreateGroupOutcome TsfClient::CreateGroup(const CreateGroupRequest &r
 
 void TsfClient::CreateGroupAsync(const CreateGroupRequest& request, const CreateGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateGroup(request), context);
-    };
+    using Req = const CreateGroupRequest&;
+    using Resp = CreateGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateGroupOutcomeCallable TsfClient::CreateGroupCallable(const CreateGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateGroupOutcome>>();
+    CreateGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateGroupRequest&,
+        CreateGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateLaneOutcome TsfClient::CreateLane(const CreateLaneRequest &request)
@@ -750,25 +1212,32 @@ TsfClient::CreateLaneOutcome TsfClient::CreateLane(const CreateLaneRequest &requ
 
 void TsfClient::CreateLaneAsync(const CreateLaneRequest& request, const CreateLaneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateLane(request), context);
-    };
+    using Req = const CreateLaneRequest&;
+    using Resp = CreateLaneResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateLane", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateLaneOutcomeCallable TsfClient::CreateLaneCallable(const CreateLaneRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateLaneOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateLane(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateLaneOutcome>>();
+    CreateLaneAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateLaneRequest&,
+        CreateLaneOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateLaneRuleOutcome TsfClient::CreateLaneRule(const CreateLaneRuleRequest &request)
@@ -793,25 +1262,32 @@ TsfClient::CreateLaneRuleOutcome TsfClient::CreateLaneRule(const CreateLaneRuleR
 
 void TsfClient::CreateLaneRuleAsync(const CreateLaneRuleRequest& request, const CreateLaneRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateLaneRule(request), context);
-    };
+    using Req = const CreateLaneRuleRequest&;
+    using Resp = CreateLaneRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateLaneRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateLaneRuleOutcomeCallable TsfClient::CreateLaneRuleCallable(const CreateLaneRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateLaneRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateLaneRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateLaneRuleOutcome>>();
+    CreateLaneRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateLaneRuleRequest&,
+        CreateLaneRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateMicroserviceOutcome TsfClient::CreateMicroservice(const CreateMicroserviceRequest &request)
@@ -836,25 +1312,82 @@ TsfClient::CreateMicroserviceOutcome TsfClient::CreateMicroservice(const CreateM
 
 void TsfClient::CreateMicroserviceAsync(const CreateMicroserviceRequest& request, const CreateMicroserviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateMicroservice(request), context);
-    };
+    using Req = const CreateMicroserviceRequest&;
+    using Resp = CreateMicroserviceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateMicroservice", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateMicroserviceOutcomeCallable TsfClient::CreateMicroserviceCallable(const CreateMicroserviceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateMicroserviceOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateMicroservice(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateMicroserviceOutcome>>();
+    CreateMicroserviceAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateMicroserviceRequest&,
+        CreateMicroserviceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreateMicroserviceWithDetailRespOutcome TsfClient::CreateMicroserviceWithDetailResp(const CreateMicroserviceWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateMicroserviceWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateMicroserviceWithDetailRespResponse rsp = CreateMicroserviceWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateMicroserviceWithDetailRespOutcome(rsp);
+        else
+            return CreateMicroserviceWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateMicroserviceWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateMicroserviceWithDetailRespAsync(const CreateMicroserviceWithDetailRespRequest& request, const CreateMicroserviceWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateMicroserviceWithDetailRespRequest&;
+    using Resp = CreateMicroserviceWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateMicroserviceWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateMicroserviceWithDetailRespOutcomeCallable TsfClient::CreateMicroserviceWithDetailRespCallable(const CreateMicroserviceWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateMicroserviceWithDetailRespOutcome>>();
+    CreateMicroserviceWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateMicroserviceWithDetailRespRequest&,
+        CreateMicroserviceWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateNamespaceOutcome TsfClient::CreateNamespace(const CreateNamespaceRequest &request)
@@ -879,25 +1412,32 @@ TsfClient::CreateNamespaceOutcome TsfClient::CreateNamespace(const CreateNamespa
 
 void TsfClient::CreateNamespaceAsync(const CreateNamespaceRequest& request, const CreateNamespaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateNamespace(request), context);
-    };
+    using Req = const CreateNamespaceRequest&;
+    using Resp = CreateNamespaceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateNamespace", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateNamespaceOutcomeCallable TsfClient::CreateNamespaceCallable(const CreateNamespaceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateNamespaceOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateNamespace(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateNamespaceOutcome>>();
+    CreateNamespaceAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateNamespaceRequest&,
+        CreateNamespaceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreatePathRewritesOutcome TsfClient::CreatePathRewrites(const CreatePathRewritesRequest &request)
@@ -922,25 +1462,132 @@ TsfClient::CreatePathRewritesOutcome TsfClient::CreatePathRewrites(const CreateP
 
 void TsfClient::CreatePathRewritesAsync(const CreatePathRewritesRequest& request, const CreatePathRewritesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreatePathRewrites(request), context);
-    };
+    using Req = const CreatePathRewritesRequest&;
+    using Resp = CreatePathRewritesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreatePathRewrites", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreatePathRewritesOutcomeCallable TsfClient::CreatePathRewritesCallable(const CreatePathRewritesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreatePathRewritesOutcome()>>(
-        [this, request]()
-        {
-            return this->CreatePathRewrites(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreatePathRewritesOutcome>>();
+    CreatePathRewritesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreatePathRewritesRequest&,
+        CreatePathRewritesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreatePathRewritesWithDetailRespOutcome TsfClient::CreatePathRewritesWithDetailResp(const CreatePathRewritesWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreatePathRewritesWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreatePathRewritesWithDetailRespResponse rsp = CreatePathRewritesWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreatePathRewritesWithDetailRespOutcome(rsp);
+        else
+            return CreatePathRewritesWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreatePathRewritesWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreatePathRewritesWithDetailRespAsync(const CreatePathRewritesWithDetailRespRequest& request, const CreatePathRewritesWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreatePathRewritesWithDetailRespRequest&;
+    using Resp = CreatePathRewritesWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreatePathRewritesWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreatePathRewritesWithDetailRespOutcomeCallable TsfClient::CreatePathRewritesWithDetailRespCallable(const CreatePathRewritesWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreatePathRewritesWithDetailRespOutcome>>();
+    CreatePathRewritesWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreatePathRewritesWithDetailRespRequest&,
+        CreatePathRewritesWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::CreateProgramOutcome TsfClient::CreateProgram(const CreateProgramRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateProgram");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateProgramResponse rsp = CreateProgramResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateProgramOutcome(rsp);
+        else
+            return CreateProgramOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateProgramOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateProgramAsync(const CreateProgramRequest& request, const CreateProgramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateProgramRequest&;
+    using Resp = CreateProgramResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateProgram", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateProgramOutcomeCallable TsfClient::CreateProgramCallable(const CreateProgramRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateProgramOutcome>>();
+    CreateProgramAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateProgramRequest&,
+        CreateProgramOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreatePublicConfigOutcome TsfClient::CreatePublicConfig(const CreatePublicConfigRequest &request)
@@ -965,25 +1612,82 @@ TsfClient::CreatePublicConfigOutcome TsfClient::CreatePublicConfig(const CreateP
 
 void TsfClient::CreatePublicConfigAsync(const CreatePublicConfigRequest& request, const CreatePublicConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreatePublicConfig(request), context);
-    };
+    using Req = const CreatePublicConfigRequest&;
+    using Resp = CreatePublicConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreatePublicConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreatePublicConfigOutcomeCallable TsfClient::CreatePublicConfigCallable(const CreatePublicConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreatePublicConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->CreatePublicConfig(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreatePublicConfigOutcome>>();
+    CreatePublicConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreatePublicConfigRequest&,
+        CreatePublicConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreatePublicConfigWithDetailRespOutcome TsfClient::CreatePublicConfigWithDetailResp(const CreatePublicConfigWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreatePublicConfigWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreatePublicConfigWithDetailRespResponse rsp = CreatePublicConfigWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreatePublicConfigWithDetailRespOutcome(rsp);
+        else
+            return CreatePublicConfigWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreatePublicConfigWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreatePublicConfigWithDetailRespAsync(const CreatePublicConfigWithDetailRespRequest& request, const CreatePublicConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreatePublicConfigWithDetailRespRequest&;
+    using Resp = CreatePublicConfigWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreatePublicConfigWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreatePublicConfigWithDetailRespOutcomeCallable TsfClient::CreatePublicConfigWithDetailRespCallable(const CreatePublicConfigWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreatePublicConfigWithDetailRespOutcome>>();
+    CreatePublicConfigWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreatePublicConfigWithDetailRespRequest&,
+        CreatePublicConfigWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateRepositoryOutcome TsfClient::CreateRepository(const CreateRepositoryRequest &request)
@@ -1008,68 +1712,32 @@ TsfClient::CreateRepositoryOutcome TsfClient::CreateRepository(const CreateRepos
 
 void TsfClient::CreateRepositoryAsync(const CreateRepositoryRequest& request, const CreateRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateRepository(request), context);
-    };
+    using Req = const CreateRepositoryRequest&;
+    using Resp = CreateRepositoryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateRepository", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateRepositoryOutcomeCallable TsfClient::CreateRepositoryCallable(const CreateRepositoryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateRepositoryOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateRepository(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TsfClient::CreateServerlessGroupOutcome TsfClient::CreateServerlessGroup(const CreateServerlessGroupRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateServerlessGroup");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<CreateRepositoryOutcome>>();
+    CreateRepositoryAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateRepositoryRequest&,
+        CreateRepositoryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateServerlessGroupResponse rsp = CreateServerlessGroupResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateServerlessGroupOutcome(rsp);
-        else
-            return CreateServerlessGroupOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateServerlessGroupOutcome(outcome.GetError());
-    }
-}
-
-void TsfClient::CreateServerlessGroupAsync(const CreateServerlessGroupRequest& request, const CreateServerlessGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateServerlessGroup(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TsfClient::CreateServerlessGroupOutcomeCallable TsfClient::CreateServerlessGroupCallable(const CreateServerlessGroupRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateServerlessGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateServerlessGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateTaskOutcome TsfClient::CreateTask(const CreateTaskRequest &request)
@@ -1094,25 +1762,32 @@ TsfClient::CreateTaskOutcome TsfClient::CreateTask(const CreateTaskRequest &requ
 
 void TsfClient::CreateTaskAsync(const CreateTaskRequest& request, const CreateTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTask(request), context);
-    };
+    using Req = const CreateTaskRequest&;
+    using Resp = CreateTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateTaskOutcomeCallable TsfClient::CreateTaskCallable(const CreateTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateTaskOutcome>>();
+    CreateTaskAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateTaskRequest&,
+        CreateTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateTaskFlowOutcome TsfClient::CreateTaskFlow(const CreateTaskFlowRequest &request)
@@ -1137,25 +1812,82 @@ TsfClient::CreateTaskFlowOutcome TsfClient::CreateTaskFlow(const CreateTaskFlowR
 
 void TsfClient::CreateTaskFlowAsync(const CreateTaskFlowRequest& request, const CreateTaskFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTaskFlow(request), context);
-    };
+    using Req = const CreateTaskFlowRequest&;
+    using Resp = CreateTaskFlowResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateTaskFlow", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateTaskFlowOutcomeCallable TsfClient::CreateTaskFlowCallable(const CreateTaskFlowRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateTaskFlowOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateTaskFlow(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateTaskFlowOutcome>>();
+    CreateTaskFlowAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateTaskFlowRequest&,
+        CreateTaskFlowOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreateUnitNamespacesOutcome TsfClient::CreateUnitNamespaces(const CreateUnitNamespacesRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateUnitNamespaces");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateUnitNamespacesResponse rsp = CreateUnitNamespacesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateUnitNamespacesOutcome(rsp);
+        else
+            return CreateUnitNamespacesOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateUnitNamespacesOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateUnitNamespacesAsync(const CreateUnitNamespacesRequest& request, const CreateUnitNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateUnitNamespacesRequest&;
+    using Resp = CreateUnitNamespacesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateUnitNamespaces", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateUnitNamespacesOutcomeCallable TsfClient::CreateUnitNamespacesCallable(const CreateUnitNamespacesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateUnitNamespacesOutcome>>();
+    CreateUnitNamespacesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateUnitNamespacesRequest&,
+        CreateUnitNamespacesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::CreateUnitRuleOutcome TsfClient::CreateUnitRule(const CreateUnitRuleRequest &request)
@@ -1180,25 +1912,82 @@ TsfClient::CreateUnitRuleOutcome TsfClient::CreateUnitRule(const CreateUnitRuleR
 
 void TsfClient::CreateUnitRuleAsync(const CreateUnitRuleRequest& request, const CreateUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateUnitRule(request), context);
-    };
+    using Req = const CreateUnitRuleRequest&;
+    using Resp = CreateUnitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateUnitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::CreateUnitRuleOutcomeCallable TsfClient::CreateUnitRuleCallable(const CreateUnitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateUnitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateUnitRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateUnitRuleOutcome>>();
+    CreateUnitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateUnitRuleRequest&,
+        CreateUnitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::CreateUnitRuleWithDetailRespOutcome TsfClient::CreateUnitRuleWithDetailResp(const CreateUnitRuleWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateUnitRuleWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateUnitRuleWithDetailRespResponse rsp = CreateUnitRuleWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateUnitRuleWithDetailRespOutcome(rsp);
+        else
+            return CreateUnitRuleWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateUnitRuleWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::CreateUnitRuleWithDetailRespAsync(const CreateUnitRuleWithDetailRespRequest& request, const CreateUnitRuleWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateUnitRuleWithDetailRespRequest&;
+    using Resp = CreateUnitRuleWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateUnitRuleWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::CreateUnitRuleWithDetailRespOutcomeCallable TsfClient::CreateUnitRuleWithDetailRespCallable(const CreateUnitRuleWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateUnitRuleWithDetailRespOutcome>>();
+    CreateUnitRuleWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const CreateUnitRuleWithDetailRespRequest&,
+        CreateUnitRuleWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteApiGroupOutcome TsfClient::DeleteApiGroup(const DeleteApiGroupRequest &request)
@@ -1223,25 +2012,82 @@ TsfClient::DeleteApiGroupOutcome TsfClient::DeleteApiGroup(const DeleteApiGroupR
 
 void TsfClient::DeleteApiGroupAsync(const DeleteApiGroupRequest& request, const DeleteApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteApiGroup(request), context);
-    };
+    using Req = const DeleteApiGroupRequest&;
+    using Resp = DeleteApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteApiGroupOutcomeCallable TsfClient::DeleteApiGroupCallable(const DeleteApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteApiGroup(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteApiGroupOutcome>>();
+    DeleteApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteApiGroupRequest&,
+        DeleteApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DeleteApiRateLimitRuleOutcome TsfClient::DeleteApiRateLimitRule(const DeleteApiRateLimitRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteApiRateLimitRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteApiRateLimitRuleResponse rsp = DeleteApiRateLimitRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteApiRateLimitRuleOutcome(rsp);
+        else
+            return DeleteApiRateLimitRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteApiRateLimitRuleOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DeleteApiRateLimitRuleAsync(const DeleteApiRateLimitRuleRequest& request, const DeleteApiRateLimitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteApiRateLimitRuleRequest&;
+    using Resp = DeleteApiRateLimitRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteApiRateLimitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DeleteApiRateLimitRuleOutcomeCallable TsfClient::DeleteApiRateLimitRuleCallable(const DeleteApiRateLimitRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteApiRateLimitRuleOutcome>>();
+    DeleteApiRateLimitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteApiRateLimitRuleRequest&,
+        DeleteApiRateLimitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteApplicationOutcome TsfClient::DeleteApplication(const DeleteApplicationRequest &request)
@@ -1266,25 +2112,82 @@ TsfClient::DeleteApplicationOutcome TsfClient::DeleteApplication(const DeleteApp
 
 void TsfClient::DeleteApplicationAsync(const DeleteApplicationRequest& request, const DeleteApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteApplication(request), context);
-    };
+    using Req = const DeleteApplicationRequest&;
+    using Resp = DeleteApplicationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteApplicationOutcomeCallable TsfClient::DeleteApplicationCallable(const DeleteApplicationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteApplicationOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteApplication(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteApplicationOutcome>>();
+    DeleteApplicationAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteApplicationRequest&,
+        DeleteApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DeleteClusterOutcome TsfClient::DeleteCluster(const DeleteClusterRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteCluster");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteClusterResponse rsp = DeleteClusterResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteClusterOutcome(rsp);
+        else
+            return DeleteClusterOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteClusterOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DeleteClusterAsync(const DeleteClusterRequest& request, const DeleteClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteClusterRequest&;
+    using Resp = DeleteClusterResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteCluster", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DeleteClusterOutcomeCallable TsfClient::DeleteClusterCallable(const DeleteClusterRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteClusterOutcome>>();
+    DeleteClusterAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteClusterRequest&,
+        DeleteClusterOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteConfigOutcome TsfClient::DeleteConfig(const DeleteConfigRequest &request)
@@ -1309,25 +2212,82 @@ TsfClient::DeleteConfigOutcome TsfClient::DeleteConfig(const DeleteConfigRequest
 
 void TsfClient::DeleteConfigAsync(const DeleteConfigRequest& request, const DeleteConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteConfig(request), context);
-    };
+    using Req = const DeleteConfigRequest&;
+    using Resp = DeleteConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteConfigOutcomeCallable TsfClient::DeleteConfigCallable(const DeleteConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteConfig(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteConfigOutcome>>();
+    DeleteConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteConfigRequest&,
+        DeleteConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DeleteConfigTemplateOutcome TsfClient::DeleteConfigTemplate(const DeleteConfigTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteConfigTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteConfigTemplateResponse rsp = DeleteConfigTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteConfigTemplateOutcome(rsp);
+        else
+            return DeleteConfigTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteConfigTemplateOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DeleteConfigTemplateAsync(const DeleteConfigTemplateRequest& request, const DeleteConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteConfigTemplateRequest&;
+    using Resp = DeleteConfigTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteConfigTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DeleteConfigTemplateOutcomeCallable TsfClient::DeleteConfigTemplateCallable(const DeleteConfigTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteConfigTemplateOutcome>>();
+    DeleteConfigTemplateAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteConfigTemplateRequest&,
+        DeleteConfigTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteContainerGroupOutcome TsfClient::DeleteContainerGroup(const DeleteContainerGroupRequest &request)
@@ -1352,25 +2312,132 @@ TsfClient::DeleteContainerGroupOutcome TsfClient::DeleteContainerGroup(const Del
 
 void TsfClient::DeleteContainerGroupAsync(const DeleteContainerGroupRequest& request, const DeleteContainerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteContainerGroup(request), context);
-    };
+    using Req = const DeleteContainerGroupRequest&;
+    using Resp = DeleteContainerGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteContainerGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteContainerGroupOutcomeCallable TsfClient::DeleteContainerGroupCallable(const DeleteContainerGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteContainerGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteContainerGroup(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteContainerGroupOutcome>>();
+    DeleteContainerGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteContainerGroupRequest&,
+        DeleteContainerGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DeleteFileConfigOutcome TsfClient::DeleteFileConfig(const DeleteFileConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteFileConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteFileConfigResponse rsp = DeleteFileConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteFileConfigOutcome(rsp);
+        else
+            return DeleteFileConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteFileConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DeleteFileConfigAsync(const DeleteFileConfigRequest& request, const DeleteFileConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteFileConfigRequest&;
+    using Resp = DeleteFileConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteFileConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DeleteFileConfigOutcomeCallable TsfClient::DeleteFileConfigCallable(const DeleteFileConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteFileConfigOutcome>>();
+    DeleteFileConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteFileConfigRequest&,
+        DeleteFileConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::DeleteGatewayApiOutcome TsfClient::DeleteGatewayApi(const DeleteGatewayApiRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteGatewayApi");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteGatewayApiResponse rsp = DeleteGatewayApiResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteGatewayApiOutcome(rsp);
+        else
+            return DeleteGatewayApiOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteGatewayApiOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DeleteGatewayApiAsync(const DeleteGatewayApiRequest& request, const DeleteGatewayApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteGatewayApiRequest&;
+    using Resp = DeleteGatewayApiResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteGatewayApi", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DeleteGatewayApiOutcomeCallable TsfClient::DeleteGatewayApiCallable(const DeleteGatewayApiRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteGatewayApiOutcome>>();
+    DeleteGatewayApiAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteGatewayApiRequest&,
+        DeleteGatewayApiOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteGroupOutcome TsfClient::DeleteGroup(const DeleteGroupRequest &request)
@@ -1395,25 +2462,32 @@ TsfClient::DeleteGroupOutcome TsfClient::DeleteGroup(const DeleteGroupRequest &r
 
 void TsfClient::DeleteGroupAsync(const DeleteGroupRequest& request, const DeleteGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteGroup(request), context);
-    };
+    using Req = const DeleteGroupRequest&;
+    using Resp = DeleteGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteGroupOutcomeCallable TsfClient::DeleteGroupCallable(const DeleteGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteGroupOutcome>>();
+    DeleteGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteGroupRequest&,
+        DeleteGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteImageTagsOutcome TsfClient::DeleteImageTags(const DeleteImageTagsRequest &request)
@@ -1438,25 +2512,32 @@ TsfClient::DeleteImageTagsOutcome TsfClient::DeleteImageTags(const DeleteImageTa
 
 void TsfClient::DeleteImageTagsAsync(const DeleteImageTagsRequest& request, const DeleteImageTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteImageTags(request), context);
-    };
+    using Req = const DeleteImageTagsRequest&;
+    using Resp = DeleteImageTagsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteImageTags", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteImageTagsOutcomeCallable TsfClient::DeleteImageTagsCallable(const DeleteImageTagsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteImageTagsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteImageTags(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteImageTagsOutcome>>();
+    DeleteImageTagsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteImageTagsRequest&,
+        DeleteImageTagsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteLaneOutcome TsfClient::DeleteLane(const DeleteLaneRequest &request)
@@ -1481,25 +2562,32 @@ TsfClient::DeleteLaneOutcome TsfClient::DeleteLane(const DeleteLaneRequest &requ
 
 void TsfClient::DeleteLaneAsync(const DeleteLaneRequest& request, const DeleteLaneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteLane(request), context);
-    };
+    using Req = const DeleteLaneRequest&;
+    using Resp = DeleteLaneResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteLane", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteLaneOutcomeCallable TsfClient::DeleteLaneCallable(const DeleteLaneRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteLaneOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteLane(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteLaneOutcome>>();
+    DeleteLaneAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteLaneRequest&,
+        DeleteLaneOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteLaneRuleOutcome TsfClient::DeleteLaneRule(const DeleteLaneRuleRequest &request)
@@ -1524,25 +2612,32 @@ TsfClient::DeleteLaneRuleOutcome TsfClient::DeleteLaneRule(const DeleteLaneRuleR
 
 void TsfClient::DeleteLaneRuleAsync(const DeleteLaneRuleRequest& request, const DeleteLaneRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteLaneRule(request), context);
-    };
+    using Req = const DeleteLaneRuleRequest&;
+    using Resp = DeleteLaneRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteLaneRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteLaneRuleOutcomeCallable TsfClient::DeleteLaneRuleCallable(const DeleteLaneRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteLaneRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteLaneRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteLaneRuleOutcome>>();
+    DeleteLaneRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteLaneRuleRequest&,
+        DeleteLaneRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteMicroserviceOutcome TsfClient::DeleteMicroservice(const DeleteMicroserviceRequest &request)
@@ -1567,25 +2662,32 @@ TsfClient::DeleteMicroserviceOutcome TsfClient::DeleteMicroservice(const DeleteM
 
 void TsfClient::DeleteMicroserviceAsync(const DeleteMicroserviceRequest& request, const DeleteMicroserviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteMicroservice(request), context);
-    };
+    using Req = const DeleteMicroserviceRequest&;
+    using Resp = DeleteMicroserviceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteMicroservice", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteMicroserviceOutcomeCallable TsfClient::DeleteMicroserviceCallable(const DeleteMicroserviceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteMicroserviceOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteMicroservice(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteMicroserviceOutcome>>();
+    DeleteMicroserviceAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteMicroserviceRequest&,
+        DeleteMicroserviceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteNamespaceOutcome TsfClient::DeleteNamespace(const DeleteNamespaceRequest &request)
@@ -1610,25 +2712,32 @@ TsfClient::DeleteNamespaceOutcome TsfClient::DeleteNamespace(const DeleteNamespa
 
 void TsfClient::DeleteNamespaceAsync(const DeleteNamespaceRequest& request, const DeleteNamespaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteNamespace(request), context);
-    };
+    using Req = const DeleteNamespaceRequest&;
+    using Resp = DeleteNamespaceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteNamespace", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteNamespaceOutcomeCallable TsfClient::DeleteNamespaceCallable(const DeleteNamespaceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteNamespaceOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteNamespace(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteNamespaceOutcome>>();
+    DeleteNamespaceAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteNamespaceRequest&,
+        DeleteNamespaceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeletePathRewritesOutcome TsfClient::DeletePathRewrites(const DeletePathRewritesRequest &request)
@@ -1653,25 +2762,32 @@ TsfClient::DeletePathRewritesOutcome TsfClient::DeletePathRewrites(const DeleteP
 
 void TsfClient::DeletePathRewritesAsync(const DeletePathRewritesRequest& request, const DeletePathRewritesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeletePathRewrites(request), context);
-    };
+    using Req = const DeletePathRewritesRequest&;
+    using Resp = DeletePathRewritesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeletePathRewrites", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeletePathRewritesOutcomeCallable TsfClient::DeletePathRewritesCallable(const DeletePathRewritesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeletePathRewritesOutcome()>>(
-        [this, request]()
-        {
-            return this->DeletePathRewrites(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeletePathRewritesOutcome>>();
+    DeletePathRewritesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeletePathRewritesRequest&,
+        DeletePathRewritesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeletePkgsOutcome TsfClient::DeletePkgs(const DeletePkgsRequest &request)
@@ -1696,25 +2812,32 @@ TsfClient::DeletePkgsOutcome TsfClient::DeletePkgs(const DeletePkgsRequest &requ
 
 void TsfClient::DeletePkgsAsync(const DeletePkgsRequest& request, const DeletePkgsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeletePkgs(request), context);
-    };
+    using Req = const DeletePkgsRequest&;
+    using Resp = DeletePkgsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeletePkgs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeletePkgsOutcomeCallable TsfClient::DeletePkgsCallable(const DeletePkgsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeletePkgsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeletePkgs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeletePkgsOutcome>>();
+    DeletePkgsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeletePkgsRequest&,
+        DeletePkgsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeletePublicConfigOutcome TsfClient::DeletePublicConfig(const DeletePublicConfigRequest &request)
@@ -1739,25 +2862,32 @@ TsfClient::DeletePublicConfigOutcome TsfClient::DeletePublicConfig(const DeleteP
 
 void TsfClient::DeletePublicConfigAsync(const DeletePublicConfigRequest& request, const DeletePublicConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeletePublicConfig(request), context);
-    };
+    using Req = const DeletePublicConfigRequest&;
+    using Resp = DeletePublicConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeletePublicConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeletePublicConfigOutcomeCallable TsfClient::DeletePublicConfigCallable(const DeletePublicConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeletePublicConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DeletePublicConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeletePublicConfigOutcome>>();
+    DeletePublicConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeletePublicConfigRequest&,
+        DeletePublicConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteRepositoryOutcome TsfClient::DeleteRepository(const DeleteRepositoryRequest &request)
@@ -1782,25 +2912,32 @@ TsfClient::DeleteRepositoryOutcome TsfClient::DeleteRepository(const DeleteRepos
 
 void TsfClient::DeleteRepositoryAsync(const DeleteRepositoryRequest& request, const DeleteRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteRepository(request), context);
-    };
+    using Req = const DeleteRepositoryRequest&;
+    using Resp = DeleteRepositoryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteRepository", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteRepositoryOutcomeCallable TsfClient::DeleteRepositoryCallable(const DeleteRepositoryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteRepositoryOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteRepository(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteRepositoryOutcome>>();
+    DeleteRepositoryAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteRepositoryRequest&,
+        DeleteRepositoryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteServerlessGroupOutcome TsfClient::DeleteServerlessGroup(const DeleteServerlessGroupRequest &request)
@@ -1825,25 +2962,32 @@ TsfClient::DeleteServerlessGroupOutcome TsfClient::DeleteServerlessGroup(const D
 
 void TsfClient::DeleteServerlessGroupAsync(const DeleteServerlessGroupRequest& request, const DeleteServerlessGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteServerlessGroup(request), context);
-    };
+    using Req = const DeleteServerlessGroupRequest&;
+    using Resp = DeleteServerlessGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteServerlessGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteServerlessGroupOutcomeCallable TsfClient::DeleteServerlessGroupCallable(const DeleteServerlessGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteServerlessGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteServerlessGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteServerlessGroupOutcome>>();
+    DeleteServerlessGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteServerlessGroupRequest&,
+        DeleteServerlessGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteTaskOutcome TsfClient::DeleteTask(const DeleteTaskRequest &request)
@@ -1868,25 +3012,32 @@ TsfClient::DeleteTaskOutcome TsfClient::DeleteTask(const DeleteTaskRequest &requ
 
 void TsfClient::DeleteTaskAsync(const DeleteTaskRequest& request, const DeleteTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteTask(request), context);
-    };
+    using Req = const DeleteTaskRequest&;
+    using Resp = DeleteTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteTaskOutcomeCallable TsfClient::DeleteTaskCallable(const DeleteTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteTaskOutcome>>();
+    DeleteTaskAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteTaskRequest&,
+        DeleteTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteUnitNamespacesOutcome TsfClient::DeleteUnitNamespaces(const DeleteUnitNamespacesRequest &request)
@@ -1911,25 +3062,32 @@ TsfClient::DeleteUnitNamespacesOutcome TsfClient::DeleteUnitNamespaces(const Del
 
 void TsfClient::DeleteUnitNamespacesAsync(const DeleteUnitNamespacesRequest& request, const DeleteUnitNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteUnitNamespaces(request), context);
-    };
+    using Req = const DeleteUnitNamespacesRequest&;
+    using Resp = DeleteUnitNamespacesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteUnitNamespaces", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteUnitNamespacesOutcomeCallable TsfClient::DeleteUnitNamespacesCallable(const DeleteUnitNamespacesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteUnitNamespacesOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteUnitNamespaces(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteUnitNamespacesOutcome>>();
+    DeleteUnitNamespacesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteUnitNamespacesRequest&,
+        DeleteUnitNamespacesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeleteUnitRuleOutcome TsfClient::DeleteUnitRule(const DeleteUnitRuleRequest &request)
@@ -1954,25 +3112,82 @@ TsfClient::DeleteUnitRuleOutcome TsfClient::DeleteUnitRule(const DeleteUnitRuleR
 
 void TsfClient::DeleteUnitRuleAsync(const DeleteUnitRuleRequest& request, const DeleteUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteUnitRule(request), context);
-    };
+    using Req = const DeleteUnitRuleRequest&;
+    using Resp = DeleteUnitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteUnitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeleteUnitRuleOutcomeCallable TsfClient::DeleteUnitRuleCallable(const DeleteUnitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteUnitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteUnitRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteUnitRuleOutcome>>();
+    DeleteUnitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeleteUnitRuleRequest&,
+        DeleteUnitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DeployContainerApplicationOutcome TsfClient::DeployContainerApplication(const DeployContainerApplicationRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeployContainerApplication");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeployContainerApplicationResponse rsp = DeployContainerApplicationResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeployContainerApplicationOutcome(rsp);
+        else
+            return DeployContainerApplicationOutcome(o.GetError());
+    }
+    else
+    {
+        return DeployContainerApplicationOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DeployContainerApplicationAsync(const DeployContainerApplicationRequest& request, const DeployContainerApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeployContainerApplicationRequest&;
+    using Resp = DeployContainerApplicationResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeployContainerApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DeployContainerApplicationOutcomeCallable TsfClient::DeployContainerApplicationCallable(const DeployContainerApplicationRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeployContainerApplicationOutcome>>();
+    DeployContainerApplicationAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeployContainerApplicationRequest&,
+        DeployContainerApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeployContainerGroupOutcome TsfClient::DeployContainerGroup(const DeployContainerGroupRequest &request)
@@ -1997,25 +3212,32 @@ TsfClient::DeployContainerGroupOutcome TsfClient::DeployContainerGroup(const Dep
 
 void TsfClient::DeployContainerGroupAsync(const DeployContainerGroupRequest& request, const DeployContainerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeployContainerGroup(request), context);
-    };
+    using Req = const DeployContainerGroupRequest&;
+    using Resp = DeployContainerGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeployContainerGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeployContainerGroupOutcomeCallable TsfClient::DeployContainerGroupCallable(const DeployContainerGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeployContainerGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeployContainerGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeployContainerGroupOutcome>>();
+    DeployContainerGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeployContainerGroupRequest&,
+        DeployContainerGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DeployGroupOutcome TsfClient::DeployGroup(const DeployGroupRequest &request)
@@ -2040,68 +3262,32 @@ TsfClient::DeployGroupOutcome TsfClient::DeployGroup(const DeployGroupRequest &r
 
 void TsfClient::DeployGroupAsync(const DeployGroupRequest& request, const DeployGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeployGroup(request), context);
-    };
+    using Req = const DeployGroupRequest&;
+    using Resp = DeployGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeployGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DeployGroupOutcomeCallable TsfClient::DeployGroupCallable(const DeployGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeployGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeployGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TsfClient::DeployServerlessGroupOutcome TsfClient::DeployServerlessGroup(const DeployServerlessGroupRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeployServerlessGroup");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DeployGroupOutcome>>();
+    DeployGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DeployGroupRequest&,
+        DeployGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeployServerlessGroupResponse rsp = DeployServerlessGroupResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeployServerlessGroupOutcome(rsp);
-        else
-            return DeployServerlessGroupOutcome(o.GetError());
-    }
-    else
-    {
-        return DeployServerlessGroupOutcome(outcome.GetError());
-    }
-}
-
-void TsfClient::DeployServerlessGroupAsync(const DeployServerlessGroupRequest& request, const DeployServerlessGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeployServerlessGroup(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TsfClient::DeployServerlessGroupOutcomeCallable TsfClient::DeployServerlessGroupCallable(const DeployServerlessGroupRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeployServerlessGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeployServerlessGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApiDetailOutcome TsfClient::DescribeApiDetail(const DescribeApiDetailRequest &request)
@@ -2126,25 +3312,32 @@ TsfClient::DescribeApiDetailOutcome TsfClient::DescribeApiDetail(const DescribeA
 
 void TsfClient::DescribeApiDetailAsync(const DescribeApiDetailRequest& request, const DescribeApiDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApiDetail(request), context);
-    };
+    using Req = const DescribeApiDetailRequest&;
+    using Resp = DescribeApiDetailResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApiDetailOutcomeCallable TsfClient::DescribeApiDetailCallable(const DescribeApiDetailRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApiDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApiDetail(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApiDetailOutcome>>();
+    DescribeApiDetailAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApiDetailRequest&,
+        DescribeApiDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApiGroupOutcome TsfClient::DescribeApiGroup(const DescribeApiGroupRequest &request)
@@ -2169,25 +3362,32 @@ TsfClient::DescribeApiGroupOutcome TsfClient::DescribeApiGroup(const DescribeApi
 
 void TsfClient::DescribeApiGroupAsync(const DescribeApiGroupRequest& request, const DescribeApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApiGroup(request), context);
-    };
+    using Req = const DescribeApiGroupRequest&;
+    using Resp = DescribeApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApiGroupOutcomeCallable TsfClient::DescribeApiGroupCallable(const DescribeApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApiGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApiGroupOutcome>>();
+    DescribeApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApiGroupRequest&,
+        DescribeApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApiGroupsOutcome TsfClient::DescribeApiGroups(const DescribeApiGroupsRequest &request)
@@ -2212,25 +3412,32 @@ TsfClient::DescribeApiGroupsOutcome TsfClient::DescribeApiGroups(const DescribeA
 
 void TsfClient::DescribeApiGroupsAsync(const DescribeApiGroupsRequest& request, const DescribeApiGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApiGroups(request), context);
-    };
+    using Req = const DescribeApiGroupsRequest&;
+    using Resp = DescribeApiGroupsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiGroups", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApiGroupsOutcomeCallable TsfClient::DescribeApiGroupsCallable(const DescribeApiGroupsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApiGroupsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApiGroups(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApiGroupsOutcome>>();
+    DescribeApiGroupsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApiGroupsRequest&,
+        DescribeApiGroupsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApiRateLimitRulesOutcome TsfClient::DescribeApiRateLimitRules(const DescribeApiRateLimitRulesRequest &request)
@@ -2255,25 +3462,32 @@ TsfClient::DescribeApiRateLimitRulesOutcome TsfClient::DescribeApiRateLimitRules
 
 void TsfClient::DescribeApiRateLimitRulesAsync(const DescribeApiRateLimitRulesRequest& request, const DescribeApiRateLimitRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApiRateLimitRules(request), context);
-    };
+    using Req = const DescribeApiRateLimitRulesRequest&;
+    using Resp = DescribeApiRateLimitRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiRateLimitRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApiRateLimitRulesOutcomeCallable TsfClient::DescribeApiRateLimitRulesCallable(const DescribeApiRateLimitRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApiRateLimitRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApiRateLimitRules(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApiRateLimitRulesOutcome>>();
+    DescribeApiRateLimitRulesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApiRateLimitRulesRequest&,
+        DescribeApiRateLimitRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApiUseDetailOutcome TsfClient::DescribeApiUseDetail(const DescribeApiUseDetailRequest &request)
@@ -2298,25 +3512,32 @@ TsfClient::DescribeApiUseDetailOutcome TsfClient::DescribeApiUseDetail(const Des
 
 void TsfClient::DescribeApiUseDetailAsync(const DescribeApiUseDetailRequest& request, const DescribeApiUseDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApiUseDetail(request), context);
-    };
+    using Req = const DescribeApiUseDetailRequest&;
+    using Resp = DescribeApiUseDetailResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiUseDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApiUseDetailOutcomeCallable TsfClient::DescribeApiUseDetailCallable(const DescribeApiUseDetailRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApiUseDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApiUseDetail(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApiUseDetailOutcome>>();
+    DescribeApiUseDetailAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApiUseDetailRequest&,
+        DescribeApiUseDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApiVersionsOutcome TsfClient::DescribeApiVersions(const DescribeApiVersionsRequest &request)
@@ -2341,25 +3562,32 @@ TsfClient::DescribeApiVersionsOutcome TsfClient::DescribeApiVersions(const Descr
 
 void TsfClient::DescribeApiVersionsAsync(const DescribeApiVersionsRequest& request, const DescribeApiVersionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApiVersions(request), context);
-    };
+    using Req = const DescribeApiVersionsRequest&;
+    using Resp = DescribeApiVersionsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiVersions", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApiVersionsOutcomeCallable TsfClient::DescribeApiVersionsCallable(const DescribeApiVersionsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApiVersionsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApiVersions(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApiVersionsOutcome>>();
+    DescribeApiVersionsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApiVersionsRequest&,
+        DescribeApiVersionsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApplicationOutcome TsfClient::DescribeApplication(const DescribeApplicationRequest &request)
@@ -2384,25 +3612,32 @@ TsfClient::DescribeApplicationOutcome TsfClient::DescribeApplication(const Descr
 
 void TsfClient::DescribeApplicationAsync(const DescribeApplicationRequest& request, const DescribeApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApplication(request), context);
-    };
+    using Req = const DescribeApplicationRequest&;
+    using Resp = DescribeApplicationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApplicationOutcomeCallable TsfClient::DescribeApplicationCallable(const DescribeApplicationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApplicationOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApplication(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApplicationOutcome>>();
+    DescribeApplicationAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApplicationRequest&,
+        DescribeApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApplicationAttributeOutcome TsfClient::DescribeApplicationAttribute(const DescribeApplicationAttributeRequest &request)
@@ -2427,25 +3662,32 @@ TsfClient::DescribeApplicationAttributeOutcome TsfClient::DescribeApplicationAtt
 
 void TsfClient::DescribeApplicationAttributeAsync(const DescribeApplicationAttributeRequest& request, const DescribeApplicationAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApplicationAttribute(request), context);
-    };
+    using Req = const DescribeApplicationAttributeRequest&;
+    using Resp = DescribeApplicationAttributeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApplicationAttribute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApplicationAttributeOutcomeCallable TsfClient::DescribeApplicationAttributeCallable(const DescribeApplicationAttributeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApplicationAttributeOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApplicationAttribute(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApplicationAttributeOutcome>>();
+    DescribeApplicationAttributeAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApplicationAttributeRequest&,
+        DescribeApplicationAttributeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeApplicationsOutcome TsfClient::DescribeApplications(const DescribeApplicationsRequest &request)
@@ -2470,25 +3712,32 @@ TsfClient::DescribeApplicationsOutcome TsfClient::DescribeApplications(const Des
 
 void TsfClient::DescribeApplicationsAsync(const DescribeApplicationsRequest& request, const DescribeApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApplications(request), context);
-    };
+    using Req = const DescribeApplicationsRequest&;
+    using Resp = DescribeApplicationsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApplications", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeApplicationsOutcomeCallable TsfClient::DescribeApplicationsCallable(const DescribeApplicationsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApplicationsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApplications(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApplicationsOutcome>>();
+    DescribeApplicationsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeApplicationsRequest&,
+        DescribeApplicationsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeBasicResourceUsageOutcome TsfClient::DescribeBasicResourceUsage(const DescribeBasicResourceUsageRequest &request)
@@ -2513,25 +3762,132 @@ TsfClient::DescribeBasicResourceUsageOutcome TsfClient::DescribeBasicResourceUsa
 
 void TsfClient::DescribeBasicResourceUsageAsync(const DescribeBasicResourceUsageRequest& request, const DescribeBasicResourceUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeBasicResourceUsage(request), context);
-    };
+    using Req = const DescribeBasicResourceUsageRequest&;
+    using Resp = DescribeBasicResourceUsageResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeBasicResourceUsage", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeBasicResourceUsageOutcomeCallable TsfClient::DescribeBasicResourceUsageCallable(const DescribeBasicResourceUsageRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeBasicResourceUsageOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeBasicResourceUsage(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeBasicResourceUsageOutcome>>();
+    DescribeBasicResourceUsageAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeBasicResourceUsageRequest&,
+        DescribeBasicResourceUsageOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeBusinessLogConfigOutcome TsfClient::DescribeBusinessLogConfig(const DescribeBusinessLogConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeBusinessLogConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeBusinessLogConfigResponse rsp = DescribeBusinessLogConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeBusinessLogConfigOutcome(rsp);
+        else
+            return DescribeBusinessLogConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeBusinessLogConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeBusinessLogConfigAsync(const DescribeBusinessLogConfigRequest& request, const DescribeBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeBusinessLogConfigRequest&;
+    using Resp = DescribeBusinessLogConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeBusinessLogConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeBusinessLogConfigOutcomeCallable TsfClient::DescribeBusinessLogConfigCallable(const DescribeBusinessLogConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeBusinessLogConfigOutcome>>();
+    DescribeBusinessLogConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeBusinessLogConfigRequest&,
+        DescribeBusinessLogConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::DescribeBusinessLogConfigsOutcome TsfClient::DescribeBusinessLogConfigs(const DescribeBusinessLogConfigsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeBusinessLogConfigs");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeBusinessLogConfigsResponse rsp = DescribeBusinessLogConfigsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeBusinessLogConfigsOutcome(rsp);
+        else
+            return DescribeBusinessLogConfigsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeBusinessLogConfigsOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeBusinessLogConfigsAsync(const DescribeBusinessLogConfigsRequest& request, const DescribeBusinessLogConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeBusinessLogConfigsRequest&;
+    using Resp = DescribeBusinessLogConfigsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeBusinessLogConfigs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeBusinessLogConfigsOutcomeCallable TsfClient::DescribeBusinessLogConfigsCallable(const DescribeBusinessLogConfigsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeBusinessLogConfigsOutcome>>();
+    DescribeBusinessLogConfigsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeBusinessLogConfigsRequest&,
+        DescribeBusinessLogConfigsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeClusterInstancesOutcome TsfClient::DescribeClusterInstances(const DescribeClusterInstancesRequest &request)
@@ -2556,25 +3912,82 @@ TsfClient::DescribeClusterInstancesOutcome TsfClient::DescribeClusterInstances(c
 
 void TsfClient::DescribeClusterInstancesAsync(const DescribeClusterInstancesRequest& request, const DescribeClusterInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeClusterInstances(request), context);
-    };
+    using Req = const DescribeClusterInstancesRequest&;
+    using Resp = DescribeClusterInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeClusterInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeClusterInstancesOutcomeCallable TsfClient::DescribeClusterInstancesCallable(const DescribeClusterInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeClusterInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeClusterInstances(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeClusterInstancesOutcome>>();
+    DescribeClusterInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeClusterInstancesRequest&,
+        DescribeClusterInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeClustersOutcome TsfClient::DescribeClusters(const DescribeClustersRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeClusters");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeClustersResponse rsp = DescribeClustersResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeClustersOutcome(rsp);
+        else
+            return DescribeClustersOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeClustersOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeClustersAsync(const DescribeClustersRequest& request, const DescribeClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeClustersRequest&;
+    using Resp = DescribeClustersResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeClusters", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeClustersOutcomeCallable TsfClient::DescribeClustersCallable(const DescribeClustersRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeClustersOutcome>>();
+    DescribeClustersAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeClustersRequest&,
+        DescribeClustersOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeConfigOutcome TsfClient::DescribeConfig(const DescribeConfigRequest &request)
@@ -2599,25 +4012,32 @@ TsfClient::DescribeConfigOutcome TsfClient::DescribeConfig(const DescribeConfigR
 
 void TsfClient::DescribeConfigAsync(const DescribeConfigRequest& request, const DescribeConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeConfig(request), context);
-    };
+    using Req = const DescribeConfigRequest&;
+    using Resp = DescribeConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeConfigOutcomeCallable TsfClient::DescribeConfigCallable(const DescribeConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeConfigOutcome>>();
+    DescribeConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeConfigRequest&,
+        DescribeConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeConfigReleaseLogsOutcome TsfClient::DescribeConfigReleaseLogs(const DescribeConfigReleaseLogsRequest &request)
@@ -2642,25 +4062,32 @@ TsfClient::DescribeConfigReleaseLogsOutcome TsfClient::DescribeConfigReleaseLogs
 
 void TsfClient::DescribeConfigReleaseLogsAsync(const DescribeConfigReleaseLogsRequest& request, const DescribeConfigReleaseLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeConfigReleaseLogs(request), context);
-    };
+    using Req = const DescribeConfigReleaseLogsRequest&;
+    using Resp = DescribeConfigReleaseLogsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeConfigReleaseLogs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeConfigReleaseLogsOutcomeCallable TsfClient::DescribeConfigReleaseLogsCallable(const DescribeConfigReleaseLogsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeConfigReleaseLogsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeConfigReleaseLogs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeConfigReleaseLogsOutcome>>();
+    DescribeConfigReleaseLogsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeConfigReleaseLogsRequest&,
+        DescribeConfigReleaseLogsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeConfigReleasesOutcome TsfClient::DescribeConfigReleases(const DescribeConfigReleasesRequest &request)
@@ -2685,25 +4112,32 @@ TsfClient::DescribeConfigReleasesOutcome TsfClient::DescribeConfigReleases(const
 
 void TsfClient::DescribeConfigReleasesAsync(const DescribeConfigReleasesRequest& request, const DescribeConfigReleasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeConfigReleases(request), context);
-    };
+    using Req = const DescribeConfigReleasesRequest&;
+    using Resp = DescribeConfigReleasesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeConfigReleases", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeConfigReleasesOutcomeCallable TsfClient::DescribeConfigReleasesCallable(const DescribeConfigReleasesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeConfigReleasesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeConfigReleases(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeConfigReleasesOutcome>>();
+    DescribeConfigReleasesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeConfigReleasesRequest&,
+        DescribeConfigReleasesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeConfigSummaryOutcome TsfClient::DescribeConfigSummary(const DescribeConfigSummaryRequest &request)
@@ -2728,25 +4162,82 @@ TsfClient::DescribeConfigSummaryOutcome TsfClient::DescribeConfigSummary(const D
 
 void TsfClient::DescribeConfigSummaryAsync(const DescribeConfigSummaryRequest& request, const DescribeConfigSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeConfigSummary(request), context);
-    };
+    using Req = const DescribeConfigSummaryRequest&;
+    using Resp = DescribeConfigSummaryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeConfigSummary", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeConfigSummaryOutcomeCallable TsfClient::DescribeConfigSummaryCallable(const DescribeConfigSummaryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeConfigSummaryOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeConfigSummary(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeConfigSummaryOutcome>>();
+    DescribeConfigSummaryAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeConfigSummaryRequest&,
+        DescribeConfigSummaryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeConfigTemplateOutcome TsfClient::DescribeConfigTemplate(const DescribeConfigTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeConfigTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeConfigTemplateResponse rsp = DescribeConfigTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeConfigTemplateOutcome(rsp);
+        else
+            return DescribeConfigTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeConfigTemplateOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeConfigTemplateAsync(const DescribeConfigTemplateRequest& request, const DescribeConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeConfigTemplateRequest&;
+    using Resp = DescribeConfigTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeConfigTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeConfigTemplateOutcomeCallable TsfClient::DescribeConfigTemplateCallable(const DescribeConfigTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeConfigTemplateOutcome>>();
+    DescribeConfigTemplateAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeConfigTemplateRequest&,
+        DescribeConfigTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeConfigsOutcome TsfClient::DescribeConfigs(const DescribeConfigsRequest &request)
@@ -2771,25 +4262,32 @@ TsfClient::DescribeConfigsOutcome TsfClient::DescribeConfigs(const DescribeConfi
 
 void TsfClient::DescribeConfigsAsync(const DescribeConfigsRequest& request, const DescribeConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeConfigs(request), context);
-    };
+    using Req = const DescribeConfigsRequest&;
+    using Resp = DescribeConfigsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeConfigs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeConfigsOutcomeCallable TsfClient::DescribeConfigsCallable(const DescribeConfigsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeConfigsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeConfigs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeConfigsOutcome>>();
+    DescribeConfigsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeConfigsRequest&,
+        DescribeConfigsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeContainerEventsOutcome TsfClient::DescribeContainerEvents(const DescribeContainerEventsRequest &request)
@@ -2814,25 +4312,82 @@ TsfClient::DescribeContainerEventsOutcome TsfClient::DescribeContainerEvents(con
 
 void TsfClient::DescribeContainerEventsAsync(const DescribeContainerEventsRequest& request, const DescribeContainerEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeContainerEvents(request), context);
-    };
+    using Req = const DescribeContainerEventsRequest&;
+    using Resp = DescribeContainerEventsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeContainerEvents", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeContainerEventsOutcomeCallable TsfClient::DescribeContainerEventsCallable(const DescribeContainerEventsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeContainerEventsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeContainerEvents(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeContainerEventsOutcome>>();
+    DescribeContainerEventsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeContainerEventsRequest&,
+        DescribeContainerEventsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeContainerGroupAttributeOutcome TsfClient::DescribeContainerGroupAttribute(const DescribeContainerGroupAttributeRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeContainerGroupAttribute");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeContainerGroupAttributeResponse rsp = DescribeContainerGroupAttributeResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeContainerGroupAttributeOutcome(rsp);
+        else
+            return DescribeContainerGroupAttributeOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeContainerGroupAttributeOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeContainerGroupAttributeAsync(const DescribeContainerGroupAttributeRequest& request, const DescribeContainerGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeContainerGroupAttributeRequest&;
+    using Resp = DescribeContainerGroupAttributeResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeContainerGroupAttribute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeContainerGroupAttributeOutcomeCallable TsfClient::DescribeContainerGroupAttributeCallable(const DescribeContainerGroupAttributeRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeContainerGroupAttributeOutcome>>();
+    DescribeContainerGroupAttributeAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeContainerGroupAttributeRequest&,
+        DescribeContainerGroupAttributeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeContainerGroupDeployInfoOutcome TsfClient::DescribeContainerGroupDeployInfo(const DescribeContainerGroupDeployInfoRequest &request)
@@ -2857,25 +4412,32 @@ TsfClient::DescribeContainerGroupDeployInfoOutcome TsfClient::DescribeContainerG
 
 void TsfClient::DescribeContainerGroupDeployInfoAsync(const DescribeContainerGroupDeployInfoRequest& request, const DescribeContainerGroupDeployInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeContainerGroupDeployInfo(request), context);
-    };
+    using Req = const DescribeContainerGroupDeployInfoRequest&;
+    using Resp = DescribeContainerGroupDeployInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeContainerGroupDeployInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeContainerGroupDeployInfoOutcomeCallable TsfClient::DescribeContainerGroupDeployInfoCallable(const DescribeContainerGroupDeployInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeContainerGroupDeployInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeContainerGroupDeployInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeContainerGroupDeployInfoOutcome>>();
+    DescribeContainerGroupDeployInfoAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeContainerGroupDeployInfoRequest&,
+        DescribeContainerGroupDeployInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeContainerGroupDetailOutcome TsfClient::DescribeContainerGroupDetail(const DescribeContainerGroupDetailRequest &request)
@@ -2900,25 +4462,32 @@ TsfClient::DescribeContainerGroupDetailOutcome TsfClient::DescribeContainerGroup
 
 void TsfClient::DescribeContainerGroupDetailAsync(const DescribeContainerGroupDetailRequest& request, const DescribeContainerGroupDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeContainerGroupDetail(request), context);
-    };
+    using Req = const DescribeContainerGroupDetailRequest&;
+    using Resp = DescribeContainerGroupDetailResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeContainerGroupDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeContainerGroupDetailOutcomeCallable TsfClient::DescribeContainerGroupDetailCallable(const DescribeContainerGroupDetailRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeContainerGroupDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeContainerGroupDetail(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeContainerGroupDetailOutcome>>();
+    DescribeContainerGroupDetailAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeContainerGroupDetailRequest&,
+        DescribeContainerGroupDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeContainerGroupsOutcome TsfClient::DescribeContainerGroups(const DescribeContainerGroupsRequest &request)
@@ -2943,25 +4512,32 @@ TsfClient::DescribeContainerGroupsOutcome TsfClient::DescribeContainerGroups(con
 
 void TsfClient::DescribeContainerGroupsAsync(const DescribeContainerGroupsRequest& request, const DescribeContainerGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeContainerGroups(request), context);
-    };
+    using Req = const DescribeContainerGroupsRequest&;
+    using Resp = DescribeContainerGroupsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeContainerGroups", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeContainerGroupsOutcomeCallable TsfClient::DescribeContainerGroupsCallable(const DescribeContainerGroupsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeContainerGroupsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeContainerGroups(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeContainerGroupsOutcome>>();
+    DescribeContainerGroupsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeContainerGroupsRequest&,
+        DescribeContainerGroupsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeCreateGatewayApiStatusOutcome TsfClient::DescribeCreateGatewayApiStatus(const DescribeCreateGatewayApiStatusRequest &request)
@@ -2986,25 +4562,182 @@ TsfClient::DescribeCreateGatewayApiStatusOutcome TsfClient::DescribeCreateGatewa
 
 void TsfClient::DescribeCreateGatewayApiStatusAsync(const DescribeCreateGatewayApiStatusRequest& request, const DescribeCreateGatewayApiStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCreateGatewayApiStatus(request), context);
-    };
+    using Req = const DescribeCreateGatewayApiStatusRequest&;
+    using Resp = DescribeCreateGatewayApiStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCreateGatewayApiStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeCreateGatewayApiStatusOutcomeCallable TsfClient::DescribeCreateGatewayApiStatusCallable(const DescribeCreateGatewayApiStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCreateGatewayApiStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCreateGatewayApiStatus(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeCreateGatewayApiStatusOutcome>>();
+    DescribeCreateGatewayApiStatusAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeCreateGatewayApiStatusRequest&,
+        DescribeCreateGatewayApiStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeDeliveryConfigOutcome TsfClient::DescribeDeliveryConfig(const DescribeDeliveryConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeDeliveryConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeDeliveryConfigResponse rsp = DescribeDeliveryConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeDeliveryConfigOutcome(rsp);
+        else
+            return DescribeDeliveryConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeDeliveryConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeDeliveryConfigAsync(const DescribeDeliveryConfigRequest& request, const DescribeDeliveryConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeDeliveryConfigRequest&;
+    using Resp = DescribeDeliveryConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeDeliveryConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeDeliveryConfigOutcomeCallable TsfClient::DescribeDeliveryConfigCallable(const DescribeDeliveryConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeDeliveryConfigOutcome>>();
+    DescribeDeliveryConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeDeliveryConfigRequest&,
+        DescribeDeliveryConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::DescribeDeliveryConfigByGroupIdOutcome TsfClient::DescribeDeliveryConfigByGroupId(const DescribeDeliveryConfigByGroupIdRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeDeliveryConfigByGroupId");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeDeliveryConfigByGroupIdResponse rsp = DescribeDeliveryConfigByGroupIdResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeDeliveryConfigByGroupIdOutcome(rsp);
+        else
+            return DescribeDeliveryConfigByGroupIdOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeDeliveryConfigByGroupIdOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeDeliveryConfigByGroupIdAsync(const DescribeDeliveryConfigByGroupIdRequest& request, const DescribeDeliveryConfigByGroupIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeDeliveryConfigByGroupIdRequest&;
+    using Resp = DescribeDeliveryConfigByGroupIdResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeDeliveryConfigByGroupId", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeDeliveryConfigByGroupIdOutcomeCallable TsfClient::DescribeDeliveryConfigByGroupIdCallable(const DescribeDeliveryConfigByGroupIdRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeDeliveryConfigByGroupIdOutcome>>();
+    DescribeDeliveryConfigByGroupIdAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeDeliveryConfigByGroupIdRequest&,
+        DescribeDeliveryConfigByGroupIdOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::DescribeDeliveryConfigsOutcome TsfClient::DescribeDeliveryConfigs(const DescribeDeliveryConfigsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeDeliveryConfigs");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeDeliveryConfigsResponse rsp = DescribeDeliveryConfigsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeDeliveryConfigsOutcome(rsp);
+        else
+            return DescribeDeliveryConfigsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeDeliveryConfigsOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeDeliveryConfigsAsync(const DescribeDeliveryConfigsRequest& request, const DescribeDeliveryConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeDeliveryConfigsRequest&;
+    using Resp = DescribeDeliveryConfigsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeDeliveryConfigs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeDeliveryConfigsOutcomeCallable TsfClient::DescribeDeliveryConfigsCallable(const DescribeDeliveryConfigsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeDeliveryConfigsOutcome>>();
+    DescribeDeliveryConfigsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeDeliveryConfigsRequest&,
+        DescribeDeliveryConfigsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeDownloadInfoOutcome TsfClient::DescribeDownloadInfo(const DescribeDownloadInfoRequest &request)
@@ -3029,25 +4762,32 @@ TsfClient::DescribeDownloadInfoOutcome TsfClient::DescribeDownloadInfo(const Des
 
 void TsfClient::DescribeDownloadInfoAsync(const DescribeDownloadInfoRequest& request, const DescribeDownloadInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDownloadInfo(request), context);
-    };
+    using Req = const DescribeDownloadInfoRequest&;
+    using Resp = DescribeDownloadInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDownloadInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeDownloadInfoOutcomeCallable TsfClient::DescribeDownloadInfoCallable(const DescribeDownloadInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDownloadInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDownloadInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeDownloadInfoOutcome>>();
+    DescribeDownloadInfoAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeDownloadInfoRequest&,
+        DescribeDownloadInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeEnabledUnitRuleOutcome TsfClient::DescribeEnabledUnitRule(const DescribeEnabledUnitRuleRequest &request)
@@ -3072,25 +4812,82 @@ TsfClient::DescribeEnabledUnitRuleOutcome TsfClient::DescribeEnabledUnitRule(con
 
 void TsfClient::DescribeEnabledUnitRuleAsync(const DescribeEnabledUnitRuleRequest& request, const DescribeEnabledUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeEnabledUnitRule(request), context);
-    };
+    using Req = const DescribeEnabledUnitRuleRequest&;
+    using Resp = DescribeEnabledUnitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeEnabledUnitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeEnabledUnitRuleOutcomeCallable TsfClient::DescribeEnabledUnitRuleCallable(const DescribeEnabledUnitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeEnabledUnitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeEnabledUnitRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeEnabledUnitRuleOutcome>>();
+    DescribeEnabledUnitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeEnabledUnitRuleRequest&,
+        DescribeEnabledUnitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeFileConfigReleasesOutcome TsfClient::DescribeFileConfigReleases(const DescribeFileConfigReleasesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeFileConfigReleases");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeFileConfigReleasesResponse rsp = DescribeFileConfigReleasesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeFileConfigReleasesOutcome(rsp);
+        else
+            return DescribeFileConfigReleasesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeFileConfigReleasesOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeFileConfigReleasesAsync(const DescribeFileConfigReleasesRequest& request, const DescribeFileConfigReleasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeFileConfigReleasesRequest&;
+    using Resp = DescribeFileConfigReleasesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeFileConfigReleases", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeFileConfigReleasesOutcomeCallable TsfClient::DescribeFileConfigReleasesCallable(const DescribeFileConfigReleasesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeFileConfigReleasesOutcome>>();
+    DescribeFileConfigReleasesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeFileConfigReleasesRequest&,
+        DescribeFileConfigReleasesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeFileConfigsOutcome TsfClient::DescribeFileConfigs(const DescribeFileConfigsRequest &request)
@@ -3115,25 +4912,32 @@ TsfClient::DescribeFileConfigsOutcome TsfClient::DescribeFileConfigs(const Descr
 
 void TsfClient::DescribeFileConfigsAsync(const DescribeFileConfigsRequest& request, const DescribeFileConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeFileConfigs(request), context);
-    };
+    using Req = const DescribeFileConfigsRequest&;
+    using Resp = DescribeFileConfigsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeFileConfigs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeFileConfigsOutcomeCallable TsfClient::DescribeFileConfigsCallable(const DescribeFileConfigsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeFileConfigsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeFileConfigs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeFileConfigsOutcome>>();
+    DescribeFileConfigsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeFileConfigsRequest&,
+        DescribeFileConfigsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeFlowLastBatchStateOutcome TsfClient::DescribeFlowLastBatchState(const DescribeFlowLastBatchStateRequest &request)
@@ -3158,25 +4962,32 @@ TsfClient::DescribeFlowLastBatchStateOutcome TsfClient::DescribeFlowLastBatchSta
 
 void TsfClient::DescribeFlowLastBatchStateAsync(const DescribeFlowLastBatchStateRequest& request, const DescribeFlowLastBatchStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeFlowLastBatchState(request), context);
-    };
+    using Req = const DescribeFlowLastBatchStateRequest&;
+    using Resp = DescribeFlowLastBatchStateResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeFlowLastBatchState", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeFlowLastBatchStateOutcomeCallable TsfClient::DescribeFlowLastBatchStateCallable(const DescribeFlowLastBatchStateRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeFlowLastBatchStateOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeFlowLastBatchState(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeFlowLastBatchStateOutcome>>();
+    DescribeFlowLastBatchStateAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeFlowLastBatchStateRequest&,
+        DescribeFlowLastBatchStateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGatewayAllGroupApisOutcome TsfClient::DescribeGatewayAllGroupApis(const DescribeGatewayAllGroupApisRequest &request)
@@ -3201,25 +5012,32 @@ TsfClient::DescribeGatewayAllGroupApisOutcome TsfClient::DescribeGatewayAllGroup
 
 void TsfClient::DescribeGatewayAllGroupApisAsync(const DescribeGatewayAllGroupApisRequest& request, const DescribeGatewayAllGroupApisAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGatewayAllGroupApis(request), context);
-    };
+    using Req = const DescribeGatewayAllGroupApisRequest&;
+    using Resp = DescribeGatewayAllGroupApisResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGatewayAllGroupApis", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGatewayAllGroupApisOutcomeCallable TsfClient::DescribeGatewayAllGroupApisCallable(const DescribeGatewayAllGroupApisRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGatewayAllGroupApisOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGatewayAllGroupApis(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGatewayAllGroupApisOutcome>>();
+    DescribeGatewayAllGroupApisAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGatewayAllGroupApisRequest&,
+        DescribeGatewayAllGroupApisOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGatewayApisOutcome TsfClient::DescribeGatewayApis(const DescribeGatewayApisRequest &request)
@@ -3244,25 +5062,32 @@ TsfClient::DescribeGatewayApisOutcome TsfClient::DescribeGatewayApis(const Descr
 
 void TsfClient::DescribeGatewayApisAsync(const DescribeGatewayApisRequest& request, const DescribeGatewayApisAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGatewayApis(request), context);
-    };
+    using Req = const DescribeGatewayApisRequest&;
+    using Resp = DescribeGatewayApisResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGatewayApis", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGatewayApisOutcomeCallable TsfClient::DescribeGatewayApisCallable(const DescribeGatewayApisRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGatewayApisOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGatewayApis(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGatewayApisOutcome>>();
+    DescribeGatewayApisAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGatewayApisRequest&,
+        DescribeGatewayApisOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGatewayMonitorOverviewOutcome TsfClient::DescribeGatewayMonitorOverview(const DescribeGatewayMonitorOverviewRequest &request)
@@ -3287,25 +5112,32 @@ TsfClient::DescribeGatewayMonitorOverviewOutcome TsfClient::DescribeGatewayMonit
 
 void TsfClient::DescribeGatewayMonitorOverviewAsync(const DescribeGatewayMonitorOverviewRequest& request, const DescribeGatewayMonitorOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGatewayMonitorOverview(request), context);
-    };
+    using Req = const DescribeGatewayMonitorOverviewRequest&;
+    using Resp = DescribeGatewayMonitorOverviewResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGatewayMonitorOverview", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGatewayMonitorOverviewOutcomeCallable TsfClient::DescribeGatewayMonitorOverviewCallable(const DescribeGatewayMonitorOverviewRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGatewayMonitorOverviewOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGatewayMonitorOverview(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGatewayMonitorOverviewOutcome>>();
+    DescribeGatewayMonitorOverviewAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGatewayMonitorOverviewRequest&,
+        DescribeGatewayMonitorOverviewOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupOutcome TsfClient::DescribeGroup(const DescribeGroupRequest &request)
@@ -3330,25 +5162,32 @@ TsfClient::DescribeGroupOutcome TsfClient::DescribeGroup(const DescribeGroupRequ
 
 void TsfClient::DescribeGroupAsync(const DescribeGroupRequest& request, const DescribeGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroup(request), context);
-    };
+    using Req = const DescribeGroupRequest&;
+    using Resp = DescribeGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupOutcomeCallable TsfClient::DescribeGroupCallable(const DescribeGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupOutcome>>();
+    DescribeGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupRequest&,
+        DescribeGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupAttributeOutcome TsfClient::DescribeGroupAttribute(const DescribeGroupAttributeRequest &request)
@@ -3373,25 +5212,32 @@ TsfClient::DescribeGroupAttributeOutcome TsfClient::DescribeGroupAttribute(const
 
 void TsfClient::DescribeGroupAttributeAsync(const DescribeGroupAttributeRequest& request, const DescribeGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroupAttribute(request), context);
-    };
+    using Req = const DescribeGroupAttributeRequest&;
+    using Resp = DescribeGroupAttributeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupAttribute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupAttributeOutcomeCallable TsfClient::DescribeGroupAttributeCallable(const DescribeGroupAttributeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupAttributeOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroupAttribute(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupAttributeOutcome>>();
+    DescribeGroupAttributeAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupAttributeRequest&,
+        DescribeGroupAttributeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupBindedGatewaysOutcome TsfClient::DescribeGroupBindedGateways(const DescribeGroupBindedGatewaysRequest &request)
@@ -3416,25 +5262,82 @@ TsfClient::DescribeGroupBindedGatewaysOutcome TsfClient::DescribeGroupBindedGate
 
 void TsfClient::DescribeGroupBindedGatewaysAsync(const DescribeGroupBindedGatewaysRequest& request, const DescribeGroupBindedGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroupBindedGateways(request), context);
-    };
+    using Req = const DescribeGroupBindedGatewaysRequest&;
+    using Resp = DescribeGroupBindedGatewaysResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupBindedGateways", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupBindedGatewaysOutcomeCallable TsfClient::DescribeGroupBindedGatewaysCallable(const DescribeGroupBindedGatewaysRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupBindedGatewaysOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroupBindedGateways(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeGroupBindedGatewaysOutcome>>();
+    DescribeGroupBindedGatewaysAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupBindedGatewaysRequest&,
+        DescribeGroupBindedGatewaysOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeGroupBusinessLogConfigsOutcome TsfClient::DescribeGroupBusinessLogConfigs(const DescribeGroupBusinessLogConfigsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeGroupBusinessLogConfigs");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeGroupBusinessLogConfigsResponse rsp = DescribeGroupBusinessLogConfigsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeGroupBusinessLogConfigsOutcome(rsp);
+        else
+            return DescribeGroupBusinessLogConfigsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeGroupBusinessLogConfigsOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeGroupBusinessLogConfigsAsync(const DescribeGroupBusinessLogConfigsRequest& request, const DescribeGroupBusinessLogConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeGroupBusinessLogConfigsRequest&;
+    using Resp = DescribeGroupBusinessLogConfigsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupBusinessLogConfigs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeGroupBusinessLogConfigsOutcomeCallable TsfClient::DescribeGroupBusinessLogConfigsCallable(const DescribeGroupBusinessLogConfigsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeGroupBusinessLogConfigsOutcome>>();
+    DescribeGroupBusinessLogConfigsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupBusinessLogConfigsRequest&,
+        DescribeGroupBusinessLogConfigsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupGatewaysOutcome TsfClient::DescribeGroupGateways(const DescribeGroupGatewaysRequest &request)
@@ -3459,25 +5362,32 @@ TsfClient::DescribeGroupGatewaysOutcome TsfClient::DescribeGroupGateways(const D
 
 void TsfClient::DescribeGroupGatewaysAsync(const DescribeGroupGatewaysRequest& request, const DescribeGroupGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroupGateways(request), context);
-    };
+    using Req = const DescribeGroupGatewaysRequest&;
+    using Resp = DescribeGroupGatewaysResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupGateways", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupGatewaysOutcomeCallable TsfClient::DescribeGroupGatewaysCallable(const DescribeGroupGatewaysRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupGatewaysOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroupGateways(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupGatewaysOutcome>>();
+    DescribeGroupGatewaysAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupGatewaysRequest&,
+        DescribeGroupGatewaysOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupInstancesOutcome TsfClient::DescribeGroupInstances(const DescribeGroupInstancesRequest &request)
@@ -3502,25 +5412,32 @@ TsfClient::DescribeGroupInstancesOutcome TsfClient::DescribeGroupInstances(const
 
 void TsfClient::DescribeGroupInstancesAsync(const DescribeGroupInstancesRequest& request, const DescribeGroupInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroupInstances(request), context);
-    };
+    using Req = const DescribeGroupInstancesRequest&;
+    using Resp = DescribeGroupInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupInstancesOutcomeCallable TsfClient::DescribeGroupInstancesCallable(const DescribeGroupInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroupInstances(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupInstancesOutcome>>();
+    DescribeGroupInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupInstancesRequest&,
+        DescribeGroupInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupReleaseOutcome TsfClient::DescribeGroupRelease(const DescribeGroupReleaseRequest &request)
@@ -3545,25 +5462,32 @@ TsfClient::DescribeGroupReleaseOutcome TsfClient::DescribeGroupRelease(const Des
 
 void TsfClient::DescribeGroupReleaseAsync(const DescribeGroupReleaseRequest& request, const DescribeGroupReleaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroupRelease(request), context);
-    };
+    using Req = const DescribeGroupReleaseRequest&;
+    using Resp = DescribeGroupReleaseResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupRelease", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupReleaseOutcomeCallable TsfClient::DescribeGroupReleaseCallable(const DescribeGroupReleaseRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupReleaseOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroupRelease(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupReleaseOutcome>>();
+    DescribeGroupReleaseAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupReleaseRequest&,
+        DescribeGroupReleaseOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupUseDetailOutcome TsfClient::DescribeGroupUseDetail(const DescribeGroupUseDetailRequest &request)
@@ -3588,25 +5512,32 @@ TsfClient::DescribeGroupUseDetailOutcome TsfClient::DescribeGroupUseDetail(const
 
 void TsfClient::DescribeGroupUseDetailAsync(const DescribeGroupUseDetailRequest& request, const DescribeGroupUseDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroupUseDetail(request), context);
-    };
+    using Req = const DescribeGroupUseDetailRequest&;
+    using Resp = DescribeGroupUseDetailResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupUseDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupUseDetailOutcomeCallable TsfClient::DescribeGroupUseDetailCallable(const DescribeGroupUseDetailRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupUseDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroupUseDetail(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupUseDetailOutcome>>();
+    DescribeGroupUseDetailAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupUseDetailRequest&,
+        DescribeGroupUseDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupsOutcome TsfClient::DescribeGroups(const DescribeGroupsRequest &request)
@@ -3631,25 +5562,32 @@ TsfClient::DescribeGroupsOutcome TsfClient::DescribeGroups(const DescribeGroupsR
 
 void TsfClient::DescribeGroupsAsync(const DescribeGroupsRequest& request, const DescribeGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroups(request), context);
-    };
+    using Req = const DescribeGroupsRequest&;
+    using Resp = DescribeGroupsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroups", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupsOutcomeCallable TsfClient::DescribeGroupsCallable(const DescribeGroupsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroups(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupsOutcome>>();
+    DescribeGroupsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupsRequest&,
+        DescribeGroupsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeGroupsWithPluginOutcome TsfClient::DescribeGroupsWithPlugin(const DescribeGroupsWithPluginRequest &request)
@@ -3674,25 +5612,32 @@ TsfClient::DescribeGroupsWithPluginOutcome TsfClient::DescribeGroupsWithPlugin(c
 
 void TsfClient::DescribeGroupsWithPluginAsync(const DescribeGroupsWithPluginRequest& request, const DescribeGroupsWithPluginAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGroupsWithPlugin(request), context);
-    };
+    using Req = const DescribeGroupsWithPluginRequest&;
+    using Resp = DescribeGroupsWithPluginResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGroupsWithPlugin", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeGroupsWithPluginOutcomeCallable TsfClient::DescribeGroupsWithPluginCallable(const DescribeGroupsWithPluginRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGroupsWithPluginOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGroupsWithPlugin(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGroupsWithPluginOutcome>>();
+    DescribeGroupsWithPluginAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeGroupsWithPluginRequest&,
+        DescribeGroupsWithPluginOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeImageRepositoryOutcome TsfClient::DescribeImageRepository(const DescribeImageRepositoryRequest &request)
@@ -3717,25 +5662,32 @@ TsfClient::DescribeImageRepositoryOutcome TsfClient::DescribeImageRepository(con
 
 void TsfClient::DescribeImageRepositoryAsync(const DescribeImageRepositoryRequest& request, const DescribeImageRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeImageRepository(request), context);
-    };
+    using Req = const DescribeImageRepositoryRequest&;
+    using Resp = DescribeImageRepositoryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeImageRepository", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeImageRepositoryOutcomeCallable TsfClient::DescribeImageRepositoryCallable(const DescribeImageRepositoryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeImageRepositoryOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeImageRepository(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeImageRepositoryOutcome>>();
+    DescribeImageRepositoryAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeImageRepositoryRequest&,
+        DescribeImageRepositoryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeImageTagsOutcome TsfClient::DescribeImageTags(const DescribeImageTagsRequest &request)
@@ -3760,25 +5712,32 @@ TsfClient::DescribeImageTagsOutcome TsfClient::DescribeImageTags(const DescribeI
 
 void TsfClient::DescribeImageTagsAsync(const DescribeImageTagsRequest& request, const DescribeImageTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeImageTags(request), context);
-    };
+    using Req = const DescribeImageTagsRequest&;
+    using Resp = DescribeImageTagsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeImageTags", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeImageTagsOutcomeCallable TsfClient::DescribeImageTagsCallable(const DescribeImageTagsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeImageTagsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeImageTags(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeImageTagsOutcome>>();
+    DescribeImageTagsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeImageTagsRequest&,
+        DescribeImageTagsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeInovcationIndicatorsOutcome TsfClient::DescribeInovcationIndicators(const DescribeInovcationIndicatorsRequest &request)
@@ -3803,25 +5762,82 @@ TsfClient::DescribeInovcationIndicatorsOutcome TsfClient::DescribeInovcationIndi
 
 void TsfClient::DescribeInovcationIndicatorsAsync(const DescribeInovcationIndicatorsRequest& request, const DescribeInovcationIndicatorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeInovcationIndicators(request), context);
-    };
+    using Req = const DescribeInovcationIndicatorsRequest&;
+    using Resp = DescribeInovcationIndicatorsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeInovcationIndicators", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeInovcationIndicatorsOutcomeCallable TsfClient::DescribeInovcationIndicatorsCallable(const DescribeInovcationIndicatorsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeInovcationIndicatorsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeInovcationIndicators(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeInovcationIndicatorsOutcome>>();
+    DescribeInovcationIndicatorsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeInovcationIndicatorsRequest&,
+        DescribeInovcationIndicatorsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeInstancesOutcome TsfClient::DescribeInstances(const DescribeInstancesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeInstances");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeInstancesResponse rsp = DescribeInstancesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeInstancesOutcome(rsp);
+        else
+            return DescribeInstancesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeInstancesOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeInstancesAsync(const DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeInstancesRequest&;
+    using Resp = DescribeInstancesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeInstancesOutcomeCallable TsfClient::DescribeInstancesCallable(const DescribeInstancesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeInstancesOutcome>>();
+    DescribeInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeInstancesRequest&,
+        DescribeInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeInvocationMetricDataCurveOutcome TsfClient::DescribeInvocationMetricDataCurve(const DescribeInvocationMetricDataCurveRequest &request)
@@ -3846,25 +5862,32 @@ TsfClient::DescribeInvocationMetricDataCurveOutcome TsfClient::DescribeInvocatio
 
 void TsfClient::DescribeInvocationMetricDataCurveAsync(const DescribeInvocationMetricDataCurveRequest& request, const DescribeInvocationMetricDataCurveAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeInvocationMetricDataCurve(request), context);
-    };
+    using Req = const DescribeInvocationMetricDataCurveRequest&;
+    using Resp = DescribeInvocationMetricDataCurveResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeInvocationMetricDataCurve", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeInvocationMetricDataCurveOutcomeCallable TsfClient::DescribeInvocationMetricDataCurveCallable(const DescribeInvocationMetricDataCurveRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeInvocationMetricDataCurveOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeInvocationMetricDataCurve(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeInvocationMetricDataCurveOutcome>>();
+    DescribeInvocationMetricDataCurveAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeInvocationMetricDataCurveRequest&,
+        DescribeInvocationMetricDataCurveOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeInvocationMetricDataDimensionOutcome TsfClient::DescribeInvocationMetricDataDimension(const DescribeInvocationMetricDataDimensionRequest &request)
@@ -3889,25 +5912,32 @@ TsfClient::DescribeInvocationMetricDataDimensionOutcome TsfClient::DescribeInvoc
 
 void TsfClient::DescribeInvocationMetricDataDimensionAsync(const DescribeInvocationMetricDataDimensionRequest& request, const DescribeInvocationMetricDataDimensionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeInvocationMetricDataDimension(request), context);
-    };
+    using Req = const DescribeInvocationMetricDataDimensionRequest&;
+    using Resp = DescribeInvocationMetricDataDimensionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeInvocationMetricDataDimension", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeInvocationMetricDataDimensionOutcomeCallable TsfClient::DescribeInvocationMetricDataDimensionCallable(const DescribeInvocationMetricDataDimensionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeInvocationMetricDataDimensionOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeInvocationMetricDataDimension(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeInvocationMetricDataDimensionOutcome>>();
+    DescribeInvocationMetricDataDimensionAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeInvocationMetricDataDimensionRequest&,
+        DescribeInvocationMetricDataDimensionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeInvocationMetricDataPointOutcome TsfClient::DescribeInvocationMetricDataPoint(const DescribeInvocationMetricDataPointRequest &request)
@@ -3932,25 +5962,32 @@ TsfClient::DescribeInvocationMetricDataPointOutcome TsfClient::DescribeInvocatio
 
 void TsfClient::DescribeInvocationMetricDataPointAsync(const DescribeInvocationMetricDataPointRequest& request, const DescribeInvocationMetricDataPointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeInvocationMetricDataPoint(request), context);
-    };
+    using Req = const DescribeInvocationMetricDataPointRequest&;
+    using Resp = DescribeInvocationMetricDataPointResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeInvocationMetricDataPoint", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeInvocationMetricDataPointOutcomeCallable TsfClient::DescribeInvocationMetricDataPointCallable(const DescribeInvocationMetricDataPointRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeInvocationMetricDataPointOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeInvocationMetricDataPoint(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeInvocationMetricDataPointOutcome>>();
+    DescribeInvocationMetricDataPointAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeInvocationMetricDataPointRequest&,
+        DescribeInvocationMetricDataPointOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeInvocationMetricScatterPlotOutcome TsfClient::DescribeInvocationMetricScatterPlot(const DescribeInvocationMetricScatterPlotRequest &request)
@@ -3975,25 +6012,32 @@ TsfClient::DescribeInvocationMetricScatterPlotOutcome TsfClient::DescribeInvocat
 
 void TsfClient::DescribeInvocationMetricScatterPlotAsync(const DescribeInvocationMetricScatterPlotRequest& request, const DescribeInvocationMetricScatterPlotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeInvocationMetricScatterPlot(request), context);
-    };
+    using Req = const DescribeInvocationMetricScatterPlotRequest&;
+    using Resp = DescribeInvocationMetricScatterPlotResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeInvocationMetricScatterPlot", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeInvocationMetricScatterPlotOutcomeCallable TsfClient::DescribeInvocationMetricScatterPlotCallable(const DescribeInvocationMetricScatterPlotRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeInvocationMetricScatterPlotOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeInvocationMetricScatterPlot(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeInvocationMetricScatterPlotOutcome>>();
+    DescribeInvocationMetricScatterPlotAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeInvocationMetricScatterPlotRequest&,
+        DescribeInvocationMetricScatterPlotOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeJvmMonitorOutcome TsfClient::DescribeJvmMonitor(const DescribeJvmMonitorRequest &request)
@@ -4018,25 +6062,32 @@ TsfClient::DescribeJvmMonitorOutcome TsfClient::DescribeJvmMonitor(const Describ
 
 void TsfClient::DescribeJvmMonitorAsync(const DescribeJvmMonitorRequest& request, const DescribeJvmMonitorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeJvmMonitor(request), context);
-    };
+    using Req = const DescribeJvmMonitorRequest&;
+    using Resp = DescribeJvmMonitorResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeJvmMonitor", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeJvmMonitorOutcomeCallable TsfClient::DescribeJvmMonitorCallable(const DescribeJvmMonitorRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeJvmMonitorOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeJvmMonitor(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeJvmMonitorOutcome>>();
+    DescribeJvmMonitorAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeJvmMonitorRequest&,
+        DescribeJvmMonitorOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeLaneRulesOutcome TsfClient::DescribeLaneRules(const DescribeLaneRulesRequest &request)
@@ -4061,25 +6112,32 @@ TsfClient::DescribeLaneRulesOutcome TsfClient::DescribeLaneRules(const DescribeL
 
 void TsfClient::DescribeLaneRulesAsync(const DescribeLaneRulesRequest& request, const DescribeLaneRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeLaneRules(request), context);
-    };
+    using Req = const DescribeLaneRulesRequest&;
+    using Resp = DescribeLaneRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeLaneRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeLaneRulesOutcomeCallable TsfClient::DescribeLaneRulesCallable(const DescribeLaneRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeLaneRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeLaneRules(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeLaneRulesOutcome>>();
+    DescribeLaneRulesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeLaneRulesRequest&,
+        DescribeLaneRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeLanesOutcome TsfClient::DescribeLanes(const DescribeLanesRequest &request)
@@ -4104,25 +6162,132 @@ TsfClient::DescribeLanesOutcome TsfClient::DescribeLanes(const DescribeLanesRequ
 
 void TsfClient::DescribeLanesAsync(const DescribeLanesRequest& request, const DescribeLanesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeLanes(request), context);
-    };
+    using Req = const DescribeLanesRequest&;
+    using Resp = DescribeLanesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeLanes", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeLanesOutcomeCallable TsfClient::DescribeLanesCallable(const DescribeLanesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeLanesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeLanes(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeLanesOutcome>>();
+    DescribeLanesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeLanesRequest&,
+        DescribeLanesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeLicensesOutcome TsfClient::DescribeLicenses(const DescribeLicensesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLicenses");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLicensesResponse rsp = DescribeLicensesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLicensesOutcome(rsp);
+        else
+            return DescribeLicensesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLicensesOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeLicensesAsync(const DescribeLicensesRequest& request, const DescribeLicensesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLicensesRequest&;
+    using Resp = DescribeLicensesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLicenses", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeLicensesOutcomeCallable TsfClient::DescribeLicensesCallable(const DescribeLicensesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLicensesOutcome>>();
+    DescribeLicensesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeLicensesRequest&,
+        DescribeLicensesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::DescribeLogCapacityOutcome TsfClient::DescribeLogCapacity(const DescribeLogCapacityRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLogCapacity");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLogCapacityResponse rsp = DescribeLogCapacityResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLogCapacityOutcome(rsp);
+        else
+            return DescribeLogCapacityOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLogCapacityOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeLogCapacityAsync(const DescribeLogCapacityRequest& request, const DescribeLogCapacityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLogCapacityRequest&;
+    using Resp = DescribeLogCapacityResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLogCapacity", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeLogCapacityOutcomeCallable TsfClient::DescribeLogCapacityCallable(const DescribeLogCapacityRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLogCapacityOutcome>>();
+    DescribeLogCapacityAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeLogCapacityRequest&,
+        DescribeLogCapacityOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeMicroserviceOutcome TsfClient::DescribeMicroservice(const DescribeMicroserviceRequest &request)
@@ -4147,25 +6312,32 @@ TsfClient::DescribeMicroserviceOutcome TsfClient::DescribeMicroservice(const Des
 
 void TsfClient::DescribeMicroserviceAsync(const DescribeMicroserviceRequest& request, const DescribeMicroserviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeMicroservice(request), context);
-    };
+    using Req = const DescribeMicroserviceRequest&;
+    using Resp = DescribeMicroserviceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeMicroservice", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeMicroserviceOutcomeCallable TsfClient::DescribeMicroserviceCallable(const DescribeMicroserviceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeMicroserviceOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeMicroservice(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeMicroserviceOutcome>>();
+    DescribeMicroserviceAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeMicroserviceRequest&,
+        DescribeMicroserviceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeMicroservicesOutcome TsfClient::DescribeMicroservices(const DescribeMicroservicesRequest &request)
@@ -4190,25 +6362,82 @@ TsfClient::DescribeMicroservicesOutcome TsfClient::DescribeMicroservices(const D
 
 void TsfClient::DescribeMicroservicesAsync(const DescribeMicroservicesRequest& request, const DescribeMicroservicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeMicroservices(request), context);
-    };
+    using Req = const DescribeMicroservicesRequest&;
+    using Resp = DescribeMicroservicesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeMicroservices", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeMicroservicesOutcomeCallable TsfClient::DescribeMicroservicesCallable(const DescribeMicroservicesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeMicroservicesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeMicroservices(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeMicroservicesOutcome>>();
+    DescribeMicroservicesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeMicroservicesRequest&,
+        DescribeMicroservicesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeMicroservicesByGroupIdsOutcome TsfClient::DescribeMicroservicesByGroupIds(const DescribeMicroservicesByGroupIdsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeMicroservicesByGroupIds");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeMicroservicesByGroupIdsResponse rsp = DescribeMicroservicesByGroupIdsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeMicroservicesByGroupIdsOutcome(rsp);
+        else
+            return DescribeMicroservicesByGroupIdsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeMicroservicesByGroupIdsOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeMicroservicesByGroupIdsAsync(const DescribeMicroservicesByGroupIdsRequest& request, const DescribeMicroservicesByGroupIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeMicroservicesByGroupIdsRequest&;
+    using Resp = DescribeMicroservicesByGroupIdsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeMicroservicesByGroupIds", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeMicroservicesByGroupIdsOutcomeCallable TsfClient::DescribeMicroservicesByGroupIdsCallable(const DescribeMicroservicesByGroupIdsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeMicroservicesByGroupIdsOutcome>>();
+    DescribeMicroservicesByGroupIdsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeMicroservicesByGroupIdsRequest&,
+        DescribeMicroservicesByGroupIdsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeMsApiListOutcome TsfClient::DescribeMsApiList(const DescribeMsApiListRequest &request)
@@ -4233,25 +6462,32 @@ TsfClient::DescribeMsApiListOutcome TsfClient::DescribeMsApiList(const DescribeM
 
 void TsfClient::DescribeMsApiListAsync(const DescribeMsApiListRequest& request, const DescribeMsApiListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeMsApiList(request), context);
-    };
+    using Req = const DescribeMsApiListRequest&;
+    using Resp = DescribeMsApiListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeMsApiList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeMsApiListOutcomeCallable TsfClient::DescribeMsApiListCallable(const DescribeMsApiListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeMsApiListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeMsApiList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeMsApiListOutcome>>();
+    DescribeMsApiListAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeMsApiListRequest&,
+        DescribeMsApiListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeOverviewInvocationOutcome TsfClient::DescribeOverviewInvocation(const DescribeOverviewInvocationRequest &request)
@@ -4276,25 +6512,32 @@ TsfClient::DescribeOverviewInvocationOutcome TsfClient::DescribeOverviewInvocati
 
 void TsfClient::DescribeOverviewInvocationAsync(const DescribeOverviewInvocationRequest& request, const DescribeOverviewInvocationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeOverviewInvocation(request), context);
-    };
+    using Req = const DescribeOverviewInvocationRequest&;
+    using Resp = DescribeOverviewInvocationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeOverviewInvocation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeOverviewInvocationOutcomeCallable TsfClient::DescribeOverviewInvocationCallable(const DescribeOverviewInvocationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeOverviewInvocationOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeOverviewInvocation(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeOverviewInvocationOutcome>>();
+    DescribeOverviewInvocationAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeOverviewInvocationRequest&,
+        DescribeOverviewInvocationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePathRewriteOutcome TsfClient::DescribePathRewrite(const DescribePathRewriteRequest &request)
@@ -4319,25 +6562,32 @@ TsfClient::DescribePathRewriteOutcome TsfClient::DescribePathRewrite(const Descr
 
 void TsfClient::DescribePathRewriteAsync(const DescribePathRewriteRequest& request, const DescribePathRewriteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePathRewrite(request), context);
-    };
+    using Req = const DescribePathRewriteRequest&;
+    using Resp = DescribePathRewriteResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePathRewrite", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePathRewriteOutcomeCallable TsfClient::DescribePathRewriteCallable(const DescribePathRewriteRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePathRewriteOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePathRewrite(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePathRewriteOutcome>>();
+    DescribePathRewriteAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePathRewriteRequest&,
+        DescribePathRewriteOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePathRewritesOutcome TsfClient::DescribePathRewrites(const DescribePathRewritesRequest &request)
@@ -4362,25 +6612,32 @@ TsfClient::DescribePathRewritesOutcome TsfClient::DescribePathRewrites(const Des
 
 void TsfClient::DescribePathRewritesAsync(const DescribePathRewritesRequest& request, const DescribePathRewritesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePathRewrites(request), context);
-    };
+    using Req = const DescribePathRewritesRequest&;
+    using Resp = DescribePathRewritesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePathRewrites", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePathRewritesOutcomeCallable TsfClient::DescribePathRewritesCallable(const DescribePathRewritesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePathRewritesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePathRewrites(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePathRewritesOutcome>>();
+    DescribePathRewritesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePathRewritesRequest&,
+        DescribePathRewritesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePkgsOutcome TsfClient::DescribePkgs(const DescribePkgsRequest &request)
@@ -4405,25 +6662,32 @@ TsfClient::DescribePkgsOutcome TsfClient::DescribePkgs(const DescribePkgsRequest
 
 void TsfClient::DescribePkgsAsync(const DescribePkgsRequest& request, const DescribePkgsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePkgs(request), context);
-    };
+    using Req = const DescribePkgsRequest&;
+    using Resp = DescribePkgsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePkgs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePkgsOutcomeCallable TsfClient::DescribePkgsCallable(const DescribePkgsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePkgsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePkgs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePkgsOutcome>>();
+    DescribePkgsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePkgsRequest&,
+        DescribePkgsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePluginInstancesOutcome TsfClient::DescribePluginInstances(const DescribePluginInstancesRequest &request)
@@ -4448,25 +6712,32 @@ TsfClient::DescribePluginInstancesOutcome TsfClient::DescribePluginInstances(con
 
 void TsfClient::DescribePluginInstancesAsync(const DescribePluginInstancesRequest& request, const DescribePluginInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePluginInstances(request), context);
-    };
+    using Req = const DescribePluginInstancesRequest&;
+    using Resp = DescribePluginInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePluginInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePluginInstancesOutcomeCallable TsfClient::DescribePluginInstancesCallable(const DescribePluginInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePluginInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePluginInstances(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePluginInstancesOutcome>>();
+    DescribePluginInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePluginInstancesRequest&,
+        DescribePluginInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePodInstancesOutcome TsfClient::DescribePodInstances(const DescribePodInstancesRequest &request)
@@ -4491,25 +6762,82 @@ TsfClient::DescribePodInstancesOutcome TsfClient::DescribePodInstances(const Des
 
 void TsfClient::DescribePodInstancesAsync(const DescribePodInstancesRequest& request, const DescribePodInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePodInstances(request), context);
-    };
+    using Req = const DescribePodInstancesRequest&;
+    using Resp = DescribePodInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePodInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePodInstancesOutcomeCallable TsfClient::DescribePodInstancesCallable(const DescribePodInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePodInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePodInstances(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribePodInstancesOutcome>>();
+    DescribePodInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePodInstancesRequest&,
+        DescribePodInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeProgramsOutcome TsfClient::DescribePrograms(const DescribeProgramsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribePrograms");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeProgramsResponse rsp = DescribeProgramsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeProgramsOutcome(rsp);
+        else
+            return DescribeProgramsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeProgramsOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeProgramsAsync(const DescribeProgramsRequest& request, const DescribeProgramsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeProgramsRequest&;
+    using Resp = DescribeProgramsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribePrograms", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeProgramsOutcomeCallable TsfClient::DescribeProgramsCallable(const DescribeProgramsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeProgramsOutcome>>();
+    DescribeProgramsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeProgramsRequest&,
+        DescribeProgramsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePublicConfigOutcome TsfClient::DescribePublicConfig(const DescribePublicConfigRequest &request)
@@ -4534,25 +6862,32 @@ TsfClient::DescribePublicConfigOutcome TsfClient::DescribePublicConfig(const Des
 
 void TsfClient::DescribePublicConfigAsync(const DescribePublicConfigRequest& request, const DescribePublicConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePublicConfig(request), context);
-    };
+    using Req = const DescribePublicConfigRequest&;
+    using Resp = DescribePublicConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePublicConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePublicConfigOutcomeCallable TsfClient::DescribePublicConfigCallable(const DescribePublicConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePublicConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePublicConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePublicConfigOutcome>>();
+    DescribePublicConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePublicConfigRequest&,
+        DescribePublicConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePublicConfigReleaseLogsOutcome TsfClient::DescribePublicConfigReleaseLogs(const DescribePublicConfigReleaseLogsRequest &request)
@@ -4577,25 +6912,32 @@ TsfClient::DescribePublicConfigReleaseLogsOutcome TsfClient::DescribePublicConfi
 
 void TsfClient::DescribePublicConfigReleaseLogsAsync(const DescribePublicConfigReleaseLogsRequest& request, const DescribePublicConfigReleaseLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePublicConfigReleaseLogs(request), context);
-    };
+    using Req = const DescribePublicConfigReleaseLogsRequest&;
+    using Resp = DescribePublicConfigReleaseLogsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePublicConfigReleaseLogs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePublicConfigReleaseLogsOutcomeCallable TsfClient::DescribePublicConfigReleaseLogsCallable(const DescribePublicConfigReleaseLogsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePublicConfigReleaseLogsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePublicConfigReleaseLogs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePublicConfigReleaseLogsOutcome>>();
+    DescribePublicConfigReleaseLogsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePublicConfigReleaseLogsRequest&,
+        DescribePublicConfigReleaseLogsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePublicConfigReleasesOutcome TsfClient::DescribePublicConfigReleases(const DescribePublicConfigReleasesRequest &request)
@@ -4620,25 +6962,32 @@ TsfClient::DescribePublicConfigReleasesOutcome TsfClient::DescribePublicConfigRe
 
 void TsfClient::DescribePublicConfigReleasesAsync(const DescribePublicConfigReleasesRequest& request, const DescribePublicConfigReleasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePublicConfigReleases(request), context);
-    };
+    using Req = const DescribePublicConfigReleasesRequest&;
+    using Resp = DescribePublicConfigReleasesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePublicConfigReleases", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePublicConfigReleasesOutcomeCallable TsfClient::DescribePublicConfigReleasesCallable(const DescribePublicConfigReleasesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePublicConfigReleasesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePublicConfigReleases(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePublicConfigReleasesOutcome>>();
+    DescribePublicConfigReleasesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePublicConfigReleasesRequest&,
+        DescribePublicConfigReleasesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePublicConfigSummaryOutcome TsfClient::DescribePublicConfigSummary(const DescribePublicConfigSummaryRequest &request)
@@ -4663,25 +7012,32 @@ TsfClient::DescribePublicConfigSummaryOutcome TsfClient::DescribePublicConfigSum
 
 void TsfClient::DescribePublicConfigSummaryAsync(const DescribePublicConfigSummaryRequest& request, const DescribePublicConfigSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePublicConfigSummary(request), context);
-    };
+    using Req = const DescribePublicConfigSummaryRequest&;
+    using Resp = DescribePublicConfigSummaryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePublicConfigSummary", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePublicConfigSummaryOutcomeCallable TsfClient::DescribePublicConfigSummaryCallable(const DescribePublicConfigSummaryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePublicConfigSummaryOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePublicConfigSummary(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePublicConfigSummaryOutcome>>();
+    DescribePublicConfigSummaryAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePublicConfigSummaryRequest&,
+        DescribePublicConfigSummaryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribePublicConfigsOutcome TsfClient::DescribePublicConfigs(const DescribePublicConfigsRequest &request)
@@ -4706,25 +7062,32 @@ TsfClient::DescribePublicConfigsOutcome TsfClient::DescribePublicConfigs(const D
 
 void TsfClient::DescribePublicConfigsAsync(const DescribePublicConfigsRequest& request, const DescribePublicConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePublicConfigs(request), context);
-    };
+    using Req = const DescribePublicConfigsRequest&;
+    using Resp = DescribePublicConfigsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePublicConfigs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribePublicConfigsOutcomeCallable TsfClient::DescribePublicConfigsCallable(const DescribePublicConfigsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePublicConfigsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePublicConfigs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePublicConfigsOutcome>>();
+    DescribePublicConfigsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribePublicConfigsRequest&,
+        DescribePublicConfigsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeReleasedConfigOutcome TsfClient::DescribeReleasedConfig(const DescribeReleasedConfigRequest &request)
@@ -4749,25 +7112,32 @@ TsfClient::DescribeReleasedConfigOutcome TsfClient::DescribeReleasedConfig(const
 
 void TsfClient::DescribeReleasedConfigAsync(const DescribeReleasedConfigRequest& request, const DescribeReleasedConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeReleasedConfig(request), context);
-    };
+    using Req = const DescribeReleasedConfigRequest&;
+    using Resp = DescribeReleasedConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeReleasedConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeReleasedConfigOutcomeCallable TsfClient::DescribeReleasedConfigCallable(const DescribeReleasedConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeReleasedConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeReleasedConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeReleasedConfigOutcome>>();
+    DescribeReleasedConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeReleasedConfigRequest&,
+        DescribeReleasedConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeRepositoriesOutcome TsfClient::DescribeRepositories(const DescribeRepositoriesRequest &request)
@@ -4792,25 +7162,32 @@ TsfClient::DescribeRepositoriesOutcome TsfClient::DescribeRepositories(const Des
 
 void TsfClient::DescribeRepositoriesAsync(const DescribeRepositoriesRequest& request, const DescribeRepositoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeRepositories(request), context);
-    };
+    using Req = const DescribeRepositoriesRequest&;
+    using Resp = DescribeRepositoriesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeRepositories", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeRepositoriesOutcomeCallable TsfClient::DescribeRepositoriesCallable(const DescribeRepositoriesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeRepositoriesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeRepositories(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeRepositoriesOutcome>>();
+    DescribeRepositoriesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeRepositoriesRequest&,
+        DescribeRepositoriesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeRepositoryOutcome TsfClient::DescribeRepository(const DescribeRepositoryRequest &request)
@@ -4835,111 +7212,132 @@ TsfClient::DescribeRepositoryOutcome TsfClient::DescribeRepository(const Describ
 
 void TsfClient::DescribeRepositoryAsync(const DescribeRepositoryRequest& request, const DescribeRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeRepository(request), context);
-    };
+    using Req = const DescribeRepositoryRequest&;
+    using Resp = DescribeRepositoryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeRepository", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeRepositoryOutcomeCallable TsfClient::DescribeRepositoryCallable(const DescribeRepositoryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeRepositoryOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeRepository(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeRepositoryOutcome>>();
+    DescribeRepositoryAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeRepositoryRequest&,
+        DescribeRepositoryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-TsfClient::DescribeServerlessGroupOutcome TsfClient::DescribeServerlessGroup(const DescribeServerlessGroupRequest &request)
+TsfClient::DescribeResourceConfigOutcome TsfClient::DescribeResourceConfig(const DescribeResourceConfigRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeServerlessGroup");
+    auto outcome = MakeRequest(request, "DescribeResourceConfig");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeServerlessGroupResponse rsp = DescribeServerlessGroupResponse();
+        DescribeResourceConfigResponse rsp = DescribeResourceConfigResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeServerlessGroupOutcome(rsp);
+            return DescribeResourceConfigOutcome(rsp);
         else
-            return DescribeServerlessGroupOutcome(o.GetError());
+            return DescribeResourceConfigOutcome(o.GetError());
     }
     else
     {
-        return DescribeServerlessGroupOutcome(outcome.GetError());
+        return DescribeResourceConfigOutcome(outcome.GetError());
     }
 }
 
-void TsfClient::DescribeServerlessGroupAsync(const DescribeServerlessGroupRequest& request, const DescribeServerlessGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TsfClient::DescribeResourceConfigAsync(const DescribeResourceConfigRequest& request, const DescribeResourceConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeServerlessGroup(request), context);
-    };
+    using Req = const DescribeResourceConfigRequest&;
+    using Resp = DescribeResourceConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TsfClient::DescribeServerlessGroupOutcomeCallable TsfClient::DescribeServerlessGroupCallable(const DescribeServerlessGroupRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeServerlessGroupOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DescribeResourceConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->DescribeServerlessGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TsfClient::DescribeServerlessGroupsOutcome TsfClient::DescribeServerlessGroups(const DescribeServerlessGroupsRequest &request)
+TsfClient::DescribeResourceConfigOutcomeCallable TsfClient::DescribeResourceConfigCallable(const DescribeResourceConfigRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeServerlessGroups");
+    const auto prom = std::make_shared<std::promise<DescribeResourceConfigOutcome>>();
+    DescribeResourceConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeResourceConfigRequest&,
+        DescribeResourceConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::DescribeResourceTaskStatusOutcome TsfClient::DescribeResourceTaskStatus(const DescribeResourceTaskStatusRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeResourceTaskStatus");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeServerlessGroupsResponse rsp = DescribeServerlessGroupsResponse();
+        DescribeResourceTaskStatusResponse rsp = DescribeResourceTaskStatusResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeServerlessGroupsOutcome(rsp);
+            return DescribeResourceTaskStatusOutcome(rsp);
         else
-            return DescribeServerlessGroupsOutcome(o.GetError());
+            return DescribeResourceTaskStatusOutcome(o.GetError());
     }
     else
     {
-        return DescribeServerlessGroupsOutcome(outcome.GetError());
+        return DescribeResourceTaskStatusOutcome(outcome.GetError());
     }
 }
 
-void TsfClient::DescribeServerlessGroupsAsync(const DescribeServerlessGroupsRequest& request, const DescribeServerlessGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TsfClient::DescribeResourceTaskStatusAsync(const DescribeResourceTaskStatusRequest& request, const DescribeResourceTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeServerlessGroups(request), context);
-    };
+    using Req = const DescribeResourceTaskStatusRequest&;
+    using Resp = DescribeResourceTaskStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeResourceTaskStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TsfClient::DescribeServerlessGroupsOutcomeCallable TsfClient::DescribeServerlessGroupsCallable(const DescribeServerlessGroupsRequest &request)
+TsfClient::DescribeResourceTaskStatusOutcomeCallable TsfClient::DescribeResourceTaskStatusCallable(const DescribeResourceTaskStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeServerlessGroupsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeServerlessGroups(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeResourceTaskStatusOutcome>>();
+    DescribeResourceTaskStatusAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeResourceTaskStatusRequest&,
+        DescribeResourceTaskStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeSimpleApplicationsOutcome TsfClient::DescribeSimpleApplications(const DescribeSimpleApplicationsRequest &request)
@@ -4964,25 +7362,32 @@ TsfClient::DescribeSimpleApplicationsOutcome TsfClient::DescribeSimpleApplicatio
 
 void TsfClient::DescribeSimpleApplicationsAsync(const DescribeSimpleApplicationsRequest& request, const DescribeSimpleApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSimpleApplications(request), context);
-    };
+    using Req = const DescribeSimpleApplicationsRequest&;
+    using Resp = DescribeSimpleApplicationsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSimpleApplications", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeSimpleApplicationsOutcomeCallable TsfClient::DescribeSimpleApplicationsCallable(const DescribeSimpleApplicationsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSimpleApplicationsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSimpleApplications(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSimpleApplicationsOutcome>>();
+    DescribeSimpleApplicationsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeSimpleApplicationsRequest&,
+        DescribeSimpleApplicationsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeSimpleClustersOutcome TsfClient::DescribeSimpleClusters(const DescribeSimpleClustersRequest &request)
@@ -5007,25 +7412,32 @@ TsfClient::DescribeSimpleClustersOutcome TsfClient::DescribeSimpleClusters(const
 
 void TsfClient::DescribeSimpleClustersAsync(const DescribeSimpleClustersRequest& request, const DescribeSimpleClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSimpleClusters(request), context);
-    };
+    using Req = const DescribeSimpleClustersRequest&;
+    using Resp = DescribeSimpleClustersResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSimpleClusters", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeSimpleClustersOutcomeCallable TsfClient::DescribeSimpleClustersCallable(const DescribeSimpleClustersRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSimpleClustersOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSimpleClusters(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSimpleClustersOutcome>>();
+    DescribeSimpleClustersAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeSimpleClustersRequest&,
+        DescribeSimpleClustersOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeSimpleGroupsOutcome TsfClient::DescribeSimpleGroups(const DescribeSimpleGroupsRequest &request)
@@ -5050,25 +7462,32 @@ TsfClient::DescribeSimpleGroupsOutcome TsfClient::DescribeSimpleGroups(const Des
 
 void TsfClient::DescribeSimpleGroupsAsync(const DescribeSimpleGroupsRequest& request, const DescribeSimpleGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSimpleGroups(request), context);
-    };
+    using Req = const DescribeSimpleGroupsRequest&;
+    using Resp = DescribeSimpleGroupsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSimpleGroups", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeSimpleGroupsOutcomeCallable TsfClient::DescribeSimpleGroupsCallable(const DescribeSimpleGroupsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSimpleGroupsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSimpleGroups(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSimpleGroupsOutcome>>();
+    DescribeSimpleGroupsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeSimpleGroupsRequest&,
+        DescribeSimpleGroupsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeSimpleNamespacesOutcome TsfClient::DescribeSimpleNamespaces(const DescribeSimpleNamespacesRequest &request)
@@ -5093,25 +7512,32 @@ TsfClient::DescribeSimpleNamespacesOutcome TsfClient::DescribeSimpleNamespaces(c
 
 void TsfClient::DescribeSimpleNamespacesAsync(const DescribeSimpleNamespacesRequest& request, const DescribeSimpleNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSimpleNamespaces(request), context);
-    };
+    using Req = const DescribeSimpleNamespacesRequest&;
+    using Resp = DescribeSimpleNamespacesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSimpleNamespaces", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeSimpleNamespacesOutcomeCallable TsfClient::DescribeSimpleNamespacesCallable(const DescribeSimpleNamespacesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSimpleNamespacesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSimpleNamespaces(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSimpleNamespacesOutcome>>();
+    DescribeSimpleNamespacesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeSimpleNamespacesRequest&,
+        DescribeSimpleNamespacesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeStatisticsOutcome TsfClient::DescribeStatistics(const DescribeStatisticsRequest &request)
@@ -5136,25 +7562,32 @@ TsfClient::DescribeStatisticsOutcome TsfClient::DescribeStatistics(const Describ
 
 void TsfClient::DescribeStatisticsAsync(const DescribeStatisticsRequest& request, const DescribeStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeStatistics(request), context);
-    };
+    using Req = const DescribeStatisticsRequest&;
+    using Resp = DescribeStatisticsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeStatistics", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeStatisticsOutcomeCallable TsfClient::DescribeStatisticsCallable(const DescribeStatisticsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeStatisticsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeStatistics(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeStatisticsOutcome>>();
+    DescribeStatisticsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeStatisticsRequest&,
+        DescribeStatisticsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeTaskDetailOutcome TsfClient::DescribeTaskDetail(const DescribeTaskDetailRequest &request)
@@ -5179,25 +7612,32 @@ TsfClient::DescribeTaskDetailOutcome TsfClient::DescribeTaskDetail(const Describ
 
 void TsfClient::DescribeTaskDetailAsync(const DescribeTaskDetailRequest& request, const DescribeTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTaskDetail(request), context);
-    };
+    using Req = const DescribeTaskDetailRequest&;
+    using Resp = DescribeTaskDetailResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTaskDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeTaskDetailOutcomeCallable TsfClient::DescribeTaskDetailCallable(const DescribeTaskDetailRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTaskDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTaskDetail(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTaskDetailOutcome>>();
+    DescribeTaskDetailAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeTaskDetailRequest&,
+        DescribeTaskDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeTaskLastStatusOutcome TsfClient::DescribeTaskLastStatus(const DescribeTaskLastStatusRequest &request)
@@ -5222,25 +7662,32 @@ TsfClient::DescribeTaskLastStatusOutcome TsfClient::DescribeTaskLastStatus(const
 
 void TsfClient::DescribeTaskLastStatusAsync(const DescribeTaskLastStatusRequest& request, const DescribeTaskLastStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTaskLastStatus(request), context);
-    };
+    using Req = const DescribeTaskLastStatusRequest&;
+    using Resp = DescribeTaskLastStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTaskLastStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeTaskLastStatusOutcomeCallable TsfClient::DescribeTaskLastStatusCallable(const DescribeTaskLastStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTaskLastStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTaskLastStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTaskLastStatusOutcome>>();
+    DescribeTaskLastStatusAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeTaskLastStatusRequest&,
+        DescribeTaskLastStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeTaskRecordsOutcome TsfClient::DescribeTaskRecords(const DescribeTaskRecordsRequest &request)
@@ -5265,25 +7712,32 @@ TsfClient::DescribeTaskRecordsOutcome TsfClient::DescribeTaskRecords(const Descr
 
 void TsfClient::DescribeTaskRecordsAsync(const DescribeTaskRecordsRequest& request, const DescribeTaskRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTaskRecords(request), context);
-    };
+    using Req = const DescribeTaskRecordsRequest&;
+    using Resp = DescribeTaskRecordsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTaskRecords", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeTaskRecordsOutcomeCallable TsfClient::DescribeTaskRecordsCallable(const DescribeTaskRecordsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTaskRecordsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTaskRecords(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTaskRecordsOutcome>>();
+    DescribeTaskRecordsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeTaskRecordsRequest&,
+        DescribeTaskRecordsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeUnitApiUseDetailOutcome TsfClient::DescribeUnitApiUseDetail(const DescribeUnitApiUseDetailRequest &request)
@@ -5308,25 +7762,32 @@ TsfClient::DescribeUnitApiUseDetailOutcome TsfClient::DescribeUnitApiUseDetail(c
 
 void TsfClient::DescribeUnitApiUseDetailAsync(const DescribeUnitApiUseDetailRequest& request, const DescribeUnitApiUseDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUnitApiUseDetail(request), context);
-    };
+    using Req = const DescribeUnitApiUseDetailRequest&;
+    using Resp = DescribeUnitApiUseDetailResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUnitApiUseDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeUnitApiUseDetailOutcomeCallable TsfClient::DescribeUnitApiUseDetailCallable(const DescribeUnitApiUseDetailRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUnitApiUseDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUnitApiUseDetail(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeUnitApiUseDetailOutcome>>();
+    DescribeUnitApiUseDetailAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeUnitApiUseDetailRequest&,
+        DescribeUnitApiUseDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeUnitNamespacesOutcome TsfClient::DescribeUnitNamespaces(const DescribeUnitNamespacesRequest &request)
@@ -5351,25 +7812,32 @@ TsfClient::DescribeUnitNamespacesOutcome TsfClient::DescribeUnitNamespaces(const
 
 void TsfClient::DescribeUnitNamespacesAsync(const DescribeUnitNamespacesRequest& request, const DescribeUnitNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUnitNamespaces(request), context);
-    };
+    using Req = const DescribeUnitNamespacesRequest&;
+    using Resp = DescribeUnitNamespacesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUnitNamespaces", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeUnitNamespacesOutcomeCallable TsfClient::DescribeUnitNamespacesCallable(const DescribeUnitNamespacesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUnitNamespacesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUnitNamespaces(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeUnitNamespacesOutcome>>();
+    DescribeUnitNamespacesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeUnitNamespacesRequest&,
+        DescribeUnitNamespacesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeUnitRuleOutcome TsfClient::DescribeUnitRule(const DescribeUnitRuleRequest &request)
@@ -5394,25 +7862,32 @@ TsfClient::DescribeUnitRuleOutcome TsfClient::DescribeUnitRule(const DescribeUni
 
 void TsfClient::DescribeUnitRuleAsync(const DescribeUnitRuleRequest& request, const DescribeUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUnitRule(request), context);
-    };
+    using Req = const DescribeUnitRuleRequest&;
+    using Resp = DescribeUnitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUnitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeUnitRuleOutcomeCallable TsfClient::DescribeUnitRuleCallable(const DescribeUnitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUnitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUnitRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeUnitRuleOutcome>>();
+    DescribeUnitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeUnitRuleRequest&,
+        DescribeUnitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeUnitRulesOutcome TsfClient::DescribeUnitRules(const DescribeUnitRulesRequest &request)
@@ -5437,25 +7912,82 @@ TsfClient::DescribeUnitRulesOutcome TsfClient::DescribeUnitRules(const DescribeU
 
 void TsfClient::DescribeUnitRulesAsync(const DescribeUnitRulesRequest& request, const DescribeUnitRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUnitRules(request), context);
-    };
+    using Req = const DescribeUnitRulesRequest&;
+    using Resp = DescribeUnitRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUnitRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeUnitRulesOutcomeCallable TsfClient::DescribeUnitRulesCallable(const DescribeUnitRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUnitRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUnitRules(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeUnitRulesOutcome>>();
+    DescribeUnitRulesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeUnitRulesRequest&,
+        DescribeUnitRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DescribeUnitRulesV2Outcome TsfClient::DescribeUnitRulesV2(const DescribeUnitRulesV2Request &request)
+{
+    auto outcome = MakeRequest(request, "DescribeUnitRulesV2");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeUnitRulesV2Response rsp = DescribeUnitRulesV2Response();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeUnitRulesV2Outcome(rsp);
+        else
+            return DescribeUnitRulesV2Outcome(o.GetError());
+    }
+    else
+    {
+        return DescribeUnitRulesV2Outcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DescribeUnitRulesV2Async(const DescribeUnitRulesV2Request& request, const DescribeUnitRulesV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeUnitRulesV2Request&;
+    using Resp = DescribeUnitRulesV2Response;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeUnitRulesV2", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DescribeUnitRulesV2OutcomeCallable TsfClient::DescribeUnitRulesV2Callable(const DescribeUnitRulesV2Request &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeUnitRulesV2Outcome>>();
+    DescribeUnitRulesV2Async(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeUnitRulesV2Request&,
+        DescribeUnitRulesV2Outcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeUploadInfoOutcome TsfClient::DescribeUploadInfo(const DescribeUploadInfoRequest &request)
@@ -5480,25 +8012,32 @@ TsfClient::DescribeUploadInfoOutcome TsfClient::DescribeUploadInfo(const Describ
 
 void TsfClient::DescribeUploadInfoAsync(const DescribeUploadInfoRequest& request, const DescribeUploadInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUploadInfo(request), context);
-    };
+    using Req = const DescribeUploadInfoRequest&;
+    using Resp = DescribeUploadInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUploadInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeUploadInfoOutcomeCallable TsfClient::DescribeUploadInfoCallable(const DescribeUploadInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUploadInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUploadInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeUploadInfoOutcome>>();
+    DescribeUploadInfoAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeUploadInfoRequest&,
+        DescribeUploadInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DescribeUsableUnitNamespacesOutcome TsfClient::DescribeUsableUnitNamespaces(const DescribeUsableUnitNamespacesRequest &request)
@@ -5523,25 +8062,82 @@ TsfClient::DescribeUsableUnitNamespacesOutcome TsfClient::DescribeUsableUnitName
 
 void TsfClient::DescribeUsableUnitNamespacesAsync(const DescribeUsableUnitNamespacesRequest& request, const DescribeUsableUnitNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUsableUnitNamespaces(request), context);
-    };
+    using Req = const DescribeUsableUnitNamespacesRequest&;
+    using Resp = DescribeUsableUnitNamespacesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUsableUnitNamespaces", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DescribeUsableUnitNamespacesOutcomeCallable TsfClient::DescribeUsableUnitNamespacesCallable(const DescribeUsableUnitNamespacesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUsableUnitNamespacesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUsableUnitNamespaces(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeUsableUnitNamespacesOutcome>>();
+    DescribeUsableUnitNamespacesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DescribeUsableUnitNamespacesRequest&,
+        DescribeUsableUnitNamespacesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DisableLaneRuleOutcome TsfClient::DisableLaneRule(const DisableLaneRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "DisableLaneRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DisableLaneRuleResponse rsp = DisableLaneRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DisableLaneRuleOutcome(rsp);
+        else
+            return DisableLaneRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return DisableLaneRuleOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DisableLaneRuleAsync(const DisableLaneRuleRequest& request, const DisableLaneRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DisableLaneRuleRequest&;
+    using Resp = DisableLaneRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DisableLaneRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DisableLaneRuleOutcomeCallable TsfClient::DisableLaneRuleCallable(const DisableLaneRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DisableLaneRuleOutcome>>();
+    DisableLaneRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DisableLaneRuleRequest&,
+        DisableLaneRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DisableTaskOutcome TsfClient::DisableTask(const DisableTaskRequest &request)
@@ -5566,25 +8162,32 @@ TsfClient::DisableTaskOutcome TsfClient::DisableTask(const DisableTaskRequest &r
 
 void TsfClient::DisableTaskAsync(const DisableTaskRequest& request, const DisableTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DisableTask(request), context);
-    };
+    using Req = const DisableTaskRequest&;
+    using Resp = DisableTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DisableTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DisableTaskOutcomeCallable TsfClient::DisableTaskCallable(const DisableTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DisableTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->DisableTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DisableTaskOutcome>>();
+    DisableTaskAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DisableTaskRequest&,
+        DisableTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DisableTaskFlowOutcome TsfClient::DisableTaskFlow(const DisableTaskFlowRequest &request)
@@ -5609,25 +8212,32 @@ TsfClient::DisableTaskFlowOutcome TsfClient::DisableTaskFlow(const DisableTaskFl
 
 void TsfClient::DisableTaskFlowAsync(const DisableTaskFlowRequest& request, const DisableTaskFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DisableTaskFlow(request), context);
-    };
+    using Req = const DisableTaskFlowRequest&;
+    using Resp = DisableTaskFlowResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DisableTaskFlow", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DisableTaskFlowOutcomeCallable TsfClient::DisableTaskFlowCallable(const DisableTaskFlowRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DisableTaskFlowOutcome()>>(
-        [this, request]()
-        {
-            return this->DisableTaskFlow(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DisableTaskFlowOutcome>>();
+    DisableTaskFlowAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DisableTaskFlowRequest&,
+        DisableTaskFlowOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DisableUnitRouteOutcome TsfClient::DisableUnitRoute(const DisableUnitRouteRequest &request)
@@ -5652,25 +8262,32 @@ TsfClient::DisableUnitRouteOutcome TsfClient::DisableUnitRoute(const DisableUnit
 
 void TsfClient::DisableUnitRouteAsync(const DisableUnitRouteRequest& request, const DisableUnitRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DisableUnitRoute(request), context);
-    };
+    using Req = const DisableUnitRouteRequest&;
+    using Resp = DisableUnitRouteResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DisableUnitRoute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DisableUnitRouteOutcomeCallable TsfClient::DisableUnitRouteCallable(const DisableUnitRouteRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DisableUnitRouteOutcome()>>(
-        [this, request]()
-        {
-            return this->DisableUnitRoute(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DisableUnitRouteOutcome>>();
+    DisableUnitRouteAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DisableUnitRouteRequest&,
+        DisableUnitRouteOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DisableUnitRuleOutcome TsfClient::DisableUnitRule(const DisableUnitRuleRequest &request)
@@ -5695,25 +8312,132 @@ TsfClient::DisableUnitRuleOutcome TsfClient::DisableUnitRule(const DisableUnitRu
 
 void TsfClient::DisableUnitRuleAsync(const DisableUnitRuleRequest& request, const DisableUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DisableUnitRule(request), context);
-    };
+    using Req = const DisableUnitRuleRequest&;
+    using Resp = DisableUnitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DisableUnitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DisableUnitRuleOutcomeCallable TsfClient::DisableUnitRuleCallable(const DisableUnitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DisableUnitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DisableUnitRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DisableUnitRuleOutcome>>();
+    DisableUnitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DisableUnitRuleRequest&,
+        DisableUnitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::DisassociateBusinessLogConfigOutcome TsfClient::DisassociateBusinessLogConfig(const DisassociateBusinessLogConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "DisassociateBusinessLogConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DisassociateBusinessLogConfigResponse rsp = DisassociateBusinessLogConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DisassociateBusinessLogConfigOutcome(rsp);
+        else
+            return DisassociateBusinessLogConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return DisassociateBusinessLogConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DisassociateBusinessLogConfigAsync(const DisassociateBusinessLogConfigRequest& request, const DisassociateBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DisassociateBusinessLogConfigRequest&;
+    using Resp = DisassociateBusinessLogConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DisassociateBusinessLogConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DisassociateBusinessLogConfigOutcomeCallable TsfClient::DisassociateBusinessLogConfigCallable(const DisassociateBusinessLogConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DisassociateBusinessLogConfigOutcome>>();
+    DisassociateBusinessLogConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DisassociateBusinessLogConfigRequest&,
+        DisassociateBusinessLogConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::DisassociateKafkaConfigOutcome TsfClient::DisassociateKafkaConfig(const DisassociateKafkaConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "DisassociateKafkaConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DisassociateKafkaConfigResponse rsp = DisassociateKafkaConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DisassociateKafkaConfigOutcome(rsp);
+        else
+            return DisassociateKafkaConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return DisassociateKafkaConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::DisassociateKafkaConfigAsync(const DisassociateKafkaConfigRequest& request, const DisassociateKafkaConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DisassociateKafkaConfigRequest&;
+    using Resp = DisassociateKafkaConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DisassociateKafkaConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::DisassociateKafkaConfigOutcomeCallable TsfClient::DisassociateKafkaConfigCallable(const DisassociateKafkaConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DisassociateKafkaConfigOutcome>>();
+    DisassociateKafkaConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DisassociateKafkaConfigRequest&,
+        DisassociateKafkaConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::DraftApiGroupOutcome TsfClient::DraftApiGroup(const DraftApiGroupRequest &request)
@@ -5738,25 +8462,82 @@ TsfClient::DraftApiGroupOutcome TsfClient::DraftApiGroup(const DraftApiGroupRequ
 
 void TsfClient::DraftApiGroupAsync(const DraftApiGroupRequest& request, const DraftApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DraftApiGroup(request), context);
-    };
+    using Req = const DraftApiGroupRequest&;
+    using Resp = DraftApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DraftApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::DraftApiGroupOutcomeCallable TsfClient::DraftApiGroupCallable(const DraftApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DraftApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DraftApiGroup(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DraftApiGroupOutcome>>();
+    DraftApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const DraftApiGroupRequest&,
+        DraftApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::EnableLaneRuleOutcome TsfClient::EnableLaneRule(const EnableLaneRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "EnableLaneRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        EnableLaneRuleResponse rsp = EnableLaneRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return EnableLaneRuleOutcome(rsp);
+        else
+            return EnableLaneRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return EnableLaneRuleOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::EnableLaneRuleAsync(const EnableLaneRuleRequest& request, const EnableLaneRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const EnableLaneRuleRequest&;
+    using Resp = EnableLaneRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "EnableLaneRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::EnableLaneRuleOutcomeCallable TsfClient::EnableLaneRuleCallable(const EnableLaneRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<EnableLaneRuleOutcome>>();
+    EnableLaneRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const EnableLaneRuleRequest&,
+        EnableLaneRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::EnableTaskOutcome TsfClient::EnableTask(const EnableTaskRequest &request)
@@ -5781,25 +8562,32 @@ TsfClient::EnableTaskOutcome TsfClient::EnableTask(const EnableTaskRequest &requ
 
 void TsfClient::EnableTaskAsync(const EnableTaskRequest& request, const EnableTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnableTask(request), context);
-    };
+    using Req = const EnableTaskRequest&;
+    using Resp = EnableTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EnableTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::EnableTaskOutcomeCallable TsfClient::EnableTaskCallable(const EnableTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EnableTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->EnableTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<EnableTaskOutcome>>();
+    EnableTaskAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const EnableTaskRequest&,
+        EnableTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::EnableTaskFlowOutcome TsfClient::EnableTaskFlow(const EnableTaskFlowRequest &request)
@@ -5824,25 +8612,32 @@ TsfClient::EnableTaskFlowOutcome TsfClient::EnableTaskFlow(const EnableTaskFlowR
 
 void TsfClient::EnableTaskFlowAsync(const EnableTaskFlowRequest& request, const EnableTaskFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnableTaskFlow(request), context);
-    };
+    using Req = const EnableTaskFlowRequest&;
+    using Resp = EnableTaskFlowResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EnableTaskFlow", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::EnableTaskFlowOutcomeCallable TsfClient::EnableTaskFlowCallable(const EnableTaskFlowRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EnableTaskFlowOutcome()>>(
-        [this, request]()
-        {
-            return this->EnableTaskFlow(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<EnableTaskFlowOutcome>>();
+    EnableTaskFlowAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const EnableTaskFlowRequest&,
+        EnableTaskFlowOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::EnableUnitRouteOutcome TsfClient::EnableUnitRoute(const EnableUnitRouteRequest &request)
@@ -5867,25 +8662,32 @@ TsfClient::EnableUnitRouteOutcome TsfClient::EnableUnitRoute(const EnableUnitRou
 
 void TsfClient::EnableUnitRouteAsync(const EnableUnitRouteRequest& request, const EnableUnitRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnableUnitRoute(request), context);
-    };
+    using Req = const EnableUnitRouteRequest&;
+    using Resp = EnableUnitRouteResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EnableUnitRoute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::EnableUnitRouteOutcomeCallable TsfClient::EnableUnitRouteCallable(const EnableUnitRouteRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EnableUnitRouteOutcome()>>(
-        [this, request]()
-        {
-            return this->EnableUnitRoute(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<EnableUnitRouteOutcome>>();
+    EnableUnitRouteAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const EnableUnitRouteRequest&,
+        EnableUnitRouteOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::EnableUnitRuleOutcome TsfClient::EnableUnitRule(const EnableUnitRuleRequest &request)
@@ -5910,25 +8712,32 @@ TsfClient::EnableUnitRuleOutcome TsfClient::EnableUnitRule(const EnableUnitRuleR
 
 void TsfClient::EnableUnitRuleAsync(const EnableUnitRuleRequest& request, const EnableUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnableUnitRule(request), context);
-    };
+    using Req = const EnableUnitRuleRequest&;
+    using Resp = EnableUnitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EnableUnitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::EnableUnitRuleOutcomeCallable TsfClient::EnableUnitRuleCallable(const EnableUnitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EnableUnitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->EnableUnitRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<EnableUnitRuleOutcome>>();
+    EnableUnitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const EnableUnitRuleRequest&,
+        EnableUnitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ExecuteTaskOutcome TsfClient::ExecuteTask(const ExecuteTaskRequest &request)
@@ -5953,25 +8762,32 @@ TsfClient::ExecuteTaskOutcome TsfClient::ExecuteTask(const ExecuteTaskRequest &r
 
 void TsfClient::ExecuteTaskAsync(const ExecuteTaskRequest& request, const ExecuteTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ExecuteTask(request), context);
-    };
+    using Req = const ExecuteTaskRequest&;
+    using Resp = ExecuteTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ExecuteTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ExecuteTaskOutcomeCallable TsfClient::ExecuteTaskCallable(const ExecuteTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ExecuteTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->ExecuteTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ExecuteTaskOutcome>>();
+    ExecuteTaskAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ExecuteTaskRequest&,
+        ExecuteTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ExecuteTaskFlowOutcome TsfClient::ExecuteTaskFlow(const ExecuteTaskFlowRequest &request)
@@ -5996,25 +8812,32 @@ TsfClient::ExecuteTaskFlowOutcome TsfClient::ExecuteTaskFlow(const ExecuteTaskFl
 
 void TsfClient::ExecuteTaskFlowAsync(const ExecuteTaskFlowRequest& request, const ExecuteTaskFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ExecuteTaskFlow(request), context);
-    };
+    using Req = const ExecuteTaskFlowRequest&;
+    using Resp = ExecuteTaskFlowResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ExecuteTaskFlow", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ExecuteTaskFlowOutcomeCallable TsfClient::ExecuteTaskFlowCallable(const ExecuteTaskFlowRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ExecuteTaskFlowOutcome()>>(
-        [this, request]()
-        {
-            return this->ExecuteTaskFlow(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ExecuteTaskFlowOutcome>>();
+    ExecuteTaskFlowAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ExecuteTaskFlowRequest&,
+        ExecuteTaskFlowOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ExpandGroupOutcome TsfClient::ExpandGroup(const ExpandGroupRequest &request)
@@ -6039,25 +8862,132 @@ TsfClient::ExpandGroupOutcome TsfClient::ExpandGroup(const ExpandGroupRequest &r
 
 void TsfClient::ExpandGroupAsync(const ExpandGroupRequest& request, const ExpandGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ExpandGroup(request), context);
-    };
+    using Req = const ExpandGroupRequest&;
+    using Resp = ExpandGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ExpandGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ExpandGroupOutcomeCallable TsfClient::ExpandGroupCallable(const ExpandGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ExpandGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->ExpandGroup(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ExpandGroupOutcome>>();
+    ExpandGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ExpandGroupRequest&,
+        ExpandGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::ModifyApplicationOutcome TsfClient::ModifyApplication(const ModifyApplicationRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyApplication");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyApplicationResponse rsp = ModifyApplicationResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyApplicationOutcome(rsp);
+        else
+            return ModifyApplicationOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyApplicationOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ModifyApplicationAsync(const ModifyApplicationRequest& request, const ModifyApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyApplicationRequest&;
+    using Resp = ModifyApplicationResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ModifyApplicationOutcomeCallable TsfClient::ModifyApplicationCallable(const ModifyApplicationRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyApplicationOutcome>>();
+    ModifyApplicationAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyApplicationRequest&,
+        ModifyApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::ModifyClusterOutcome TsfClient::ModifyCluster(const ModifyClusterRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyCluster");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyClusterResponse rsp = ModifyClusterResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyClusterOutcome(rsp);
+        else
+            return ModifyClusterOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyClusterOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ModifyClusterAsync(const ModifyClusterRequest& request, const ModifyClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyClusterRequest&;
+    using Resp = ModifyClusterResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyCluster", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ModifyClusterOutcomeCallable TsfClient::ModifyClusterCallable(const ModifyClusterRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyClusterOutcome>>();
+    ModifyClusterAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyClusterRequest&,
+        ModifyClusterOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyContainerGroupOutcome TsfClient::ModifyContainerGroup(const ModifyContainerGroupRequest &request)
@@ -6082,25 +9012,32 @@ TsfClient::ModifyContainerGroupOutcome TsfClient::ModifyContainerGroup(const Mod
 
 void TsfClient::ModifyContainerGroupAsync(const ModifyContainerGroupRequest& request, const ModifyContainerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyContainerGroup(request), context);
-    };
+    using Req = const ModifyContainerGroupRequest&;
+    using Resp = ModifyContainerGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyContainerGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyContainerGroupOutcomeCallable TsfClient::ModifyContainerGroupCallable(const ModifyContainerGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyContainerGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyContainerGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyContainerGroupOutcome>>();
+    ModifyContainerGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyContainerGroupRequest&,
+        ModifyContainerGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyContainerReplicasOutcome TsfClient::ModifyContainerReplicas(const ModifyContainerReplicasRequest &request)
@@ -6125,25 +9062,132 @@ TsfClient::ModifyContainerReplicasOutcome TsfClient::ModifyContainerReplicas(con
 
 void TsfClient::ModifyContainerReplicasAsync(const ModifyContainerReplicasRequest& request, const ModifyContainerReplicasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyContainerReplicas(request), context);
-    };
+    using Req = const ModifyContainerReplicasRequest&;
+    using Resp = ModifyContainerReplicasResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyContainerReplicas", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyContainerReplicasOutcomeCallable TsfClient::ModifyContainerReplicasCallable(const ModifyContainerReplicasRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyContainerReplicasOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyContainerReplicas(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyContainerReplicasOutcome>>();
+    ModifyContainerReplicasAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyContainerReplicasRequest&,
+        ModifyContainerReplicasOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::ModifyGroupOutcome TsfClient::ModifyGroup(const ModifyGroupRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyGroup");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyGroupResponse rsp = ModifyGroupResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyGroupOutcome(rsp);
+        else
+            return ModifyGroupOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyGroupOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ModifyGroupAsync(const ModifyGroupRequest& request, const ModifyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyGroupRequest&;
+    using Resp = ModifyGroupResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ModifyGroupOutcomeCallable TsfClient::ModifyGroupCallable(const ModifyGroupRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyGroupOutcome>>();
+    ModifyGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyGroupRequest&,
+        ModifyGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TsfClient::ModifyGroupLaneOutcome TsfClient::ModifyGroupLane(const ModifyGroupLaneRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyGroupLane");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyGroupLaneResponse rsp = ModifyGroupLaneResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyGroupLaneOutcome(rsp);
+        else
+            return ModifyGroupLaneOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyGroupLaneOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ModifyGroupLaneAsync(const ModifyGroupLaneRequest& request, const ModifyGroupLaneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyGroupLaneRequest&;
+    using Resp = ModifyGroupLaneResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyGroupLane", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ModifyGroupLaneOutcomeCallable TsfClient::ModifyGroupLaneCallable(const ModifyGroupLaneRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyGroupLaneOutcome>>();
+    ModifyGroupLaneAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyGroupLaneRequest&,
+        ModifyGroupLaneOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyLaneOutcome TsfClient::ModifyLane(const ModifyLaneRequest &request)
@@ -6168,25 +9212,32 @@ TsfClient::ModifyLaneOutcome TsfClient::ModifyLane(const ModifyLaneRequest &requ
 
 void TsfClient::ModifyLaneAsync(const ModifyLaneRequest& request, const ModifyLaneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyLane(request), context);
-    };
+    using Req = const ModifyLaneRequest&;
+    using Resp = ModifyLaneResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyLane", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyLaneOutcomeCallable TsfClient::ModifyLaneCallable(const ModifyLaneRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyLaneOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyLane(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyLaneOutcome>>();
+    ModifyLaneAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyLaneRequest&,
+        ModifyLaneOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyLaneRuleOutcome TsfClient::ModifyLaneRule(const ModifyLaneRuleRequest &request)
@@ -6211,25 +9262,32 @@ TsfClient::ModifyLaneRuleOutcome TsfClient::ModifyLaneRule(const ModifyLaneRuleR
 
 void TsfClient::ModifyLaneRuleAsync(const ModifyLaneRuleRequest& request, const ModifyLaneRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyLaneRule(request), context);
-    };
+    using Req = const ModifyLaneRuleRequest&;
+    using Resp = ModifyLaneRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyLaneRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyLaneRuleOutcomeCallable TsfClient::ModifyLaneRuleCallable(const ModifyLaneRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyLaneRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyLaneRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyLaneRuleOutcome>>();
+    ModifyLaneRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyLaneRuleRequest&,
+        ModifyLaneRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyMicroserviceOutcome TsfClient::ModifyMicroservice(const ModifyMicroserviceRequest &request)
@@ -6254,25 +9312,82 @@ TsfClient::ModifyMicroserviceOutcome TsfClient::ModifyMicroservice(const ModifyM
 
 void TsfClient::ModifyMicroserviceAsync(const ModifyMicroserviceRequest& request, const ModifyMicroserviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyMicroservice(request), context);
-    };
+    using Req = const ModifyMicroserviceRequest&;
+    using Resp = ModifyMicroserviceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyMicroservice", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyMicroserviceOutcomeCallable TsfClient::ModifyMicroserviceCallable(const ModifyMicroserviceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyMicroserviceOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyMicroservice(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyMicroserviceOutcome>>();
+    ModifyMicroserviceAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyMicroserviceRequest&,
+        ModifyMicroserviceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::ModifyNamespaceOutcome TsfClient::ModifyNamespace(const ModifyNamespaceRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyNamespace");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyNamespaceResponse rsp = ModifyNamespaceResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyNamespaceOutcome(rsp);
+        else
+            return ModifyNamespaceOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyNamespaceOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ModifyNamespaceAsync(const ModifyNamespaceRequest& request, const ModifyNamespaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyNamespaceRequest&;
+    using Resp = ModifyNamespaceResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyNamespace", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ModifyNamespaceOutcomeCallable TsfClient::ModifyNamespaceCallable(const ModifyNamespaceRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyNamespaceOutcome>>();
+    ModifyNamespaceAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyNamespaceRequest&,
+        ModifyNamespaceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyPathRewriteOutcome TsfClient::ModifyPathRewrite(const ModifyPathRewriteRequest &request)
@@ -6297,25 +9412,82 @@ TsfClient::ModifyPathRewriteOutcome TsfClient::ModifyPathRewrite(const ModifyPat
 
 void TsfClient::ModifyPathRewriteAsync(const ModifyPathRewriteRequest& request, const ModifyPathRewriteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyPathRewrite(request), context);
-    };
+    using Req = const ModifyPathRewriteRequest&;
+    using Resp = ModifyPathRewriteResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyPathRewrite", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyPathRewriteOutcomeCallable TsfClient::ModifyPathRewriteCallable(const ModifyPathRewriteRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyPathRewriteOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyPathRewrite(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyPathRewriteOutcome>>();
+    ModifyPathRewriteAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyPathRewriteRequest&,
+        ModifyPathRewriteOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::ModifyProgramOutcome TsfClient::ModifyProgram(const ModifyProgramRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyProgram");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyProgramResponse rsp = ModifyProgramResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyProgramOutcome(rsp);
+        else
+            return ModifyProgramOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyProgramOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ModifyProgramAsync(const ModifyProgramRequest& request, const ModifyProgramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyProgramRequest&;
+    using Resp = ModifyProgramResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyProgram", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ModifyProgramOutcomeCallable TsfClient::ModifyProgramCallable(const ModifyProgramRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyProgramOutcome>>();
+    ModifyProgramAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyProgramRequest&,
+        ModifyProgramOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyTaskOutcome TsfClient::ModifyTask(const ModifyTaskRequest &request)
@@ -6340,25 +9512,32 @@ TsfClient::ModifyTaskOutcome TsfClient::ModifyTask(const ModifyTaskRequest &requ
 
 void TsfClient::ModifyTaskAsync(const ModifyTaskRequest& request, const ModifyTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyTask(request), context);
-    };
+    using Req = const ModifyTaskRequest&;
+    using Resp = ModifyTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyTaskOutcomeCallable TsfClient::ModifyTaskCallable(const ModifyTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyTaskOutcome>>();
+    ModifyTaskAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyTaskRequest&,
+        ModifyTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ModifyUploadInfoOutcome TsfClient::ModifyUploadInfo(const ModifyUploadInfoRequest &request)
@@ -6383,25 +9562,32 @@ TsfClient::ModifyUploadInfoOutcome TsfClient::ModifyUploadInfo(const ModifyUploa
 
 void TsfClient::ModifyUploadInfoAsync(const ModifyUploadInfoRequest& request, const ModifyUploadInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyUploadInfo(request), context);
-    };
+    using Req = const ModifyUploadInfoRequest&;
+    using Resp = ModifyUploadInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyUploadInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ModifyUploadInfoOutcomeCallable TsfClient::ModifyUploadInfoCallable(const ModifyUploadInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyUploadInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyUploadInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyUploadInfoOutcome>>();
+    ModifyUploadInfoAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ModifyUploadInfoRequest&,
+        ModifyUploadInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::OperateApplicationTcrBindingOutcome TsfClient::OperateApplicationTcrBinding(const OperateApplicationTcrBindingRequest &request)
@@ -6426,25 +9612,82 @@ TsfClient::OperateApplicationTcrBindingOutcome TsfClient::OperateApplicationTcrB
 
 void TsfClient::OperateApplicationTcrBindingAsync(const OperateApplicationTcrBindingRequest& request, const OperateApplicationTcrBindingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->OperateApplicationTcrBinding(request), context);
-    };
+    using Req = const OperateApplicationTcrBindingRequest&;
+    using Resp = OperateApplicationTcrBindingResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "OperateApplicationTcrBinding", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::OperateApplicationTcrBindingOutcomeCallable TsfClient::OperateApplicationTcrBindingCallable(const OperateApplicationTcrBindingRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<OperateApplicationTcrBindingOutcome()>>(
-        [this, request]()
-        {
-            return this->OperateApplicationTcrBinding(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<OperateApplicationTcrBindingOutcome>>();
+    OperateApplicationTcrBindingAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const OperateApplicationTcrBindingRequest&,
+        OperateApplicationTcrBindingOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::ReassociateBusinessLogConfigOutcome TsfClient::ReassociateBusinessLogConfig(const ReassociateBusinessLogConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "ReassociateBusinessLogConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ReassociateBusinessLogConfigResponse rsp = ReassociateBusinessLogConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ReassociateBusinessLogConfigOutcome(rsp);
+        else
+            return ReassociateBusinessLogConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return ReassociateBusinessLogConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ReassociateBusinessLogConfigAsync(const ReassociateBusinessLogConfigRequest& request, const ReassociateBusinessLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ReassociateBusinessLogConfigRequest&;
+    using Resp = ReassociateBusinessLogConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ReassociateBusinessLogConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ReassociateBusinessLogConfigOutcomeCallable TsfClient::ReassociateBusinessLogConfigCallable(const ReassociateBusinessLogConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ReassociateBusinessLogConfigOutcome>>();
+    ReassociateBusinessLogConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ReassociateBusinessLogConfigRequest&,
+        ReassociateBusinessLogConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RedoTaskOutcome TsfClient::RedoTask(const RedoTaskRequest &request)
@@ -6469,25 +9712,32 @@ TsfClient::RedoTaskOutcome TsfClient::RedoTask(const RedoTaskRequest &request)
 
 void TsfClient::RedoTaskAsync(const RedoTaskRequest& request, const RedoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RedoTask(request), context);
-    };
+    using Req = const RedoTaskRequest&;
+    using Resp = RedoTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RedoTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RedoTaskOutcomeCallable TsfClient::RedoTaskCallable(const RedoTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RedoTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->RedoTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RedoTaskOutcome>>();
+    RedoTaskAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RedoTaskRequest&,
+        RedoTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RedoTaskBatchOutcome TsfClient::RedoTaskBatch(const RedoTaskBatchRequest &request)
@@ -6512,25 +9762,32 @@ TsfClient::RedoTaskBatchOutcome TsfClient::RedoTaskBatch(const RedoTaskBatchRequ
 
 void TsfClient::RedoTaskBatchAsync(const RedoTaskBatchRequest& request, const RedoTaskBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RedoTaskBatch(request), context);
-    };
+    using Req = const RedoTaskBatchRequest&;
+    using Resp = RedoTaskBatchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RedoTaskBatch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RedoTaskBatchOutcomeCallable TsfClient::RedoTaskBatchCallable(const RedoTaskBatchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RedoTaskBatchOutcome()>>(
-        [this, request]()
-        {
-            return this->RedoTaskBatch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RedoTaskBatchOutcome>>();
+    RedoTaskBatchAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RedoTaskBatchRequest&,
+        RedoTaskBatchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RedoTaskExecuteOutcome TsfClient::RedoTaskExecute(const RedoTaskExecuteRequest &request)
@@ -6555,25 +9812,32 @@ TsfClient::RedoTaskExecuteOutcome TsfClient::RedoTaskExecute(const RedoTaskExecu
 
 void TsfClient::RedoTaskExecuteAsync(const RedoTaskExecuteRequest& request, const RedoTaskExecuteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RedoTaskExecute(request), context);
-    };
+    using Req = const RedoTaskExecuteRequest&;
+    using Resp = RedoTaskExecuteResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RedoTaskExecute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RedoTaskExecuteOutcomeCallable TsfClient::RedoTaskExecuteCallable(const RedoTaskExecuteRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RedoTaskExecuteOutcome()>>(
-        [this, request]()
-        {
-            return this->RedoTaskExecute(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RedoTaskExecuteOutcome>>();
+    RedoTaskExecuteAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RedoTaskExecuteRequest&,
+        RedoTaskExecuteOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RedoTaskFlowBatchOutcome TsfClient::RedoTaskFlowBatch(const RedoTaskFlowBatchRequest &request)
@@ -6598,25 +9862,32 @@ TsfClient::RedoTaskFlowBatchOutcome TsfClient::RedoTaskFlowBatch(const RedoTaskF
 
 void TsfClient::RedoTaskFlowBatchAsync(const RedoTaskFlowBatchRequest& request, const RedoTaskFlowBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RedoTaskFlowBatch(request), context);
-    };
+    using Req = const RedoTaskFlowBatchRequest&;
+    using Resp = RedoTaskFlowBatchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RedoTaskFlowBatch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RedoTaskFlowBatchOutcomeCallable TsfClient::RedoTaskFlowBatchCallable(const RedoTaskFlowBatchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RedoTaskFlowBatchOutcome()>>(
-        [this, request]()
-        {
-            return this->RedoTaskFlowBatch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RedoTaskFlowBatchOutcome>>();
+    RedoTaskFlowBatchAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RedoTaskFlowBatchRequest&,
+        RedoTaskFlowBatchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ReleaseApiGroupOutcome TsfClient::ReleaseApiGroup(const ReleaseApiGroupRequest &request)
@@ -6641,25 +9912,32 @@ TsfClient::ReleaseApiGroupOutcome TsfClient::ReleaseApiGroup(const ReleaseApiGro
 
 void TsfClient::ReleaseApiGroupAsync(const ReleaseApiGroupRequest& request, const ReleaseApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ReleaseApiGroup(request), context);
-    };
+    using Req = const ReleaseApiGroupRequest&;
+    using Resp = ReleaseApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ReleaseApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ReleaseApiGroupOutcomeCallable TsfClient::ReleaseApiGroupCallable(const ReleaseApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ReleaseApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->ReleaseApiGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ReleaseApiGroupOutcome>>();
+    ReleaseApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ReleaseApiGroupRequest&,
+        ReleaseApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ReleaseConfigOutcome TsfClient::ReleaseConfig(const ReleaseConfigRequest &request)
@@ -6684,25 +9962,82 @@ TsfClient::ReleaseConfigOutcome TsfClient::ReleaseConfig(const ReleaseConfigRequ
 
 void TsfClient::ReleaseConfigAsync(const ReleaseConfigRequest& request, const ReleaseConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ReleaseConfig(request), context);
-    };
+    using Req = const ReleaseConfigRequest&;
+    using Resp = ReleaseConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ReleaseConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ReleaseConfigOutcomeCallable TsfClient::ReleaseConfigCallable(const ReleaseConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ReleaseConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->ReleaseConfig(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ReleaseConfigOutcome>>();
+    ReleaseConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ReleaseConfigRequest&,
+        ReleaseConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::ReleaseConfigWithDetailRespOutcome TsfClient::ReleaseConfigWithDetailResp(const ReleaseConfigWithDetailRespRequest &request)
+{
+    auto outcome = MakeRequest(request, "ReleaseConfigWithDetailResp");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ReleaseConfigWithDetailRespResponse rsp = ReleaseConfigWithDetailRespResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ReleaseConfigWithDetailRespOutcome(rsp);
+        else
+            return ReleaseConfigWithDetailRespOutcome(o.GetError());
+    }
+    else
+    {
+        return ReleaseConfigWithDetailRespOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::ReleaseConfigWithDetailRespAsync(const ReleaseConfigWithDetailRespRequest& request, const ReleaseConfigWithDetailRespAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ReleaseConfigWithDetailRespRequest&;
+    using Resp = ReleaseConfigWithDetailRespResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ReleaseConfigWithDetailResp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::ReleaseConfigWithDetailRespOutcomeCallable TsfClient::ReleaseConfigWithDetailRespCallable(const ReleaseConfigWithDetailRespRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ReleaseConfigWithDetailRespOutcome>>();
+    ReleaseConfigWithDetailRespAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ReleaseConfigWithDetailRespRequest&,
+        ReleaseConfigWithDetailRespOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ReleaseFileConfigOutcome TsfClient::ReleaseFileConfig(const ReleaseFileConfigRequest &request)
@@ -6727,25 +10062,32 @@ TsfClient::ReleaseFileConfigOutcome TsfClient::ReleaseFileConfig(const ReleaseFi
 
 void TsfClient::ReleaseFileConfigAsync(const ReleaseFileConfigRequest& request, const ReleaseFileConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ReleaseFileConfig(request), context);
-    };
+    using Req = const ReleaseFileConfigRequest&;
+    using Resp = ReleaseFileConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ReleaseFileConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ReleaseFileConfigOutcomeCallable TsfClient::ReleaseFileConfigCallable(const ReleaseFileConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ReleaseFileConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->ReleaseFileConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ReleaseFileConfigOutcome>>();
+    ReleaseFileConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ReleaseFileConfigRequest&,
+        ReleaseFileConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ReleasePublicConfigOutcome TsfClient::ReleasePublicConfig(const ReleasePublicConfigRequest &request)
@@ -6770,25 +10112,32 @@ TsfClient::ReleasePublicConfigOutcome TsfClient::ReleasePublicConfig(const Relea
 
 void TsfClient::ReleasePublicConfigAsync(const ReleasePublicConfigRequest& request, const ReleasePublicConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ReleasePublicConfig(request), context);
-    };
+    using Req = const ReleasePublicConfigRequest&;
+    using Resp = ReleasePublicConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ReleasePublicConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ReleasePublicConfigOutcomeCallable TsfClient::ReleasePublicConfigCallable(const ReleasePublicConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ReleasePublicConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->ReleasePublicConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ReleasePublicConfigOutcome>>();
+    ReleasePublicConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ReleasePublicConfigRequest&,
+        ReleasePublicConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RemoveInstancesOutcome TsfClient::RemoveInstances(const RemoveInstancesRequest &request)
@@ -6813,25 +10162,32 @@ TsfClient::RemoveInstancesOutcome TsfClient::RemoveInstances(const RemoveInstanc
 
 void TsfClient::RemoveInstancesAsync(const RemoveInstancesRequest& request, const RemoveInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RemoveInstances(request), context);
-    };
+    using Req = const RemoveInstancesRequest&;
+    using Resp = RemoveInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RemoveInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RemoveInstancesOutcomeCallable TsfClient::RemoveInstancesCallable(const RemoveInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RemoveInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->RemoveInstances(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RemoveInstancesOutcome>>();
+    RemoveInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RemoveInstancesRequest&,
+        RemoveInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RevocationConfigOutcome TsfClient::RevocationConfig(const RevocationConfigRequest &request)
@@ -6856,25 +10212,32 @@ TsfClient::RevocationConfigOutcome TsfClient::RevocationConfig(const RevocationC
 
 void TsfClient::RevocationConfigAsync(const RevocationConfigRequest& request, const RevocationConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RevocationConfig(request), context);
-    };
+    using Req = const RevocationConfigRequest&;
+    using Resp = RevocationConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RevocationConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RevocationConfigOutcomeCallable TsfClient::RevocationConfigCallable(const RevocationConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RevocationConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->RevocationConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RevocationConfigOutcome>>();
+    RevocationConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RevocationConfigRequest&,
+        RevocationConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RevocationPublicConfigOutcome TsfClient::RevocationPublicConfig(const RevocationPublicConfigRequest &request)
@@ -6899,25 +10262,82 @@ TsfClient::RevocationPublicConfigOutcome TsfClient::RevocationPublicConfig(const
 
 void TsfClient::RevocationPublicConfigAsync(const RevocationPublicConfigRequest& request, const RevocationPublicConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RevocationPublicConfig(request), context);
-    };
+    using Req = const RevocationPublicConfigRequest&;
+    using Resp = RevocationPublicConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RevocationPublicConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RevocationPublicConfigOutcomeCallable TsfClient::RevocationPublicConfigCallable(const RevocationPublicConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RevocationPublicConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->RevocationPublicConfig(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<RevocationPublicConfigOutcome>>();
+    RevocationPublicConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RevocationPublicConfigRequest&,
+        RevocationPublicConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::RevokeFileConfigOutcome TsfClient::RevokeFileConfig(const RevokeFileConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "RevokeFileConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RevokeFileConfigResponse rsp = RevokeFileConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RevokeFileConfigOutcome(rsp);
+        else
+            return RevokeFileConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return RevokeFileConfigOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::RevokeFileConfigAsync(const RevokeFileConfigRequest& request, const RevokeFileConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RevokeFileConfigRequest&;
+    using Resp = RevokeFileConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RevokeFileConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::RevokeFileConfigOutcomeCallable TsfClient::RevokeFileConfigCallable(const RevokeFileConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RevokeFileConfigOutcome>>();
+    RevokeFileConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RevokeFileConfigRequest&,
+        RevokeFileConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::RollbackConfigOutcome TsfClient::RollbackConfig(const RollbackConfigRequest &request)
@@ -6942,25 +10362,32 @@ TsfClient::RollbackConfigOutcome TsfClient::RollbackConfig(const RollbackConfigR
 
 void TsfClient::RollbackConfigAsync(const RollbackConfigRequest& request, const RollbackConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RollbackConfig(request), context);
-    };
+    using Req = const RollbackConfigRequest&;
+    using Resp = RollbackConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RollbackConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::RollbackConfigOutcomeCallable TsfClient::RollbackConfigCallable(const RollbackConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RollbackConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->RollbackConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RollbackConfigOutcome>>();
+    RollbackConfigAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const RollbackConfigRequest&,
+        RollbackConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::SearchBusinessLogOutcome TsfClient::SearchBusinessLog(const SearchBusinessLogRequest &request)
@@ -6985,25 +10412,32 @@ TsfClient::SearchBusinessLogOutcome TsfClient::SearchBusinessLog(const SearchBus
 
 void TsfClient::SearchBusinessLogAsync(const SearchBusinessLogRequest& request, const SearchBusinessLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SearchBusinessLog(request), context);
-    };
+    using Req = const SearchBusinessLogRequest&;
+    using Resp = SearchBusinessLogResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SearchBusinessLog", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::SearchBusinessLogOutcomeCallable TsfClient::SearchBusinessLogCallable(const SearchBusinessLogRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SearchBusinessLogOutcome()>>(
-        [this, request]()
-        {
-            return this->SearchBusinessLog(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<SearchBusinessLogOutcome>>();
+    SearchBusinessLogAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const SearchBusinessLogRequest&,
+        SearchBusinessLogOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::SearchStdoutLogOutcome TsfClient::SearchStdoutLog(const SearchStdoutLogRequest &request)
@@ -7028,25 +10462,32 @@ TsfClient::SearchStdoutLogOutcome TsfClient::SearchStdoutLog(const SearchStdoutL
 
 void TsfClient::SearchStdoutLogAsync(const SearchStdoutLogRequest& request, const SearchStdoutLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SearchStdoutLog(request), context);
-    };
+    using Req = const SearchStdoutLogRequest&;
+    using Resp = SearchStdoutLogResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SearchStdoutLog", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::SearchStdoutLogOutcomeCallable TsfClient::SearchStdoutLogCallable(const SearchStdoutLogRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SearchStdoutLogOutcome()>>(
-        [this, request]()
-        {
-            return this->SearchStdoutLog(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<SearchStdoutLogOutcome>>();
+    SearchStdoutLogAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const SearchStdoutLogRequest&,
+        SearchStdoutLogOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ShrinkGroupOutcome TsfClient::ShrinkGroup(const ShrinkGroupRequest &request)
@@ -7071,25 +10512,32 @@ TsfClient::ShrinkGroupOutcome TsfClient::ShrinkGroup(const ShrinkGroupRequest &r
 
 void TsfClient::ShrinkGroupAsync(const ShrinkGroupRequest& request, const ShrinkGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ShrinkGroup(request), context);
-    };
+    using Req = const ShrinkGroupRequest&;
+    using Resp = ShrinkGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ShrinkGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ShrinkGroupOutcomeCallable TsfClient::ShrinkGroupCallable(const ShrinkGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ShrinkGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->ShrinkGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ShrinkGroupOutcome>>();
+    ShrinkGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ShrinkGroupRequest&,
+        ShrinkGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::ShrinkInstancesOutcome TsfClient::ShrinkInstances(const ShrinkInstancesRequest &request)
@@ -7114,25 +10562,32 @@ TsfClient::ShrinkInstancesOutcome TsfClient::ShrinkInstances(const ShrinkInstanc
 
 void TsfClient::ShrinkInstancesAsync(const ShrinkInstancesRequest& request, const ShrinkInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ShrinkInstances(request), context);
-    };
+    using Req = const ShrinkInstancesRequest&;
+    using Resp = ShrinkInstancesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ShrinkInstances", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::ShrinkInstancesOutcomeCallable TsfClient::ShrinkInstancesCallable(const ShrinkInstancesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ShrinkInstancesOutcome()>>(
-        [this, request]()
-        {
-            return this->ShrinkInstances(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ShrinkInstancesOutcome>>();
+    ShrinkInstancesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const ShrinkInstancesRequest&,
+        ShrinkInstancesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::StartContainerGroupOutcome TsfClient::StartContainerGroup(const StartContainerGroupRequest &request)
@@ -7157,25 +10612,32 @@ TsfClient::StartContainerGroupOutcome TsfClient::StartContainerGroup(const Start
 
 void TsfClient::StartContainerGroupAsync(const StartContainerGroupRequest& request, const StartContainerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StartContainerGroup(request), context);
-    };
+    using Req = const StartContainerGroupRequest&;
+    using Resp = StartContainerGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StartContainerGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::StartContainerGroupOutcomeCallable TsfClient::StartContainerGroupCallable(const StartContainerGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StartContainerGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->StartContainerGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StartContainerGroupOutcome>>();
+    StartContainerGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const StartContainerGroupRequest&,
+        StartContainerGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::StartGroupOutcome TsfClient::StartGroup(const StartGroupRequest &request)
@@ -7200,25 +10662,32 @@ TsfClient::StartGroupOutcome TsfClient::StartGroup(const StartGroupRequest &requ
 
 void TsfClient::StartGroupAsync(const StartGroupRequest& request, const StartGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StartGroup(request), context);
-    };
+    using Req = const StartGroupRequest&;
+    using Resp = StartGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StartGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::StartGroupOutcomeCallable TsfClient::StartGroupCallable(const StartGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StartGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->StartGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StartGroupOutcome>>();
+    StartGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const StartGroupRequest&,
+        StartGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::StopContainerGroupOutcome TsfClient::StopContainerGroup(const StopContainerGroupRequest &request)
@@ -7243,25 +10712,32 @@ TsfClient::StopContainerGroupOutcome TsfClient::StopContainerGroup(const StopCon
 
 void TsfClient::StopContainerGroupAsync(const StopContainerGroupRequest& request, const StopContainerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopContainerGroup(request), context);
-    };
+    using Req = const StopContainerGroupRequest&;
+    using Resp = StopContainerGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StopContainerGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::StopContainerGroupOutcomeCallable TsfClient::StopContainerGroupCallable(const StopContainerGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StopContainerGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->StopContainerGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StopContainerGroupOutcome>>();
+    StopContainerGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const StopContainerGroupRequest&,
+        StopContainerGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::StopGroupOutcome TsfClient::StopGroup(const StopGroupRequest &request)
@@ -7286,25 +10762,32 @@ TsfClient::StopGroupOutcome TsfClient::StopGroup(const StopGroupRequest &request
 
 void TsfClient::StopGroupAsync(const StopGroupRequest& request, const StopGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopGroup(request), context);
-    };
+    using Req = const StopGroupRequest&;
+    using Resp = StopGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StopGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::StopGroupOutcomeCallable TsfClient::StopGroupCallable(const StopGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StopGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->StopGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StopGroupOutcome>>();
+    StopGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const StopGroupRequest&,
+        StopGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::StopTaskBatchOutcome TsfClient::StopTaskBatch(const StopTaskBatchRequest &request)
@@ -7329,25 +10812,32 @@ TsfClient::StopTaskBatchOutcome TsfClient::StopTaskBatch(const StopTaskBatchRequ
 
 void TsfClient::StopTaskBatchAsync(const StopTaskBatchRequest& request, const StopTaskBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopTaskBatch(request), context);
-    };
+    using Req = const StopTaskBatchRequest&;
+    using Resp = StopTaskBatchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StopTaskBatch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::StopTaskBatchOutcomeCallable TsfClient::StopTaskBatchCallable(const StopTaskBatchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StopTaskBatchOutcome()>>(
-        [this, request]()
-        {
-            return this->StopTaskBatch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StopTaskBatchOutcome>>();
+    StopTaskBatchAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const StopTaskBatchRequest&,
+        StopTaskBatchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::StopTaskExecuteOutcome TsfClient::StopTaskExecute(const StopTaskExecuteRequest &request)
@@ -7372,25 +10862,32 @@ TsfClient::StopTaskExecuteOutcome TsfClient::StopTaskExecute(const StopTaskExecu
 
 void TsfClient::StopTaskExecuteAsync(const StopTaskExecuteRequest& request, const StopTaskExecuteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopTaskExecute(request), context);
-    };
+    using Req = const StopTaskExecuteRequest&;
+    using Resp = StopTaskExecuteResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StopTaskExecute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::StopTaskExecuteOutcomeCallable TsfClient::StopTaskExecuteCallable(const StopTaskExecuteRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StopTaskExecuteOutcome()>>(
-        [this, request]()
-        {
-            return this->StopTaskExecute(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StopTaskExecuteOutcome>>();
+    StopTaskExecuteAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const StopTaskExecuteRequest&,
+        StopTaskExecuteOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::TerminateTaskFlowBatchOutcome TsfClient::TerminateTaskFlowBatch(const TerminateTaskFlowBatchRequest &request)
@@ -7415,25 +10912,32 @@ TsfClient::TerminateTaskFlowBatchOutcome TsfClient::TerminateTaskFlowBatch(const
 
 void TsfClient::TerminateTaskFlowBatchAsync(const TerminateTaskFlowBatchRequest& request, const TerminateTaskFlowBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TerminateTaskFlowBatch(request), context);
-    };
+    using Req = const TerminateTaskFlowBatchRequest&;
+    using Resp = TerminateTaskFlowBatchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TerminateTaskFlowBatch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::TerminateTaskFlowBatchOutcomeCallable TsfClient::TerminateTaskFlowBatchCallable(const TerminateTaskFlowBatchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TerminateTaskFlowBatchOutcome()>>(
-        [this, request]()
-        {
-            return this->TerminateTaskFlowBatch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TerminateTaskFlowBatchOutcome>>();
+    TerminateTaskFlowBatchAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const TerminateTaskFlowBatchRequest&,
+        TerminateTaskFlowBatchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UnbindApiGroupOutcome TsfClient::UnbindApiGroup(const UnbindApiGroupRequest &request)
@@ -7458,25 +10962,32 @@ TsfClient::UnbindApiGroupOutcome TsfClient::UnbindApiGroup(const UnbindApiGroupR
 
 void TsfClient::UnbindApiGroupAsync(const UnbindApiGroupRequest& request, const UnbindApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UnbindApiGroup(request), context);
-    };
+    using Req = const UnbindApiGroupRequest&;
+    using Resp = UnbindApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UnbindApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UnbindApiGroupOutcomeCallable TsfClient::UnbindApiGroupCallable(const UnbindApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UnbindApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->UnbindApiGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UnbindApiGroupOutcome>>();
+    UnbindApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UnbindApiGroupRequest&,
+        UnbindApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateApiGroupOutcome TsfClient::UpdateApiGroup(const UpdateApiGroupRequest &request)
@@ -7501,25 +11012,32 @@ TsfClient::UpdateApiGroupOutcome TsfClient::UpdateApiGroup(const UpdateApiGroupR
 
 void TsfClient::UpdateApiGroupAsync(const UpdateApiGroupRequest& request, const UpdateApiGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateApiGroup(request), context);
-    };
+    using Req = const UpdateApiGroupRequest&;
+    using Resp = UpdateApiGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateApiGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateApiGroupOutcomeCallable TsfClient::UpdateApiGroupCallable(const UpdateApiGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateApiGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateApiGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateApiGroupOutcome>>();
+    UpdateApiGroupAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateApiGroupRequest&,
+        UpdateApiGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateApiRateLimitRuleOutcome TsfClient::UpdateApiRateLimitRule(const UpdateApiRateLimitRuleRequest &request)
@@ -7544,25 +11062,32 @@ TsfClient::UpdateApiRateLimitRuleOutcome TsfClient::UpdateApiRateLimitRule(const
 
 void TsfClient::UpdateApiRateLimitRuleAsync(const UpdateApiRateLimitRuleRequest& request, const UpdateApiRateLimitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateApiRateLimitRule(request), context);
-    };
+    using Req = const UpdateApiRateLimitRuleRequest&;
+    using Resp = UpdateApiRateLimitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateApiRateLimitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateApiRateLimitRuleOutcomeCallable TsfClient::UpdateApiRateLimitRuleCallable(const UpdateApiRateLimitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateApiRateLimitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateApiRateLimitRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateApiRateLimitRuleOutcome>>();
+    UpdateApiRateLimitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateApiRateLimitRuleRequest&,
+        UpdateApiRateLimitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateApiRateLimitRulesOutcome TsfClient::UpdateApiRateLimitRules(const UpdateApiRateLimitRulesRequest &request)
@@ -7587,25 +11112,32 @@ TsfClient::UpdateApiRateLimitRulesOutcome TsfClient::UpdateApiRateLimitRules(con
 
 void TsfClient::UpdateApiRateLimitRulesAsync(const UpdateApiRateLimitRulesRequest& request, const UpdateApiRateLimitRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateApiRateLimitRules(request), context);
-    };
+    using Req = const UpdateApiRateLimitRulesRequest&;
+    using Resp = UpdateApiRateLimitRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateApiRateLimitRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateApiRateLimitRulesOutcomeCallable TsfClient::UpdateApiRateLimitRulesCallable(const UpdateApiRateLimitRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateApiRateLimitRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateApiRateLimitRules(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateApiRateLimitRulesOutcome>>();
+    UpdateApiRateLimitRulesAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateApiRateLimitRulesRequest&,
+        UpdateApiRateLimitRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateApiTimeoutsOutcome TsfClient::UpdateApiTimeouts(const UpdateApiTimeoutsRequest &request)
@@ -7630,25 +11162,82 @@ TsfClient::UpdateApiTimeoutsOutcome TsfClient::UpdateApiTimeouts(const UpdateApi
 
 void TsfClient::UpdateApiTimeoutsAsync(const UpdateApiTimeoutsRequest& request, const UpdateApiTimeoutsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateApiTimeouts(request), context);
-    };
+    using Req = const UpdateApiTimeoutsRequest&;
+    using Resp = UpdateApiTimeoutsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateApiTimeouts", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateApiTimeoutsOutcomeCallable TsfClient::UpdateApiTimeoutsCallable(const UpdateApiTimeoutsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateApiTimeoutsOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateApiTimeouts(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<UpdateApiTimeoutsOutcome>>();
+    UpdateApiTimeoutsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateApiTimeoutsRequest&,
+        UpdateApiTimeoutsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TsfClient::UpdateConfigTemplateOutcome TsfClient::UpdateConfigTemplate(const UpdateConfigTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "UpdateConfigTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        UpdateConfigTemplateResponse rsp = UpdateConfigTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return UpdateConfigTemplateOutcome(rsp);
+        else
+            return UpdateConfigTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return UpdateConfigTemplateOutcome(outcome.GetError());
+    }
+}
+
+void TsfClient::UpdateConfigTemplateAsync(const UpdateConfigTemplateRequest& request, const UpdateConfigTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const UpdateConfigTemplateRequest&;
+    using Resp = UpdateConfigTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "UpdateConfigTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TsfClient::UpdateConfigTemplateOutcomeCallable TsfClient::UpdateConfigTemplateCallable(const UpdateConfigTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<UpdateConfigTemplateOutcome>>();
+    UpdateConfigTemplateAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateConfigTemplateRequest&,
+        UpdateConfigTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateGatewayApiOutcome TsfClient::UpdateGatewayApi(const UpdateGatewayApiRequest &request)
@@ -7673,25 +11262,32 @@ TsfClient::UpdateGatewayApiOutcome TsfClient::UpdateGatewayApi(const UpdateGatew
 
 void TsfClient::UpdateGatewayApiAsync(const UpdateGatewayApiRequest& request, const UpdateGatewayApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateGatewayApi(request), context);
-    };
+    using Req = const UpdateGatewayApiRequest&;
+    using Resp = UpdateGatewayApiResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateGatewayApi", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateGatewayApiOutcomeCallable TsfClient::UpdateGatewayApiCallable(const UpdateGatewayApiRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateGatewayApiOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateGatewayApi(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateGatewayApiOutcome>>();
+    UpdateGatewayApiAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateGatewayApiRequest&,
+        UpdateGatewayApiOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateHealthCheckSettingsOutcome TsfClient::UpdateHealthCheckSettings(const UpdateHealthCheckSettingsRequest &request)
@@ -7716,25 +11312,32 @@ TsfClient::UpdateHealthCheckSettingsOutcome TsfClient::UpdateHealthCheckSettings
 
 void TsfClient::UpdateHealthCheckSettingsAsync(const UpdateHealthCheckSettingsRequest& request, const UpdateHealthCheckSettingsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateHealthCheckSettings(request), context);
-    };
+    using Req = const UpdateHealthCheckSettingsRequest&;
+    using Resp = UpdateHealthCheckSettingsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateHealthCheckSettings", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateHealthCheckSettingsOutcomeCallable TsfClient::UpdateHealthCheckSettingsCallable(const UpdateHealthCheckSettingsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateHealthCheckSettingsOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateHealthCheckSettings(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateHealthCheckSettingsOutcome>>();
+    UpdateHealthCheckSettingsAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateHealthCheckSettingsRequest&,
+        UpdateHealthCheckSettingsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateRepositoryOutcome TsfClient::UpdateRepository(const UpdateRepositoryRequest &request)
@@ -7759,25 +11362,32 @@ TsfClient::UpdateRepositoryOutcome TsfClient::UpdateRepository(const UpdateRepos
 
 void TsfClient::UpdateRepositoryAsync(const UpdateRepositoryRequest& request, const UpdateRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateRepository(request), context);
-    };
+    using Req = const UpdateRepositoryRequest&;
+    using Resp = UpdateRepositoryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateRepository", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateRepositoryOutcomeCallable TsfClient::UpdateRepositoryCallable(const UpdateRepositoryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateRepositoryOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateRepository(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateRepositoryOutcome>>();
+    UpdateRepositoryAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateRepositoryRequest&,
+        UpdateRepositoryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TsfClient::UpdateUnitRuleOutcome TsfClient::UpdateUnitRule(const UpdateUnitRuleRequest &request)
@@ -7802,24 +11412,31 @@ TsfClient::UpdateUnitRuleOutcome TsfClient::UpdateUnitRule(const UpdateUnitRuleR
 
 void TsfClient::UpdateUnitRuleAsync(const UpdateUnitRuleRequest& request, const UpdateUnitRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateUnitRule(request), context);
-    };
+    using Req = const UpdateUnitRuleRequest&;
+    using Resp = UpdateUnitRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateUnitRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TsfClient::UpdateUnitRuleOutcomeCallable TsfClient::UpdateUnitRuleCallable(const UpdateUnitRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateUnitRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateUnitRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateUnitRuleOutcome>>();
+    UpdateUnitRuleAsync(
+    request,
+    [prom](
+        const TsfClient*,
+        const UpdateUnitRuleRequest&,
+        UpdateUnitRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

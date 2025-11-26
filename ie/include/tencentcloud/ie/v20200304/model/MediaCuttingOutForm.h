@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/ie/v20200304/model/SpriteImageInfo.h>
+#include <tencentcloud/ie/v20200304/model/DynamicImageInfo.h>
 
 
 namespace TencentCloud
@@ -73,6 +75,7 @@ Sprite：jpg、png；
 Video：mp4。
 
 注2：当 Type=Sprite时，TargetInfo指定的尺寸表示小图的大小，最终结果尺寸以输出为准。
+                     * 
                      */
                     std::string GetType() const;
 
@@ -90,7 +93,7 @@ Sprite：jpg、png；
 Video：mp4。
 
 注2：当 Type=Sprite时，TargetInfo指定的尺寸表示小图的大小，最终结果尺寸以输出为准。
-                     * @param Type 输出类型，可选值：
+                     * @param _type 输出类型，可选值：
 Static：静态图；
 Dynamic：动态图；
 Sprite：雪碧图；
@@ -103,12 +106,14 @@ Sprite：jpg、png；
 Video：mp4。
 
 注2：当 Type=Sprite时，TargetInfo指定的尺寸表示小图的大小，最终结果尺寸以输出为准。
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
@@ -125,6 +130,7 @@ Black：黑色填充；
 Stretch：拉伸；
 Gaussian：高斯模糊；
 默认White。
+                     * 
                      */
                     std::string GetFillType() const;
 
@@ -135,56 +141,106 @@ Black：黑色填充；
 Stretch：拉伸；
 Gaussian：高斯模糊；
 默认White。
-                     * @param FillType 背景填充方式，可选值：
+                     * @param _fillType 背景填充方式，可选值：
 White：白色填充；
 Black：黑色填充；
 Stretch：拉伸；
 Gaussian：高斯模糊；
 默认White。
+                     * 
                      */
                     void SetFillType(const std::string& _fillType);
 
                     /**
                      * 判断参数 FillType 是否已赋值
                      * @return FillType 是否已赋值
+                     * 
                      */
                     bool FillTypeHasBeenSet() const;
 
                     /**
-                     * 获取Type=Sprite时有效，表示雪碧图行数，范围为 [1,200]，默认100。
-                     * @return SpriteRowCount Type=Sprite时有效，表示雪碧图行数，范围为 [1,200]，默认100。
+                     * 获取【废弃】参考SpriteInfo
+                     * @return SpriteRowCount 【废弃】参考SpriteInfo
+                     * 
                      */
                     int64_t GetSpriteRowCount() const;
 
                     /**
-                     * 设置Type=Sprite时有效，表示雪碧图行数，范围为 [1,200]，默认100。
-                     * @param SpriteRowCount Type=Sprite时有效，表示雪碧图行数，范围为 [1,200]，默认100。
+                     * 设置【废弃】参考SpriteInfo
+                     * @param _spriteRowCount 【废弃】参考SpriteInfo
+                     * 
                      */
                     void SetSpriteRowCount(const int64_t& _spriteRowCount);
 
                     /**
                      * 判断参数 SpriteRowCount 是否已赋值
                      * @return SpriteRowCount 是否已赋值
+                     * 
                      */
                     bool SpriteRowCountHasBeenSet() const;
 
                     /**
-                     * 获取Type=Sprite时有效，表示雪碧图列数，范围为 [1,200]，默认100。
-                     * @return SpriteColumnCount Type=Sprite时有效，表示雪碧图列数，范围为 [1,200]，默认100。
+                     * 获取【废弃】参考SpriteInfo
+                     * @return SpriteColumnCount 【废弃】参考SpriteInfo
+                     * 
                      */
                     int64_t GetSpriteColumnCount() const;
 
                     /**
-                     * 设置Type=Sprite时有效，表示雪碧图列数，范围为 [1,200]，默认100。
-                     * @param SpriteColumnCount Type=Sprite时有效，表示雪碧图列数，范围为 [1,200]，默认100。
+                     * 设置【废弃】参考SpriteInfo
+                     * @param _spriteColumnCount 【废弃】参考SpriteInfo
+                     * 
                      */
                     void SetSpriteColumnCount(const int64_t& _spriteColumnCount);
 
                     /**
                      * 判断参数 SpriteColumnCount 是否已赋值
                      * @return SpriteColumnCount 是否已赋值
+                     * 
                      */
                     bool SpriteColumnCountHasBeenSet() const;
+
+                    /**
+                     * 获取Type=Sprite时有效，表示雪碧图参数信息。
+                     * @return SpriteInfo Type=Sprite时有效，表示雪碧图参数信息。
+                     * 
+                     */
+                    SpriteImageInfo GetSpriteInfo() const;
+
+                    /**
+                     * 设置Type=Sprite时有效，表示雪碧图参数信息。
+                     * @param _spriteInfo Type=Sprite时有效，表示雪碧图参数信息。
+                     * 
+                     */
+                    void SetSpriteInfo(const SpriteImageInfo& _spriteInfo);
+
+                    /**
+                     * 判断参数 SpriteInfo 是否已赋值
+                     * @return SpriteInfo 是否已赋值
+                     * 
+                     */
+                    bool SpriteInfoHasBeenSet() const;
+
+                    /**
+                     * 获取Type=Dynamic时有效，表示动图参数信息。
+                     * @return DynamicInfo Type=Dynamic时有效，表示动图参数信息。
+                     * 
+                     */
+                    DynamicImageInfo GetDynamicInfo() const;
+
+                    /**
+                     * 设置Type=Dynamic时有效，表示动图参数信息。
+                     * @param _dynamicInfo Type=Dynamic时有效，表示动图参数信息。
+                     * 
+                     */
+                    void SetDynamicInfo(const DynamicImageInfo& _dynamicInfo);
+
+                    /**
+                     * 判断参数 DynamicInfo 是否已赋值
+                     * @return DynamicInfo 是否已赋值
+                     * 
+                     */
+                    bool DynamicInfoHasBeenSet() const;
 
                 private:
 
@@ -218,16 +274,28 @@ Gaussian：高斯模糊；
                     bool m_fillTypeHasBeenSet;
 
                     /**
-                     * Type=Sprite时有效，表示雪碧图行数，范围为 [1,200]，默认100。
+                     * 【废弃】参考SpriteInfo
                      */
                     int64_t m_spriteRowCount;
                     bool m_spriteRowCountHasBeenSet;
 
                     /**
-                     * Type=Sprite时有效，表示雪碧图列数，范围为 [1,200]，默认100。
+                     * 【废弃】参考SpriteInfo
                      */
                     int64_t m_spriteColumnCount;
                     bool m_spriteColumnCountHasBeenSet;
+
+                    /**
+                     * Type=Sprite时有效，表示雪碧图参数信息。
+                     */
+                    SpriteImageInfo m_spriteInfo;
+                    bool m_spriteInfoHasBeenSet;
+
+                    /**
+                     * Type=Dynamic时有效，表示动图参数信息。
+                     */
+                    DynamicImageInfo m_dynamicInfo;
+                    bool m_dynamicInfoHasBeenSet;
 
                 };
             }

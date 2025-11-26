@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace TencentCloud::Rum::V20210622::Model;
 using namespace std;
 
 CreateWhitelistResponse::CreateWhitelistResponse() :
-    m_msgHasBeenSet(false)
+    m_msgHasBeenSet(false),
+    m_iDHasBeenSet(false)
 {
 }
 
@@ -72,6 +73,16 @@ CoreInternalOutcome CreateWhitelistResponse::Deserialize(const string &payload)
         m_msgHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ID") && !rsp["ID"].IsNull())
+    {
+        if (!rsp["ID"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ID` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_iD = rsp["ID"].GetUint64();
+        m_iDHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -90,11 +101,19 @@ string CreateWhitelistResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_msg.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_iDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_iD, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -110,6 +129,16 @@ string CreateWhitelistResponse::GetMsg() const
 bool CreateWhitelistResponse::MsgHasBeenSet() const
 {
     return m_msgHasBeenSet;
+}
+
+uint64_t CreateWhitelistResponse::GetID() const
+{
+    return m_iD;
+}
+
+bool CreateWhitelistResponse::IDHasBeenSet() const
+{
+    return m_iDHasBeenSet;
 }
 
 

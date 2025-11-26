@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ CreateExportRequest::CreateExportRequest() :
     m_fromHasBeenSet(false),
     m_toHasBeenSet(false),
     m_orderHasBeenSet(false),
-    m_formatHasBeenSet(false)
+    m_formatHasBeenSet(false),
+    m_syntaxRuleHasBeenSet(false),
+    m_derivedFieldsHasBeenSet(false)
 {
 }
 
@@ -94,6 +96,27 @@ string CreateExportRequest::ToJsonString() const
         string key = "Format";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_format.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_syntaxRuleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SyntaxRule";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_syntaxRule, allocator);
+    }
+
+    if (m_derivedFieldsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DerivedFields";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_derivedFields.begin(); itr != m_derivedFields.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 
@@ -214,6 +237,38 @@ void CreateExportRequest::SetFormat(const string& _format)
 bool CreateExportRequest::FormatHasBeenSet() const
 {
     return m_formatHasBeenSet;
+}
+
+uint64_t CreateExportRequest::GetSyntaxRule() const
+{
+    return m_syntaxRule;
+}
+
+void CreateExportRequest::SetSyntaxRule(const uint64_t& _syntaxRule)
+{
+    m_syntaxRule = _syntaxRule;
+    m_syntaxRuleHasBeenSet = true;
+}
+
+bool CreateExportRequest::SyntaxRuleHasBeenSet() const
+{
+    return m_syntaxRuleHasBeenSet;
+}
+
+vector<string> CreateExportRequest::GetDerivedFields() const
+{
+    return m_derivedFields;
+}
+
+void CreateExportRequest::SetDerivedFields(const vector<string>& _derivedFields)
+{
+    m_derivedFields = _derivedFields;
+    m_derivedFieldsHasBeenSet = true;
+}
+
+bool CreateExportRequest::DerivedFieldsHasBeenSet() const
+{
+    return m_derivedFieldsHasBeenSet;
 }
 
 

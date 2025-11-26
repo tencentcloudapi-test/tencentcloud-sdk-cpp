@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/cam/v20190116/model/RoleTags.h>
 
 
 namespace TencentCloud
@@ -43,63 +44,98 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取授权服务，附加了此角色的腾讯云服务主体。
-                     * @return QCSServiceName 授权服务，附加了此角色的腾讯云服务主体。
+                     * 获取填写此角色的腾讯云服务载体，具体可查询文档（角色载体）字段
+https://cloud.tencent.com/document/product/598/85165
+                     * @return QCSServiceName 填写此角色的腾讯云服务载体，具体可查询文档（角色载体）字段
+https://cloud.tencent.com/document/product/598/85165
+                     * 
                      */
                     std::vector<std::string> GetQCSServiceName() const;
 
                     /**
-                     * 设置授权服务，附加了此角色的腾讯云服务主体。
-                     * @param QCSServiceName 授权服务，附加了此角色的腾讯云服务主体。
+                     * 设置填写此角色的腾讯云服务载体，具体可查询文档（角色载体）字段
+https://cloud.tencent.com/document/product/598/85165
+                     * @param _qCSServiceName 填写此角色的腾讯云服务载体，具体可查询文档（角色载体）字段
+https://cloud.tencent.com/document/product/598/85165
+                     * 
                      */
                     void SetQCSServiceName(const std::vector<std::string>& _qCSServiceName);
 
                     /**
                      * 判断参数 QCSServiceName 是否已赋值
                      * @return QCSServiceName 是否已赋值
+                     * 
                      */
                     bool QCSServiceNameHasBeenSet() const;
 
                     /**
                      * 获取自定义后缀，根据您提供的字符串，与服务提供的前缀组合在一起以形成完整的角色名称。
                      * @return CustomSuffix 自定义后缀，根据您提供的字符串，与服务提供的前缀组合在一起以形成完整的角色名称。
+                     * 
                      */
                     std::string GetCustomSuffix() const;
 
                     /**
                      * 设置自定义后缀，根据您提供的字符串，与服务提供的前缀组合在一起以形成完整的角色名称。
-                     * @param CustomSuffix 自定义后缀，根据您提供的字符串，与服务提供的前缀组合在一起以形成完整的角色名称。
+                     * @param _customSuffix 自定义后缀，根据您提供的字符串，与服务提供的前缀组合在一起以形成完整的角色名称。
+                     * 
                      */
                     void SetCustomSuffix(const std::string& _customSuffix);
 
                     /**
                      * 判断参数 CustomSuffix 是否已赋值
                      * @return CustomSuffix 是否已赋值
+                     * 
                      */
                     bool CustomSuffixHasBeenSet() const;
 
                     /**
                      * 获取角色说明。
                      * @return Description 角色说明。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置角色说明。
-                     * @param Description 角色说明。
+                     * @param _description 角色说明。
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
+
+                    /**
+                     * 获取角色绑定标签。
+                     * @return Tags 角色绑定标签。
+                     * 
+                     */
+                    std::vector<RoleTags> GetTags() const;
+
+                    /**
+                     * 设置角色绑定标签。
+                     * @param _tags 角色绑定标签。
+                     * 
+                     */
+                    void SetTags(const std::vector<RoleTags>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 授权服务，附加了此角色的腾讯云服务主体。
+                     * 填写此角色的腾讯云服务载体，具体可查询文档（角色载体）字段
+https://cloud.tencent.com/document/product/598/85165
                      */
                     std::vector<std::string> m_qCSServiceName;
                     bool m_qCSServiceNameHasBeenSet;
@@ -115,6 +151,12 @@ namespace TencentCloud
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
+
+                    /**
+                     * 角色绑定标签。
+                     */
+                    std::vector<RoleTags> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

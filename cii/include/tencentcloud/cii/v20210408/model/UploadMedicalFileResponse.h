@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,12 +48,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return FileKey 文件存储的key，可以用来创建结构化任务。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFileKey() const;
 
                     /**
                      * 判断参数 FileKey 是否已赋值
                      * @return FileKey 是否已赋值
+                     * 
                      */
                     bool FileKeyHasBeenSet() const;
 

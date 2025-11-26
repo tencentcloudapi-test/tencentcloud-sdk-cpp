@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取nfs volume 数据卷名称
                      * @return Name nfs volume 数据卷名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置nfs volume 数据卷名称
-                     * @param Name nfs volume 数据卷名称
+                     * @param _name nfs volume 数据卷名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取NFS 服务器地址
-                     * @return Server NFS 服务器地址
-                     */
-                    std::string GetServer() const;
-
-                    /**
-                     * 设置NFS 服务器地址
-                     * @param Server NFS 服务器地址
-                     */
-                    void SetServer(const std::string& _server);
-
-                    /**
-                     * 判断参数 Server 是否已赋值
-                     * @return Server 是否已赋值
-                     */
-                    bool ServerHasBeenSet() const;
-
-                    /**
                      * 获取NFS 数据卷路径
                      * @return Path NFS 数据卷路径
+                     * 
                      */
                     std::string GetPath() const;
 
                     /**
                      * 设置NFS 数据卷路径
-                     * @param Path NFS 数据卷路径
+                     * @param _path NFS 数据卷路径
+                     * 
                      */
                     void SetPath(const std::string& _path);
 
                     /**
                      * 判断参数 Path 是否已赋值
                      * @return Path 是否已赋值
+                     * 
                      */
                     bool PathHasBeenSet() const;
 
                     /**
+                     * 获取NFS 服务器地址
+                     * @return Server NFS 服务器地址
+                     * 
+                     */
+                    std::string GetServer() const;
+
+                    /**
+                     * 设置NFS 服务器地址
+                     * @param _server NFS 服务器地址
+                     * 
+                     */
+                    void SetServer(const std::string& _server);
+
+                    /**
+                     * 判断参数 Server 是否已赋值
+                     * @return Server 是否已赋值
+                     * 
+                     */
+                    bool ServerHasBeenSet() const;
+
+                    /**
                      * 获取默认为 False
                      * @return ReadOnly 默认为 False
+                     * 
                      */
                     bool GetReadOnly() const;
 
                     /**
                      * 设置默认为 False
-                     * @param ReadOnly 默认为 False
+                     * @param _readOnly 默认为 False
+                     * 
                      */
                     void SetReadOnly(const bool& _readOnly);
 
                     /**
                      * 判断参数 ReadOnly 是否已赋值
                      * @return ReadOnly 是否已赋值
+                     * 
                      */
                     bool ReadOnlyHasBeenSet() const;
 
@@ -127,16 +139,16 @@ namespace TencentCloud
                     bool m_nameHasBeenSet;
 
                     /**
-                     * NFS 服务器地址
-                     */
-                    std::string m_server;
-                    bool m_serverHasBeenSet;
-
-                    /**
                      * NFS 数据卷路径
                      */
                     std::string m_path;
                     bool m_pathHasBeenSet;
+
+                    /**
+                     * NFS 服务器地址
+                     */
+                    std::string m_server;
+                    bool m_serverHasBeenSet;
 
                     /**
                      * 默认为 False

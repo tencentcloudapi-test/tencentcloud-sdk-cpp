@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,29 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取录音文件识别的请求返回结果，包含结果查询需要的TaskId
-                     * @return Data 录音文件识别的请求返回结果，包含结果查询需要的TaskId
+                     * 获取录音文件识别的请求返回结果，包含结果查询需要的TaskId。
+**注意：TaskId有效期为24小时，不同日期可能出现重复TaskId，请不要依赖TaskId作为您业务系统里的唯一ID。**
+
+                     * @return Data 录音文件识别的请求返回结果，包含结果查询需要的TaskId。
+**注意：TaskId有效期为24小时，不同日期可能出现重复TaskId，请不要依赖TaskId作为您业务系统里的唯一ID。**
+
+                     * 
                      */
                     Task GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 录音文件识别的请求返回结果，包含结果查询需要的TaskId
+                     * 录音文件识别的请求返回结果，包含结果查询需要的TaskId。
+**注意：TaskId有效期为24小时，不同日期可能出现重复TaskId，请不要依赖TaskId作为您业务系统里的唯一ID。**
+
                      */
                     Task m_data;
                     bool m_dataHasBeenSet;

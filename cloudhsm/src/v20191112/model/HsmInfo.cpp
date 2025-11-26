@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 HsmInfo::HsmInfo() :
     m_modelHasBeenSet(false),
-    m_vsmTypesHasBeenSet(false)
+    m_vsmTypesHasBeenSet(false),
+    m_hsmTypeHasBeenSet(false)
 {
 }
 
@@ -61,6 +62,16 @@ CoreInternalOutcome HsmInfo::Deserialize(const rapidjson::Value &value)
         m_vsmTypesHasBeenSet = true;
     }
 
+    if (value.HasMember("HsmType") && !value["HsmType"].IsNull())
+    {
+        if (!value["HsmType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HsmInfo.HsmType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hsmType = string(value["HsmType"].GetString());
+        m_hsmTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -89,6 +100,14 @@ void HsmInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_hsmTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HsmType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hsmType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -124,5 +143,21 @@ void HsmInfo::SetVsmTypes(const vector<VsmInfo>& _vsmTypes)
 bool HsmInfo::VsmTypesHasBeenSet() const
 {
     return m_vsmTypesHasBeenSet;
+}
+
+string HsmInfo::GetHsmType() const
+{
+    return m_hsmType;
+}
+
+void HsmInfo::SetHsmType(const string& _hsmType)
+{
+    m_hsmType = _hsmType;
+    m_hsmTypeHasBeenSet = true;
+}
+
+bool HsmInfo::HsmTypeHasBeenSet() const
+{
+    return m_hsmTypeHasBeenSet;
 }
 

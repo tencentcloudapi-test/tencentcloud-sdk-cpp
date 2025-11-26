@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取目标实例ID，由DescribeBackupMigration接口返回
                      * @return InstanceId 目标实例ID，由DescribeBackupMigration接口返回
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置目标实例ID，由DescribeBackupMigration接口返回
-                     * @param InstanceId 目标实例ID，由DescribeBackupMigration接口返回
+                     * @param _instanceId 目标实例ID，由DescribeBackupMigration接口返回
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取备份导入任务ID，由DescribeBackupMigration接口返回
                      * @return BackupMigrationId 备份导入任务ID，由DescribeBackupMigration接口返回
+                     * 
                      */
                     std::string GetBackupMigrationId() const;
 
                     /**
                      * 设置备份导入任务ID，由DescribeBackupMigration接口返回
-                     * @param BackupMigrationId 备份导入任务ID，由DescribeBackupMigration接口返回
+                     * @param _backupMigrationId 备份导入任务ID，由DescribeBackupMigration接口返回
+                     * 
                      */
                     void SetBackupMigrationId(const std::string& _backupMigrationId);
 
                     /**
                      * 判断参数 BackupMigrationId 是否已赋值
                      * @return BackupMigrationId 是否已赋值
+                     * 
                      */
                     bool BackupMigrationIdHasBeenSet() const;
 

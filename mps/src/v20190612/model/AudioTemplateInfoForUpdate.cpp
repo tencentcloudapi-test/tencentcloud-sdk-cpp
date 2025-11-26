@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ AudioTemplateInfoForUpdate::AudioTemplateInfoForUpdate() :
     m_codecHasBeenSet(false),
     m_bitrateHasBeenSet(false),
     m_sampleRateHasBeenSet(false),
-    m_audioChannelHasBeenSet(false)
+    m_audioChannelHasBeenSet(false),
+    m_streamSelectsHasBeenSet(false)
 {
 }
 
@@ -45,11 +46,11 @@ CoreInternalOutcome AudioTemplateInfoForUpdate::Deserialize(const rapidjson::Val
 
     if (value.HasMember("Bitrate") && !value["Bitrate"].IsNull())
     {
-        if (!value["Bitrate"].IsUint64())
+        if (!value["Bitrate"].IsInt64())
         {
-            return CoreInternalOutcome(Core::Error("response `AudioTemplateInfoForUpdate.Bitrate` IsUint64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `AudioTemplateInfoForUpdate.Bitrate` IsInt64=false incorrectly").SetRequestId(requestId));
         }
-        m_bitrate = value["Bitrate"].GetUint64();
+        m_bitrate = value["Bitrate"].GetInt64();
         m_bitrateHasBeenSet = true;
     }
 
@@ -71,6 +72,19 @@ CoreInternalOutcome AudioTemplateInfoForUpdate::Deserialize(const rapidjson::Val
         }
         m_audioChannel = value["AudioChannel"].GetInt64();
         m_audioChannelHasBeenSet = true;
+    }
+
+    if (value.HasMember("StreamSelects") && !value["StreamSelects"].IsNull())
+    {
+        if (!value["StreamSelects"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AudioTemplateInfoForUpdate.StreamSelects` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["StreamSelects"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_streamSelects.push_back((*itr).GetInt64());
+        }
+        m_streamSelectsHasBeenSet = true;
     }
 
 
@@ -112,6 +126,19 @@ void AudioTemplateInfoForUpdate::ToJsonObject(rapidjson::Value &value, rapidjson
         value.AddMember(iKey, m_audioChannel, allocator);
     }
 
+    if (m_streamSelectsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StreamSelects";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_streamSelects.begin(); itr != m_streamSelects.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
 }
 
 
@@ -131,12 +158,12 @@ bool AudioTemplateInfoForUpdate::CodecHasBeenSet() const
     return m_codecHasBeenSet;
 }
 
-uint64_t AudioTemplateInfoForUpdate::GetBitrate() const
+int64_t AudioTemplateInfoForUpdate::GetBitrate() const
 {
     return m_bitrate;
 }
 
-void AudioTemplateInfoForUpdate::SetBitrate(const uint64_t& _bitrate)
+void AudioTemplateInfoForUpdate::SetBitrate(const int64_t& _bitrate)
 {
     m_bitrate = _bitrate;
     m_bitrateHasBeenSet = true;
@@ -177,5 +204,21 @@ void AudioTemplateInfoForUpdate::SetAudioChannel(const int64_t& _audioChannel)
 bool AudioTemplateInfoForUpdate::AudioChannelHasBeenSet() const
 {
     return m_audioChannelHasBeenSet;
+}
+
+vector<int64_t> AudioTemplateInfoForUpdate::GetStreamSelects() const
+{
+    return m_streamSelects;
+}
+
+void AudioTemplateInfoForUpdate::SetStreamSelects(const vector<int64_t>& _streamSelects)
+{
+    m_streamSelects = _streamSelects;
+    m_streamSelectsHasBeenSet = true;
+}
+
+bool AudioTemplateInfoForUpdate::StreamSelectsHasBeenSet() const
+{
+    return m_streamSelectsHasBeenSet;
 }
 

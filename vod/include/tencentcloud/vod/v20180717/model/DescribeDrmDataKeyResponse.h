@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取密钥列表，包含加密的数据密钥。
                      * @return KeyList 密钥列表，包含加密的数据密钥。
+                     * 
                      */
                     std::vector<SimpleAesEdkPair> GetKeyList() const;
 
                     /**
                      * 判断参数 KeyList 是否已赋值
                      * @return KeyList 是否已赋值
+                     * 
                      */
                     bool KeyListHasBeenSet() const;
 

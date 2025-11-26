@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,63 +48,97 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取类型（二维码、条形码）
-                     * @return TypeName 类型（二维码、条形码）
+                     * 获取类型包括
+二维码：QR_CODE
+一维码：EAN-13、EAN-8、EAN-2、UPC-A、UPC-E、CODE-39、CODE-93、CODE-128 
+PDF：PDF_417
+DataMatrix：DATA_MATRIX
+小程序码：WX_CODE
+                     * @return TypeName 类型包括
+二维码：QR_CODE
+一维码：EAN-13、EAN-8、EAN-2、UPC-A、UPC-E、CODE-39、CODE-93、CODE-128 
+PDF：PDF_417
+DataMatrix：DATA_MATRIX
+小程序码：WX_CODE
+                     * 
                      */
                     std::string GetTypeName() const;
 
                     /**
-                     * 设置类型（二维码、条形码）
-                     * @param TypeName 类型（二维码、条形码）
+                     * 设置类型包括
+二维码：QR_CODE
+一维码：EAN-13、EAN-8、EAN-2、UPC-A、UPC-E、CODE-39、CODE-93、CODE-128 
+PDF：PDF_417
+DataMatrix：DATA_MATRIX
+小程序码：WX_CODE
+                     * @param _typeName 类型包括
+二维码：QR_CODE
+一维码：EAN-13、EAN-8、EAN-2、UPC-A、UPC-E、CODE-39、CODE-93、CODE-128 
+PDF：PDF_417
+DataMatrix：DATA_MATRIX
+小程序码：WX_CODE
+                     * 
                      */
                     void SetTypeName(const std::string& _typeName);
 
                     /**
                      * 判断参数 TypeName 是否已赋值
                      * @return TypeName 是否已赋值
+                     * 
                      */
                     bool TypeNameHasBeenSet() const;
 
                     /**
                      * 获取二维码/条形码包含的地址
                      * @return Url 二维码/条形码包含的地址
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置二维码/条形码包含的地址
-                     * @param Url 二维码/条形码包含的地址
+                     * @param _url 二维码/条形码包含的地址
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
-                     * 获取二维码/条形码坐标（二维码会返回位置坐标，条形码暂不返回位置坐标，因此默认X和Y返回值均为-1）
-                     * @return Position 二维码/条形码坐标（二维码会返回位置坐标，条形码暂不返回位置坐标，因此默认X和Y返回值均为-1）
+                     * 获取二维码/条形码坐标
+                     * @return Position 二维码/条形码坐标
+                     * 
                      */
                     QrcodePositionObj GetPosition() const;
 
                     /**
-                     * 设置二维码/条形码坐标（二维码会返回位置坐标，条形码暂不返回位置坐标，因此默认X和Y返回值均为-1）
-                     * @param Position 二维码/条形码坐标（二维码会返回位置坐标，条形码暂不返回位置坐标，因此默认X和Y返回值均为-1）
+                     * 设置二维码/条形码坐标
+                     * @param _position 二维码/条形码坐标
+                     * 
                      */
                     void SetPosition(const QrcodePositionObj& _position);
 
                     /**
                      * 判断参数 Position 是否已赋值
                      * @return Position 是否已赋值
+                     * 
                      */
                     bool PositionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 类型（二维码、条形码）
+                     * 类型包括
+二维码：QR_CODE
+一维码：EAN-13、EAN-8、EAN-2、UPC-A、UPC-E、CODE-39、CODE-93、CODE-128 
+PDF：PDF_417
+DataMatrix：DATA_MATRIX
+小程序码：WX_CODE
                      */
                     std::string m_typeName;
                     bool m_typeNameHasBeenSet;
@@ -116,7 +150,7 @@ namespace TencentCloud
                     bool m_urlHasBeenSet;
 
                     /**
-                     * 二维码/条形码坐标（二维码会返回位置坐标，条形码暂不返回位置坐标，因此默认X和Y返回值均为-1）
+                     * 二维码/条形码坐标
                      */
                     QrcodePositionObj m_position;
                     bool m_positionHasBeenSet;

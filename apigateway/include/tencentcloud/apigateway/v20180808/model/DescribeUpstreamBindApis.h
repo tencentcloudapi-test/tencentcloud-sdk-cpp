@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 查询vpc通道绑定api列表
+                * 查询后端通道绑定API列表
                 */
                 class DescribeUpstreamBindApis : public AbstractModel
                 {
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取总数
                      * @return TotalCount 总数
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 设置总数
-                     * @param TotalCount 总数
+                     * @param _totalCount 总数
+                     * 
                      */
                     void SetTotalCount(const uint64_t& _totalCount);
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取绑定的api信息
-                     * @return BindApiSet 绑定的api信息
+                     * 获取绑定的API信息
+                     * @return BindApiSet 绑定的API信息
+                     * 
                      */
                     std::vector<BindApiInfo> GetBindApiSet() const;
 
                     /**
-                     * 设置绑定的api信息
-                     * @param BindApiSet 绑定的api信息
+                     * 设置绑定的API信息
+                     * @param _bindApiSet 绑定的API信息
+                     * 
                      */
                     void SetBindApiSet(const std::vector<BindApiInfo>& _bindApiSet);
 
                     /**
                      * 判断参数 BindApiSet 是否已赋值
                      * @return BindApiSet 是否已赋值
+                     * 
                      */
                     bool BindApiSetHasBeenSet() const;
 
@@ -92,7 +98,7 @@ namespace TencentCloud
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 绑定的api信息
+                     * 绑定的API信息
                      */
                     std::vector<BindApiInfo> m_bindApiSet;
                     bool m_bindApiSetHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ DeployApplicationRequest::DeployApplicationRequest() :
     m_cpuSpecHasBeenSet(false),
     m_memorySpecHasBeenSet(false),
     m_environmentIdHasBeenSet(false),
+    m_deployVersionHasBeenSet(false),
     m_imgRepoHasBeenSet(false),
     m_versionDescHasBeenSet(false),
     m_jvmOptsHasBeenSet(false),
@@ -37,7 +38,6 @@ DeployApplicationRequest::DeployApplicationRequest() :
     m_storageConfsHasBeenSet(false),
     m_storageMountConfsHasBeenSet(false),
     m_deployModeHasBeenSet(false),
-    m_deployVersionHasBeenSet(false),
     m_pkgNameHasBeenSet(false),
     m_jdkVersionHasBeenSet(false),
     m_securityGroupIdsHasBeenSet(false),
@@ -62,7 +62,14 @@ DeployApplicationRequest::DeployApplicationRequest() :
     m_speedUpHasBeenSet(false),
     m_startupProbeHasBeenSet(false),
     m_osFlavourHasBeenSet(false),
-    m_enablePrometheusConfHasBeenSet(false)
+    m_enablePrometheusConfHasBeenSet(false),
+    m_enableTracingHasBeenSet(false),
+    m_enableMetricsHasBeenSet(false),
+    m_tcrInstanceIdHasBeenSet(false),
+    m_repoServerHasBeenSet(false),
+    m_repoTypeHasBeenSet(false),
+    m_postStartEncodedHasBeenSet(false),
+    m_preStopEncodedHasBeenSet(false)
 {
 }
 
@@ -111,6 +118,14 @@ string DeployApplicationRequest::ToJsonString() const
         string key = "EnvironmentId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_environmentId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deployVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeployVersion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_deployVersion.c_str(), allocator).Move(), allocator);
     }
 
     if (m_imgRepoHasBeenSet)
@@ -210,14 +225,6 @@ string DeployApplicationRequest::ToJsonString() const
         string key = "DeployMode";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_deployMode.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_deployVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DeployVersion";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_deployVersion.c_str(), allocator).Move(), allocator);
     }
 
     if (m_pkgNameHasBeenSet)
@@ -458,6 +465,62 @@ string DeployApplicationRequest::ToJsonString() const
         m_enablePrometheusConf.ToJsonObject(d[key.c_str()], allocator);
     }
 
+    if (m_enableTracingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableTracing";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableTracing, allocator);
+    }
+
+    if (m_enableMetricsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableMetrics";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableMetrics, allocator);
+    }
+
+    if (m_tcrInstanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TcrInstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_tcrInstanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_repoServerHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RepoServer";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_repoServer.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_repoTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RepoType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_repoType, allocator);
+    }
+
+    if (m_postStartEncodedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PostStartEncoded";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_postStartEncoded.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_preStopEncodedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PreStopEncoded";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_preStopEncoded.c_str(), allocator).Move(), allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -544,6 +607,22 @@ void DeployApplicationRequest::SetEnvironmentId(const string& _environmentId)
 bool DeployApplicationRequest::EnvironmentIdHasBeenSet() const
 {
     return m_environmentIdHasBeenSet;
+}
+
+string DeployApplicationRequest::GetDeployVersion() const
+{
+    return m_deployVersion;
+}
+
+void DeployApplicationRequest::SetDeployVersion(const string& _deployVersion)
+{
+    m_deployVersion = _deployVersion;
+    m_deployVersionHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::DeployVersionHasBeenSet() const
+{
+    return m_deployVersionHasBeenSet;
 }
 
 string DeployApplicationRequest::GetImgRepo() const
@@ -688,22 +767,6 @@ void DeployApplicationRequest::SetDeployMode(const string& _deployMode)
 bool DeployApplicationRequest::DeployModeHasBeenSet() const
 {
     return m_deployModeHasBeenSet;
-}
-
-string DeployApplicationRequest::GetDeployVersion() const
-{
-    return m_deployVersion;
-}
-
-void DeployApplicationRequest::SetDeployVersion(const string& _deployVersion)
-{
-    m_deployVersion = _deployVersion;
-    m_deployVersionHasBeenSet = true;
-}
-
-bool DeployApplicationRequest::DeployVersionHasBeenSet() const
-{
-    return m_deployVersionHasBeenSet;
 }
 
 string DeployApplicationRequest::GetPkgName() const
@@ -1104,6 +1167,118 @@ void DeployApplicationRequest::SetEnablePrometheusConf(const EnablePrometheusCon
 bool DeployApplicationRequest::EnablePrometheusConfHasBeenSet() const
 {
     return m_enablePrometheusConfHasBeenSet;
+}
+
+int64_t DeployApplicationRequest::GetEnableTracing() const
+{
+    return m_enableTracing;
+}
+
+void DeployApplicationRequest::SetEnableTracing(const int64_t& _enableTracing)
+{
+    m_enableTracing = _enableTracing;
+    m_enableTracingHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::EnableTracingHasBeenSet() const
+{
+    return m_enableTracingHasBeenSet;
+}
+
+int64_t DeployApplicationRequest::GetEnableMetrics() const
+{
+    return m_enableMetrics;
+}
+
+void DeployApplicationRequest::SetEnableMetrics(const int64_t& _enableMetrics)
+{
+    m_enableMetrics = _enableMetrics;
+    m_enableMetricsHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::EnableMetricsHasBeenSet() const
+{
+    return m_enableMetricsHasBeenSet;
+}
+
+string DeployApplicationRequest::GetTcrInstanceId() const
+{
+    return m_tcrInstanceId;
+}
+
+void DeployApplicationRequest::SetTcrInstanceId(const string& _tcrInstanceId)
+{
+    m_tcrInstanceId = _tcrInstanceId;
+    m_tcrInstanceIdHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::TcrInstanceIdHasBeenSet() const
+{
+    return m_tcrInstanceIdHasBeenSet;
+}
+
+string DeployApplicationRequest::GetRepoServer() const
+{
+    return m_repoServer;
+}
+
+void DeployApplicationRequest::SetRepoServer(const string& _repoServer)
+{
+    m_repoServer = _repoServer;
+    m_repoServerHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::RepoServerHasBeenSet() const
+{
+    return m_repoServerHasBeenSet;
+}
+
+int64_t DeployApplicationRequest::GetRepoType() const
+{
+    return m_repoType;
+}
+
+void DeployApplicationRequest::SetRepoType(const int64_t& _repoType)
+{
+    m_repoType = _repoType;
+    m_repoTypeHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::RepoTypeHasBeenSet() const
+{
+    return m_repoTypeHasBeenSet;
+}
+
+string DeployApplicationRequest::GetPostStartEncoded() const
+{
+    return m_postStartEncoded;
+}
+
+void DeployApplicationRequest::SetPostStartEncoded(const string& _postStartEncoded)
+{
+    m_postStartEncoded = _postStartEncoded;
+    m_postStartEncodedHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::PostStartEncodedHasBeenSet() const
+{
+    return m_postStartEncodedHasBeenSet;
+}
+
+string DeployApplicationRequest::GetPreStopEncoded() const
+{
+    return m_preStopEncoded;
+}
+
+void DeployApplicationRequest::SetPreStopEncoded(const string& _preStopEncoded)
+{
+    m_preStopEncoded = _preStopEncoded;
+    m_preStopEncodedHasBeenSet = true;
+}
+
+bool DeployApplicationRequest::PreStopEncodedHasBeenSet() const
+{
+    return m_preStopEncodedHasBeenSet;
 }
 
 

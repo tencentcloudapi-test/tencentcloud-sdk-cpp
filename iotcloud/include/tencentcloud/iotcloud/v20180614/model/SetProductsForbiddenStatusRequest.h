@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取要设置禁用状态的产品列表
                      * @return ProductID 要设置禁用状态的产品列表
+                     * 
                      */
                     std::vector<std::string> GetProductID() const;
 
                     /**
                      * 设置要设置禁用状态的产品列表
-                     * @param ProductID 要设置禁用状态的产品列表
+                     * @param _productID 要设置禁用状态的产品列表
+                     * 
                      */
                     void SetProductID(const std::vector<std::string>& _productID);
 
                     /**
                      * 判断参数 ProductID 是否已赋值
                      * @return ProductID 是否已赋值
+                     * 
                      */
                     bool ProductIDHasBeenSet() const;
 
                     /**
                      * 获取0启用，1禁用
                      * @return Status 0启用，1禁用
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 设置0启用，1禁用
-                     * @param Status 0启用，1禁用
+                     * @param _status 0启用，1禁用
+                     * 
                      */
                     void SetStatus(const uint64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 

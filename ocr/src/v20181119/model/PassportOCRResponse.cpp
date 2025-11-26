@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,8 @@ PassportOCRResponse::PassportOCRResponse() :
     m_codeCrcHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_familyNameHasBeenSet(false),
-    m_firstNameHasBeenSet(false)
+    m_firstNameHasBeenSet(false),
+    m_portraitImageInfoHasBeenSet(false)
 {
 }
 
@@ -226,6 +227,23 @@ CoreInternalOutcome PassportOCRResponse::Deserialize(const string &payload)
         m_firstNameHasBeenSet = true;
     }
 
+    if (rsp.HasMember("PortraitImageInfo") && !rsp["PortraitImageInfo"].IsNull())
+    {
+        if (!rsp["PortraitImageInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `PortraitImageInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_portraitImageInfo.Deserialize(rsp["PortraitImageInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_portraitImageInfoHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -356,11 +374,20 @@ string PassportOCRResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_firstName.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_portraitImageInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PortraitImageInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_portraitImageInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -516,6 +543,16 @@ string PassportOCRResponse::GetFirstName() const
 bool PassportOCRResponse::FirstNameHasBeenSet() const
 {
     return m_firstNameHasBeenSet;
+}
+
+PortraitImageInfo PassportOCRResponse::GetPortraitImageInfo() const
+{
+    return m_portraitImageInfo;
+}
+
+bool PassportOCRResponse::PortraitImageInfoHasBeenSet() const
+{
+    return m_portraitImageInfoHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取生命周期脚本名称
                      * @return NotebookLifecycleScriptsName 生命周期脚本名称
+                     * 
                      */
                     std::string GetNotebookLifecycleScriptsName() const;
 
                     /**
                      * 设置生命周期脚本名称
-                     * @param NotebookLifecycleScriptsName 生命周期脚本名称
+                     * @param _notebookLifecycleScriptsName 生命周期脚本名称
+                     * 
                      */
                     void SetNotebookLifecycleScriptsName(const std::string& _notebookLifecycleScriptsName);
 
                     /**
                      * 判断参数 NotebookLifecycleScriptsName 是否已赋值
                      * @return NotebookLifecycleScriptsName 是否已赋值
+                     * 
                      */
                     bool NotebookLifecycleScriptsNameHasBeenSet() const;
 

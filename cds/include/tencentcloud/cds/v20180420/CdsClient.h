@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,6 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
-#include <tencentcloud/cds/v20180420/model/DescribeDasbImageIdsRequest.h>
-#include <tencentcloud/cds/v20180420/model/DescribeDasbImageIdsResponse.h>
 #include <tencentcloud/cds/v20180420/model/DescribeDbauditInstanceTypeRequest.h>
 #include <tencentcloud/cds/v20180420/model/DescribeDbauditInstanceTypeResponse.h>
 #include <tencentcloud/cds/v20180420/model/DescribeDbauditInstancesRequest.h>
@@ -49,9 +47,6 @@ namespace TencentCloud
                 CdsClient(const Credential &credential, const std::string &region);
                 CdsClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
-                typedef Outcome<Core::Error, Model::DescribeDasbImageIdsResponse> DescribeDasbImageIdsOutcome;
-                typedef std::future<DescribeDasbImageIdsOutcome> DescribeDasbImageIdsOutcomeCallable;
-                typedef std::function<void(const CdsClient*, const Model::DescribeDasbImageIdsRequest&, DescribeDasbImageIdsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDasbImageIdsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDbauditInstanceTypeResponse> DescribeDbauditInstanceTypeOutcome;
                 typedef std::future<DescribeDbauditInstanceTypeOutcome> DescribeDbauditInstanceTypeOutcomeCallable;
                 typedef std::function<void(const CdsClient*, const Model::DescribeDbauditInstanceTypeRequest&, DescribeDbauditInstanceTypeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDbauditInstanceTypeAsyncHandler;
@@ -69,15 +64,6 @@ namespace TencentCloud
                 typedef std::function<void(const CdsClient*, const Model::ModifyDbauditInstancesRenewFlagRequest&, ModifyDbauditInstancesRenewFlagOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDbauditInstancesRenewFlagAsyncHandler;
 
 
-
-                /**
-                 *获取镜像列表
-                 * @param req DescribeDasbImageIdsRequest
-                 * @return DescribeDasbImageIdsOutcome
-                 */
-                DescribeDasbImageIdsOutcome DescribeDasbImageIds(const Model::DescribeDasbImageIdsRequest &request);
-                void DescribeDasbImageIdsAsync(const Model::DescribeDasbImageIdsRequest& request, const DescribeDasbImageIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDasbImageIdsOutcomeCallable DescribeDasbImageIdsCallable(const Model::DescribeDasbImageIdsRequest& request);
 
                 /**
                  *本接口 (DescribeDbauditInstanceType) 用于查询可售卖的产品规格列表。

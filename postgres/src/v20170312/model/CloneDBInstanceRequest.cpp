@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,9 @@ CloneDBInstanceRequest::CloneDBInstanceRequest() :
     m_voucherIdsHasBeenSet(false),
     m_activityIdHasBeenSet(false),
     m_backupSetIdHasBeenSet(false),
-    m_recoveryTargetTimeHasBeenSet(false)
+    m_recoveryTargetTimeHasBeenSet(false),
+    m_syncModeHasBeenSet(false),
+    m_deletionProtectionHasBeenSet(false)
 {
 }
 
@@ -212,6 +214,22 @@ string CloneDBInstanceRequest::ToJsonString() const
         string key = "RecoveryTargetTime";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_recoveryTargetTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_syncModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SyncMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_syncMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deletionProtectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeletionProtection";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_deletionProtection, allocator);
     }
 
 
@@ -508,6 +526,38 @@ void CloneDBInstanceRequest::SetRecoveryTargetTime(const string& _recoveryTarget
 bool CloneDBInstanceRequest::RecoveryTargetTimeHasBeenSet() const
 {
     return m_recoveryTargetTimeHasBeenSet;
+}
+
+string CloneDBInstanceRequest::GetSyncMode() const
+{
+    return m_syncMode;
+}
+
+void CloneDBInstanceRequest::SetSyncMode(const string& _syncMode)
+{
+    m_syncMode = _syncMode;
+    m_syncModeHasBeenSet = true;
+}
+
+bool CloneDBInstanceRequest::SyncModeHasBeenSet() const
+{
+    return m_syncModeHasBeenSet;
+}
+
+bool CloneDBInstanceRequest::GetDeletionProtection() const
+{
+    return m_deletionProtection;
+}
+
+void CloneDBInstanceRequest::SetDeletionProtection(const bool& _deletionProtection)
+{
+    m_deletionProtection = _deletionProtection;
+    m_deletionProtectionHasBeenSet = true;
+}
+
+bool CloneDBInstanceRequest::DeletionProtectionHasBeenSet() const
+{
+    return m_deletionProtectionHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取文件所有分片数
                      * @return AllSliceNum 文件所有分片数
+                     * 
                      */
                     int64_t GetAllSliceNum() const;
 
                     /**
                      * 设置文件所有分片数
-                     * @param AllSliceNum 文件所有分片数
+                     * @param _allSliceNum 文件所有分片数
+                     * 
                      */
                     void SetAllSliceNum(const int64_t& _allSliceNum);
 
                     /**
                      * 判断参数 AllSliceNum 是否已赋值
                      * @return AllSliceNum 是否已赋值
+                     * 
                      */
                     bool AllSliceNumHasBeenSet() const;
 
                     /**
                      * 获取已完成分片数
                      * @return CompleteNum 已完成分片数
+                     * 
                      */
                     int64_t GetCompleteNum() const;
 
                     /**
                      * 设置已完成分片数
-                     * @param CompleteNum 已完成分片数
+                     * @param _completeNum 已完成分片数
+                     * 
                      */
                     void SetCompleteNum(const int64_t& _completeNum);
 
                     /**
                      * 判断参数 CompleteNum 是否已赋值
                      * @return CompleteNum 是否已赋值
+                     * 
                      */
                     bool CompleteNumHasBeenSet() const;
 

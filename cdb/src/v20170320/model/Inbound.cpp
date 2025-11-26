@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ Inbound::Inbound() :
     m_portRangeHasBeenSet(false),
     m_ipProtocolHasBeenSet(false),
     m_dirHasBeenSet(false),
+    m_addressModuleHasBeenSet(false),
+    m_idHasBeenSet(false),
     m_descHasBeenSet(false)
 {
 }
@@ -85,6 +87,26 @@ CoreInternalOutcome Inbound::Deserialize(const rapidjson::Value &value)
         m_dirHasBeenSet = true;
     }
 
+    if (value.HasMember("AddressModule") && !value["AddressModule"].IsNull())
+    {
+        if (!value["AddressModule"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Inbound.AddressModule` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_addressModule = string(value["AddressModule"].GetString());
+        m_addressModuleHasBeenSet = true;
+    }
+
+    if (value.HasMember("Id") && !value["Id"].IsNull())
+    {
+        if (!value["Id"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Inbound.Id` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_id = string(value["Id"].GetString());
+        m_idHasBeenSet = true;
+    }
+
     if (value.HasMember("Desc") && !value["Desc"].IsNull())
     {
         if (!value["Desc"].IsString())
@@ -140,6 +162,22 @@ void Inbound::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "Dir";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_dir.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_addressModuleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AddressModule";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_addressModule.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_idHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Id";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_id.c_str(), allocator).Move(), allocator);
     }
 
     if (m_descHasBeenSet)
@@ -231,6 +269,38 @@ void Inbound::SetDir(const string& _dir)
 bool Inbound::DirHasBeenSet() const
 {
     return m_dirHasBeenSet;
+}
+
+string Inbound::GetAddressModule() const
+{
+    return m_addressModule;
+}
+
+void Inbound::SetAddressModule(const string& _addressModule)
+{
+    m_addressModule = _addressModule;
+    m_addressModuleHasBeenSet = true;
+}
+
+bool Inbound::AddressModuleHasBeenSet() const
+{
+    return m_addressModuleHasBeenSet;
+}
+
+string Inbound::GetId() const
+{
+    return m_id;
+}
+
+void Inbound::SetId(const string& _id)
+{
+    m_id = _id;
+    m_idHasBeenSet = true;
+}
+
+bool Inbound::IdHasBeenSet() const
+{
+    return m_idHasBeenSet;
 }
 
 string Inbound::GetDesc() const

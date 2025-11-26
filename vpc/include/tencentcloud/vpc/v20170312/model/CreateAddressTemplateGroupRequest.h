@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/vpc/v20170312/model/Tag.h>
 
 
 namespace TencentCloud
@@ -45,38 +46,65 @@ namespace TencentCloud
                     /**
                      * 获取IP地址模板集合名称。
                      * @return AddressTemplateGroupName IP地址模板集合名称。
+                     * 
                      */
                     std::string GetAddressTemplateGroupName() const;
 
                     /**
                      * 设置IP地址模板集合名称。
-                     * @param AddressTemplateGroupName IP地址模板集合名称。
+                     * @param _addressTemplateGroupName IP地址模板集合名称。
+                     * 
                      */
                     void SetAddressTemplateGroupName(const std::string& _addressTemplateGroupName);
 
                     /**
                      * 判断参数 AddressTemplateGroupName 是否已赋值
                      * @return AddressTemplateGroupName 是否已赋值
+                     * 
                      */
                     bool AddressTemplateGroupNameHasBeenSet() const;
 
                     /**
                      * 获取IP地址模板实例ID，例如：ipm-mdunqeb6。
                      * @return AddressTemplateIds IP地址模板实例ID，例如：ipm-mdunqeb6。
+                     * 
                      */
                     std::vector<std::string> GetAddressTemplateIds() const;
 
                     /**
                      * 设置IP地址模板实例ID，例如：ipm-mdunqeb6。
-                     * @param AddressTemplateIds IP地址模板实例ID，例如：ipm-mdunqeb6。
+                     * @param _addressTemplateIds IP地址模板实例ID，例如：ipm-mdunqeb6。
+                     * 
                      */
                     void SetAddressTemplateIds(const std::vector<std::string>& _addressTemplateIds);
 
                     /**
                      * 判断参数 AddressTemplateIds 是否已赋值
                      * @return AddressTemplateIds 是否已赋值
+                     * 
                      */
                     bool AddressTemplateIdsHasBeenSet() const;
+
+                    /**
+                     * 获取指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * @param _tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
@@ -91,6 +119,12 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_addressTemplateIds;
                     bool m_addressTemplateIdsHasBeenSet;
+
+                    /**
+                     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

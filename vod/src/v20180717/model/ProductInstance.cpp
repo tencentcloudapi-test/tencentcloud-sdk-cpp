@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,10 @@ ProductInstance::ProductInstance() :
     m_lastConsumeDateHasBeenSet(false),
     m_bindStatusHasBeenSet(false),
     m_productInstanceResourceSetHasBeenSet(false),
+    m_resourceSetHasBeenSet(false),
     m_productInstanceStatusHasBeenSet(false),
-    m_refundStatusHasBeenSet(false)
+    m_refundStatusHasBeenSet(false),
+    m_renewStatusHasBeenSet(false)
 {
 }
 
@@ -118,6 +120,26 @@ CoreInternalOutcome ProductInstance::Deserialize(const rapidjson::Value &value)
         m_productInstanceResourceSetHasBeenSet = true;
     }
 
+    if (value.HasMember("ResourceSet") && !value["ResourceSet"].IsNull())
+    {
+        if (!value["ResourceSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ProductInstance.ResourceSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ResourceSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ProductInstanceResource item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_resourceSet.push_back(item);
+        }
+        m_resourceSetHasBeenSet = true;
+    }
+
     if (value.HasMember("ProductInstanceStatus") && !value["ProductInstanceStatus"].IsNull())
     {
         if (!value["ProductInstanceStatus"].IsString())
@@ -136,6 +158,16 @@ CoreInternalOutcome ProductInstance::Deserialize(const rapidjson::Value &value)
         }
         m_refundStatus = string(value["RefundStatus"].GetString());
         m_refundStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("RenewStatus") && !value["RenewStatus"].IsNull())
+    {
+        if (!value["RenewStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductInstance.RenewStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_renewStatus = string(value["RenewStatus"].GetString());
+        m_renewStatusHasBeenSet = true;
     }
 
 
@@ -208,6 +240,21 @@ void ProductInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         }
     }
 
+    if (m_resourceSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_resourceSet.begin(); itr != m_resourceSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     if (m_productInstanceStatusHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -222,6 +269,14 @@ void ProductInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "RefundStatus";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_refundStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_renewStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RenewStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_renewStatus.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -339,6 +394,22 @@ bool ProductInstance::ProductInstanceResourceSetHasBeenSet() const
     return m_productInstanceResourceSetHasBeenSet;
 }
 
+vector<ProductInstanceResource> ProductInstance::GetResourceSet() const
+{
+    return m_resourceSet;
+}
+
+void ProductInstance::SetResourceSet(const vector<ProductInstanceResource>& _resourceSet)
+{
+    m_resourceSet = _resourceSet;
+    m_resourceSetHasBeenSet = true;
+}
+
+bool ProductInstance::ResourceSetHasBeenSet() const
+{
+    return m_resourceSetHasBeenSet;
+}
+
 string ProductInstance::GetProductInstanceStatus() const
 {
     return m_productInstanceStatus;
@@ -369,5 +440,21 @@ void ProductInstance::SetRefundStatus(const string& _refundStatus)
 bool ProductInstance::RefundStatusHasBeenSet() const
 {
     return m_refundStatusHasBeenSet;
+}
+
+string ProductInstance::GetRenewStatus() const
+{
+    return m_renewStatus;
+}
+
+void ProductInstance::SetRenewStatus(const string& _renewStatus)
+{
+    m_renewStatus = _renewStatus;
+    m_renewStatusHasBeenSet = true;
+}
+
+bool ProductInstance::RenewStatusHasBeenSet() const
+{
+    return m_renewStatusHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,12 @@ HTTPSListener::HTTPSListener() :
     m_clientCertificateIdHasBeenSet(false),
     m_authTypeHasBeenSet(false),
     m_clientCertificateAliasHasBeenSet(false),
-    m_polyClientCertificateAliasInfoHasBeenSet(false)
+    m_polyClientCertificateAliasInfoHasBeenSet(false),
+    m_http3SupportedHasBeenSet(false),
+    m_proxyIdHasBeenSet(false),
+    m_groupIdHasBeenSet(false),
+    m_tLSSupportVersionHasBeenSet(false),
+    m_tLSCiphersHasBeenSet(false)
 {
 }
 
@@ -182,6 +187,59 @@ CoreInternalOutcome HTTPSListener::Deserialize(const rapidjson::Value &value)
         m_polyClientCertificateAliasInfoHasBeenSet = true;
     }
 
+    if (value.HasMember("Http3Supported") && !value["Http3Supported"].IsNull())
+    {
+        if (!value["Http3Supported"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `HTTPSListener.Http3Supported` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_http3Supported = value["Http3Supported"].GetInt64();
+        m_http3SupportedHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProxyId") && !value["ProxyId"].IsNull())
+    {
+        if (!value["ProxyId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HTTPSListener.ProxyId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_proxyId = string(value["ProxyId"].GetString());
+        m_proxyIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("GroupId") && !value["GroupId"].IsNull())
+    {
+        if (!value["GroupId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HTTPSListener.GroupId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_groupId = string(value["GroupId"].GetString());
+        m_groupIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("TLSSupportVersion") && !value["TLSSupportVersion"].IsNull())
+    {
+        if (!value["TLSSupportVersion"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `HTTPSListener.TLSSupportVersion` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TLSSupportVersion"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_tLSSupportVersion.push_back((*itr).GetString());
+        }
+        m_tLSSupportVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("TLSCiphers") && !value["TLSCiphers"].IsNull())
+    {
+        if (!value["TLSCiphers"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HTTPSListener.TLSCiphers` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_tLSCiphers = string(value["TLSCiphers"].GetString());
+        m_tLSCiphersHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -298,6 +356,51 @@ void HTTPSListener::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_http3SupportedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Http3Supported";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_http3Supported, allocator);
+    }
+
+    if (m_proxyIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_proxyId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_groupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_groupId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tLSSupportVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TLSSupportVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_tLSSupportVersion.begin(); itr != m_tLSSupportVersion.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_tLSCiphersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TLSCiphers";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_tLSCiphers.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -509,5 +612,85 @@ void HTTPSListener::SetPolyClientCertificateAliasInfo(const vector<CertificateAl
 bool HTTPSListener::PolyClientCertificateAliasInfoHasBeenSet() const
 {
     return m_polyClientCertificateAliasInfoHasBeenSet;
+}
+
+int64_t HTTPSListener::GetHttp3Supported() const
+{
+    return m_http3Supported;
+}
+
+void HTTPSListener::SetHttp3Supported(const int64_t& _http3Supported)
+{
+    m_http3Supported = _http3Supported;
+    m_http3SupportedHasBeenSet = true;
+}
+
+bool HTTPSListener::Http3SupportedHasBeenSet() const
+{
+    return m_http3SupportedHasBeenSet;
+}
+
+string HTTPSListener::GetProxyId() const
+{
+    return m_proxyId;
+}
+
+void HTTPSListener::SetProxyId(const string& _proxyId)
+{
+    m_proxyId = _proxyId;
+    m_proxyIdHasBeenSet = true;
+}
+
+bool HTTPSListener::ProxyIdHasBeenSet() const
+{
+    return m_proxyIdHasBeenSet;
+}
+
+string HTTPSListener::GetGroupId() const
+{
+    return m_groupId;
+}
+
+void HTTPSListener::SetGroupId(const string& _groupId)
+{
+    m_groupId = _groupId;
+    m_groupIdHasBeenSet = true;
+}
+
+bool HTTPSListener::GroupIdHasBeenSet() const
+{
+    return m_groupIdHasBeenSet;
+}
+
+vector<string> HTTPSListener::GetTLSSupportVersion() const
+{
+    return m_tLSSupportVersion;
+}
+
+void HTTPSListener::SetTLSSupportVersion(const vector<string>& _tLSSupportVersion)
+{
+    m_tLSSupportVersion = _tLSSupportVersion;
+    m_tLSSupportVersionHasBeenSet = true;
+}
+
+bool HTTPSListener::TLSSupportVersionHasBeenSet() const
+{
+    return m_tLSSupportVersionHasBeenSet;
+}
+
+string HTTPSListener::GetTLSCiphers() const
+{
+    return m_tLSCiphers;
+}
+
+void HTTPSListener::SetTLSCiphers(const string& _tLSCiphers)
+{
+    m_tLSCiphers = _tLSCiphers;
+    m_tLSCiphersHasBeenSet = true;
+}
+
+bool HTTPSListener::TLSCiphersHasBeenSet() const
+{
+    return m_tLSCiphersHasBeenSet;
 }
 

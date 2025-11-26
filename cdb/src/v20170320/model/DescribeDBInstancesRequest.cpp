@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,15 @@ DescribeDBInstancesRequest::DescribeDBInstancesRequest() :
     m_withMasterHasBeenSet(false),
     m_deployGroupIdsHasBeenSet(false),
     m_tagKeysForSearchHasBeenSet(false),
-    m_cageIdsHasBeenSet(false)
+    m_cageIdsHasBeenSet(false),
+    m_tagValuesHasBeenSet(false),
+    m_uniqueVpcIdsHasBeenSet(false),
+    m_uniqSubnetIdsHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_proxyVipsHasBeenSet(false),
+    m_proxyIdsHasBeenSet(false),
+    m_engineTypesHasBeenSet(false),
+    m_queryClusterInfoHasBeenSet(false)
 {
 }
 
@@ -358,6 +366,107 @@ string DescribeDBInstancesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_tagValuesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagValues";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_tagValues.begin(); itr != m_tagValues.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_uniqueVpcIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UniqueVpcIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_uniqueVpcIds.begin(); itr != m_uniqueVpcIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_uniqSubnetIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UniqSubnetIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_uniqSubnetIds.begin(); itr != m_uniqSubnetIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_proxyVipsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyVips";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_proxyVips.begin(); itr != m_proxyVips.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_proxyIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_proxyIds.begin(); itr != m_proxyIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_engineTypesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EngineTypes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_engineTypes.begin(); itr != m_engineTypes.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_queryClusterInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QueryClusterInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_queryClusterInfo, allocator);
     }
 
 
@@ -814,6 +923,134 @@ void DescribeDBInstancesRequest::SetCageIds(const vector<string>& _cageIds)
 bool DescribeDBInstancesRequest::CageIdsHasBeenSet() const
 {
     return m_cageIdsHasBeenSet;
+}
+
+vector<string> DescribeDBInstancesRequest::GetTagValues() const
+{
+    return m_tagValues;
+}
+
+void DescribeDBInstancesRequest::SetTagValues(const vector<string>& _tagValues)
+{
+    m_tagValues = _tagValues;
+    m_tagValuesHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::TagValuesHasBeenSet() const
+{
+    return m_tagValuesHasBeenSet;
+}
+
+vector<string> DescribeDBInstancesRequest::GetUniqueVpcIds() const
+{
+    return m_uniqueVpcIds;
+}
+
+void DescribeDBInstancesRequest::SetUniqueVpcIds(const vector<string>& _uniqueVpcIds)
+{
+    m_uniqueVpcIds = _uniqueVpcIds;
+    m_uniqueVpcIdsHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::UniqueVpcIdsHasBeenSet() const
+{
+    return m_uniqueVpcIdsHasBeenSet;
+}
+
+vector<string> DescribeDBInstancesRequest::GetUniqSubnetIds() const
+{
+    return m_uniqSubnetIds;
+}
+
+void DescribeDBInstancesRequest::SetUniqSubnetIds(const vector<string>& _uniqSubnetIds)
+{
+    m_uniqSubnetIds = _uniqSubnetIds;
+    m_uniqSubnetIdsHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::UniqSubnetIdsHasBeenSet() const
+{
+    return m_uniqSubnetIdsHasBeenSet;
+}
+
+vector<Tag> DescribeDBInstancesRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void DescribeDBInstancesRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+vector<string> DescribeDBInstancesRequest::GetProxyVips() const
+{
+    return m_proxyVips;
+}
+
+void DescribeDBInstancesRequest::SetProxyVips(const vector<string>& _proxyVips)
+{
+    m_proxyVips = _proxyVips;
+    m_proxyVipsHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::ProxyVipsHasBeenSet() const
+{
+    return m_proxyVipsHasBeenSet;
+}
+
+vector<string> DescribeDBInstancesRequest::GetProxyIds() const
+{
+    return m_proxyIds;
+}
+
+void DescribeDBInstancesRequest::SetProxyIds(const vector<string>& _proxyIds)
+{
+    m_proxyIds = _proxyIds;
+    m_proxyIdsHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::ProxyIdsHasBeenSet() const
+{
+    return m_proxyIdsHasBeenSet;
+}
+
+vector<string> DescribeDBInstancesRequest::GetEngineTypes() const
+{
+    return m_engineTypes;
+}
+
+void DescribeDBInstancesRequest::SetEngineTypes(const vector<string>& _engineTypes)
+{
+    m_engineTypes = _engineTypes;
+    m_engineTypesHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::EngineTypesHasBeenSet() const
+{
+    return m_engineTypesHasBeenSet;
+}
+
+bool DescribeDBInstancesRequest::GetQueryClusterInfo() const
+{
+    return m_queryClusterInfo;
+}
+
+void DescribeDBInstancesRequest::SetQueryClusterInfo(const bool& _queryClusterInfo)
+{
+    m_queryClusterInfo = _queryClusterInfo;
+    m_queryClusterInfoHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::QueryClusterInfoHasBeenSet() const
+{
+    return m_queryClusterInfoHasBeenSet;
 }
 
 

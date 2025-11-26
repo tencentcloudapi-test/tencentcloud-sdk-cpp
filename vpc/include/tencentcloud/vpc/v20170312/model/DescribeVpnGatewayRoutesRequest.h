@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,99 +44,111 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取VPN网关的ID
-                     * @return VpnGatewayId VPN网关的ID
+                     * 获取VPN网关实例ID。
+                     * @return VpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     std::string GetVpnGatewayId() const;
 
                     /**
-                     * 设置VPN网关的ID
-                     * @param VpnGatewayId VPN网关的ID
+                     * 设置VPN网关实例ID。
+                     * @param _vpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     void SetVpnGatewayId(const std::string& _vpnGatewayId);
 
                     /**
                      * 判断参数 VpnGatewayId 是否已赋值
                      * @return VpnGatewayId 是否已赋值
+                     * 
                      */
                     bool VpnGatewayIdHasBeenSet() const;
 
                     /**
-                     * 获取过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)
-                     * @return Filters 过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)
+                     * 获取过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)。
+                     * @return Filters 过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)。
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)
-                     * @param Filters 过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)
+                     * 设置过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)。
+                     * @param _filters 过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)。
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取偏移量, 默认0
-                     * @return Offset 偏移量, 默认0
+                     * 获取偏移量, 默认0。
+                     * @return Offset 偏移量, 默认0。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置偏移量, 默认0
-                     * @param Offset 偏移量, 默认0
+                     * 设置偏移量, 默认0。
+                     * @param _offset 偏移量, 默认0。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取单页个数, 默认20, 最大值100
-                     * @return Limit 单页个数, 默认20, 最大值100
+                     * 获取单页个数, 默认20, 最大值100。
+                     * @return Limit 单页个数, 默认20, 最大值100。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置单页个数, 默认20, 最大值100
-                     * @param Limit 单页个数, 默认20, 最大值100
+                     * 设置单页个数, 默认20, 最大值100。
+                     * @param _limit 单页个数, 默认20, 最大值100。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                 private:
 
                     /**
-                     * VPN网关的ID
+                     * VPN网关实例ID。
                      */
                     std::string m_vpnGatewayId;
                     bool m_vpnGatewayIdHasBeenSet;
 
                     /**
-                     * 过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)
+                     * 过滤条件,  条件包括(DestinationCidr, InstanceId,InstanceType)。
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * 偏移量, 默认0
+                     * 偏移量, 默认0。
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 单页个数, 默认20, 最大值100
+                     * 单页个数, 默认20, 最大值100。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;

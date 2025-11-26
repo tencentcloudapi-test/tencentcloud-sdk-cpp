@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,36 +51,42 @@ namespace TencentCloud
                     /**
                      * 获取混流画布参数
                      * @return Canvas 混流画布参数
+                     * 
                      */
                     Canvas GetCanvas() const;
 
                     /**
                      * 设置混流画布参数
-                     * @param Canvas 混流画布参数
+                     * @param _canvas 混流画布参数
+                     * 
                      */
                     void SetCanvas(const Canvas& _canvas);
 
                     /**
                      * 判断参数 Canvas 是否已赋值
                      * @return Canvas 是否已赋值
+                     * 
                      */
                     bool CanvasHasBeenSet() const;
 
                     /**
                      * 获取流布局参数，每路流的布局不能超出画布区域
                      * @return InputStreamList 流布局参数，每路流的布局不能超出画布区域
+                     * 
                      */
                     std::vector<StreamLayout> GetInputStreamList() const;
 
                     /**
                      * 设置流布局参数，每路流的布局不能超出画布区域
-                     * @param InputStreamList 流布局参数，每路流的布局不能超出画布区域
+                     * @param _inputStreamList 流布局参数，每路流的布局不能超出画布区域
+                     * 
                      */
                     void SetInputStreamList(const std::vector<StreamLayout>& _inputStreamList);
 
                     /**
                      * 判断参数 InputStreamList 是否已赋值
                      * @return InputStreamList 是否已赋值
+                     * 
                      */
                     bool InputStreamListHasBeenSet() const;
 

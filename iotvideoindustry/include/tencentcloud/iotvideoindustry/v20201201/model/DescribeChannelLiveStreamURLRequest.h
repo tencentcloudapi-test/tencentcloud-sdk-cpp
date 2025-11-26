@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取设备唯一标识，必填参数
                      * @return DeviceId 设备唯一标识，必填参数
+                     * 
                      */
                     std::string GetDeviceId() const;
 
                     /**
                      * 设置设备唯一标识，必填参数
-                     * @param DeviceId 设备唯一标识，必填参数
+                     * @param _deviceId 设备唯一标识，必填参数
+                     * 
                      */
                     void SetDeviceId(const std::string& _deviceId);
 
                     /**
                      * 判断参数 DeviceId 是否已赋值
                      * @return DeviceId 是否已赋值
+                     * 
                      */
                     bool DeviceIdHasBeenSet() const;
 
                     /**
                      * 获取通道唯一标识（接口升级字段为必填），必填参数
                      * @return ChannelId 通道唯一标识（接口升级字段为必填），必填参数
+                     * 
                      */
                     std::string GetChannelId() const;
 
                     /**
                      * 设置通道唯一标识（接口升级字段为必填），必填参数
-                     * @param ChannelId 通道唯一标识（接口升级字段为必填），必填参数
+                     * @param _channelId 通道唯一标识（接口升级字段为必填），必填参数
+                     * 
                      */
                     void SetChannelId(const std::string& _channelId);
 
                     /**
                      * 判断参数 ChannelId 是否已赋值
                      * @return ChannelId 是否已赋值
+                     * 
                      */
                     bool ChannelIdHasBeenSet() const;
 

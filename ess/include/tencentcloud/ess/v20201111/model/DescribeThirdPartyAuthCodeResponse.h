@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,21 +44,32 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取用户是否实名，VERIFIED 为实名，UNVERIFIED 未实名
-                     * @return VerifyStatus 用户是否实名，VERIFIED 为实名，UNVERIFIED 未实名
+                     * 获取AuthCode 中对应个人用户是否实名
+<ul>
+<li> **VERIFIED** : 此个人已实名</li>
+<li> **UNVERIFIED**: 此个人未实名</li></ul>
+                     * @return VerifyStatus AuthCode 中对应个人用户是否实名
+<ul>
+<li> **VERIFIED** : 此个人已实名</li>
+<li> **UNVERIFIED**: 此个人未实名</li></ul>
+                     * 
                      */
                     std::string GetVerifyStatus() const;
 
                     /**
                      * 判断参数 VerifyStatus 是否已赋值
                      * @return VerifyStatus 是否已赋值
+                     * 
                      */
                     bool VerifyStatusHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 用户是否实名，VERIFIED 为实名，UNVERIFIED 未实名
+                     * AuthCode 中对应个人用户是否实名
+<ul>
+<li> **VERIFIED** : 此个人已实名</li>
+<li> **UNVERIFIED**: 此个人未实名</li></ul>
                      */
                     std::string m_verifyStatus;
                     bool m_verifyStatusHasBeenSet;

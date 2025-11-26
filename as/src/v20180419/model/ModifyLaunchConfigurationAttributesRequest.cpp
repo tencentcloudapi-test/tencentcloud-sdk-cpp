@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,15 @@ ModifyLaunchConfigurationAttributesRequest::ModifyLaunchConfigurationAttributesR
     m_hostNameSettingsHasBeenSet(false),
     m_instanceNameSettingsHasBeenSet(false),
     m_enhancedServiceHasBeenSet(false),
-    m_camRoleNameHasBeenSet(false)
+    m_camRoleNameHasBeenSet(false),
+    m_hpcClusterIdHasBeenSet(false),
+    m_iPv6InternetAccessibleHasBeenSet(false),
+    m_disasterRecoverGroupIdsHasBeenSet(false),
+    m_loginSettingsHasBeenSet(false),
+    m_instanceTagsHasBeenSet(false),
+    m_imageFamilyHasBeenSet(false),
+    m_dedicatedClusterIdHasBeenSet(false),
+    m_metadataHasBeenSet(false)
 {
 }
 
@@ -217,6 +225,85 @@ string ModifyLaunchConfigurationAttributesRequest::ToJsonString() const
         string key = "CamRoleName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_camRoleName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hpcClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HpcClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_hpcClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iPv6InternetAccessibleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPv6InternetAccessible";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_iPv6InternetAccessible.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_disasterRecoverGroupIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DisasterRecoverGroupIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_disasterRecoverGroupIds.begin(); itr != m_disasterRecoverGroupIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_loginSettingsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LoginSettings";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_loginSettings.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_instanceTagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceTags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_instanceTags.begin(); itr != m_instanceTags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_imageFamilyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageFamily";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_imageFamily.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_metadataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Metadata";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_metadata.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -513,6 +600,134 @@ void ModifyLaunchConfigurationAttributesRequest::SetCamRoleName(const string& _c
 bool ModifyLaunchConfigurationAttributesRequest::CamRoleNameHasBeenSet() const
 {
     return m_camRoleNameHasBeenSet;
+}
+
+string ModifyLaunchConfigurationAttributesRequest::GetHpcClusterId() const
+{
+    return m_hpcClusterId;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetHpcClusterId(const string& _hpcClusterId)
+{
+    m_hpcClusterId = _hpcClusterId;
+    m_hpcClusterIdHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::HpcClusterIdHasBeenSet() const
+{
+    return m_hpcClusterIdHasBeenSet;
+}
+
+IPv6InternetAccessible ModifyLaunchConfigurationAttributesRequest::GetIPv6InternetAccessible() const
+{
+    return m_iPv6InternetAccessible;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetIPv6InternetAccessible(const IPv6InternetAccessible& _iPv6InternetAccessible)
+{
+    m_iPv6InternetAccessible = _iPv6InternetAccessible;
+    m_iPv6InternetAccessibleHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::IPv6InternetAccessibleHasBeenSet() const
+{
+    return m_iPv6InternetAccessibleHasBeenSet;
+}
+
+vector<string> ModifyLaunchConfigurationAttributesRequest::GetDisasterRecoverGroupIds() const
+{
+    return m_disasterRecoverGroupIds;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetDisasterRecoverGroupIds(const vector<string>& _disasterRecoverGroupIds)
+{
+    m_disasterRecoverGroupIds = _disasterRecoverGroupIds;
+    m_disasterRecoverGroupIdsHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::DisasterRecoverGroupIdsHasBeenSet() const
+{
+    return m_disasterRecoverGroupIdsHasBeenSet;
+}
+
+LoginSettings ModifyLaunchConfigurationAttributesRequest::GetLoginSettings() const
+{
+    return m_loginSettings;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetLoginSettings(const LoginSettings& _loginSettings)
+{
+    m_loginSettings = _loginSettings;
+    m_loginSettingsHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::LoginSettingsHasBeenSet() const
+{
+    return m_loginSettingsHasBeenSet;
+}
+
+vector<InstanceTag> ModifyLaunchConfigurationAttributesRequest::GetInstanceTags() const
+{
+    return m_instanceTags;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetInstanceTags(const vector<InstanceTag>& _instanceTags)
+{
+    m_instanceTags = _instanceTags;
+    m_instanceTagsHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::InstanceTagsHasBeenSet() const
+{
+    return m_instanceTagsHasBeenSet;
+}
+
+string ModifyLaunchConfigurationAttributesRequest::GetImageFamily() const
+{
+    return m_imageFamily;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetImageFamily(const string& _imageFamily)
+{
+    m_imageFamily = _imageFamily;
+    m_imageFamilyHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::ImageFamilyHasBeenSet() const
+{
+    return m_imageFamilyHasBeenSet;
+}
+
+string ModifyLaunchConfigurationAttributesRequest::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
+}
+
+Metadata ModifyLaunchConfigurationAttributesRequest::GetMetadata() const
+{
+    return m_metadata;
+}
+
+void ModifyLaunchConfigurationAttributesRequest::SetMetadata(const Metadata& _metadata)
+{
+    m_metadata = _metadata;
+    m_metadataHasBeenSet = true;
+}
+
+bool ModifyLaunchConfigurationAttributesRequest::MetadataHasBeenSet() const
+{
+    return m_metadataHasBeenSet;
 }
 
 

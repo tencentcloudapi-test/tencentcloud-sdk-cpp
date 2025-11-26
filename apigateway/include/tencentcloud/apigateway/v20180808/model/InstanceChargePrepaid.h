@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取自动续费标示
                      * @return RenewFlag 自动续费标示
+                     * 
                      */
                     std::string GetRenewFlag() const;
 
                     /**
                      * 设置自动续费标示
-                     * @param RenewFlag 自动续费标示
+                     * @param _renewFlag 自动续费标示
+                     * 
                      */
                     void SetRenewFlag(const std::string& _renewFlag);
 
                     /**
                      * 判断参数 RenewFlag 是否已赋值
                      * @return RenewFlag 是否已赋值
+                     * 
                      */
                     bool RenewFlagHasBeenSet() const;
 
                     /**
                      * 获取预付费到期时间
                      * @return ExpiredTime 预付费到期时间
+                     * 
                      */
                     std::string GetExpiredTime() const;
 
                     /**
                      * 设置预付费到期时间
-                     * @param ExpiredTime 预付费到期时间
+                     * @param _expiredTime 预付费到期时间
+                     * 
                      */
                     void SetExpiredTime(const std::string& _expiredTime);
 
                     /**
                      * 判断参数 ExpiredTime 是否已赋值
                      * @return ExpiredTime 是否已赋值
+                     * 
                      */
                     bool ExpiredTimeHasBeenSet() const;
 

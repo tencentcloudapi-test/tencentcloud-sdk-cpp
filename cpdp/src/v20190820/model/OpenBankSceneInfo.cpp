@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ OpenBankSceneInfo::OpenBankSceneInfo() :
     m_payerClientIpHasBeenSet(false),
     m_payerUaHasBeenSet(false),
     m_orderTimeHasBeenSet(false),
-    m_deviceIdHasBeenSet(false)
+    m_deviceIdHasBeenSet(false),
+    m_deviceTypeHasBeenSet(false)
 {
 }
 
@@ -73,6 +74,16 @@ CoreInternalOutcome OpenBankSceneInfo::Deserialize(const rapidjson::Value &value
         m_deviceIdHasBeenSet = true;
     }
 
+    if (value.HasMember("DeviceType") && !value["DeviceType"].IsNull())
+    {
+        if (!value["DeviceType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `OpenBankSceneInfo.DeviceType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_deviceType = string(value["DeviceType"].GetString());
+        m_deviceTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -110,6 +121,14 @@ void OpenBankSceneInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "DeviceId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_deviceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deviceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeviceType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_deviceType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -177,5 +196,21 @@ void OpenBankSceneInfo::SetDeviceId(const string& _deviceId)
 bool OpenBankSceneInfo::DeviceIdHasBeenSet() const
 {
     return m_deviceIdHasBeenSet;
+}
+
+string OpenBankSceneInfo::GetDeviceType() const
+{
+    return m_deviceType;
+}
+
+void OpenBankSceneInfo::SetDeviceType(const string& _deviceType)
+{
+    m_deviceType = _deviceType;
+    m_deviceTypeHasBeenSet = true;
+}
+
+bool OpenBankSceneInfo::DeviceTypeHasBeenSet() const
+{
+    return m_deviceTypeHasBeenSet;
 }
 

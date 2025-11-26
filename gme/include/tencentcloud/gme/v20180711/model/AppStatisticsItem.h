@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,10 @@
 #include <tencentcloud/gme/v20180711/model/RealTimeSpeechStatisticsItem.h>
 #include <tencentcloud/gme/v20180711/model/VoiceMessageStatisticsItem.h>
 #include <tencentcloud/gme/v20180711/model/VoiceFilterStatisticsItem.h>
+#include <tencentcloud/gme/v20180711/model/AudioTextStatisticsItem.h>
+#include <tencentcloud/gme/v20180711/model/StreamTextStatisticsItem.h>
+#include <tencentcloud/gme/v20180711/model/OverseaTextStatisticsItem.h>
+#include <tencentcloud/gme/v20180711/model/RealtimeTextStatisticsItem.h>
 
 
 namespace TencentCloud
@@ -51,107 +55,188 @@ namespace TencentCloud
 
                     /**
                      * 获取实时语音统计数据
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RealtimeSpeechStatisticsItem 实时语音统计数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     RealTimeSpeechStatisticsItem GetRealtimeSpeechStatisticsItem() const;
 
                     /**
                      * 设置实时语音统计数据
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RealtimeSpeechStatisticsItem 实时语音统计数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _realtimeSpeechStatisticsItem 实时语音统计数据
+                     * 
                      */
                     void SetRealtimeSpeechStatisticsItem(const RealTimeSpeechStatisticsItem& _realtimeSpeechStatisticsItem);
 
                     /**
                      * 判断参数 RealtimeSpeechStatisticsItem 是否已赋值
                      * @return RealtimeSpeechStatisticsItem 是否已赋值
+                     * 
                      */
                     bool RealtimeSpeechStatisticsItemHasBeenSet() const;
 
                     /**
                      * 获取语音消息统计数据
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VoiceMessageStatisticsItem 语音消息统计数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     VoiceMessageStatisticsItem GetVoiceMessageStatisticsItem() const;
 
                     /**
                      * 设置语音消息统计数据
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param VoiceMessageStatisticsItem 语音消息统计数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _voiceMessageStatisticsItem 语音消息统计数据
+                     * 
                      */
                     void SetVoiceMessageStatisticsItem(const VoiceMessageStatisticsItem& _voiceMessageStatisticsItem);
 
                     /**
                      * 判断参数 VoiceMessageStatisticsItem 是否已赋值
                      * @return VoiceMessageStatisticsItem 是否已赋值
+                     * 
                      */
                     bool VoiceMessageStatisticsItemHasBeenSet() const;
 
                     /**
                      * 获取语音过滤统计数据
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VoiceFilterStatisticsItem 语音过滤统计数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     VoiceFilterStatisticsItem GetVoiceFilterStatisticsItem() const;
 
                     /**
                      * 设置语音过滤统计数据
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param VoiceFilterStatisticsItem 语音过滤统计数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _voiceFilterStatisticsItem 语音过滤统计数据
+                     * 
                      */
                     void SetVoiceFilterStatisticsItem(const VoiceFilterStatisticsItem& _voiceFilterStatisticsItem);
 
                     /**
                      * 判断参数 VoiceFilterStatisticsItem 是否已赋值
                      * @return VoiceFilterStatisticsItem 是否已赋值
+                     * 
                      */
                     bool VoiceFilterStatisticsItemHasBeenSet() const;
 
                     /**
                      * 获取统计时间
                      * @return Date 统计时间
+                     * 
                      */
                     std::string GetDate() const;
 
                     /**
                      * 设置统计时间
-                     * @param Date 统计时间
+                     * @param _date 统计时间
+                     * 
                      */
                     void SetDate(const std::string& _date);
 
                     /**
                      * 判断参数 Date 是否已赋值
                      * @return Date 是否已赋值
+                     * 
                      */
                     bool DateHasBeenSet() const;
+
+                    /**
+                     * 获取录音转文本用量统计数据
+                     * @return AudioTextStatisticsItem 录音转文本用量统计数据
+                     * 
+                     */
+                    AudioTextStatisticsItem GetAudioTextStatisticsItem() const;
+
+                    /**
+                     * 设置录音转文本用量统计数据
+                     * @param _audioTextStatisticsItem 录音转文本用量统计数据
+                     * 
+                     */
+                    void SetAudioTextStatisticsItem(const AudioTextStatisticsItem& _audioTextStatisticsItem);
+
+                    /**
+                     * 判断参数 AudioTextStatisticsItem 是否已赋值
+                     * @return AudioTextStatisticsItem 是否已赋值
+                     * 
+                     */
+                    bool AudioTextStatisticsItemHasBeenSet() const;
+
+                    /**
+                     * 获取流式转文本用量数据
+                     * @return StreamTextStatisticsItem 流式转文本用量数据
+                     * 
+                     */
+                    StreamTextStatisticsItem GetStreamTextStatisticsItem() const;
+
+                    /**
+                     * 设置流式转文本用量数据
+                     * @param _streamTextStatisticsItem 流式转文本用量数据
+                     * 
+                     */
+                    void SetStreamTextStatisticsItem(const StreamTextStatisticsItem& _streamTextStatisticsItem);
+
+                    /**
+                     * 判断参数 StreamTextStatisticsItem 是否已赋值
+                     * @return StreamTextStatisticsItem 是否已赋值
+                     * 
+                     */
+                    bool StreamTextStatisticsItemHasBeenSet() const;
+
+                    /**
+                     * 获取海外转文本用量数据
+                     * @return OverseaTextStatisticsItem 海外转文本用量数据
+                     * 
+                     */
+                    OverseaTextStatisticsItem GetOverseaTextStatisticsItem() const;
+
+                    /**
+                     * 设置海外转文本用量数据
+                     * @param _overseaTextStatisticsItem 海外转文本用量数据
+                     * 
+                     */
+                    void SetOverseaTextStatisticsItem(const OverseaTextStatisticsItem& _overseaTextStatisticsItem);
+
+                    /**
+                     * 判断参数 OverseaTextStatisticsItem 是否已赋值
+                     * @return OverseaTextStatisticsItem 是否已赋值
+                     * 
+                     */
+                    bool OverseaTextStatisticsItemHasBeenSet() const;
+
+                    /**
+                     * 获取实时语音转文本用量数据
+                     * @return RealtimeTextStatisticsItem 实时语音转文本用量数据
+                     * 
+                     */
+                    RealtimeTextStatisticsItem GetRealtimeTextStatisticsItem() const;
+
+                    /**
+                     * 设置实时语音转文本用量数据
+                     * @param _realtimeTextStatisticsItem 实时语音转文本用量数据
+                     * 
+                     */
+                    void SetRealtimeTextStatisticsItem(const RealtimeTextStatisticsItem& _realtimeTextStatisticsItem);
+
+                    /**
+                     * 判断参数 RealtimeTextStatisticsItem 是否已赋值
+                     * @return RealtimeTextStatisticsItem 是否已赋值
+                     * 
+                     */
+                    bool RealtimeTextStatisticsItemHasBeenSet() const;
 
                 private:
 
                     /**
                      * 实时语音统计数据
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     RealTimeSpeechStatisticsItem m_realtimeSpeechStatisticsItem;
                     bool m_realtimeSpeechStatisticsItemHasBeenSet;
 
                     /**
                      * 语音消息统计数据
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     VoiceMessageStatisticsItem m_voiceMessageStatisticsItem;
                     bool m_voiceMessageStatisticsItemHasBeenSet;
 
                     /**
                      * 语音过滤统计数据
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     VoiceFilterStatisticsItem m_voiceFilterStatisticsItem;
                     bool m_voiceFilterStatisticsItemHasBeenSet;
@@ -161,6 +246,30 @@ namespace TencentCloud
                      */
                     std::string m_date;
                     bool m_dateHasBeenSet;
+
+                    /**
+                     * 录音转文本用量统计数据
+                     */
+                    AudioTextStatisticsItem m_audioTextStatisticsItem;
+                    bool m_audioTextStatisticsItemHasBeenSet;
+
+                    /**
+                     * 流式转文本用量数据
+                     */
+                    StreamTextStatisticsItem m_streamTextStatisticsItem;
+                    bool m_streamTextStatisticsItemHasBeenSet;
+
+                    /**
+                     * 海外转文本用量数据
+                     */
+                    OverseaTextStatisticsItem m_overseaTextStatisticsItem;
+                    bool m_overseaTextStatisticsItemHasBeenSet;
+
+                    /**
+                     * 实时语音转文本用量数据
+                     */
+                    RealtimeTextStatisticsItem m_realtimeTextStatisticsItem;
+                    bool m_realtimeTextStatisticsItemHasBeenSet;
 
                 };
             }

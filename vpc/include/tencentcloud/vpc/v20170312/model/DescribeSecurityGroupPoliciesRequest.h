@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,26 +44,29 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-                     * @return SecurityGroupId 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+                     * 获取安全组实例ID，例如：sg-33ocnj9n，可通过<a href="https://cloud.tencent.com/document/product/215/15808">DescribeSecurityGroups</a>获取。
+                     * @return SecurityGroupId 安全组实例ID，例如：sg-33ocnj9n，可通过<a href="https://cloud.tencent.com/document/product/215/15808">DescribeSecurityGroups</a>获取。
+                     * 
                      */
                     std::string GetSecurityGroupId() const;
 
                     /**
-                     * 设置安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。
-                     * @param SecurityGroupId 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+                     * 设置安全组实例ID，例如：sg-33ocnj9n，可通过<a href="https://cloud.tencent.com/document/product/215/15808">DescribeSecurityGroups</a>获取。
+                     * @param _securityGroupId 安全组实例ID，例如：sg-33ocnj9n，可通过<a href="https://cloud.tencent.com/document/product/215/15808">DescribeSecurityGroups</a>获取。
+                     * 
                      */
                     void SetSecurityGroupId(const std::string& _securityGroupId);
 
                     /**
                      * 判断参数 SecurityGroupId 是否已赋值
                      * @return SecurityGroupId 是否已赋值
+                     * 
                      */
                     bool SecurityGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取过滤条件,不支持同时指定SecurityGroupId和Filters参数。
-<li>security-group-id - String - 安全组ID。</li>
+                     * 获取过滤条件。
+<li>security-group-id - String - 规则中的安全组ID。</li>
 <li>ip - String - IP，支持IPV4和IPV6模糊匹配。</li>
 <li>address-module - String - IP地址模板或IP地址组模板ID。</li>
 <li>service-module - String - 协议端口模板或协议端口组模板ID。</li>
@@ -72,8 +75,8 @@ namespace TencentCloud
 <li>poly - String - 协议策略，可选值：`ALL`，所有策略；`ACCEPT`，允许；`DROP`，拒绝。</li>
 <li>direction - String - 协议规则，可选值：`ALL`，所有策略；`INBOUND`，入站规则；`OUTBOUND`，出站规则。</li>
 <li>description - String - 协议描述，该过滤条件支持模糊匹配。</li>
-                     * @return Filters 过滤条件,不支持同时指定SecurityGroupId和Filters参数。
-<li>security-group-id - String - 安全组ID。</li>
+                     * @return Filters 过滤条件。
+<li>security-group-id - String - 规则中的安全组ID。</li>
 <li>ip - String - IP，支持IPV4和IPV6模糊匹配。</li>
 <li>address-module - String - IP地址模板或IP地址组模板ID。</li>
 <li>service-module - String - 协议端口模板或协议端口组模板ID。</li>
@@ -82,12 +85,13 @@ namespace TencentCloud
 <li>poly - String - 协议策略，可选值：`ALL`，所有策略；`ACCEPT`，允许；`DROP`，拒绝。</li>
 <li>direction - String - 协议规则，可选值：`ALL`，所有策略；`INBOUND`，入站规则；`OUTBOUND`，出站规则。</li>
 <li>description - String - 协议描述，该过滤条件支持模糊匹配。</li>
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置过滤条件,不支持同时指定SecurityGroupId和Filters参数。
-<li>security-group-id - String - 安全组ID。</li>
+                     * 设置过滤条件。
+<li>security-group-id - String - 规则中的安全组ID。</li>
 <li>ip - String - IP，支持IPV4和IPV6模糊匹配。</li>
 <li>address-module - String - IP地址模板或IP地址组模板ID。</li>
 <li>service-module - String - 协议端口模板或协议端口组模板ID。</li>
@@ -96,8 +100,8 @@ namespace TencentCloud
 <li>poly - String - 协议策略，可选值：`ALL`，所有策略；`ACCEPT`，允许；`DROP`，拒绝。</li>
 <li>direction - String - 协议规则，可选值：`ALL`，所有策略；`INBOUND`，入站规则；`OUTBOUND`，出站规则。</li>
 <li>description - String - 协议描述，该过滤条件支持模糊匹配。</li>
-                     * @param Filters 过滤条件,不支持同时指定SecurityGroupId和Filters参数。
-<li>security-group-id - String - 安全组ID。</li>
+                     * @param _filters 过滤条件。
+<li>security-group-id - String - 规则中的安全组ID。</li>
 <li>ip - String - IP，支持IPV4和IPV6模糊匹配。</li>
 <li>address-module - String - IP地址模板或IP地址组模板ID。</li>
 <li>service-module - String - 协议端口模板或协议端口组模板ID。</li>
@@ -106,26 +110,28 @@ namespace TencentCloud
 <li>poly - String - 协议策略，可选值：`ALL`，所有策略；`ACCEPT`，允许；`DROP`，拒绝。</li>
 <li>direction - String - 协议规则，可选值：`ALL`，所有策略；`INBOUND`，入站规则；`OUTBOUND`，出站规则。</li>
 <li>description - String - 协议描述，该过滤条件支持模糊匹配。</li>
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 安全组实例ID，例如：sg-33ocnj9n，可通过DescribeSecurityGroups获取。
+                     * 安全组实例ID，例如：sg-33ocnj9n，可通过<a href="https://cloud.tencent.com/document/product/215/15808">DescribeSecurityGroups</a>获取。
                      */
                     std::string m_securityGroupId;
                     bool m_securityGroupIdHasBeenSet;
 
                     /**
-                     * 过滤条件,不支持同时指定SecurityGroupId和Filters参数。
-<li>security-group-id - String - 安全组ID。</li>
+                     * 过滤条件。
+<li>security-group-id - String - 规则中的安全组ID。</li>
 <li>ip - String - IP，支持IPV4和IPV6模糊匹配。</li>
 <li>address-module - String - IP地址模板或IP地址组模板ID。</li>
 <li>service-module - String - 协议端口模板或协议端口组模板ID。</li>

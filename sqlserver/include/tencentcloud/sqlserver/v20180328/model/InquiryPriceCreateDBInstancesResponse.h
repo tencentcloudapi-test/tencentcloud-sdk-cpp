@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,39 +44,61 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取未打折前价格，其值除以100表示多少钱。例如10010表示100.10元
-                     * @return OriginalPrice 未打折前价格，其值除以100表示多少钱。例如10010表示100.10元
+                     * 获取未打折前价格，其值除以100表示最终的价格。
+InstanceChargeType=PREPAID时，单位是"每月"。
+InstanceChargeType=POSTPAID时，单位是"每小时"。
+例如10010，在InstanceChargeType=PREPAID情况下，表示每月100.10元。
+                     * @return OriginalPrice 未打折前价格，其值除以100表示最终的价格。
+InstanceChargeType=PREPAID时，单位是"每月"。
+InstanceChargeType=POSTPAID时，单位是"每小时"。
+例如10010，在InstanceChargeType=PREPAID情况下，表示每月100.10元。
+                     * 
                      */
                     int64_t GetOriginalPrice() const;
 
                     /**
                      * 判断参数 OriginalPrice 是否已赋值
                      * @return OriginalPrice 是否已赋值
+                     * 
                      */
                     bool OriginalPriceHasBeenSet() const;
 
                     /**
-                     * 获取实际需要支付的价格，其值除以100表示多少钱。例如10010表示100.10元
-                     * @return Price 实际需要支付的价格，其值除以100表示多少钱。例如10010表示100.10元
+                     * 获取实际需要支付的价格，其值除以100表示最终的价格。
+InstanceChargeType=PREPAID时，单位是"每月"。
+InstanceChargeType=POSTPAID时，单位是"每小时"。
+例如10010，在InstanceChargeType=PREPAID情况下，表示每月100.10元。
+                     * @return Price 实际需要支付的价格，其值除以100表示最终的价格。
+InstanceChargeType=PREPAID时，单位是"每月"。
+InstanceChargeType=POSTPAID时，单位是"每小时"。
+例如10010，在InstanceChargeType=PREPAID情况下，表示每月100.10元。
+                     * 
                      */
                     int64_t GetPrice() const;
 
                     /**
                      * 判断参数 Price 是否已赋值
                      * @return Price 是否已赋值
+                     * 
                      */
                     bool PriceHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 未打折前价格，其值除以100表示多少钱。例如10010表示100.10元
+                     * 未打折前价格，其值除以100表示最终的价格。
+InstanceChargeType=PREPAID时，单位是"每月"。
+InstanceChargeType=POSTPAID时，单位是"每小时"。
+例如10010，在InstanceChargeType=PREPAID情况下，表示每月100.10元。
                      */
                     int64_t m_originalPrice;
                     bool m_originalPriceHasBeenSet;
 
                     /**
-                     * 实际需要支付的价格，其值除以100表示多少钱。例如10010表示100.10元
+                     * 实际需要支付的价格，其值除以100表示最终的价格。
+InstanceChargeType=PREPAID时，单位是"每月"。
+InstanceChargeType=POSTPAID时，单位是"每小时"。
+例如10010，在InstanceChargeType=PREPAID情况下，表示每月100.10元。
                      */
                     int64_t m_price;
                     bool m_priceHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,90 +45,105 @@ namespace TencentCloud
                     /**
                      * 获取实例ID
                      * @return InstanceId 实例ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * @param _instanceId 实例ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取主题名称
                      * @return TopicName 主题名称
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置主题名称
-                     * @param TopicName 主题名称
+                     * @param _topicName 主题名称
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
                      * 获取偏移量，不填默认为0
                      * @return Offset 偏移量，不填默认为0
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，不填默认为0
-                     * @param Offset 偏移量，不填默认为0
+                     * @param _offset 偏移量，不填默认为0
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取返回数量，不填则默认10，最大值20。
-                     * @return Limit 返回数量，不填则默认10，最大值20。
+                     * 获取返回数量，默认值为20，必须大于0。
+                     * @return Limit 返回数量，默认值为20，必须大于0。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置返回数量，不填则默认10，最大值20。
-                     * @param Limit 返回数量，不填则默认10，最大值20。
+                     * 设置返回数量，默认值为20，必须大于0。
+                     * @param _limit 返回数量，默认值为20，必须大于0。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取仅筛选未同步副本
                      * @return OutOfSyncReplicaOnly 仅筛选未同步副本
+                     * 
                      */
                     bool GetOutOfSyncReplicaOnly() const;
 
                     /**
                      * 设置仅筛选未同步副本
-                     * @param OutOfSyncReplicaOnly 仅筛选未同步副本
+                     * @param _outOfSyncReplicaOnly 仅筛选未同步副本
+                     * 
                      */
                     void SetOutOfSyncReplicaOnly(const bool& _outOfSyncReplicaOnly);
 
                     /**
                      * 判断参数 OutOfSyncReplicaOnly 是否已赋值
                      * @return OutOfSyncReplicaOnly 是否已赋值
+                     * 
                      */
                     bool OutOfSyncReplicaOnlyHasBeenSet() const;
 
@@ -153,7 +168,7 @@ namespace TencentCloud
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 返回数量，不填则默认10，最大值20。
+                     * 返回数量，默认值为20，必须大于0。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;

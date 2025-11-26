@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,38 +47,44 @@ namespace TencentCloud
 备注：入参只能指定VpcId和OwnerUin的其中一个
                      * @return VpcId VPC网络ID
 备注：入参只能指定VpcId和OwnerUin的其中一个
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置VPC网络ID
 备注：入参只能指定VpcId和OwnerUin的其中一个
-                     * @param VpcId VPC网络ID
+                     * @param _vpcId VPC网络ID
 备注：入参只能指定VpcId和OwnerUin的其中一个
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取资源所属者Uin
                      * @return OwnerUin 资源所属者Uin
+                     * 
                      */
                     uint64_t GetOwnerUin() const;
 
                     /**
                      * 设置资源所属者Uin
-                     * @param OwnerUin 资源所属者Uin
+                     * @param _ownerUin 资源所属者Uin
+                     * 
                      */
                     void SetOwnerUin(const uint64_t& _ownerUin);
 
                     /**
                      * 判断参数 OwnerUin 是否已赋值
                      * @return OwnerUin 是否已赋值
+                     * 
                      */
                     bool OwnerUinHasBeenSet() const;
 

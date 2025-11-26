@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,72 +46,84 @@ namespace TencentCloud
                     /**
                      * 获取规则ID
                      * @return Id 规则ID
+                     * 
                      */
                     std::string GetId() const;
 
                     /**
                      * 设置规则ID
-                     * @param Id 规则ID
+                     * @param _id 规则ID
+                     * 
                      */
                     void SetId(const std::string& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
                      * 获取规则名称
                      * @return Name 规则名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置规则名称
-                     * @param Name 规则名称
+                     * @param _name 规则名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取规则描述
                      * @return Description 规则描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置规则描述
-                     * @param Description 规则描述
+                     * @param _description 规则描述
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取规则项列表
                      * @return UnitRuleItemList 规则项列表
+                     * 
                      */
                     std::vector<UnitRuleItem> GetUnitRuleItemList() const;
 
                     /**
                      * 设置规则项列表
-                     * @param UnitRuleItemList 规则项列表
+                     * @param _unitRuleItemList 规则项列表
+                     * 
                      */
                     void SetUnitRuleItemList(const std::vector<UnitRuleItem>& _unitRuleItemList);
 
                     /**
                      * 判断参数 UnitRuleItemList 是否已赋值
                      * @return UnitRuleItemList 是否已赋值
+                     * 
                      */
                     bool UnitRuleItemListHasBeenSet() const;
 

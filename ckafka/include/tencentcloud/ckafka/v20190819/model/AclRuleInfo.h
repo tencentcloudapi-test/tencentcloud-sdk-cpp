@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取Acl操作方式，枚举值(所有操作: All, 读：Read，写：Write)
                      * @return Operation Acl操作方式，枚举值(所有操作: All, 读：Read，写：Write)
+                     * 
                      */
                     std::string GetOperation() const;
 
                     /**
                      * 设置Acl操作方式，枚举值(所有操作: All, 读：Read，写：Write)
-                     * @param Operation Acl操作方式，枚举值(所有操作: All, 读：Read，写：Write)
+                     * @param _operation Acl操作方式，枚举值(所有操作: All, 读：Read，写：Write)
+                     * 
                      */
                     void SetOperation(const std::string& _operation);
 
                     /**
                      * 判断参数 Operation 是否已赋值
                      * @return Operation 是否已赋值
+                     * 
                      */
                     bool OperationHasBeenSet() const;
 
                     /**
-                     * 获取权限类型，(Deny，Allow)
-                     * @return PermissionType 权限类型，(Deny，Allow)
+                     * 获取权限类型，Deny：拒绝，Allow：允许。
+                     * @return PermissionType 权限类型，Deny：拒绝，Allow：允许。
+                     * 
                      */
                     std::string GetPermissionType() const;
 
                     /**
-                     * 设置权限类型，(Deny，Allow)
-                     * @param PermissionType 权限类型，(Deny，Allow)
+                     * 设置权限类型，Deny：拒绝，Allow：允许。
+                     * @param _permissionType 权限类型，Deny：拒绝，Allow：允许。
+                     * 
                      */
                     void SetPermissionType(const std::string& _permissionType);
 
                     /**
                      * 判断参数 PermissionType 是否已赋值
                      * @return PermissionType 是否已赋值
+                     * 
                      */
                     bool PermissionTypeHasBeenSet() const;
 
                     /**
-                     * 获取默认为*，表示任何host都可以访问，当前ckafka不支持host为*和ip网段
-                     * @return Host 默认为*，表示任何host都可以访问，当前ckafka不支持host为*和ip网段
+                     * 获取表示任何host都可以访问
+                     * @return Host 表示任何host都可以访问
+                     * 
                      */
                     std::string GetHost() const;
 
                     /**
-                     * 设置默认为*，表示任何host都可以访问，当前ckafka不支持host为*和ip网段
-                     * @param Host 默认为*，表示任何host都可以访问，当前ckafka不支持host为*和ip网段
+                     * 设置表示任何host都可以访问
+                     * @param _host 表示任何host都可以访问
+                     * 
                      */
                     void SetHost(const std::string& _host);
 
                     /**
                      * 判断参数 Host 是否已赋值
                      * @return Host 是否已赋值
+                     * 
                      */
                     bool HostHasBeenSet() const;
 
                     /**
-                     * 获取用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
-                     * @return Principal 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
+                     * 获取用户，User:*表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
+                     * @return Principal 用户，User:*表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
+                     * 
                      */
                     std::string GetPrincipal() const;
 
                     /**
-                     * 设置用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
-                     * @param Principal 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
+                     * 设置用户，User:*表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
+                     * @param _principal 用户，User:*表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
+                     * 
                      */
                     void SetPrincipal(const std::string& _principal);
 
                     /**
                      * 判断参数 Principal 是否已赋值
                      * @return Principal 是否已赋值
+                     * 
                      */
                     bool PrincipalHasBeenSet() const;
 
@@ -127,19 +139,19 @@ namespace TencentCloud
                     bool m_operationHasBeenSet;
 
                     /**
-                     * 权限类型，(Deny，Allow)
+                     * 权限类型，Deny：拒绝，Allow：允许。
                      */
                     std::string m_permissionType;
                     bool m_permissionTypeHasBeenSet;
 
                     /**
-                     * 默认为*，表示任何host都可以访问，当前ckafka不支持host为*和ip网段
+                     * 表示任何host都可以访问
                      */
                     std::string m_host;
                     bool m_hostHasBeenSet;
 
                     /**
-                     * 用户列表，默认为User:*，表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
+                     * 用户，User:*表示任何user都可以访问，当前用户只能是用户列表中包含的用户。传入格式需要带【User:】前缀。例如用户A，传入为User:A。
                      */
                     std::string m_principal;
                     bool m_principalHasBeenSet;

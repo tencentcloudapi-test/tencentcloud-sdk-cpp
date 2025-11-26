@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,62 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取负载均衡实例ID
                      * @return LoadBalancerId 负载均衡实例ID
+                     * 
                      */
                     std::string GetLoadBalancerId() const;
 
                     /**
                      * 设置负载均衡实例ID
-                     * @param LoadBalancerId 负载均衡实例ID
+                     * @param _loadBalancerId 负载均衡实例ID
+                     * 
                      */
                     void SetLoadBalancerId(const std::string& _loadBalancerId);
 
                     /**
                      * 判断参数 LoadBalancerId 是否已赋值
                      * @return LoadBalancerId 是否已赋值
+                     * 
                      */
                     bool LoadBalancerIdHasBeenSet() const;
 
                     /**
                      * 获取负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LoadBalancerName 负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLoadBalancerName() const;
 
                     /**
                      * 设置负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param LoadBalancerName 负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _loadBalancerName 负载均衡实例名称
+                     * 
                      */
                     void SetLoadBalancerName(const std::string& _loadBalancerName);
 
                     /**
                      * 判断参数 LoadBalancerName 是否已赋值
                      * @return LoadBalancerName 是否已赋值
+                     * 
                      */
                     bool LoadBalancerNameHasBeenSet() const;
 
                     /**
                      * 获取监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Listeners 监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ListenerHealth> GetListeners() const;
 
                     /**
                      * 设置监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Listeners 监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _listeners 监听器列表
+                     * 
                      */
                     void SetListeners(const std::vector<ListenerHealth>& _listeners);
 
                     /**
                      * 判断参数 Listeners 是否已赋值
                      * @return Listeners 是否已赋值
+                     * 
                      */
                     bool ListenersHasBeenSet() const;
 
@@ -119,14 +120,12 @@ namespace TencentCloud
 
                     /**
                      * 负载均衡实例名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_loadBalancerName;
                     bool m_loadBalancerNameHasBeenSet;
 
                     /**
                      * 监听器列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ListenerHealth> m_listeners;
                     bool m_listenersHasBeenSet;

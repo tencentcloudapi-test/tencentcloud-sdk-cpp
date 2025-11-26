@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取0-异常；1-正常
                      * @return NodeState 0-异常；1-正常
+                     * 
                      */
                     int64_t GetNodeState() const;
 
                     /**
                      * 判断参数 NodeState 是否已赋值
                      * @return NodeState 是否已赋值
+                     * 
                      */
                     bool NodeStateHasBeenSet() const;
 
                     /**
                      * 获取最近一次健康检查的时间
                      * @return LatestHealthCheckTime 最近一次健康检查的时间
+                     * 
                      */
                     std::string GetLatestHealthCheckTime() const;
 
                     /**
                      * 判断参数 LatestHealthCheckTime 是否已赋值
                      * @return LatestHealthCheckTime 是否已赋值
+                     * 
                      */
                     bool LatestHealthCheckTimeHasBeenSet() const;
 

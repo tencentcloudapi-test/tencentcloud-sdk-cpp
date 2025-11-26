@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,9 @@ ModifyInstanceParamRequest::ModifyInstanceParamRequest() :
     m_instanceIdsHasBeenSet(false),
     m_paramListHasBeenSet(false),
     m_templateIdHasBeenSet(false),
-    m_waitSwitchHasBeenSet(false)
+    m_waitSwitchHasBeenSet(false),
+    m_notSyncRoHasBeenSet(false),
+    m_notSyncDrHasBeenSet(false)
 {
 }
 
@@ -79,6 +81,22 @@ string ModifyInstanceParamRequest::ToJsonString() const
         string key = "WaitSwitch";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_waitSwitch, allocator);
+    }
+
+    if (m_notSyncRoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NotSyncRo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_notSyncRo, allocator);
+    }
+
+    if (m_notSyncDrHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NotSyncDr";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_notSyncDr, allocator);
     }
 
 
@@ -151,6 +169,38 @@ void ModifyInstanceParamRequest::SetWaitSwitch(const int64_t& _waitSwitch)
 bool ModifyInstanceParamRequest::WaitSwitchHasBeenSet() const
 {
     return m_waitSwitchHasBeenSet;
+}
+
+bool ModifyInstanceParamRequest::GetNotSyncRo() const
+{
+    return m_notSyncRo;
+}
+
+void ModifyInstanceParamRequest::SetNotSyncRo(const bool& _notSyncRo)
+{
+    m_notSyncRo = _notSyncRo;
+    m_notSyncRoHasBeenSet = true;
+}
+
+bool ModifyInstanceParamRequest::NotSyncRoHasBeenSet() const
+{
+    return m_notSyncRoHasBeenSet;
+}
+
+bool ModifyInstanceParamRequest::GetNotSyncDr() const
+{
+    return m_notSyncDr;
+}
+
+void ModifyInstanceParamRequest::SetNotSyncDr(const bool& _notSyncDr)
+{
+    m_notSyncDr = _notSyncDr;
+    m_notSyncDrHasBeenSet = true;
+}
+
+bool ModifyInstanceParamRequest::NotSyncDrHasBeenSet() const
+{
+    return m_notSyncDrHasBeenSet;
 }
 
 

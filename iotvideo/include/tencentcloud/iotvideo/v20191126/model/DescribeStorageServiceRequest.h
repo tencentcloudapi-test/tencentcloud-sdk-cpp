@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取云存服务ID
                      * @return ServiceId 云存服务ID
+                     * 
                      */
                     std::string GetServiceId() const;
 
                     /**
                      * 设置云存服务ID
-                     * @param ServiceId 云存服务ID
+                     * @param _serviceId 云存服务ID
+                     * 
                      */
                     void SetServiceId(const std::string& _serviceId);
 
                     /**
                      * 判断参数 ServiceId 是否已赋值
                      * @return ServiceId 是否已赋值
+                     * 
                      */
                     bool ServiceIdHasBeenSet() const;
 
                     /**
                      * 获取是否返回已结束的订单信息(已过期/已退订/已转移)
                      * @return GetFinishedOrder 是否返回已结束的订单信息(已过期/已退订/已转移)
+                     * 
                      */
                     bool GetGetFinishedOrder() const;
 
                     /**
                      * 设置是否返回已结束的订单信息(已过期/已退订/已转移)
-                     * @param GetFinishedOrder 是否返回已结束的订单信息(已过期/已退订/已转移)
+                     * @param _getFinishedOrder 是否返回已结束的订单信息(已过期/已退订/已转移)
+                     * 
                      */
                     void SetGetFinishedOrder(const bool& _getFinishedOrder);
 
                     /**
                      * 判断参数 GetFinishedOrder 是否已赋值
                      * @return GetFinishedOrder 是否已赋值
+                     * 
                      */
                     bool GetFinishedOrderHasBeenSet() const;
 

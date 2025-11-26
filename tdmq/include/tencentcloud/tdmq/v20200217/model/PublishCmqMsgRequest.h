@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取主题名
                      * @return TopicName 主题名
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置主题名
-                     * @param TopicName 主题名
+                     * @param _topicName 主题名
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
-                     * 获取消息内容
-                     * @return MsgContent 消息内容
+                     * 获取消息内容，消息总大小需不大于1024K
+                     * @return MsgContent 消息内容，消息总大小需不大于1024K
+                     * 
                      */
                     std::string GetMsgContent() const;
 
                     /**
-                     * 设置消息内容
-                     * @param MsgContent 消息内容
+                     * 设置消息内容，消息总大小需不大于1024K
+                     * @param _msgContent 消息内容，消息总大小需不大于1024K
+                     * 
                      */
                     void SetMsgContent(const std::string& _msgContent);
 
                     /**
                      * 判断参数 MsgContent 是否已赋值
                      * @return MsgContent 是否已赋值
+                     * 
                      */
                     bool MsgContentHasBeenSet() const;
 
                     /**
-                     * 获取消息标签
-                     * @return MsgTag 消息标签
+                     * 获取消息标签，支持传递多标签或单路由，单个标签、路由长度不能超过64个字符。
+                     * @return MsgTag 消息标签，支持传递多标签或单路由，单个标签、路由长度不能超过64个字符。
+                     * 
                      */
                     std::vector<std::string> GetMsgTag() const;
 
                     /**
-                     * 设置消息标签
-                     * @param MsgTag 消息标签
+                     * 设置消息标签，支持传递多标签或单路由，单个标签、路由长度不能超过64个字符。
+                     * @param _msgTag 消息标签，支持传递多标签或单路由，单个标签、路由长度不能超过64个字符。
+                     * 
                      */
                     void SetMsgTag(const std::vector<std::string>& _msgTag);
 
                     /**
                      * 判断参数 MsgTag 是否已赋值
                      * @return MsgTag 是否已赋值
+                     * 
                      */
                     bool MsgTagHasBeenSet() const;
 
@@ -105,13 +114,13 @@ namespace TencentCloud
                     bool m_topicNameHasBeenSet;
 
                     /**
-                     * 消息内容
+                     * 消息内容，消息总大小需不大于1024K
                      */
                     std::string m_msgContent;
                     bool m_msgContentHasBeenSet;
 
                     /**
-                     * 消息标签
+                     * 消息标签，支持传递多标签或单路由，单个标签、路由长度不能超过64个字符。
                      */
                     std::vector<std::string> m_msgTag;
                     bool m_msgTagHasBeenSet;

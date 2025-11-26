@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ using namespace std;
 
 DescribeInstancesCountRequest::DescribeInstancesCountRequest() :
     m_gameIdHasBeenSet(false),
-    m_groupIdHasBeenSet(false)
+    m_groupIdHasBeenSet(false),
+    m_gameRegionHasBeenSet(false),
+    m_gameTypeHasBeenSet(false)
 {
 }
 
@@ -49,6 +51,22 @@ string DescribeInstancesCountRequest::ToJsonString() const
         string key = "GroupId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_groupId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gameRegionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GameRegion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_gameRegion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gameTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GameType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_gameType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +107,38 @@ void DescribeInstancesCountRequest::SetGroupId(const string& _groupId)
 bool DescribeInstancesCountRequest::GroupIdHasBeenSet() const
 {
     return m_groupIdHasBeenSet;
+}
+
+string DescribeInstancesCountRequest::GetGameRegion() const
+{
+    return m_gameRegion;
+}
+
+void DescribeInstancesCountRequest::SetGameRegion(const string& _gameRegion)
+{
+    m_gameRegion = _gameRegion;
+    m_gameRegionHasBeenSet = true;
+}
+
+bool DescribeInstancesCountRequest::GameRegionHasBeenSet() const
+{
+    return m_gameRegionHasBeenSet;
+}
+
+string DescribeInstancesCountRequest::GetGameType() const
+{
+    return m_gameType;
+}
+
+void DescribeInstancesCountRequest::SetGameType(const string& _gameType)
+{
+    m_gameType = _gameType;
+    m_gameTypeHasBeenSet = true;
+}
+
+bool DescribeInstancesCountRequest::GameTypeHasBeenSet() const
+{
+    return m_gameTypeHasBeenSet;
 }
 
 

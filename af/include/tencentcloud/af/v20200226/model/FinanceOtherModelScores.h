@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ModelId 模型ID序号
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetModelId() const;
 
                     /**
                      * 设置模型ID序号
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ModelId 模型ID序号
+                     * @param _modelId 模型ID序号
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetModelId(const std::string& _modelId);
 
                     /**
                      * 判断参数 ModelId 是否已赋值
                      * @return ModelId 是否已赋值
+                     * 
                      */
                     bool ModelIdHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ModelScore 模型ID序号对应的评分结果
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetModelScore() const;
 
                     /**
                      * 设置模型ID序号对应的评分结果
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ModelScore 模型ID序号对应的评分结果
+                     * @param _modelScore 模型ID序号对应的评分结果
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetModelScore(const std::string& _modelScore);
 
                     /**
                      * 判断参数 ModelScore 是否已赋值
                      * @return ModelScore 是否已赋值
+                     * 
                      */
                     bool ModelScoreHasBeenSet() const;
 

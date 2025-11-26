@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,13 @@ DescribeAssetImageScanSettingResponse::DescribeAssetImageScanSettingResponse() :
     m_scanRiskHasBeenSet(false),
     m_scanVulHasBeenSet(false),
     m_allHasBeenSet(false),
-    m_imagesHasBeenSet(false)
+    m_imagesHasBeenSet(false),
+    m_containerRunningHasBeenSet(false),
+    m_scanScopeHasBeenSet(false),
+    m_scanEndTimeHasBeenSet(false),
+    m_excludeImagesHasBeenSet(false),
+    m_lastScanTimeHasBeenSet(false),
+    m_scanResultHasBeenSet(false)
 {
 }
 
@@ -152,6 +158,69 @@ CoreInternalOutcome DescribeAssetImageScanSettingResponse::Deserialize(const str
         m_imagesHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ContainerRunning") && !rsp["ContainerRunning"].IsNull())
+    {
+        if (!rsp["ContainerRunning"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainerRunning` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_containerRunning = rsp["ContainerRunning"].GetBool();
+        m_containerRunningHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ScanScope") && !rsp["ScanScope"].IsNull())
+    {
+        if (!rsp["ScanScope"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanScope` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanScope = rsp["ScanScope"].GetUint64();
+        m_scanScopeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ScanEndTime") && !rsp["ScanEndTime"].IsNull())
+    {
+        if (!rsp["ScanEndTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanEndTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanEndTime = string(rsp["ScanEndTime"].GetString());
+        m_scanEndTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ExcludeImages") && !rsp["ExcludeImages"].IsNull())
+    {
+        if (!rsp["ExcludeImages"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ExcludeImages` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["ExcludeImages"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_excludeImages.push_back((*itr).GetString());
+        }
+        m_excludeImagesHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("LastScanTime") && !rsp["LastScanTime"].IsNull())
+    {
+        if (!rsp["LastScanTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LastScanTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_lastScanTime = string(rsp["LastScanTime"].GetString());
+        m_lastScanTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ScanResult") && !rsp["ScanResult"].IsNull())
+    {
+        if (!rsp["ScanResult"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanResult` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanResult = string(rsp["ScanResult"].GetString());
+        m_scanResultHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -231,11 +300,64 @@ string DescribeAssetImageScanSettingResponse::ToJsonString() const
         }
     }
 
+    if (m_containerRunningHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerRunning";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_containerRunning, allocator);
+    }
+
+    if (m_scanScopeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanScope";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_scanScope, allocator);
+    }
+
+    if (m_scanEndTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanEndTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_scanEndTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_excludeImagesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExcludeImages";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_excludeImages.begin(); itr != m_excludeImages.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_lastScanTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LastScanTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_lastScanTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_scanResultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanResult";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_scanResult.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -321,6 +443,66 @@ vector<string> DescribeAssetImageScanSettingResponse::GetImages() const
 bool DescribeAssetImageScanSettingResponse::ImagesHasBeenSet() const
 {
     return m_imagesHasBeenSet;
+}
+
+bool DescribeAssetImageScanSettingResponse::GetContainerRunning() const
+{
+    return m_containerRunning;
+}
+
+bool DescribeAssetImageScanSettingResponse::ContainerRunningHasBeenSet() const
+{
+    return m_containerRunningHasBeenSet;
+}
+
+uint64_t DescribeAssetImageScanSettingResponse::GetScanScope() const
+{
+    return m_scanScope;
+}
+
+bool DescribeAssetImageScanSettingResponse::ScanScopeHasBeenSet() const
+{
+    return m_scanScopeHasBeenSet;
+}
+
+string DescribeAssetImageScanSettingResponse::GetScanEndTime() const
+{
+    return m_scanEndTime;
+}
+
+bool DescribeAssetImageScanSettingResponse::ScanEndTimeHasBeenSet() const
+{
+    return m_scanEndTimeHasBeenSet;
+}
+
+vector<string> DescribeAssetImageScanSettingResponse::GetExcludeImages() const
+{
+    return m_excludeImages;
+}
+
+bool DescribeAssetImageScanSettingResponse::ExcludeImagesHasBeenSet() const
+{
+    return m_excludeImagesHasBeenSet;
+}
+
+string DescribeAssetImageScanSettingResponse::GetLastScanTime() const
+{
+    return m_lastScanTime;
+}
+
+bool DescribeAssetImageScanSettingResponse::LastScanTimeHasBeenSet() const
+{
+    return m_lastScanTimeHasBeenSet;
+}
+
+string DescribeAssetImageScanSettingResponse::GetScanResult() const
+{
+    return m_scanResult;
+}
+
+bool DescribeAssetImageScanSettingResponse::ScanResultHasBeenSet() const
+{
+    return m_scanResultHasBeenSet;
 }
 
 

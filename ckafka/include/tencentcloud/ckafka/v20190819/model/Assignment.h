@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,40 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取assingment版本信息
                      * @return Version assingment版本信息
+                     * 
                      */
                     int64_t GetVersion() const;
 
                     /**
                      * 设置assingment版本信息
-                     * @param Version assingment版本信息
+                     * @param _version assingment版本信息
+                     * 
                      */
                     void SetVersion(const int64_t& _version);
 
                     /**
                      * 判断参数 Version 是否已赋值
                      * @return Version 是否已赋值
+                     * 
                      */
                     bool VersionHasBeenSet() const;
 
                     /**
                      * 获取topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Topics topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<GroupInfoTopics> GetTopics() const;
 
                     /**
                      * 设置topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Topics topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _topics topic信息列表
+                     * 
                      */
                     void SetTopics(const std::vector<GroupInfoTopics>& _topics);
 
                     /**
                      * 判断参数 Topics 是否已赋值
                      * @return Topics 是否已赋值
+                     * 
                      */
                     bool TopicsHasBeenSet() const;
 
@@ -97,7 +99,6 @@ namespace TencentCloud
 
                     /**
                      * topic信息列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<GroupInfoTopics> m_topics;
                     bool m_topicsHasBeenSet;

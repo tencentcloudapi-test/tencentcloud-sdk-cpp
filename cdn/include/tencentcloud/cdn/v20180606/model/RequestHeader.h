@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,28 +48,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取自定义请求头配置开关
+                     * 获取自定义请求头配置开关，取值有：
 on：开启
 off：关闭
-                     * @return Switch 自定义请求头配置开关
+                     * @return Switch 自定义请求头配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置自定义请求头配置开关
+                     * 设置自定义请求头配置开关，取值有：
 on：开启
 off：关闭
-                     * @param Switch 自定义请求头配置开关
+                     * @param _switch 自定义请求头配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -78,27 +81,30 @@ off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return HeaderRules 自定义请求头配置规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<HttpHeaderPathRule> GetHeaderRules() const;
 
                     /**
                      * 设置自定义请求头配置规则
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param HeaderRules 自定义请求头配置规则
+                     * @param _headerRules 自定义请求头配置规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetHeaderRules(const std::vector<HttpHeaderPathRule>& _headerRules);
 
                     /**
                      * 判断参数 HeaderRules 是否已赋值
                      * @return HeaderRules 是否已赋值
+                     * 
                      */
                     bool HeaderRulesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 自定义请求头配置开关
+                     * 自定义请求头配置开关，取值有：
 on：开启
 off：关闭
                      */

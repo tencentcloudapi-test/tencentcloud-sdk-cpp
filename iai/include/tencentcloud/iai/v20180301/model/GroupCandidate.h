@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取人员库ID 。
                      * @return GroupId 人员库ID 。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置人员库ID 。
-                     * @param GroupId 人员库ID 。
+                     * @param _groupId 人员库ID 。
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取识别出的最相似候选人。
                      * @return Candidates 识别出的最相似候选人。
+                     * 
                      */
                     std::vector<Candidate> GetCandidates() const;
 
                     /**
                      * 设置识别出的最相似候选人。
-                     * @param Candidates 识别出的最相似候选人。
+                     * @param _candidates 识别出的最相似候选人。
+                     * 
                      */
                     void SetCandidates(const std::vector<Candidate>& _candidates);
 
                     /**
                      * 判断参数 Candidates 是否已赋值
                      * @return Candidates 是否已赋值
+                     * 
                      */
                     bool CandidatesHasBeenSet() const;
 

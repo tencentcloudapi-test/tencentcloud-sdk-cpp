@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,51 +48,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取Id
-                     * @return Id Id
+                     * 获取实例 ID。
+                     * @return Id 实例 ID。
+                     * 
                      */
                     int64_t GetId() const;
 
                     /**
-                     * 设置Id
-                     * @param Id Id
+                     * 设置实例 ID。
+                     * @param _id 实例 ID。
+                     * 
                      */
                     void SetId(const int64_t& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取节点详细信息
-                     * @return InstanceClusterNode 节点详细信息
+                     * 获取节点详细信息。
+                     * @return InstanceClusterNode 节点详细信息。
+                     * 
                      */
                     std::vector<InstanceClusterNode> GetInstanceClusterNode() const;
 
                     /**
-                     * 设置节点详细信息
-                     * @param InstanceClusterNode 节点详细信息
+                     * 设置节点详细信息。
+                     * @param _instanceClusterNode 节点详细信息。
+                     * 
                      */
                     void SetInstanceClusterNode(const std::vector<InstanceClusterNode>& _instanceClusterNode);
 
                     /**
                      * 判断参数 InstanceClusterNode 是否已赋值
                      * @return InstanceClusterNode 是否已赋值
+                     * 
                      */
                     bool InstanceClusterNodeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * Id
+                     * 实例 ID。
                      */
                     int64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * 节点详细信息
+                     * 节点详细信息。
                      */
                     std::vector<InstanceClusterNode> m_instanceClusterNode;
                     bool m_instanceClusterNodeHasBeenSet;

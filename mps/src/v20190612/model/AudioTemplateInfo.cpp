@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ AudioTemplateInfo::AudioTemplateInfo() :
     m_codecHasBeenSet(false),
     m_bitrateHasBeenSet(false),
     m_sampleRateHasBeenSet(false),
-    m_audioChannelHasBeenSet(false)
+    m_audioChannelHasBeenSet(false),
+    m_trackChannelInfoHasBeenSet(false)
 {
 }
 
@@ -45,11 +46,11 @@ CoreInternalOutcome AudioTemplateInfo::Deserialize(const rapidjson::Value &value
 
     if (value.HasMember("Bitrate") && !value["Bitrate"].IsNull())
     {
-        if (!value["Bitrate"].IsUint64())
+        if (!value["Bitrate"].IsInt64())
         {
-            return CoreInternalOutcome(Core::Error("response `AudioTemplateInfo.Bitrate` IsUint64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `AudioTemplateInfo.Bitrate` IsInt64=false incorrectly").SetRequestId(requestId));
         }
-        m_bitrate = value["Bitrate"].GetUint64();
+        m_bitrate = value["Bitrate"].GetInt64();
         m_bitrateHasBeenSet = true;
     }
 
@@ -71,6 +72,23 @@ CoreInternalOutcome AudioTemplateInfo::Deserialize(const rapidjson::Value &value
         }
         m_audioChannel = value["AudioChannel"].GetInt64();
         m_audioChannelHasBeenSet = true;
+    }
+
+    if (value.HasMember("TrackChannelInfo") && !value["TrackChannelInfo"].IsNull())
+    {
+        if (!value["TrackChannelInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AudioTemplateInfo.TrackChannelInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_trackChannelInfo.Deserialize(value["TrackChannelInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_trackChannelInfoHasBeenSet = true;
     }
 
 
@@ -112,6 +130,15 @@ void AudioTemplateInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         value.AddMember(iKey, m_audioChannel, allocator);
     }
 
+    if (m_trackChannelInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TrackChannelInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_trackChannelInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
 }
 
 
@@ -131,12 +158,12 @@ bool AudioTemplateInfo::CodecHasBeenSet() const
     return m_codecHasBeenSet;
 }
 
-uint64_t AudioTemplateInfo::GetBitrate() const
+int64_t AudioTemplateInfo::GetBitrate() const
 {
     return m_bitrate;
 }
 
-void AudioTemplateInfo::SetBitrate(const uint64_t& _bitrate)
+void AudioTemplateInfo::SetBitrate(const int64_t& _bitrate)
 {
     m_bitrate = _bitrate;
     m_bitrateHasBeenSet = true;
@@ -177,5 +204,21 @@ void AudioTemplateInfo::SetAudioChannel(const int64_t& _audioChannel)
 bool AudioTemplateInfo::AudioChannelHasBeenSet() const
 {
     return m_audioChannelHasBeenSet;
+}
+
+AudioTrackChannelInfo AudioTemplateInfo::GetTrackChannelInfo() const
+{
+    return m_trackChannelInfo;
+}
+
+void AudioTemplateInfo::SetTrackChannelInfo(const AudioTrackChannelInfo& _trackChannelInfo)
+{
+    m_trackChannelInfo = _trackChannelInfo;
+    m_trackChannelInfoHasBeenSet = true;
+}
+
+bool AudioTemplateInfo::TrackChannelInfoHasBeenSet() const
+{
+    return m_trackChannelInfoHasBeenSet;
 }
 

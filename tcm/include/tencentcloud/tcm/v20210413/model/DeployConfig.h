@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,7 @@ namespace TencentCloud
                      * @return NodeSelectType 部署类型，取值范围：
 - SPECIFIC：专有模式
 - AUTO：普通模式
+                     * 
                      */
                     std::string GetNodeSelectType() const;
 
@@ -60,33 +61,38 @@ namespace TencentCloud
                      * 设置部署类型，取值范围：
 - SPECIFIC：专有模式
 - AUTO：普通模式
-                     * @param NodeSelectType 部署类型，取值范围：
+                     * @param _nodeSelectType 部署类型，取值范围：
 - SPECIFIC：专有模式
 - AUTO：普通模式
+                     * 
                      */
                     void SetNodeSelectType(const std::string& _nodeSelectType);
 
                     /**
                      * 判断参数 NodeSelectType 是否已赋值
                      * @return NodeSelectType 是否已赋值
+                     * 
                      */
                     bool NodeSelectTypeHasBeenSet() const;
 
                     /**
                      * 获取指定的节点
                      * @return Nodes 指定的节点
+                     * 
                      */
                     std::vector<std::string> GetNodes() const;
 
                     /**
                      * 设置指定的节点
-                     * @param Nodes 指定的节点
+                     * @param _nodes 指定的节点
+                     * 
                      */
                     void SetNodes(const std::vector<std::string>& _nodes);
 
                     /**
                      * 判断参数 Nodes 是否已赋值
                      * @return Nodes 是否已赋值
+                     * 
                      */
                     bool NodesHasBeenSet() const;
 

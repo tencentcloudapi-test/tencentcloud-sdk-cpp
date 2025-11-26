@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,67 +48,133 @@ namespace TencentCloud
 
                     /**
                      * 获取该类型云盘个数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Count 该类型云盘个数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置该类型云盘个数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Count 该类型云盘个数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _count 该类型云盘个数
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
                     /**
                      * 获取磁盘类型
-注意：此字段可能返回 null，表示取不到有效值。
+1  :本地盘
+2  :云硬盘
+3  : 本地SSD
+4  : 云SSD
+5  : 高效云盘
+6  : 增强型SSD云硬盘
+11 : 吞吐型云硬盘
+12 : 极速型SSD云硬盘
+13 : 通用型SSD云硬盘
+14 : 大数据型云硬盘
+15 : 高IO型云硬盘
+16 : 远端SSD盘
                      * @return Type 磁盘类型
-注意：此字段可能返回 null，表示取不到有效值。
+1  :本地盘
+2  :云硬盘
+3  : 本地SSD
+4  : 云SSD
+5  : 高效云盘
+6  : 增强型SSD云硬盘
+11 : 吞吐型云硬盘
+12 : 极速型SSD云硬盘
+13 : 通用型SSD云硬盘
+14 : 大数据型云硬盘
+15 : 高IO型云硬盘
+16 : 远端SSD盘
+                     * 
                      */
                     int64_t GetType() const;
 
                     /**
                      * 设置磁盘类型
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Type 磁盘类型
-注意：此字段可能返回 null，表示取不到有效值。
+1  :本地盘
+2  :云硬盘
+3  : 本地SSD
+4  : 云SSD
+5  : 高效云盘
+6  : 增强型SSD云硬盘
+11 : 吞吐型云硬盘
+12 : 极速型SSD云硬盘
+13 : 通用型SSD云硬盘
+14 : 大数据型云硬盘
+15 : 高IO型云硬盘
+16 : 远端SSD盘
+                     * @param _type 磁盘类型
+1  :本地盘
+2  :云硬盘
+3  : 本地SSD
+4  : 云SSD
+5  : 高效云盘
+6  : 增强型SSD云硬盘
+11 : 吞吐型云硬盘
+12 : 极速型SSD云硬盘
+13 : 通用型SSD云硬盘
+14 : 大数据型云硬盘
+15 : 高IO型云硬盘
+16 : 远端SSD盘
+                     * 
                      */
                     void SetType(const int64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取云盘大小
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Volume 云盘大小
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取磁盘大小
+                     * @return Size 磁盘大小
+                     * 
+                     */
+                    std::string GetSize() const;
+
+                    /**
+                     * 设置磁盘大小
+                     * @param _size 磁盘大小
+                     * 
+                     */
+                    void SetSize(const std::string& _size);
+
+                    /**
+                     * 判断参数 Size 是否已赋值
+                     * @return Size 是否已赋值
+                     * 
+                     */
+                    bool SizeHasBeenSet() const;
+
+                    /**
+                     * 获取云盘大小,单位b
+                     * @return Volume 云盘大小,单位b
+                     * 
                      */
                     int64_t GetVolume() const;
 
                     /**
-                     * 设置云盘大小
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Volume 云盘大小
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置云盘大小,单位b
+                     * @param _volume 云盘大小,单位b
+                     * 
                      */
                     void SetVolume(const int64_t& _volume);
 
                     /**
                      * 判断参数 Volume 是否已赋值
                      * @return Volume 是否已赋值
+                     * 
                      */
                     bool VolumeHasBeenSet() const;
 
@@ -116,21 +182,36 @@ namespace TencentCloud
 
                     /**
                      * 该类型云盘个数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_count;
                     bool m_countHasBeenSet;
 
                     /**
                      * 磁盘类型
-注意：此字段可能返回 null，表示取不到有效值。
+1  :本地盘
+2  :云硬盘
+3  : 本地SSD
+4  : 云SSD
+5  : 高效云盘
+6  : 增强型SSD云硬盘
+11 : 吞吐型云硬盘
+12 : 极速型SSD云硬盘
+13 : 通用型SSD云硬盘
+14 : 大数据型云硬盘
+15 : 高IO型云硬盘
+16 : 远端SSD盘
                      */
                     int64_t m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * 云盘大小
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 磁盘大小
+                     */
+                    std::string m_size;
+                    bool m_sizeHasBeenSet;
+
+                    /**
+                     * 云盘大小,单位b
                      */
                     int64_t m_volume;
                     bool m_volumeHasBeenSet;

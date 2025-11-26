@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取直播频道名称
                      * @return LiveChannelName 直播频道名称
+                     * 
                      */
                     std::string GetLiveChannelName() const;
 
                     /**
                      * 设置直播频道名称
-                     * @param LiveChannelName 直播频道名称
+                     * @param _liveChannelName 直播频道名称
+                     * 
                      */
                     void SetLiveChannelName(const std::string& _liveChannelName);
 
                     /**
                      * 判断参数 LiveChannelName 是否已赋值
                      * @return LiveChannelName 是否已赋值
+                     * 
                      */
                     bool LiveChannelNameHasBeenSet() const;
 
                     /**
                      * 获取直播频道类型 1：固定直播；2：移动直播
                      * @return LiveChannelType 直播频道类型 1：固定直播；2：移动直播
+                     * 
                      */
                     int64_t GetLiveChannelType() const;
 
                     /**
                      * 设置直播频道类型 1：固定直播；2：移动直播
-                     * @param LiveChannelType 直播频道类型 1：固定直播；2：移动直播
+                     * @param _liveChannelType 直播频道类型 1：固定直播；2：移动直播
+                     * 
                      */
                     void SetLiveChannelType(const int64_t& _liveChannelType);
 
                     /**
                      * 判断参数 LiveChannelType 是否已赋值
                      * @return LiveChannelType 是否已赋值
+                     * 
                      */
                     bool LiveChannelTypeHasBeenSet() const;
 

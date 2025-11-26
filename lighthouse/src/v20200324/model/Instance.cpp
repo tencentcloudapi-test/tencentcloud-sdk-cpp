@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,6 +39,7 @@ Instance::Instance() :
     m_latestOperationHasBeenSet(false),
     m_latestOperationStateHasBeenSet(false),
     m_latestOperationRequestIdHasBeenSet(false),
+    m_latestOperationStartedTimeHasBeenSet(false),
     m_isolatedTimeHasBeenSet(false),
     m_createdTimeHasBeenSet(false),
     m_expiredTimeHasBeenSet(false),
@@ -46,7 +47,12 @@ Instance::Instance() :
     m_platformHasBeenSet(false),
     m_osNameHasBeenSet(false),
     m_zoneHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_instanceRestrictStateHasBeenSet(false),
+    m_supportIpv6DetailHasBeenSet(false),
+    m_publicIpv6AddressesHasBeenSet(false),
+    m_initInvocationIdHasBeenSet(false),
+    m_instanceViolationDetailHasBeenSet(false)
 {
 }
 
@@ -262,6 +268,16 @@ CoreInternalOutcome Instance::Deserialize(const rapidjson::Value &value)
         m_latestOperationRequestIdHasBeenSet = true;
     }
 
+    if (value.HasMember("LatestOperationStartedTime") && !value["LatestOperationStartedTime"].IsNull())
+    {
+        if (!value["LatestOperationStartedTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Instance.LatestOperationStartedTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_latestOperationStartedTime = string(value["LatestOperationStartedTime"].GetString());
+        m_latestOperationStartedTimeHasBeenSet = true;
+    }
+
     if (value.HasMember("IsolatedTime") && !value["IsolatedTime"].IsNull())
     {
         if (!value["IsolatedTime"].IsString())
@@ -350,6 +366,73 @@ CoreInternalOutcome Instance::Deserialize(const rapidjson::Value &value)
             m_tags.push_back(item);
         }
         m_tagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceRestrictState") && !value["InstanceRestrictState"].IsNull())
+    {
+        if (!value["InstanceRestrictState"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Instance.InstanceRestrictState` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceRestrictState = string(value["InstanceRestrictState"].GetString());
+        m_instanceRestrictStateHasBeenSet = true;
+    }
+
+    if (value.HasMember("SupportIpv6Detail") && !value["SupportIpv6Detail"].IsNull())
+    {
+        if (!value["SupportIpv6Detail"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Instance.SupportIpv6Detail` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_supportIpv6Detail.Deserialize(value["SupportIpv6Detail"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_supportIpv6DetailHasBeenSet = true;
+    }
+
+    if (value.HasMember("PublicIpv6Addresses") && !value["PublicIpv6Addresses"].IsNull())
+    {
+        if (!value["PublicIpv6Addresses"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Instance.PublicIpv6Addresses` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["PublicIpv6Addresses"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_publicIpv6Addresses.push_back((*itr).GetString());
+        }
+        m_publicIpv6AddressesHasBeenSet = true;
+    }
+
+    if (value.HasMember("InitInvocationId") && !value["InitInvocationId"].IsNull())
+    {
+        if (!value["InitInvocationId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Instance.InitInvocationId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_initInvocationId = string(value["InitInvocationId"].GetString());
+        m_initInvocationIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceViolationDetail") && !value["InstanceViolationDetail"].IsNull())
+    {
+        if (!value["InstanceViolationDetail"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Instance.InstanceViolationDetail` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_instanceViolationDetail.Deserialize(value["InstanceViolationDetail"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_instanceViolationDetailHasBeenSet = true;
     }
 
 
@@ -516,6 +599,14 @@ void Instance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         value.AddMember(iKey, rapidjson::Value(m_latestOperationRequestId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_latestOperationStartedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LatestOperationStartedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_latestOperationStartedTime.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_isolatedTimeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -585,6 +676,53 @@ void Instance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_instanceRestrictStateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceRestrictState";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceRestrictState.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_supportIpv6DetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SupportIpv6Detail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_supportIpv6Detail.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_publicIpv6AddressesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PublicIpv6Addresses";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_publicIpv6Addresses.begin(); itr != m_publicIpv6Addresses.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_initInvocationIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InitInvocationId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_initInvocationId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceViolationDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceViolationDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_instanceViolationDetail.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -878,6 +1016,22 @@ bool Instance::LatestOperationRequestIdHasBeenSet() const
     return m_latestOperationRequestIdHasBeenSet;
 }
 
+string Instance::GetLatestOperationStartedTime() const
+{
+    return m_latestOperationStartedTime;
+}
+
+void Instance::SetLatestOperationStartedTime(const string& _latestOperationStartedTime)
+{
+    m_latestOperationStartedTime = _latestOperationStartedTime;
+    m_latestOperationStartedTimeHasBeenSet = true;
+}
+
+bool Instance::LatestOperationStartedTimeHasBeenSet() const
+{
+    return m_latestOperationStartedTimeHasBeenSet;
+}
+
 string Instance::GetIsolatedTime() const
 {
     return m_isolatedTime;
@@ -1004,5 +1158,85 @@ void Instance::SetTags(const vector<Tag>& _tags)
 bool Instance::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+string Instance::GetInstanceRestrictState() const
+{
+    return m_instanceRestrictState;
+}
+
+void Instance::SetInstanceRestrictState(const string& _instanceRestrictState)
+{
+    m_instanceRestrictState = _instanceRestrictState;
+    m_instanceRestrictStateHasBeenSet = true;
+}
+
+bool Instance::InstanceRestrictStateHasBeenSet() const
+{
+    return m_instanceRestrictStateHasBeenSet;
+}
+
+SupportIpv6Detail Instance::GetSupportIpv6Detail() const
+{
+    return m_supportIpv6Detail;
+}
+
+void Instance::SetSupportIpv6Detail(const SupportIpv6Detail& _supportIpv6Detail)
+{
+    m_supportIpv6Detail = _supportIpv6Detail;
+    m_supportIpv6DetailHasBeenSet = true;
+}
+
+bool Instance::SupportIpv6DetailHasBeenSet() const
+{
+    return m_supportIpv6DetailHasBeenSet;
+}
+
+vector<string> Instance::GetPublicIpv6Addresses() const
+{
+    return m_publicIpv6Addresses;
+}
+
+void Instance::SetPublicIpv6Addresses(const vector<string>& _publicIpv6Addresses)
+{
+    m_publicIpv6Addresses = _publicIpv6Addresses;
+    m_publicIpv6AddressesHasBeenSet = true;
+}
+
+bool Instance::PublicIpv6AddressesHasBeenSet() const
+{
+    return m_publicIpv6AddressesHasBeenSet;
+}
+
+string Instance::GetInitInvocationId() const
+{
+    return m_initInvocationId;
+}
+
+void Instance::SetInitInvocationId(const string& _initInvocationId)
+{
+    m_initInvocationId = _initInvocationId;
+    m_initInvocationIdHasBeenSet = true;
+}
+
+bool Instance::InitInvocationIdHasBeenSet() const
+{
+    return m_initInvocationIdHasBeenSet;
+}
+
+InstanceViolationDetail Instance::GetInstanceViolationDetail() const
+{
+    return m_instanceViolationDetail;
+}
+
+void Instance::SetInstanceViolationDetail(const InstanceViolationDetail& _instanceViolationDetail)
+{
+    m_instanceViolationDetail = _instanceViolationDetail;
+    m_instanceViolationDetailHasBeenSet = true;
+}
+
+bool Instance::InstanceViolationDetailHasBeenSet() const
+{
+    return m_instanceViolationDetailHasBeenSet;
 }
 

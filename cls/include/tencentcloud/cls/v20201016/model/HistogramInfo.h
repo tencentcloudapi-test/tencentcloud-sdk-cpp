@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取统计周期内的日志条数
                      * @return Count 统计周期内的日志条数
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置统计周期内的日志条数
-                     * @param Count 统计周期内的日志条数
+                     * @param _count 统计周期内的日志条数
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
                     /**
                      * 获取按 period 取整后的 unix timestamp： 单位毫秒
                      * @return BTime 按 period 取整后的 unix timestamp： 单位毫秒
+                     * 
                      */
                     int64_t GetBTime() const;
 
                     /**
                      * 设置按 period 取整后的 unix timestamp： 单位毫秒
-                     * @param BTime 按 period 取整后的 unix timestamp： 单位毫秒
+                     * @param _bTime 按 period 取整后的 unix timestamp： 单位毫秒
+                     * 
                      */
                     void SetBTime(const int64_t& _bTime);
 
                     /**
                      * 判断参数 BTime 是否已赋值
                      * @return BTime 是否已赋值
+                     * 
                      */
                     bool BTimeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ using namespace std;
 
 CreateTranscodeTemplateRequest::CreateTranscodeTemplateRequest() :
     m_containerHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_commentHasBeenSet(false),
     m_removeVideoHasBeenSet(false),
@@ -31,7 +32,7 @@ CreateTranscodeTemplateRequest::CreateTranscodeTemplateRequest() :
     m_videoTemplateHasBeenSet(false),
     m_audioTemplateHasBeenSet(false),
     m_tEHDConfigHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_segmentTypeHasBeenSet(false)
 {
 }
 
@@ -48,6 +49,14 @@ string CreateTranscodeTemplateRequest::ToJsonString() const
         string key = "Container";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_container.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_nameHasBeenSet)
@@ -109,12 +118,12 @@ string CreateTranscodeTemplateRequest::ToJsonString() const
         m_tEHDConfig.ToJsonObject(d[key.c_str()], allocator);
     }
 
-    if (m_subAppIdHasBeenSet)
+    if (m_segmentTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
+        string key = "SegmentType";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
+        d.AddMember(iKey, rapidjson::Value(m_segmentType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -139,6 +148,22 @@ void CreateTranscodeTemplateRequest::SetContainer(const string& _container)
 bool CreateTranscodeTemplateRequest::ContainerHasBeenSet() const
 {
     return m_containerHasBeenSet;
+}
+
+uint64_t CreateTranscodeTemplateRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void CreateTranscodeTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool CreateTranscodeTemplateRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
 }
 
 string CreateTranscodeTemplateRequest::GetName() const
@@ -253,20 +278,20 @@ bool CreateTranscodeTemplateRequest::TEHDConfigHasBeenSet() const
     return m_tEHDConfigHasBeenSet;
 }
 
-uint64_t CreateTranscodeTemplateRequest::GetSubAppId() const
+string CreateTranscodeTemplateRequest::GetSegmentType() const
 {
-    return m_subAppId;
+    return m_segmentType;
 }
 
-void CreateTranscodeTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+void CreateTranscodeTemplateRequest::SetSegmentType(const string& _segmentType)
 {
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
+    m_segmentType = _segmentType;
+    m_segmentTypeHasBeenSet = true;
 }
 
-bool CreateTranscodeTemplateRequest::SubAppIdHasBeenSet() const
+bool CreateTranscodeTemplateRequest::SegmentTypeHasBeenSet() const
 {
-    return m_subAppIdHasBeenSet;
+    return m_segmentTypeHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取视频打点信息数组。
                      * @return KeyFrameDescSet 视频打点信息数组。
+                     * 
                      */
                     std::vector<MediaKeyFrameDescItem> GetKeyFrameDescSet() const;
 
                     /**
                      * 设置视频打点信息数组。
-                     * @param KeyFrameDescSet 视频打点信息数组。
+                     * @param _keyFrameDescSet 视频打点信息数组。
+                     * 
                      */
                     void SetKeyFrameDescSet(const std::vector<MediaKeyFrameDescItem>& _keyFrameDescSet);
 
                     /**
                      * 判断参数 KeyFrameDescSet 是否已赋值
                      * @return KeyFrameDescSet 是否已赋值
+                     * 
                      */
                     bool KeyFrameDescSetHasBeenSet() const;
 

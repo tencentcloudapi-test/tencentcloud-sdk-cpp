@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取cos地域
                      * @return CosRegion cos地域
+                     * 
                      */
                     std::string GetCosRegion() const;
 
                     /**
                      * 设置cos地域
-                     * @param CosRegion cos地域
+                     * @param _cosRegion cos地域
+                     * 
                      */
                     void SetCosRegion(const std::string& _cosRegion);
 
                     /**
                      * 判断参数 CosRegion 是否已赋值
                      * @return CosRegion 是否已赋值
+                     * 
                      */
                     bool CosRegionHasBeenSet() const;
 
                     /**
                      * 获取地域描述
                      * @return CosRegionName 地域描述
+                     * 
                      */
                     std::string GetCosRegionName() const;
 
                     /**
                      * 设置地域描述
-                     * @param CosRegionName 地域描述
+                     * @param _cosRegionName 地域描述
+                     * 
                      */
                     void SetCosRegionName(const std::string& _cosRegionName);
 
                     /**
                      * 判断参数 CosRegionName 是否已赋值
                      * @return CosRegionName 是否已赋值
+                     * 
                      */
                     bool CosRegionNameHasBeenSet() const;
 

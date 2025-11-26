@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,11 +43,11 @@ CoreInternalOutcome TEHDConfig::Deserialize(const rapidjson::Value &value)
 
     if (value.HasMember("MaxVideoBitrate") && !value["MaxVideoBitrate"].IsNull())
     {
-        if (!value["MaxVideoBitrate"].IsUint64())
+        if (!value["MaxVideoBitrate"].IsInt64())
         {
-            return CoreInternalOutcome(Core::Error("response `TEHDConfig.MaxVideoBitrate` IsUint64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `TEHDConfig.MaxVideoBitrate` IsInt64=false incorrectly").SetRequestId(requestId));
         }
-        m_maxVideoBitrate = value["MaxVideoBitrate"].GetUint64();
+        m_maxVideoBitrate = value["MaxVideoBitrate"].GetInt64();
         m_maxVideoBitrateHasBeenSet = true;
     }
 
@@ -93,12 +93,12 @@ bool TEHDConfig::TypeHasBeenSet() const
     return m_typeHasBeenSet;
 }
 
-uint64_t TEHDConfig::GetMaxVideoBitrate() const
+int64_t TEHDConfig::GetMaxVideoBitrate() const
 {
     return m_maxVideoBitrate;
 }
 
-void TEHDConfig::SetMaxVideoBitrate(const uint64_t& _maxVideoBitrate)
+void TEHDConfig::SetMaxVideoBitrate(const int64_t& _maxVideoBitrate)
 {
     m_maxVideoBitrate = _maxVideoBitrate;
     m_maxVideoBitrateHasBeenSet = true;

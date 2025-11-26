@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,12 +25,14 @@ using namespace std;
 CreateAdaptiveDynamicStreamingTemplateRequest::CreateAdaptiveDynamicStreamingTemplateRequest() :
     m_formatHasBeenSet(false),
     m_streamInfosHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_drmTypeHasBeenSet(false),
+    m_drmKeyProviderHasBeenSet(false),
     m_disableHigherVideoBitrateHasBeenSet(false),
     m_disableHigherVideoResolutionHasBeenSet(false),
     m_commentHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_segmentTypeHasBeenSet(false)
 {
 }
 
@@ -64,6 +66,14 @@ string CreateAdaptiveDynamicStreamingTemplateRequest::ToJsonString() const
         }
     }
 
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
+    }
+
     if (m_nameHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -78,6 +88,14 @@ string CreateAdaptiveDynamicStreamingTemplateRequest::ToJsonString() const
         string key = "DrmType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_drmType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_drmKeyProviderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DrmKeyProvider";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_drmKeyProvider.c_str(), allocator).Move(), allocator);
     }
 
     if (m_disableHigherVideoBitrateHasBeenSet)
@@ -104,12 +122,12 @@ string CreateAdaptiveDynamicStreamingTemplateRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_comment.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_subAppIdHasBeenSet)
+    if (m_segmentTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
+        string key = "SegmentType";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
+        d.AddMember(iKey, rapidjson::Value(m_segmentType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -152,6 +170,22 @@ bool CreateAdaptiveDynamicStreamingTemplateRequest::StreamInfosHasBeenSet() cons
     return m_streamInfosHasBeenSet;
 }
 
+uint64_t CreateAdaptiveDynamicStreamingTemplateRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void CreateAdaptiveDynamicStreamingTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool CreateAdaptiveDynamicStreamingTemplateRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
+}
+
 string CreateAdaptiveDynamicStreamingTemplateRequest::GetName() const
 {
     return m_name;
@@ -182,6 +216,22 @@ void CreateAdaptiveDynamicStreamingTemplateRequest::SetDrmType(const string& _dr
 bool CreateAdaptiveDynamicStreamingTemplateRequest::DrmTypeHasBeenSet() const
 {
     return m_drmTypeHasBeenSet;
+}
+
+string CreateAdaptiveDynamicStreamingTemplateRequest::GetDrmKeyProvider() const
+{
+    return m_drmKeyProvider;
+}
+
+void CreateAdaptiveDynamicStreamingTemplateRequest::SetDrmKeyProvider(const string& _drmKeyProvider)
+{
+    m_drmKeyProvider = _drmKeyProvider;
+    m_drmKeyProviderHasBeenSet = true;
+}
+
+bool CreateAdaptiveDynamicStreamingTemplateRequest::DrmKeyProviderHasBeenSet() const
+{
+    return m_drmKeyProviderHasBeenSet;
 }
 
 uint64_t CreateAdaptiveDynamicStreamingTemplateRequest::GetDisableHigherVideoBitrate() const
@@ -232,20 +282,20 @@ bool CreateAdaptiveDynamicStreamingTemplateRequest::CommentHasBeenSet() const
     return m_commentHasBeenSet;
 }
 
-uint64_t CreateAdaptiveDynamicStreamingTemplateRequest::GetSubAppId() const
+string CreateAdaptiveDynamicStreamingTemplateRequest::GetSegmentType() const
 {
-    return m_subAppId;
+    return m_segmentType;
 }
 
-void CreateAdaptiveDynamicStreamingTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+void CreateAdaptiveDynamicStreamingTemplateRequest::SetSegmentType(const string& _segmentType)
 {
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
+    m_segmentType = _segmentType;
+    m_segmentTypeHasBeenSet = true;
 }
 
-bool CreateAdaptiveDynamicStreamingTemplateRequest::SubAppIdHasBeenSet() const
+bool CreateAdaptiveDynamicStreamingTemplateRequest::SegmentTypeHasBeenSet() const
 {
-    return m_subAppIdHasBeenSet;
+    return m_segmentTypeHasBeenSet;
 }
 
 

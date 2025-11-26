@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,7 +56,15 @@ Disk::Disk() :
     m_returnFailCodeHasBeenSet(false),
     m_shareableHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_deleteSnapshotHasBeenSet(false)
+    m_deleteSnapshotHasBeenSet(false),
+    m_diskBackupQuotaHasBeenSet(false),
+    m_diskBackupCountHasBeenSet(false),
+    m_instanceTypeHasBeenSet(false),
+    m_lastAttachInsIdHasBeenSet(false),
+    m_errorPromptHasBeenSet(false),
+    m_burstPerformanceHasBeenSet(false),
+    m_encryptTypeHasBeenSet(false),
+    m_kmsKeyIdHasBeenSet(false)
 {
 }
 
@@ -448,6 +456,86 @@ CoreInternalOutcome Disk::Deserialize(const rapidjson::Value &value)
         m_deleteSnapshotHasBeenSet = true;
     }
 
+    if (value.HasMember("DiskBackupQuota") && !value["DiskBackupQuota"].IsNull())
+    {
+        if (!value["DiskBackupQuota"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.DiskBackupQuota` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_diskBackupQuota = value["DiskBackupQuota"].GetUint64();
+        m_diskBackupQuotaHasBeenSet = true;
+    }
+
+    if (value.HasMember("DiskBackupCount") && !value["DiskBackupCount"].IsNull())
+    {
+        if (!value["DiskBackupCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.DiskBackupCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_diskBackupCount = value["DiskBackupCount"].GetUint64();
+        m_diskBackupCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceType") && !value["InstanceType"].IsNull())
+    {
+        if (!value["InstanceType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.InstanceType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceType = string(value["InstanceType"].GetString());
+        m_instanceTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("LastAttachInsId") && !value["LastAttachInsId"].IsNull())
+    {
+        if (!value["LastAttachInsId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.LastAttachInsId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_lastAttachInsId = string(value["LastAttachInsId"].GetString());
+        m_lastAttachInsIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ErrorPrompt") && !value["ErrorPrompt"].IsNull())
+    {
+        if (!value["ErrorPrompt"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.ErrorPrompt` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_errorPrompt = string(value["ErrorPrompt"].GetString());
+        m_errorPromptHasBeenSet = true;
+    }
+
+    if (value.HasMember("BurstPerformance") && !value["BurstPerformance"].IsNull())
+    {
+        if (!value["BurstPerformance"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.BurstPerformance` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_burstPerformance = value["BurstPerformance"].GetBool();
+        m_burstPerformanceHasBeenSet = true;
+    }
+
+    if (value.HasMember("EncryptType") && !value["EncryptType"].IsNull())
+    {
+        if (!value["EncryptType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.EncryptType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptType = string(value["EncryptType"].GetString());
+        m_encryptTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("KmsKeyId") && !value["KmsKeyId"].IsNull())
+    {
+        if (!value["KmsKeyId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Disk.KmsKeyId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_kmsKeyId = string(value["KmsKeyId"].GetString());
+        m_kmsKeyIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -759,6 +847,70 @@ void Disk::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorT
         string key = "DeleteSnapshot";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_deleteSnapshot, allocator);
+    }
+
+    if (m_diskBackupQuotaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskBackupQuota";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_diskBackupQuota, allocator);
+    }
+
+    if (m_diskBackupCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskBackupCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_diskBackupCount, allocator);
+    }
+
+    if (m_instanceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_lastAttachInsIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LastAttachInsId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_lastAttachInsId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_errorPromptHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ErrorPrompt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_errorPrompt.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_burstPerformanceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BurstPerformance";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_burstPerformance, allocator);
+    }
+
+    if (m_encryptTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_kmsKeyIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KmsKeyId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_kmsKeyId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1338,5 +1490,133 @@ void Disk::SetDeleteSnapshot(const int64_t& _deleteSnapshot)
 bool Disk::DeleteSnapshotHasBeenSet() const
 {
     return m_deleteSnapshotHasBeenSet;
+}
+
+uint64_t Disk::GetDiskBackupQuota() const
+{
+    return m_diskBackupQuota;
+}
+
+void Disk::SetDiskBackupQuota(const uint64_t& _diskBackupQuota)
+{
+    m_diskBackupQuota = _diskBackupQuota;
+    m_diskBackupQuotaHasBeenSet = true;
+}
+
+bool Disk::DiskBackupQuotaHasBeenSet() const
+{
+    return m_diskBackupQuotaHasBeenSet;
+}
+
+uint64_t Disk::GetDiskBackupCount() const
+{
+    return m_diskBackupCount;
+}
+
+void Disk::SetDiskBackupCount(const uint64_t& _diskBackupCount)
+{
+    m_diskBackupCount = _diskBackupCount;
+    m_diskBackupCountHasBeenSet = true;
+}
+
+bool Disk::DiskBackupCountHasBeenSet() const
+{
+    return m_diskBackupCountHasBeenSet;
+}
+
+string Disk::GetInstanceType() const
+{
+    return m_instanceType;
+}
+
+void Disk::SetInstanceType(const string& _instanceType)
+{
+    m_instanceType = _instanceType;
+    m_instanceTypeHasBeenSet = true;
+}
+
+bool Disk::InstanceTypeHasBeenSet() const
+{
+    return m_instanceTypeHasBeenSet;
+}
+
+string Disk::GetLastAttachInsId() const
+{
+    return m_lastAttachInsId;
+}
+
+void Disk::SetLastAttachInsId(const string& _lastAttachInsId)
+{
+    m_lastAttachInsId = _lastAttachInsId;
+    m_lastAttachInsIdHasBeenSet = true;
+}
+
+bool Disk::LastAttachInsIdHasBeenSet() const
+{
+    return m_lastAttachInsIdHasBeenSet;
+}
+
+string Disk::GetErrorPrompt() const
+{
+    return m_errorPrompt;
+}
+
+void Disk::SetErrorPrompt(const string& _errorPrompt)
+{
+    m_errorPrompt = _errorPrompt;
+    m_errorPromptHasBeenSet = true;
+}
+
+bool Disk::ErrorPromptHasBeenSet() const
+{
+    return m_errorPromptHasBeenSet;
+}
+
+bool Disk::GetBurstPerformance() const
+{
+    return m_burstPerformance;
+}
+
+void Disk::SetBurstPerformance(const bool& _burstPerformance)
+{
+    m_burstPerformance = _burstPerformance;
+    m_burstPerformanceHasBeenSet = true;
+}
+
+bool Disk::BurstPerformanceHasBeenSet() const
+{
+    return m_burstPerformanceHasBeenSet;
+}
+
+string Disk::GetEncryptType() const
+{
+    return m_encryptType;
+}
+
+void Disk::SetEncryptType(const string& _encryptType)
+{
+    m_encryptType = _encryptType;
+    m_encryptTypeHasBeenSet = true;
+}
+
+bool Disk::EncryptTypeHasBeenSet() const
+{
+    return m_encryptTypeHasBeenSet;
+}
+
+string Disk::GetKmsKeyId() const
+{
+    return m_kmsKeyId;
+}
+
+void Disk::SetKmsKeyId(const string& _kmsKeyId)
+{
+    m_kmsKeyId = _kmsKeyId;
+    m_kmsKeyIdHasBeenSet = true;
+}
+
+bool Disk::KmsKeyIdHasBeenSet() const
+{
+    return m_kmsKeyIdHasBeenSet;
 }
 

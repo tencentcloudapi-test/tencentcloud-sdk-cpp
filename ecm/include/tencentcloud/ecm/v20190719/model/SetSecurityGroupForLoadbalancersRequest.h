@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取负载均衡实例ID数组
                      * @return LoadBalancerIds 负载均衡实例ID数组
+                     * 
                      */
                     std::vector<std::string> GetLoadBalancerIds() const;
 
                     /**
                      * 设置负载均衡实例ID数组
-                     * @param LoadBalancerIds 负载均衡实例ID数组
+                     * @param _loadBalancerIds 负载均衡实例ID数组
+                     * 
                      */
                     void SetLoadBalancerIds(const std::vector<std::string>& _loadBalancerIds);
 
                     /**
                      * 判断参数 LoadBalancerIds 是否已赋值
                      * @return LoadBalancerIds 是否已赋值
+                     * 
                      */
                     bool LoadBalancerIdsHasBeenSet() const;
 
                     /**
                      * 获取安全组ID，如 esg-12345678
                      * @return SecurityGroup 安全组ID，如 esg-12345678
+                     * 
                      */
                     std::string GetSecurityGroup() const;
 
                     /**
                      * 设置安全组ID，如 esg-12345678
-                     * @param SecurityGroup 安全组ID，如 esg-12345678
+                     * @param _securityGroup 安全组ID，如 esg-12345678
+                     * 
                      */
                     void SetSecurityGroup(const std::string& _securityGroup);
 
                     /**
                      * 判断参数 SecurityGroup 是否已赋值
                      * @return SecurityGroup 是否已赋值
+                     * 
                      */
                     bool SecurityGroupHasBeenSet() const;
 
@@ -83,20 +89,23 @@ namespace TencentCloud
 DEL 解绑安全组
                      * @return OperationType ADD 绑定安全组；
 DEL 解绑安全组
+                     * 
                      */
                     std::string GetOperationType() const;
 
                     /**
                      * 设置ADD 绑定安全组；
 DEL 解绑安全组
-                     * @param OperationType ADD 绑定安全组；
+                     * @param _operationType ADD 绑定安全组；
 DEL 解绑安全组
+                     * 
                      */
                     void SetOperationType(const std::string& _operationType);
 
                     /**
                      * 判断参数 OperationType 是否已赋值
                      * @return OperationType 是否已赋值
+                     * 
                      */
                     bool OperationTypeHasBeenSet() const;
 

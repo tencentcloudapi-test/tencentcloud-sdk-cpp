@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,38 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取指标名
                      * @return MetricName 指标名
+                     * 
                      */
                     std::string GetMetricName() const;
 
                     /**
                      * 判断参数 MetricName 是否已赋值
                      * @return MetricName 是否已赋值
+                     * 
                      */
                     bool MetricNameHasBeenSet() const;
 
                     /**
                      * 获取指标的值
                      * @return Value 指标的值
+                     * 
                      */
                     int64_t GetValue() const;
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
                     /**
                      * 获取指标的附加值信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SubValue 指标的附加值信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSubValue() const;
 
                     /**
                      * 判断参数 SubValue 是否已赋值
                      * @return SubValue 是否已赋值
+                     * 
                      */
                     bool SubValueHasBeenSet() const;
 
@@ -97,7 +101,6 @@ namespace TencentCloud
 
                     /**
                      * 指标的附加值信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_subValue;
                     bool m_subValueHasBeenSet;

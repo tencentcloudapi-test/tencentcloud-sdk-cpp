@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return CosModelArtifacts cos输出路径
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCosModelArtifacts() const;
 
                     /**
                      * 设置cos输出路径
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CosModelArtifacts cos输出路径
+                     * @param _cosModelArtifacts cos输出路径
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCosModelArtifacts(const std::string& _cosModelArtifacts);
 
                     /**
                      * 判断参数 CosModelArtifacts 是否已赋值
                      * @return CosModelArtifacts 是否已赋值
+                     * 
                      */
                     bool CosModelArtifactsHasBeenSet() const;
 

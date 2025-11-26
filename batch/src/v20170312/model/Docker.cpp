@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,13 @@ using namespace TencentCloud::Batch::V20170312::Model;
 using namespace std;
 
 Docker::Docker() :
+    m_imageHasBeenSet(false),
     m_userHasBeenSet(false),
     m_passwordHasBeenSet(false),
-    m_imageHasBeenSet(false),
-    m_serverHasBeenSet(false)
+    m_serverHasBeenSet(false),
+    m_maxRetryCountHasBeenSet(false),
+    m_delayOnRetryHasBeenSet(false),
+    m_dockerRunOptionHasBeenSet(false)
 {
 }
 
@@ -32,6 +35,16 @@ CoreInternalOutcome Docker::Deserialize(const rapidjson::Value &value)
 {
     string requestId = "";
 
+
+    if (value.HasMember("Image") && !value["Image"].IsNull())
+    {
+        if (!value["Image"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Docker.Image` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_image = string(value["Image"].GetString());
+        m_imageHasBeenSet = true;
+    }
 
     if (value.HasMember("User") && !value["User"].IsNull())
     {
@@ -53,16 +66,6 @@ CoreInternalOutcome Docker::Deserialize(const rapidjson::Value &value)
         m_passwordHasBeenSet = true;
     }
 
-    if (value.HasMember("Image") && !value["Image"].IsNull())
-    {
-        if (!value["Image"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Docker.Image` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_image = string(value["Image"].GetString());
-        m_imageHasBeenSet = true;
-    }
-
     if (value.HasMember("Server") && !value["Server"].IsNull())
     {
         if (!value["Server"].IsString())
@@ -73,12 +76,50 @@ CoreInternalOutcome Docker::Deserialize(const rapidjson::Value &value)
         m_serverHasBeenSet = true;
     }
 
+    if (value.HasMember("MaxRetryCount") && !value["MaxRetryCount"].IsNull())
+    {
+        if (!value["MaxRetryCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Docker.MaxRetryCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_maxRetryCount = value["MaxRetryCount"].GetUint64();
+        m_maxRetryCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("DelayOnRetry") && !value["DelayOnRetry"].IsNull())
+    {
+        if (!value["DelayOnRetry"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Docker.DelayOnRetry` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_delayOnRetry = value["DelayOnRetry"].GetUint64();
+        m_delayOnRetryHasBeenSet = true;
+    }
+
+    if (value.HasMember("DockerRunOption") && !value["DockerRunOption"].IsNull())
+    {
+        if (!value["DockerRunOption"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Docker.DockerRunOption` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dockerRunOption = string(value["DockerRunOption"].GetString());
+        m_dockerRunOptionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
 
 void Docker::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const
 {
+
+    if (m_imageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Image";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_image.c_str(), allocator).Move(), allocator);
+    }
 
     if (m_userHasBeenSet)
     {
@@ -96,14 +137,6 @@ void Docker::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         value.AddMember(iKey, rapidjson::Value(m_password.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_imageHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Image";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_image.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_serverHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -112,8 +145,48 @@ void Docker::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         value.AddMember(iKey, rapidjson::Value(m_server.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_maxRetryCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxRetryCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_maxRetryCount, allocator);
+    }
+
+    if (m_delayOnRetryHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DelayOnRetry";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_delayOnRetry, allocator);
+    }
+
+    if (m_dockerRunOptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DockerRunOption";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dockerRunOption.c_str(), allocator).Move(), allocator);
+    }
+
 }
 
+
+string Docker::GetImage() const
+{
+    return m_image;
+}
+
+void Docker::SetImage(const string& _image)
+{
+    m_image = _image;
+    m_imageHasBeenSet = true;
+}
+
+bool Docker::ImageHasBeenSet() const
+{
+    return m_imageHasBeenSet;
+}
 
 string Docker::GetUser() const
 {
@@ -147,22 +220,6 @@ bool Docker::PasswordHasBeenSet() const
     return m_passwordHasBeenSet;
 }
 
-string Docker::GetImage() const
-{
-    return m_image;
-}
-
-void Docker::SetImage(const string& _image)
-{
-    m_image = _image;
-    m_imageHasBeenSet = true;
-}
-
-bool Docker::ImageHasBeenSet() const
-{
-    return m_imageHasBeenSet;
-}
-
 string Docker::GetServer() const
 {
     return m_server;
@@ -177,5 +234,53 @@ void Docker::SetServer(const string& _server)
 bool Docker::ServerHasBeenSet() const
 {
     return m_serverHasBeenSet;
+}
+
+uint64_t Docker::GetMaxRetryCount() const
+{
+    return m_maxRetryCount;
+}
+
+void Docker::SetMaxRetryCount(const uint64_t& _maxRetryCount)
+{
+    m_maxRetryCount = _maxRetryCount;
+    m_maxRetryCountHasBeenSet = true;
+}
+
+bool Docker::MaxRetryCountHasBeenSet() const
+{
+    return m_maxRetryCountHasBeenSet;
+}
+
+uint64_t Docker::GetDelayOnRetry() const
+{
+    return m_delayOnRetry;
+}
+
+void Docker::SetDelayOnRetry(const uint64_t& _delayOnRetry)
+{
+    m_delayOnRetry = _delayOnRetry;
+    m_delayOnRetryHasBeenSet = true;
+}
+
+bool Docker::DelayOnRetryHasBeenSet() const
+{
+    return m_delayOnRetryHasBeenSet;
+}
+
+string Docker::GetDockerRunOption() const
+{
+    return m_dockerRunOption;
+}
+
+void Docker::SetDockerRunOption(const string& _dockerRunOption)
+{
+    m_dockerRunOption = _dockerRunOption;
+    m_dockerRunOptionHasBeenSet = true;
+}
+
+bool Docker::DockerRunOptionHasBeenSet() const
+{
+    return m_dockerRunOptionHasBeenSet;
 }
 

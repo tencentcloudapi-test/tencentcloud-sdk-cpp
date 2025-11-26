@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,45 +48,81 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
-                     * @return Key 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+                     * 获取需要配置键值或者元字段索引的字段名称，仅支持字母、数字、下划线和-./@，且不能以下划线开头
+
+注意：
+1，元字段（tag）的Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+2，键值索引（KeyValue）及元字段索引（Tag）中的Key总数不能超过300
+3，Key的层级不能超过10层，例如a.b.c.d.e.f.g.h.j.k
+4，不允许同时包含json父子级字段，例如a及a.b
+                     * @return Key 需要配置键值或者元字段索引的字段名称，仅支持字母、数字、下划线和-./@，且不能以下划线开头
+
+注意：
+1，元字段（tag）的Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+2，键值索引（KeyValue）及元字段索引（Tag）中的Key总数不能超过300
+3，Key的层级不能超过10层，例如a.b.c.d.e.f.g.h.j.k
+4，不允许同时包含json父子级字段，例如a及a.b
+                     * 
                      */
                     std::string GetKey() const;
 
                     /**
-                     * 设置需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
-                     * @param Key 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+                     * 设置需要配置键值或者元字段索引的字段名称，仅支持字母、数字、下划线和-./@，且不能以下划线开头
+
+注意：
+1，元字段（tag）的Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+2，键值索引（KeyValue）及元字段索引（Tag）中的Key总数不能超过300
+3，Key的层级不能超过10层，例如a.b.c.d.e.f.g.h.j.k
+4，不允许同时包含json父子级字段，例如a及a.b
+                     * @param _key 需要配置键值或者元字段索引的字段名称，仅支持字母、数字、下划线和-./@，且不能以下划线开头
+
+注意：
+1，元字段（tag）的Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+2，键值索引（KeyValue）及元字段索引（Tag）中的Key总数不能超过300
+3，Key的层级不能超过10层，例如a.b.c.d.e.f.g.h.j.k
+4，不允许同时包含json父子级字段，例如a及a.b
+                     * 
                      */
                     void SetKey(const std::string& _key);
 
                     /**
                      * 判断参数 Key 是否已赋值
                      * @return Key 是否已赋值
+                     * 
                      */
                     bool KeyHasBeenSet() const;
 
                     /**
                      * 获取字段的索引描述信息
                      * @return Value 字段的索引描述信息
+                     * 
                      */
                     ValueInfo GetValue() const;
 
                     /**
                      * 设置字段的索引描述信息
-                     * @param Value 字段的索引描述信息
+                     * @param _value 字段的索引描述信息
+                     * 
                      */
                     void SetValue(const ValueInfo& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 需要配置键值或者元字段索引的字段，元字段Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+                     * 需要配置键值或者元字段索引的字段名称，仅支持字母、数字、下划线和-./@，且不能以下划线开头
+
+注意：
+1，元字段（tag）的Key无需额外添加`__TAG__.`前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加`__TAG__.`前缀
+2，键值索引（KeyValue）及元字段索引（Tag）中的Key总数不能超过300
+3，Key的层级不能超过10层，例如a.b.c.d.e.f.g.h.j.k
+4，不允许同时包含json父子级字段，例如a及a.b
                      */
                     std::string m_key;
                     bool m_keyHasBeenSet;

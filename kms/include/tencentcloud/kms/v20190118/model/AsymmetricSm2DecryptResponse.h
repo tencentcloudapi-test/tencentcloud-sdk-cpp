@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取CMK的唯一标识
                      * @return KeyId CMK的唯一标识
+                     * 
                      */
                     std::string GetKeyId() const;
 
                     /**
                      * 判断参数 KeyId 是否已赋值
                      * @return KeyId 是否已赋值
+                     * 
                      */
                     bool KeyIdHasBeenSet() const;
 
                     /**
                      * 获取解密后的明文，base64编码
                      * @return Plaintext 解密后的明文，base64编码
+                     * 
                      */
                     std::string GetPlaintext() const;
 
                     /**
                      * 判断参数 Plaintext 是否已赋值
                      * @return Plaintext 是否已赋值
+                     * 
                      */
                     bool PlaintextHasBeenSet() const;
 

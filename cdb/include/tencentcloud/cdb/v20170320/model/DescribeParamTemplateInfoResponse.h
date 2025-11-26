@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,86 +47,114 @@ namespace TencentCloud
                     /**
                      * 获取参数模板 ID。
                      * @return TemplateId 参数模板 ID。
+                     * 
                      */
                     int64_t GetTemplateId() const;
 
                     /**
                      * 判断参数 TemplateId 是否已赋值
                      * @return TemplateId 是否已赋值
+                     * 
                      */
                     bool TemplateIdHasBeenSet() const;
 
                     /**
                      * 获取参数模板名称。
                      * @return Name 参数模板名称。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取参数模板对应实例版本
-                     * @return EngineVersion 参数模板对应实例版本
+                     * 获取参数模板对应实例版本，可取值：5.5、5.6、5.7、8.0。
+                     * @return EngineVersion 参数模板对应实例版本，可取值：5.5、5.6、5.7、8.0。
+                     * 
                      */
                     std::string GetEngineVersion() const;
 
                     /**
                      * 判断参数 EngineVersion 是否已赋值
                      * @return EngineVersion 是否已赋值
+                     * 
                      */
                     bool EngineVersionHasBeenSet() const;
 
                     /**
                      * 获取参数模板中的参数数量
                      * @return TotalCount 参数模板中的参数数量
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取参数详情
                      * @return Items 参数详情
+                     * 
                      */
                     std::vector<ParameterDetail> GetItems() const;
 
                     /**
                      * 判断参数 Items 是否已赋值
                      * @return Items 是否已赋值
+                     * 
                      */
                     bool ItemsHasBeenSet() const;
 
                     /**
                      * 获取参数模板描述
                      * @return Description 参数模板描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
                      * @return TemplateType 参数模板类型。支持值包括："HIGH_STABILITY" - 高稳定模板，"HIGH_PERFORMANCE" - 高性能模板。
+                     * 
                      */
                     std::string GetTemplateType() const;
 
                     /**
                      * 判断参数 TemplateType 是否已赋值
                      * @return TemplateType 是否已赋值
+                     * 
                      */
                     bool TemplateTypeHasBeenSet() const;
+
+                    /**
+                     * 获取参数模板引擎。支持值包括："InnoDB"，"RocksDB"。
+                     * @return EngineType 参数模板引擎。支持值包括："InnoDB"，"RocksDB"。
+                     * 
+                     */
+                    std::string GetEngineType() const;
+
+                    /**
+                     * 判断参数 EngineType 是否已赋值
+                     * @return EngineType 是否已赋值
+                     * 
+                     */
+                    bool EngineTypeHasBeenSet() const;
 
                 private:
 
@@ -143,7 +171,7 @@ namespace TencentCloud
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 参数模板对应实例版本
+                     * 参数模板对应实例版本，可取值：5.5、5.6、5.7、8.0。
                      */
                     std::string m_engineVersion;
                     bool m_engineVersionHasBeenSet;
@@ -171,6 +199,12 @@ namespace TencentCloud
                      */
                     std::string m_templateType;
                     bool m_templateTypeHasBeenSet;
+
+                    /**
+                     * 参数模板引擎。支持值包括："InnoDB"，"RocksDB"。
+                     */
+                    std::string m_engineType;
+                    bool m_engineTypeHasBeenSet;
 
                 };
             }

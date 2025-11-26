@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ DescribeUploadBackupInfoResponse::DescribeUploadBackupInfoResponse() :
     m_tmpSecretKeyHasBeenSet(false),
     m_xCosSecurityTokenHasBeenSet(false),
     m_startTimeHasBeenSet(false),
-    m_expiredTimeHasBeenSet(false)
+    m_expiredTimeHasBeenSet(false),
+    m_cosSecurityTokenHasBeenSet(false)
 {
 }
 
@@ -149,6 +150,16 @@ CoreInternalOutcome DescribeUploadBackupInfoResponse::Deserialize(const string &
         m_expiredTimeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("CosSecurityToken") && !rsp["CosSecurityToken"].IsNull())
+    {
+        if (!rsp["CosSecurityToken"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CosSecurityToken` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cosSecurityToken = string(rsp["CosSecurityToken"].GetString());
+        m_cosSecurityTokenHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -223,11 +234,19 @@ string DescribeUploadBackupInfoResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_expiredTime.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_cosSecurityTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CosSecurityToken";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cosSecurityToken.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -313,6 +332,16 @@ string DescribeUploadBackupInfoResponse::GetExpiredTime() const
 bool DescribeUploadBackupInfoResponse::ExpiredTimeHasBeenSet() const
 {
     return m_expiredTimeHasBeenSet;
+}
+
+string DescribeUploadBackupInfoResponse::GetCosSecurityToken() const
+{
+    return m_cosSecurityToken;
+}
+
+bool DescribeUploadBackupInfoResponse::CosSecurityTokenHasBeenSet() const
+{
+    return m_cosSecurityTokenHasBeenSet;
 }
 
 

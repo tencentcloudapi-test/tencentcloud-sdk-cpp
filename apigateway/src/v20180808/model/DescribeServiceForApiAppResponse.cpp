@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,6 @@ DescribeServiceForApiAppResponse::DescribeServiceForApiAppResponse() :
     m_protocolHasBeenSet(false),
     m_createdTimeHasBeenSet(false),
     m_modifiedTimeHasBeenSet(false),
-    m_exclusiveSetNameHasBeenSet(false),
     m_netTypesHasBeenSet(false),
     m_internalSubDomainHasBeenSet(false),
     m_outerSubDomainHasBeenSet(false),
@@ -153,16 +152,6 @@ CoreInternalOutcome DescribeServiceForApiAppResponse::Deserialize(const string &
         }
         m_modifiedTime = string(rsp["ModifiedTime"].GetString());
         m_modifiedTimeHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("ExclusiveSetName") && !rsp["ExclusiveSetName"].IsNull())
-    {
-        if (!rsp["ExclusiveSetName"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ExclusiveSetName` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_exclusiveSetName = string(rsp["ExclusiveSetName"].GetString());
-        m_exclusiveSetNameHasBeenSet = true;
     }
 
     if (rsp.HasMember("NetTypes") && !rsp["NetTypes"].IsNull())
@@ -399,14 +388,6 @@ string DescribeServiceForApiAppResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_modifiedTime.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_exclusiveSetNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExclusiveSetName";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_exclusiveSetName.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_netTypesHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -541,7 +522,7 @@ string DescribeServiceForApiAppResponse::ToJsonString() const
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -617,16 +598,6 @@ string DescribeServiceForApiAppResponse::GetModifiedTime() const
 bool DescribeServiceForApiAppResponse::ModifiedTimeHasBeenSet() const
 {
     return m_modifiedTimeHasBeenSet;
-}
-
-string DescribeServiceForApiAppResponse::GetExclusiveSetName() const
-{
-    return m_exclusiveSetName;
-}
-
-bool DescribeServiceForApiAppResponse::ExclusiveSetNameHasBeenSet() const
-{
-    return m_exclusiveSetNameHasBeenSet;
 }
 
 vector<string> DescribeServiceForApiAppResponse::GetNetTypes() const

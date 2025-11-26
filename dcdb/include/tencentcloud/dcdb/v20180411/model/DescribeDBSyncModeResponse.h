@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取同步模式：0 异步，1 强同步， 2 强同步可退化
                      * @return SyncMode 同步模式：0 异步，1 强同步， 2 强同步可退化
+                     * 
                      */
                     int64_t GetSyncMode() const;
 
                     /**
                      * 判断参数 SyncMode 是否已赋值
                      * @return SyncMode 是否已赋值
+                     * 
                      */
                     bool SyncModeHasBeenSet() const;
 
                     /**
                      * 获取是否有修改流程在执行中：1 是， 0 否。
                      * @return IsModifying 是否有修改流程在执行中：1 是， 0 否。
+                     * 
                      */
                     int64_t GetIsModifying() const;
 
                     /**
                      * 判断参数 IsModifying 是否已赋值
                      * @return IsModifying 是否已赋值
+                     * 
                      */
                     bool IsModifyingHasBeenSet() const;
 
                     /**
                      * 获取当前复制方式，0 异步，1 同步
                      * @return CurrentSyncMode 当前复制方式，0 异步，1 同步
+                     * 
                      */
                     int64_t GetCurrentSyncMode() const;
 
                     /**
                      * 判断参数 CurrentSyncMode 是否已赋值
                      * @return CurrentSyncMode 是否已赋值
+                     * 
                      */
                     bool CurrentSyncModeHasBeenSet() const;
 

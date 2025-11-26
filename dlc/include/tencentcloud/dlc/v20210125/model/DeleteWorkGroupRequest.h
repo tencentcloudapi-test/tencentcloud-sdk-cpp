@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取要删除的工作组Id集合
                      * @return WorkGroupIds 要删除的工作组Id集合
+                     * 
                      */
                     std::vector<int64_t> GetWorkGroupIds() const;
 
                     /**
                      * 设置要删除的工作组Id集合
-                     * @param WorkGroupIds 要删除的工作组Id集合
+                     * @param _workGroupIds 要删除的工作组Id集合
+                     * 
                      */
                     void SetWorkGroupIds(const std::vector<int64_t>& _workGroupIds);
 
                     /**
                      * 判断参数 WorkGroupIds 是否已赋值
                      * @return WorkGroupIds 是否已赋值
+                     * 
                      */
                     bool WorkGroupIdsHasBeenSet() const;
 

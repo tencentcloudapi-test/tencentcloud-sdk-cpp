@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 ScanComplianceAssetsByPolicyItemRequest::ScanComplianceAssetsByPolicyItemRequest() :
     m_customerPolicyItemIdHasBeenSet(false),
-    m_customerAssetIdSetHasBeenSet(false)
+    m_customerAssetIdSetHasBeenSet(false),
+    m_assetTypeHasBeenSet(false)
 {
 }
 
@@ -54,6 +55,14 @@ string ScanComplianceAssetsByPolicyItemRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetUint64(*itr), allocator);
         }
+    }
+
+    if (m_assetTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssetType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_assetType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -94,6 +103,22 @@ void ScanComplianceAssetsByPolicyItemRequest::SetCustomerAssetIdSet(const vector
 bool ScanComplianceAssetsByPolicyItemRequest::CustomerAssetIdSetHasBeenSet() const
 {
     return m_customerAssetIdSetHasBeenSet;
+}
+
+string ScanComplianceAssetsByPolicyItemRequest::GetAssetType() const
+{
+    return m_assetType;
+}
+
+void ScanComplianceAssetsByPolicyItemRequest::SetAssetType(const string& _assetType)
+{
+    m_assetType = _assetType;
+    m_assetTypeHasBeenSet = true;
+}
+
+bool ScanComplianceAssetsByPolicyItemRequest::AssetTypeHasBeenSet() const
+{
+    return m_assetTypeHasBeenSet;
 }
 
 

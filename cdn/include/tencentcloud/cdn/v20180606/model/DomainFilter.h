@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,10 +51,10 @@ namespace TencentCloud
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
@@ -63,14 +63,15 @@ namespace TencentCloud
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - tagKey：标签键。
+                     * 
                      */
                     std::string GetName() const;
 
@@ -79,50 +80,55 @@ namespace TencentCloud
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - tagKey：标签键。
-                     * @param Name 过滤字段名，支持的列表如下：
+                     * @param _name 过滤字段名，支持的列表如下：
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
 - tagKey：标签键。
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取过滤字段值。
-                     * @return Value 过滤字段值。
+                     * 获取过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
+                     * @return Value 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
+                     * 
                      */
                     std::vector<std::string> GetValue() const;
 
                     /**
-                     * 设置过滤字段值。
-                     * @param Value 过滤字段值。
+                     * 设置过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
+                     * @param _value 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
+                     * 
                      */
                     void SetValue(const std::vector<std::string>& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
@@ -131,20 +137,23 @@ namespace TencentCloud
 模糊查询时，Value长度最大为1，否则Value长度最大为5。
                      * @return Fuzzy 是否启用模糊查询，仅支持过滤字段名为origin，domain。
 模糊查询时，Value长度最大为1，否则Value长度最大为5。
+                     * 
                      */
                     bool GetFuzzy() const;
 
                     /**
                      * 设置是否启用模糊查询，仅支持过滤字段名为origin，domain。
 模糊查询时，Value长度最大为1，否则Value长度最大为5。
-                     * @param Fuzzy 是否启用模糊查询，仅支持过滤字段名为origin，domain。
+                     * @param _fuzzy 是否启用模糊查询，仅支持过滤字段名为origin，domain。
 模糊查询时，Value长度最大为1，否则Value长度最大为5。
+                     * 
                      */
                     void SetFuzzy(const bool& _fuzzy);
 
                     /**
                      * 判断参数 Fuzzy 是否已赋值
                      * @return Fuzzy 是否已赋值
+                     * 
                      */
                     bool FuzzyHasBeenSet() const;
 
@@ -155,10 +164,10 @@ namespace TencentCloud
 - origin：主源站。
 - domain：域名。
 - resourceId：域名id。
-- status：域名状态，online，offline或processing。
+- status：域名状态，online，offline或processing，deleted。
 - serviceType：业务类型，web，download，media，hybrid或dynamic。
 - projectId：项目ID。
-- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储。
+- domainType：主源站类型，cname表示自有源，cos表示cos接入，third_party表示第三方对象存储，igtm表示IGTM多活源。
 - fullUrlCache：全路径缓存，on或off。
 - https：是否配置https，on，off或processing。
 - originPullProtocol：回源协议类型，支持http，follow或https。
@@ -168,7 +177,7 @@ namespace TencentCloud
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 过滤字段值。
+                     * 过滤字段值，默认最多传 5 个。当 Name 是 origin/domain 且 Fuzzy 传 true，最多传 1 个。
                      */
                     std::vector<std::string> m_value;
                     bool m_valueHasBeenSet;

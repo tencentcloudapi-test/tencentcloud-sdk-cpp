@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取按帧标签起始的偏移时间。
                      * @return StartTimeOffset 按帧标签起始的偏移时间。
+                     * 
                      */
                     double GetStartTimeOffset() const;
 
                     /**
                      * 设置按帧标签起始的偏移时间。
-                     * @param StartTimeOffset 按帧标签起始的偏移时间。
+                     * @param _startTimeOffset 按帧标签起始的偏移时间。
+                     * 
                      */
                     void SetStartTimeOffset(const double& _startTimeOffset);
 
                     /**
                      * 判断参数 StartTimeOffset 是否已赋值
                      * @return StartTimeOffset 是否已赋值
+                     * 
                      */
                     bool StartTimeOffsetHasBeenSet() const;
 
                     /**
                      * 获取按帧标签结束的偏移时间。
                      * @return EndTimeOffset 按帧标签结束的偏移时间。
+                     * 
                      */
                     double GetEndTimeOffset() const;
 
                     /**
                      * 设置按帧标签结束的偏移时间。
-                     * @param EndTimeOffset 按帧标签结束的偏移时间。
+                     * @param _endTimeOffset 按帧标签结束的偏移时间。
+                     * 
                      */
                     void SetEndTimeOffset(const double& _endTimeOffset);
 
                     /**
                      * 判断参数 EndTimeOffset 是否已赋值
                      * @return EndTimeOffset 是否已赋值
+                     * 
                      */
                     bool EndTimeOffsetHasBeenSet() const;
 
                     /**
                      * 获取时间片段内的标签列表。
                      * @return TagSet 时间片段内的标签列表。
+                     * 
                      */
                     std::vector<MediaAiAnalysisFrameTagItem> GetTagSet() const;
 
                     /**
                      * 设置时间片段内的标签列表。
-                     * @param TagSet 时间片段内的标签列表。
+                     * @param _tagSet 时间片段内的标签列表。
+                     * 
                      */
                     void SetTagSet(const std::vector<MediaAiAnalysisFrameTagItem>& _tagSet);
 
                     /**
                      * 判断参数 TagSet 是否已赋值
                      * @return TagSet 是否已赋值
+                     * 
                      */
                     bool TagSetHasBeenSet() const;
 

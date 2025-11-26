@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取账户可用余额，单位分 （可用余额 = 现金余额 + 赠送金余额 - 欠费金额 - 冻结金额）
                      * @return Balance 账户可用余额，单位分 （可用余额 = 现金余额 + 赠送金余额 - 欠费金额 - 冻结金额）
+                     * 
                      */
                     int64_t GetBalance() const;
 
                     /**
                      * 判断参数 Balance 是否已赋值
                      * @return Balance 是否已赋值
+                     * 
                      */
                     bool BalanceHasBeenSet() const;
 
                     /**
                      * 获取账户现金余额，单位分
                      * @return Cash 账户现金余额，单位分
+                     * 
                      */
                     int64_t GetCash() const;
 
                     /**
                      * 判断参数 Cash 是否已赋值
                      * @return Cash 是否已赋值
+                     * 
                      */
                     bool CashHasBeenSet() const;
 

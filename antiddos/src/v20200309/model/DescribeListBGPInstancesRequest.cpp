@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,19 @@ DescribeListBGPInstancesRequest::DescribeListBGPInstancesRequest() :
     m_filterLineHasBeenSet(false),
     m_filterStatusHasBeenSet(false),
     m_filterBoundStatusHasBeenSet(false),
-    m_filterInstanceIdListHasBeenSet(false)
+    m_filterInstanceIdListHasBeenSet(false),
+    m_filterEnterpriseFlagHasBeenSet(false),
+    m_filterLightFlagHasBeenSet(false),
+    m_filterChannelFlagHasBeenSet(false),
+    m_filterTagHasBeenSet(false),
+    m_filterTrialFlagHasBeenSet(false),
+    m_filterConvoyHasBeenSet(false),
+    m_excludeAdvancedInfoHasBeenSet(false),
+    m_filterAssetIpListHasBeenSet(false),
+    m_filterBasicPlusFlagHasBeenSet(false),
+    m_filterPlanCntFlagHasBeenSet(false),
+    m_filterTransRegionFlagHasBeenSet(false),
+    m_filterZoneIdListHasBeenSet(false)
 {
 }
 
@@ -125,6 +137,113 @@ string DescribeListBGPInstancesRequest::ToJsonString() const
         for (auto itr = m_filterInstanceIdList.begin(); itr != m_filterInstanceIdList.end(); ++itr)
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_filterEnterpriseFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterEnterpriseFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterEnterpriseFlag, allocator);
+    }
+
+    if (m_filterLightFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterLightFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterLightFlag, allocator);
+    }
+
+    if (m_filterChannelFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterChannelFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterChannelFlag, allocator);
+    }
+
+    if (m_filterTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterTag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_filterTag.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_filterTrialFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterTrialFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterTrialFlag, allocator);
+    }
+
+    if (m_filterConvoyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterConvoy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterConvoy, allocator);
+    }
+
+    if (m_excludeAdvancedInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExcludeAdvancedInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_excludeAdvancedInfo, allocator);
+    }
+
+    if (m_filterAssetIpListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterAssetIpList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_filterAssetIpList.begin(); itr != m_filterAssetIpList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_filterBasicPlusFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterBasicPlusFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterBasicPlusFlag, allocator);
+    }
+
+    if (m_filterPlanCntFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterPlanCntFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterPlanCntFlag, allocator);
+    }
+
+    if (m_filterTransRegionFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterTransRegionFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterTransRegionFlag, allocator);
+    }
+
+    if (m_filterZoneIdListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterZoneIdList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_filterZoneIdList.begin(); itr != m_filterZoneIdList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
         }
     }
 
@@ -294,6 +413,198 @@ void DescribeListBGPInstancesRequest::SetFilterInstanceIdList(const vector<strin
 bool DescribeListBGPInstancesRequest::FilterInstanceIdListHasBeenSet() const
 {
     return m_filterInstanceIdListHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterEnterpriseFlag() const
+{
+    return m_filterEnterpriseFlag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterEnterpriseFlag(const uint64_t& _filterEnterpriseFlag)
+{
+    m_filterEnterpriseFlag = _filterEnterpriseFlag;
+    m_filterEnterpriseFlagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterEnterpriseFlagHasBeenSet() const
+{
+    return m_filterEnterpriseFlagHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterLightFlag() const
+{
+    return m_filterLightFlag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterLightFlag(const uint64_t& _filterLightFlag)
+{
+    m_filterLightFlag = _filterLightFlag;
+    m_filterLightFlagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterLightFlagHasBeenSet() const
+{
+    return m_filterLightFlagHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterChannelFlag() const
+{
+    return m_filterChannelFlag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterChannelFlag(const uint64_t& _filterChannelFlag)
+{
+    m_filterChannelFlag = _filterChannelFlag;
+    m_filterChannelFlagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterChannelFlagHasBeenSet() const
+{
+    return m_filterChannelFlagHasBeenSet;
+}
+
+TagFilter DescribeListBGPInstancesRequest::GetFilterTag() const
+{
+    return m_filterTag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterTag(const TagFilter& _filterTag)
+{
+    m_filterTag = _filterTag;
+    m_filterTagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterTagHasBeenSet() const
+{
+    return m_filterTagHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterTrialFlag() const
+{
+    return m_filterTrialFlag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterTrialFlag(const uint64_t& _filterTrialFlag)
+{
+    m_filterTrialFlag = _filterTrialFlag;
+    m_filterTrialFlagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterTrialFlagHasBeenSet() const
+{
+    return m_filterTrialFlagHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterConvoy() const
+{
+    return m_filterConvoy;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterConvoy(const uint64_t& _filterConvoy)
+{
+    m_filterConvoy = _filterConvoy;
+    m_filterConvoyHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterConvoyHasBeenSet() const
+{
+    return m_filterConvoyHasBeenSet;
+}
+
+bool DescribeListBGPInstancesRequest::GetExcludeAdvancedInfo() const
+{
+    return m_excludeAdvancedInfo;
+}
+
+void DescribeListBGPInstancesRequest::SetExcludeAdvancedInfo(const bool& _excludeAdvancedInfo)
+{
+    m_excludeAdvancedInfo = _excludeAdvancedInfo;
+    m_excludeAdvancedInfoHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::ExcludeAdvancedInfoHasBeenSet() const
+{
+    return m_excludeAdvancedInfoHasBeenSet;
+}
+
+vector<string> DescribeListBGPInstancesRequest::GetFilterAssetIpList() const
+{
+    return m_filterAssetIpList;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterAssetIpList(const vector<string>& _filterAssetIpList)
+{
+    m_filterAssetIpList = _filterAssetIpList;
+    m_filterAssetIpListHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterAssetIpListHasBeenSet() const
+{
+    return m_filterAssetIpListHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterBasicPlusFlag() const
+{
+    return m_filterBasicPlusFlag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterBasicPlusFlag(const uint64_t& _filterBasicPlusFlag)
+{
+    m_filterBasicPlusFlag = _filterBasicPlusFlag;
+    m_filterBasicPlusFlagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterBasicPlusFlagHasBeenSet() const
+{
+    return m_filterBasicPlusFlagHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterPlanCntFlag() const
+{
+    return m_filterPlanCntFlag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterPlanCntFlag(const uint64_t& _filterPlanCntFlag)
+{
+    m_filterPlanCntFlag = _filterPlanCntFlag;
+    m_filterPlanCntFlagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterPlanCntFlagHasBeenSet() const
+{
+    return m_filterPlanCntFlagHasBeenSet;
+}
+
+uint64_t DescribeListBGPInstancesRequest::GetFilterTransRegionFlag() const
+{
+    return m_filterTransRegionFlag;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterTransRegionFlag(const uint64_t& _filterTransRegionFlag)
+{
+    m_filterTransRegionFlag = _filterTransRegionFlag;
+    m_filterTransRegionFlagHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterTransRegionFlagHasBeenSet() const
+{
+    return m_filterTransRegionFlagHasBeenSet;
+}
+
+vector<int64_t> DescribeListBGPInstancesRequest::GetFilterZoneIdList() const
+{
+    return m_filterZoneIdList;
+}
+
+void DescribeListBGPInstancesRequest::SetFilterZoneIdList(const vector<int64_t>& _filterZoneIdList)
+{
+    m_filterZoneIdList = _filterZoneIdList;
+    m_filterZoneIdListHasBeenSet = true;
+}
+
+bool DescribeListBGPInstancesRequest::FilterZoneIdListHasBeenSet() const
+{
+    return m_filterZoneIdListHasBeenSet;
 }
 
 

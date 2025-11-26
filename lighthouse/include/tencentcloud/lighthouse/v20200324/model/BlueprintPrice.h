@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取镜像单价，原价。单位元。
                      * @return OriginalBlueprintPrice 镜像单价，原价。单位元。
+                     * 
                      */
                     double GetOriginalBlueprintPrice() const;
 
                     /**
                      * 设置镜像单价，原价。单位元。
-                     * @param OriginalBlueprintPrice 镜像单价，原价。单位元。
+                     * @param _originalBlueprintPrice 镜像单价，原价。单位元。
+                     * 
                      */
                     void SetOriginalBlueprintPrice(const double& _originalBlueprintPrice);
 
                     /**
                      * 判断参数 OriginalBlueprintPrice 是否已赋值
                      * @return OriginalBlueprintPrice 是否已赋值
+                     * 
                      */
                     bool OriginalBlueprintPriceHasBeenSet() const;
 
                     /**
                      * 获取镜像总价，原价。单位元。
                      * @return OriginalPrice 镜像总价，原价。单位元。
+                     * 
                      */
                     double GetOriginalPrice() const;
 
                     /**
                      * 设置镜像总价，原价。单位元。
-                     * @param OriginalPrice 镜像总价，原价。单位元。
+                     * @param _originalPrice 镜像总价，原价。单位元。
+                     * 
                      */
                     void SetOriginalPrice(const double& _originalPrice);
 
                     /**
                      * 判断参数 OriginalPrice 是否已赋值
                      * @return OriginalPrice 是否已赋值
+                     * 
                      */
                     bool OriginalPriceHasBeenSet() const;
 
                     /**
                      * 获取折扣。
                      * @return Discount 折扣。
+                     * 
                      */
-                    int64_t GetDiscount() const;
+                    double GetDiscount() const;
 
                     /**
                      * 设置折扣。
-                     * @param Discount 折扣。
+                     * @param _discount 折扣。
+                     * 
                      */
-                    void SetDiscount(const int64_t& _discount);
+                    void SetDiscount(const double& _discount);
 
                     /**
                      * 判断参数 Discount 是否已赋值
                      * @return Discount 是否已赋值
+                     * 
                      */
                     bool DiscountHasBeenSet() const;
 
                     /**
                      * 获取镜像折扣后总价。单位元。
                      * @return DiscountPrice 镜像折扣后总价。单位元。
+                     * 
                      */
                     double GetDiscountPrice() const;
 
                     /**
                      * 设置镜像折扣后总价。单位元。
-                     * @param DiscountPrice 镜像折扣后总价。单位元。
+                     * @param _discountPrice 镜像折扣后总价。单位元。
+                     * 
                      */
                     void SetDiscountPrice(const double& _discountPrice);
 
                     /**
                      * 判断参数 DiscountPrice 是否已赋值
                      * @return DiscountPrice 是否已赋值
+                     * 
                      */
                     bool DiscountPriceHasBeenSet() const;
 
@@ -135,7 +147,7 @@ namespace TencentCloud
                     /**
                      * 折扣。
                      */
-                    int64_t m_discount;
+                    double m_discount;
                     bool m_discountHasBeenSet;
 
                     /**

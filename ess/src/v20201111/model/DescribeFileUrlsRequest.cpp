@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,17 +23,17 @@ using namespace TencentCloud::Ess::V20201111::Model;
 using namespace std;
 
 DescribeFileUrlsRequest::DescribeFileUrlsRequest() :
-    m_businessTypeHasBeenSet(false),
     m_operatorHasBeenSet(false),
+    m_businessTypeHasBeenSet(false),
     m_businessIdsHasBeenSet(false),
-    m_fileTypeHasBeenSet(false),
     m_fileNameHasBeenSet(false),
+    m_fileTypeHasBeenSet(false),
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false),
-    m_agentHasBeenSet(false),
     m_urlTtlHasBeenSet(false),
     m_ccTokenHasBeenSet(false),
-    m_sceneHasBeenSet(false)
+    m_sceneHasBeenSet(false),
+    m_agentHasBeenSet(false)
 {
 }
 
@@ -44,14 +44,6 @@ string DescribeFileUrlsRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_businessTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BusinessType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_businessType.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_operatorHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -59,6 +51,14 @@ string DescribeFileUrlsRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_operator.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_businessTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BusinessType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_businessType.c_str(), allocator).Move(), allocator);
     }
 
     if (m_businessIdsHasBeenSet)
@@ -74,20 +74,20 @@ string DescribeFileUrlsRequest::ToJsonString() const
         }
     }
 
-    if (m_fileTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FileType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_fileType.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_fileNameHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "FileName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_fileName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_fileTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FileType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_fileType.c_str(), allocator).Move(), allocator);
     }
 
     if (m_offsetHasBeenSet)
@@ -104,15 +104,6 @@ string DescribeFileUrlsRequest::ToJsonString() const
         string key = "Limit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_limit, allocator);
-    }
-
-    if (m_agentHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Agent";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_agent.ToJsonObject(d[key.c_str()], allocator);
     }
 
     if (m_urlTtlHasBeenSet)
@@ -139,6 +130,15 @@ string DescribeFileUrlsRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_scene.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_agentHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Agent";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_agent.ToJsonObject(d[key.c_str()], allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -146,22 +146,6 @@ string DescribeFileUrlsRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-string DescribeFileUrlsRequest::GetBusinessType() const
-{
-    return m_businessType;
-}
-
-void DescribeFileUrlsRequest::SetBusinessType(const string& _businessType)
-{
-    m_businessType = _businessType;
-    m_businessTypeHasBeenSet = true;
-}
-
-bool DescribeFileUrlsRequest::BusinessTypeHasBeenSet() const
-{
-    return m_businessTypeHasBeenSet;
-}
 
 UserInfo DescribeFileUrlsRequest::GetOperator() const
 {
@@ -177,6 +161,22 @@ void DescribeFileUrlsRequest::SetOperator(const UserInfo& _operator)
 bool DescribeFileUrlsRequest::OperatorHasBeenSet() const
 {
     return m_operatorHasBeenSet;
+}
+
+string DescribeFileUrlsRequest::GetBusinessType() const
+{
+    return m_businessType;
+}
+
+void DescribeFileUrlsRequest::SetBusinessType(const string& _businessType)
+{
+    m_businessType = _businessType;
+    m_businessTypeHasBeenSet = true;
+}
+
+bool DescribeFileUrlsRequest::BusinessTypeHasBeenSet() const
+{
+    return m_businessTypeHasBeenSet;
 }
 
 vector<string> DescribeFileUrlsRequest::GetBusinessIds() const
@@ -195,22 +195,6 @@ bool DescribeFileUrlsRequest::BusinessIdsHasBeenSet() const
     return m_businessIdsHasBeenSet;
 }
 
-string DescribeFileUrlsRequest::GetFileType() const
-{
-    return m_fileType;
-}
-
-void DescribeFileUrlsRequest::SetFileType(const string& _fileType)
-{
-    m_fileType = _fileType;
-    m_fileTypeHasBeenSet = true;
-}
-
-bool DescribeFileUrlsRequest::FileTypeHasBeenSet() const
-{
-    return m_fileTypeHasBeenSet;
-}
-
 string DescribeFileUrlsRequest::GetFileName() const
 {
     return m_fileName;
@@ -225,6 +209,22 @@ void DescribeFileUrlsRequest::SetFileName(const string& _fileName)
 bool DescribeFileUrlsRequest::FileNameHasBeenSet() const
 {
     return m_fileNameHasBeenSet;
+}
+
+string DescribeFileUrlsRequest::GetFileType() const
+{
+    return m_fileType;
+}
+
+void DescribeFileUrlsRequest::SetFileType(const string& _fileType)
+{
+    m_fileType = _fileType;
+    m_fileTypeHasBeenSet = true;
+}
+
+bool DescribeFileUrlsRequest::FileTypeHasBeenSet() const
+{
+    return m_fileTypeHasBeenSet;
 }
 
 int64_t DescribeFileUrlsRequest::GetOffset() const
@@ -257,22 +257,6 @@ void DescribeFileUrlsRequest::SetLimit(const int64_t& _limit)
 bool DescribeFileUrlsRequest::LimitHasBeenSet() const
 {
     return m_limitHasBeenSet;
-}
-
-Agent DescribeFileUrlsRequest::GetAgent() const
-{
-    return m_agent;
-}
-
-void DescribeFileUrlsRequest::SetAgent(const Agent& _agent)
-{
-    m_agent = _agent;
-    m_agentHasBeenSet = true;
-}
-
-bool DescribeFileUrlsRequest::AgentHasBeenSet() const
-{
-    return m_agentHasBeenSet;
 }
 
 int64_t DescribeFileUrlsRequest::GetUrlTtl() const
@@ -321,6 +305,22 @@ void DescribeFileUrlsRequest::SetScene(const string& _scene)
 bool DescribeFileUrlsRequest::SceneHasBeenSet() const
 {
     return m_sceneHasBeenSet;
+}
+
+Agent DescribeFileUrlsRequest::GetAgent() const
+{
+    return m_agent;
+}
+
+void DescribeFileUrlsRequest::SetAgent(const Agent& _agent)
+{
+    m_agent = _agent;
+    m_agentHasBeenSet = true;
+}
+
+bool DescribeFileUrlsRequest::AgentHasBeenSet() const
+{
+    return m_agentHasBeenSet;
 }
 
 

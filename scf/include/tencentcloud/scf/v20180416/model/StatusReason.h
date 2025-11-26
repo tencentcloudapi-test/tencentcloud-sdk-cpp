@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取错误码
                      * @return ErrorCode 错误码
+                     * 
                      */
                     std::string GetErrorCode() const;
 
                     /**
                      * 设置错误码
-                     * @param ErrorCode 错误码
+                     * @param _errorCode 错误码
+                     * 
                      */
                     void SetErrorCode(const std::string& _errorCode);
 
                     /**
                      * 判断参数 ErrorCode 是否已赋值
                      * @return ErrorCode 是否已赋值
+                     * 
                      */
                     bool ErrorCodeHasBeenSet() const;
 
                     /**
                      * 获取错误描述
                      * @return ErrorMessage 错误描述
+                     * 
                      */
                     std::string GetErrorMessage() const;
 
                     /**
                      * 设置错误描述
-                     * @param ErrorMessage 错误描述
+                     * @param _errorMessage 错误描述
+                     * 
                      */
                     void SetErrorMessage(const std::string& _errorMessage);
 
                     /**
                      * 判断参数 ErrorMessage 是否已赋值
                      * @return ErrorMessage 是否已赋值
+                     * 
                      */
                     bool ErrorMessageHasBeenSet() const;
 

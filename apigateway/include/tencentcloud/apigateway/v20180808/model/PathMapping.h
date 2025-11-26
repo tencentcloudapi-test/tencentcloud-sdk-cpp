@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取路径。
                      * @return Path 路径。
+                     * 
                      */
                     std::string GetPath() const;
 
                     /**
                      * 设置路径。
-                     * @param Path 路径。
+                     * @param _path 路径。
+                     * 
                      */
                     void SetPath(const std::string& _path);
 
                     /**
                      * 判断参数 Path 是否已赋值
                      * @return Path 是否已赋值
+                     * 
                      */
                     bool PathHasBeenSet() const;
 
                     /**
                      * 获取发布环境，可选值为“test”、 ”prepub“、”release“。
                      * @return Environment 发布环境，可选值为“test”、 ”prepub“、”release“。
+                     * 
                      */
                     std::string GetEnvironment() const;
 
                     /**
                      * 设置发布环境，可选值为“test”、 ”prepub“、”release“。
-                     * @param Environment 发布环境，可选值为“test”、 ”prepub“、”release“。
+                     * @param _environment 发布环境，可选值为“test”、 ”prepub“、”release“。
+                     * 
                      */
                     void SetEnvironment(const std::string& _environment);
 
                     /**
                      * 判断参数 Environment 是否已赋值
                      * @return Environment 是否已赋值
+                     * 
                      */
                     bool EnvironmentHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取特定规格的指定时间点截图信息集合。目前每种规格只能有一套截图。
                      * @return SnapshotByTimeOffsetSet 特定规格的指定时间点截图信息集合。目前每种规格只能有一套截图。
+                     * 
                      */
                     std::vector<MediaSnapshotByTimeOffsetItem> GetSnapshotByTimeOffsetSet() const;
 
                     /**
                      * 设置特定规格的指定时间点截图信息集合。目前每种规格只能有一套截图。
-                     * @param SnapshotByTimeOffsetSet 特定规格的指定时间点截图信息集合。目前每种规格只能有一套截图。
+                     * @param _snapshotByTimeOffsetSet 特定规格的指定时间点截图信息集合。目前每种规格只能有一套截图。
+                     * 
                      */
                     void SetSnapshotByTimeOffsetSet(const std::vector<MediaSnapshotByTimeOffsetItem>& _snapshotByTimeOffsetSet);
 
                     /**
                      * 判断参数 SnapshotByTimeOffsetSet 是否已赋值
                      * @return SnapshotByTimeOffsetSet 是否已赋值
+                     * 
                      */
                     bool SnapshotByTimeOffsetSetHasBeenSet() const;
 

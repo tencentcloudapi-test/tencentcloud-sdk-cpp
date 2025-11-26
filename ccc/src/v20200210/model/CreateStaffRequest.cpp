@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 CreateStaffRequest::CreateStaffRequest() :
     m_sdkAppIdHasBeenSet(false),
-    m_staffsHasBeenSet(false)
+    m_staffsHasBeenSet(false),
+    m_sendPasswordHasBeenSet(false)
 {
 }
 
@@ -56,6 +57,14 @@ string CreateStaffRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_sendPasswordHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SendPassword";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_sendPassword, allocator);
     }
 
 
@@ -96,6 +105,22 @@ void CreateStaffRequest::SetStaffs(const vector<SeatUserInfo>& _staffs)
 bool CreateStaffRequest::StaffsHasBeenSet() const
 {
     return m_staffsHasBeenSet;
+}
+
+bool CreateStaffRequest::GetSendPassword() const
+{
+    return m_sendPassword;
+}
+
+void CreateStaffRequest::SetSendPassword(const bool& _sendPassword)
+{
+    m_sendPassword = _sendPassword;
+    m_sendPasswordHasBeenSet = true;
+}
+
+bool CreateStaffRequest::SendPasswordHasBeenSet() const
+{
+    return m_sendPasswordHasBeenSet;
 }
 
 

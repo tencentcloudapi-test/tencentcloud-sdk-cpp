@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,9 @@ ModifyAlarmPolicyNoticeRequest::ModifyAlarmPolicyNoticeRequest() :
     m_moduleHasBeenSet(false),
     m_policyIdHasBeenSet(false),
     m_noticeIdsHasBeenSet(false),
-    m_policyIdsHasBeenSet(false)
+    m_policyIdsHasBeenSet(false),
+    m_hierarchicalNoticesHasBeenSet(false),
+    m_noticeContentTmplBindInfosHasBeenSet(false)
 {
 }
 
@@ -76,6 +78,36 @@ string ModifyAlarmPolicyNoticeRequest::ToJsonString() const
         for (auto itr = m_policyIds.begin(); itr != m_policyIds.end(); ++itr)
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_hierarchicalNoticesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HierarchicalNotices";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_hierarchicalNotices.begin(); itr != m_hierarchicalNotices.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_noticeContentTmplBindInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NoticeContentTmplBindInfos";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_noticeContentTmplBindInfos.begin(); itr != m_noticeContentTmplBindInfos.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
     }
 
@@ -149,6 +181,38 @@ void ModifyAlarmPolicyNoticeRequest::SetPolicyIds(const vector<string>& _policyI
 bool ModifyAlarmPolicyNoticeRequest::PolicyIdsHasBeenSet() const
 {
     return m_policyIdsHasBeenSet;
+}
+
+vector<AlarmHierarchicalNotice> ModifyAlarmPolicyNoticeRequest::GetHierarchicalNotices() const
+{
+    return m_hierarchicalNotices;
+}
+
+void ModifyAlarmPolicyNoticeRequest::SetHierarchicalNotices(const vector<AlarmHierarchicalNotice>& _hierarchicalNotices)
+{
+    m_hierarchicalNotices = _hierarchicalNotices;
+    m_hierarchicalNoticesHasBeenSet = true;
+}
+
+bool ModifyAlarmPolicyNoticeRequest::HierarchicalNoticesHasBeenSet() const
+{
+    return m_hierarchicalNoticesHasBeenSet;
+}
+
+vector<NoticeContentTmplBindInfo> ModifyAlarmPolicyNoticeRequest::GetNoticeContentTmplBindInfos() const
+{
+    return m_noticeContentTmplBindInfos;
+}
+
+void ModifyAlarmPolicyNoticeRequest::SetNoticeContentTmplBindInfos(const vector<NoticeContentTmplBindInfo>& _noticeContentTmplBindInfos)
+{
+    m_noticeContentTmplBindInfos = _noticeContentTmplBindInfos;
+    m_noticeContentTmplBindInfosHasBeenSet = true;
+}
+
+bool ModifyAlarmPolicyNoticeRequest::NoticeContentTmplBindInfosHasBeenSet() const
+{
+    return m_noticeContentTmplBindInfosHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取扩展组件名称
                      * @return AddonName 扩展组件名称
+                     * 
                      */
                     std::string GetAddonName() const;
 
                     /**
                      * 设置扩展组件名称
-                     * @param AddonName 扩展组件名称
+                     * @param _addonName 扩展组件名称
+                     * 
                      */
                     void SetAddonName(const std::string& _addonName);
 
                     /**
                      * 判断参数 AddonName 是否已赋值
                      * @return AddonName 是否已赋值
+                     * 
                      */
                     bool AddonNameHasBeenSet() const;
 
                     /**
                      * 获取扩展组件信息(扩展组件资源对象的json字符串描述)
                      * @return AddonParam 扩展组件信息(扩展组件资源对象的json字符串描述)
+                     * 
                      */
                     std::string GetAddonParam() const;
 
                     /**
                      * 设置扩展组件信息(扩展组件资源对象的json字符串描述)
-                     * @param AddonParam 扩展组件信息(扩展组件资源对象的json字符串描述)
+                     * @param _addonParam 扩展组件信息(扩展组件资源对象的json字符串描述)
+                     * 
                      */
                     void SetAddonParam(const std::string& _addonParam);
 
                     /**
                      * 判断参数 AddonParam 是否已赋值
                      * @return AddonParam 是否已赋值
+                     * 
                      */
                     bool AddonParamHasBeenSet() const;
 

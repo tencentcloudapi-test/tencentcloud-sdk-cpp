@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,8 @@ Route::Route() :
     m_routeDescriptionHasBeenSet(false),
     m_enabledHasBeenSet(false),
     m_routeTypeHasBeenSet(false),
-    m_routeIdHasBeenSet(false)
+    m_routeIdHasBeenSet(false),
+    m_routeTableIdHasBeenSet(false)
 {
 }
 
@@ -117,6 +118,16 @@ CoreInternalOutcome Route::Deserialize(const rapidjson::Value &value)
         m_routeIdHasBeenSet = true;
     }
 
+    if (value.HasMember("RouteTableId") && !value["RouteTableId"].IsNull())
+    {
+        if (!value["RouteTableId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Route.RouteTableId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_routeTableId = string(value["RouteTableId"].GetString());
+        m_routeTableIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -186,6 +197,14 @@ void Route::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocator
         string key = "RouteId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_routeId, allocator);
+    }
+
+    if (m_routeTableIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RouteTableId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_routeTableId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -317,5 +336,21 @@ void Route::SetRouteId(const uint64_t& _routeId)
 bool Route::RouteIdHasBeenSet() const
 {
     return m_routeIdHasBeenSet;
+}
+
+string Route::GetRouteTableId() const
+{
+    return m_routeTableId;
+}
+
+void Route::SetRouteTableId(const string& _routeTableId)
+{
+    m_routeTableId = _routeTableId;
+    m_routeTableIdHasBeenSet = true;
+}
+
+bool Route::RouteTableIdHasBeenSet() const
+{
+    return m_routeTableIdHasBeenSet;
 }
 

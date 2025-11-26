@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取银行简称。
                      * @return BankCode 银行简称。
+                     * 
                      */
                     std::string GetBankCode() const;
 
                     /**
                      * 设置银行简称。
-                     * @param BankCode 银行简称。
+                     * @param _bankCode 银行简称。
+                     * 
                      */
                     void SetBankCode(const std::string& _bankCode);
 
                     /**
                      * 判断参数 BankCode 是否已赋值
                      * @return BankCode 是否已赋值
+                     * 
                      */
                     bool BankCodeHasBeenSet() const;
 
                     /**
                      * 获取银行名称。
                      * @return BankName 银行名称。
+                     * 
                      */
                     std::string GetBankName() const;
 
                     /**
                      * 设置银行名称。
-                     * @param BankName 银行名称。
+                     * @param _bankName 银行名称。
+                     * 
                      */
                     void SetBankName(const std::string& _bankName);
 
                     /**
                      * 判断参数 BankName 是否已赋值
                      * @return BankName 是否已赋值
+                     * 
                      */
                     bool BankNameHasBeenSet() const;
 
@@ -91,6 +97,7 @@ __WORKING__: 正常工作
 __MAINTAINING__: 维护中
 __WORKING__: 正常工作
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMaintainStatus() const;
 
@@ -99,16 +106,18 @@ __WORKING__: 正常工作
 __MAINTAINING__: 维护中
 __WORKING__: 正常工作
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MaintainStatus 状态。
+                     * @param _maintainStatus 状态。
 __MAINTAINING__: 维护中
 __WORKING__: 正常工作
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMaintainStatus(const std::string& _maintainStatus);
 
                     /**
                      * 判断参数 MaintainStatus 是否已赋值
                      * @return MaintainStatus 是否已赋值
+                     * 
                      */
                     bool MaintainStatusHasBeenSet() const;
 
@@ -117,22 +126,79 @@ __WORKING__: 正常工作
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return BankNotice 银行渠道维护公告。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetBankNotice() const;
 
                     /**
                      * 设置银行渠道维护公告。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param BankNotice 银行渠道维护公告。
+                     * @param _bankNotice 银行渠道维护公告。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetBankNotice(const std::string& _bankNotice);
 
                     /**
                      * 判断参数 BankNotice 是否已赋值
                      * @return BankNotice 是否已赋值
+                     * 
                      */
                     bool BankNoticeHasBeenSet() const;
+
+                    /**
+                     * 获取支持银行代码
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return BankId 支持银行代码
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetBankId() const;
+
+                    /**
+                     * 设置支持银行代码
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _bankId 支持银行代码
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetBankId(const std::string& _bankId);
+
+                    /**
+                     * 判断参数 BankId 是否已赋值
+                     * @return BankId 是否已赋值
+                     * 
+                     */
+                    bool BankIdHasBeenSet() const;
+
+                    /**
+                     * 获取卡类型。
+D：借记卡，C：信用卡，Z：借贷合一卡。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CardType 卡类型。
+D：借记卡，C：信用卡，Z：借贷合一卡。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetCardType() const;
+
+                    /**
+                     * 设置卡类型。
+D：借记卡，C：信用卡，Z：借贷合一卡。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _cardType 卡类型。
+D：借记卡，C：信用卡，Z：借贷合一卡。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetCardType(const std::string& _cardType);
+
+                    /**
+                     * 判断参数 CardType 是否已赋值
+                     * @return CardType 是否已赋值
+                     * 
+                     */
+                    bool CardTypeHasBeenSet() const;
 
                 private:
 
@@ -163,6 +229,21 @@ __WORKING__: 正常工作
                      */
                     std::string m_bankNotice;
                     bool m_bankNoticeHasBeenSet;
+
+                    /**
+                     * 支持银行代码
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_bankId;
+                    bool m_bankIdHasBeenSet;
+
+                    /**
+                     * 卡类型。
+D：借记卡，C：信用卡，Z：借贷合一卡。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_cardType;
+                    bool m_cardTypeHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取托管设备的唯一ID数组,数组个数不超过20
                      * @return InstanceIds 托管设备的唯一ID数组,数组个数不超过20
+                     * 
                      */
                     std::vector<std::string> GetInstanceIds() const;
 
                     /**
                      * 设置托管设备的唯一ID数组,数组个数不超过20
-                     * @param InstanceIds 托管设备的唯一ID数组,数组个数不超过20
+                     * @param _instanceIds 托管设备的唯一ID数组,数组个数不超过20
+                     * 
                      */
                     void SetInstanceIds(const std::vector<std::string>& _instanceIds);
 
                     /**
                      * 判断参数 InstanceIds 是否已赋值
                      * @return InstanceIds 是否已赋值
+                     * 
                      */
                     bool InstanceIdsHasBeenSet() const;
 
                     /**
                      * 获取可用区ID
                      * @return Zone 可用区ID
+                     * 
                      */
                     std::string GetZone() const;
 
                     /**
                      * 设置可用区ID
-                     * @param Zone 可用区ID
+                     * @param _zone 可用区ID
+                     * 
                      */
                     void SetZone(const std::string& _zone);
 
                     /**
                      * 判断参数 Zone 是否已赋值
                      * @return Zone 是否已赋值
+                     * 
                      */
                     bool ZoneHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,45 +44,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取路由表名称。
-                     * @return RouteTableName 路由表名称。
+                     * 获取路由表名称。与集群 ID 一致，可以到[集群控制台](https://console.cloud.tencent.com/tke2)进行复制。
+                     * @return RouteTableName 路由表名称。与集群 ID 一致，可以到[集群控制台](https://console.cloud.tencent.com/tke2)进行复制。
+                     * 
                      */
                     std::string GetRouteTableName() const;
 
                     /**
-                     * 设置路由表名称。
-                     * @param RouteTableName 路由表名称。
+                     * 设置路由表名称。与集群 ID 一致，可以到[集群控制台](https://console.cloud.tencent.com/tke2)进行复制。
+                     * @param _routeTableName 路由表名称。与集群 ID 一致，可以到[集群控制台](https://console.cloud.tencent.com/tke2)进行复制。
+                     * 
                      */
                     void SetRouteTableName(const std::string& _routeTableName);
 
                     /**
                      * 判断参数 RouteTableName 是否已赋值
                      * @return RouteTableName 是否已赋值
+                     * 
                      */
                     bool RouteTableNameHasBeenSet() const;
 
                     /**
                      * 获取过滤条件,当前只支持按照单个条件GatewayIP进行过滤（可选）
                      * @return Filters 过滤条件,当前只支持按照单个条件GatewayIP进行过滤（可选）
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
                      * 设置过滤条件,当前只支持按照单个条件GatewayIP进行过滤（可选）
-                     * @param Filters 过滤条件,当前只支持按照单个条件GatewayIP进行过滤（可选）
+                     * @param _filters 过滤条件,当前只支持按照单个条件GatewayIP进行过滤（可选）
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 路由表名称。
+                     * 路由表名称。与集群 ID 一致，可以到[集群控制台](https://console.cloud.tencent.com/tke2)进行复制。
                      */
                     std::string m_routeTableName;
                     bool m_routeTableNameHasBeenSet;

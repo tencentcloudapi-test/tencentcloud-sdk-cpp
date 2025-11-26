@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取可视化节点个数，固定为1
                      * @return NodeNum 可视化节点个数，固定为1
+                     * 
                      */
                     uint64_t GetNodeNum() const;
 
                     /**
                      * 设置可视化节点个数，固定为1
-                     * @param NodeNum 可视化节点个数，固定为1
+                     * @param _nodeNum 可视化节点个数，固定为1
+                     * 
                      */
                     void SetNodeNum(const uint64_t& _nodeNum);
 
                     /**
                      * 判断参数 NodeNum 是否已赋值
                      * @return NodeNum 是否已赋值
+                     * 
                      */
                     bool NodeNumHasBeenSet() const;
 
                     /**
                      * 获取可视化节点规格
                      * @return NodeType 可视化节点规格
+                     * 
                      */
                     std::string GetNodeType() const;
 
                     /**
                      * 设置可视化节点规格
-                     * @param NodeType 可视化节点规格
+                     * @param _nodeType 可视化节点规格
+                     * 
                      */
                     void SetNodeType(const std::string& _nodeType);
 
                     /**
                      * 判断参数 NodeType 是否已赋值
                      * @return NodeType 是否已赋值
+                     * 
                      */
                     bool NodeTypeHasBeenSet() const;
 

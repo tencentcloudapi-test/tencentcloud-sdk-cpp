@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,45 +45,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取ip状态信息
-                     * @return StatusList ip状态信息
+                     * 获取IP状态信息
+                     * @return StatusList IP状态信息
+                     * 
                      */
                     std::vector<IPDefendStatus> GetStatusList() const;
 
                     /**
                      * 判断参数 StatusList 是否已赋值
                      * @return StatusList 是否已赋值
+                     * 
                      */
                     bool StatusListHasBeenSet() const;
 
                     /**
                      * 获取状态码
                      * @return ReturnCode 状态码
+                     * 
                      */
                     int64_t GetReturnCode() const;
 
                     /**
                      * 判断参数 ReturnCode 是否已赋值
                      * @return ReturnCode 是否已赋值
+                     * 
                      */
                     bool ReturnCodeHasBeenSet() const;
 
                     /**
                      * 获取状态信息
                      * @return ReturnMsg 状态信息
+                     * 
                      */
                     std::string GetReturnMsg() const;
 
                     /**
                      * 判断参数 ReturnMsg 是否已赋值
                      * @return ReturnMsg 是否已赋值
+                     * 
                      */
                     bool ReturnMsgHasBeenSet() const;
 
                 private:
 
                     /**
-                     * ip状态信息
+                     * IP状态信息
                      */
                     std::vector<IPDefendStatus> m_statusList;
                     bool m_statusListHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,102 +43,141 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID
-                     * @return InstanceId 实例ID
+                     * 获取业务系统 ID
+                     * @return InstanceId 业务系统 ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * 设置业务系统 ID
+                     * @param _instanceId 业务系统 ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取接入方式
-                     * @return AgentType 接入方式
+                     * 获取接入方式，现支持 skywalking, ot, ebpf 方式接入上报，不填默认为 ot
+                     * @return AgentType 接入方式，现支持 skywalking, ot, ebpf 方式接入上报，不填默认为 ot
+                     * 
                      */
                     std::string GetAgentType() const;
 
                     /**
-                     * 设置接入方式
-                     * @param AgentType 接入方式
+                     * 设置接入方式，现支持 skywalking, ot, ebpf 方式接入上报，不填默认为 ot
+                     * @param _agentType 接入方式，现支持 skywalking, ot, ebpf 方式接入上报，不填默认为 ot
+                     * 
                      */
                     void SetAgentType(const std::string& _agentType);
 
                     /**
                      * 判断参数 AgentType 是否已赋值
                      * @return AgentType 是否已赋值
+                     * 
                      */
                     bool AgentTypeHasBeenSet() const;
 
                     /**
-                     * 获取环境
-                     * @return NetworkMode 环境
+                     * 获取上报环境，现支持 pl (内网上报), public (外网), inner (自研 VPC )环境上报，不传默认为 public
+                     * @return NetworkMode 上报环境，现支持 pl (内网上报), public (外网), inner (自研 VPC )环境上报，不传默认为 public
+                     * 
                      */
                     std::string GetNetworkMode() const;
 
                     /**
-                     * 设置环境
-                     * @param NetworkMode 环境
+                     * 设置上报环境，现支持 pl (内网上报), public (外网), inner (自研 VPC )环境上报，不传默认为 public
+                     * @param _networkMode 上报环境，现支持 pl (内网上报), public (外网), inner (自研 VPC )环境上报，不传默认为 public
+                     * 
                      */
                     void SetNetworkMode(const std::string& _networkMode);
 
                     /**
                      * 判断参数 NetworkMode 是否已赋值
                      * @return NetworkMode 是否已赋值
+                     * 
                      */
                     bool NetworkModeHasBeenSet() const;
 
                     /**
-                     * 获取语言
-                     * @return LanguageEnvironment 语言
+                     * 获取语言，现支持 java, golang, php, python, dotNet, nodejs 语言上报，不传默认为 golang
+                     * @return LanguageEnvironment 语言，现支持 java, golang, php, python, dotNet, nodejs 语言上报，不传默认为 golang
+                     * 
                      */
                     std::string GetLanguageEnvironment() const;
 
                     /**
-                     * 设置语言
-                     * @param LanguageEnvironment 语言
+                     * 设置语言，现支持 java, golang, php, python, dotNet, nodejs 语言上报，不传默认为 golang
+                     * @param _languageEnvironment 语言，现支持 java, golang, php, python, dotNet, nodejs 语言上报，不传默认为 golang
+                     * 
                      */
                     void SetLanguageEnvironment(const std::string& _languageEnvironment);
 
                     /**
                      * 判断参数 LanguageEnvironment 是否已赋值
                      * @return LanguageEnvironment 是否已赋值
+                     * 
                      */
                     bool LanguageEnvironmentHasBeenSet() const;
+
+                    /**
+                     * 获取上报方式，已弃用
+                     * @return ReportMethod 上报方式，已弃用
+                     * 
+                     */
+                    std::string GetReportMethod() const;
+
+                    /**
+                     * 设置上报方式，已弃用
+                     * @param _reportMethod 上报方式，已弃用
+                     * 
+                     */
+                    void SetReportMethod(const std::string& _reportMethod);
+
+                    /**
+                     * 判断参数 ReportMethod 是否已赋值
+                     * @return ReportMethod 是否已赋值
+                     * 
+                     */
+                    bool ReportMethodHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID
+                     * 业务系统 ID
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 接入方式
+                     * 接入方式，现支持 skywalking, ot, ebpf 方式接入上报，不填默认为 ot
                      */
                     std::string m_agentType;
                     bool m_agentTypeHasBeenSet;
 
                     /**
-                     * 环境
+                     * 上报环境，现支持 pl (内网上报), public (外网), inner (自研 VPC )环境上报，不传默认为 public
                      */
                     std::string m_networkMode;
                     bool m_networkModeHasBeenSet;
 
                     /**
-                     * 语言
+                     * 语言，现支持 java, golang, php, python, dotNet, nodejs 语言上报，不传默认为 golang
                      */
                     std::string m_languageEnvironment;
                     bool m_languageEnvironmentHasBeenSet;
+
+                    /**
+                     * 上报方式，已弃用
+                     */
+                    std::string m_reportMethod;
+                    bool m_reportMethodHasBeenSet;
 
                 };
             }

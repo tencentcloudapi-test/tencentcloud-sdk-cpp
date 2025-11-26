@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mrs/v20200910/model/Organ.h>
 #include <tencentcloud/mrs/v20200910/model/TuberInfo.h>
+#include <tencentcloud/mrs/v20200910/model/Coord.h>
 
 
 namespace TencentCloud
@@ -50,92 +51,113 @@ namespace TencentCloud
 
                     /**
                      * 获取描述
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Text 描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetText() const;
 
                     /**
                      * 设置描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Text 描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _text 描述
+                     * 
                      */
                     void SetText(const std::string& _text);
 
                     /**
                      * 判断参数 Text 是否已赋值
                      * @return Text 是否已赋值
+                     * 
                      */
                     bool TextHasBeenSet() const;
 
                     /**
                      * 获取器官
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Organ 器官
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Organ> GetOrgan() const;
 
                     /**
                      * 设置器官
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Organ 器官
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _organ 器官
+                     * 
                      */
                     void SetOrgan(const std::vector<Organ>& _organ);
 
                     /**
                      * 判断参数 Organ 是否已赋值
                      * @return Organ 是否已赋值
+                     * 
                      */
                     bool OrganHasBeenSet() const;
 
                     /**
                      * 获取结节
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Tuber 结节
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<TuberInfo> GetTuber() const;
 
                     /**
                      * 设置结节
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Tuber 结节
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tuber 结节
+                     * 
                      */
                     void SetTuber(const std::vector<TuberInfo>& _tuber);
 
                     /**
                      * 判断参数 Tuber 是否已赋值
                      * @return Tuber 是否已赋值
+                     * 
                      */
                     bool TuberHasBeenSet() const;
+
+                    /**
+                     * 获取坐标
+                     * @return Coords 坐标
+                     * 
+                     */
+                    std::vector<Coord> GetCoords() const;
+
+                    /**
+                     * 设置坐标
+                     * @param _coords 坐标
+                     * 
+                     */
+                    void SetCoords(const std::vector<Coord>& _coords);
+
+                    /**
+                     * 判断参数 Coords 是否已赋值
+                     * @return Coords 是否已赋值
+                     * 
+                     */
+                    bool CoordsHasBeenSet() const;
 
                 private:
 
                     /**
                      * 描述
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_text;
                     bool m_textHasBeenSet;
 
                     /**
                      * 器官
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Organ> m_organ;
                     bool m_organHasBeenSet;
 
                     /**
                      * 结节
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<TuberInfo> m_tuber;
                     bool m_tuberHasBeenSet;
+
+                    /**
+                     * 坐标
+                     */
+                    std::vector<Coord> m_coords;
+                    bool m_coordsHasBeenSet;
 
                 };
             }

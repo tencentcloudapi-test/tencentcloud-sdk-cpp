@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,33 +44,37 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取版本号列表。
-                     * @return VersionIDs 版本号列表。
+                     * 获取版本号列表
+                     * @return VersionIDs 版本号列表
+                     * 
                      */
                     std::vector<std::string> GetVersionIDs() const;
 
                     /**
                      * 判断参数 VersionIDs 是否已赋值
                      * @return VersionIDs 是否已赋值
+                     * 
                      */
                     bool VersionIDsHasBeenSet() const;
 
                     /**
                      * 获取版本号个数，可以给用户展示的版本号个数上限为10个。
                      * @return TotalCount 版本号个数，可以给用户展示的版本号个数上限为10个。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 版本号列表。
+                     * 版本号列表
                      */
                     std::vector<std::string> m_versionIDs;
                     bool m_versionIDsHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 单节点单 IP 访问限频配置，默认为关闭状态 
+                * 单节点单 IP 访问限频配置，默认为关闭状态
                 */
                 class IpFreqLimit : public AbstractModel
                 {
@@ -47,28 +47,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取IP 限频配置开关
+                     * 获取IP 限频配置开关，取值有：
 on：开启
 off：关闭
-                     * @return Switch IP 限频配置开关
+                     * @return Switch IP 限频配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置IP 限频配置开关
+                     * 设置IP 限频配置开关，取值有：
 on：开启
 off：关闭
-                     * @param Switch IP 限频配置开关
+                     * @param _switch IP 限频配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -79,6 +82,7 @@ off：关闭
                      * @return Qps 设置每秒请求数限制
 超出限制的请求会直接返回 514
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetQps() const;
 
@@ -86,22 +90,24 @@ off：关闭
                      * 设置设置每秒请求数限制
 超出限制的请求会直接返回 514
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Qps 设置每秒请求数限制
+                     * @param _qps 设置每秒请求数限制
 超出限制的请求会直接返回 514
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetQps(const int64_t& _qps);
 
                     /**
                      * 判断参数 Qps 是否已赋值
                      * @return Qps 是否已赋值
+                     * 
                      */
                     bool QpsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * IP 限频配置开关
+                     * IP 限频配置开关，取值有：
 on：开启
 off：关闭
                      */

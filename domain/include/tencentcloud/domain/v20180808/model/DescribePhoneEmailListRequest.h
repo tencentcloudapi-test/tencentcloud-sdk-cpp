@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取0：所有类型  1：手机  2：邮箱，默认0
                      * @return Type 0：所有类型  1：手机  2：邮箱，默认0
+                     * 
                      */
                     uint64_t GetType() const;
 
                     /**
                      * 设置0：所有类型  1：手机  2：邮箱，默认0
-                     * @param Type 0：所有类型  1：手机  2：邮箱，默认0
+                     * @param _type 0：所有类型  1：手机  2：邮箱，默认0
+                     * 
                      */
                     void SetType(const uint64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取偏移量，默认为0
                      * @return Offset 偏移量，默认为0
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，默认为0
-                     * @param Offset 偏移量，默认为0
+                     * @param _offset 偏移量，默认为0
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取返回数量，默认为20，取值范围[1,200]
                      * @return Limit 返回数量，默认为20，取值范围[1,200]
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置返回数量，默认为20，取值范围[1,200]
-                     * @param Limit 返回数量，默认为20，取值范围[1,200]
+                     * @param _limit 返回数量，默认为20，取值范围[1,200]
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取手机或者邮箱精确搜索
-                     * @return Code 手机或者邮箱精确搜索
+                     * 获取手机或者邮箱，用于精确搜索
+                     * @return Code 手机或者邮箱，用于精确搜索
+                     * 
                      */
                     std::string GetCode() const;
 
                     /**
-                     * 设置手机或者邮箱精确搜索
-                     * @param Code 手机或者邮箱精确搜索
+                     * 设置手机或者邮箱，用于精确搜索
+                     * @param _code 手机或者邮箱，用于精确搜索
+                     * 
                      */
                     void SetCode(const std::string& _code);
 
                     /**
                      * 判断参数 Code 是否已赋值
                      * @return Code 是否已赋值
+                     * 
                      */
                     bool CodeHasBeenSet() const;
 
@@ -135,7 +147,7 @@ namespace TencentCloud
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 手机或者邮箱精确搜索
+                     * 手机或者邮箱，用于精确搜索
                      */
                     std::string m_code;
                     bool m_codeHasBeenSet;

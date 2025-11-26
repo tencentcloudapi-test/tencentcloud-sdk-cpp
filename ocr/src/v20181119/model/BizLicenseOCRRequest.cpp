@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,10 @@ using namespace std;
 
 BizLicenseOCRRequest::BizLicenseOCRRequest() :
     m_imageBase64HasBeenSet(false),
-    m_imageUrlHasBeenSet(false)
+    m_imageUrlHasBeenSet(false),
+    m_enableCopyWarnHasBeenSet(false),
+    m_enablePeriodCompleteHasBeenSet(false),
+    m_enableBusinessCertificateHasBeenSet(false)
 {
 }
 
@@ -49,6 +52,30 @@ string BizLicenseOCRRequest::ToJsonString() const
         string key = "ImageUrl";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_imageUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enableCopyWarnHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableCopyWarn";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableCopyWarn, allocator);
+    }
+
+    if (m_enablePeriodCompleteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnablePeriodComplete";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enablePeriodComplete, allocator);
+    }
+
+    if (m_enableBusinessCertificateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableBusinessCertificate";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableBusinessCertificate, allocator);
     }
 
 
@@ -89,6 +116,54 @@ void BizLicenseOCRRequest::SetImageUrl(const string& _imageUrl)
 bool BizLicenseOCRRequest::ImageUrlHasBeenSet() const
 {
     return m_imageUrlHasBeenSet;
+}
+
+bool BizLicenseOCRRequest::GetEnableCopyWarn() const
+{
+    return m_enableCopyWarn;
+}
+
+void BizLicenseOCRRequest::SetEnableCopyWarn(const bool& _enableCopyWarn)
+{
+    m_enableCopyWarn = _enableCopyWarn;
+    m_enableCopyWarnHasBeenSet = true;
+}
+
+bool BizLicenseOCRRequest::EnableCopyWarnHasBeenSet() const
+{
+    return m_enableCopyWarnHasBeenSet;
+}
+
+bool BizLicenseOCRRequest::GetEnablePeriodComplete() const
+{
+    return m_enablePeriodComplete;
+}
+
+void BizLicenseOCRRequest::SetEnablePeriodComplete(const bool& _enablePeriodComplete)
+{
+    m_enablePeriodComplete = _enablePeriodComplete;
+    m_enablePeriodCompleteHasBeenSet = true;
+}
+
+bool BizLicenseOCRRequest::EnablePeriodCompleteHasBeenSet() const
+{
+    return m_enablePeriodCompleteHasBeenSet;
+}
+
+bool BizLicenseOCRRequest::GetEnableBusinessCertificate() const
+{
+    return m_enableBusinessCertificate;
+}
+
+void BizLicenseOCRRequest::SetEnableBusinessCertificate(const bool& _enableBusinessCertificate)
+{
+    m_enableBusinessCertificate = _enableBusinessCertificate;
+    m_enableBusinessCertificateHasBeenSet = true;
+}
+
+bool BizLicenseOCRRequest::EnableBusinessCertificateHasBeenSet() const
+{
+    return m_enableBusinessCertificateHasBeenSet;
 }
 
 

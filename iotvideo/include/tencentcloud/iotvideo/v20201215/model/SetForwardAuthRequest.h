@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取控制台Skey
                      * @return Skey 控制台Skey
+                     * 
                      */
                     std::string GetSkey() const;
 
                     /**
                      * 设置控制台Skey
-                     * @param Skey 控制台Skey
+                     * @param _skey 控制台Skey
+                     * 
                      */
                     void SetSkey(const std::string& _skey);
 
                     /**
                      * 判断参数 Skey 是否已赋值
                      * @return Skey 是否已赋值
+                     * 
                      */
                     bool SkeyHasBeenSet() const;
 
                     /**
                      * 获取消息队列类型  0.CMQ 1.CKafka
                      * @return QueueType 消息队列类型  0.CMQ 1.CKafka
+                     * 
                      */
                     uint64_t GetQueueType() const;
 
                     /**
                      * 设置消息队列类型  0.CMQ 1.CKafka
-                     * @param QueueType 消息队列类型  0.CMQ 1.CKafka
+                     * @param _queueType 消息队列类型  0.CMQ 1.CKafka
+                     * 
                      */
                     void SetQueueType(const uint64_t& _queueType);
 
                     /**
                      * 判断参数 QueueType 是否已赋值
                      * @return QueueType 是否已赋值
+                     * 
                      */
                     bool QueueTypeHasBeenSet() const;
 

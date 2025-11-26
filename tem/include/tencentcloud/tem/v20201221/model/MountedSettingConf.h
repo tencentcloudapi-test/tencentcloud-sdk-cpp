@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取配置名称
                      * @return ConfigDataName 配置名称
+                     * 
                      */
                     std::string GetConfigDataName() const;
 
                     /**
                      * 设置配置名称
-                     * @param ConfigDataName 配置名称
+                     * @param _configDataName 配置名称
+                     * 
                      */
                     void SetConfigDataName(const std::string& _configDataName);
 
                     /**
                      * 判断参数 ConfigDataName 是否已赋值
                      * @return ConfigDataName 是否已赋值
+                     * 
                      */
                     bool ConfigDataNameHasBeenSet() const;
 
                     /**
                      * 获取挂载路径
                      * @return MountedPath 挂载路径
+                     * 
                      */
                     std::string GetMountedPath() const;
 
                     /**
                      * 设置挂载路径
-                     * @param MountedPath 挂载路径
+                     * @param _mountedPath 挂载路径
+                     * 
                      */
                     void SetMountedPath(const std::string& _mountedPath);
 
                     /**
                      * 判断参数 MountedPath 是否已赋值
                      * @return MountedPath 是否已赋值
+                     * 
                      */
                     bool MountedPathHasBeenSet() const;
 
                     /**
                      * 获取配置内容
                      * @return Data 配置内容
+                     * 
                      */
                     std::vector<Pair> GetData() const;
 
                     /**
                      * 设置配置内容
-                     * @param Data 配置内容
+                     * @param _data 配置内容
+                     * 
                      */
                     void SetData(const std::vector<Pair>& _data);
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 

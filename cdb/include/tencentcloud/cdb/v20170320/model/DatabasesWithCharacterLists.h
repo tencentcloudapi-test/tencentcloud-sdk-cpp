@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取数据库名
                      * @return DatabaseName 数据库名
+                     * 
                      */
                     std::string GetDatabaseName() const;
 
                     /**
                      * 设置数据库名
-                     * @param DatabaseName 数据库名
+                     * @param _databaseName 数据库名
+                     * 
                      */
                     void SetDatabaseName(const std::string& _databaseName);
 
                     /**
                      * 判断参数 DatabaseName 是否已赋值
                      * @return DatabaseName 是否已赋值
+                     * 
                      */
                     bool DatabaseNameHasBeenSet() const;
 
                     /**
                      * 获取字符集类型
                      * @return CharacterSet 字符集类型
+                     * 
                      */
                     std::string GetCharacterSet() const;
 
                     /**
                      * 设置字符集类型
-                     * @param CharacterSet 字符集类型
+                     * @param _characterSet 字符集类型
+                     * 
                      */
                     void SetCharacterSet(const std::string& _characterSet);
 
                     /**
                      * 判断参数 CharacterSet 是否已赋值
                      * @return CharacterSet 是否已赋值
+                     * 
                      */
                     bool CharacterSetHasBeenSet() const;
 

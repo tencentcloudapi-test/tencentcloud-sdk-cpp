@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取私有网络ID，形如vpc-xxx。
                      * @return VpcId 私有网络ID，形如vpc-xxx。
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置私有网络ID，形如vpc-xxx。
-                     * @param VpcId 私有网络ID，形如vpc-xxx。
+                     * @param _vpcId 私有网络ID，形如vpc-xxx。
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取私有网络子网ID，形如subnet-xxx。
                      * @return SubnetId 私有网络子网ID，形如subnet-xxx。
+                     * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
                      * 设置私有网络子网ID，形如subnet-xxx。
-                     * @param SubnetId 私有网络子网ID，形如subnet-xxx。
+                     * @param _subnetId 私有网络子网ID，形如subnet-xxx。
+                     * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
 
                     /**
                      * 判断参数 SubnetId 是否已赋值
                      * @return SubnetId 是否已赋值
+                     * 
                      */
                     bool SubnetIdHasBeenSet() const;
 
@@ -93,6 +99,7 @@ TRUE：表示用作公网网关
 FALSE：表示不用作公网网关
 
 默认取值：FALSE。
+                     * 
                      */
                     bool GetAsVpcGateway() const;
 
@@ -102,55 +109,88 @@ TRUE：表示用作公网网关
 FALSE：表示不用作公网网关
 
 默认取值：FALSE。
-                     * @param AsVpcGateway 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：
+                     * @param _asVpcGateway 是否用作公网网关。公网网关只有在实例拥有公网IP以及处于私有网络下时才能正常使用。取值范围：
 TRUE：表示用作公网网关
 FALSE：表示不用作公网网关
 
 默认取值：FALSE。
+                     * 
                      */
                     void SetAsVpcGateway(const bool& _asVpcGateway);
 
                     /**
                      * 判断参数 AsVpcGateway 是否已赋值
                      * @return AsVpcGateway 是否已赋值
+                     * 
                      */
                     bool AsVpcGatewayHasBeenSet() const;
 
                     /**
                      * 获取私有网络子网 IP 数组，在创建实例、修改实例vpc属性操作中可使用此参数。
                      * @return PrivateIpAddresses 私有网络子网 IP 数组，在创建实例、修改实例vpc属性操作中可使用此参数。
+                     * 
                      */
                     std::vector<std::string> GetPrivateIpAddresses() const;
 
                     /**
                      * 设置私有网络子网 IP 数组，在创建实例、修改实例vpc属性操作中可使用此参数。
-                     * @param PrivateIpAddresses 私有网络子网 IP 数组，在创建实例、修改实例vpc属性操作中可使用此参数。
+                     * @param _privateIpAddresses 私有网络子网 IP 数组，在创建实例、修改实例vpc属性操作中可使用此参数。
+                     * 
                      */
                     void SetPrivateIpAddresses(const std::vector<std::string>& _privateIpAddresses);
 
                     /**
                      * 判断参数 PrivateIpAddresses 是否已赋值
                      * @return PrivateIpAddresses 是否已赋值
+                     * 
                      */
                     bool PrivateIpAddressesHasBeenSet() const;
 
                     /**
                      * 获取为弹性网卡指定随机生成的 IPv6 地址数量。
                      * @return Ipv6AddressCount 为弹性网卡指定随机生成的 IPv6 地址数量。
+                     * 
                      */
                     int64_t GetIpv6AddressCount() const;
 
                     /**
                      * 设置为弹性网卡指定随机生成的 IPv6 地址数量。
-                     * @param Ipv6AddressCount 为弹性网卡指定随机生成的 IPv6 地址数量。
+                     * @param _ipv6AddressCount 为弹性网卡指定随机生成的 IPv6 地址数量。
+                     * 
                      */
                     void SetIpv6AddressCount(const int64_t& _ipv6AddressCount);
 
                     /**
                      * 判断参数 Ipv6AddressCount 是否已赋值
                      * @return Ipv6AddressCount 是否已赋值
+                     * 
                      */
                     bool Ipv6AddressCountHasBeenSet() const;
+
+                    /**
+                     * 获取runInstances接口创建三网ipv6地址使用
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Ipv6SubnetIds runInstances接口创建三网ipv6地址使用
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<std::string> GetIpv6SubnetIds() const;
+
+                    /**
+                     * 设置runInstances接口创建三网ipv6地址使用
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _ipv6SubnetIds runInstances接口创建三网ipv6地址使用
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetIpv6SubnetIds(const std::vector<std::string>& _ipv6SubnetIds);
+
+                    /**
+                     * 判断参数 Ipv6SubnetIds 是否已赋值
+                     * @return Ipv6SubnetIds 是否已赋值
+                     * 
+                     */
+                    bool Ipv6SubnetIdsHasBeenSet() const;
 
                 private:
 
@@ -187,6 +227,13 @@ FALSE：表示不用作公网网关
                      */
                     int64_t m_ipv6AddressCount;
                     bool m_ipv6AddressCountHasBeenSet;
+
+                    /**
+                     * runInstances接口创建三网ipv6地址使用
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<std::string> m_ipv6SubnetIds;
+                    bool m_ipv6SubnetIdsHasBeenSet;
 
                 };
             }

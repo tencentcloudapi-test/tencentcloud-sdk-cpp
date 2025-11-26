@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取VPC id
                      * @return VpcId VPC id
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置VPC id
-                     * @param VpcId VPC id
+                     * @param _vpcId VPC id
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取查询个数限制，不填或小于等于0，等于不限制
                      * @return Limit 查询个数限制，不填或小于等于0，等于不限制
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置查询个数限制，不填或小于等于0，等于不限制
-                     * @param Limit 查询个数限制，不填或小于等于0，等于不限制
+                     * @param _limit 查询个数限制，不填或小于等于0，等于不限制
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 

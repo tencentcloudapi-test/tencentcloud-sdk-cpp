@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取用户在房间得进出时间列表
                      * @return InOutList 用户在房间得进出时间列表
+                     * 
                      */
                     std::vector<InOutTimeInfo> GetInOutList() const;
 
                     /**
                      * 判断参数 InOutList 是否已赋值
                      * @return InOutList 是否已赋值
+                     * 
                      */
                     bool InOutListHasBeenSet() const;
 
                     /**
                      * 获取用户在房间中总时长
                      * @return Duration 用户在房间中总时长
+                     * 
                      */
                     int64_t GetDuration() const;
 
                     /**
                      * 判断参数 Duration 是否已赋值
                      * @return Duration 是否已赋值
+                     * 
                      */
                     bool DurationHasBeenSet() const;
 

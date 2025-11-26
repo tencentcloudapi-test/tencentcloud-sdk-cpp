@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,21 +44,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取专用通道ID
-                     * @return DirectConnectTunnelIdSet 专用通道ID
+                     * 获取专用通道ID。
+                     * @return DirectConnectTunnelIdSet 专用通道ID。
+                     * 
                      */
                     std::vector<std::string> GetDirectConnectTunnelIdSet() const;
 
                     /**
                      * 判断参数 DirectConnectTunnelIdSet 是否已赋值
                      * @return DirectConnectTunnelIdSet 是否已赋值
+                     * 
                      */
                     bool DirectConnectTunnelIdSetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 专用通道ID
+                     * 专用通道ID。
                      */
                     std::vector<std::string> m_directConnectTunnelIdSet;
                     bool m_directConnectTunnelIdSetHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,12 @@ AbstractRuntimeMC::AbstractRuntimeMC() :
     m_typeHasBeenSet(false),
     m_zoneHasBeenSet(false),
     m_areaHasBeenSet(false),
-    m_addrHasBeenSet(false)
+    m_addrHasBeenSet(false),
+    m_statusHasBeenSet(false),
+    m_expiredAtHasBeenSet(false),
+    m_runtimeClassHasBeenSet(false),
+    m_deployedHasBeenSet(false),
+    m_matchExtensionsHasBeenSet(false)
 {
 }
 
@@ -95,6 +100,56 @@ CoreInternalOutcome AbstractRuntimeMC::Deserialize(const rapidjson::Value &value
         m_addrHasBeenSet = true;
     }
 
+    if (value.HasMember("Status") && !value["Status"].IsNull())
+    {
+        if (!value["Status"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbstractRuntimeMC.Status` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_status = value["Status"].GetInt64();
+        m_statusHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExpiredAt") && !value["ExpiredAt"].IsNull())
+    {
+        if (!value["ExpiredAt"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbstractRuntimeMC.ExpiredAt` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_expiredAt = value["ExpiredAt"].GetInt64();
+        m_expiredAtHasBeenSet = true;
+    }
+
+    if (value.HasMember("RuntimeClass") && !value["RuntimeClass"].IsNull())
+    {
+        if (!value["RuntimeClass"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbstractRuntimeMC.RuntimeClass` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_runtimeClass = value["RuntimeClass"].GetInt64();
+        m_runtimeClassHasBeenSet = true;
+    }
+
+    if (value.HasMember("Deployed") && !value["Deployed"].IsNull())
+    {
+        if (!value["Deployed"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbstractRuntimeMC.Deployed` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_deployed = value["Deployed"].GetBool();
+        m_deployedHasBeenSet = true;
+    }
+
+    if (value.HasMember("MatchExtensions") && !value["MatchExtensions"].IsNull())
+    {
+        if (!value["MatchExtensions"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AbstractRuntimeMC.MatchExtensions` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_matchExtensions = string(value["MatchExtensions"].GetString());
+        m_matchExtensionsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -148,6 +203,46 @@ void AbstractRuntimeMC::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "Addr";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_addr.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_statusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Status";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_status, allocator);
+    }
+
+    if (m_expiredAtHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExpiredAt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_expiredAt, allocator);
+    }
+
+    if (m_runtimeClassHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuntimeClass";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_runtimeClass, allocator);
+    }
+
+    if (m_deployedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Deployed";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deployed, allocator);
+    }
+
+    if (m_matchExtensionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MatchExtensions";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_matchExtensions.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -247,5 +342,85 @@ void AbstractRuntimeMC::SetAddr(const string& _addr)
 bool AbstractRuntimeMC::AddrHasBeenSet() const
 {
     return m_addrHasBeenSet;
+}
+
+int64_t AbstractRuntimeMC::GetStatus() const
+{
+    return m_status;
+}
+
+void AbstractRuntimeMC::SetStatus(const int64_t& _status)
+{
+    m_status = _status;
+    m_statusHasBeenSet = true;
+}
+
+bool AbstractRuntimeMC::StatusHasBeenSet() const
+{
+    return m_statusHasBeenSet;
+}
+
+int64_t AbstractRuntimeMC::GetExpiredAt() const
+{
+    return m_expiredAt;
+}
+
+void AbstractRuntimeMC::SetExpiredAt(const int64_t& _expiredAt)
+{
+    m_expiredAt = _expiredAt;
+    m_expiredAtHasBeenSet = true;
+}
+
+bool AbstractRuntimeMC::ExpiredAtHasBeenSet() const
+{
+    return m_expiredAtHasBeenSet;
+}
+
+int64_t AbstractRuntimeMC::GetRuntimeClass() const
+{
+    return m_runtimeClass;
+}
+
+void AbstractRuntimeMC::SetRuntimeClass(const int64_t& _runtimeClass)
+{
+    m_runtimeClass = _runtimeClass;
+    m_runtimeClassHasBeenSet = true;
+}
+
+bool AbstractRuntimeMC::RuntimeClassHasBeenSet() const
+{
+    return m_runtimeClassHasBeenSet;
+}
+
+bool AbstractRuntimeMC::GetDeployed() const
+{
+    return m_deployed;
+}
+
+void AbstractRuntimeMC::SetDeployed(const bool& _deployed)
+{
+    m_deployed = _deployed;
+    m_deployedHasBeenSet = true;
+}
+
+bool AbstractRuntimeMC::DeployedHasBeenSet() const
+{
+    return m_deployedHasBeenSet;
+}
+
+string AbstractRuntimeMC::GetMatchExtensions() const
+{
+    return m_matchExtensions;
+}
+
+void AbstractRuntimeMC::SetMatchExtensions(const string& _matchExtensions)
+{
+    m_matchExtensions = _matchExtensions;
+    m_matchExtensionsHasBeenSet = true;
+}
+
+bool AbstractRuntimeMC::MatchExtensionsHasBeenSet() const
+{
+    return m_matchExtensionsHasBeenSet;
 }
 

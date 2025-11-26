@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,65 @@ namespace TencentCloud
                     /**
                      * 获取指定的检测项的ID
                      * @return CustomerPolicyItemId 指定的检测项的ID
+                     * 
                      */
                     uint64_t GetCustomerPolicyItemId() const;
 
                     /**
                      * 设置指定的检测项的ID
-                     * @param CustomerPolicyItemId 指定的检测项的ID
+                     * @param _customerPolicyItemId 指定的检测项的ID
+                     * 
                      */
                     void SetCustomerPolicyItemId(const uint64_t& _customerPolicyItemId);
 
                     /**
                      * 判断参数 CustomerPolicyItemId 是否已赋值
                      * @return CustomerPolicyItemId 是否已赋值
+                     * 
                      */
                     bool CustomerPolicyItemIdHasBeenSet() const;
 
                     /**
                      * 获取要重新扫描的客户资产项ID的列表。
                      * @return CustomerAssetIdSet 要重新扫描的客户资产项ID的列表。
+                     * 
                      */
                     std::vector<uint64_t> GetCustomerAssetIdSet() const;
 
                     /**
                      * 设置要重新扫描的客户资产项ID的列表。
-                     * @param CustomerAssetIdSet 要重新扫描的客户资产项ID的列表。
+                     * @param _customerAssetIdSet 要重新扫描的客户资产项ID的列表。
+                     * 
                      */
                     void SetCustomerAssetIdSet(const std::vector<uint64_t>& _customerAssetIdSet);
 
                     /**
                      * 判断参数 CustomerAssetIdSet 是否已赋值
                      * @return CustomerAssetIdSet 是否已赋值
+                     * 
                      */
                     bool CustomerAssetIdSetHasBeenSet() const;
+
+                    /**
+                     * 获取扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+                     * @return AssetType 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+                     * 
+                     */
+                    std::string GetAssetType() const;
+
+                    /**
+                     * 设置扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+                     * @param _assetType 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+                     * 
+                     */
+                    void SetAssetType(const std::string& _assetType);
+
+                    /**
+                     * 判断参数 AssetType 是否已赋值
+                     * @return AssetType 是否已赋值
+                     * 
+                     */
+                    bool AssetTypeHasBeenSet() const;
 
                 private:
 
@@ -91,6 +118,12 @@ namespace TencentCloud
                      */
                     std::vector<uint64_t> m_customerAssetIdSet;
                     bool m_customerAssetIdSetHasBeenSet;
+
+                    /**
+                     * 扫描资产类型 <li>ASSET_CONTAINER Docker容器</li> <li>ASSET_IMAGE Docker镜像</li> <li>ASSET_HOST Docker主机</li> <li>ASSET_K8S Kubernetes</li> <li>ASSET_CONTAINERD Containerd主机</li> <li>ASSET_CONTAINERD_CONTAINER Containerd容器</li>
+                     */
+                    std::string m_assetType;
+                    bool m_assetTypeHasBeenSet;
 
                 };
             }

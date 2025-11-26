@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,40 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取第一备机信息
                      * @return First 第一备机信息
+                     * 
                      */
                     SlaveInstanceInfo GetFirst() const;
 
                     /**
                      * 设置第一备机信息
-                     * @param First 第一备机信息
+                     * @param _first 第一备机信息
+                     * 
                      */
                     void SetFirst(const SlaveInstanceInfo& _first);
 
                     /**
                      * 判断参数 First 是否已赋值
                      * @return First 是否已赋值
+                     * 
                      */
                     bool FirstHasBeenSet() const;
 
                     /**
                      * 获取第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Second 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     SlaveInstanceInfo GetSecond() const;
 
                     /**
                      * 设置第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Second 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _second 第二备机信息
+                     * 
                      */
                     void SetSecond(const SlaveInstanceInfo& _second);
 
                     /**
                      * 判断参数 Second 是否已赋值
                      * @return Second 是否已赋值
+                     * 
                      */
                     bool SecondHasBeenSet() const;
 
@@ -97,7 +99,6 @@ namespace TencentCloud
 
                     /**
                      * 第二备机信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     SlaveInstanceInfo m_second;
                     bool m_secondHasBeenSet;

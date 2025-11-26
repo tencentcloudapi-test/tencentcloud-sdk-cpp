@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,12 @@ MediaTranscodeItem::MediaTranscodeItem() :
     m_widthHasBeenSet(false),
     m_sizeHasBeenSet(false),
     m_durationHasBeenSet(false),
-    m_containerHasBeenSet(false),
     m_md5HasBeenSet(false),
+    m_containerHasBeenSet(false),
+    m_videoStreamSetHasBeenSet(false),
     m_audioStreamSetHasBeenSet(false),
-    m_videoStreamSetHasBeenSet(false)
+    m_digitalWatermarkTypeHasBeenSet(false),
+    m_copyRightWatermarkTextHasBeenSet(false)
 {
 }
 
@@ -110,6 +112,16 @@ CoreInternalOutcome MediaTranscodeItem::Deserialize(const rapidjson::Value &valu
         m_durationHasBeenSet = true;
     }
 
+    if (value.HasMember("Md5") && !value["Md5"].IsNull())
+    {
+        if (!value["Md5"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `MediaTranscodeItem.Md5` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_md5 = string(value["Md5"].GetString());
+        m_md5HasBeenSet = true;
+    }
+
     if (value.HasMember("Container") && !value["Container"].IsNull())
     {
         if (!value["Container"].IsString())
@@ -120,14 +132,24 @@ CoreInternalOutcome MediaTranscodeItem::Deserialize(const rapidjson::Value &valu
         m_containerHasBeenSet = true;
     }
 
-    if (value.HasMember("Md5") && !value["Md5"].IsNull())
+    if (value.HasMember("VideoStreamSet") && !value["VideoStreamSet"].IsNull())
     {
-        if (!value["Md5"].IsString())
+        if (!value["VideoStreamSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `MediaTranscodeItem.VideoStreamSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["VideoStreamSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            return CoreInternalOutcome(Core::Error("response `MediaTranscodeItem.Md5` IsString=false incorrectly").SetRequestId(requestId));
+            MediaVideoStreamItem item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_videoStreamSet.push_back(item);
         }
-        m_md5 = string(value["Md5"].GetString());
-        m_md5HasBeenSet = true;
+        m_videoStreamSetHasBeenSet = true;
     }
 
     if (value.HasMember("AudioStreamSet") && !value["AudioStreamSet"].IsNull())
@@ -150,24 +172,24 @@ CoreInternalOutcome MediaTranscodeItem::Deserialize(const rapidjson::Value &valu
         m_audioStreamSetHasBeenSet = true;
     }
 
-    if (value.HasMember("VideoStreamSet") && !value["VideoStreamSet"].IsNull())
+    if (value.HasMember("DigitalWatermarkType") && !value["DigitalWatermarkType"].IsNull())
     {
-        if (!value["VideoStreamSet"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `MediaTranscodeItem.VideoStreamSet` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["VideoStreamSet"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        if (!value["DigitalWatermarkType"].IsString())
         {
-            MediaVideoStreamItem item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_videoStreamSet.push_back(item);
+            return CoreInternalOutcome(Core::Error("response `MediaTranscodeItem.DigitalWatermarkType` IsString=false incorrectly").SetRequestId(requestId));
         }
-        m_videoStreamSetHasBeenSet = true;
+        m_digitalWatermarkType = string(value["DigitalWatermarkType"].GetString());
+        m_digitalWatermarkTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CopyRightWatermarkText") && !value["CopyRightWatermarkText"].IsNull())
+    {
+        if (!value["CopyRightWatermarkText"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `MediaTranscodeItem.CopyRightWatermarkText` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_copyRightWatermarkText = string(value["CopyRightWatermarkText"].GetString());
+        m_copyRightWatermarkTextHasBeenSet = true;
     }
 
 
@@ -233,6 +255,14 @@ void MediaTranscodeItem::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         value.AddMember(iKey, m_duration, allocator);
     }
 
+    if (m_md5HasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Md5";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_md5.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_containerHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -241,12 +271,19 @@ void MediaTranscodeItem::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         value.AddMember(iKey, rapidjson::Value(m_container.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_md5HasBeenSet)
+    if (m_videoStreamSetHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Md5";
+        string key = "VideoStreamSet";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_md5.c_str(), allocator).Move(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_videoStreamSet.begin(); itr != m_videoStreamSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
     if (m_audioStreamSetHasBeenSet)
@@ -264,19 +301,20 @@ void MediaTranscodeItem::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         }
     }
 
-    if (m_videoStreamSetHasBeenSet)
+    if (m_digitalWatermarkTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "VideoStreamSet";
+        string key = "DigitalWatermarkType";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_digitalWatermarkType.c_str(), allocator).Move(), allocator);
+    }
 
-        int i=0;
-        for (auto itr = m_videoStreamSet.begin(); itr != m_videoStreamSet.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
+    if (m_copyRightWatermarkTextHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CopyRightWatermarkText";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_copyRightWatermarkText.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -394,6 +432,22 @@ bool MediaTranscodeItem::DurationHasBeenSet() const
     return m_durationHasBeenSet;
 }
 
+string MediaTranscodeItem::GetMd5() const
+{
+    return m_md5;
+}
+
+void MediaTranscodeItem::SetMd5(const string& _md5)
+{
+    m_md5 = _md5;
+    m_md5HasBeenSet = true;
+}
+
+bool MediaTranscodeItem::Md5HasBeenSet() const
+{
+    return m_md5HasBeenSet;
+}
+
 string MediaTranscodeItem::GetContainer() const
 {
     return m_container;
@@ -410,20 +464,20 @@ bool MediaTranscodeItem::ContainerHasBeenSet() const
     return m_containerHasBeenSet;
 }
 
-string MediaTranscodeItem::GetMd5() const
+vector<MediaVideoStreamItem> MediaTranscodeItem::GetVideoStreamSet() const
 {
-    return m_md5;
+    return m_videoStreamSet;
 }
 
-void MediaTranscodeItem::SetMd5(const string& _md5)
+void MediaTranscodeItem::SetVideoStreamSet(const vector<MediaVideoStreamItem>& _videoStreamSet)
 {
-    m_md5 = _md5;
-    m_md5HasBeenSet = true;
+    m_videoStreamSet = _videoStreamSet;
+    m_videoStreamSetHasBeenSet = true;
 }
 
-bool MediaTranscodeItem::Md5HasBeenSet() const
+bool MediaTranscodeItem::VideoStreamSetHasBeenSet() const
 {
-    return m_md5HasBeenSet;
+    return m_videoStreamSetHasBeenSet;
 }
 
 vector<MediaAudioStreamItem> MediaTranscodeItem::GetAudioStreamSet() const
@@ -442,19 +496,35 @@ bool MediaTranscodeItem::AudioStreamSetHasBeenSet() const
     return m_audioStreamSetHasBeenSet;
 }
 
-vector<MediaVideoStreamItem> MediaTranscodeItem::GetVideoStreamSet() const
+string MediaTranscodeItem::GetDigitalWatermarkType() const
 {
-    return m_videoStreamSet;
+    return m_digitalWatermarkType;
 }
 
-void MediaTranscodeItem::SetVideoStreamSet(const vector<MediaVideoStreamItem>& _videoStreamSet)
+void MediaTranscodeItem::SetDigitalWatermarkType(const string& _digitalWatermarkType)
 {
-    m_videoStreamSet = _videoStreamSet;
-    m_videoStreamSetHasBeenSet = true;
+    m_digitalWatermarkType = _digitalWatermarkType;
+    m_digitalWatermarkTypeHasBeenSet = true;
 }
 
-bool MediaTranscodeItem::VideoStreamSetHasBeenSet() const
+bool MediaTranscodeItem::DigitalWatermarkTypeHasBeenSet() const
 {
-    return m_videoStreamSetHasBeenSet;
+    return m_digitalWatermarkTypeHasBeenSet;
+}
+
+string MediaTranscodeItem::GetCopyRightWatermarkText() const
+{
+    return m_copyRightWatermarkText;
+}
+
+void MediaTranscodeItem::SetCopyRightWatermarkText(const string& _copyRightWatermarkText)
+{
+    m_copyRightWatermarkText = _copyRightWatermarkText;
+    m_copyRightWatermarkTextHasBeenSet = true;
+}
+
+bool MediaTranscodeItem::CopyRightWatermarkTextHasBeenSet() const
+{
+    return m_copyRightWatermarkTextHasBeenSet;
 }
 

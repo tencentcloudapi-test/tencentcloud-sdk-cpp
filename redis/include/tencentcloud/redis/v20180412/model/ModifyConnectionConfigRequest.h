@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,85 +43,104 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例的ID，长度在12-36之间。
-                     * @return InstanceId 实例的ID，长度在12-36之间。
+                     * 获取实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * @return InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例的ID，长度在12-36之间。
-                     * @param InstanceId 实例的ID，长度在12-36之间。
+                     * 设置实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * @param _instanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取附加带宽，大于0，单位MB。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
                      * @return Bandwidth 附加带宽，大于0，单位MB。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
+                     * 
                      */
                     int64_t GetBandwidth() const;
 
                     /**
                      * 设置附加带宽，大于0，单位MB。
-                     * @param Bandwidth 附加带宽，大于0，单位MB。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
+                     * @param _bandwidth 附加带宽，大于0，单位MB。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
+                     * 
                      */
                     void SetBandwidth(const int64_t& _bandwidth);
 
                     /**
                      * 判断参数 Bandwidth 是否已赋值
                      * @return Bandwidth 是否已赋值
+                     * 
                      */
                     bool BandwidthHasBeenSet() const;
 
                     /**
                      * 获取单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
                      * @return ClientLimit 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
+                     * 
                      */
                     int64_t GetClientLimit() const;
 
                     /**
                      * 设置单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
-                     * @param ClientLimit 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
+                     * @param _clientLimit 单分片的总连接数。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
+                     * 
                      */
                     void SetClientLimit(const int64_t& _clientLimit);
 
                     /**
                      * 判断参数 ClientLimit 是否已赋值
                      * @return ClientLimit 是否已赋值
+                     * 
                      */
                     bool ClientLimitHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例的ID，长度在12-36之间。
+                     * 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
                      * 附加带宽，大于0，单位MB。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
                      */
                     int64_t m_bandwidth;
                     bool m_bandwidthHasBeenSet;
 
                     /**
                      * 单分片的总连接数。
-未开启副本只读时，下限为10000，上限为40000；
-开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+- 未开启副本只读时，下限为10000，上限为40000。
+- 开启副本只读时，下限为10000，上限为10000×(只读副本数+3)。
+**说明**：Bandwidth 和 ClientLimit 参数不能同时为空，您必须至少选择其中一个进行配置。
                      */
                     int64_t m_clientLimit;
                     bool m_clientLimitHasBeenSet;

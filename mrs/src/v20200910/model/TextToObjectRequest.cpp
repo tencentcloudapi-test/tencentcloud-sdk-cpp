@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ using namespace std;
 TextToObjectRequest::TextToObjectRequest() :
     m_textHasBeenSet(false),
     m_typeHasBeenSet(false),
-    m_isUsedClassifyHasBeenSet(false)
+    m_isUsedClassifyHasBeenSet(false),
+    m_userTypeHasBeenSet(false),
+    m_reportTypeVersionHasBeenSet(false)
 {
 }
 
@@ -58,6 +60,29 @@ string TextToObjectRequest::ToJsonString() const
         string key = "IsUsedClassify";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_isUsedClassify, allocator);
+    }
+
+    if (m_userTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_userType, allocator);
+    }
+
+    if (m_reportTypeVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReportTypeVersion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_reportTypeVersion.begin(); itr != m_reportTypeVersion.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -114,6 +139,38 @@ void TextToObjectRequest::SetIsUsedClassify(const bool& _isUsedClassify)
 bool TextToObjectRequest::IsUsedClassifyHasBeenSet() const
 {
     return m_isUsedClassifyHasBeenSet;
+}
+
+uint64_t TextToObjectRequest::GetUserType() const
+{
+    return m_userType;
+}
+
+void TextToObjectRequest::SetUserType(const uint64_t& _userType)
+{
+    m_userType = _userType;
+    m_userTypeHasBeenSet = true;
+}
+
+bool TextToObjectRequest::UserTypeHasBeenSet() const
+{
+    return m_userTypeHasBeenSet;
+}
+
+vector<ReportTypeVersion> TextToObjectRequest::GetReportTypeVersion() const
+{
+    return m_reportTypeVersion;
+}
+
+void TextToObjectRequest::SetReportTypeVersion(const vector<ReportTypeVersion>& _reportTypeVersion)
+{
+    m_reportTypeVersion = _reportTypeVersion;
+    m_reportTypeVersionHasBeenSet = true;
+}
+
+bool TextToObjectRequest::ReportTypeVersionHasBeenSet() const
+{
+    return m_reportTypeVersionHasBeenSet;
 }
 
 

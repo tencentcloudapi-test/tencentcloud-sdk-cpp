@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/apigateway/v20180808/model/Tag.h>
 
 
 namespace TencentCloud
@@ -45,74 +46,107 @@ namespace TencentCloud
                     /**
                      * 获取用户自定义密钥名称。
                      * @return SecretName 用户自定义密钥名称。
+                     * 
                      */
                     std::string GetSecretName() const;
 
                     /**
                      * 设置用户自定义密钥名称。
-                     * @param SecretName 用户自定义密钥名称。
+                     * @param _secretName 用户自定义密钥名称。
+                     * 
                      */
                     void SetSecretName(const std::string& _secretName);
 
                     /**
                      * 判断参数 SecretName 是否已赋值
                      * @return SecretName 是否已赋值
+                     * 
                      */
                     bool SecretNameHasBeenSet() const;
 
                     /**
                      * 获取密钥类型，支持 auto 和 manual（自定义密钥），默认为 auto。
                      * @return AccessKeyType 密钥类型，支持 auto 和 manual（自定义密钥），默认为 auto。
+                     * 
                      */
                     std::string GetAccessKeyType() const;
 
                     /**
                      * 设置密钥类型，支持 auto 和 manual（自定义密钥），默认为 auto。
-                     * @param AccessKeyType 密钥类型，支持 auto 和 manual（自定义密钥），默认为 auto。
+                     * @param _accessKeyType 密钥类型，支持 auto 和 manual（自定义密钥），默认为 auto。
+                     * 
                      */
                     void SetAccessKeyType(const std::string& _accessKeyType);
 
                     /**
                      * 判断参数 AccessKeyType 是否已赋值
                      * @return AccessKeyType 是否已赋值
+                     * 
                      */
                     bool AccessKeyTypeHasBeenSet() const;
 
                     /**
                      * 获取用户自定义密钥 ID，AccessKeyType 为 manual 时必传。长度为5 - 50字符，由字母、数字、英文下划线组成。
                      * @return AccessKeyId 用户自定义密钥 ID，AccessKeyType 为 manual 时必传。长度为5 - 50字符，由字母、数字、英文下划线组成。
+                     * 
                      */
                     std::string GetAccessKeyId() const;
 
                     /**
                      * 设置用户自定义密钥 ID，AccessKeyType 为 manual 时必传。长度为5 - 50字符，由字母、数字、英文下划线组成。
-                     * @param AccessKeyId 用户自定义密钥 ID，AccessKeyType 为 manual 时必传。长度为5 - 50字符，由字母、数字、英文下划线组成。
+                     * @param _accessKeyId 用户自定义密钥 ID，AccessKeyType 为 manual 时必传。长度为5 - 50字符，由字母、数字、英文下划线组成。
+                     * 
                      */
                     void SetAccessKeyId(const std::string& _accessKeyId);
 
                     /**
                      * 判断参数 AccessKeyId 是否已赋值
                      * @return AccessKeyId 是否已赋值
+                     * 
                      */
                     bool AccessKeyIdHasBeenSet() const;
 
                     /**
                      * 获取用户自定义密钥 Key，AccessKeyType 为 manual 时必传。长度为10 - 50字符，由字母、数字、英文下划线。
                      * @return AccessKeySecret 用户自定义密钥 Key，AccessKeyType 为 manual 时必传。长度为10 - 50字符，由字母、数字、英文下划线。
+                     * 
                      */
                     std::string GetAccessKeySecret() const;
 
                     /**
                      * 设置用户自定义密钥 Key，AccessKeyType 为 manual 时必传。长度为10 - 50字符，由字母、数字、英文下划线。
-                     * @param AccessKeySecret 用户自定义密钥 Key，AccessKeyType 为 manual 时必传。长度为10 - 50字符，由字母、数字、英文下划线。
+                     * @param _accessKeySecret 用户自定义密钥 Key，AccessKeyType 为 manual 时必传。长度为10 - 50字符，由字母、数字、英文下划线。
+                     * 
                      */
                     void SetAccessKeySecret(const std::string& _accessKeySecret);
 
                     /**
                      * 判断参数 AccessKeySecret 是否已赋值
                      * @return AccessKeySecret 是否已赋值
+                     * 
                      */
                     bool AccessKeySecretHasBeenSet() const;
+
+                    /**
+                     * 获取标签
+                     * @return Tags 标签
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置标签
+                     * @param _tags 标签
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
@@ -139,6 +173,12 @@ namespace TencentCloud
                      */
                     std::string m_accessKeySecret;
                     bool m_accessKeySecretHasBeenSet;
+
+                    /**
+                     * 标签
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

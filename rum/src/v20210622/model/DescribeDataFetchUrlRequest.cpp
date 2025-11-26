@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,10 @@ DescribeDataFetchUrlRequest::DescribeDataFetchUrlRequest() :
     m_browserHasBeenSet(false),
     m_costTypeHasBeenSet(false),
     m_urlHasBeenSet(false),
-    m_envHasBeenSet(false)
+    m_envHasBeenSet(false),
+    m_statusHasBeenSet(false),
+    m_retHasBeenSet(false),
+    m_netStatusHasBeenSet(false)
 {
 }
 
@@ -238,6 +241,30 @@ string DescribeDataFetchUrlRequest::ToJsonString() const
         string key = "Env";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_env.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_statusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Status";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_status.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_retHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ret";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ret.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_netStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NetStatus";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_netStatus.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -614,6 +641,54 @@ void DescribeDataFetchUrlRequest::SetEnv(const string& _env)
 bool DescribeDataFetchUrlRequest::EnvHasBeenSet() const
 {
     return m_envHasBeenSet;
+}
+
+string DescribeDataFetchUrlRequest::GetStatus() const
+{
+    return m_status;
+}
+
+void DescribeDataFetchUrlRequest::SetStatus(const string& _status)
+{
+    m_status = _status;
+    m_statusHasBeenSet = true;
+}
+
+bool DescribeDataFetchUrlRequest::StatusHasBeenSet() const
+{
+    return m_statusHasBeenSet;
+}
+
+string DescribeDataFetchUrlRequest::GetRet() const
+{
+    return m_ret;
+}
+
+void DescribeDataFetchUrlRequest::SetRet(const string& _ret)
+{
+    m_ret = _ret;
+    m_retHasBeenSet = true;
+}
+
+bool DescribeDataFetchUrlRequest::RetHasBeenSet() const
+{
+    return m_retHasBeenSet;
+}
+
+string DescribeDataFetchUrlRequest::GetNetStatus() const
+{
+    return m_netStatus;
+}
+
+void DescribeDataFetchUrlRequest::SetNetStatus(const string& _netStatus)
+{
+    m_netStatus = _netStatus;
+    m_netStatusHasBeenSet = true;
+}
+
+bool DescribeDataFetchUrlRequest::NetStatusHasBeenSet() const
+{
+    return m_netStatusHasBeenSet;
 }
 
 

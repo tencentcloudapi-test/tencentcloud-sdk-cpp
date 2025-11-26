@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,11 @@ FlowBrief::FlowBrief() :
     m_flowTypeHasBeenSet(false),
     m_flowStatusHasBeenSet(false),
     m_createdOnHasBeenSet(false),
-    m_flowMessageHasBeenSet(false)
+    m_flowMessageHasBeenSet(false),
+    m_creatorHasBeenSet(false),
+    m_deadlineHasBeenSet(false),
+    m_userFlowTypeHasBeenSet(false),
+    m_templateIdHasBeenSet(false)
 {
 }
 
@@ -106,6 +110,53 @@ CoreInternalOutcome FlowBrief::Deserialize(const rapidjson::Value &value)
         m_flowMessageHasBeenSet = true;
     }
 
+    if (value.HasMember("Creator") && !value["Creator"].IsNull())
+    {
+        if (!value["Creator"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowBrief.Creator` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_creator = string(value["Creator"].GetString());
+        m_creatorHasBeenSet = true;
+    }
+
+    if (value.HasMember("Deadline") && !value["Deadline"].IsNull())
+    {
+        if (!value["Deadline"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowBrief.Deadline` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_deadline = value["Deadline"].GetInt64();
+        m_deadlineHasBeenSet = true;
+    }
+
+    if (value.HasMember("UserFlowType") && !value["UserFlowType"].IsNull())
+    {
+        if (!value["UserFlowType"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowBrief.UserFlowType` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_userFlowType.Deserialize(value["UserFlowType"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_userFlowTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("TemplateId") && !value["TemplateId"].IsNull())
+    {
+        if (!value["TemplateId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowBrief.TemplateId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_templateId = string(value["TemplateId"].GetString());
+        m_templateIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -167,6 +218,39 @@ void FlowBrief::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "FlowMessage";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_flowMessage.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_creatorHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Creator";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_creator.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deadlineHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Deadline";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deadline, allocator);
+    }
+
+    if (m_userFlowTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserFlowType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_userFlowType.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_templateIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TemplateId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_templateId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -282,5 +366,69 @@ void FlowBrief::SetFlowMessage(const string& _flowMessage)
 bool FlowBrief::FlowMessageHasBeenSet() const
 {
     return m_flowMessageHasBeenSet;
+}
+
+string FlowBrief::GetCreator() const
+{
+    return m_creator;
+}
+
+void FlowBrief::SetCreator(const string& _creator)
+{
+    m_creator = _creator;
+    m_creatorHasBeenSet = true;
+}
+
+bool FlowBrief::CreatorHasBeenSet() const
+{
+    return m_creatorHasBeenSet;
+}
+
+int64_t FlowBrief::GetDeadline() const
+{
+    return m_deadline;
+}
+
+void FlowBrief::SetDeadline(const int64_t& _deadline)
+{
+    m_deadline = _deadline;
+    m_deadlineHasBeenSet = true;
+}
+
+bool FlowBrief::DeadlineHasBeenSet() const
+{
+    return m_deadlineHasBeenSet;
+}
+
+UserFlowType FlowBrief::GetUserFlowType() const
+{
+    return m_userFlowType;
+}
+
+void FlowBrief::SetUserFlowType(const UserFlowType& _userFlowType)
+{
+    m_userFlowType = _userFlowType;
+    m_userFlowTypeHasBeenSet = true;
+}
+
+bool FlowBrief::UserFlowTypeHasBeenSet() const
+{
+    return m_userFlowTypeHasBeenSet;
+}
+
+string FlowBrief::GetTemplateId() const
+{
+    return m_templateId;
+}
+
+void FlowBrief::SetTemplateId(const string& _templateId)
+{
+    m_templateId = _templateId;
+    m_templateIdHasBeenSet = true;
+}
+
+bool FlowBrief::TemplateIdHasBeenSet() const
+{
+    return m_templateIdHasBeenSet;
 }
 

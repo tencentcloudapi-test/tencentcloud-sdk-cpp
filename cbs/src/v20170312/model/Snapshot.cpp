@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,8 @@ Snapshot::Snapshot() :
     m_imageCountHasBeenSet(false),
     m_diskUsageHasBeenSet(false),
     m_snapshotIdHasBeenSet(false),
-    m_timeStartShareHasBeenSet(false)
+    m_timeStartShareHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -258,6 +259,26 @@ CoreInternalOutcome Snapshot::Deserialize(const rapidjson::Value &value)
         m_timeStartShareHasBeenSet = true;
     }
 
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Snapshot.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -428,6 +449,21 @@ void Snapshot::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "TimeStartShare";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_timeStartShare.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -735,5 +771,21 @@ void Snapshot::SetTimeStartShare(const string& _timeStartShare)
 bool Snapshot::TimeStartShareHasBeenSet() const
 {
     return m_timeStartShareHasBeenSet;
+}
+
+vector<Tag> Snapshot::GetTags() const
+{
+    return m_tags;
+}
+
+void Snapshot::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool Snapshot::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 

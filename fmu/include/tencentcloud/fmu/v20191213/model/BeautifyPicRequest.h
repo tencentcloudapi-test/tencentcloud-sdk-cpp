@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,166 +43,197 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取图片 base64 数据，base64 编码后大小不可超过5M。 
+                     * 获取图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
-                     * @return Image 图片 base64 数据，base64 编码后大小不可超过5M。 
+暂不支持带有alpha透明通道的图片。
+                     * @return Image 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
+                     * 
                      */
                     std::string GetImage() const;
 
                     /**
-                     * 设置图片 base64 数据，base64 编码后大小不可超过5M。 
+                     * 设置图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
-                     * @param Image 图片 base64 数据，base64 编码后大小不可超过5M。 
+暂不支持带有alpha透明通道的图片。
+                     * @param _image 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
+                     * 
                      */
                     void SetImage(const std::string& _image);
 
                     /**
                      * 判断参数 Image 是否已赋值
                      * @return Image 是否已赋值
+                     * 
                      */
                     bool ImageHasBeenSet() const;
 
                     /**
-                     * 获取图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+                     * 获取图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
-                     * @return Url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+暂不支持带有alpha透明通道的图片。
+                     * @return Url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
-                     * 设置图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+                     * 设置图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
-                     * @param Url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+暂不支持带有alpha透明通道的图片。
+                     * @param _url 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
                      * 获取美白程度，取值范围[0,100]。0不美白，100代表最高程度。默认值30。
                      * @return Whitening 美白程度，取值范围[0,100]。0不美白，100代表最高程度。默认值30。
+                     * 
                      */
                     uint64_t GetWhitening() const;
 
                     /**
                      * 设置美白程度，取值范围[0,100]。0不美白，100代表最高程度。默认值30。
-                     * @param Whitening 美白程度，取值范围[0,100]。0不美白，100代表最高程度。默认值30。
+                     * @param _whitening 美白程度，取值范围[0,100]。0不美白，100代表最高程度。默认值30。
+                     * 
                      */
                     void SetWhitening(const uint64_t& _whitening);
 
                     /**
                      * 判断参数 Whitening 是否已赋值
                      * @return Whitening 是否已赋值
+                     * 
                      */
                     bool WhiteningHasBeenSet() const;
 
                     /**
                      * 获取磨皮程度，取值范围[0,100]。0不磨皮，100代表最高程度。默认值10。
                      * @return Smoothing 磨皮程度，取值范围[0,100]。0不磨皮，100代表最高程度。默认值10。
+                     * 
                      */
                     uint64_t GetSmoothing() const;
 
                     /**
                      * 设置磨皮程度，取值范围[0,100]。0不磨皮，100代表最高程度。默认值10。
-                     * @param Smoothing 磨皮程度，取值范围[0,100]。0不磨皮，100代表最高程度。默认值10。
+                     * @param _smoothing 磨皮程度，取值范围[0,100]。0不磨皮，100代表最高程度。默认值10。
+                     * 
                      */
                     void SetSmoothing(const uint64_t& _smoothing);
 
                     /**
                      * 判断参数 Smoothing 是否已赋值
                      * @return Smoothing 是否已赋值
+                     * 
                      */
                     bool SmoothingHasBeenSet() const;
 
                     /**
                      * 获取瘦脸程度，取值范围[0,100]。0不瘦脸，100代表最高程度。默认值70。
                      * @return FaceLifting 瘦脸程度，取值范围[0,100]。0不瘦脸，100代表最高程度。默认值70。
+                     * 
                      */
                     uint64_t GetFaceLifting() const;
 
                     /**
                      * 设置瘦脸程度，取值范围[0,100]。0不瘦脸，100代表最高程度。默认值70。
-                     * @param FaceLifting 瘦脸程度，取值范围[0,100]。0不瘦脸，100代表最高程度。默认值70。
+                     * @param _faceLifting 瘦脸程度，取值范围[0,100]。0不瘦脸，100代表最高程度。默认值70。
+                     * 
                      */
                     void SetFaceLifting(const uint64_t& _faceLifting);
 
                     /**
                      * 判断参数 FaceLifting 是否已赋值
                      * @return FaceLifting 是否已赋值
+                     * 
                      */
                     bool FaceLiftingHasBeenSet() const;
 
                     /**
                      * 获取大眼程度，取值范围[0,100]。0不大眼，100代表最高程度。默认值70。
                      * @return EyeEnlarging 大眼程度，取值范围[0,100]。0不大眼，100代表最高程度。默认值70。
+                     * 
                      */
                     uint64_t GetEyeEnlarging() const;
 
                     /**
                      * 设置大眼程度，取值范围[0,100]。0不大眼，100代表最高程度。默认值70。
-                     * @param EyeEnlarging 大眼程度，取值范围[0,100]。0不大眼，100代表最高程度。默认值70。
+                     * @param _eyeEnlarging 大眼程度，取值范围[0,100]。0不大眼，100代表最高程度。默认值70。
+                     * 
                      */
                     void SetEyeEnlarging(const uint64_t& _eyeEnlarging);
 
                     /**
                      * 判断参数 EyeEnlarging 是否已赋值
                      * @return EyeEnlarging 是否已赋值
+                     * 
                      */
                     bool EyeEnlargingHasBeenSet() const;
 
                     /**
                      * 获取返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
                      * @return RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+                     * 
                      */
                     std::string GetRspImgType() const;
 
                     /**
                      * 设置返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
-                     * @param RspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+                     * @param _rspImgType 返回图像方式（base64 或 url ) ，二选一。url有效期为1天。
+                     * 
                      */
                     void SetRspImgType(const std::string& _rspImgType);
 
                     /**
                      * 判断参数 RspImgType 是否已赋值
                      * @return RspImgType 是否已赋值
+                     * 
                      */
                     bool RspImgTypeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 图片 base64 数据，base64 编码后大小不可超过5M。 
+                     * 图片 base64 数据，base64 编码后大小不可超过5M，单边分辨率不超过4000。
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
                      */
                     std::string m_image;
                     bool m_imageHasBeenSet;
 
                     /**
-                     * 图片的 Url 。对应图片 base64 编码后大小不可超过5M。 
+                     * 图片的 Url 。对应图片 base64 编码后大小不可超过5M。，单边分辨率不超过4000。
 Url、Image必须提供一个，如果都提供，只使用 Url。  
 图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。  
 非腾讯云存储的Url速度和稳定性可能受一定影响。 
 支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+暂不支持带有alpha透明通道的图片。
                      */
                     std::string m_url;
                     bool m_urlHasBeenSet;

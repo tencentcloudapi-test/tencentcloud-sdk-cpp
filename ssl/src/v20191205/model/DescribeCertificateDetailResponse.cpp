@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,18 @@ DescribeCertificateDetailResponse::DescribeCertificateDetailResponse() :
     m_submittedDataHasBeenSet(false),
     m_renewAbleHasBeenSet(false),
     m_deployableHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_rootCertHasBeenSet(false),
+    m_encryptCertHasBeenSet(false),
+    m_encryptPrivateKeyHasBeenSet(false),
+    m_certFingerprintHasBeenSet(false),
+    m_encryptCertFingerprintHasBeenSet(false),
+    m_encryptAlgorithmHasBeenSet(false),
+    m_dvRevokeAuthDetailHasBeenSet(false),
+    m_certChainInfoHasBeenSet(false),
+    m_domainTypeHasBeenSet(false),
+    m_certTypeHasBeenSet(false),
+    m_useCrossSignRootHasBeenSet(false)
 {
 }
 
@@ -469,6 +480,143 @@ CoreInternalOutcome DescribeCertificateDetailResponse::Deserialize(const string 
         m_tagsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("RootCert") && !rsp["RootCert"].IsNull())
+    {
+        if (!rsp["RootCert"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RootCert` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_rootCert.Deserialize(rsp["RootCert"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_rootCertHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("EncryptCert") && !rsp["EncryptCert"].IsNull())
+    {
+        if (!rsp["EncryptCert"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EncryptCert` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptCert = string(rsp["EncryptCert"].GetString());
+        m_encryptCertHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("EncryptPrivateKey") && !rsp["EncryptPrivateKey"].IsNull())
+    {
+        if (!rsp["EncryptPrivateKey"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EncryptPrivateKey` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptPrivateKey = string(rsp["EncryptPrivateKey"].GetString());
+        m_encryptPrivateKeyHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CertFingerprint") && !rsp["CertFingerprint"].IsNull())
+    {
+        if (!rsp["CertFingerprint"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CertFingerprint` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_certFingerprint = string(rsp["CertFingerprint"].GetString());
+        m_certFingerprintHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("EncryptCertFingerprint") && !rsp["EncryptCertFingerprint"].IsNull())
+    {
+        if (!rsp["EncryptCertFingerprint"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EncryptCertFingerprint` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptCertFingerprint = string(rsp["EncryptCertFingerprint"].GetString());
+        m_encryptCertFingerprintHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("EncryptAlgorithm") && !rsp["EncryptAlgorithm"].IsNull())
+    {
+        if (!rsp["EncryptAlgorithm"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EncryptAlgorithm` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptAlgorithm = string(rsp["EncryptAlgorithm"].GetString());
+        m_encryptAlgorithmHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("DvRevokeAuthDetail") && !rsp["DvRevokeAuthDetail"].IsNull())
+    {
+        if (!rsp["DvRevokeAuthDetail"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DvRevokeAuthDetail` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["DvRevokeAuthDetail"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            DvAuths item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_dvRevokeAuthDetail.push_back(item);
+        }
+        m_dvRevokeAuthDetailHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CertChainInfo") && !rsp["CertChainInfo"].IsNull())
+    {
+        if (!rsp["CertChainInfo"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CertChainInfo` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["CertChainInfo"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            CertBasicInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_certChainInfo.push_back(item);
+        }
+        m_certChainInfoHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("DomainType") && !rsp["DomainType"].IsNull())
+    {
+        if (!rsp["DomainType"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainType` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_domainType = rsp["DomainType"].GetUint64();
+        m_domainTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CertType") && !rsp["CertType"].IsNull())
+    {
+        if (!rsp["CertType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CertType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_certType = string(rsp["CertType"].GetString());
+        m_certTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("UseCrossSignRoot") && !rsp["UseCrossSignRoot"].IsNull())
+    {
+        if (!rsp["UseCrossSignRoot"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `UseCrossSignRoot` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_useCrossSignRoot = rsp["UseCrossSignRoot"].GetBool();
+        m_useCrossSignRootHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -766,11 +914,114 @@ string DescribeCertificateDetailResponse::ToJsonString() const
         }
     }
 
+    if (m_rootCertHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RootCert";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_rootCert.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_encryptCertHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptCert";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptCert.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_encryptPrivateKeyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptPrivateKey";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptPrivateKey.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_certFingerprintHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CertFingerprint";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_certFingerprint.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_encryptCertFingerprintHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptCertFingerprint";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptCertFingerprint.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_encryptAlgorithmHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptAlgorithm";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptAlgorithm.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dvRevokeAuthDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DvRevokeAuthDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_dvRevokeAuthDetail.begin(); itr != m_dvRevokeAuthDetail.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_certChainInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CertChainInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_certChainInfo.begin(); itr != m_certChainInfo.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_domainTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DomainType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_domainType, allocator);
+    }
+
+    if (m_certTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CertType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_certType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_useCrossSignRootHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UseCrossSignRoot";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_useCrossSignRoot, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -1116,6 +1367,116 @@ vector<Tags> DescribeCertificateDetailResponse::GetTags() const
 bool DescribeCertificateDetailResponse::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+RootCertificates DescribeCertificateDetailResponse::GetRootCert() const
+{
+    return m_rootCert;
+}
+
+bool DescribeCertificateDetailResponse::RootCertHasBeenSet() const
+{
+    return m_rootCertHasBeenSet;
+}
+
+string DescribeCertificateDetailResponse::GetEncryptCert() const
+{
+    return m_encryptCert;
+}
+
+bool DescribeCertificateDetailResponse::EncryptCertHasBeenSet() const
+{
+    return m_encryptCertHasBeenSet;
+}
+
+string DescribeCertificateDetailResponse::GetEncryptPrivateKey() const
+{
+    return m_encryptPrivateKey;
+}
+
+bool DescribeCertificateDetailResponse::EncryptPrivateKeyHasBeenSet() const
+{
+    return m_encryptPrivateKeyHasBeenSet;
+}
+
+string DescribeCertificateDetailResponse::GetCertFingerprint() const
+{
+    return m_certFingerprint;
+}
+
+bool DescribeCertificateDetailResponse::CertFingerprintHasBeenSet() const
+{
+    return m_certFingerprintHasBeenSet;
+}
+
+string DescribeCertificateDetailResponse::GetEncryptCertFingerprint() const
+{
+    return m_encryptCertFingerprint;
+}
+
+bool DescribeCertificateDetailResponse::EncryptCertFingerprintHasBeenSet() const
+{
+    return m_encryptCertFingerprintHasBeenSet;
+}
+
+string DescribeCertificateDetailResponse::GetEncryptAlgorithm() const
+{
+    return m_encryptAlgorithm;
+}
+
+bool DescribeCertificateDetailResponse::EncryptAlgorithmHasBeenSet() const
+{
+    return m_encryptAlgorithmHasBeenSet;
+}
+
+vector<DvAuths> DescribeCertificateDetailResponse::GetDvRevokeAuthDetail() const
+{
+    return m_dvRevokeAuthDetail;
+}
+
+bool DescribeCertificateDetailResponse::DvRevokeAuthDetailHasBeenSet() const
+{
+    return m_dvRevokeAuthDetailHasBeenSet;
+}
+
+vector<CertBasicInfo> DescribeCertificateDetailResponse::GetCertChainInfo() const
+{
+    return m_certChainInfo;
+}
+
+bool DescribeCertificateDetailResponse::CertChainInfoHasBeenSet() const
+{
+    return m_certChainInfoHasBeenSet;
+}
+
+uint64_t DescribeCertificateDetailResponse::GetDomainType() const
+{
+    return m_domainType;
+}
+
+bool DescribeCertificateDetailResponse::DomainTypeHasBeenSet() const
+{
+    return m_domainTypeHasBeenSet;
+}
+
+string DescribeCertificateDetailResponse::GetCertType() const
+{
+    return m_certType;
+}
+
+bool DescribeCertificateDetailResponse::CertTypeHasBeenSet() const
+{
+    return m_certTypeHasBeenSet;
+}
+
+bool DescribeCertificateDetailResponse::GetUseCrossSignRoot() const
+{
+    return m_useCrossSignRoot;
+}
+
+bool DescribeCertificateDetailResponse::UseCrossSignRootHasBeenSet() const
+{
+    return m_useCrossSignRootHasBeenSet;
 }
 
 

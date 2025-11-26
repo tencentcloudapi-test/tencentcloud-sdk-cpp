@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,32 @@ namespace TencentCloud
                     /**
                      * 获取删除结果（true：删除成功，false：删除失败）
                      * @return DeleteResult 删除结果（true：删除成功，false：删除失败）
+                     * 
                      */
                     bool GetDeleteResult() const;
 
                     /**
                      * 判断参数 DeleteResult 是否已赋值
                      * @return DeleteResult 是否已赋值
+                     * 
                      */
                     bool DeleteResultHasBeenSet() const;
+
+                    /**
+                     * 获取异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return TaskId 异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetTaskId() const;
+
+                    /**
+                     * 判断参数 TaskId 是否已赋值
+                     * @return TaskId 是否已赋值
+                     * 
+                     */
+                    bool TaskIdHasBeenSet() const;
 
                 private:
 
@@ -62,6 +80,13 @@ namespace TencentCloud
                      */
                     bool m_deleteResult;
                     bool m_deleteResultHasBeenSet;
+
+                    /**
+                     * 异步删除的任务ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_taskId;
+                    bool m_taskIdHasBeenSet;
 
                 };
             }

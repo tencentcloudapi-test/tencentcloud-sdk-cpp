@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,9 @@ EventContent::EventContent() :
     m_materialDeletedEventHasBeenSet(false),
     m_classCreatedEventHasBeenSet(false),
     m_classMovedEventHasBeenSet(false),
-    m_classDeletedEventHasBeenSet(false)
+    m_classDeletedEventHasBeenSet(false),
+    m_videoExportCompletedEventHasBeenSet(false),
+    m_projectMediaCastStatusChangedEventHasBeenSet(false)
 {
 }
 
@@ -249,6 +251,40 @@ CoreInternalOutcome EventContent::Deserialize(const rapidjson::Value &value)
         m_classDeletedEventHasBeenSet = true;
     }
 
+    if (value.HasMember("VideoExportCompletedEvent") && !value["VideoExportCompletedEvent"].IsNull())
+    {
+        if (!value["VideoExportCompletedEvent"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `EventContent.VideoExportCompletedEvent` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_videoExportCompletedEvent.Deserialize(value["VideoExportCompletedEvent"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_videoExportCompletedEventHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProjectMediaCastStatusChangedEvent") && !value["ProjectMediaCastStatusChangedEvent"].IsNull())
+    {
+        if (!value["ProjectMediaCastStatusChangedEvent"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `EventContent.ProjectMediaCastStatusChangedEvent` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_projectMediaCastStatusChangedEvent.Deserialize(value["ProjectMediaCastStatusChangedEvent"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_projectMediaCastStatusChangedEventHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -369,6 +405,24 @@ void EventContent::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_classDeletedEvent.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_videoExportCompletedEventHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VideoExportCompletedEvent";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_videoExportCompletedEvent.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_projectMediaCastStatusChangedEventHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProjectMediaCastStatusChangedEvent";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_projectMediaCastStatusChangedEvent.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -580,5 +634,37 @@ void EventContent::SetClassDeletedEvent(const ClassDeletedEvent& _classDeletedEv
 bool EventContent::ClassDeletedEventHasBeenSet() const
 {
     return m_classDeletedEventHasBeenSet;
+}
+
+VideoExportCompletedEvent EventContent::GetVideoExportCompletedEvent() const
+{
+    return m_videoExportCompletedEvent;
+}
+
+void EventContent::SetVideoExportCompletedEvent(const VideoExportCompletedEvent& _videoExportCompletedEvent)
+{
+    m_videoExportCompletedEvent = _videoExportCompletedEvent;
+    m_videoExportCompletedEventHasBeenSet = true;
+}
+
+bool EventContent::VideoExportCompletedEventHasBeenSet() const
+{
+    return m_videoExportCompletedEventHasBeenSet;
+}
+
+ProjectMediaCastStatusChangedEvent EventContent::GetProjectMediaCastStatusChangedEvent() const
+{
+    return m_projectMediaCastStatusChangedEvent;
+}
+
+void EventContent::SetProjectMediaCastStatusChangedEvent(const ProjectMediaCastStatusChangedEvent& _projectMediaCastStatusChangedEvent)
+{
+    m_projectMediaCastStatusChangedEvent = _projectMediaCastStatusChangedEvent;
+    m_projectMediaCastStatusChangedEventHasBeenSet = true;
+}
+
+bool EventContent::ProjectMediaCastStatusChangedEventHasBeenSet() const
+{
+    return m_projectMediaCastStatusChangedEventHasBeenSet;
 }
 

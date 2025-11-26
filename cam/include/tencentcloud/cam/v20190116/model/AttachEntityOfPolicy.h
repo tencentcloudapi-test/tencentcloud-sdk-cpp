@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,102 +49,105 @@ namespace TencentCloud
                     /**
                      * 获取实体ID
                      * @return Id 实体ID
+                     * 
                      */
                     std::string GetId() const;
 
                     /**
                      * 设置实体ID
-                     * @param Id 实体ID
+                     * @param _id 实体ID
+                     * 
                      */
                     void SetId(const std::string& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
                      * 获取实体名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Name 实体名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置实体名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Name 实体名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _name 实体名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Uin 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetUin() const;
 
                     /**
                      * 设置实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Uin 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _uin 实体Uin
+                     * 
                      */
                     void SetUin(const uint64_t& _uin);
 
                     /**
                      * 判断参数 Uin 是否已赋值
                      * @return Uin 是否已赋值
+                     * 
                      */
                     bool UinHasBeenSet() const;
 
                     /**
-                     * 获取关联类型。1 用户关联 ； 2 用户组关联
-                     * @return RelatedType 关联类型。1 用户关联 ； 2 用户组关联
+                     * 获取关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
+                     * @return RelatedType 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
+                     * 
                      */
                     uint64_t GetRelatedType() const;
 
                     /**
-                     * 设置关联类型。1 用户关联 ； 2 用户组关联
-                     * @param RelatedType 关联类型。1 用户关联 ； 2 用户组关联
+                     * 设置关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
+                     * @param _relatedType 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
+                     * 
                      */
                     void SetRelatedType(const uint64_t& _relatedType);
 
                     /**
                      * 判断参数 RelatedType 是否已赋值
                      * @return RelatedType 是否已赋值
+                     * 
                      */
                     bool RelatedTypeHasBeenSet() const;
 
                     /**
                      * 获取策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return AttachmentTime 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetAttachmentTime() const;
 
                     /**
                      * 设置策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AttachmentTime 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _attachmentTime 策略关联时间
+                     * 
                      */
                     void SetAttachmentTime(const std::string& _attachmentTime);
 
                     /**
                      * 判断参数 AttachmentTime 是否已赋值
                      * @return AttachmentTime 是否已赋值
+                     * 
                      */
                     bool AttachmentTimeHasBeenSet() const;
 
@@ -158,27 +161,24 @@ namespace TencentCloud
 
                     /**
                      * 实体名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
                      * 实体Uin
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_uin;
                     bool m_uinHasBeenSet;
 
                     /**
-                     * 关联类型。1 用户关联 ； 2 用户组关联
+                     * 关联类型。1 用户关联 ； 2 用户组关联 3 角色关联
                      */
                     uint64_t m_relatedType;
                     bool m_relatedTypeHasBeenSet;
 
                     /**
                      * 策略关联时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_attachmentTime;
                     bool m_attachmentTimeHasBeenSet;

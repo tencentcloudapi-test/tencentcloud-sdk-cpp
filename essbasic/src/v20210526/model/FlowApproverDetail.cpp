@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,10 @@ FlowApproverDetail::FlowApproverDetail() :
     m_approveStatusHasBeenSet(false),
     m_approveMessageHasBeenSet(false),
     m_approveTimeHasBeenSet(false),
-    m_approveTypeHasBeenSet(false)
+    m_approveTypeHasBeenSet(false),
+    m_approverRoleNameHasBeenSet(false),
+    m_signIdHasBeenSet(false),
+    m_recipientIdHasBeenSet(false)
 {
 }
 
@@ -150,6 +153,36 @@ CoreInternalOutcome FlowApproverDetail::Deserialize(const rapidjson::Value &valu
         m_approveTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("ApproverRoleName") && !value["ApproverRoleName"].IsNull())
+    {
+        if (!value["ApproverRoleName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowApproverDetail.ApproverRoleName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_approverRoleName = string(value["ApproverRoleName"].GetString());
+        m_approverRoleNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("SignId") && !value["SignId"].IsNull())
+    {
+        if (!value["SignId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowApproverDetail.SignId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_signId = string(value["SignId"].GetString());
+        m_signIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("RecipientId") && !value["RecipientId"].IsNull())
+    {
+        if (!value["RecipientId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowApproverDetail.RecipientId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_recipientId = string(value["RecipientId"].GetString());
+        m_recipientIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -243,6 +276,30 @@ void FlowApproverDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "ApproveType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_approveType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_approverRoleNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ApproverRoleName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_approverRoleName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_signIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SignId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_signId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_recipientIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecipientId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_recipientId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -422,5 +479,53 @@ void FlowApproverDetail::SetApproveType(const string& _approveType)
 bool FlowApproverDetail::ApproveTypeHasBeenSet() const
 {
     return m_approveTypeHasBeenSet;
+}
+
+string FlowApproverDetail::GetApproverRoleName() const
+{
+    return m_approverRoleName;
+}
+
+void FlowApproverDetail::SetApproverRoleName(const string& _approverRoleName)
+{
+    m_approverRoleName = _approverRoleName;
+    m_approverRoleNameHasBeenSet = true;
+}
+
+bool FlowApproverDetail::ApproverRoleNameHasBeenSet() const
+{
+    return m_approverRoleNameHasBeenSet;
+}
+
+string FlowApproverDetail::GetSignId() const
+{
+    return m_signId;
+}
+
+void FlowApproverDetail::SetSignId(const string& _signId)
+{
+    m_signId = _signId;
+    m_signIdHasBeenSet = true;
+}
+
+bool FlowApproverDetail::SignIdHasBeenSet() const
+{
+    return m_signIdHasBeenSet;
+}
+
+string FlowApproverDetail::GetRecipientId() const
+{
+    return m_recipientId;
+}
+
+void FlowApproverDetail::SetRecipientId(const string& _recipientId)
+{
+    m_recipientId = _recipientId;
+    m_recipientIdHasBeenSet = true;
+}
+
+bool FlowApproverDetail::RecipientIdHasBeenSet() const
+{
+    return m_recipientIdHasBeenSet;
 }
 

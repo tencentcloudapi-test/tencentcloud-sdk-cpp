@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取域名共享信息
                      * @return ShareList 域名共享信息
+                     * 
                      */
                     std::vector<DomainShareInfo> GetShareList() const;
 
                     /**
                      * 判断参数 ShareList 是否已赋值
                      * @return ShareList 是否已赋值
+                     * 
                      */
                     bool ShareListHasBeenSet() const;
 
                     /**
                      * 获取域名拥有者账号
                      * @return Owner 域名拥有者账号
+                     * 
                      */
                     std::string GetOwner() const;
 
                     /**
                      * 判断参数 Owner 是否已赋值
                      * @return Owner 是否已赋值
+                     * 
                      */
                     bool OwnerHasBeenSet() const;
 

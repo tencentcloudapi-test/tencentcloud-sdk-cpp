@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Path 修改的字段的路径
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPath() const;
 
                     /**
                      * 设置修改的字段的路径
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Path 修改的字段的路径
+                     * @param _path 修改的字段的路径
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPath(const std::string& _path);
 
                     /**
                      * 判断参数 Path 是否已赋值
                      * @return Path 是否已赋值
+                     * 
                      */
                     bool PathHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Machine 机器结果的值
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMachine() const;
 
                     /**
                      * 设置机器结果的值
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Machine 机器结果的值
+                     * @param _machine 机器结果的值
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMachine(const std::string& _machine);
 
                     /**
                      * 判断参数 Machine 是否已赋值
                      * @return Machine 是否已赋值
+                     * 
                      */
                     bool MachineHasBeenSet() const;
 
@@ -95,20 +101,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Manual 人工结果的值
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetManual() const;
 
                     /**
                      * 设置人工结果的值
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Manual 人工结果的值
+                     * @param _manual 人工结果的值
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetManual(const std::string& _manual);
 
                     /**
                      * 判断参数 Manual 是否已赋值
                      * @return Manual 是否已赋值
+                     * 
                      */
                     bool ManualHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取实例ID，形如postgres-4wdeb0zv
                      * @return DBInstanceId 实例ID，形如postgres-4wdeb0zv
+                     * 
                      */
                     std::string GetDBInstanceId() const;
 
                     /**
                      * 设置实例ID，形如postgres-4wdeb0zv
-                     * @param DBInstanceId 实例ID，形如postgres-4wdeb0zv
+                     * @param _dBInstanceId 实例ID，形如postgres-4wdeb0zv
+                     * 
                      */
                     void SetDBInstanceId(const std::string& _dBInstanceId);
 
                     /**
                      * 判断参数 DBInstanceId 是否已赋值
                      * @return DBInstanceId 是否已赋值
+                     * 
                      */
                     bool DBInstanceIdHasBeenSet() const;
 
                     /**
                      * 获取实例用户名
                      * @return UserName 实例用户名
+                     * 
                      */
                     std::string GetUserName() const;
 
                     /**
                      * 设置实例用户名
-                     * @param UserName 实例用户名
+                     * @param _userName 实例用户名
+                     * 
                      */
                     void SetUserName(const std::string& _userName);
 
                     /**
                      * 判断参数 UserName 是否已赋值
                      * @return UserName 是否已赋值
+                     * 
                      */
                     bool UserNameHasBeenSet() const;
 
                     /**
                      * 获取用户UserName对应的新备注
                      * @return Remark 用户UserName对应的新备注
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
                      * 设置用户UserName对应的新备注
-                     * @param Remark 用户UserName对应的新备注
+                     * @param _remark 用户UserName对应的新备注
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取设备密码
                      * @return PassWord 设备密码
+                     * 
                      */
                     std::string GetPassWord() const;
 
                     /**
                      * 设置设备密码
-                     * @param PassWord 设备密码
+                     * @param _passWord 设备密码
+                     * 
                      */
                     void SetPassWord(const std::string& _passWord);
 
                     /**
                      * 判断参数 PassWord 是否已赋值
                      * @return PassWord 是否已赋值
+                     * 
                      */
                     bool PassWordHasBeenSet() const;
 
                     /**
                      * 获取设备唯一标识
                      * @return DeviceId 设备唯一标识
+                     * 
                      */
                     std::string GetDeviceId() const;
 
                     /**
                      * 设置设备唯一标识
-                     * @param DeviceId 设备唯一标识
+                     * @param _deviceId 设备唯一标识
+                     * 
                      */
                     void SetDeviceId(const std::string& _deviceId);
 
                     /**
                      * 判断参数 DeviceId 是否已赋值
                      * @return DeviceId 是否已赋值
+                     * 
                      */
                     bool DeviceIdHasBeenSet() const;
 

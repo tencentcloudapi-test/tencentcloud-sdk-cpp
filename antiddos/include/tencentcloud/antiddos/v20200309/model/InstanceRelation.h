@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取资源实例的IP
                      * @return EipList 资源实例的IP
+                     * 
                      */
                     std::vector<std::string> GetEipList() const;
 
                     /**
                      * 设置资源实例的IP
-                     * @param EipList 资源实例的IP
+                     * @param _eipList 资源实例的IP
+                     * 
                      */
                     void SetEipList(const std::vector<std::string>& _eipList);
 
                     /**
                      * 判断参数 EipList 是否已赋值
                      * @return EipList 是否已赋值
+                     * 
                      */
                     bool EipListHasBeenSet() const;
 
                     /**
                      * 获取资源实例的ID
                      * @return InstanceId 资源实例的ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置资源实例的ID
-                     * @param InstanceId 资源实例的ID
+                     * @param _instanceId 资源实例的ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 

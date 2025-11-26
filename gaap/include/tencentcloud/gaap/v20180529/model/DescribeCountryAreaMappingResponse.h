@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取国家地区编码映射表。
                      * @return CountryAreaMappingList 国家地区编码映射表。
+                     * 
                      */
                     std::vector<CountryAreaMap> GetCountryAreaMappingList() const;
 
                     /**
                      * 判断参数 CountryAreaMappingList 是否已赋值
                      * @return CountryAreaMappingList 是否已赋值
+                     * 
                      */
                     bool CountryAreaMappingListHasBeenSet() const;
 

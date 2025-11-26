@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,39 +44,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取文件下载地址
-                     * @return DownloadUrl 文件下载地址
+                     * 获取该参数已废弃
+                     * @return DownloadUrl 该参数已废弃
+                     * 
                      */
                     std::string GetDownloadUrl() const;
 
                     /**
                      * 判断参数 DownloadUrl 是否已赋值
                      * @return DownloadUrl 是否已赋值
+                     * 
                      */
                     bool DownloadUrlHasBeenSet() const;
 
                     /**
-                     * 获取导出任务Id , 可通过ExportTasks 接口下载
-                     * @return TaskId 导出任务Id , 可通过ExportTasks 接口下载
+                     * 获取任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址
+                     * @return TaskId 任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 文件下载地址
+                     * 该参数已废弃
                      */
                     std::string m_downloadUrl;
                     bool m_downloadUrlHasBeenSet;
 
                     /**
-                     * 导出任务Id , 可通过ExportTasks 接口下载
+                     * 任务ID,需要到接口“异步导出任务”ExportTasks获取DownloadUrl下载地址
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;

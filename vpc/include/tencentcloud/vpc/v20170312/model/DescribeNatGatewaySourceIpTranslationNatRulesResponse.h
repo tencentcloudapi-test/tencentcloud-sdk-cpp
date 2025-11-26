@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,27 +46,29 @@ namespace TencentCloud
 
                     /**
                      * 获取NAT网关SNAT规则对象数组。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SourceIpTranslationNatRuleSet NAT网关SNAT规则对象数组。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<SourceIpTranslationNatRule> GetSourceIpTranslationNatRuleSet() const;
 
                     /**
                      * 判断参数 SourceIpTranslationNatRuleSet 是否已赋值
                      * @return SourceIpTranslationNatRuleSet 是否已赋值
+                     * 
                      */
                     bool SourceIpTranslationNatRuleSetHasBeenSet() const;
 
                     /**
                      * 获取符合条件的NAT网关端口转发规则对象数目。
                      * @return TotalCount 符合条件的NAT网关端口转发规则对象数目。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
@@ -74,7 +76,6 @@ namespace TencentCloud
 
                     /**
                      * NAT网关SNAT规则对象数组。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<SourceIpTranslationNatRule> m_sourceIpTranslationNatRuleSet;
                     bool m_sourceIpTranslationNatRuleSetHasBeenSet;

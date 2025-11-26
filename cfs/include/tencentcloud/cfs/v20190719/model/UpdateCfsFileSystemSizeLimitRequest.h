@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取文件系统容量限制大小，输入范围0-1073741824, 单位为GB；其中输入值为0时，表示不限制文件系统容量。
                      * @return FsLimit 文件系统容量限制大小，输入范围0-1073741824, 单位为GB；其中输入值为0时，表示不限制文件系统容量。
+                     * 
                      */
                     uint64_t GetFsLimit() const;
 
                     /**
                      * 设置文件系统容量限制大小，输入范围0-1073741824, 单位为GB；其中输入值为0时，表示不限制文件系统容量。
-                     * @param FsLimit 文件系统容量限制大小，输入范围0-1073741824, 单位为GB；其中输入值为0时，表示不限制文件系统容量。
+                     * @param _fsLimit 文件系统容量限制大小，输入范围0-1073741824, 单位为GB；其中输入值为0时，表示不限制文件系统容量。
+                     * 
                      */
                     void SetFsLimit(const uint64_t& _fsLimit);
 
                     /**
                      * 判断参数 FsLimit 是否已赋值
                      * @return FsLimit 是否已赋值
+                     * 
                      */
                     bool FsLimitHasBeenSet() const;
 
                     /**
-                     * 获取文件系统ID，目前仅支持标准型文件系统。
-                     * @return FileSystemId 文件系统ID，目前仅支持标准型文件系统。
+                     * 获取文件系统ID，目前仅支持标准型文件系统。该参数通过查询文件系统列表获取
+                     * @return FileSystemId 文件系统ID，目前仅支持标准型文件系统。该参数通过查询文件系统列表获取
+                     * 
                      */
                     std::string GetFileSystemId() const;
 
                     /**
-                     * 设置文件系统ID，目前仅支持标准型文件系统。
-                     * @param FileSystemId 文件系统ID，目前仅支持标准型文件系统。
+                     * 设置文件系统ID，目前仅支持标准型文件系统。该参数通过查询文件系统列表获取
+                     * @param _fileSystemId 文件系统ID，目前仅支持标准型文件系统。该参数通过查询文件系统列表获取
+                     * 
                      */
                     void SetFileSystemId(const std::string& _fileSystemId);
 
                     /**
                      * 判断参数 FileSystemId 是否已赋值
                      * @return FileSystemId 是否已赋值
+                     * 
                      */
                     bool FileSystemIdHasBeenSet() const;
 
@@ -87,7 +93,7 @@ namespace TencentCloud
                     bool m_fsLimitHasBeenSet;
 
                     /**
-                     * 文件系统ID，目前仅支持标准型文件系统。
+                     * 文件系统ID，目前仅支持标准型文件系统。该参数通过查询文件系统列表获取
                      */
                     std::string m_fileSystemId;
                     bool m_fileSystemIdHasBeenSet;

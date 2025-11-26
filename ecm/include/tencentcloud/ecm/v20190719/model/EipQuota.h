@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ DAILY_PUBLIC_IP_ASSIGN：用户当前地域下，重新分配公网 IP次数。
 TOTAL_EIP_QUOTA：用户当前地域下EIP的配额数；
 DAILY_EIP_APPLY：用户当前地域下今日申购次数；
 DAILY_PUBLIC_IP_ASSIGN：用户当前地域下，重新分配公网 IP次数。
+                     * 
                      */
                     std::string GetQuotaId() const;
 
@@ -63,52 +64,60 @@ DAILY_PUBLIC_IP_ASSIGN：用户当前地域下，重新分配公网 IP次数。
 TOTAL_EIP_QUOTA：用户当前地域下EIP的配额数；
 DAILY_EIP_APPLY：用户当前地域下今日申购次数；
 DAILY_PUBLIC_IP_ASSIGN：用户当前地域下，重新分配公网 IP次数。
-                     * @param QuotaId 配额名称，取值范围：
+                     * @param _quotaId 配额名称，取值范围：
 TOTAL_EIP_QUOTA：用户当前地域下EIP的配额数；
 DAILY_EIP_APPLY：用户当前地域下今日申购次数；
 DAILY_PUBLIC_IP_ASSIGN：用户当前地域下，重新分配公网 IP次数。
+                     * 
                      */
                     void SetQuotaId(const std::string& _quotaId);
 
                     /**
                      * 判断参数 QuotaId 是否已赋值
                      * @return QuotaId 是否已赋值
+                     * 
                      */
                     bool QuotaIdHasBeenSet() const;
 
                     /**
                      * 获取当前数量
                      * @return QuotaCurrent 当前数量
+                     * 
                      */
                     uint64_t GetQuotaCurrent() const;
 
                     /**
                      * 设置当前数量
-                     * @param QuotaCurrent 当前数量
+                     * @param _quotaCurrent 当前数量
+                     * 
                      */
                     void SetQuotaCurrent(const uint64_t& _quotaCurrent);
 
                     /**
                      * 判断参数 QuotaCurrent 是否已赋值
                      * @return QuotaCurrent 是否已赋值
+                     * 
                      */
                     bool QuotaCurrentHasBeenSet() const;
 
                     /**
                      * 获取配额数量
                      * @return QuotaLimit 配额数量
+                     * 
                      */
                     uint64_t GetQuotaLimit() const;
 
                     /**
                      * 设置配额数量
-                     * @param QuotaLimit 配额数量
+                     * @param _quotaLimit 配额数量
+                     * 
                      */
                     void SetQuotaLimit(const uint64_t& _quotaLimit);
 
                     /**
                      * 判断参数 QuotaLimit 是否已赋值
                      * @return QuotaLimit 是否已赋值
+                     * 
                      */
                     bool QuotaLimitHasBeenSet() const;
 

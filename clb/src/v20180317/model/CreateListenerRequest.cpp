@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,22 @@ CreateListenerRequest::CreateListenerRequest() :
     m_sessionTypeHasBeenSet(false),
     m_keepaliveEnableHasBeenSet(false),
     m_endPortHasBeenSet(false),
-    m_deregisterTargetRstHasBeenSet(false)
+    m_deregisterTargetRstHasBeenSet(false),
+    m_multiCertInfoHasBeenSet(false),
+    m_maxConnHasBeenSet(false),
+    m_maxCpsHasBeenSet(false),
+    m_idleConnectTimeoutHasBeenSet(false),
+    m_proxyProtocolHasBeenSet(false),
+    m_snatEnableHasBeenSet(false),
+    m_fullEndPortsHasBeenSet(false),
+    m_h2cSwitchHasBeenSet(false),
+    m_sslCloseSwitchHasBeenSet(false),
+    m_dataCompressModeHasBeenSet(false),
+    m_rescheduleTargetZeroWeightHasBeenSet(false),
+    m_rescheduleUnhealthyHasBeenSet(false),
+    m_rescheduleExpandTargetHasBeenSet(false),
+    m_rescheduleStartTimeHasBeenSet(false),
+    m_rescheduleIntervalHasBeenSet(false)
 {
 }
 
@@ -169,6 +184,132 @@ string CreateListenerRequest::ToJsonString() const
         string key = "DeregisterTargetRst";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_deregisterTargetRst, allocator);
+    }
+
+    if (m_multiCertInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MultiCertInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_multiCertInfo.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_maxConnHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxConn";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_maxConn, allocator);
+    }
+
+    if (m_maxCpsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxCps";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_maxCps, allocator);
+    }
+
+    if (m_idleConnectTimeoutHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdleConnectTimeout";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_idleConnectTimeout, allocator);
+    }
+
+    if (m_proxyProtocolHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyProtocol";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_proxyProtocol, allocator);
+    }
+
+    if (m_snatEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SnatEnable";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_snatEnable, allocator);
+    }
+
+    if (m_fullEndPortsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FullEndPorts";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_fullEndPorts.begin(); itr != m_fullEndPorts.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_h2cSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "H2cSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_h2cSwitch, allocator);
+    }
+
+    if (m_sslCloseSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SslCloseSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_sslCloseSwitch, allocator);
+    }
+
+    if (m_dataCompressModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DataCompressMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dataCompressMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_rescheduleTargetZeroWeightHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RescheduleTargetZeroWeight";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_rescheduleTargetZeroWeight, allocator);
+    }
+
+    if (m_rescheduleUnhealthyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RescheduleUnhealthy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_rescheduleUnhealthy, allocator);
+    }
+
+    if (m_rescheduleExpandTargetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RescheduleExpandTarget";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_rescheduleExpandTarget, allocator);
+    }
+
+    if (m_rescheduleStartTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RescheduleStartTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_rescheduleStartTime, allocator);
+    }
+
+    if (m_rescheduleIntervalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RescheduleInterval";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_rescheduleInterval, allocator);
     }
 
 
@@ -401,6 +542,246 @@ void CreateListenerRequest::SetDeregisterTargetRst(const bool& _deregisterTarget
 bool CreateListenerRequest::DeregisterTargetRstHasBeenSet() const
 {
     return m_deregisterTargetRstHasBeenSet;
+}
+
+MultiCertInfo CreateListenerRequest::GetMultiCertInfo() const
+{
+    return m_multiCertInfo;
+}
+
+void CreateListenerRequest::SetMultiCertInfo(const MultiCertInfo& _multiCertInfo)
+{
+    m_multiCertInfo = _multiCertInfo;
+    m_multiCertInfoHasBeenSet = true;
+}
+
+bool CreateListenerRequest::MultiCertInfoHasBeenSet() const
+{
+    return m_multiCertInfoHasBeenSet;
+}
+
+int64_t CreateListenerRequest::GetMaxConn() const
+{
+    return m_maxConn;
+}
+
+void CreateListenerRequest::SetMaxConn(const int64_t& _maxConn)
+{
+    m_maxConn = _maxConn;
+    m_maxConnHasBeenSet = true;
+}
+
+bool CreateListenerRequest::MaxConnHasBeenSet() const
+{
+    return m_maxConnHasBeenSet;
+}
+
+int64_t CreateListenerRequest::GetMaxCps() const
+{
+    return m_maxCps;
+}
+
+void CreateListenerRequest::SetMaxCps(const int64_t& _maxCps)
+{
+    m_maxCps = _maxCps;
+    m_maxCpsHasBeenSet = true;
+}
+
+bool CreateListenerRequest::MaxCpsHasBeenSet() const
+{
+    return m_maxCpsHasBeenSet;
+}
+
+int64_t CreateListenerRequest::GetIdleConnectTimeout() const
+{
+    return m_idleConnectTimeout;
+}
+
+void CreateListenerRequest::SetIdleConnectTimeout(const int64_t& _idleConnectTimeout)
+{
+    m_idleConnectTimeout = _idleConnectTimeout;
+    m_idleConnectTimeoutHasBeenSet = true;
+}
+
+bool CreateListenerRequest::IdleConnectTimeoutHasBeenSet() const
+{
+    return m_idleConnectTimeoutHasBeenSet;
+}
+
+bool CreateListenerRequest::GetProxyProtocol() const
+{
+    return m_proxyProtocol;
+}
+
+void CreateListenerRequest::SetProxyProtocol(const bool& _proxyProtocol)
+{
+    m_proxyProtocol = _proxyProtocol;
+    m_proxyProtocolHasBeenSet = true;
+}
+
+bool CreateListenerRequest::ProxyProtocolHasBeenSet() const
+{
+    return m_proxyProtocolHasBeenSet;
+}
+
+bool CreateListenerRequest::GetSnatEnable() const
+{
+    return m_snatEnable;
+}
+
+void CreateListenerRequest::SetSnatEnable(const bool& _snatEnable)
+{
+    m_snatEnable = _snatEnable;
+    m_snatEnableHasBeenSet = true;
+}
+
+bool CreateListenerRequest::SnatEnableHasBeenSet() const
+{
+    return m_snatEnableHasBeenSet;
+}
+
+vector<int64_t> CreateListenerRequest::GetFullEndPorts() const
+{
+    return m_fullEndPorts;
+}
+
+void CreateListenerRequest::SetFullEndPorts(const vector<int64_t>& _fullEndPorts)
+{
+    m_fullEndPorts = _fullEndPorts;
+    m_fullEndPortsHasBeenSet = true;
+}
+
+bool CreateListenerRequest::FullEndPortsHasBeenSet() const
+{
+    return m_fullEndPortsHasBeenSet;
+}
+
+bool CreateListenerRequest::GetH2cSwitch() const
+{
+    return m_h2cSwitch;
+}
+
+void CreateListenerRequest::SetH2cSwitch(const bool& _h2cSwitch)
+{
+    m_h2cSwitch = _h2cSwitch;
+    m_h2cSwitchHasBeenSet = true;
+}
+
+bool CreateListenerRequest::H2cSwitchHasBeenSet() const
+{
+    return m_h2cSwitchHasBeenSet;
+}
+
+bool CreateListenerRequest::GetSslCloseSwitch() const
+{
+    return m_sslCloseSwitch;
+}
+
+void CreateListenerRequest::SetSslCloseSwitch(const bool& _sslCloseSwitch)
+{
+    m_sslCloseSwitch = _sslCloseSwitch;
+    m_sslCloseSwitchHasBeenSet = true;
+}
+
+bool CreateListenerRequest::SslCloseSwitchHasBeenSet() const
+{
+    return m_sslCloseSwitchHasBeenSet;
+}
+
+string CreateListenerRequest::GetDataCompressMode() const
+{
+    return m_dataCompressMode;
+}
+
+void CreateListenerRequest::SetDataCompressMode(const string& _dataCompressMode)
+{
+    m_dataCompressMode = _dataCompressMode;
+    m_dataCompressModeHasBeenSet = true;
+}
+
+bool CreateListenerRequest::DataCompressModeHasBeenSet() const
+{
+    return m_dataCompressModeHasBeenSet;
+}
+
+bool CreateListenerRequest::GetRescheduleTargetZeroWeight() const
+{
+    return m_rescheduleTargetZeroWeight;
+}
+
+void CreateListenerRequest::SetRescheduleTargetZeroWeight(const bool& _rescheduleTargetZeroWeight)
+{
+    m_rescheduleTargetZeroWeight = _rescheduleTargetZeroWeight;
+    m_rescheduleTargetZeroWeightHasBeenSet = true;
+}
+
+bool CreateListenerRequest::RescheduleTargetZeroWeightHasBeenSet() const
+{
+    return m_rescheduleTargetZeroWeightHasBeenSet;
+}
+
+bool CreateListenerRequest::GetRescheduleUnhealthy() const
+{
+    return m_rescheduleUnhealthy;
+}
+
+void CreateListenerRequest::SetRescheduleUnhealthy(const bool& _rescheduleUnhealthy)
+{
+    m_rescheduleUnhealthy = _rescheduleUnhealthy;
+    m_rescheduleUnhealthyHasBeenSet = true;
+}
+
+bool CreateListenerRequest::RescheduleUnhealthyHasBeenSet() const
+{
+    return m_rescheduleUnhealthyHasBeenSet;
+}
+
+bool CreateListenerRequest::GetRescheduleExpandTarget() const
+{
+    return m_rescheduleExpandTarget;
+}
+
+void CreateListenerRequest::SetRescheduleExpandTarget(const bool& _rescheduleExpandTarget)
+{
+    m_rescheduleExpandTarget = _rescheduleExpandTarget;
+    m_rescheduleExpandTargetHasBeenSet = true;
+}
+
+bool CreateListenerRequest::RescheduleExpandTargetHasBeenSet() const
+{
+    return m_rescheduleExpandTargetHasBeenSet;
+}
+
+int64_t CreateListenerRequest::GetRescheduleStartTime() const
+{
+    return m_rescheduleStartTime;
+}
+
+void CreateListenerRequest::SetRescheduleStartTime(const int64_t& _rescheduleStartTime)
+{
+    m_rescheduleStartTime = _rescheduleStartTime;
+    m_rescheduleStartTimeHasBeenSet = true;
+}
+
+bool CreateListenerRequest::RescheduleStartTimeHasBeenSet() const
+{
+    return m_rescheduleStartTimeHasBeenSet;
+}
+
+int64_t CreateListenerRequest::GetRescheduleInterval() const
+{
+    return m_rescheduleInterval;
+}
+
+void CreateListenerRequest::SetRescheduleInterval(const int64_t& _rescheduleInterval)
+{
+    m_rescheduleInterval = _rescheduleInterval;
+    m_rescheduleIntervalHasBeenSet = true;
+}
+
+bool CreateListenerRequest::RescheduleIntervalHasBeenSet() const
+{
+    return m_rescheduleIntervalHasBeenSet;
 }
 
 

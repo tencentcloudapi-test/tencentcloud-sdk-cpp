@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@ LogContextInfo::LogContextInfo() :
     m_contentHasBeenSet(false),
     m_pkgIdHasBeenSet(false),
     m_pkgLogIdHasBeenSet(false),
-    m_bTimeHasBeenSet(false)
+    m_bTimeHasBeenSet(false),
+    m_hostNameHasBeenSet(false),
+    m_rawLogHasBeenSet(false),
+    m_indexStatusHasBeenSet(false),
+    m_highLightsHasBeenSet(false)
 {
 }
 
@@ -95,6 +99,56 @@ CoreInternalOutcome LogContextInfo::Deserialize(const rapidjson::Value &value)
         m_bTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("HostName") && !value["HostName"].IsNull())
+    {
+        if (!value["HostName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LogContextInfo.HostName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostName = string(value["HostName"].GetString());
+        m_hostNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("RawLog") && !value["RawLog"].IsNull())
+    {
+        if (!value["RawLog"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LogContextInfo.RawLog` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_rawLog = string(value["RawLog"].GetString());
+        m_rawLogHasBeenSet = true;
+    }
+
+    if (value.HasMember("IndexStatus") && !value["IndexStatus"].IsNull())
+    {
+        if (!value["IndexStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LogContextInfo.IndexStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_indexStatus = string(value["IndexStatus"].GetString());
+        m_indexStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("HighLights") && !value["HighLights"].IsNull())
+    {
+        if (!value["HighLights"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `LogContextInfo.HighLights` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["HighLights"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            HighLightItem item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_highLights.push_back(item);
+        }
+        m_highLightsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -148,6 +202,45 @@ void LogContextInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "BTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_bTime, allocator);
+    }
+
+    if (m_hostNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hostName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_rawLogHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RawLog";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_rawLog.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_indexStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IndexStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_indexStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_highLightsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HighLights";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_highLights.begin(); itr != m_highLights.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -247,5 +340,69 @@ void LogContextInfo::SetBTime(const int64_t& _bTime)
 bool LogContextInfo::BTimeHasBeenSet() const
 {
     return m_bTimeHasBeenSet;
+}
+
+string LogContextInfo::GetHostName() const
+{
+    return m_hostName;
+}
+
+void LogContextInfo::SetHostName(const string& _hostName)
+{
+    m_hostName = _hostName;
+    m_hostNameHasBeenSet = true;
+}
+
+bool LogContextInfo::HostNameHasBeenSet() const
+{
+    return m_hostNameHasBeenSet;
+}
+
+string LogContextInfo::GetRawLog() const
+{
+    return m_rawLog;
+}
+
+void LogContextInfo::SetRawLog(const string& _rawLog)
+{
+    m_rawLog = _rawLog;
+    m_rawLogHasBeenSet = true;
+}
+
+bool LogContextInfo::RawLogHasBeenSet() const
+{
+    return m_rawLogHasBeenSet;
+}
+
+string LogContextInfo::GetIndexStatus() const
+{
+    return m_indexStatus;
+}
+
+void LogContextInfo::SetIndexStatus(const string& _indexStatus)
+{
+    m_indexStatus = _indexStatus;
+    m_indexStatusHasBeenSet = true;
+}
+
+bool LogContextInfo::IndexStatusHasBeenSet() const
+{
+    return m_indexStatusHasBeenSet;
+}
+
+vector<HighLightItem> LogContextInfo::GetHighLights() const
+{
+    return m_highLights;
+}
+
+void LogContextInfo::SetHighLights(const vector<HighLightItem>& _highLights)
+{
+    m_highLights = _highLights;
+    m_highLightsHasBeenSet = true;
+}
+
+bool LogContextInfo::HighLightsHasBeenSet() const
+{
+    return m_highLightsHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,12 @@ EmergencyVul::EmergencyVul() :
     m_cveIdHasBeenSet(false),
     m_cvssScoreHasBeenSet(false),
     m_labelsHasBeenSet(false),
-    m_hostCountHasBeenSet(false)
+    m_hostCountHasBeenSet(false),
+    m_isSupportDefenseHasBeenSet(false),
+    m_defenseAttackCountHasBeenSet(false),
+    m_methodHasBeenSet(false),
+    m_attackLevelHasBeenSet(false),
+    m_defenseStateHasBeenSet(false)
 {
 }
 
@@ -161,6 +166,56 @@ CoreInternalOutcome EmergencyVul::Deserialize(const rapidjson::Value &value)
         m_hostCountHasBeenSet = true;
     }
 
+    if (value.HasMember("IsSupportDefense") && !value["IsSupportDefense"].IsNull())
+    {
+        if (!value["IsSupportDefense"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `EmergencyVul.IsSupportDefense` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSupportDefense = value["IsSupportDefense"].GetUint64();
+        m_isSupportDefenseHasBeenSet = true;
+    }
+
+    if (value.HasMember("DefenseAttackCount") && !value["DefenseAttackCount"].IsNull())
+    {
+        if (!value["DefenseAttackCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `EmergencyVul.DefenseAttackCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_defenseAttackCount = value["DefenseAttackCount"].GetUint64();
+        m_defenseAttackCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("Method") && !value["Method"].IsNull())
+    {
+        if (!value["Method"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `EmergencyVul.Method` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_method = value["Method"].GetUint64();
+        m_methodHasBeenSet = true;
+    }
+
+    if (value.HasMember("AttackLevel") && !value["AttackLevel"].IsNull())
+    {
+        if (!value["AttackLevel"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `EmergencyVul.AttackLevel` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_attackLevel = value["AttackLevel"].GetUint64();
+        m_attackLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("DefenseState") && !value["DefenseState"].IsNull())
+    {
+        if (!value["DefenseState"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `EmergencyVul.DefenseState` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_defenseState = value["DefenseState"].GetBool();
+        m_defenseStateHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -262,6 +317,46 @@ void EmergencyVul::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "HostCount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_hostCount, allocator);
+    }
+
+    if (m_isSupportDefenseHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSupportDefense";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSupportDefense, allocator);
+    }
+
+    if (m_defenseAttackCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DefenseAttackCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_defenseAttackCount, allocator);
+    }
+
+    if (m_methodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Method";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_method, allocator);
+    }
+
+    if (m_attackLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AttackLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_attackLevel, allocator);
+    }
+
+    if (m_defenseStateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DefenseState";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_defenseState, allocator);
     }
 
 }
@@ -457,5 +552,85 @@ void EmergencyVul::SetHostCount(const uint64_t& _hostCount)
 bool EmergencyVul::HostCountHasBeenSet() const
 {
     return m_hostCountHasBeenSet;
+}
+
+uint64_t EmergencyVul::GetIsSupportDefense() const
+{
+    return m_isSupportDefense;
+}
+
+void EmergencyVul::SetIsSupportDefense(const uint64_t& _isSupportDefense)
+{
+    m_isSupportDefense = _isSupportDefense;
+    m_isSupportDefenseHasBeenSet = true;
+}
+
+bool EmergencyVul::IsSupportDefenseHasBeenSet() const
+{
+    return m_isSupportDefenseHasBeenSet;
+}
+
+uint64_t EmergencyVul::GetDefenseAttackCount() const
+{
+    return m_defenseAttackCount;
+}
+
+void EmergencyVul::SetDefenseAttackCount(const uint64_t& _defenseAttackCount)
+{
+    m_defenseAttackCount = _defenseAttackCount;
+    m_defenseAttackCountHasBeenSet = true;
+}
+
+bool EmergencyVul::DefenseAttackCountHasBeenSet() const
+{
+    return m_defenseAttackCountHasBeenSet;
+}
+
+uint64_t EmergencyVul::GetMethod() const
+{
+    return m_method;
+}
+
+void EmergencyVul::SetMethod(const uint64_t& _method)
+{
+    m_method = _method;
+    m_methodHasBeenSet = true;
+}
+
+bool EmergencyVul::MethodHasBeenSet() const
+{
+    return m_methodHasBeenSet;
+}
+
+uint64_t EmergencyVul::GetAttackLevel() const
+{
+    return m_attackLevel;
+}
+
+void EmergencyVul::SetAttackLevel(const uint64_t& _attackLevel)
+{
+    m_attackLevel = _attackLevel;
+    m_attackLevelHasBeenSet = true;
+}
+
+bool EmergencyVul::AttackLevelHasBeenSet() const
+{
+    return m_attackLevelHasBeenSet;
+}
+
+bool EmergencyVul::GetDefenseState() const
+{
+    return m_defenseState;
+}
+
+void EmergencyVul::SetDefenseState(const bool& _defenseState)
+{
+    m_defenseState = _defenseState;
+    m_defenseStateHasBeenSet = true;
+}
+
+bool EmergencyVul::DefenseStateHasBeenSet() const
+{
+    return m_defenseStateHasBeenSet;
 }
 

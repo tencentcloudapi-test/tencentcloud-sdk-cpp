@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,20 +47,23 @@ namespace TencentCloud
 黑石的InstanceId，CVM的Uuid
                      * @return Quuid 主机唯一标识Uuid。
 黑石的InstanceId，CVM的Uuid
+                     * 
                      */
                     std::string GetQuuid() const;
 
                     /**
                      * 设置主机唯一标识Uuid。
 黑石的InstanceId，CVM的Uuid
-                     * @param Quuid 主机唯一标识Uuid。
+                     * @param _quuid 主机唯一标识Uuid。
 黑石的InstanceId，CVM的Uuid
+                     * 
                      */
                     void SetQuuid(const std::string& _quuid);
 
                     /**
                      * 判断参数 Quuid 是否已赋值
                      * @return Quuid 是否已赋值
+                     * 
                      */
                     bool QuuidHasBeenSet() const;
 

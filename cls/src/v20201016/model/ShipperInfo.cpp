@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,14 @@ ShipperInfo::ShipperInfo() :
     m_partitionHasBeenSet(false),
     m_compressHasBeenSet(false),
     m_contentHasBeenSet(false),
-    m_createTimeHasBeenSet(false)
+    m_createTimeHasBeenSet(false),
+    m_filenameModeHasBeenSet(false),
+    m_startTimeHasBeenSet(false),
+    m_endTimeHasBeenSet(false),
+    m_progressHasBeenSet(false),
+    m_remainTimeHasBeenSet(false),
+    m_historyStatusHasBeenSet(false),
+    m_storageTypeHasBeenSet(false)
 {
 }
 
@@ -196,6 +203,76 @@ CoreInternalOutcome ShipperInfo::Deserialize(const rapidjson::Value &value)
         m_createTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("FilenameMode") && !value["FilenameMode"].IsNull())
+    {
+        if (!value["FilenameMode"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ShipperInfo.FilenameMode` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_filenameMode = value["FilenameMode"].GetUint64();
+        m_filenameModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("StartTime") && !value["StartTime"].IsNull())
+    {
+        if (!value["StartTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ShipperInfo.StartTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_startTime = value["StartTime"].GetInt64();
+        m_startTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("EndTime") && !value["EndTime"].IsNull())
+    {
+        if (!value["EndTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ShipperInfo.EndTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_endTime = value["EndTime"].GetInt64();
+        m_endTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Progress") && !value["Progress"].IsNull())
+    {
+        if (!value["Progress"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `ShipperInfo.Progress` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_progress = value["Progress"].GetDouble();
+        m_progressHasBeenSet = true;
+    }
+
+    if (value.HasMember("RemainTime") && !value["RemainTime"].IsNull())
+    {
+        if (!value["RemainTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ShipperInfo.RemainTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_remainTime = value["RemainTime"].GetInt64();
+        m_remainTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("HistoryStatus") && !value["HistoryStatus"].IsNull())
+    {
+        if (!value["HistoryStatus"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ShipperInfo.HistoryStatus` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_historyStatus = value["HistoryStatus"].GetInt64();
+        m_historyStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("StorageType") && !value["StorageType"].IsNull())
+    {
+        if (!value["StorageType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ShipperInfo.StorageType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_storageType = string(value["StorageType"].GetString());
+        m_storageTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -314,6 +391,62 @@ void ShipperInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "CreateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_createTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_filenameModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilenameMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_filenameMode, allocator);
+    }
+
+    if (m_startTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StartTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_startTime, allocator);
+    }
+
+    if (m_endTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EndTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_endTime, allocator);
+    }
+
+    if (m_progressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Progress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_progress, allocator);
+    }
+
+    if (m_remainTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RemainTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_remainTime, allocator);
+    }
+
+    if (m_historyStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HistoryStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_historyStatus, allocator);
+    }
+
+    if (m_storageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_storageType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -525,5 +658,117 @@ void ShipperInfo::SetCreateTime(const string& _createTime)
 bool ShipperInfo::CreateTimeHasBeenSet() const
 {
     return m_createTimeHasBeenSet;
+}
+
+uint64_t ShipperInfo::GetFilenameMode() const
+{
+    return m_filenameMode;
+}
+
+void ShipperInfo::SetFilenameMode(const uint64_t& _filenameMode)
+{
+    m_filenameMode = _filenameMode;
+    m_filenameModeHasBeenSet = true;
+}
+
+bool ShipperInfo::FilenameModeHasBeenSet() const
+{
+    return m_filenameModeHasBeenSet;
+}
+
+int64_t ShipperInfo::GetStartTime() const
+{
+    return m_startTime;
+}
+
+void ShipperInfo::SetStartTime(const int64_t& _startTime)
+{
+    m_startTime = _startTime;
+    m_startTimeHasBeenSet = true;
+}
+
+bool ShipperInfo::StartTimeHasBeenSet() const
+{
+    return m_startTimeHasBeenSet;
+}
+
+int64_t ShipperInfo::GetEndTime() const
+{
+    return m_endTime;
+}
+
+void ShipperInfo::SetEndTime(const int64_t& _endTime)
+{
+    m_endTime = _endTime;
+    m_endTimeHasBeenSet = true;
+}
+
+bool ShipperInfo::EndTimeHasBeenSet() const
+{
+    return m_endTimeHasBeenSet;
+}
+
+double ShipperInfo::GetProgress() const
+{
+    return m_progress;
+}
+
+void ShipperInfo::SetProgress(const double& _progress)
+{
+    m_progress = _progress;
+    m_progressHasBeenSet = true;
+}
+
+bool ShipperInfo::ProgressHasBeenSet() const
+{
+    return m_progressHasBeenSet;
+}
+
+int64_t ShipperInfo::GetRemainTime() const
+{
+    return m_remainTime;
+}
+
+void ShipperInfo::SetRemainTime(const int64_t& _remainTime)
+{
+    m_remainTime = _remainTime;
+    m_remainTimeHasBeenSet = true;
+}
+
+bool ShipperInfo::RemainTimeHasBeenSet() const
+{
+    return m_remainTimeHasBeenSet;
+}
+
+int64_t ShipperInfo::GetHistoryStatus() const
+{
+    return m_historyStatus;
+}
+
+void ShipperInfo::SetHistoryStatus(const int64_t& _historyStatus)
+{
+    m_historyStatus = _historyStatus;
+    m_historyStatusHasBeenSet = true;
+}
+
+bool ShipperInfo::HistoryStatusHasBeenSet() const
+{
+    return m_historyStatusHasBeenSet;
+}
+
+string ShipperInfo::GetStorageType() const
+{
+    return m_storageType;
+}
+
+void ShipperInfo::SetStorageType(const string& _storageType)
+{
+    m_storageType = _storageType;
+    m_storageTypeHasBeenSet = true;
+}
+
+bool ShipperInfo::StorageTypeHasBeenSet() const
+{
+    return m_storageTypeHasBeenSet;
 }
 

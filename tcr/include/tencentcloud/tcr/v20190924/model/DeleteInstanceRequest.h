@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,65 @@ namespace TencentCloud
                     /**
                      * 获取实例id
                      * @return RegistryId 实例id
+                     * 
                      */
                     std::string GetRegistryId() const;
 
                     /**
                      * 设置实例id
-                     * @param RegistryId 实例id
+                     * @param _registryId 实例id
+                     * 
                      */
                     void SetRegistryId(const std::string& _registryId);
 
                     /**
                      * 判断参数 RegistryId 是否已赋值
                      * @return RegistryId 是否已赋值
+                     * 
                      */
                     bool RegistryIdHasBeenSet() const;
 
                     /**
                      * 获取是否删除存储桶，默认为false
                      * @return DeleteBucket 是否删除存储桶，默认为false
+                     * 
                      */
                     bool GetDeleteBucket() const;
 
                     /**
                      * 设置是否删除存储桶，默认为false
-                     * @param DeleteBucket 是否删除存储桶，默认为false
+                     * @param _deleteBucket 是否删除存储桶，默认为false
+                     * 
                      */
                     void SetDeleteBucket(const bool& _deleteBucket);
 
                     /**
                      * 判断参数 DeleteBucket 是否已赋值
                      * @return DeleteBucket 是否已赋值
+                     * 
                      */
                     bool DeleteBucketHasBeenSet() const;
+
+                    /**
+                     * 获取是否dryRun模式，缺省值：false
+                     * @return DryRun 是否dryRun模式，缺省值：false
+                     * 
+                     */
+                    bool GetDryRun() const;
+
+                    /**
+                     * 设置是否dryRun模式，缺省值：false
+                     * @param _dryRun 是否dryRun模式，缺省值：false
+                     * 
+                     */
+                    void SetDryRun(const bool& _dryRun);
+
+                    /**
+                     * 判断参数 DryRun 是否已赋值
+                     * @return DryRun 是否已赋值
+                     * 
+                     */
+                    bool DryRunHasBeenSet() const;
 
                 private:
 
@@ -91,6 +118,12 @@ namespace TencentCloud
                      */
                     bool m_deleteBucket;
                     bool m_deleteBucketHasBeenSet;
+
+                    /**
+                     * 是否dryRun模式，缺省值：false
+                     */
+                    bool m_dryRun;
+                    bool m_dryRunHasBeenSet;
 
                 };
             }

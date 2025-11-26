@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取结果图片Base64信息。
                      * @return ResultImage 结果图片Base64信息。
+                     * 
                      */
                     std::string GetResultImage() const;
 
                     /**
                      * 判断参数 ResultImage 是否已赋值
                      * @return ResultImage 是否已赋值
+                     * 
                      */
                     bool ResultImageHasBeenSet() const;
 
                     /**
                      * 获取RspImgType 为 url 时，返回处理后的图片 url 数据。(默认为base64)
                      * @return ResultUrl RspImgType 为 url 时，返回处理后的图片 url 数据。(默认为base64)
+                     * 
                      */
                     std::string GetResultUrl() const;
 
                     /**
                      * 判断参数 ResultUrl 是否已赋值
                      * @return ResultUrl 是否已赋值
+                     * 
                      */
                     bool ResultUrlHasBeenSet() const;
 

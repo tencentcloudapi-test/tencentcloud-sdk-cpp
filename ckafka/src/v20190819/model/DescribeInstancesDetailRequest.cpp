@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,9 @@ DescribeInstancesDetailRequest::DescribeInstancesDetailRequest() :
     m_limitHasBeenSet(false),
     m_tagKeyHasBeenSet(false),
     m_filtersHasBeenSet(false),
-    m_instanceIdsHasBeenSet(false)
+    m_instanceIdsHasBeenSet(false),
+    m_instanceIdListHasBeenSet(false),
+    m_tagListHasBeenSet(false)
 {
 }
 
@@ -115,6 +117,34 @@ string DescribeInstancesDetailRequest::ToJsonString() const
         string key = "InstanceIds";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_instanceIds.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceIdListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceIdList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_instanceIdList.begin(); itr != m_instanceIdList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_tagListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagList.begin(); itr != m_tagList.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -251,6 +281,38 @@ void DescribeInstancesDetailRequest::SetInstanceIds(const string& _instanceIds)
 bool DescribeInstancesDetailRequest::InstanceIdsHasBeenSet() const
 {
     return m_instanceIdsHasBeenSet;
+}
+
+vector<string> DescribeInstancesDetailRequest::GetInstanceIdList() const
+{
+    return m_instanceIdList;
+}
+
+void DescribeInstancesDetailRequest::SetInstanceIdList(const vector<string>& _instanceIdList)
+{
+    m_instanceIdList = _instanceIdList;
+    m_instanceIdListHasBeenSet = true;
+}
+
+bool DescribeInstancesDetailRequest::InstanceIdListHasBeenSet() const
+{
+    return m_instanceIdListHasBeenSet;
+}
+
+vector<Tag> DescribeInstancesDetailRequest::GetTagList() const
+{
+    return m_tagList;
+}
+
+void DescribeInstancesDetailRequest::SetTagList(const vector<Tag>& _tagList)
+{
+    m_tagList = _tagList;
+    m_tagListHasBeenSet = true;
+}
+
+bool DescribeInstancesDetailRequest::TagListHasBeenSet() const
+{
+    return m_tagListHasBeenSet;
 }
 
 

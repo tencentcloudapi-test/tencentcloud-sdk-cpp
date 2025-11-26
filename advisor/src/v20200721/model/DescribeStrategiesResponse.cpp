@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ CoreInternalOutcome DescribeStrategiesResponse::Deserialize(const string &payloa
         const rapidjson::Value &tmpValue = rsp["Strategies"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            DescribeStrategie item;
+            Strategies item;
             CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
@@ -111,7 +111,7 @@ string DescribeStrategiesResponse::ToJsonString() const
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -119,7 +119,7 @@ string DescribeStrategiesResponse::ToJsonString() const
 }
 
 
-vector<DescribeStrategie> DescribeStrategiesResponse::GetStrategies() const
+vector<Strategies> DescribeStrategiesResponse::GetStrategies() const
 {
     return m_strategies;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,86 +46,114 @@ namespace TencentCloud
                     /**
                      * 获取星期一的可维护时间列表。
                      * @return Monday 星期一的可维护时间列表。
+                     * 
                      */
                     std::vector<std::string> GetMonday() const;
 
                     /**
                      * 判断参数 Monday 是否已赋值
                      * @return Monday 是否已赋值
+                     * 
                      */
                     bool MondayHasBeenSet() const;
 
                     /**
                      * 获取星期二的可维护时间列表。
                      * @return Tuesday 星期二的可维护时间列表。
+                     * 
                      */
                     std::vector<std::string> GetTuesday() const;
 
                     /**
                      * 判断参数 Tuesday 是否已赋值
                      * @return Tuesday 是否已赋值
+                     * 
                      */
                     bool TuesdayHasBeenSet() const;
 
                     /**
                      * 获取星期三的可维护时间列表。
                      * @return Wednesday 星期三的可维护时间列表。
+                     * 
                      */
                     std::vector<std::string> GetWednesday() const;
 
                     /**
                      * 判断参数 Wednesday 是否已赋值
                      * @return Wednesday 是否已赋值
+                     * 
                      */
                     bool WednesdayHasBeenSet() const;
 
                     /**
                      * 获取星期四的可维护时间列表。
                      * @return Thursday 星期四的可维护时间列表。
+                     * 
                      */
                     std::vector<std::string> GetThursday() const;
 
                     /**
                      * 判断参数 Thursday 是否已赋值
                      * @return Thursday 是否已赋值
+                     * 
                      */
                     bool ThursdayHasBeenSet() const;
 
                     /**
                      * 获取星期五的可维护时间列表。
                      * @return Friday 星期五的可维护时间列表。
+                     * 
                      */
                     std::vector<std::string> GetFriday() const;
 
                     /**
                      * 判断参数 Friday 是否已赋值
                      * @return Friday 是否已赋值
+                     * 
                      */
                     bool FridayHasBeenSet() const;
 
                     /**
                      * 获取星期六的可维护时间列表。
                      * @return Saturday 星期六的可维护时间列表。
+                     * 
                      */
                     std::vector<std::string> GetSaturday() const;
 
                     /**
                      * 判断参数 Saturday 是否已赋值
                      * @return Saturday 是否已赋值
+                     * 
                      */
                     bool SaturdayHasBeenSet() const;
 
                     /**
                      * 获取星期日的可维护时间列表。
                      * @return Sunday 星期日的可维护时间列表。
+                     * 
                      */
                     std::vector<std::string> GetSunday() const;
 
                     /**
                      * 判断参数 Sunday 是否已赋值
                      * @return Sunday 是否已赋值
+                     * 
                      */
                     bool SundayHasBeenSet() const;
+
+                    /**
+                     * 获取最大数据延迟阈值
+                     * @return MaxDelayTime 最大数据延迟阈值
+                     * 
+                     */
+                    uint64_t GetMaxDelayTime() const;
+
+                    /**
+                     * 判断参数 MaxDelayTime 是否已赋值
+                     * @return MaxDelayTime 是否已赋值
+                     * 
+                     */
+                    bool MaxDelayTimeHasBeenSet() const;
 
                 private:
 
@@ -170,6 +198,12 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_sunday;
                     bool m_sundayHasBeenSet;
+
+                    /**
+                     * 最大数据延迟阈值
+                     */
+                    uint64_t m_maxDelayTime;
+                    bool m_maxDelayTimeHasBeenSet;
 
                 };
             }

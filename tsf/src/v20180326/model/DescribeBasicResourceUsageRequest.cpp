@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@
 using namespace TencentCloud::Tsf::V20180326::Model;
 using namespace std;
 
-DescribeBasicResourceUsageRequest::DescribeBasicResourceUsageRequest()
+DescribeBasicResourceUsageRequest::DescribeBasicResourceUsageRequest() :
+    m_allHasBeenSet(false)
 {
 }
 
@@ -33,6 +34,14 @@ string DescribeBasicResourceUsageRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
+    if (m_allHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "All";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_all, allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -40,5 +49,21 @@ string DescribeBasicResourceUsageRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+bool DescribeBasicResourceUsageRequest::GetAll() const
+{
+    return m_all;
+}
+
+void DescribeBasicResourceUsageRequest::SetAll(const bool& _all)
+{
+    m_all = _all;
+    m_allHasBeenSet = true;
+}
+
+bool DescribeBasicResourceUsageRequest::AllHasBeenSet() const
+{
+    return m_allHasBeenSet;
+}
 
 

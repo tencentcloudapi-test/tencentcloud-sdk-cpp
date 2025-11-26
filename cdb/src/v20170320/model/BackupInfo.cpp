@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,15 @@ BackupInfo::BackupInfo() :
     m_startTimeHasBeenSet(false),
     m_methodHasBeenSet(false),
     m_wayHasBeenSet(false),
-    m_manualBackupNameHasBeenSet(false)
+    m_manualBackupNameHasBeenSet(false),
+    m_saveModeHasBeenSet(false),
+    m_regionHasBeenSet(false),
+    m_remoteInfoHasBeenSet(false),
+    m_cosStorageTypeHasBeenSet(false),
+    m_instanceIdHasBeenSet(false),
+    m_encryptionFlagHasBeenSet(false),
+    m_executedGTIDSetHasBeenSet(false),
+    m_mD5HasBeenSet(false)
 {
 }
 
@@ -183,6 +191,96 @@ CoreInternalOutcome BackupInfo::Deserialize(const rapidjson::Value &value)
         m_manualBackupNameHasBeenSet = true;
     }
 
+    if (value.HasMember("SaveMode") && !value["SaveMode"].IsNull())
+    {
+        if (!value["SaveMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.SaveMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_saveMode = string(value["SaveMode"].GetString());
+        m_saveModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Region") && !value["Region"].IsNull())
+    {
+        if (!value["Region"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.Region` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_region = string(value["Region"].GetString());
+        m_regionHasBeenSet = true;
+    }
+
+    if (value.HasMember("RemoteInfo") && !value["RemoteInfo"].IsNull())
+    {
+        if (!value["RemoteInfo"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.RemoteInfo` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["RemoteInfo"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            RemoteBackupInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_remoteInfo.push_back(item);
+        }
+        m_remoteInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("CosStorageType") && !value["CosStorageType"].IsNull())
+    {
+        if (!value["CosStorageType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.CosStorageType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_cosStorageType = value["CosStorageType"].GetInt64();
+        m_cosStorageTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceId") && !value["InstanceId"].IsNull())
+    {
+        if (!value["InstanceId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.InstanceId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceId = string(value["InstanceId"].GetString());
+        m_instanceIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("EncryptionFlag") && !value["EncryptionFlag"].IsNull())
+    {
+        if (!value["EncryptionFlag"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.EncryptionFlag` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptionFlag = string(value["EncryptionFlag"].GetString());
+        m_encryptionFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExecutedGTIDSet") && !value["ExecutedGTIDSet"].IsNull())
+    {
+        if (!value["ExecutedGTIDSet"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.ExecutedGTIDSet` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_executedGTIDSet = string(value["ExecutedGTIDSet"].GetString());
+        m_executedGTIDSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("MD5") && !value["MD5"].IsNull())
+    {
+        if (!value["MD5"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupInfo.MD5` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_mD5 = string(value["MD5"].GetString());
+        m_mD5HasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -300,6 +398,77 @@ void BackupInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "ManualBackupName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_manualBackupName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_saveModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SaveMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_saveMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Region";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_region.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remoteInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RemoteInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_remoteInfo.begin(); itr != m_remoteInfo.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_cosStorageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CosStorageType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_cosStorageType, allocator);
+    }
+
+    if (m_instanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_encryptionFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptionFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptionFlag.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_executedGTIDSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExecutedGTIDSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_executedGTIDSet.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_mD5HasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MD5";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_mD5.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -527,5 +696,133 @@ void BackupInfo::SetManualBackupName(const string& _manualBackupName)
 bool BackupInfo::ManualBackupNameHasBeenSet() const
 {
     return m_manualBackupNameHasBeenSet;
+}
+
+string BackupInfo::GetSaveMode() const
+{
+    return m_saveMode;
+}
+
+void BackupInfo::SetSaveMode(const string& _saveMode)
+{
+    m_saveMode = _saveMode;
+    m_saveModeHasBeenSet = true;
+}
+
+bool BackupInfo::SaveModeHasBeenSet() const
+{
+    return m_saveModeHasBeenSet;
+}
+
+string BackupInfo::GetRegion() const
+{
+    return m_region;
+}
+
+void BackupInfo::SetRegion(const string& _region)
+{
+    m_region = _region;
+    m_regionHasBeenSet = true;
+}
+
+bool BackupInfo::RegionHasBeenSet() const
+{
+    return m_regionHasBeenSet;
+}
+
+vector<RemoteBackupInfo> BackupInfo::GetRemoteInfo() const
+{
+    return m_remoteInfo;
+}
+
+void BackupInfo::SetRemoteInfo(const vector<RemoteBackupInfo>& _remoteInfo)
+{
+    m_remoteInfo = _remoteInfo;
+    m_remoteInfoHasBeenSet = true;
+}
+
+bool BackupInfo::RemoteInfoHasBeenSet() const
+{
+    return m_remoteInfoHasBeenSet;
+}
+
+int64_t BackupInfo::GetCosStorageType() const
+{
+    return m_cosStorageType;
+}
+
+void BackupInfo::SetCosStorageType(const int64_t& _cosStorageType)
+{
+    m_cosStorageType = _cosStorageType;
+    m_cosStorageTypeHasBeenSet = true;
+}
+
+bool BackupInfo::CosStorageTypeHasBeenSet() const
+{
+    return m_cosStorageTypeHasBeenSet;
+}
+
+string BackupInfo::GetInstanceId() const
+{
+    return m_instanceId;
+}
+
+void BackupInfo::SetInstanceId(const string& _instanceId)
+{
+    m_instanceId = _instanceId;
+    m_instanceIdHasBeenSet = true;
+}
+
+bool BackupInfo::InstanceIdHasBeenSet() const
+{
+    return m_instanceIdHasBeenSet;
+}
+
+string BackupInfo::GetEncryptionFlag() const
+{
+    return m_encryptionFlag;
+}
+
+void BackupInfo::SetEncryptionFlag(const string& _encryptionFlag)
+{
+    m_encryptionFlag = _encryptionFlag;
+    m_encryptionFlagHasBeenSet = true;
+}
+
+bool BackupInfo::EncryptionFlagHasBeenSet() const
+{
+    return m_encryptionFlagHasBeenSet;
+}
+
+string BackupInfo::GetExecutedGTIDSet() const
+{
+    return m_executedGTIDSet;
+}
+
+void BackupInfo::SetExecutedGTIDSet(const string& _executedGTIDSet)
+{
+    m_executedGTIDSet = _executedGTIDSet;
+    m_executedGTIDSetHasBeenSet = true;
+}
+
+bool BackupInfo::ExecutedGTIDSetHasBeenSet() const
+{
+    return m_executedGTIDSetHasBeenSet;
+}
+
+string BackupInfo::GetMD5() const
+{
+    return m_mD5;
+}
+
+void BackupInfo::SetMD5(const string& _mD5)
+{
+    m_mD5 = _mD5;
+    m_mD5HasBeenSet = true;
+}
+
+bool BackupInfo::MD5HasBeenSet() const
+{
+    return m_mD5HasBeenSet;
 }
 

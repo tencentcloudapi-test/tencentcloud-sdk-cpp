@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取配额名称。每次最大查询100个配额类型。
                      * @return LimitTypes 配额名称。每次最大查询100个配额类型。
+                     * 
                      */
                     std::vector<std::string> GetLimitTypes() const;
 
                     /**
                      * 设置配额名称。每次最大查询100个配额类型。
-                     * @param LimitTypes 配额名称。每次最大查询100个配额类型。
+                     * @param _limitTypes 配额名称。每次最大查询100个配额类型。
+                     * 
                      */
                     void SetLimitTypes(const std::vector<std::string>& _limitTypes);
 
                     /**
                      * 判断参数 LimitTypes 是否已赋值
                      * @return LimitTypes 是否已赋值
+                     * 
                      */
                     bool LimitTypesHasBeenSet() const;
 

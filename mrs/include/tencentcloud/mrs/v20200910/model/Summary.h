@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mrs/v20200910/model/SymptomInfo.h>
+#include <tencentcloud/mrs/v20200910/model/Coord.h>
 
 
 namespace TencentCloud
@@ -49,63 +50,86 @@ namespace TencentCloud
 
                     /**
                      * 获取症状
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Symptom 症状
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<SymptomInfo> GetSymptom() const;
 
                     /**
                      * 设置症状
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Symptom 症状
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _symptom 症状
+                     * 
                      */
                     void SetSymptom(const std::vector<SymptomInfo>& _symptom);
 
                     /**
                      * 判断参数 Symptom 是否已赋值
                      * @return Symptom 是否已赋值
+                     * 
                      */
                     bool SymptomHasBeenSet() const;
 
                     /**
                      * 获取文本
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Text 文本
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetText() const;
 
                     /**
                      * 设置文本
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Text 文本
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _text 文本
+                     * 
                      */
                     void SetText(const std::string& _text);
 
                     /**
                      * 判断参数 Text 是否已赋值
                      * @return Text 是否已赋值
+                     * 
                      */
                     bool TextHasBeenSet() const;
+
+                    /**
+                     * 获取坐标
+                     * @return Coords 坐标
+                     * 
+                     */
+                    std::vector<Coord> GetCoords() const;
+
+                    /**
+                     * 设置坐标
+                     * @param _coords 坐标
+                     * 
+                     */
+                    void SetCoords(const std::vector<Coord>& _coords);
+
+                    /**
+                     * 判断参数 Coords 是否已赋值
+                     * @return Coords 是否已赋值
+                     * 
+                     */
+                    bool CoordsHasBeenSet() const;
 
                 private:
 
                     /**
                      * 症状
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<SymptomInfo> m_symptom;
                     bool m_symptomHasBeenSet;
 
                     /**
                      * 文本
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_text;
                     bool m_textHasBeenSet;
+
+                    /**
+                     * 坐标
+                     */
+                    std::vector<Coord> m_coords;
+                    bool m_coordsHasBeenSet;
 
                 };
             }

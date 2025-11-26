@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,16 @@ RuntimeMC::RuntimeMC() :
     m_cpuUsedHasBeenSet(false),
     m_cpuLimitHasBeenSet(false),
     m_memoryUsedHasBeenSet(false),
-    m_memoryLimitHasBeenSet(false)
+    m_memoryLimitHasBeenSet(false),
+    m_expiredAtHasBeenSet(false),
+    m_chargeTypeHasBeenSet(false),
+    m_resourceLimitTypeHasBeenSet(false),
+    m_autoRenewalHasBeenSet(false),
+    m_workerExtensionsHasBeenSet(false),
+    m_runtimeTypeHasBeenSet(false),
+    m_runtimeClassHasBeenSet(false),
+    m_bandwidthOutUsedHasBeenSet(false),
+    m_bandwidthOutLimitHasBeenSet(false)
 {
 }
 
@@ -194,6 +203,106 @@ CoreInternalOutcome RuntimeMC::Deserialize(const rapidjson::Value &value)
         m_memoryLimitHasBeenSet = true;
     }
 
+    if (value.HasMember("ExpiredAt") && !value["ExpiredAt"].IsNull())
+    {
+        if (!value["ExpiredAt"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.ExpiredAt` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_expiredAt = value["ExpiredAt"].GetInt64();
+        m_expiredAtHasBeenSet = true;
+    }
+
+    if (value.HasMember("ChargeType") && !value["ChargeType"].IsNull())
+    {
+        if (!value["ChargeType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.ChargeType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_chargeType = value["ChargeType"].GetInt64();
+        m_chargeTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ResourceLimitType") && !value["ResourceLimitType"].IsNull())
+    {
+        if (!value["ResourceLimitType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.ResourceLimitType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_resourceLimitType = value["ResourceLimitType"].GetInt64();
+        m_resourceLimitTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoRenewal") && !value["AutoRenewal"].IsNull())
+    {
+        if (!value["AutoRenewal"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.AutoRenewal` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoRenewal = value["AutoRenewal"].GetBool();
+        m_autoRenewalHasBeenSet = true;
+    }
+
+    if (value.HasMember("WorkerExtensions") && !value["WorkerExtensions"].IsNull())
+    {
+        if (!value["WorkerExtensions"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.WorkerExtensions` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["WorkerExtensions"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            RuntimeExtensionMC item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_workerExtensions.push_back(item);
+        }
+        m_workerExtensionsHasBeenSet = true;
+    }
+
+    if (value.HasMember("RuntimeType") && !value["RuntimeType"].IsNull())
+    {
+        if (!value["RuntimeType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.RuntimeType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_runtimeType = value["RuntimeType"].GetInt64();
+        m_runtimeTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RuntimeClass") && !value["RuntimeClass"].IsNull())
+    {
+        if (!value["RuntimeClass"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.RuntimeClass` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_runtimeClass = value["RuntimeClass"].GetInt64();
+        m_runtimeClassHasBeenSet = true;
+    }
+
+    if (value.HasMember("BandwidthOutUsed") && !value["BandwidthOutUsed"].IsNull())
+    {
+        if (!value["BandwidthOutUsed"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.BandwidthOutUsed` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_bandwidthOutUsed = value["BandwidthOutUsed"].GetDouble();
+        m_bandwidthOutUsedHasBeenSet = true;
+    }
+
+    if (value.HasMember("BandwidthOutLimit") && !value["BandwidthOutLimit"].IsNull())
+    {
+        if (!value["BandwidthOutLimit"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeMC.BandwidthOutLimit` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_bandwidthOutLimit = value["BandwidthOutLimit"].GetDouble();
+        m_bandwidthOutLimitHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -319,6 +428,85 @@ void RuntimeMC::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "MemoryLimit";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_memoryLimit, allocator);
+    }
+
+    if (m_expiredAtHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExpiredAt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_expiredAt, allocator);
+    }
+
+    if (m_chargeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChargeType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_chargeType, allocator);
+    }
+
+    if (m_resourceLimitTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceLimitType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_resourceLimitType, allocator);
+    }
+
+    if (m_autoRenewalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRenewal";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoRenewal, allocator);
+    }
+
+    if (m_workerExtensionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WorkerExtensions";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_workerExtensions.begin(); itr != m_workerExtensions.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_runtimeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuntimeType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_runtimeType, allocator);
+    }
+
+    if (m_runtimeClassHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuntimeClass";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_runtimeClass, allocator);
+    }
+
+    if (m_bandwidthOutUsedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BandwidthOutUsed";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_bandwidthOutUsed, allocator);
+    }
+
+    if (m_bandwidthOutLimitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BandwidthOutLimit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_bandwidthOutLimit, allocator);
     }
 
 }
@@ -562,5 +750,149 @@ void RuntimeMC::SetMemoryLimit(const double& _memoryLimit)
 bool RuntimeMC::MemoryLimitHasBeenSet() const
 {
     return m_memoryLimitHasBeenSet;
+}
+
+int64_t RuntimeMC::GetExpiredAt() const
+{
+    return m_expiredAt;
+}
+
+void RuntimeMC::SetExpiredAt(const int64_t& _expiredAt)
+{
+    m_expiredAt = _expiredAt;
+    m_expiredAtHasBeenSet = true;
+}
+
+bool RuntimeMC::ExpiredAtHasBeenSet() const
+{
+    return m_expiredAtHasBeenSet;
+}
+
+int64_t RuntimeMC::GetChargeType() const
+{
+    return m_chargeType;
+}
+
+void RuntimeMC::SetChargeType(const int64_t& _chargeType)
+{
+    m_chargeType = _chargeType;
+    m_chargeTypeHasBeenSet = true;
+}
+
+bool RuntimeMC::ChargeTypeHasBeenSet() const
+{
+    return m_chargeTypeHasBeenSet;
+}
+
+int64_t RuntimeMC::GetResourceLimitType() const
+{
+    return m_resourceLimitType;
+}
+
+void RuntimeMC::SetResourceLimitType(const int64_t& _resourceLimitType)
+{
+    m_resourceLimitType = _resourceLimitType;
+    m_resourceLimitTypeHasBeenSet = true;
+}
+
+bool RuntimeMC::ResourceLimitTypeHasBeenSet() const
+{
+    return m_resourceLimitTypeHasBeenSet;
+}
+
+bool RuntimeMC::GetAutoRenewal() const
+{
+    return m_autoRenewal;
+}
+
+void RuntimeMC::SetAutoRenewal(const bool& _autoRenewal)
+{
+    m_autoRenewal = _autoRenewal;
+    m_autoRenewalHasBeenSet = true;
+}
+
+bool RuntimeMC::AutoRenewalHasBeenSet() const
+{
+    return m_autoRenewalHasBeenSet;
+}
+
+vector<RuntimeExtensionMC> RuntimeMC::GetWorkerExtensions() const
+{
+    return m_workerExtensions;
+}
+
+void RuntimeMC::SetWorkerExtensions(const vector<RuntimeExtensionMC>& _workerExtensions)
+{
+    m_workerExtensions = _workerExtensions;
+    m_workerExtensionsHasBeenSet = true;
+}
+
+bool RuntimeMC::WorkerExtensionsHasBeenSet() const
+{
+    return m_workerExtensionsHasBeenSet;
+}
+
+int64_t RuntimeMC::GetRuntimeType() const
+{
+    return m_runtimeType;
+}
+
+void RuntimeMC::SetRuntimeType(const int64_t& _runtimeType)
+{
+    m_runtimeType = _runtimeType;
+    m_runtimeTypeHasBeenSet = true;
+}
+
+bool RuntimeMC::RuntimeTypeHasBeenSet() const
+{
+    return m_runtimeTypeHasBeenSet;
+}
+
+int64_t RuntimeMC::GetRuntimeClass() const
+{
+    return m_runtimeClass;
+}
+
+void RuntimeMC::SetRuntimeClass(const int64_t& _runtimeClass)
+{
+    m_runtimeClass = _runtimeClass;
+    m_runtimeClassHasBeenSet = true;
+}
+
+bool RuntimeMC::RuntimeClassHasBeenSet() const
+{
+    return m_runtimeClassHasBeenSet;
+}
+
+double RuntimeMC::GetBandwidthOutUsed() const
+{
+    return m_bandwidthOutUsed;
+}
+
+void RuntimeMC::SetBandwidthOutUsed(const double& _bandwidthOutUsed)
+{
+    m_bandwidthOutUsed = _bandwidthOutUsed;
+    m_bandwidthOutUsedHasBeenSet = true;
+}
+
+bool RuntimeMC::BandwidthOutUsedHasBeenSet() const
+{
+    return m_bandwidthOutUsedHasBeenSet;
+}
+
+double RuntimeMC::GetBandwidthOutLimit() const
+{
+    return m_bandwidthOutLimit;
+}
+
+void RuntimeMC::SetBandwidthOutLimit(const double& _bandwidthOutLimit)
+{
+    m_bandwidthOutLimit = _bandwidthOutLimit;
+    m_bandwidthOutLimitHasBeenSet = true;
+}
+
+bool RuntimeMC::BandwidthOutLimitHasBeenSet() const
+{
+    return m_bandwidthOutLimitHasBeenSet;
 }
 

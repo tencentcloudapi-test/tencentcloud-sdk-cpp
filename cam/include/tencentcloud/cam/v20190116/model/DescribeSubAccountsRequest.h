@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取子用户UIN列表，最多支持50个UIN
                      * @return FilterSubAccountUin 子用户UIN列表，最多支持50个UIN
+                     * 
                      */
                     std::vector<uint64_t> GetFilterSubAccountUin() const;
 
                     /**
                      * 设置子用户UIN列表，最多支持50个UIN
-                     * @param FilterSubAccountUin 子用户UIN列表，最多支持50个UIN
+                     * @param _filterSubAccountUin 子用户UIN列表，最多支持50个UIN
+                     * 
                      */
                     void SetFilterSubAccountUin(const std::vector<uint64_t>& _filterSubAccountUin);
 
                     /**
                      * 判断参数 FilterSubAccountUin 是否已赋值
                      * @return FilterSubAccountUin 是否已赋值
+                     * 
                      */
                     bool FilterSubAccountUinHasBeenSet() const;
 

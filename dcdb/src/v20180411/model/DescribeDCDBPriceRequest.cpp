@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,9 @@ DescribeDCDBPriceRequest::DescribeDCDBPriceRequest() :
     m_shardMemoryHasBeenSet(false),
     m_shardStorageHasBeenSet(false),
     m_shardCountHasBeenSet(false),
-    m_paymodeHasBeenSet(false)
+    m_paymodeHasBeenSet(false),
+    m_amountUnitHasBeenSet(false),
+    m_cpuTypeHasBeenSet(false)
 {
 }
 
@@ -103,6 +105,22 @@ string DescribeDCDBPriceRequest::ToJsonString() const
         string key = "Paymode";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_paymode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_amountUnitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AmountUnit";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_amountUnit.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cpuTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CpuType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cpuType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -239,6 +257,38 @@ void DescribeDCDBPriceRequest::SetPaymode(const string& _paymode)
 bool DescribeDCDBPriceRequest::PaymodeHasBeenSet() const
 {
     return m_paymodeHasBeenSet;
+}
+
+string DescribeDCDBPriceRequest::GetAmountUnit() const
+{
+    return m_amountUnit;
+}
+
+void DescribeDCDBPriceRequest::SetAmountUnit(const string& _amountUnit)
+{
+    m_amountUnit = _amountUnit;
+    m_amountUnitHasBeenSet = true;
+}
+
+bool DescribeDCDBPriceRequest::AmountUnitHasBeenSet() const
+{
+    return m_amountUnitHasBeenSet;
+}
+
+string DescribeDCDBPriceRequest::GetCpuType() const
+{
+    return m_cpuType;
+}
+
+void DescribeDCDBPriceRequest::SetCpuType(const string& _cpuType)
+{
+    m_cpuType = _cpuType;
+    m_cpuTypeHasBeenSet = true;
+}
+
+bool DescribeDCDBPriceRequest::CpuTypeHasBeenSet() const
+{
+    return m_cpuTypeHasBeenSet;
 }
 
 

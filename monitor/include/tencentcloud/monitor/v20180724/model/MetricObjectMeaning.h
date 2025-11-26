@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取指标英文解释
                      * @return En 指标英文解释
+                     * 
                      */
                     std::string GetEn() const;
 
                     /**
                      * 设置指标英文解释
-                     * @param En 指标英文解释
+                     * @param _en 指标英文解释
+                     * 
                      */
                     void SetEn(const std::string& _en);
 
                     /**
                      * 判断参数 En 是否已赋值
                      * @return En 是否已赋值
+                     * 
                      */
                     bool EnHasBeenSet() const;
 
                     /**
                      * 获取指标中文解释
                      * @return Zh 指标中文解释
+                     * 
                      */
                     std::string GetZh() const;
 
                     /**
                      * 设置指标中文解释
-                     * @param Zh 指标中文解释
+                     * @param _zh 指标中文解释
+                     * 
                      */
                     void SetZh(const std::string& _zh);
 
                     /**
                      * 判断参数 Zh 是否已赋值
                      * @return Zh 是否已赋值
+                     * 
                      */
                     bool ZhHasBeenSet() const;
 

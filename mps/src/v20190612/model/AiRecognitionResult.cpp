@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,9 @@ AiRecognitionResult::AiRecognitionResult() :
     m_asrWordsTaskHasBeenSet(false),
     m_asrFullTextTaskHasBeenSet(false),
     m_ocrWordsTaskHasBeenSet(false),
-    m_ocrFullTextTaskHasBeenSet(false)
+    m_ocrFullTextTaskHasBeenSet(false),
+    m_transTextTaskHasBeenSet(false),
+    m_objectTaskHasBeenSet(false)
 {
 }
 
@@ -130,6 +132,40 @@ CoreInternalOutcome AiRecognitionResult::Deserialize(const rapidjson::Value &val
         m_ocrFullTextTaskHasBeenSet = true;
     }
 
+    if (value.HasMember("TransTextTask") && !value["TransTextTask"].IsNull())
+    {
+        if (!value["TransTextTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AiRecognitionResult.TransTextTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_transTextTask.Deserialize(value["TransTextTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_transTextTaskHasBeenSet = true;
+    }
+
+    if (value.HasMember("ObjectTask") && !value["ObjectTask"].IsNull())
+    {
+        if (!value["ObjectTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AiRecognitionResult.ObjectTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_objectTask.Deserialize(value["ObjectTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_objectTaskHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -188,6 +224,24 @@ void AiRecognitionResult::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_ocrFullTextTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_transTextTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TransTextTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_transTextTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_objectTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ObjectTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_objectTask.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -287,5 +341,37 @@ void AiRecognitionResult::SetOcrFullTextTask(const AiRecognitionTaskOcrFullTextR
 bool AiRecognitionResult::OcrFullTextTaskHasBeenSet() const
 {
     return m_ocrFullTextTaskHasBeenSet;
+}
+
+AiRecognitionTaskTransTextResult AiRecognitionResult::GetTransTextTask() const
+{
+    return m_transTextTask;
+}
+
+void AiRecognitionResult::SetTransTextTask(const AiRecognitionTaskTransTextResult& _transTextTask)
+{
+    m_transTextTask = _transTextTask;
+    m_transTextTaskHasBeenSet = true;
+}
+
+bool AiRecognitionResult::TransTextTaskHasBeenSet() const
+{
+    return m_transTextTaskHasBeenSet;
+}
+
+AiRecognitionTaskObjectResult AiRecognitionResult::GetObjectTask() const
+{
+    return m_objectTask;
+}
+
+void AiRecognitionResult::SetObjectTask(const AiRecognitionTaskObjectResult& _objectTask)
+{
+    m_objectTask = _objectTask;
+    m_objectTaskHasBeenSet = true;
+}
+
+bool AiRecognitionResult::ObjectTaskHasBeenSet() const
+{
+    return m_objectTaskHasBeenSet;
 }
 

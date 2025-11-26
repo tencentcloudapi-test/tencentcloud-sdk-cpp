@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,24 +45,86 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取模板详情
-                     * @return Templates 模板详情
+                     * 获取模板详情列表数据
+                     * @return Templates 模板详情列表数据
+                     * 
                      */
                     std::vector<TemplateInfo> GetTemplates() const;
 
                     /**
                      * 判断参数 Templates 是否已赋值
                      * @return Templates 是否已赋值
+                     * 
                      */
                     bool TemplatesHasBeenSet() const;
+
+                    /**
+                     * 获取查询到的模板总数
+                     * @return TotalCount 查询到的模板总数
+                     * 
+                     */
+                    int64_t GetTotalCount() const;
+
+                    /**
+                     * 判断参数 TotalCount 是否已赋值
+                     * @return TotalCount 是否已赋值
+                     * 
+                     */
+                    bool TotalCountHasBeenSet() const;
+
+                    /**
+                     * 获取每页返回的数据条数
+                     * @return Limit 每页返回的数据条数
+                     * 
+                     */
+                    uint64_t GetLimit() const;
+
+                    /**
+                     * 判断参数 Limit 是否已赋值
+                     * @return Limit 是否已赋值
+                     * 
+                     */
+                    bool LimitHasBeenSet() const;
+
+                    /**
+                     * 获取查询结果分页返回，此处指定第几页。页码从0开始，即首页为0。
+                     * @return Offset 查询结果分页返回，此处指定第几页。页码从0开始，即首页为0。
+                     * 
+                     */
+                    uint64_t GetOffset() const;
+
+                    /**
+                     * 判断参数 Offset 是否已赋值
+                     * @return Offset 是否已赋值
+                     * 
+                     */
+                    bool OffsetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 模板详情
+                     * 模板详情列表数据
                      */
                     std::vector<TemplateInfo> m_templates;
                     bool m_templatesHasBeenSet;
+
+                    /**
+                     * 查询到的模板总数
+                     */
+                    int64_t m_totalCount;
+                    bool m_totalCountHasBeenSet;
+
+                    /**
+                     * 每页返回的数据条数
+                     */
+                    uint64_t m_limit;
+                    bool m_limitHasBeenSet;
+
+                    /**
+                     * 查询结果分页返回，此处指定第几页。页码从0开始，即首页为0。
+                     */
+                    uint64_t m_offset;
+                    bool m_offsetHasBeenSet;
 
                 };
             }

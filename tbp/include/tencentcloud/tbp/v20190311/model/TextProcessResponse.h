@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tbp/v20190311/model/SlotInfo.h>
+#include <tencentcloud/tbp/v20190311/model/ResponseMessage.h>
 
 
 namespace TencentCloud
@@ -49,12 +50,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return DialogStatus 当前会话状态{会话开始: START; 会话中: COUTINUE; 会话结束: COMPLETE}。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDialogStatus() const;
 
                     /**
                      * 判断参数 DialogStatus 是否已赋值
                      * @return DialogStatus 是否已赋值
+                     * 
                      */
                     bool DialogStatusHasBeenSet() const;
 
@@ -63,12 +66,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return BotName 匹配到的机器人名称。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetBotName() const;
 
                     /**
                      * 判断参数 BotName 是否已赋值
                      * @return BotName 是否已赋值
+                     * 
                      */
                     bool BotNameHasBeenSet() const;
 
@@ -77,12 +82,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return IntentName 匹配到的意图名称。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetIntentName() const;
 
                     /**
                      * 判断参数 IntentName 是否已赋值
                      * @return IntentName 是否已赋值
+                     * 
                      */
                     bool IntentNameHasBeenSet() const;
 
@@ -91,12 +98,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return SlotInfoList 槽位信息。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<SlotInfo> GetSlotInfoList() const;
 
                     /**
                      * 判断参数 SlotInfoList 是否已赋值
                      * @return SlotInfoList 是否已赋值
+                     * 
                      */
                     bool SlotInfoListHasBeenSet() const;
 
@@ -105,12 +114,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return InputText 原始的用户说法。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInputText() const;
 
                     /**
                      * 判断参数 InputText 是否已赋值
                      * @return InputText 是否已赋值
+                     * 
                      */
                     bool InputTextHasBeenSet() const;
 
@@ -119,12 +130,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return SessionAttributes 透传字段，由用户自定义的WebService服务返回。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSessionAttributes() const;
 
                     /**
                      * 判断参数 SessionAttributes 是否已赋值
                      * @return SessionAttributes 是否已赋值
+                     * 
                      */
                     bool SessionAttributesHasBeenSet() const;
 
@@ -133,14 +146,48 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ResponseText 机器人对话的应答文本。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResponseText() const;
 
                     /**
                      * 判断参数 ResponseText 是否已赋值
                      * @return ResponseText 是否已赋值
+                     * 
                      */
                     bool ResponseTextHasBeenSet() const;
+
+                    /**
+                     * 获取结果类型 {中间逻辑出错:0; 任务型机器人:1; 问答型机器人:2; 闲聊型机器人:3; 未匹配上，返回预设兜底话术:5; 未匹配上，返回相似问题列表:6}。	
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ResultType 结果类型 {中间逻辑出错:0; 任务型机器人:1; 问答型机器人:2; 闲聊型机器人:3; 未匹配上，返回预设兜底话术:5; 未匹配上，返回相似问题列表:6}。	
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetResultType() const;
+
+                    /**
+                     * 判断参数 ResultType 是否已赋值
+                     * @return ResultType 是否已赋值
+                     * 
+                     */
+                    bool ResultTypeHasBeenSet() const;
+
+                    /**
+                     * 获取机器人应答。	
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ResponseMessage 机器人应答。	
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    ResponseMessage GetResponseMessage() const;
+
+                    /**
+                     * 判断参数 ResponseMessage 是否已赋值
+                     * @return ResponseMessage 是否已赋值
+                     * 
+                     */
+                    bool ResponseMessageHasBeenSet() const;
 
                 private:
 
@@ -192,6 +239,20 @@ namespace TencentCloud
                      */
                     std::string m_responseText;
                     bool m_responseTextHasBeenSet;
+
+                    /**
+                     * 结果类型 {中间逻辑出错:0; 任务型机器人:1; 问答型机器人:2; 闲聊型机器人:3; 未匹配上，返回预设兜底话术:5; 未匹配上，返回相似问题列表:6}。	
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_resultType;
+                    bool m_resultTypeHasBeenSet;
+
+                    /**
+                     * 机器人应答。	
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    ResponseMessage m_responseMessage;
+                    bool m_responseMessageHasBeenSet;
 
                 };
             }

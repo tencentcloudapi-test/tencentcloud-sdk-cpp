@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取验证码应用ID
                      * @return CaptchaAppId 验证码应用ID
+                     * 
                      */
                     int64_t GetCaptchaAppId() const;
 
                     /**
                      * 设置验证码应用ID
-                     * @param CaptchaAppId 验证码应用ID
+                     * @param _captchaAppId 验证码应用ID
+                     * 
                      */
                     void SetCaptchaAppId(const int64_t& _captchaAppId);
 
                     /**
                      * 判断参数 CaptchaAppId 是否已赋值
                      * @return CaptchaAppId 是否已赋值
+                     * 
                      */
                     bool CaptchaAppIdHasBeenSet() const;
 
                     /**
                      * 获取注册应用名称
                      * @return AppName 注册应用名称
+                     * 
                      */
                     std::string GetAppName() const;
 
                     /**
                      * 设置注册应用名称
-                     * @param AppName 注册应用名称
+                     * @param _appName 注册应用名称
+                     * 
                      */
                     void SetAppName(const std::string& _appName);
 
                     /**
                      * 判断参数 AppName 是否已赋值
                      * @return AppName 是否已赋值
+                     * 
                      */
                     bool AppNameHasBeenSet() const;
 
                     /**
                      * 获取腾讯云APPID
                      * @return TcAppId 腾讯云APPID
+                     * 
                      */
                     int64_t GetTcAppId() const;
 
                     /**
                      * 设置腾讯云APPID
-                     * @param TcAppId 腾讯云APPID
+                     * @param _tcAppId 腾讯云APPID
+                     * 
                      */
                     void SetTcAppId(const int64_t& _tcAppId);
 
                     /**
                      * 判断参数 TcAppId 是否已赋值
                      * @return TcAppId 是否已赋值
+                     * 
                      */
                     bool TcAppIdHasBeenSet() const;
 
                     /**
                      * 获取渠道信息
                      * @return ChannelInfo 渠道信息
+                     * 
                      */
                     std::string GetChannelInfo() const;
 
                     /**
                      * 设置渠道信息
-                     * @param ChannelInfo 渠道信息
+                     * @param _channelInfo 渠道信息
+                     * 
                      */
                     void SetChannelInfo(const std::string& _channelInfo);
 
                     /**
                      * 判断参数 ChannelInfo 是否已赋值
                      * @return ChannelInfo 是否已赋值
+                     * 
                      */
                     bool ChannelInfoHasBeenSet() const;
 

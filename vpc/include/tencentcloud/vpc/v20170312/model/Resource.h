@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取带宽包资源类型，包括'Address'和'LoadBalance'
                      * @return ResourceType 带宽包资源类型，包括'Address'和'LoadBalance'
+                     * 
                      */
                     std::string GetResourceType() const;
 
                     /**
                      * 设置带宽包资源类型，包括'Address'和'LoadBalance'
-                     * @param ResourceType 带宽包资源类型，包括'Address'和'LoadBalance'
+                     * @param _resourceType 带宽包资源类型，包括'Address'和'LoadBalance'
+                     * 
                      */
                     void SetResourceType(const std::string& _resourceType);
 
                     /**
                      * 判断参数 ResourceType 是否已赋值
                      * @return ResourceType 是否已赋值
+                     * 
                      */
                     bool ResourceTypeHasBeenSet() const;
 
                     /**
                      * 获取带宽包资源Id，形如'eip-xxxx', 'lb-xxxx'
                      * @return ResourceId 带宽包资源Id，形如'eip-xxxx', 'lb-xxxx'
+                     * 
                      */
                     std::string GetResourceId() const;
 
                     /**
                      * 设置带宽包资源Id，形如'eip-xxxx', 'lb-xxxx'
-                     * @param ResourceId 带宽包资源Id，形如'eip-xxxx', 'lb-xxxx'
+                     * @param _resourceId 带宽包资源Id，形如'eip-xxxx', 'lb-xxxx'
+                     * 
                      */
                     void SetResourceId(const std::string& _resourceId);
 
                     /**
                      * 判断参数 ResourceId 是否已赋值
                      * @return ResourceId 是否已赋值
+                     * 
                      */
                     bool ResourceIdHasBeenSet() const;
 
                     /**
                      * 获取带宽包资源Ip
                      * @return AddressIp 带宽包资源Ip
+                     * 
                      */
                     std::string GetAddressIp() const;
 
                     /**
                      * 设置带宽包资源Ip
-                     * @param AddressIp 带宽包资源Ip
+                     * @param _addressIp 带宽包资源Ip
+                     * 
                      */
                     void SetAddressIp(const std::string& _addressIp);
 
                     /**
                      * 判断参数 AddressIp 是否已赋值
                      * @return AddressIp 是否已赋值
+                     * 
                      */
                     bool AddressIpHasBeenSet() const;
 

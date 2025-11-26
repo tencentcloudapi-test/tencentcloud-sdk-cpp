@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,12 @@ StaffStatusMetrics::StaffStatusMetrics() :
     m_afterCallWorkDurationHasBeenSet(false),
     m_reasonHasBeenSet(false),
     m_reserveRestHasBeenSet(false),
-    m_reserveNotReadyHasBeenSet(false)
+    m_reserveNotReadyHasBeenSet(false),
+    m_useMobileAcceptHasBeenSet(false),
+    m_useMobileCallOutHasBeenSet(false),
+    m_lastOnlineTimestampHasBeenSet(false),
+    m_lastStatusTimestampHasBeenSet(false),
+    m_clientInfoHasBeenSet(false)
 {
 }
 
@@ -168,6 +173,66 @@ CoreInternalOutcome StaffStatusMetrics::Deserialize(const rapidjson::Value &valu
         m_reserveNotReadyHasBeenSet = true;
     }
 
+    if (value.HasMember("UseMobileAccept") && !value["UseMobileAccept"].IsNull())
+    {
+        if (!value["UseMobileAccept"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `StaffStatusMetrics.UseMobileAccept` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_useMobileAccept = value["UseMobileAccept"].GetInt64();
+        m_useMobileAcceptHasBeenSet = true;
+    }
+
+    if (value.HasMember("UseMobileCallOut") && !value["UseMobileCallOut"].IsNull())
+    {
+        if (!value["UseMobileCallOut"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `StaffStatusMetrics.UseMobileCallOut` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_useMobileCallOut = value["UseMobileCallOut"].GetBool();
+        m_useMobileCallOutHasBeenSet = true;
+    }
+
+    if (value.HasMember("LastOnlineTimestamp") && !value["LastOnlineTimestamp"].IsNull())
+    {
+        if (!value["LastOnlineTimestamp"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `StaffStatusMetrics.LastOnlineTimestamp` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_lastOnlineTimestamp = value["LastOnlineTimestamp"].GetInt64();
+        m_lastOnlineTimestampHasBeenSet = true;
+    }
+
+    if (value.HasMember("LastStatusTimestamp") && !value["LastStatusTimestamp"].IsNull())
+    {
+        if (!value["LastStatusTimestamp"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `StaffStatusMetrics.LastStatusTimestamp` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_lastStatusTimestamp = value["LastStatusTimestamp"].GetInt64();
+        m_lastStatusTimestampHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClientInfo") && !value["ClientInfo"].IsNull())
+    {
+        if (!value["ClientInfo"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `StaffStatusMetrics.ClientInfo` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ClientInfo"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ClientInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_clientInfo.push_back(item);
+        }
+        m_clientInfoHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -270,6 +335,53 @@ void StaffStatusMetrics::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "ReserveNotReady";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_reserveNotReady, allocator);
+    }
+
+    if (m_useMobileAcceptHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UseMobileAccept";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_useMobileAccept, allocator);
+    }
+
+    if (m_useMobileCallOutHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UseMobileCallOut";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_useMobileCallOut, allocator);
+    }
+
+    if (m_lastOnlineTimestampHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LastOnlineTimestamp";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_lastOnlineTimestamp, allocator);
+    }
+
+    if (m_lastStatusTimestampHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LastStatusTimestamp";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_lastStatusTimestamp, allocator);
+    }
+
+    if (m_clientInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_clientInfo.begin(); itr != m_clientInfo.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -465,5 +577,85 @@ void StaffStatusMetrics::SetReserveNotReady(const bool& _reserveNotReady)
 bool StaffStatusMetrics::ReserveNotReadyHasBeenSet() const
 {
     return m_reserveNotReadyHasBeenSet;
+}
+
+int64_t StaffStatusMetrics::GetUseMobileAccept() const
+{
+    return m_useMobileAccept;
+}
+
+void StaffStatusMetrics::SetUseMobileAccept(const int64_t& _useMobileAccept)
+{
+    m_useMobileAccept = _useMobileAccept;
+    m_useMobileAcceptHasBeenSet = true;
+}
+
+bool StaffStatusMetrics::UseMobileAcceptHasBeenSet() const
+{
+    return m_useMobileAcceptHasBeenSet;
+}
+
+bool StaffStatusMetrics::GetUseMobileCallOut() const
+{
+    return m_useMobileCallOut;
+}
+
+void StaffStatusMetrics::SetUseMobileCallOut(const bool& _useMobileCallOut)
+{
+    m_useMobileCallOut = _useMobileCallOut;
+    m_useMobileCallOutHasBeenSet = true;
+}
+
+bool StaffStatusMetrics::UseMobileCallOutHasBeenSet() const
+{
+    return m_useMobileCallOutHasBeenSet;
+}
+
+int64_t StaffStatusMetrics::GetLastOnlineTimestamp() const
+{
+    return m_lastOnlineTimestamp;
+}
+
+void StaffStatusMetrics::SetLastOnlineTimestamp(const int64_t& _lastOnlineTimestamp)
+{
+    m_lastOnlineTimestamp = _lastOnlineTimestamp;
+    m_lastOnlineTimestampHasBeenSet = true;
+}
+
+bool StaffStatusMetrics::LastOnlineTimestampHasBeenSet() const
+{
+    return m_lastOnlineTimestampHasBeenSet;
+}
+
+int64_t StaffStatusMetrics::GetLastStatusTimestamp() const
+{
+    return m_lastStatusTimestamp;
+}
+
+void StaffStatusMetrics::SetLastStatusTimestamp(const int64_t& _lastStatusTimestamp)
+{
+    m_lastStatusTimestamp = _lastStatusTimestamp;
+    m_lastStatusTimestampHasBeenSet = true;
+}
+
+bool StaffStatusMetrics::LastStatusTimestampHasBeenSet() const
+{
+    return m_lastStatusTimestampHasBeenSet;
+}
+
+vector<ClientInfo> StaffStatusMetrics::GetClientInfo() const
+{
+    return m_clientInfo;
+}
+
+void StaffStatusMetrics::SetClientInfo(const vector<ClientInfo>& _clientInfo)
+{
+    m_clientInfo = _clientInfo;
+    m_clientInfoHasBeenSet = true;
+}
+
+bool StaffStatusMetrics::ClientInfoHasBeenSet() const
+{
+    return m_clientInfoHasBeenSet;
 }
 

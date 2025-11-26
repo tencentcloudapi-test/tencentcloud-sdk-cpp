@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * apm Agent信息
+                * APM Agent 信息
                 */
                 class ApmAgentInfo : public AbstractModel
                 {
@@ -47,177 +47,165 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取Agent下载地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AgentDownloadURL Agent下载地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取Agent 下载地址
+                     * @return AgentDownloadURL Agent 下载地址
+                     * 
                      */
                     std::string GetAgentDownloadURL() const;
 
                     /**
-                     * 设置Agent下载地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AgentDownloadURL Agent下载地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置Agent 下载地址
+                     * @param _agentDownloadURL Agent 下载地址
+                     * 
                      */
                     void SetAgentDownloadURL(const std::string& _agentDownloadURL);
 
                     /**
                      * 判断参数 AgentDownloadURL 是否已赋值
                      * @return AgentDownloadURL 是否已赋值
+                     * 
                      */
                     bool AgentDownloadURLHasBeenSet() const;
 
                     /**
-                     * 获取Collector上报地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CollectorURL Collector上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取Collector 上报地址
+                     * @return CollectorURL Collector 上报地址
+                     * 
                      */
                     std::string GetCollectorURL() const;
 
                     /**
-                     * 设置Collector上报地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CollectorURL Collector上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置Collector 上报地址
+                     * @param _collectorURL Collector 上报地址
+                     * 
                      */
                     void SetCollectorURL(const std::string& _collectorURL);
 
                     /**
                      * 判断参数 CollectorURL 是否已赋值
                      * @return CollectorURL 是否已赋值
+                     * 
                      */
                     bool CollectorURLHasBeenSet() const;
 
                     /**
-                     * 获取Token信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Token Token信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取Token 信息
+                     * @return Token Token 信息
+                     * 
                      */
                     std::string GetToken() const;
 
                     /**
-                     * 设置Token信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Token Token信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置Token 信息
+                     * @param _token Token 信息
+                     * 
                      */
                     void SetToken(const std::string& _token);
 
                     /**
                      * 判断参数 Token 是否已赋值
                      * @return Token 是否已赋值
+                     * 
                      */
                     bool TokenHasBeenSet() const;
 
                     /**
                      * 获取外网上报地址
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PublicCollectorURL 外网上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPublicCollectorURL() const;
 
                     /**
                      * 设置外网上报地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PublicCollectorURL 外网上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _publicCollectorURL 外网上报地址
+                     * 
                      */
                     void SetPublicCollectorURL(const std::string& _publicCollectorURL);
 
                     /**
                      * 判断参数 PublicCollectorURL 是否已赋值
                      * @return PublicCollectorURL 是否已赋值
+                     * 
                      */
                     bool PublicCollectorURLHasBeenSet() const;
 
                     /**
-                     * 获取自研VPC上报地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return InnerCollectorURL 自研VPC上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取自研 VPC 上报地址
+                     * @return InnerCollectorURL 自研 VPC 上报地址
+                     * 
                      */
                     std::string GetInnerCollectorURL() const;
 
                     /**
-                     * 设置自研VPC上报地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InnerCollectorURL 自研VPC上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置自研 VPC 上报地址
+                     * @param _innerCollectorURL 自研 VPC 上报地址
+                     * 
                      */
                     void SetInnerCollectorURL(const std::string& _innerCollectorURL);
 
                     /**
                      * 判断参数 InnerCollectorURL 是否已赋值
                      * @return InnerCollectorURL 是否已赋值
+                     * 
                      */
                     bool InnerCollectorURLHasBeenSet() const;
 
                     /**
-                     * 获取内网上报地址(Private Link上报地址)
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PrivateLinkCollectorURL 内网上报地址(Private Link上报地址)
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取内网上报地址( Private Link 上报地址)
+                     * @return PrivateLinkCollectorURL 内网上报地址( Private Link 上报地址)
+                     * 
                      */
                     std::string GetPrivateLinkCollectorURL() const;
 
                     /**
-                     * 设置内网上报地址(Private Link上报地址)
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PrivateLinkCollectorURL 内网上报地址(Private Link上报地址)
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置内网上报地址( Private Link 上报地址)
+                     * @param _privateLinkCollectorURL 内网上报地址( Private Link 上报地址)
+                     * 
                      */
                     void SetPrivateLinkCollectorURL(const std::string& _privateLinkCollectorURL);
 
                     /**
                      * 判断参数 PrivateLinkCollectorURL 是否已赋值
                      * @return PrivateLinkCollectorURL 是否已赋值
+                     * 
                      */
                     bool PrivateLinkCollectorURLHasBeenSet() const;
 
                 private:
 
                     /**
-                     * Agent下载地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * Agent 下载地址
                      */
                     std::string m_agentDownloadURL;
                     bool m_agentDownloadURLHasBeenSet;
 
                     /**
-                     * Collector上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * Collector 上报地址
                      */
                     std::string m_collectorURL;
                     bool m_collectorURLHasBeenSet;
 
                     /**
-                     * Token信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * Token 信息
                      */
                     std::string m_token;
                     bool m_tokenHasBeenSet;
 
                     /**
                      * 外网上报地址
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_publicCollectorURL;
                     bool m_publicCollectorURLHasBeenSet;
 
                     /**
-                     * 自研VPC上报地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 自研 VPC 上报地址
                      */
                     std::string m_innerCollectorURL;
                     bool m_innerCollectorURLHasBeenSet;
 
                     /**
-                     * 内网上报地址(Private Link上报地址)
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 内网上报地址( Private Link 上报地址)
                      */
                     std::string m_privateLinkCollectorURL;
                     bool m_privateLinkCollectorURLHasBeenSet;

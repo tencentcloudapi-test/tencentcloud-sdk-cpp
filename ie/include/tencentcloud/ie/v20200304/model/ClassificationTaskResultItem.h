@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取分类名称。
                      * @return Classification 分类名称。
+                     * 
                      */
                     std::string GetClassification() const;
 
                     /**
                      * 设置分类名称。
-                     * @param Classification 分类名称。
+                     * @param _classification 分类名称。
+                     * 
                      */
                     void SetClassification(const std::string& _classification);
 
                     /**
                      * 判断参数 Classification 是否已赋值
                      * @return Classification 是否已赋值
+                     * 
                      */
                     bool ClassificationHasBeenSet() const;
 
                     /**
                      * 获取置信度，取值范围是 0 到 100。
                      * @return Confidence 置信度，取值范围是 0 到 100。
+                     * 
                      */
                     double GetConfidence() const;
 
                     /**
                      * 设置置信度，取值范围是 0 到 100。
-                     * @param Confidence 置信度，取值范围是 0 到 100。
+                     * @param _confidence 置信度，取值范围是 0 到 100。
+                     * 
                      */
                     void SetConfidence(const double& _confidence);
 
                     /**
                      * 判断参数 Confidence 是否已赋值
                      * @return Confidence 是否已赋值
+                     * 
                      */
                     bool ConfidenceHasBeenSet() const;
 

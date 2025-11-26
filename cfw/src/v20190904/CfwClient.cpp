@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,47 +40,54 @@ CfwClient::CfwClient(const Credential &credential, const string &region, const C
 }
 
 
-CfwClient::AddAcRuleOutcome CfwClient::AddAcRule(const AddAcRuleRequest &request)
+CfwClient::AddAclRuleOutcome CfwClient::AddAclRule(const AddAclRuleRequest &request)
 {
-    auto outcome = MakeRequest(request, "AddAcRule");
+    auto outcome = MakeRequest(request, "AddAclRule");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        AddAcRuleResponse rsp = AddAcRuleResponse();
+        AddAclRuleResponse rsp = AddAclRuleResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return AddAcRuleOutcome(rsp);
+            return AddAclRuleOutcome(rsp);
         else
-            return AddAcRuleOutcome(o.GetError());
+            return AddAclRuleOutcome(o.GetError());
     }
     else
     {
-        return AddAcRuleOutcome(outcome.GetError());
+        return AddAclRuleOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::AddAcRuleAsync(const AddAcRuleRequest& request, const AddAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::AddAclRuleAsync(const AddAclRuleRequest& request, const AddAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AddAcRule(request), context);
-    };
+    using Req = const AddAclRuleRequest&;
+    using Resp = AddAclRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AddAclRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::AddAcRuleOutcomeCallable CfwClient::AddAcRuleCallable(const AddAcRuleRequest &request)
+CfwClient::AddAclRuleOutcomeCallable CfwClient::AddAclRuleCallable(const AddAclRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AddAcRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->AddAcRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<AddAclRuleOutcome>>();
+    AddAclRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const AddAclRuleRequest&,
+        AddAclRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::AddEnterpriseSecurityGroupRulesOutcome CfwClient::AddEnterpriseSecurityGroupRules(const AddEnterpriseSecurityGroupRulesRequest &request)
@@ -105,25 +112,132 @@ CfwClient::AddEnterpriseSecurityGroupRulesOutcome CfwClient::AddEnterpriseSecuri
 
 void CfwClient::AddEnterpriseSecurityGroupRulesAsync(const AddEnterpriseSecurityGroupRulesRequest& request, const AddEnterpriseSecurityGroupRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AddEnterpriseSecurityGroupRules(request), context);
-    };
+    using Req = const AddEnterpriseSecurityGroupRulesRequest&;
+    using Resp = AddEnterpriseSecurityGroupRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AddEnterpriseSecurityGroupRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::AddEnterpriseSecurityGroupRulesOutcomeCallable CfwClient::AddEnterpriseSecurityGroupRulesCallable(const AddEnterpriseSecurityGroupRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AddEnterpriseSecurityGroupRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->AddEnterpriseSecurityGroupRules(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<AddEnterpriseSecurityGroupRulesOutcome>>();
+    AddEnterpriseSecurityGroupRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const AddEnterpriseSecurityGroupRulesRequest&,
+        AddEnterpriseSecurityGroupRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::AddNatAcRuleOutcome CfwClient::AddNatAcRule(const AddNatAcRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "AddNatAcRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AddNatAcRuleResponse rsp = AddNatAcRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AddNatAcRuleOutcome(rsp);
+        else
+            return AddNatAcRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return AddNatAcRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::AddNatAcRuleAsync(const AddNatAcRuleRequest& request, const AddNatAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AddNatAcRuleRequest&;
+    using Resp = AddNatAcRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AddNatAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::AddNatAcRuleOutcomeCallable CfwClient::AddNatAcRuleCallable(const AddNatAcRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AddNatAcRuleOutcome>>();
+    AddNatAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const AddNatAcRuleRequest&,
+        AddNatAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::AddVpcAcRuleOutcome CfwClient::AddVpcAcRule(const AddVpcAcRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "AddVpcAcRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AddVpcAcRuleResponse rsp = AddVpcAcRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AddVpcAcRuleOutcome(rsp);
+        else
+            return AddVpcAcRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return AddVpcAcRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::AddVpcAcRuleAsync(const AddVpcAcRuleRequest& request, const AddVpcAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AddVpcAcRuleRequest&;
+    using Resp = AddVpcAcRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AddVpcAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::AddVpcAcRuleOutcomeCallable CfwClient::AddVpcAcRuleCallable(const AddVpcAcRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AddVpcAcRuleOutcome>>();
+    AddVpcAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const AddVpcAcRuleRequest&,
+        AddVpcAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::CreateAcRulesOutcome CfwClient::CreateAcRules(const CreateAcRulesRequest &request)
@@ -148,25 +262,332 @@ CfwClient::CreateAcRulesOutcome CfwClient::CreateAcRules(const CreateAcRulesRequ
 
 void CfwClient::CreateAcRulesAsync(const CreateAcRulesRequest& request, const CreateAcRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateAcRules(request), context);
-    };
+    using Req = const CreateAcRulesRequest&;
+    using Resp = CreateAcRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateAcRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::CreateAcRulesOutcomeCallable CfwClient::CreateAcRulesCallable(const CreateAcRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateAcRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateAcRules(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateAcRulesOutcome>>();
+    CreateAcRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateAcRulesRequest&,
+        CreateAcRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::CreateAddressTemplateOutcome CfwClient::CreateAddressTemplate(const CreateAddressTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAddressTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAddressTemplateResponse rsp = CreateAddressTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAddressTemplateOutcome(rsp);
+        else
+            return CreateAddressTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAddressTemplateOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::CreateAddressTemplateAsync(const CreateAddressTemplateRequest& request, const CreateAddressTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAddressTemplateRequest&;
+    using Resp = CreateAddressTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAddressTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::CreateAddressTemplateOutcomeCallable CfwClient::CreateAddressTemplateCallable(const CreateAddressTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAddressTemplateOutcome>>();
+    CreateAddressTemplateAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateAddressTemplateRequest&,
+        CreateAddressTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::CreateAlertCenterIsolateOutcome CfwClient::CreateAlertCenterIsolate(const CreateAlertCenterIsolateRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAlertCenterIsolate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAlertCenterIsolateResponse rsp = CreateAlertCenterIsolateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAlertCenterIsolateOutcome(rsp);
+        else
+            return CreateAlertCenterIsolateOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAlertCenterIsolateOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::CreateAlertCenterIsolateAsync(const CreateAlertCenterIsolateRequest& request, const CreateAlertCenterIsolateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAlertCenterIsolateRequest&;
+    using Resp = CreateAlertCenterIsolateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAlertCenterIsolate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::CreateAlertCenterIsolateOutcomeCallable CfwClient::CreateAlertCenterIsolateCallable(const CreateAlertCenterIsolateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAlertCenterIsolateOutcome>>();
+    CreateAlertCenterIsolateAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateAlertCenterIsolateRequest&,
+        CreateAlertCenterIsolateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::CreateAlertCenterOmitOutcome CfwClient::CreateAlertCenterOmit(const CreateAlertCenterOmitRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAlertCenterOmit");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAlertCenterOmitResponse rsp = CreateAlertCenterOmitResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAlertCenterOmitOutcome(rsp);
+        else
+            return CreateAlertCenterOmitOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAlertCenterOmitOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::CreateAlertCenterOmitAsync(const CreateAlertCenterOmitRequest& request, const CreateAlertCenterOmitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAlertCenterOmitRequest&;
+    using Resp = CreateAlertCenterOmitResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAlertCenterOmit", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::CreateAlertCenterOmitOutcomeCallable CfwClient::CreateAlertCenterOmitCallable(const CreateAlertCenterOmitRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAlertCenterOmitOutcome>>();
+    CreateAlertCenterOmitAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateAlertCenterOmitRequest&,
+        CreateAlertCenterOmitOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::CreateAlertCenterRuleOutcome CfwClient::CreateAlertCenterRule(const CreateAlertCenterRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAlertCenterRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAlertCenterRuleResponse rsp = CreateAlertCenterRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAlertCenterRuleOutcome(rsp);
+        else
+            return CreateAlertCenterRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAlertCenterRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::CreateAlertCenterRuleAsync(const CreateAlertCenterRuleRequest& request, const CreateAlertCenterRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAlertCenterRuleRequest&;
+    using Resp = CreateAlertCenterRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAlertCenterRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::CreateAlertCenterRuleOutcomeCallable CfwClient::CreateAlertCenterRuleCallable(const CreateAlertCenterRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAlertCenterRuleOutcome>>();
+    CreateAlertCenterRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateAlertCenterRuleRequest&,
+        CreateAlertCenterRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::CreateBlockIgnoreRuleListOutcome CfwClient::CreateBlockIgnoreRuleList(const CreateBlockIgnoreRuleListRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateBlockIgnoreRuleList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateBlockIgnoreRuleListResponse rsp = CreateBlockIgnoreRuleListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateBlockIgnoreRuleListOutcome(rsp);
+        else
+            return CreateBlockIgnoreRuleListOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateBlockIgnoreRuleListOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::CreateBlockIgnoreRuleListAsync(const CreateBlockIgnoreRuleListRequest& request, const CreateBlockIgnoreRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateBlockIgnoreRuleListRequest&;
+    using Resp = CreateBlockIgnoreRuleListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateBlockIgnoreRuleList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::CreateBlockIgnoreRuleListOutcomeCallable CfwClient::CreateBlockIgnoreRuleListCallable(const CreateBlockIgnoreRuleListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateBlockIgnoreRuleListOutcome>>();
+    CreateBlockIgnoreRuleListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateBlockIgnoreRuleListRequest&,
+        CreateBlockIgnoreRuleListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::CreateBlockIgnoreRuleNewOutcome CfwClient::CreateBlockIgnoreRuleNew(const CreateBlockIgnoreRuleNewRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateBlockIgnoreRuleNew");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateBlockIgnoreRuleNewResponse rsp = CreateBlockIgnoreRuleNewResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateBlockIgnoreRuleNewOutcome(rsp);
+        else
+            return CreateBlockIgnoreRuleNewOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateBlockIgnoreRuleNewOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::CreateBlockIgnoreRuleNewAsync(const CreateBlockIgnoreRuleNewRequest& request, const CreateBlockIgnoreRuleNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateBlockIgnoreRuleNewRequest&;
+    using Resp = CreateBlockIgnoreRuleNewResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateBlockIgnoreRuleNew", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::CreateBlockIgnoreRuleNewOutcomeCallable CfwClient::CreateBlockIgnoreRuleNewCallable(const CreateBlockIgnoreRuleNewRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateBlockIgnoreRuleNewOutcome>>();
+    CreateBlockIgnoreRuleNewAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateBlockIgnoreRuleNewRequest&,
+        CreateBlockIgnoreRuleNewOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::CreateChooseVpcsOutcome CfwClient::CreateChooseVpcs(const CreateChooseVpcsRequest &request)
@@ -191,25 +612,32 @@ CfwClient::CreateChooseVpcsOutcome CfwClient::CreateChooseVpcs(const CreateChoos
 
 void CfwClient::CreateChooseVpcsAsync(const CreateChooseVpcsRequest& request, const CreateChooseVpcsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateChooseVpcs(request), context);
-    };
+    using Req = const CreateChooseVpcsRequest&;
+    using Resp = CreateChooseVpcsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateChooseVpcs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::CreateChooseVpcsOutcomeCallable CfwClient::CreateChooseVpcsCallable(const CreateChooseVpcsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateChooseVpcsOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateChooseVpcs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateChooseVpcsOutcome>>();
+    CreateChooseVpcsAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateChooseVpcsRequest&,
+        CreateChooseVpcsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::CreateDatabaseWhiteListRulesOutcome CfwClient::CreateDatabaseWhiteListRules(const CreateDatabaseWhiteListRulesRequest &request)
@@ -234,25 +662,32 @@ CfwClient::CreateDatabaseWhiteListRulesOutcome CfwClient::CreateDatabaseWhiteLis
 
 void CfwClient::CreateDatabaseWhiteListRulesAsync(const CreateDatabaseWhiteListRulesRequest& request, const CreateDatabaseWhiteListRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateDatabaseWhiteListRules(request), context);
-    };
+    using Req = const CreateDatabaseWhiteListRulesRequest&;
+    using Resp = CreateDatabaseWhiteListRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateDatabaseWhiteListRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::CreateDatabaseWhiteListRulesOutcomeCallable CfwClient::CreateDatabaseWhiteListRulesCallable(const CreateDatabaseWhiteListRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateDatabaseWhiteListRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateDatabaseWhiteListRules(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateDatabaseWhiteListRulesOutcome>>();
+    CreateDatabaseWhiteListRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateDatabaseWhiteListRulesRequest&,
+        CreateDatabaseWhiteListRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::CreateNatFwInstanceOutcome CfwClient::CreateNatFwInstance(const CreateNatFwInstanceRequest &request)
@@ -277,25 +712,32 @@ CfwClient::CreateNatFwInstanceOutcome CfwClient::CreateNatFwInstance(const Creat
 
 void CfwClient::CreateNatFwInstanceAsync(const CreateNatFwInstanceRequest& request, const CreateNatFwInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateNatFwInstance(request), context);
-    };
+    using Req = const CreateNatFwInstanceRequest&;
+    using Resp = CreateNatFwInstanceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateNatFwInstance", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::CreateNatFwInstanceOutcomeCallable CfwClient::CreateNatFwInstanceCallable(const CreateNatFwInstanceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateNatFwInstanceOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateNatFwInstance(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateNatFwInstanceOutcome>>();
+    CreateNatFwInstanceAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateNatFwInstanceRequest&,
+        CreateNatFwInstanceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::CreateNatFwInstanceWithDomainOutcome CfwClient::CreateNatFwInstanceWithDomain(const CreateNatFwInstanceWithDomainRequest &request)
@@ -320,68 +762,32 @@ CfwClient::CreateNatFwInstanceWithDomainOutcome CfwClient::CreateNatFwInstanceWi
 
 void CfwClient::CreateNatFwInstanceWithDomainAsync(const CreateNatFwInstanceWithDomainRequest& request, const CreateNatFwInstanceWithDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateNatFwInstanceWithDomain(request), context);
-    };
+    using Req = const CreateNatFwInstanceWithDomainRequest&;
+    using Resp = CreateNatFwInstanceWithDomainResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateNatFwInstanceWithDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::CreateNatFwInstanceWithDomainOutcomeCallable CfwClient::CreateNatFwInstanceWithDomainCallable(const CreateNatFwInstanceWithDomainRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateNatFwInstanceWithDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateNatFwInstanceWithDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CfwClient::CreateSecurityGroupApiRulesOutcome CfwClient::CreateSecurityGroupApiRules(const CreateSecurityGroupApiRulesRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateSecurityGroupApiRules");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<CreateNatFwInstanceWithDomainOutcome>>();
+    CreateNatFwInstanceWithDomainAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateNatFwInstanceWithDomainRequest&,
+        CreateNatFwInstanceWithDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateSecurityGroupApiRulesResponse rsp = CreateSecurityGroupApiRulesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateSecurityGroupApiRulesOutcome(rsp);
-        else
-            return CreateSecurityGroupApiRulesOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateSecurityGroupApiRulesOutcome(outcome.GetError());
-    }
-}
-
-void CfwClient::CreateSecurityGroupApiRulesAsync(const CreateSecurityGroupApiRulesRequest& request, const CreateSecurityGroupApiRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateSecurityGroupApiRules(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CfwClient::CreateSecurityGroupApiRulesOutcomeCallable CfwClient::CreateSecurityGroupApiRulesCallable(const CreateSecurityGroupApiRulesRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateSecurityGroupApiRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateSecurityGroupApiRules(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::CreateSecurityGroupRulesOutcome CfwClient::CreateSecurityGroupRules(const CreateSecurityGroupRulesRequest &request)
@@ -406,25 +812,82 @@ CfwClient::CreateSecurityGroupRulesOutcome CfwClient::CreateSecurityGroupRules(c
 
 void CfwClient::CreateSecurityGroupRulesAsync(const CreateSecurityGroupRulesRequest& request, const CreateSecurityGroupRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateSecurityGroupRules(request), context);
-    };
+    using Req = const CreateSecurityGroupRulesRequest&;
+    using Resp = CreateSecurityGroupRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateSecurityGroupRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::CreateSecurityGroupRulesOutcomeCallable CfwClient::CreateSecurityGroupRulesCallable(const CreateSecurityGroupRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateSecurityGroupRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateSecurityGroupRules(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<CreateSecurityGroupRulesOutcome>>();
+    CreateSecurityGroupRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateSecurityGroupRulesRequest&,
+        CreateSecurityGroupRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::CreateVpcFwGroupOutcome CfwClient::CreateVpcFwGroup(const CreateVpcFwGroupRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateVpcFwGroup");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateVpcFwGroupResponse rsp = CreateVpcFwGroupResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateVpcFwGroupOutcome(rsp);
+        else
+            return CreateVpcFwGroupOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateVpcFwGroupOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::CreateVpcFwGroupAsync(const CreateVpcFwGroupRequest& request, const CreateVpcFwGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateVpcFwGroupRequest&;
+    using Resp = CreateVpcFwGroupResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateVpcFwGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::CreateVpcFwGroupOutcomeCallable CfwClient::CreateVpcFwGroupCallable(const CreateVpcFwGroupRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateVpcFwGroupOutcome>>();
+    CreateVpcFwGroupAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const CreateVpcFwGroupRequest&,
+        CreateVpcFwGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DeleteAcRuleOutcome CfwClient::DeleteAcRule(const DeleteAcRuleRequest &request)
@@ -449,25 +912,82 @@ CfwClient::DeleteAcRuleOutcome CfwClient::DeleteAcRule(const DeleteAcRuleRequest
 
 void CfwClient::DeleteAcRuleAsync(const DeleteAcRuleRequest& request, const DeleteAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteAcRule(request), context);
-    };
+    using Req = const DeleteAcRuleRequest&;
+    using Resp = DeleteAcRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DeleteAcRuleOutcomeCallable CfwClient::DeleteAcRuleCallable(const DeleteAcRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteAcRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteAcRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteAcRuleOutcome>>();
+    DeleteAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteAcRuleRequest&,
+        DeleteAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DeleteAddressTemplateOutcome CfwClient::DeleteAddressTemplate(const DeleteAddressTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteAddressTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteAddressTemplateResponse rsp = DeleteAddressTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteAddressTemplateOutcome(rsp);
+        else
+            return DeleteAddressTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteAddressTemplateOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DeleteAddressTemplateAsync(const DeleteAddressTemplateRequest& request, const DeleteAddressTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteAddressTemplateRequest&;
+    using Resp = DeleteAddressTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteAddressTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DeleteAddressTemplateOutcomeCallable CfwClient::DeleteAddressTemplateCallable(const DeleteAddressTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteAddressTemplateOutcome>>();
+    DeleteAddressTemplateAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteAddressTemplateRequest&,
+        DeleteAddressTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DeleteAllAccessControlRuleOutcome CfwClient::DeleteAllAccessControlRule(const DeleteAllAccessControlRuleRequest &request)
@@ -492,25 +1012,132 @@ CfwClient::DeleteAllAccessControlRuleOutcome CfwClient::DeleteAllAccessControlRu
 
 void CfwClient::DeleteAllAccessControlRuleAsync(const DeleteAllAccessControlRuleRequest& request, const DeleteAllAccessControlRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteAllAccessControlRule(request), context);
-    };
+    using Req = const DeleteAllAccessControlRuleRequest&;
+    using Resp = DeleteAllAccessControlRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteAllAccessControlRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DeleteAllAccessControlRuleOutcomeCallable CfwClient::DeleteAllAccessControlRuleCallable(const DeleteAllAccessControlRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteAllAccessControlRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteAllAccessControlRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteAllAccessControlRuleOutcome>>();
+    DeleteAllAccessControlRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteAllAccessControlRuleRequest&,
+        DeleteAllAccessControlRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DeleteBlockIgnoreRuleListOutcome CfwClient::DeleteBlockIgnoreRuleList(const DeleteBlockIgnoreRuleListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteBlockIgnoreRuleList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteBlockIgnoreRuleListResponse rsp = DeleteBlockIgnoreRuleListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteBlockIgnoreRuleListOutcome(rsp);
+        else
+            return DeleteBlockIgnoreRuleListOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteBlockIgnoreRuleListOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DeleteBlockIgnoreRuleListAsync(const DeleteBlockIgnoreRuleListRequest& request, const DeleteBlockIgnoreRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteBlockIgnoreRuleListRequest&;
+    using Resp = DeleteBlockIgnoreRuleListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteBlockIgnoreRuleList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DeleteBlockIgnoreRuleListOutcomeCallable CfwClient::DeleteBlockIgnoreRuleListCallable(const DeleteBlockIgnoreRuleListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteBlockIgnoreRuleListOutcome>>();
+    DeleteBlockIgnoreRuleListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteBlockIgnoreRuleListRequest&,
+        DeleteBlockIgnoreRuleListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DeleteBlockIgnoreRuleNewOutcome CfwClient::DeleteBlockIgnoreRuleNew(const DeleteBlockIgnoreRuleNewRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteBlockIgnoreRuleNew");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteBlockIgnoreRuleNewResponse rsp = DeleteBlockIgnoreRuleNewResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteBlockIgnoreRuleNewOutcome(rsp);
+        else
+            return DeleteBlockIgnoreRuleNewOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteBlockIgnoreRuleNewOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DeleteBlockIgnoreRuleNewAsync(const DeleteBlockIgnoreRuleNewRequest& request, const DeleteBlockIgnoreRuleNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteBlockIgnoreRuleNewRequest&;
+    using Resp = DeleteBlockIgnoreRuleNewResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteBlockIgnoreRuleNew", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DeleteBlockIgnoreRuleNewOutcomeCallable CfwClient::DeleteBlockIgnoreRuleNewCallable(const DeleteBlockIgnoreRuleNewRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteBlockIgnoreRuleNewOutcome>>();
+    DeleteBlockIgnoreRuleNewAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteBlockIgnoreRuleNewRequest&,
+        DeleteBlockIgnoreRuleNewOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DeleteNatFwInstanceOutcome CfwClient::DeleteNatFwInstance(const DeleteNatFwInstanceRequest &request)
@@ -535,25 +1162,82 @@ CfwClient::DeleteNatFwInstanceOutcome CfwClient::DeleteNatFwInstance(const Delet
 
 void CfwClient::DeleteNatFwInstanceAsync(const DeleteNatFwInstanceRequest& request, const DeleteNatFwInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteNatFwInstance(request), context);
-    };
+    using Req = const DeleteNatFwInstanceRequest&;
+    using Resp = DeleteNatFwInstanceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteNatFwInstance", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DeleteNatFwInstanceOutcomeCallable CfwClient::DeleteNatFwInstanceCallable(const DeleteNatFwInstanceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteNatFwInstanceOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteNatFwInstance(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteNatFwInstanceOutcome>>();
+    DeleteNatFwInstanceAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteNatFwInstanceRequest&,
+        DeleteNatFwInstanceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DeleteRemoteAccessDomainOutcome CfwClient::DeleteRemoteAccessDomain(const DeleteRemoteAccessDomainRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteRemoteAccessDomain");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteRemoteAccessDomainResponse rsp = DeleteRemoteAccessDomainResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteRemoteAccessDomainOutcome(rsp);
+        else
+            return DeleteRemoteAccessDomainOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteRemoteAccessDomainOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DeleteRemoteAccessDomainAsync(const DeleteRemoteAccessDomainRequest& request, const DeleteRemoteAccessDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteRemoteAccessDomainRequest&;
+    using Resp = DeleteRemoteAccessDomainResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteRemoteAccessDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DeleteRemoteAccessDomainOutcomeCallable CfwClient::DeleteRemoteAccessDomainCallable(const DeleteRemoteAccessDomainRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteRemoteAccessDomainOutcome>>();
+    DeleteRemoteAccessDomainAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteRemoteAccessDomainRequest&,
+        DeleteRemoteAccessDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DeleteResourceGroupOutcome CfwClient::DeleteResourceGroup(const DeleteResourceGroupRequest &request)
@@ -578,68 +1262,32 @@ CfwClient::DeleteResourceGroupOutcome CfwClient::DeleteResourceGroup(const Delet
 
 void CfwClient::DeleteResourceGroupAsync(const DeleteResourceGroupRequest& request, const DeleteResourceGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteResourceGroup(request), context);
-    };
+    using Req = const DeleteResourceGroupRequest&;
+    using Resp = DeleteResourceGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteResourceGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DeleteResourceGroupOutcomeCallable CfwClient::DeleteResourceGroupCallable(const DeleteResourceGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteResourceGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteResourceGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CfwClient::DeleteSecurityGroupAllRuleOutcome CfwClient::DeleteSecurityGroupAllRule(const DeleteSecurityGroupAllRuleRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteSecurityGroupAllRule");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DeleteResourceGroupOutcome>>();
+    DeleteResourceGroupAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteResourceGroupRequest&,
+        DeleteResourceGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteSecurityGroupAllRuleResponse rsp = DeleteSecurityGroupAllRuleResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteSecurityGroupAllRuleOutcome(rsp);
-        else
-            return DeleteSecurityGroupAllRuleOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteSecurityGroupAllRuleOutcome(outcome.GetError());
-    }
-}
-
-void CfwClient::DeleteSecurityGroupAllRuleAsync(const DeleteSecurityGroupAllRuleRequest& request, const DeleteSecurityGroupAllRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteSecurityGroupAllRule(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CfwClient::DeleteSecurityGroupAllRuleOutcomeCallable CfwClient::DeleteSecurityGroupAllRuleCallable(const DeleteSecurityGroupAllRuleRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeleteSecurityGroupAllRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteSecurityGroupAllRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DeleteSecurityGroupRuleOutcome CfwClient::DeleteSecurityGroupRule(const DeleteSecurityGroupRuleRequest &request)
@@ -664,68 +1312,82 @@ CfwClient::DeleteSecurityGroupRuleOutcome CfwClient::DeleteSecurityGroupRule(con
 
 void CfwClient::DeleteSecurityGroupRuleAsync(const DeleteSecurityGroupRuleRequest& request, const DeleteSecurityGroupRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteSecurityGroupRule(request), context);
-    };
+    using Req = const DeleteSecurityGroupRuleRequest&;
+    using Resp = DeleteSecurityGroupRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteSecurityGroupRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DeleteSecurityGroupRuleOutcomeCallable CfwClient::DeleteSecurityGroupRuleCallable(const DeleteSecurityGroupRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteSecurityGroupRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteSecurityGroupRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteSecurityGroupRuleOutcome>>();
+    DeleteSecurityGroupRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteSecurityGroupRuleRequest&,
+        DeleteSecurityGroupRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CfwClient::DeleteVpcInstanceOutcome CfwClient::DeleteVpcInstance(const DeleteVpcInstanceRequest &request)
+CfwClient::DeleteVpcFwGroupOutcome CfwClient::DeleteVpcFwGroup(const DeleteVpcFwGroupRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteVpcInstance");
+    auto outcome = MakeRequest(request, "DeleteVpcFwGroup");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteVpcInstanceResponse rsp = DeleteVpcInstanceResponse();
+        DeleteVpcFwGroupResponse rsp = DeleteVpcFwGroupResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteVpcInstanceOutcome(rsp);
+            return DeleteVpcFwGroupOutcome(rsp);
         else
-            return DeleteVpcInstanceOutcome(o.GetError());
+            return DeleteVpcFwGroupOutcome(o.GetError());
     }
     else
     {
-        return DeleteVpcInstanceOutcome(outcome.GetError());
+        return DeleteVpcFwGroupOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::DeleteVpcInstanceAsync(const DeleteVpcInstanceRequest& request, const DeleteVpcInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::DeleteVpcFwGroupAsync(const DeleteVpcFwGroupRequest& request, const DeleteVpcFwGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteVpcInstance(request), context);
-    };
+    using Req = const DeleteVpcFwGroupRequest&;
+    using Resp = DeleteVpcFwGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteVpcFwGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::DeleteVpcInstanceOutcomeCallable CfwClient::DeleteVpcInstanceCallable(const DeleteVpcInstanceRequest &request)
+CfwClient::DeleteVpcFwGroupOutcomeCallable CfwClient::DeleteVpcFwGroupCallable(const DeleteVpcFwGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteVpcInstanceOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteVpcInstance(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteVpcFwGroupOutcome>>();
+    DeleteVpcFwGroupAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DeleteVpcFwGroupRequest&,
+        DeleteVpcFwGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeAcListsOutcome CfwClient::DescribeAcLists(const DescribeAcListsRequest &request)
@@ -750,68 +1412,182 @@ CfwClient::DescribeAcListsOutcome CfwClient::DescribeAcLists(const DescribeAcLis
 
 void CfwClient::DescribeAcListsAsync(const DescribeAcListsRequest& request, const DescribeAcListsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAcLists(request), context);
-    };
+    using Req = const DescribeAcListsRequest&;
+    using Resp = DescribeAcListsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeAcLists", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeAcListsOutcomeCallable CfwClient::DescribeAcListsCallable(const DescribeAcListsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeAcListsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAcLists(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeAcListsOutcome>>();
+    DescribeAcListsAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeAcListsRequest&,
+        DescribeAcListsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CfwClient::DescribeAddrTemplateListOutcome CfwClient::DescribeAddrTemplateList(const DescribeAddrTemplateListRequest &request)
+CfwClient::DescribeAclRuleOutcome CfwClient::DescribeAclRule(const DescribeAclRuleRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeAddrTemplateList");
+    auto outcome = MakeRequest(request, "DescribeAclRule");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeAddrTemplateListResponse rsp = DescribeAddrTemplateListResponse();
+        DescribeAclRuleResponse rsp = DescribeAclRuleResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeAddrTemplateListOutcome(rsp);
+            return DescribeAclRuleOutcome(rsp);
         else
-            return DescribeAddrTemplateListOutcome(o.GetError());
+            return DescribeAclRuleOutcome(o.GetError());
     }
     else
     {
-        return DescribeAddrTemplateListOutcome(outcome.GetError());
+        return DescribeAclRuleOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::DescribeAddrTemplateListAsync(const DescribeAddrTemplateListRequest& request, const DescribeAddrTemplateListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::DescribeAclRuleAsync(const DescribeAclRuleRequest& request, const DescribeAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAddrTemplateList(request), context);
-    };
+    using Req = const DescribeAclRuleRequest&;
+    using Resp = DescribeAclRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeAclRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::DescribeAddrTemplateListOutcomeCallable CfwClient::DescribeAddrTemplateListCallable(const DescribeAddrTemplateListRequest &request)
+CfwClient::DescribeAclRuleOutcomeCallable CfwClient::DescribeAclRuleCallable(const DescribeAclRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeAddrTemplateListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAddrTemplateList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeAclRuleOutcome>>();
+    DescribeAclRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeAclRuleRequest&,
+        DescribeAclRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DescribeAddressTemplateListOutcome CfwClient::DescribeAddressTemplateList(const DescribeAddressTemplateListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeAddressTemplateList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeAddressTemplateListResponse rsp = DescribeAddressTemplateListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeAddressTemplateListOutcome(rsp);
+        else
+            return DescribeAddressTemplateListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeAddressTemplateListOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeAddressTemplateListAsync(const DescribeAddressTemplateListRequest& request, const DescribeAddressTemplateListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeAddressTemplateListRequest&;
+    using Resp = DescribeAddressTemplateListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeAddressTemplateList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeAddressTemplateListOutcomeCallable CfwClient::DescribeAddressTemplateListCallable(const DescribeAddressTemplateListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeAddressTemplateListOutcome>>();
+    DescribeAddressTemplateListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeAddressTemplateListRequest&,
+        DescribeAddressTemplateListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeAssetSyncOutcome CfwClient::DescribeAssetSync(const DescribeAssetSyncRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeAssetSync");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeAssetSyncResponse rsp = DescribeAssetSyncResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeAssetSyncOutcome(rsp);
+        else
+            return DescribeAssetSyncOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeAssetSyncOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeAssetSyncAsync(const DescribeAssetSyncRequest& request, const DescribeAssetSyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeAssetSyncRequest&;
+    using Resp = DescribeAssetSyncResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeAssetSync", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeAssetSyncOutcomeCallable CfwClient::DescribeAssetSyncCallable(const DescribeAssetSyncRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeAssetSyncOutcome>>();
+    DescribeAssetSyncAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeAssetSyncRequest&,
+        DescribeAssetSyncOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeAssociatedInstanceListOutcome CfwClient::DescribeAssociatedInstanceList(const DescribeAssociatedInstanceListRequest &request)
@@ -836,25 +1612,32 @@ CfwClient::DescribeAssociatedInstanceListOutcome CfwClient::DescribeAssociatedIn
 
 void CfwClient::DescribeAssociatedInstanceListAsync(const DescribeAssociatedInstanceListRequest& request, const DescribeAssociatedInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAssociatedInstanceList(request), context);
-    };
+    using Req = const DescribeAssociatedInstanceListRequest&;
+    using Resp = DescribeAssociatedInstanceListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeAssociatedInstanceList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeAssociatedInstanceListOutcomeCallable CfwClient::DescribeAssociatedInstanceListCallable(const DescribeAssociatedInstanceListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeAssociatedInstanceListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAssociatedInstanceList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeAssociatedInstanceListOutcome>>();
+    DescribeAssociatedInstanceListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeAssociatedInstanceListRequest&,
+        DescribeAssociatedInstanceListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeBlockByIpTimesListOutcome CfwClient::DescribeBlockByIpTimesList(const DescribeBlockByIpTimesListRequest &request)
@@ -879,25 +1662,82 @@ CfwClient::DescribeBlockByIpTimesListOutcome CfwClient::DescribeBlockByIpTimesLi
 
 void CfwClient::DescribeBlockByIpTimesListAsync(const DescribeBlockByIpTimesListRequest& request, const DescribeBlockByIpTimesListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeBlockByIpTimesList(request), context);
-    };
+    using Req = const DescribeBlockByIpTimesListRequest&;
+    using Resp = DescribeBlockByIpTimesListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeBlockByIpTimesList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeBlockByIpTimesListOutcomeCallable CfwClient::DescribeBlockByIpTimesListCallable(const DescribeBlockByIpTimesListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeBlockByIpTimesListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeBlockByIpTimesList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeBlockByIpTimesListOutcome>>();
+    DescribeBlockByIpTimesListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeBlockByIpTimesListRequest&,
+        DescribeBlockByIpTimesListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DescribeBlockIgnoreListOutcome CfwClient::DescribeBlockIgnoreList(const DescribeBlockIgnoreListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeBlockIgnoreList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeBlockIgnoreListResponse rsp = DescribeBlockIgnoreListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeBlockIgnoreListOutcome(rsp);
+        else
+            return DescribeBlockIgnoreListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeBlockIgnoreListOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeBlockIgnoreListAsync(const DescribeBlockIgnoreListRequest& request, const DescribeBlockIgnoreListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeBlockIgnoreListRequest&;
+    using Resp = DescribeBlockIgnoreListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeBlockIgnoreList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeBlockIgnoreListOutcomeCallable CfwClient::DescribeBlockIgnoreListCallable(const DescribeBlockIgnoreListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeBlockIgnoreListOutcome>>();
+    DescribeBlockIgnoreListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeBlockIgnoreListRequest&,
+        DescribeBlockIgnoreListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeBlockStaticListOutcome CfwClient::DescribeBlockStaticList(const DescribeBlockStaticListRequest &request)
@@ -922,25 +1762,32 @@ CfwClient::DescribeBlockStaticListOutcome CfwClient::DescribeBlockStaticList(con
 
 void CfwClient::DescribeBlockStaticListAsync(const DescribeBlockStaticListRequest& request, const DescribeBlockStaticListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeBlockStaticList(request), context);
-    };
+    using Req = const DescribeBlockStaticListRequest&;
+    using Resp = DescribeBlockStaticListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeBlockStaticList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeBlockStaticListOutcomeCallable CfwClient::DescribeBlockStaticListCallable(const DescribeBlockStaticListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeBlockStaticListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeBlockStaticList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeBlockStaticListOutcome>>();
+    DescribeBlockStaticListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeBlockStaticListRequest&,
+        DescribeBlockStaticListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeCfwEipsOutcome CfwClient::DescribeCfwEips(const DescribeCfwEipsRequest &request)
@@ -965,25 +1812,182 @@ CfwClient::DescribeCfwEipsOutcome CfwClient::DescribeCfwEips(const DescribeCfwEi
 
 void CfwClient::DescribeCfwEipsAsync(const DescribeCfwEipsRequest& request, const DescribeCfwEipsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCfwEips(request), context);
-    };
+    using Req = const DescribeCfwEipsRequest&;
+    using Resp = DescribeCfwEipsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCfwEips", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeCfwEipsOutcomeCallable CfwClient::DescribeCfwEipsCallable(const DescribeCfwEipsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCfwEipsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCfwEips(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeCfwEipsOutcome>>();
+    DescribeCfwEipsAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeCfwEipsRequest&,
+        DescribeCfwEipsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DescribeCfwInsStatusOutcome CfwClient::DescribeCfwInsStatus(const DescribeCfwInsStatusRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeCfwInsStatus");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeCfwInsStatusResponse rsp = DescribeCfwInsStatusResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeCfwInsStatusOutcome(rsp);
+        else
+            return DescribeCfwInsStatusOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeCfwInsStatusOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeCfwInsStatusAsync(const DescribeCfwInsStatusRequest& request, const DescribeCfwInsStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeCfwInsStatusRequest&;
+    using Resp = DescribeCfwInsStatusResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeCfwInsStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeCfwInsStatusOutcomeCallable CfwClient::DescribeCfwInsStatusCallable(const DescribeCfwInsStatusRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeCfwInsStatusOutcome>>();
+    DescribeCfwInsStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeCfwInsStatusRequest&,
+        DescribeCfwInsStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeDefenseSwitchOutcome CfwClient::DescribeDefenseSwitch(const DescribeDefenseSwitchRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeDefenseSwitch");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeDefenseSwitchResponse rsp = DescribeDefenseSwitchResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeDefenseSwitchOutcome(rsp);
+        else
+            return DescribeDefenseSwitchOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeDefenseSwitchOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeDefenseSwitchAsync(const DescribeDefenseSwitchRequest& request, const DescribeDefenseSwitchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeDefenseSwitchRequest&;
+    using Resp = DescribeDefenseSwitchResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeDefenseSwitch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeDefenseSwitchOutcomeCallable CfwClient::DescribeDefenseSwitchCallable(const DescribeDefenseSwitchRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeDefenseSwitchOutcome>>();
+    DescribeDefenseSwitchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeDefenseSwitchRequest&,
+        DescribeDefenseSwitchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeEnterpriseSGRuleProgressOutcome CfwClient::DescribeEnterpriseSGRuleProgress(const DescribeEnterpriseSGRuleProgressRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeEnterpriseSGRuleProgress");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeEnterpriseSGRuleProgressResponse rsp = DescribeEnterpriseSGRuleProgressResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeEnterpriseSGRuleProgressOutcome(rsp);
+        else
+            return DescribeEnterpriseSGRuleProgressOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeEnterpriseSGRuleProgressOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeEnterpriseSGRuleProgressAsync(const DescribeEnterpriseSGRuleProgressRequest& request, const DescribeEnterpriseSGRuleProgressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeEnterpriseSGRuleProgressRequest&;
+    using Resp = DescribeEnterpriseSGRuleProgressResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeEnterpriseSGRuleProgress", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeEnterpriseSGRuleProgressOutcomeCallable CfwClient::DescribeEnterpriseSGRuleProgressCallable(const DescribeEnterpriseSGRuleProgressRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeEnterpriseSGRuleProgressOutcome>>();
+    DescribeEnterpriseSGRuleProgressAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeEnterpriseSGRuleProgressRequest&,
+        DescribeEnterpriseSGRuleProgressOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeEnterpriseSecurityGroupRuleOutcome CfwClient::DescribeEnterpriseSecurityGroupRule(const DescribeEnterpriseSecurityGroupRuleRequest &request)
@@ -1008,25 +2012,232 @@ CfwClient::DescribeEnterpriseSecurityGroupRuleOutcome CfwClient::DescribeEnterpr
 
 void CfwClient::DescribeEnterpriseSecurityGroupRuleAsync(const DescribeEnterpriseSecurityGroupRuleRequest& request, const DescribeEnterpriseSecurityGroupRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeEnterpriseSecurityGroupRule(request), context);
-    };
+    using Req = const DescribeEnterpriseSecurityGroupRuleRequest&;
+    using Resp = DescribeEnterpriseSecurityGroupRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeEnterpriseSecurityGroupRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeEnterpriseSecurityGroupRuleOutcomeCallable CfwClient::DescribeEnterpriseSecurityGroupRuleCallable(const DescribeEnterpriseSecurityGroupRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeEnterpriseSecurityGroupRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeEnterpriseSecurityGroupRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeEnterpriseSecurityGroupRuleOutcome>>();
+    DescribeEnterpriseSecurityGroupRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeEnterpriseSecurityGroupRuleRequest&,
+        DescribeEnterpriseSecurityGroupRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DescribeEnterpriseSecurityGroupRuleListOutcome CfwClient::DescribeEnterpriseSecurityGroupRuleList(const DescribeEnterpriseSecurityGroupRuleListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeEnterpriseSecurityGroupRuleList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeEnterpriseSecurityGroupRuleListResponse rsp = DescribeEnterpriseSecurityGroupRuleListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeEnterpriseSecurityGroupRuleListOutcome(rsp);
+        else
+            return DescribeEnterpriseSecurityGroupRuleListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeEnterpriseSecurityGroupRuleListOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeEnterpriseSecurityGroupRuleListAsync(const DescribeEnterpriseSecurityGroupRuleListRequest& request, const DescribeEnterpriseSecurityGroupRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeEnterpriseSecurityGroupRuleListRequest&;
+    using Resp = DescribeEnterpriseSecurityGroupRuleListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeEnterpriseSecurityGroupRuleList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeEnterpriseSecurityGroupRuleListOutcomeCallable CfwClient::DescribeEnterpriseSecurityGroupRuleListCallable(const DescribeEnterpriseSecurityGroupRuleListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeEnterpriseSecurityGroupRuleListOutcome>>();
+    DescribeEnterpriseSecurityGroupRuleListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeEnterpriseSecurityGroupRuleListRequest&,
+        DescribeEnterpriseSecurityGroupRuleListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeFwEdgeIpsOutcome CfwClient::DescribeFwEdgeIps(const DescribeFwEdgeIpsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeFwEdgeIps");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeFwEdgeIpsResponse rsp = DescribeFwEdgeIpsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeFwEdgeIpsOutcome(rsp);
+        else
+            return DescribeFwEdgeIpsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeFwEdgeIpsOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeFwEdgeIpsAsync(const DescribeFwEdgeIpsRequest& request, const DescribeFwEdgeIpsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeFwEdgeIpsRequest&;
+    using Resp = DescribeFwEdgeIpsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeFwEdgeIps", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeFwEdgeIpsOutcomeCallable CfwClient::DescribeFwEdgeIpsCallable(const DescribeFwEdgeIpsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeFwEdgeIpsOutcome>>();
+    DescribeFwEdgeIpsAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeFwEdgeIpsRequest&,
+        DescribeFwEdgeIpsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeFwGroupInstanceInfoOutcome CfwClient::DescribeFwGroupInstanceInfo(const DescribeFwGroupInstanceInfoRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeFwGroupInstanceInfo");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeFwGroupInstanceInfoResponse rsp = DescribeFwGroupInstanceInfoResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeFwGroupInstanceInfoOutcome(rsp);
+        else
+            return DescribeFwGroupInstanceInfoOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeFwGroupInstanceInfoOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeFwGroupInstanceInfoAsync(const DescribeFwGroupInstanceInfoRequest& request, const DescribeFwGroupInstanceInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeFwGroupInstanceInfoRequest&;
+    using Resp = DescribeFwGroupInstanceInfoResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeFwGroupInstanceInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeFwGroupInstanceInfoOutcomeCallable CfwClient::DescribeFwGroupInstanceInfoCallable(const DescribeFwGroupInstanceInfoRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeFwGroupInstanceInfoOutcome>>();
+    DescribeFwGroupInstanceInfoAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeFwGroupInstanceInfoRequest&,
+        DescribeFwGroupInstanceInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeFwSyncStatusOutcome CfwClient::DescribeFwSyncStatus(const DescribeFwSyncStatusRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeFwSyncStatus");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeFwSyncStatusResponse rsp = DescribeFwSyncStatusResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeFwSyncStatusOutcome(rsp);
+        else
+            return DescribeFwSyncStatusOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeFwSyncStatusOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeFwSyncStatusAsync(const DescribeFwSyncStatusRequest& request, const DescribeFwSyncStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeFwSyncStatusRequest&;
+    using Resp = DescribeFwSyncStatusResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeFwSyncStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeFwSyncStatusOutcomeCallable CfwClient::DescribeFwSyncStatusCallable(const DescribeFwSyncStatusRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeFwSyncStatusOutcome>>();
+    DescribeFwSyncStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeFwSyncStatusRequest&,
+        DescribeFwSyncStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeGuideScanInfoOutcome CfwClient::DescribeGuideScanInfo(const DescribeGuideScanInfoRequest &request)
@@ -1051,25 +2262,32 @@ CfwClient::DescribeGuideScanInfoOutcome CfwClient::DescribeGuideScanInfo(const D
 
 void CfwClient::DescribeGuideScanInfoAsync(const DescribeGuideScanInfoRequest& request, const DescribeGuideScanInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGuideScanInfo(request), context);
-    };
+    using Req = const DescribeGuideScanInfoRequest&;
+    using Resp = DescribeGuideScanInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGuideScanInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeGuideScanInfoOutcomeCallable CfwClient::DescribeGuideScanInfoCallable(const DescribeGuideScanInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGuideScanInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGuideScanInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGuideScanInfoOutcome>>();
+    DescribeGuideScanInfoAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeGuideScanInfoRequest&,
+        DescribeGuideScanInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeIPStatusListOutcome CfwClient::DescribeIPStatusList(const DescribeIPStatusListRequest &request)
@@ -1094,25 +2312,232 @@ CfwClient::DescribeIPStatusListOutcome CfwClient::DescribeIPStatusList(const Des
 
 void CfwClient::DescribeIPStatusListAsync(const DescribeIPStatusListRequest& request, const DescribeIPStatusListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeIPStatusList(request), context);
-    };
+    using Req = const DescribeIPStatusListRequest&;
+    using Resp = DescribeIPStatusListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeIPStatusList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeIPStatusListOutcomeCallable CfwClient::DescribeIPStatusListCallable(const DescribeIPStatusListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeIPStatusListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeIPStatusList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeIPStatusListOutcome>>();
+    DescribeIPStatusListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeIPStatusListRequest&,
+        DescribeIPStatusListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DescribeLogStorageStatisticOutcome CfwClient::DescribeLogStorageStatistic(const DescribeLogStorageStatisticRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLogStorageStatistic");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLogStorageStatisticResponse rsp = DescribeLogStorageStatisticResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLogStorageStatisticOutcome(rsp);
+        else
+            return DescribeLogStorageStatisticOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLogStorageStatisticOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeLogStorageStatisticAsync(const DescribeLogStorageStatisticRequest& request, const DescribeLogStorageStatisticAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLogStorageStatisticRequest&;
+    using Resp = DescribeLogStorageStatisticResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLogStorageStatistic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeLogStorageStatisticOutcomeCallable CfwClient::DescribeLogStorageStatisticCallable(const DescribeLogStorageStatisticRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLogStorageStatisticOutcome>>();
+    DescribeLogStorageStatisticAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeLogStorageStatisticRequest&,
+        DescribeLogStorageStatisticOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeLogsOutcome CfwClient::DescribeLogs(const DescribeLogsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLogs");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLogsResponse rsp = DescribeLogsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLogsOutcome(rsp);
+        else
+            return DescribeLogsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLogsOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeLogsAsync(const DescribeLogsRequest& request, const DescribeLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLogsRequest&;
+    using Resp = DescribeLogsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLogs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeLogsOutcomeCallable CfwClient::DescribeLogsCallable(const DescribeLogsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLogsOutcome>>();
+    DescribeLogsAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeLogsRequest&,
+        DescribeLogsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeNatAcRuleOutcome CfwClient::DescribeNatAcRule(const DescribeNatAcRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNatAcRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNatAcRuleResponse rsp = DescribeNatAcRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNatAcRuleOutcome(rsp);
+        else
+            return DescribeNatAcRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNatAcRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeNatAcRuleAsync(const DescribeNatAcRuleRequest& request, const DescribeNatAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNatAcRuleRequest&;
+    using Resp = DescribeNatAcRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeNatAcRuleOutcomeCallable CfwClient::DescribeNatAcRuleCallable(const DescribeNatAcRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNatAcRuleOutcome>>();
+    DescribeNatAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatAcRuleRequest&,
+        DescribeNatAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::DescribeNatFwDnatRuleOutcome CfwClient::DescribeNatFwDnatRule(const DescribeNatFwDnatRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNatFwDnatRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNatFwDnatRuleResponse rsp = DescribeNatFwDnatRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNatFwDnatRuleOutcome(rsp);
+        else
+            return DescribeNatFwDnatRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNatFwDnatRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeNatFwDnatRuleAsync(const DescribeNatFwDnatRuleRequest& request, const DescribeNatFwDnatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNatFwDnatRuleRequest&;
+    using Resp = DescribeNatFwDnatRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatFwDnatRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeNatFwDnatRuleOutcomeCallable CfwClient::DescribeNatFwDnatRuleCallable(const DescribeNatFwDnatRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNatFwDnatRuleOutcome>>();
+    DescribeNatFwDnatRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatFwDnatRuleRequest&,
+        DescribeNatFwDnatRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeNatFwInfoCountOutcome CfwClient::DescribeNatFwInfoCount(const DescribeNatFwInfoCountRequest &request)
@@ -1137,25 +2562,32 @@ CfwClient::DescribeNatFwInfoCountOutcome CfwClient::DescribeNatFwInfoCount(const
 
 void CfwClient::DescribeNatFwInfoCountAsync(const DescribeNatFwInfoCountRequest& request, const DescribeNatFwInfoCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeNatFwInfoCount(request), context);
-    };
+    using Req = const DescribeNatFwInfoCountRequest&;
+    using Resp = DescribeNatFwInfoCountResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatFwInfoCount", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeNatFwInfoCountOutcomeCallable CfwClient::DescribeNatFwInfoCountCallable(const DescribeNatFwInfoCountRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeNatFwInfoCountOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeNatFwInfoCount(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeNatFwInfoCountOutcome>>();
+    DescribeNatFwInfoCountAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatFwInfoCountRequest&,
+        DescribeNatFwInfoCountOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeNatFwInstanceOutcome CfwClient::DescribeNatFwInstance(const DescribeNatFwInstanceRequest &request)
@@ -1180,25 +2612,32 @@ CfwClient::DescribeNatFwInstanceOutcome CfwClient::DescribeNatFwInstance(const D
 
 void CfwClient::DescribeNatFwInstanceAsync(const DescribeNatFwInstanceRequest& request, const DescribeNatFwInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeNatFwInstance(request), context);
-    };
+    using Req = const DescribeNatFwInstanceRequest&;
+    using Resp = DescribeNatFwInstanceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatFwInstance", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeNatFwInstanceOutcomeCallable CfwClient::DescribeNatFwInstanceCallable(const DescribeNatFwInstanceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeNatFwInstanceOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeNatFwInstance(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeNatFwInstanceOutcome>>();
+    DescribeNatFwInstanceAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatFwInstanceRequest&,
+        DescribeNatFwInstanceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeNatFwInstanceWithRegionOutcome CfwClient::DescribeNatFwInstanceWithRegion(const DescribeNatFwInstanceWithRegionRequest &request)
@@ -1223,25 +2662,32 @@ CfwClient::DescribeNatFwInstanceWithRegionOutcome CfwClient::DescribeNatFwInstan
 
 void CfwClient::DescribeNatFwInstanceWithRegionAsync(const DescribeNatFwInstanceWithRegionRequest& request, const DescribeNatFwInstanceWithRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeNatFwInstanceWithRegion(request), context);
-    };
+    using Req = const DescribeNatFwInstanceWithRegionRequest&;
+    using Resp = DescribeNatFwInstanceWithRegionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatFwInstanceWithRegion", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeNatFwInstanceWithRegionOutcomeCallable CfwClient::DescribeNatFwInstanceWithRegionCallable(const DescribeNatFwInstanceWithRegionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeNatFwInstanceWithRegionOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeNatFwInstanceWithRegion(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeNatFwInstanceWithRegionOutcome>>();
+    DescribeNatFwInstanceWithRegionAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatFwInstanceWithRegionRequest&,
+        DescribeNatFwInstanceWithRegionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeNatFwInstancesInfoOutcome CfwClient::DescribeNatFwInstancesInfo(const DescribeNatFwInstancesInfoRequest &request)
@@ -1266,25 +2712,82 @@ CfwClient::DescribeNatFwInstancesInfoOutcome CfwClient::DescribeNatFwInstancesIn
 
 void CfwClient::DescribeNatFwInstancesInfoAsync(const DescribeNatFwInstancesInfoRequest& request, const DescribeNatFwInstancesInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeNatFwInstancesInfo(request), context);
-    };
+    using Req = const DescribeNatFwInstancesInfoRequest&;
+    using Resp = DescribeNatFwInstancesInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatFwInstancesInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeNatFwInstancesInfoOutcomeCallable CfwClient::DescribeNatFwInstancesInfoCallable(const DescribeNatFwInstancesInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeNatFwInstancesInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeNatFwInstancesInfo(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeNatFwInstancesInfoOutcome>>();
+    DescribeNatFwInstancesInfoAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatFwInstancesInfoRequest&,
+        DescribeNatFwInstancesInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DescribeNatFwSwitchOutcome CfwClient::DescribeNatFwSwitch(const DescribeNatFwSwitchRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNatFwSwitch");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNatFwSwitchResponse rsp = DescribeNatFwSwitchResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNatFwSwitchOutcome(rsp);
+        else
+            return DescribeNatFwSwitchOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNatFwSwitchOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeNatFwSwitchAsync(const DescribeNatFwSwitchRequest& request, const DescribeNatFwSwitchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNatFwSwitchRequest&;
+    using Resp = DescribeNatFwSwitchResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatFwSwitch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeNatFwSwitchOutcomeCallable CfwClient::DescribeNatFwSwitchCallable(const DescribeNatFwSwitchRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNatFwSwitchOutcome>>();
+    DescribeNatFwSwitchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatFwSwitchRequest&,
+        DescribeNatFwSwitchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeNatFwVpcDnsLstOutcome CfwClient::DescribeNatFwVpcDnsLst(const DescribeNatFwVpcDnsLstRequest &request)
@@ -1309,68 +2812,32 @@ CfwClient::DescribeNatFwVpcDnsLstOutcome CfwClient::DescribeNatFwVpcDnsLst(const
 
 void CfwClient::DescribeNatFwVpcDnsLstAsync(const DescribeNatFwVpcDnsLstRequest& request, const DescribeNatFwVpcDnsLstAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeNatFwVpcDnsLst(request), context);
-    };
+    using Req = const DescribeNatFwVpcDnsLstRequest&;
+    using Resp = DescribeNatFwVpcDnsLstResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeNatFwVpcDnsLst", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeNatFwVpcDnsLstOutcomeCallable CfwClient::DescribeNatFwVpcDnsLstCallable(const DescribeNatFwVpcDnsLstRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeNatFwVpcDnsLstOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeNatFwVpcDnsLst(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CfwClient::DescribeNatRuleOverviewOutcome CfwClient::DescribeNatRuleOverview(const DescribeNatRuleOverviewRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeNatRuleOverview");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeNatFwVpcDnsLstOutcome>>();
+    DescribeNatFwVpcDnsLstAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeNatFwVpcDnsLstRequest&,
+        DescribeNatFwVpcDnsLstOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeNatRuleOverviewResponse rsp = DescribeNatRuleOverviewResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeNatRuleOverviewOutcome(rsp);
-        else
-            return DescribeNatRuleOverviewOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeNatRuleOverviewOutcome(outcome.GetError());
-    }
-}
-
-void CfwClient::DescribeNatRuleOverviewAsync(const DescribeNatRuleOverviewRequest& request, const DescribeNatRuleOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeNatRuleOverview(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CfwClient::DescribeNatRuleOverviewOutcomeCallable CfwClient::DescribeNatRuleOverviewCallable(const DescribeNatRuleOverviewRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeNatRuleOverviewOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeNatRuleOverview(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeResourceGroupOutcome CfwClient::DescribeResourceGroup(const DescribeResourceGroupRequest &request)
@@ -1395,25 +2862,32 @@ CfwClient::DescribeResourceGroupOutcome CfwClient::DescribeResourceGroup(const D
 
 void CfwClient::DescribeResourceGroupAsync(const DescribeResourceGroupRequest& request, const DescribeResourceGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeResourceGroup(request), context);
-    };
+    using Req = const DescribeResourceGroupRequest&;
+    using Resp = DescribeResourceGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeResourceGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeResourceGroupOutcomeCallable CfwClient::DescribeResourceGroupCallable(const DescribeResourceGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeResourceGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeResourceGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeResourceGroupOutcome>>();
+    DescribeResourceGroupAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeResourceGroupRequest&,
+        DescribeResourceGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeResourceGroupNewOutcome CfwClient::DescribeResourceGroupNew(const DescribeResourceGroupNewRequest &request)
@@ -1438,25 +2912,32 @@ CfwClient::DescribeResourceGroupNewOutcome CfwClient::DescribeResourceGroupNew(c
 
 void CfwClient::DescribeResourceGroupNewAsync(const DescribeResourceGroupNewRequest& request, const DescribeResourceGroupNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeResourceGroupNew(request), context);
-    };
+    using Req = const DescribeResourceGroupNewRequest&;
+    using Resp = DescribeResourceGroupNewResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeResourceGroupNew", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeResourceGroupNewOutcomeCallable CfwClient::DescribeResourceGroupNewCallable(const DescribeResourceGroupNewRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeResourceGroupNewOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeResourceGroupNew(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeResourceGroupNewOutcome>>();
+    DescribeResourceGroupNewAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeResourceGroupNewRequest&,
+        DescribeResourceGroupNewOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeRuleOverviewOutcome CfwClient::DescribeRuleOverview(const DescribeRuleOverviewRequest &request)
@@ -1481,25 +2962,32 @@ CfwClient::DescribeRuleOverviewOutcome CfwClient::DescribeRuleOverview(const Des
 
 void CfwClient::DescribeRuleOverviewAsync(const DescribeRuleOverviewRequest& request, const DescribeRuleOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeRuleOverview(request), context);
-    };
+    using Req = const DescribeRuleOverviewRequest&;
+    using Resp = DescribeRuleOverviewResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeRuleOverview", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeRuleOverviewOutcomeCallable CfwClient::DescribeRuleOverviewCallable(const DescribeRuleOverviewRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeRuleOverviewOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeRuleOverview(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeRuleOverviewOutcome>>();
+    DescribeRuleOverviewAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeRuleOverviewRequest&,
+        DescribeRuleOverviewOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeSecurityGroupListOutcome CfwClient::DescribeSecurityGroupList(const DescribeSecurityGroupListRequest &request)
@@ -1524,25 +3012,32 @@ CfwClient::DescribeSecurityGroupListOutcome CfwClient::DescribeSecurityGroupList
 
 void CfwClient::DescribeSecurityGroupListAsync(const DescribeSecurityGroupListRequest& request, const DescribeSecurityGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSecurityGroupList(request), context);
-    };
+    using Req = const DescribeSecurityGroupListRequest&;
+    using Resp = DescribeSecurityGroupListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSecurityGroupList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeSecurityGroupListOutcomeCallable CfwClient::DescribeSecurityGroupListCallable(const DescribeSecurityGroupListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSecurityGroupList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupListOutcome>>();
+    DescribeSecurityGroupListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeSecurityGroupListRequest&,
+        DescribeSecurityGroupListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeSourceAssetOutcome CfwClient::DescribeSourceAsset(const DescribeSourceAssetRequest &request)
@@ -1567,25 +3062,32 @@ CfwClient::DescribeSourceAssetOutcome CfwClient::DescribeSourceAsset(const Descr
 
 void CfwClient::DescribeSourceAssetAsync(const DescribeSourceAssetRequest& request, const DescribeSourceAssetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSourceAsset(request), context);
-    };
+    using Req = const DescribeSourceAssetRequest&;
+    using Resp = DescribeSourceAssetResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSourceAsset", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeSourceAssetOutcomeCallable CfwClient::DescribeSourceAssetCallable(const DescribeSourceAssetRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSourceAssetOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSourceAsset(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSourceAssetOutcome>>();
+    DescribeSourceAssetAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeSourceAssetRequest&,
+        DescribeSourceAssetOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeSwitchListsOutcome CfwClient::DescribeSwitchLists(const DescribeSwitchListsRequest &request)
@@ -1610,68 +3112,32 @@ CfwClient::DescribeSwitchListsOutcome CfwClient::DescribeSwitchLists(const Descr
 
 void CfwClient::DescribeSwitchListsAsync(const DescribeSwitchListsRequest& request, const DescribeSwitchListsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSwitchLists(request), context);
-    };
+    using Req = const DescribeSwitchListsRequest&;
+    using Resp = DescribeSwitchListsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSwitchLists", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeSwitchListsOutcomeCallable CfwClient::DescribeSwitchListsCallable(const DescribeSwitchListsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSwitchListsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSwitchLists(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CfwClient::DescribeSyncAssetStatusOutcome CfwClient::DescribeSyncAssetStatus(const DescribeSyncAssetStatusRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeSyncAssetStatus");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeSwitchListsOutcome>>();
+    DescribeSwitchListsAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeSwitchListsRequest&,
+        DescribeSwitchListsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeSyncAssetStatusResponse rsp = DescribeSyncAssetStatusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeSyncAssetStatusOutcome(rsp);
-        else
-            return DescribeSyncAssetStatusOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeSyncAssetStatusOutcome(outcome.GetError());
-    }
-}
-
-void CfwClient::DescribeSyncAssetStatusAsync(const DescribeSyncAssetStatusRequest& request, const DescribeSyncAssetStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSyncAssetStatus(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CfwClient::DescribeSyncAssetStatusOutcomeCallable CfwClient::DescribeSyncAssetStatusCallable(const DescribeSyncAssetStatusRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeSyncAssetStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSyncAssetStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeTLogInfoOutcome CfwClient::DescribeTLogInfo(const DescribeTLogInfoRequest &request)
@@ -1696,25 +3162,32 @@ CfwClient::DescribeTLogInfoOutcome CfwClient::DescribeTLogInfo(const DescribeTLo
 
 void CfwClient::DescribeTLogInfoAsync(const DescribeTLogInfoRequest& request, const DescribeTLogInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTLogInfo(request), context);
-    };
+    using Req = const DescribeTLogInfoRequest&;
+    using Resp = DescribeTLogInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTLogInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeTLogInfoOutcomeCallable CfwClient::DescribeTLogInfoCallable(const DescribeTLogInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTLogInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTLogInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTLogInfoOutcome>>();
+    DescribeTLogInfoAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeTLogInfoRequest&,
+        DescribeTLogInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeTLogIpListOutcome CfwClient::DescribeTLogIpList(const DescribeTLogIpListRequest &request)
@@ -1739,25 +3212,32 @@ CfwClient::DescribeTLogIpListOutcome CfwClient::DescribeTLogIpList(const Describ
 
 void CfwClient::DescribeTLogIpListAsync(const DescribeTLogIpListRequest& request, const DescribeTLogIpListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTLogIpList(request), context);
-    };
+    using Req = const DescribeTLogIpListRequest&;
+    using Resp = DescribeTLogIpListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTLogIpList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeTLogIpListOutcomeCallable CfwClient::DescribeTLogIpListCallable(const DescribeTLogIpListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTLogIpListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTLogIpList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTLogIpListOutcome>>();
+    DescribeTLogIpListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeTLogIpListRequest&,
+        DescribeTLogIpListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeTableStatusOutcome CfwClient::DescribeTableStatus(const DescribeTableStatusRequest &request)
@@ -1782,25 +3262,32 @@ CfwClient::DescribeTableStatusOutcome CfwClient::DescribeTableStatus(const Descr
 
 void CfwClient::DescribeTableStatusAsync(const DescribeTableStatusRequest& request, const DescribeTableStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTableStatus(request), context);
-    };
+    using Req = const DescribeTableStatusRequest&;
+    using Resp = DescribeTableStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTableStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeTableStatusOutcomeCallable CfwClient::DescribeTableStatusCallable(const DescribeTableStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTableStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTableStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTableStatusOutcome>>();
+    DescribeTableStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeTableStatusRequest&,
+        DescribeTableStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::DescribeUnHandleEventTabListOutcome CfwClient::DescribeUnHandleEventTabList(const DescribeUnHandleEventTabListRequest &request)
@@ -1825,68 +3312,132 @@ CfwClient::DescribeUnHandleEventTabListOutcome CfwClient::DescribeUnHandleEventT
 
 void CfwClient::DescribeUnHandleEventTabListAsync(const DescribeUnHandleEventTabListRequest& request, const DescribeUnHandleEventTabListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUnHandleEventTabList(request), context);
-    };
+    using Req = const DescribeUnHandleEventTabListRequest&;
+    using Resp = DescribeUnHandleEventTabListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUnHandleEventTabList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::DescribeUnHandleEventTabListOutcomeCallable CfwClient::DescribeUnHandleEventTabListCallable(const DescribeUnHandleEventTabListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUnHandleEventTabListOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUnHandleEventTabList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeUnHandleEventTabListOutcome>>();
+    DescribeUnHandleEventTabListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeUnHandleEventTabListRequest&,
+        DescribeUnHandleEventTabListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CfwClient::DescribeVpcRuleOverviewOutcome CfwClient::DescribeVpcRuleOverview(const DescribeVpcRuleOverviewRequest &request)
+CfwClient::DescribeVpcAcRuleOutcome CfwClient::DescribeVpcAcRule(const DescribeVpcAcRuleRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeVpcRuleOverview");
+    auto outcome = MakeRequest(request, "DescribeVpcAcRule");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeVpcRuleOverviewResponse rsp = DescribeVpcRuleOverviewResponse();
+        DescribeVpcAcRuleResponse rsp = DescribeVpcAcRuleResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeVpcRuleOverviewOutcome(rsp);
+            return DescribeVpcAcRuleOutcome(rsp);
         else
-            return DescribeVpcRuleOverviewOutcome(o.GetError());
+            return DescribeVpcAcRuleOutcome(o.GetError());
     }
     else
     {
-        return DescribeVpcRuleOverviewOutcome(outcome.GetError());
+        return DescribeVpcAcRuleOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::DescribeVpcRuleOverviewAsync(const DescribeVpcRuleOverviewRequest& request, const DescribeVpcRuleOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::DescribeVpcAcRuleAsync(const DescribeVpcAcRuleRequest& request, const DescribeVpcAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeVpcRuleOverview(request), context);
-    };
+    using Req = const DescribeVpcAcRuleRequest&;
+    using Resp = DescribeVpcAcRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeVpcAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::DescribeVpcRuleOverviewOutcomeCallable CfwClient::DescribeVpcRuleOverviewCallable(const DescribeVpcRuleOverviewRequest &request)
+CfwClient::DescribeVpcAcRuleOutcomeCallable CfwClient::DescribeVpcAcRuleCallable(const DescribeVpcAcRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeVpcRuleOverviewOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeVpcRuleOverview(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeVpcAcRuleOutcome>>();
+    DescribeVpcAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeVpcAcRuleRequest&,
+        DescribeVpcAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::DescribeVpcFwGroupSwitchOutcome CfwClient::DescribeVpcFwGroupSwitch(const DescribeVpcFwGroupSwitchRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeVpcFwGroupSwitch");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeVpcFwGroupSwitchResponse rsp = DescribeVpcFwGroupSwitchResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeVpcFwGroupSwitchOutcome(rsp);
+        else
+            return DescribeVpcFwGroupSwitchOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeVpcFwGroupSwitchOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::DescribeVpcFwGroupSwitchAsync(const DescribeVpcFwGroupSwitchRequest& request, const DescribeVpcFwGroupSwitchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeVpcFwGroupSwitchRequest&;
+    using Resp = DescribeVpcFwGroupSwitchResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeVpcFwGroupSwitch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::DescribeVpcFwGroupSwitchOutcomeCallable CfwClient::DescribeVpcFwGroupSwitchCallable(const DescribeVpcFwGroupSwitchRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeVpcFwGroupSwitchOutcome>>();
+    DescribeVpcFwGroupSwitchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const DescribeVpcFwGroupSwitchRequest&,
+        DescribeVpcFwGroupSwitchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ExpandCfwVerticalOutcome CfwClient::ExpandCfwVertical(const ExpandCfwVerticalRequest &request)
@@ -1911,25 +3462,32 @@ CfwClient::ExpandCfwVerticalOutcome CfwClient::ExpandCfwVertical(const ExpandCfw
 
 void CfwClient::ExpandCfwVerticalAsync(const ExpandCfwVerticalRequest& request, const ExpandCfwVerticalAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ExpandCfwVertical(request), context);
-    };
+    using Req = const ExpandCfwVerticalRequest&;
+    using Resp = ExpandCfwVerticalResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ExpandCfwVertical", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ExpandCfwVerticalOutcomeCallable CfwClient::ExpandCfwVerticalCallable(const ExpandCfwVerticalRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ExpandCfwVerticalOutcome()>>(
-        [this, request]()
-        {
-            return this->ExpandCfwVertical(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ExpandCfwVerticalOutcome>>();
+    ExpandCfwVerticalAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ExpandCfwVerticalRequest&,
+        ExpandCfwVerticalOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyAcRuleOutcome CfwClient::ModifyAcRule(const ModifyAcRuleRequest &request)
@@ -1954,25 +3512,132 @@ CfwClient::ModifyAcRuleOutcome CfwClient::ModifyAcRule(const ModifyAcRuleRequest
 
 void CfwClient::ModifyAcRuleAsync(const ModifyAcRuleRequest& request, const ModifyAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyAcRule(request), context);
-    };
+    using Req = const ModifyAcRuleRequest&;
+    using Resp = ModifyAcRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyAcRuleOutcomeCallable CfwClient::ModifyAcRuleCallable(const ModifyAcRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyAcRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyAcRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyAcRuleOutcome>>();
+    ModifyAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyAcRuleRequest&,
+        ModifyAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifyAclRuleOutcome CfwClient::ModifyAclRule(const ModifyAclRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyAclRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyAclRuleResponse rsp = ModifyAclRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyAclRuleOutcome(rsp);
+        else
+            return ModifyAclRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyAclRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyAclRuleAsync(const ModifyAclRuleRequest& request, const ModifyAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyAclRuleRequest&;
+    using Resp = ModifyAclRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyAclRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyAclRuleOutcomeCallable CfwClient::ModifyAclRuleCallable(const ModifyAclRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyAclRuleOutcome>>();
+    ModifyAclRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyAclRuleRequest&,
+        ModifyAclRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::ModifyAddressTemplateOutcome CfwClient::ModifyAddressTemplate(const ModifyAddressTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyAddressTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyAddressTemplateResponse rsp = ModifyAddressTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyAddressTemplateOutcome(rsp);
+        else
+            return ModifyAddressTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyAddressTemplateOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyAddressTemplateAsync(const ModifyAddressTemplateRequest& request, const ModifyAddressTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyAddressTemplateRequest&;
+    using Resp = ModifyAddressTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyAddressTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyAddressTemplateOutcomeCallable CfwClient::ModifyAddressTemplateCallable(const ModifyAddressTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyAddressTemplateOutcome>>();
+    ModifyAddressTemplateAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyAddressTemplateRequest&,
+        ModifyAddressTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyAllPublicIPSwitchStatusOutcome CfwClient::ModifyAllPublicIPSwitchStatus(const ModifyAllPublicIPSwitchStatusRequest &request)
@@ -1997,25 +3662,32 @@ CfwClient::ModifyAllPublicIPSwitchStatusOutcome CfwClient::ModifyAllPublicIPSwit
 
 void CfwClient::ModifyAllPublicIPSwitchStatusAsync(const ModifyAllPublicIPSwitchStatusRequest& request, const ModifyAllPublicIPSwitchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyAllPublicIPSwitchStatus(request), context);
-    };
+    using Req = const ModifyAllPublicIPSwitchStatusRequest&;
+    using Resp = ModifyAllPublicIPSwitchStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyAllPublicIPSwitchStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyAllPublicIPSwitchStatusOutcomeCallable CfwClient::ModifyAllPublicIPSwitchStatusCallable(const ModifyAllPublicIPSwitchStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyAllPublicIPSwitchStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyAllPublicIPSwitchStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyAllPublicIPSwitchStatusOutcome>>();
+    ModifyAllPublicIPSwitchStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyAllPublicIPSwitchStatusRequest&,
+        ModifyAllPublicIPSwitchStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyAllRuleStatusOutcome CfwClient::ModifyAllRuleStatus(const ModifyAllRuleStatusRequest &request)
@@ -2040,111 +3712,32 @@ CfwClient::ModifyAllRuleStatusOutcome CfwClient::ModifyAllRuleStatus(const Modif
 
 void CfwClient::ModifyAllRuleStatusAsync(const ModifyAllRuleStatusRequest& request, const ModifyAllRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyAllRuleStatus(request), context);
-    };
+    using Req = const ModifyAllRuleStatusRequest&;
+    using Resp = ModifyAllRuleStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyAllRuleStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyAllRuleStatusOutcomeCallable CfwClient::ModifyAllRuleStatusCallable(const ModifyAllRuleStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyAllRuleStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyAllRuleStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CfwClient::ModifyAllSwitchStatusOutcome CfwClient::ModifyAllSwitchStatus(const ModifyAllSwitchStatusRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyAllSwitchStatus");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ModifyAllRuleStatusOutcome>>();
+    ModifyAllRuleStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyAllRuleStatusRequest&,
+        ModifyAllRuleStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyAllSwitchStatusResponse rsp = ModifyAllSwitchStatusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyAllSwitchStatusOutcome(rsp);
-        else
-            return ModifyAllSwitchStatusOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyAllSwitchStatusOutcome(outcome.GetError());
-    }
-}
-
-void CfwClient::ModifyAllSwitchStatusAsync(const ModifyAllSwitchStatusRequest& request, const ModifyAllSwitchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyAllSwitchStatus(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CfwClient::ModifyAllSwitchStatusOutcomeCallable CfwClient::ModifyAllSwitchStatusCallable(const ModifyAllSwitchStatusRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ModifyAllSwitchStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyAllSwitchStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CfwClient::ModifyAllVPCSwitchStatusOutcome CfwClient::ModifyAllVPCSwitchStatus(const ModifyAllVPCSwitchStatusRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyAllVPCSwitchStatus");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyAllVPCSwitchStatusResponse rsp = ModifyAllVPCSwitchStatusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyAllVPCSwitchStatusOutcome(rsp);
-        else
-            return ModifyAllVPCSwitchStatusOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyAllVPCSwitchStatusOutcome(outcome.GetError());
-    }
-}
-
-void CfwClient::ModifyAllVPCSwitchStatusAsync(const ModifyAllVPCSwitchStatusRequest& request, const ModifyAllVPCSwitchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyAllVPCSwitchStatus(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CfwClient::ModifyAllVPCSwitchStatusOutcomeCallable CfwClient::ModifyAllVPCSwitchStatusCallable(const ModifyAllVPCSwitchStatusRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ModifyAllVPCSwitchStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyAllVPCSwitchStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyAssetScanOutcome CfwClient::ModifyAssetScan(const ModifyAssetScanRequest &request)
@@ -2169,25 +3762,82 @@ CfwClient::ModifyAssetScanOutcome CfwClient::ModifyAssetScan(const ModifyAssetSc
 
 void CfwClient::ModifyAssetScanAsync(const ModifyAssetScanRequest& request, const ModifyAssetScanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyAssetScan(request), context);
-    };
+    using Req = const ModifyAssetScanRequest&;
+    using Resp = ModifyAssetScanResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyAssetScan", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyAssetScanOutcomeCallable CfwClient::ModifyAssetScanCallable(const ModifyAssetScanRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyAssetScanOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyAssetScan(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyAssetScanOutcome>>();
+    ModifyAssetScanAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyAssetScanRequest&,
+        ModifyAssetScanOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifyAssetSyncOutcome CfwClient::ModifyAssetSync(const ModifyAssetSyncRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyAssetSync");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyAssetSyncResponse rsp = ModifyAssetSyncResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyAssetSyncOutcome(rsp);
+        else
+            return ModifyAssetSyncOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyAssetSyncOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyAssetSyncAsync(const ModifyAssetSyncRequest& request, const ModifyAssetSyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyAssetSyncRequest&;
+    using Resp = ModifyAssetSyncResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyAssetSync", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyAssetSyncOutcomeCallable CfwClient::ModifyAssetSyncCallable(const ModifyAssetSyncRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyAssetSyncOutcome>>();
+    ModifyAssetSyncAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyAssetSyncRequest&,
+        ModifyAssetSyncOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyBlockIgnoreListOutcome CfwClient::ModifyBlockIgnoreList(const ModifyBlockIgnoreListRequest &request)
@@ -2212,25 +3862,132 @@ CfwClient::ModifyBlockIgnoreListOutcome CfwClient::ModifyBlockIgnoreList(const M
 
 void CfwClient::ModifyBlockIgnoreListAsync(const ModifyBlockIgnoreListRequest& request, const ModifyBlockIgnoreListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyBlockIgnoreList(request), context);
-    };
+    using Req = const ModifyBlockIgnoreListRequest&;
+    using Resp = ModifyBlockIgnoreListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyBlockIgnoreList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyBlockIgnoreListOutcomeCallable CfwClient::ModifyBlockIgnoreListCallable(const ModifyBlockIgnoreListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyBlockIgnoreListOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyBlockIgnoreList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyBlockIgnoreListOutcome>>();
+    ModifyBlockIgnoreListAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyBlockIgnoreListRequest&,
+        ModifyBlockIgnoreListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifyBlockIgnoreRuleOutcome CfwClient::ModifyBlockIgnoreRule(const ModifyBlockIgnoreRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyBlockIgnoreRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyBlockIgnoreRuleResponse rsp = ModifyBlockIgnoreRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyBlockIgnoreRuleOutcome(rsp);
+        else
+            return ModifyBlockIgnoreRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyBlockIgnoreRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyBlockIgnoreRuleAsync(const ModifyBlockIgnoreRuleRequest& request, const ModifyBlockIgnoreRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyBlockIgnoreRuleRequest&;
+    using Resp = ModifyBlockIgnoreRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyBlockIgnoreRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyBlockIgnoreRuleOutcomeCallable CfwClient::ModifyBlockIgnoreRuleCallable(const ModifyBlockIgnoreRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyBlockIgnoreRuleOutcome>>();
+    ModifyBlockIgnoreRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyBlockIgnoreRuleRequest&,
+        ModifyBlockIgnoreRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::ModifyBlockIgnoreRuleNewOutcome CfwClient::ModifyBlockIgnoreRuleNew(const ModifyBlockIgnoreRuleNewRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyBlockIgnoreRuleNew");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyBlockIgnoreRuleNewResponse rsp = ModifyBlockIgnoreRuleNewResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyBlockIgnoreRuleNewOutcome(rsp);
+        else
+            return ModifyBlockIgnoreRuleNewOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyBlockIgnoreRuleNewOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyBlockIgnoreRuleNewAsync(const ModifyBlockIgnoreRuleNewRequest& request, const ModifyBlockIgnoreRuleNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyBlockIgnoreRuleNewRequest&;
+    using Resp = ModifyBlockIgnoreRuleNewResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyBlockIgnoreRuleNew", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyBlockIgnoreRuleNewOutcomeCallable CfwClient::ModifyBlockIgnoreRuleNewCallable(const ModifyBlockIgnoreRuleNewRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyBlockIgnoreRuleNewOutcome>>();
+    ModifyBlockIgnoreRuleNewAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyBlockIgnoreRuleNewRequest&,
+        ModifyBlockIgnoreRuleNewOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyBlockTopOutcome CfwClient::ModifyBlockTop(const ModifyBlockTopRequest &request)
@@ -2255,68 +4012,332 @@ CfwClient::ModifyBlockTopOutcome CfwClient::ModifyBlockTop(const ModifyBlockTopR
 
 void CfwClient::ModifyBlockTopAsync(const ModifyBlockTopRequest& request, const ModifyBlockTopAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyBlockTop(request), context);
-    };
+    using Req = const ModifyBlockTopRequest&;
+    using Resp = ModifyBlockTopResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyBlockTop", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyBlockTopOutcomeCallable CfwClient::ModifyBlockTopCallable(const ModifyBlockTopRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyBlockTopOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyBlockTop(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyBlockTopOutcome>>();
+    ModifyBlockTopAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyBlockTopRequest&,
+        ModifyBlockTopOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CfwClient::ModifyItemSwitchStatusOutcome CfwClient::ModifyItemSwitchStatus(const ModifyItemSwitchStatusRequest &request)
+CfwClient::ModifyEWRuleStatusOutcome CfwClient::ModifyEWRuleStatus(const ModifyEWRuleStatusRequest &request)
 {
-    auto outcome = MakeRequest(request, "ModifyItemSwitchStatus");
+    auto outcome = MakeRequest(request, "ModifyEWRuleStatus");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        ModifyItemSwitchStatusResponse rsp = ModifyItemSwitchStatusResponse();
+        ModifyEWRuleStatusResponse rsp = ModifyEWRuleStatusResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return ModifyItemSwitchStatusOutcome(rsp);
+            return ModifyEWRuleStatusOutcome(rsp);
         else
-            return ModifyItemSwitchStatusOutcome(o.GetError());
+            return ModifyEWRuleStatusOutcome(o.GetError());
     }
     else
     {
-        return ModifyItemSwitchStatusOutcome(outcome.GetError());
+        return ModifyEWRuleStatusOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::ModifyItemSwitchStatusAsync(const ModifyItemSwitchStatusRequest& request, const ModifyItemSwitchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::ModifyEWRuleStatusAsync(const ModifyEWRuleStatusRequest& request, const ModifyEWRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyItemSwitchStatus(request), context);
-    };
+    using Req = const ModifyEWRuleStatusRequest&;
+    using Resp = ModifyEWRuleStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyEWRuleStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::ModifyItemSwitchStatusOutcomeCallable CfwClient::ModifyItemSwitchStatusCallable(const ModifyItemSwitchStatusRequest &request)
+CfwClient::ModifyEWRuleStatusOutcomeCallable CfwClient::ModifyEWRuleStatusCallable(const ModifyEWRuleStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyItemSwitchStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyItemSwitchStatus(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyEWRuleStatusOutcome>>();
+    ModifyEWRuleStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyEWRuleStatusRequest&,
+        ModifyEWRuleStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifyEdgeIpSwitchOutcome CfwClient::ModifyEdgeIpSwitch(const ModifyEdgeIpSwitchRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyEdgeIpSwitch");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyEdgeIpSwitchResponse rsp = ModifyEdgeIpSwitchResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyEdgeIpSwitchOutcome(rsp);
+        else
+            return ModifyEdgeIpSwitchOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyEdgeIpSwitchOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyEdgeIpSwitchAsync(const ModifyEdgeIpSwitchRequest& request, const ModifyEdgeIpSwitchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyEdgeIpSwitchRequest&;
+    using Resp = ModifyEdgeIpSwitchResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyEdgeIpSwitch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyEdgeIpSwitchOutcomeCallable CfwClient::ModifyEdgeIpSwitchCallable(const ModifyEdgeIpSwitchRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyEdgeIpSwitchOutcome>>();
+    ModifyEdgeIpSwitchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyEdgeIpSwitchRequest&,
+        ModifyEdgeIpSwitchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::ModifyEnterpriseSecurityDispatchStatusOutcome CfwClient::ModifyEnterpriseSecurityDispatchStatus(const ModifyEnterpriseSecurityDispatchStatusRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyEnterpriseSecurityDispatchStatus");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyEnterpriseSecurityDispatchStatusResponse rsp = ModifyEnterpriseSecurityDispatchStatusResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyEnterpriseSecurityDispatchStatusOutcome(rsp);
+        else
+            return ModifyEnterpriseSecurityDispatchStatusOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyEnterpriseSecurityDispatchStatusOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyEnterpriseSecurityDispatchStatusAsync(const ModifyEnterpriseSecurityDispatchStatusRequest& request, const ModifyEnterpriseSecurityDispatchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyEnterpriseSecurityDispatchStatusRequest&;
+    using Resp = ModifyEnterpriseSecurityDispatchStatusResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyEnterpriseSecurityDispatchStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyEnterpriseSecurityDispatchStatusOutcomeCallable CfwClient::ModifyEnterpriseSecurityDispatchStatusCallable(const ModifyEnterpriseSecurityDispatchStatusRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyEnterpriseSecurityDispatchStatusOutcome>>();
+    ModifyEnterpriseSecurityDispatchStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyEnterpriseSecurityDispatchStatusRequest&,
+        ModifyEnterpriseSecurityDispatchStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::ModifyEnterpriseSecurityGroupRuleOutcome CfwClient::ModifyEnterpriseSecurityGroupRule(const ModifyEnterpriseSecurityGroupRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyEnterpriseSecurityGroupRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyEnterpriseSecurityGroupRuleResponse rsp = ModifyEnterpriseSecurityGroupRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyEnterpriseSecurityGroupRuleOutcome(rsp);
+        else
+            return ModifyEnterpriseSecurityGroupRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyEnterpriseSecurityGroupRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyEnterpriseSecurityGroupRuleAsync(const ModifyEnterpriseSecurityGroupRuleRequest& request, const ModifyEnterpriseSecurityGroupRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyEnterpriseSecurityGroupRuleRequest&;
+    using Resp = ModifyEnterpriseSecurityGroupRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyEnterpriseSecurityGroupRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyEnterpriseSecurityGroupRuleOutcomeCallable CfwClient::ModifyEnterpriseSecurityGroupRuleCallable(const ModifyEnterpriseSecurityGroupRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyEnterpriseSecurityGroupRuleOutcome>>();
+    ModifyEnterpriseSecurityGroupRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyEnterpriseSecurityGroupRuleRequest&,
+        ModifyEnterpriseSecurityGroupRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::ModifyFwGroupSwitchOutcome CfwClient::ModifyFwGroupSwitch(const ModifyFwGroupSwitchRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyFwGroupSwitch");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyFwGroupSwitchResponse rsp = ModifyFwGroupSwitchResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyFwGroupSwitchOutcome(rsp);
+        else
+            return ModifyFwGroupSwitchOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyFwGroupSwitchOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyFwGroupSwitchAsync(const ModifyFwGroupSwitchRequest& request, const ModifyFwGroupSwitchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyFwGroupSwitchRequest&;
+    using Resp = ModifyFwGroupSwitchResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyFwGroupSwitch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyFwGroupSwitchOutcomeCallable CfwClient::ModifyFwGroupSwitchCallable(const ModifyFwGroupSwitchRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyFwGroupSwitchOutcome>>();
+    ModifyFwGroupSwitchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyFwGroupSwitchRequest&,
+        ModifyFwGroupSwitchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::ModifyNatAcRuleOutcome CfwClient::ModifyNatAcRule(const ModifyNatAcRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyNatAcRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyNatAcRuleResponse rsp = ModifyNatAcRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyNatAcRuleOutcome(rsp);
+        else
+            return ModifyNatAcRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyNatAcRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyNatAcRuleAsync(const ModifyNatAcRuleRequest& request, const ModifyNatAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyNatAcRuleRequest&;
+    using Resp = ModifyNatAcRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyNatAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyNatAcRuleOutcomeCallable CfwClient::ModifyNatAcRuleCallable(const ModifyNatAcRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyNatAcRuleOutcome>>();
+    ModifyNatAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyNatAcRuleRequest&,
+        ModifyNatAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyNatFwReSelectOutcome CfwClient::ModifyNatFwReSelect(const ModifyNatFwReSelectRequest &request)
@@ -2341,25 +4362,32 @@ CfwClient::ModifyNatFwReSelectOutcome CfwClient::ModifyNatFwReSelect(const Modif
 
 void CfwClient::ModifyNatFwReSelectAsync(const ModifyNatFwReSelectRequest& request, const ModifyNatFwReSelectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyNatFwReSelect(request), context);
-    };
+    using Req = const ModifyNatFwReSelectRequest&;
+    using Resp = ModifyNatFwReSelectResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyNatFwReSelect", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyNatFwReSelectOutcomeCallable CfwClient::ModifyNatFwReSelectCallable(const ModifyNatFwReSelectRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyNatFwReSelectOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyNatFwReSelect(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyNatFwReSelectOutcome>>();
+    ModifyNatFwReSelectAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyNatFwReSelectRequest&,
+        ModifyNatFwReSelectOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyNatFwSwitchOutcome CfwClient::ModifyNatFwSwitch(const ModifyNatFwSwitchRequest &request)
@@ -2384,25 +4412,32 @@ CfwClient::ModifyNatFwSwitchOutcome CfwClient::ModifyNatFwSwitch(const ModifyNat
 
 void CfwClient::ModifyNatFwSwitchAsync(const ModifyNatFwSwitchRequest& request, const ModifyNatFwSwitchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyNatFwSwitch(request), context);
-    };
+    using Req = const ModifyNatFwSwitchRequest&;
+    using Resp = ModifyNatFwSwitchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyNatFwSwitch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyNatFwSwitchOutcomeCallable CfwClient::ModifyNatFwSwitchCallable(const ModifyNatFwSwitchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyNatFwSwitchOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyNatFwSwitch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyNatFwSwitchOutcome>>();
+    ModifyNatFwSwitchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyNatFwSwitchRequest&,
+        ModifyNatFwSwitchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyNatFwVpcDnsSwitchOutcome CfwClient::ModifyNatFwVpcDnsSwitch(const ModifyNatFwVpcDnsSwitchRequest &request)
@@ -2427,68 +4462,132 @@ CfwClient::ModifyNatFwVpcDnsSwitchOutcome CfwClient::ModifyNatFwVpcDnsSwitch(con
 
 void CfwClient::ModifyNatFwVpcDnsSwitchAsync(const ModifyNatFwVpcDnsSwitchRequest& request, const ModifyNatFwVpcDnsSwitchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyNatFwVpcDnsSwitch(request), context);
-    };
+    using Req = const ModifyNatFwVpcDnsSwitchRequest&;
+    using Resp = ModifyNatFwVpcDnsSwitchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyNatFwVpcDnsSwitch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyNatFwVpcDnsSwitchOutcomeCallable CfwClient::ModifyNatFwVpcDnsSwitchCallable(const ModifyNatFwVpcDnsSwitchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyNatFwVpcDnsSwitchOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyNatFwVpcDnsSwitch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyNatFwVpcDnsSwitchOutcome>>();
+    ModifyNatFwVpcDnsSwitchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyNatFwVpcDnsSwitchRequest&,
+        ModifyNatFwVpcDnsSwitchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CfwClient::ModifyPublicIPSwitchStatusOutcome CfwClient::ModifyPublicIPSwitchStatus(const ModifyPublicIPSwitchStatusRequest &request)
+CfwClient::ModifyNatInstanceOutcome CfwClient::ModifyNatInstance(const ModifyNatInstanceRequest &request)
 {
-    auto outcome = MakeRequest(request, "ModifyPublicIPSwitchStatus");
+    auto outcome = MakeRequest(request, "ModifyNatInstance");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        ModifyPublicIPSwitchStatusResponse rsp = ModifyPublicIPSwitchStatusResponse();
+        ModifyNatInstanceResponse rsp = ModifyNatInstanceResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return ModifyPublicIPSwitchStatusOutcome(rsp);
+            return ModifyNatInstanceOutcome(rsp);
         else
-            return ModifyPublicIPSwitchStatusOutcome(o.GetError());
+            return ModifyNatInstanceOutcome(o.GetError());
     }
     else
     {
-        return ModifyPublicIPSwitchStatusOutcome(outcome.GetError());
+        return ModifyNatInstanceOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::ModifyPublicIPSwitchStatusAsync(const ModifyPublicIPSwitchStatusRequest& request, const ModifyPublicIPSwitchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::ModifyNatInstanceAsync(const ModifyNatInstanceRequest& request, const ModifyNatInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyPublicIPSwitchStatus(request), context);
-    };
+    using Req = const ModifyNatInstanceRequest&;
+    using Resp = ModifyNatInstanceResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyNatInstance", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::ModifyPublicIPSwitchStatusOutcomeCallable CfwClient::ModifyPublicIPSwitchStatusCallable(const ModifyPublicIPSwitchStatusRequest &request)
+CfwClient::ModifyNatInstanceOutcomeCallable CfwClient::ModifyNatInstanceCallable(const ModifyNatInstanceRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyPublicIPSwitchStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyPublicIPSwitchStatus(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyNatInstanceOutcome>>();
+    ModifyNatInstanceAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyNatInstanceRequest&,
+        ModifyNatInstanceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifyNatSequenceRulesOutcome CfwClient::ModifyNatSequenceRules(const ModifyNatSequenceRulesRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyNatSequenceRules");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyNatSequenceRulesResponse rsp = ModifyNatSequenceRulesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyNatSequenceRulesOutcome(rsp);
+        else
+            return ModifyNatSequenceRulesOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyNatSequenceRulesOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyNatSequenceRulesAsync(const ModifyNatSequenceRulesRequest& request, const ModifyNatSequenceRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyNatSequenceRulesRequest&;
+    using Resp = ModifyNatSequenceRulesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyNatSequenceRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyNatSequenceRulesOutcomeCallable CfwClient::ModifyNatSequenceRulesCallable(const ModifyNatSequenceRulesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyNatSequenceRulesOutcome>>();
+    ModifyNatSequenceRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyNatSequenceRulesRequest&,
+        ModifyNatSequenceRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyResourceGroupOutcome CfwClient::ModifyResourceGroup(const ModifyResourceGroupRequest &request)
@@ -2513,25 +4612,32 @@ CfwClient::ModifyResourceGroupOutcome CfwClient::ModifyResourceGroup(const Modif
 
 void CfwClient::ModifyResourceGroupAsync(const ModifyResourceGroupRequest& request, const ModifyResourceGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyResourceGroup(request), context);
-    };
+    using Req = const ModifyResourceGroupRequest&;
+    using Resp = ModifyResourceGroupResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyResourceGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyResourceGroupOutcomeCallable CfwClient::ModifyResourceGroupCallable(const ModifyResourceGroupRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyResourceGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyResourceGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyResourceGroupOutcome>>();
+    ModifyResourceGroupAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyResourceGroupRequest&,
+        ModifyResourceGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyRunSyncAssetOutcome CfwClient::ModifyRunSyncAsset(const ModifyRunSyncAssetRequest &request)
@@ -2556,68 +4662,32 @@ CfwClient::ModifyRunSyncAssetOutcome CfwClient::ModifyRunSyncAsset(const ModifyR
 
 void CfwClient::ModifyRunSyncAssetAsync(const ModifyRunSyncAssetRequest& request, const ModifyRunSyncAssetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyRunSyncAsset(request), context);
-    };
+    using Req = const ModifyRunSyncAssetRequest&;
+    using Resp = ModifyRunSyncAssetResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyRunSyncAsset", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyRunSyncAssetOutcomeCallable CfwClient::ModifyRunSyncAssetCallable(const ModifyRunSyncAssetRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyRunSyncAssetOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyRunSyncAsset(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CfwClient::ModifySecurityGroupAllRuleStatusOutcome CfwClient::ModifySecurityGroupAllRuleStatus(const ModifySecurityGroupAllRuleStatusRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifySecurityGroupAllRuleStatus");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ModifyRunSyncAssetOutcome>>();
+    ModifyRunSyncAssetAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyRunSyncAssetRequest&,
+        ModifyRunSyncAssetOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifySecurityGroupAllRuleStatusResponse rsp = ModifySecurityGroupAllRuleStatusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifySecurityGroupAllRuleStatusOutcome(rsp);
-        else
-            return ModifySecurityGroupAllRuleStatusOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifySecurityGroupAllRuleStatusOutcome(outcome.GetError());
-    }
-}
-
-void CfwClient::ModifySecurityGroupAllRuleStatusAsync(const ModifySecurityGroupAllRuleStatusRequest& request, const ModifySecurityGroupAllRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifySecurityGroupAllRuleStatus(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CfwClient::ModifySecurityGroupAllRuleStatusOutcomeCallable CfwClient::ModifySecurityGroupAllRuleStatusCallable(const ModifySecurityGroupAllRuleStatusRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ModifySecurityGroupAllRuleStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifySecurityGroupAllRuleStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifySecurityGroupItemRuleStatusOutcome CfwClient::ModifySecurityGroupItemRuleStatus(const ModifySecurityGroupItemRuleStatusRequest &request)
@@ -2642,25 +4712,32 @@ CfwClient::ModifySecurityGroupItemRuleStatusOutcome CfwClient::ModifySecurityGro
 
 void CfwClient::ModifySecurityGroupItemRuleStatusAsync(const ModifySecurityGroupItemRuleStatusRequest& request, const ModifySecurityGroupItemRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifySecurityGroupItemRuleStatus(request), context);
-    };
+    using Req = const ModifySecurityGroupItemRuleStatusRequest&;
+    using Resp = ModifySecurityGroupItemRuleStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifySecurityGroupItemRuleStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifySecurityGroupItemRuleStatusOutcomeCallable CfwClient::ModifySecurityGroupItemRuleStatusCallable(const ModifySecurityGroupItemRuleStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifySecurityGroupItemRuleStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifySecurityGroupItemRuleStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifySecurityGroupItemRuleStatusOutcome>>();
+    ModifySecurityGroupItemRuleStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifySecurityGroupItemRuleStatusRequest&,
+        ModifySecurityGroupItemRuleStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifySecurityGroupRuleOutcome CfwClient::ModifySecurityGroupRule(const ModifySecurityGroupRuleRequest &request)
@@ -2685,25 +4762,32 @@ CfwClient::ModifySecurityGroupRuleOutcome CfwClient::ModifySecurityGroupRule(con
 
 void CfwClient::ModifySecurityGroupRuleAsync(const ModifySecurityGroupRuleRequest& request, const ModifySecurityGroupRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifySecurityGroupRule(request), context);
-    };
+    using Req = const ModifySecurityGroupRuleRequest&;
+    using Resp = ModifySecurityGroupRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifySecurityGroupRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifySecurityGroupRuleOutcomeCallable CfwClient::ModifySecurityGroupRuleCallable(const ModifySecurityGroupRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifySecurityGroupRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifySecurityGroupRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifySecurityGroupRuleOutcome>>();
+    ModifySecurityGroupRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifySecurityGroupRuleRequest&,
+        ModifySecurityGroupRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifySecurityGroupSequenceRulesOutcome CfwClient::ModifySecurityGroupSequenceRules(const ModifySecurityGroupSequenceRulesRequest &request)
@@ -2728,25 +4812,82 @@ CfwClient::ModifySecurityGroupSequenceRulesOutcome CfwClient::ModifySecurityGrou
 
 void CfwClient::ModifySecurityGroupSequenceRulesAsync(const ModifySecurityGroupSequenceRulesRequest& request, const ModifySecurityGroupSequenceRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifySecurityGroupSequenceRules(request), context);
-    };
+    using Req = const ModifySecurityGroupSequenceRulesRequest&;
+    using Resp = ModifySecurityGroupSequenceRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifySecurityGroupSequenceRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifySecurityGroupSequenceRulesOutcomeCallable CfwClient::ModifySecurityGroupSequenceRulesCallable(const ModifySecurityGroupSequenceRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifySecurityGroupSequenceRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifySecurityGroupSequenceRules(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifySecurityGroupSequenceRulesOutcome>>();
+    ModifySecurityGroupSequenceRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifySecurityGroupSequenceRulesRequest&,
+        ModifySecurityGroupSequenceRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifySequenceAclRulesOutcome CfwClient::ModifySequenceAclRules(const ModifySequenceAclRulesRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifySequenceAclRules");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifySequenceAclRulesResponse rsp = ModifySequenceAclRulesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifySequenceAclRulesOutcome(rsp);
+        else
+            return ModifySequenceAclRulesOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifySequenceAclRulesOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifySequenceAclRulesAsync(const ModifySequenceAclRulesRequest& request, const ModifySequenceAclRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifySequenceAclRulesRequest&;
+    using Resp = ModifySequenceAclRulesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifySequenceAclRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifySequenceAclRulesOutcomeCallable CfwClient::ModifySequenceAclRulesCallable(const ModifySequenceAclRulesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifySequenceAclRulesOutcome>>();
+    ModifySequenceAclRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifySequenceAclRulesRequest&,
+        ModifySequenceAclRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifySequenceRulesOutcome CfwClient::ModifySequenceRules(const ModifySequenceRulesRequest &request)
@@ -2771,25 +4912,82 @@ CfwClient::ModifySequenceRulesOutcome CfwClient::ModifySequenceRules(const Modif
 
 void CfwClient::ModifySequenceRulesAsync(const ModifySequenceRulesRequest& request, const ModifySequenceRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifySequenceRules(request), context);
-    };
+    using Req = const ModifySequenceRulesRequest&;
+    using Resp = ModifySequenceRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifySequenceRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifySequenceRulesOutcomeCallable CfwClient::ModifySequenceRulesCallable(const ModifySequenceRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifySequenceRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifySequenceRules(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifySequenceRulesOutcome>>();
+    ModifySequenceRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifySequenceRulesRequest&,
+        ModifySequenceRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifyStorageSettingOutcome CfwClient::ModifyStorageSetting(const ModifyStorageSettingRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyStorageSetting");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyStorageSettingResponse rsp = ModifyStorageSettingResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyStorageSettingOutcome(rsp);
+        else
+            return ModifyStorageSettingOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyStorageSettingOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyStorageSettingAsync(const ModifyStorageSettingRequest& request, const ModifyStorageSettingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyStorageSettingRequest&;
+    using Resp = ModifyStorageSettingResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyStorageSetting", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyStorageSettingOutcomeCallable CfwClient::ModifyStorageSettingCallable(const ModifyStorageSettingRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyStorageSettingOutcome>>();
+    ModifyStorageSettingAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyStorageSettingRequest&,
+        ModifyStorageSettingOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::ModifyTableStatusOutcome CfwClient::ModifyTableStatus(const ModifyTableStatusRequest &request)
@@ -2814,68 +5012,182 @@ CfwClient::ModifyTableStatusOutcome CfwClient::ModifyTableStatus(const ModifyTab
 
 void CfwClient::ModifyTableStatusAsync(const ModifyTableStatusRequest& request, const ModifyTableStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyTableStatus(request), context);
-    };
+    using Req = const ModifyTableStatusRequest&;
+    using Resp = ModifyTableStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyTableStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::ModifyTableStatusOutcomeCallable CfwClient::ModifyTableStatusCallable(const ModifyTableStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyTableStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyTableStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyTableStatusOutcome>>();
+    ModifyTableStatusAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyTableStatusRequest&,
+        ModifyTableStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CfwClient::ModifyVPCSwitchStatusOutcome CfwClient::ModifyVPCSwitchStatus(const ModifyVPCSwitchStatusRequest &request)
+CfwClient::ModifyVpcAcRuleOutcome CfwClient::ModifyVpcAcRule(const ModifyVpcAcRuleRequest &request)
 {
-    auto outcome = MakeRequest(request, "ModifyVPCSwitchStatus");
+    auto outcome = MakeRequest(request, "ModifyVpcAcRule");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        ModifyVPCSwitchStatusResponse rsp = ModifyVPCSwitchStatusResponse();
+        ModifyVpcAcRuleResponse rsp = ModifyVpcAcRuleResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return ModifyVPCSwitchStatusOutcome(rsp);
+            return ModifyVpcAcRuleOutcome(rsp);
         else
-            return ModifyVPCSwitchStatusOutcome(o.GetError());
+            return ModifyVpcAcRuleOutcome(o.GetError());
     }
     else
     {
-        return ModifyVPCSwitchStatusOutcome(outcome.GetError());
+        return ModifyVpcAcRuleOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::ModifyVPCSwitchStatusAsync(const ModifyVPCSwitchStatusRequest& request, const ModifyVPCSwitchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::ModifyVpcAcRuleAsync(const ModifyVpcAcRuleRequest& request, const ModifyVpcAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyVPCSwitchStatus(request), context);
-    };
+    using Req = const ModifyVpcAcRuleRequest&;
+    using Resp = ModifyVpcAcRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyVpcAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::ModifyVPCSwitchStatusOutcomeCallable CfwClient::ModifyVPCSwitchStatusCallable(const ModifyVPCSwitchStatusRequest &request)
+CfwClient::ModifyVpcAcRuleOutcomeCallable CfwClient::ModifyVpcAcRuleCallable(const ModifyVpcAcRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyVPCSwitchStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyVPCSwitchStatus(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ModifyVpcAcRuleOutcome>>();
+    ModifyVpcAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyVpcAcRuleRequest&,
+        ModifyVpcAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::ModifyVpcFwGroupOutcome CfwClient::ModifyVpcFwGroup(const ModifyVpcFwGroupRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyVpcFwGroup");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyVpcFwGroupResponse rsp = ModifyVpcFwGroupResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyVpcFwGroupOutcome(rsp);
+        else
+            return ModifyVpcFwGroupOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyVpcFwGroupOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyVpcFwGroupAsync(const ModifyVpcFwGroupRequest& request, const ModifyVpcFwGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyVpcFwGroupRequest&;
+    using Resp = ModifyVpcFwGroupResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyVpcFwGroup", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyVpcFwGroupOutcomeCallable CfwClient::ModifyVpcFwGroupCallable(const ModifyVpcFwGroupRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyVpcFwGroupOutcome>>();
+    ModifyVpcFwGroupAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyVpcFwGroupRequest&,
+        ModifyVpcFwGroupOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::ModifyVpcFwSequenceRulesOutcome CfwClient::ModifyVpcFwSequenceRules(const ModifyVpcFwSequenceRulesRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyVpcFwSequenceRules");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyVpcFwSequenceRulesResponse rsp = ModifyVpcFwSequenceRulesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyVpcFwSequenceRulesOutcome(rsp);
+        else
+            return ModifyVpcFwSequenceRulesOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyVpcFwSequenceRulesOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::ModifyVpcFwSequenceRulesAsync(const ModifyVpcFwSequenceRulesRequest& request, const ModifyVpcFwSequenceRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyVpcFwSequenceRulesRequest&;
+    using Resp = ModifyVpcFwSequenceRulesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyVpcFwSequenceRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::ModifyVpcFwSequenceRulesOutcomeCallable CfwClient::ModifyVpcFwSequenceRulesCallable(const ModifyVpcFwSequenceRulesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyVpcFwSequenceRulesOutcome>>();
+    ModifyVpcFwSequenceRulesAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const ModifyVpcFwSequenceRulesRequest&,
+        ModifyVpcFwSequenceRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::RemoveAcRuleOutcome CfwClient::RemoveAcRule(const RemoveAcRuleRequest &request)
@@ -2900,25 +5212,82 @@ CfwClient::RemoveAcRuleOutcome CfwClient::RemoveAcRule(const RemoveAcRuleRequest
 
 void CfwClient::RemoveAcRuleAsync(const RemoveAcRuleRequest& request, const RemoveAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RemoveAcRule(request), context);
-    };
+    using Req = const RemoveAcRuleRequest&;
+    using Resp = RemoveAcRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RemoveAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::RemoveAcRuleOutcomeCallable CfwClient::RemoveAcRuleCallable(const RemoveAcRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RemoveAcRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->RemoveAcRule(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<RemoveAcRuleOutcome>>();
+    RemoveAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const RemoveAcRuleRequest&,
+        RemoveAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::RemoveAclRuleOutcome CfwClient::RemoveAclRule(const RemoveAclRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "RemoveAclRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RemoveAclRuleResponse rsp = RemoveAclRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RemoveAclRuleOutcome(rsp);
+        else
+            return RemoveAclRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return RemoveAclRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::RemoveAclRuleAsync(const RemoveAclRuleRequest& request, const RemoveAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RemoveAclRuleRequest&;
+    using Resp = RemoveAclRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RemoveAclRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::RemoveAclRuleOutcomeCallable CfwClient::RemoveAclRuleCallable(const RemoveAclRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RemoveAclRuleOutcome>>();
+    RemoveAclRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const RemoveAclRuleRequest&,
+        RemoveAclRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::RemoveEnterpriseSecurityGroupRuleOutcome CfwClient::RemoveEnterpriseSecurityGroupRule(const RemoveEnterpriseSecurityGroupRuleRequest &request)
@@ -2943,68 +5312,182 @@ CfwClient::RemoveEnterpriseSecurityGroupRuleOutcome CfwClient::RemoveEnterpriseS
 
 void CfwClient::RemoveEnterpriseSecurityGroupRuleAsync(const RemoveEnterpriseSecurityGroupRuleRequest& request, const RemoveEnterpriseSecurityGroupRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RemoveEnterpriseSecurityGroupRule(request), context);
-    };
+    using Req = const RemoveEnterpriseSecurityGroupRuleRequest&;
+    using Resp = RemoveEnterpriseSecurityGroupRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RemoveEnterpriseSecurityGroupRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::RemoveEnterpriseSecurityGroupRuleOutcomeCallable CfwClient::RemoveEnterpriseSecurityGroupRuleCallable(const RemoveEnterpriseSecurityGroupRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RemoveEnterpriseSecurityGroupRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->RemoveEnterpriseSecurityGroupRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<RemoveEnterpriseSecurityGroupRuleOutcome>>();
+    RemoveEnterpriseSecurityGroupRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const RemoveEnterpriseSecurityGroupRuleRequest&,
+        RemoveEnterpriseSecurityGroupRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CfwClient::RunSyncAssetOutcome CfwClient::RunSyncAsset(const RunSyncAssetRequest &request)
+CfwClient::RemoveNatAcRuleOutcome CfwClient::RemoveNatAcRule(const RemoveNatAcRuleRequest &request)
 {
-    auto outcome = MakeRequest(request, "RunSyncAsset");
+    auto outcome = MakeRequest(request, "RemoveNatAcRule");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        RunSyncAssetResponse rsp = RunSyncAssetResponse();
+        RemoveNatAcRuleResponse rsp = RemoveNatAcRuleResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return RunSyncAssetOutcome(rsp);
+            return RemoveNatAcRuleOutcome(rsp);
         else
-            return RunSyncAssetOutcome(o.GetError());
+            return RemoveNatAcRuleOutcome(o.GetError());
     }
     else
     {
-        return RunSyncAssetOutcome(outcome.GetError());
+        return RemoveNatAcRuleOutcome(outcome.GetError());
     }
 }
 
-void CfwClient::RunSyncAssetAsync(const RunSyncAssetRequest& request, const RunSyncAssetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CfwClient::RemoveNatAcRuleAsync(const RemoveNatAcRuleRequest& request, const RemoveNatAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RunSyncAsset(request), context);
-    };
+    using Req = const RemoveNatAcRuleRequest&;
+    using Resp = RemoveNatAcRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "RemoveNatAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CfwClient::RunSyncAssetOutcomeCallable CfwClient::RunSyncAssetCallable(const RunSyncAssetRequest &request)
+CfwClient::RemoveNatAcRuleOutcomeCallable CfwClient::RemoveNatAcRuleCallable(const RemoveNatAcRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<RunSyncAssetOutcome()>>(
-        [this, request]()
-        {
-            return this->RunSyncAsset(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<RemoveNatAcRuleOutcome>>();
+    RemoveNatAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const RemoveNatAcRuleRequest&,
+        RemoveNatAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::RemoveVpcAcRuleOutcome CfwClient::RemoveVpcAcRule(const RemoveVpcAcRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "RemoveVpcAcRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RemoveVpcAcRuleResponse rsp = RemoveVpcAcRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RemoveVpcAcRuleOutcome(rsp);
+        else
+            return RemoveVpcAcRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return RemoveVpcAcRuleOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::RemoveVpcAcRuleAsync(const RemoveVpcAcRuleRequest& request, const RemoveVpcAcRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RemoveVpcAcRuleRequest&;
+    using Resp = RemoveVpcAcRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RemoveVpcAcRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::RemoveVpcAcRuleOutcomeCallable CfwClient::RemoveVpcAcRuleCallable(const RemoveVpcAcRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RemoveVpcAcRuleOutcome>>();
+    RemoveVpcAcRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const RemoveVpcAcRuleRequest&,
+        RemoveVpcAcRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CfwClient::SearchLogOutcome CfwClient::SearchLog(const SearchLogRequest &request)
+{
+    auto outcome = MakeRequest(request, "SearchLog");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        SearchLogResponse rsp = SearchLogResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return SearchLogOutcome(rsp);
+        else
+            return SearchLogOutcome(o.GetError());
+    }
+    else
+    {
+        return SearchLogOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::SearchLogAsync(const SearchLogRequest& request, const SearchLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const SearchLogRequest&;
+    using Resp = SearchLogResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "SearchLog", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::SearchLogOutcomeCallable CfwClient::SearchLogCallable(const SearchLogRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<SearchLogOutcome>>();
+    SearchLogAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const SearchLogRequest&,
+        SearchLogOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::SetNatFwDnatRuleOutcome CfwClient::SetNatFwDnatRule(const SetNatFwDnatRuleRequest &request)
@@ -3029,25 +5512,32 @@ CfwClient::SetNatFwDnatRuleOutcome CfwClient::SetNatFwDnatRule(const SetNatFwDna
 
 void CfwClient::SetNatFwDnatRuleAsync(const SetNatFwDnatRuleRequest& request, const SetNatFwDnatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SetNatFwDnatRule(request), context);
-    };
+    using Req = const SetNatFwDnatRuleRequest&;
+    using Resp = SetNatFwDnatRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SetNatFwDnatRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::SetNatFwDnatRuleOutcomeCallable CfwClient::SetNatFwDnatRuleCallable(const SetNatFwDnatRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SetNatFwDnatRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->SetNatFwDnatRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<SetNatFwDnatRuleOutcome>>();
+    SetNatFwDnatRuleAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const SetNatFwDnatRuleRequest&,
+        SetNatFwDnatRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::SetNatFwEipOutcome CfwClient::SetNatFwEip(const SetNatFwEipRequest &request)
@@ -3072,25 +5562,32 @@ CfwClient::SetNatFwEipOutcome CfwClient::SetNatFwEip(const SetNatFwEipRequest &r
 
 void CfwClient::SetNatFwEipAsync(const SetNatFwEipRequest& request, const SetNatFwEipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SetNatFwEip(request), context);
-    };
+    using Req = const SetNatFwEipRequest&;
+    using Resp = SetNatFwEipResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SetNatFwEip", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::SetNatFwEipOutcomeCallable CfwClient::SetNatFwEipCallable(const SetNatFwEipRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SetNatFwEipOutcome()>>(
-        [this, request]()
-        {
-            return this->SetNatFwEip(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<SetNatFwEipOutcome>>();
+    SetNatFwEipAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const SetNatFwEipRequest&,
+        SetNatFwEipOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CfwClient::StopSecurityGroupRuleDispatchOutcome CfwClient::StopSecurityGroupRuleDispatch(const StopSecurityGroupRuleDispatchRequest &request)
@@ -3115,24 +5612,81 @@ CfwClient::StopSecurityGroupRuleDispatchOutcome CfwClient::StopSecurityGroupRule
 
 void CfwClient::StopSecurityGroupRuleDispatchAsync(const StopSecurityGroupRuleDispatchRequest& request, const StopSecurityGroupRuleDispatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopSecurityGroupRuleDispatch(request), context);
-    };
+    using Req = const StopSecurityGroupRuleDispatchRequest&;
+    using Resp = StopSecurityGroupRuleDispatchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StopSecurityGroupRuleDispatch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CfwClient::StopSecurityGroupRuleDispatchOutcomeCallable CfwClient::StopSecurityGroupRuleDispatchCallable(const StopSecurityGroupRuleDispatchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StopSecurityGroupRuleDispatchOutcome()>>(
-        [this, request]()
-        {
-            return this->StopSecurityGroupRuleDispatch(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<StopSecurityGroupRuleDispatchOutcome>>();
+    StopSecurityGroupRuleDispatchAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const StopSecurityGroupRuleDispatchRequest&,
+        StopSecurityGroupRuleDispatchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CfwClient::SyncFwOperateOutcome CfwClient::SyncFwOperate(const SyncFwOperateRequest &request)
+{
+    auto outcome = MakeRequest(request, "SyncFwOperate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        SyncFwOperateResponse rsp = SyncFwOperateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return SyncFwOperateOutcome(rsp);
+        else
+            return SyncFwOperateOutcome(o.GetError());
+    }
+    else
+    {
+        return SyncFwOperateOutcome(outcome.GetError());
+    }
+}
+
+void CfwClient::SyncFwOperateAsync(const SyncFwOperateRequest& request, const SyncFwOperateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const SyncFwOperateRequest&;
+    using Resp = SyncFwOperateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "SyncFwOperate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CfwClient::SyncFwOperateOutcomeCallable CfwClient::SyncFwOperateCallable(const SyncFwOperateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<SyncFwOperateOutcome>>();
+    SyncFwOperateAsync(
+    request,
+    [prom](
+        const CfwClient*,
+        const SyncFwOperateRequest&,
+        SyncFwOperateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取自定义多因子验证Token
-                     * @return MFAToken 自定义多因子验证Token
+                     * 获取自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
+                     * @return MFAToken 自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
+                     * 
                      */
                     std::string GetMFAToken() const;
 
                     /**
-                     * 设置自定义多因子验证Token
-                     * @param MFAToken 自定义多因子验证Token
+                     * 设置自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
+                     * @param _mFAToken 自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
+                     * 
                      */
                     void SetMFAToken(const std::string& _mFAToken);
 
                     /**
                      * 判断参数 MFAToken 是否已赋值
                      * @return MFAToken 是否已赋值
+                     * 
                      */
                     bool MFATokenHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 自定义多因子验证Token
+                     * 自定义多因子验证Token，针对用户自定义的安全校验方式而生成的，以供查询用户安全校验时使用。
                      */
                     std::string m_mFAToken;
                     bool m_mFATokenHasBeenSet;

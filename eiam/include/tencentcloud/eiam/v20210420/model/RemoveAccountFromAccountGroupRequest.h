@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取账号组ID
                      * @return AccountGroupId 账号组ID
+                     * 
                      */
                     std::string GetAccountGroupId() const;
 
                     /**
                      * 设置账号组ID
-                     * @param AccountGroupId 账号组ID
+                     * @param _accountGroupId 账号组ID
+                     * 
                      */
                     void SetAccountGroupId(const std::string& _accountGroupId);
 
                     /**
                      * 判断参数 AccountGroupId 是否已赋值
                      * @return AccountGroupId 是否已赋值
+                     * 
                      */
                     bool AccountGroupIdHasBeenSet() const;
 
                     /**
                      * 获取需要移除账号ID列表。
                      * @return AccountIds 需要移除账号ID列表。
+                     * 
                      */
                     std::vector<std::string> GetAccountIds() const;
 
                     /**
                      * 设置需要移除账号ID列表。
-                     * @param AccountIds 需要移除账号ID列表。
+                     * @param _accountIds 需要移除账号ID列表。
+                     * 
                      */
                     void SetAccountIds(const std::vector<std::string>& _accountIds);
 
                     /**
                      * 判断参数 AccountIds 是否已赋值
                      * @return AccountIds 是否已赋值
+                     * 
                      */
                     bool AccountIdsHasBeenSet() const;
 

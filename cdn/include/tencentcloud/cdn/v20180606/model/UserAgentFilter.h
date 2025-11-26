@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,60 +48,76 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取开关，on或off
+                     * 获取UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Switch 开关，on或off
+                     * @return Switch UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置开关，on或off
+                     * 设置UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Switch 开关，on或off
+                     * @param _switch UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
                     /**
-                     * 获取UA黑白名单生效规则列表
+                     * 获取UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FilterRules UA黑白名单生效规则列表
+                     * @return FilterRules UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<UserAgentFilterRule> GetFilterRules() const;
 
                     /**
-                     * 设置UA黑白名单生效规则列表
+                     * 设置UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FilterRules UA黑白名单生效规则列表
+                     * @param _filterRules UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFilterRules(const std::vector<UserAgentFilterRule>& _filterRules);
 
                     /**
                      * 判断参数 FilterRules 是否已赋值
                      * @return FilterRules 是否已赋值
+                     * 
                      */
                     bool FilterRulesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 开关，on或off
+                     * UserAgent黑白名单配置开关，取值有：
+on：开启
+off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_switch;
                     bool m_switchHasBeenSet;
 
                     /**
-                     * UA黑白名单生效规则列表
+                     * UA黑白名单生效规则列表，不能超过10条规则
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<UserAgentFilterRule> m_filterRules;

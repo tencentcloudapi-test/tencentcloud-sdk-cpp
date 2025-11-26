@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,29 +45,29 @@ namespace TencentCloud
 
                     /**
                      * 获取专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCost 专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotalCost() const;
 
                     /**
                      * 判断参数 TotalCost 是否已赋值
                      * @return TotalCost 是否已赋值
+                     * 
                      */
                     bool TotalCostHasBeenSet() const;
 
                     /**
                      * 获取专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RealTotalCost 专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetRealTotalCost() const;
 
                     /**
                      * 判断参数 RealTotalCost 是否已赋值
                      * @return RealTotalCost 是否已赋值
+                     * 
                      */
                     bool RealTotalCostHasBeenSet() const;
 
@@ -75,14 +75,12 @@ namespace TencentCloud
 
                     /**
                      * 专线网关标准接入费用
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_totalCost;
                     bool m_totalCostHasBeenSet;
 
                     /**
                      * 专线网关真实接入费用
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_realTotalCost;
                     bool m_realTotalCostHasBeenSet;

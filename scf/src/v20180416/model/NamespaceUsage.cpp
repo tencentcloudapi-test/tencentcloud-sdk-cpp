@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ NamespaceUsage::NamespaceUsage() :
     m_namespaceHasBeenSet(false),
     m_functionsCountHasBeenSet(false),
     m_totalConcurrencyMemHasBeenSet(false),
-    m_totalAllocatedConcurrencyMemHasBeenSet(false)
+    m_totalAllocatedConcurrencyMemHasBeenSet(false),
+    m_totalAllocatedProvisionedMemHasBeenSet(false)
 {
 }
 
@@ -87,6 +88,16 @@ CoreInternalOutcome NamespaceUsage::Deserialize(const rapidjson::Value &value)
         m_totalAllocatedConcurrencyMemHasBeenSet = true;
     }
 
+    if (value.HasMember("TotalAllocatedProvisionedMem") && !value["TotalAllocatedProvisionedMem"].IsNull())
+    {
+        if (!value["TotalAllocatedProvisionedMem"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NamespaceUsage.TotalAllocatedProvisionedMem` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_totalAllocatedProvisionedMem = value["TotalAllocatedProvisionedMem"].GetInt64();
+        m_totalAllocatedProvisionedMemHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -137,6 +148,14 @@ void NamespaceUsage::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "TotalAllocatedConcurrencyMem";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_totalAllocatedConcurrencyMem, allocator);
+    }
+
+    if (m_totalAllocatedProvisionedMemHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TotalAllocatedProvisionedMem";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_totalAllocatedProvisionedMem, allocator);
     }
 
 }
@@ -220,5 +239,21 @@ void NamespaceUsage::SetTotalAllocatedConcurrencyMem(const int64_t& _totalAlloca
 bool NamespaceUsage::TotalAllocatedConcurrencyMemHasBeenSet() const
 {
     return m_totalAllocatedConcurrencyMemHasBeenSet;
+}
+
+int64_t NamespaceUsage::GetTotalAllocatedProvisionedMem() const
+{
+    return m_totalAllocatedProvisionedMem;
+}
+
+void NamespaceUsage::SetTotalAllocatedProvisionedMem(const int64_t& _totalAllocatedProvisionedMem)
+{
+    m_totalAllocatedProvisionedMem = _totalAllocatedProvisionedMem;
+    m_totalAllocatedProvisionedMemHasBeenSet = true;
+}
+
+bool NamespaceUsage::TotalAllocatedProvisionedMemHasBeenSet() const
+{
+    return m_totalAllocatedProvisionedMemHasBeenSet;
 }
 

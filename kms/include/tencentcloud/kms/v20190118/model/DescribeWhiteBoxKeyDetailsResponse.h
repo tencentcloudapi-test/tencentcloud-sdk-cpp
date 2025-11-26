@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,42 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取白盒密钥信息列表
-                     * @return KeyInfos 白盒密钥信息列表
+                     * 获取白盒密钥信息列表。
+                     * @return KeyInfos 白盒密钥信息列表。
+                     * 
                      */
                     std::vector<WhiteboxKeyInfo> GetKeyInfos() const;
 
                     /**
                      * 判断参数 KeyInfos 是否已赋值
                      * @return KeyInfos 是否已赋值
+                     * 
                      */
                     bool KeyInfosHasBeenSet() const;
 
                     /**
-                     * 获取key总数量
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TotalCount key总数量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取白盒密钥总数。
+                     * @return TotalCount 白盒密钥总数。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 白盒密钥信息列表
+                     * 白盒密钥信息列表。
                      */
                     std::vector<WhiteboxKeyInfo> m_keyInfos;
                     bool m_keyInfosHasBeenSet;
 
                     /**
-                     * key总数量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 白盒密钥总数。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

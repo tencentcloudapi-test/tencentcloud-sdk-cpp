@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取任务ID，创建任务后返回的TaskId字段
                      * @return TaskId 任务ID，创建任务后返回的TaskId字段
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 设置任务ID，创建任务后返回的TaskId字段
-                     * @param TaskId 任务ID，创建任务后返回的TaskId字段
+                     * @param _taskId 任务ID，创建任务后返回的TaskId字段
+                     * 
                      */
                     void SetTaskId(const std::string& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                     /**
                      * 获取是否展示所有分片，默认只展示命中规则的分片
                      * @return ShowAllSegments 是否展示所有分片，默认只展示命中规则的分片
+                     * 
                      */
                     bool GetShowAllSegments() const;
 
                     /**
                      * 设置是否展示所有分片，默认只展示命中规则的分片
-                     * @param ShowAllSegments 是否展示所有分片，默认只展示命中规则的分片
+                     * @param _showAllSegments 是否展示所有分片，默认只展示命中规则的分片
+                     * 
                      */
                     void SetShowAllSegments(const bool& _showAllSegments);
 
                     /**
                      * 判断参数 ShowAllSegments 是否已赋值
                      * @return ShowAllSegments 是否已赋值
+                     * 
                      */
                     bool ShowAllSegmentsHasBeenSet() const;
 

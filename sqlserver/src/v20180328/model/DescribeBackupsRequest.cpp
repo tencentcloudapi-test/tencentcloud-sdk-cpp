@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,10 @@ DescribeBackupsRequest::DescribeBackupsRequest() :
     m_backupWayHasBeenSet(false),
     m_backupIdHasBeenSet(false),
     m_databaseNameHasBeenSet(false),
-    m_groupHasBeenSet(false)
+    m_groupHasBeenSet(false),
+    m_typeHasBeenSet(false),
+    m_backupFormatHasBeenSet(false),
+    m_storageStrategyHasBeenSet(false)
 {
 }
 
@@ -130,6 +133,30 @@ string DescribeBackupsRequest::ToJsonString() const
         string key = "Group";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_group, allocator);
+    }
+
+    if (m_typeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Type";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_type, allocator);
+    }
+
+    if (m_backupFormatHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupFormat";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_backupFormat.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_storageStrategyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageStrategy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_storageStrategy, allocator);
     }
 
 
@@ -314,6 +341,54 @@ void DescribeBackupsRequest::SetGroup(const int64_t& _group)
 bool DescribeBackupsRequest::GroupHasBeenSet() const
 {
     return m_groupHasBeenSet;
+}
+
+int64_t DescribeBackupsRequest::GetType() const
+{
+    return m_type;
+}
+
+void DescribeBackupsRequest::SetType(const int64_t& _type)
+{
+    m_type = _type;
+    m_typeHasBeenSet = true;
+}
+
+bool DescribeBackupsRequest::TypeHasBeenSet() const
+{
+    return m_typeHasBeenSet;
+}
+
+string DescribeBackupsRequest::GetBackupFormat() const
+{
+    return m_backupFormat;
+}
+
+void DescribeBackupsRequest::SetBackupFormat(const string& _backupFormat)
+{
+    m_backupFormat = _backupFormat;
+    m_backupFormatHasBeenSet = true;
+}
+
+bool DescribeBackupsRequest::BackupFormatHasBeenSet() const
+{
+    return m_backupFormatHasBeenSet;
+}
+
+int64_t DescribeBackupsRequest::GetStorageStrategy() const
+{
+    return m_storageStrategy;
+}
+
+void DescribeBackupsRequest::SetStorageStrategy(const int64_t& _storageStrategy)
+{
+    m_storageStrategy = _storageStrategy;
+    m_storageStrategyHasBeenSet = true;
+}
+
+bool DescribeBackupsRequest::StorageStrategyHasBeenSet() const
+{
+    return m_storageStrategyHasBeenSet;
 }
 
 

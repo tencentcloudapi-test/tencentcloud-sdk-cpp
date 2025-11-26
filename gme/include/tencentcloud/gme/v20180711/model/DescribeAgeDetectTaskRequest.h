@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取应用id
                      * @return BizId 应用id
+                     * 
                      */
                     int64_t GetBizId() const;
 
                     /**
                      * 设置应用id
-                     * @param BizId 应用id
+                     * @param _bizId 应用id
+                     * 
                      */
                     void SetBizId(const int64_t& _bizId);
 
                     /**
                      * 判断参数 BizId 是否已赋值
                      * @return BizId 是否已赋值
+                     * 
                      */
                     bool BizIdHasBeenSet() const;
 
                     /**
-                     * 获取创建年龄语音识别任务时返回的taskid
-                     * @return TaskId 创建年龄语音识别任务时返回的taskid
+                     * 获取[创建年龄语音识别任务](https://cloud.tencent.com/document/product/607/60620)时返回的taskid
+                     * @return TaskId [创建年龄语音识别任务](https://cloud.tencent.com/document/product/607/60620)时返回的taskid
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
-                     * 设置创建年龄语音识别任务时返回的taskid
-                     * @param TaskId 创建年龄语音识别任务时返回的taskid
+                     * 设置[创建年龄语音识别任务](https://cloud.tencent.com/document/product/607/60620)时返回的taskid
+                     * @param _taskId [创建年龄语音识别任务](https://cloud.tencent.com/document/product/607/60620)时返回的taskid
+                     * 
                      */
                     void SetTaskId(const std::string& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
@@ -87,7 +93,7 @@ namespace TencentCloud
                     bool m_bizIdHasBeenSet;
 
                     /**
-                     * 创建年龄语音识别任务时返回的taskid
+                     * [创建年龄语音识别任务](https://cloud.tencent.com/document/product/607/60620)时返回的taskid
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;

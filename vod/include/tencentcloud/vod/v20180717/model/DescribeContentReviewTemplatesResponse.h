@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取符合过滤条件的记录总数。
                      * @return TotalCount 符合过滤条件的记录总数。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取内容智能识别模板详情列表。
-                     * @return ContentReviewTemplateSet 内容智能识别模板详情列表。
+                     * 获取内容审核模板详情列表。
+                     * @return ContentReviewTemplateSet 内容审核模板详情列表。
+                     * 
                      */
                     std::vector<ContentReviewTemplateItem> GetContentReviewTemplateSet() const;
 
                     /**
                      * 判断参数 ContentReviewTemplateSet 是否已赋值
                      * @return ContentReviewTemplateSet 是否已赋值
+                     * 
                      */
                     bool ContentReviewTemplateSetHasBeenSet() const;
 
@@ -77,7 +81,7 @@ namespace TencentCloud
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 内容智能识别模板详情列表。
+                     * 内容审核模板详情列表。
                      */
                     std::vector<ContentReviewTemplateItem> m_contentReviewTemplateSet;
                     bool m_contentReviewTemplateSetHasBeenSet;

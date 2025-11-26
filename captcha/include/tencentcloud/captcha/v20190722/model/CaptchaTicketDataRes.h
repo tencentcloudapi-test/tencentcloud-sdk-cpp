@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,54 +52,63 @@ namespace TencentCloud
                     /**
                      * 获取票据验证总量返回
                      * @return TicketAmountArray 票据验证总量返回
+                     * 
                      */
                     std::vector<TicketAmountUnit> GetTicketAmountArray() const;
 
                     /**
                      * 设置票据验证总量返回
-                     * @param TicketAmountArray 票据验证总量返回
+                     * @param _ticketAmountArray 票据验证总量返回
+                     * 
                      */
                     void SetTicketAmountArray(const std::vector<TicketAmountUnit>& _ticketAmountArray);
 
                     /**
                      * 判断参数 TicketAmountArray 是否已赋值
                      * @return TicketAmountArray 是否已赋值
+                     * 
                      */
                     bool TicketAmountArrayHasBeenSet() const;
 
                     /**
                      * 获取票据验证通过量返回
                      * @return TicketThroughArray 票据验证通过量返回
+                     * 
                      */
                     std::vector<TicketThroughUnit> GetTicketThroughArray() const;
 
                     /**
                      * 设置票据验证通过量返回
-                     * @param TicketThroughArray 票据验证通过量返回
+                     * @param _ticketThroughArray 票据验证通过量返回
+                     * 
                      */
                     void SetTicketThroughArray(const std::vector<TicketThroughUnit>& _ticketThroughArray);
 
                     /**
                      * 判断参数 TicketThroughArray 是否已赋值
                      * @return TicketThroughArray 是否已赋值
+                     * 
                      */
                     bool TicketThroughArrayHasBeenSet() const;
 
                     /**
                      * 获取票据验证拦截量返回
                      * @return TicketInterceptArray 票据验证拦截量返回
+                     * 
                      */
                     std::vector<TicketInterceptUnit> GetTicketInterceptArray() const;
 
                     /**
                      * 设置票据验证拦截量返回
-                     * @param TicketInterceptArray 票据验证拦截量返回
+                     * @param _ticketInterceptArray 票据验证拦截量返回
+                     * 
                      */
                     void SetTicketInterceptArray(const std::vector<TicketInterceptUnit>& _ticketInterceptArray);
 
                     /**
                      * 判断参数 TicketInterceptArray 是否已赋值
                      * @return TicketInterceptArray 是否已赋值
+                     * 
                      */
                     bool TicketInterceptArrayHasBeenSet() const;
 

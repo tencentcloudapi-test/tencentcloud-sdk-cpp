@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,10 @@ using namespace std;
 DescribeBinlogsRequest::DescribeBinlogsRequest() :
     m_instanceIdHasBeenSet(false),
     m_offsetHasBeenSet(false),
-    m_limitHasBeenSet(false)
+    m_limitHasBeenSet(false),
+    m_minStartTimeHasBeenSet(false),
+    m_maxStartTimeHasBeenSet(false),
+    m_containsMinStartTimeHasBeenSet(false)
 {
 }
 
@@ -58,6 +61,30 @@ string DescribeBinlogsRequest::ToJsonString() const
         string key = "Limit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_limit, allocator);
+    }
+
+    if (m_minStartTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MinStartTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_minStartTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_maxStartTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxStartTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_maxStartTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_containsMinStartTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainsMinStartTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_containsMinStartTime, allocator);
     }
 
 
@@ -114,6 +141,54 @@ void DescribeBinlogsRequest::SetLimit(const int64_t& _limit)
 bool DescribeBinlogsRequest::LimitHasBeenSet() const
 {
     return m_limitHasBeenSet;
+}
+
+string DescribeBinlogsRequest::GetMinStartTime() const
+{
+    return m_minStartTime;
+}
+
+void DescribeBinlogsRequest::SetMinStartTime(const string& _minStartTime)
+{
+    m_minStartTime = _minStartTime;
+    m_minStartTimeHasBeenSet = true;
+}
+
+bool DescribeBinlogsRequest::MinStartTimeHasBeenSet() const
+{
+    return m_minStartTimeHasBeenSet;
+}
+
+string DescribeBinlogsRequest::GetMaxStartTime() const
+{
+    return m_maxStartTime;
+}
+
+void DescribeBinlogsRequest::SetMaxStartTime(const string& _maxStartTime)
+{
+    m_maxStartTime = _maxStartTime;
+    m_maxStartTimeHasBeenSet = true;
+}
+
+bool DescribeBinlogsRequest::MaxStartTimeHasBeenSet() const
+{
+    return m_maxStartTimeHasBeenSet;
+}
+
+bool DescribeBinlogsRequest::GetContainsMinStartTime() const
+{
+    return m_containsMinStartTime;
+}
+
+void DescribeBinlogsRequest::SetContainsMinStartTime(const bool& _containsMinStartTime)
+{
+    m_containsMinStartTime = _containsMinStartTime;
+    m_containsMinStartTimeHasBeenSet = true;
+}
+
+bool DescribeBinlogsRequest::ContainsMinStartTimeHasBeenSet() const
+{
+    return m_containsMinStartTimeHasBeenSet;
 }
 
 

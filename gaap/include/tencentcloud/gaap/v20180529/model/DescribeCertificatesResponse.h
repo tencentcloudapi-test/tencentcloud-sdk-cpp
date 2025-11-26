@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取服务器证书列表，包括证书ID 和证书名称。
                      * @return CertificateSet 服务器证书列表，包括证书ID 和证书名称。
+                     * 
                      */
                     std::vector<Certificate> GetCertificateSet() const;
 
                     /**
                      * 判断参数 CertificateSet 是否已赋值
                      * @return CertificateSet 是否已赋值
+                     * 
                      */
                     bool CertificateSetHasBeenSet() const;
 
                     /**
                      * 获取满足查询条件的服务器证书总数量。
                      * @return TotalCount 满足查询条件的服务器证书总数量。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 

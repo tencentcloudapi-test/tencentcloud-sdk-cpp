@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ AttachMediaSubtitlesRequest::AttachMediaSubtitlesRequest() :
     m_operationHasBeenSet(false),
     m_adaptiveDynamicStreamingDefinitionHasBeenSet(false),
     m_subtitleIdsHasBeenSet(false),
+    m_defaultSubtitleIdHasBeenSet(false),
     m_subAppIdHasBeenSet(false)
 {
 }
@@ -73,6 +74,14 @@ string AttachMediaSubtitlesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_defaultSubtitleIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DefaultSubtitleId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_defaultSubtitleId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_subAppIdHasBeenSet)
@@ -153,6 +162,22 @@ void AttachMediaSubtitlesRequest::SetSubtitleIds(const vector<string>& _subtitle
 bool AttachMediaSubtitlesRequest::SubtitleIdsHasBeenSet() const
 {
     return m_subtitleIdsHasBeenSet;
+}
+
+string AttachMediaSubtitlesRequest::GetDefaultSubtitleId() const
+{
+    return m_defaultSubtitleId;
+}
+
+void AttachMediaSubtitlesRequest::SetDefaultSubtitleId(const string& _defaultSubtitleId)
+{
+    m_defaultSubtitleId = _defaultSubtitleId;
+    m_defaultSubtitleIdHasBeenSet = true;
+}
+
+bool AttachMediaSubtitlesRequest::DefaultSubtitleIdHasBeenSet() const
+{
+    return m_defaultSubtitleIdHasBeenSet;
 }
 
 uint64_t AttachMediaSubtitlesRequest::GetSubAppId() const

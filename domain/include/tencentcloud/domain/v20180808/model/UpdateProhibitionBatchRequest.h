@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,45 +44,55 @@ namespace TencentCloud
 
                     /**
                      * 获取批量操作的域名。
+一次提交不大于4000个
                      * @return Domains 批量操作的域名。
+一次提交不大于4000个
+                     * 
                      */
                     std::vector<std::string> GetDomains() const;
 
                     /**
                      * 设置批量操作的域名。
-                     * @param Domains 批量操作的域名。
+一次提交不大于4000个
+                     * @param _domains 批量操作的域名。
+一次提交不大于4000个
+                     * 
                      */
                     void SetDomains(const std::vector<std::string>& _domains);
 
                     /**
                      * 判断参数 Domains 是否已赋值
                      * @return Domains 是否已赋值
+                     * 
                      */
                     bool DomainsHasBeenSet() const;
 
                     /**
                      * 获取是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
                      * @return Status 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
+                     * 
                      */
                     bool GetStatus() const;
 
                     /**
                      * 设置是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
-                     * @param Status 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
+                     * @param _status 是否开启禁止域名更新。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
+                     * 
                      */
                     void SetStatus(const bool& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
@@ -90,14 +100,15 @@ False：关闭禁止域名更新状态。
 
                     /**
                      * 批量操作的域名。
+一次提交不大于4000个
                      */
                     std::vector<std::string> m_domains;
                     bool m_domainsHasBeenSet;
 
                     /**
                      * 是否开启禁止域名更新。
-True:开启禁止域名更新状态。
-False：关闭禁止域名更新状态。
+true:开启禁止域名更新状态。
+false：关闭禁止域名更新状态。
                      */
                     bool m_status;
                     bool m_statusHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,11 @@ CallBackTemplateInfo::CallBackTemplateInfo() :
     m_recordNotifyUrlHasBeenSet(false),
     m_snapshotNotifyUrlHasBeenSet(false),
     m_pornCensorshipNotifyUrlHasBeenSet(false),
-    m_callbackKeyHasBeenSet(false)
+    m_callbackKeyHasBeenSet(false),
+    m_pushExceptionNotifyUrlHasBeenSet(false),
+    m_audioAuditNotifyUrlHasBeenSet(false),
+    m_recordExceptionNotifyUrlHasBeenSet(false),
+    m_recordExceptionLevelsHasBeenSet(false)
 {
 }
 
@@ -139,6 +143,49 @@ CoreInternalOutcome CallBackTemplateInfo::Deserialize(const rapidjson::Value &va
         m_callbackKeyHasBeenSet = true;
     }
 
+    if (value.HasMember("PushExceptionNotifyUrl") && !value["PushExceptionNotifyUrl"].IsNull())
+    {
+        if (!value["PushExceptionNotifyUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CallBackTemplateInfo.PushExceptionNotifyUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_pushExceptionNotifyUrl = string(value["PushExceptionNotifyUrl"].GetString());
+        m_pushExceptionNotifyUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("AudioAuditNotifyUrl") && !value["AudioAuditNotifyUrl"].IsNull())
+    {
+        if (!value["AudioAuditNotifyUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CallBackTemplateInfo.AudioAuditNotifyUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_audioAuditNotifyUrl = string(value["AudioAuditNotifyUrl"].GetString());
+        m_audioAuditNotifyUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("RecordExceptionNotifyUrl") && !value["RecordExceptionNotifyUrl"].IsNull())
+    {
+        if (!value["RecordExceptionNotifyUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CallBackTemplateInfo.RecordExceptionNotifyUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_recordExceptionNotifyUrl = string(value["RecordExceptionNotifyUrl"].GetString());
+        m_recordExceptionNotifyUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("RecordExceptionLevels") && !value["RecordExceptionLevels"].IsNull())
+    {
+        if (!value["RecordExceptionLevels"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CallBackTemplateInfo.RecordExceptionLevels` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["RecordExceptionLevels"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_recordExceptionLevels.push_back((*itr).GetString());
+        }
+        m_recordExceptionLevelsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -224,6 +271,43 @@ void CallBackTemplateInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         string key = "CallbackKey";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_callbackKey.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_pushExceptionNotifyUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PushExceptionNotifyUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_pushExceptionNotifyUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_audioAuditNotifyUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AudioAuditNotifyUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_audioAuditNotifyUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_recordExceptionNotifyUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecordExceptionNotifyUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_recordExceptionNotifyUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_recordExceptionLevelsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecordExceptionLevels";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_recordExceptionLevels.begin(); itr != m_recordExceptionLevels.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 }
@@ -387,5 +471,69 @@ void CallBackTemplateInfo::SetCallbackKey(const string& _callbackKey)
 bool CallBackTemplateInfo::CallbackKeyHasBeenSet() const
 {
     return m_callbackKeyHasBeenSet;
+}
+
+string CallBackTemplateInfo::GetPushExceptionNotifyUrl() const
+{
+    return m_pushExceptionNotifyUrl;
+}
+
+void CallBackTemplateInfo::SetPushExceptionNotifyUrl(const string& _pushExceptionNotifyUrl)
+{
+    m_pushExceptionNotifyUrl = _pushExceptionNotifyUrl;
+    m_pushExceptionNotifyUrlHasBeenSet = true;
+}
+
+bool CallBackTemplateInfo::PushExceptionNotifyUrlHasBeenSet() const
+{
+    return m_pushExceptionNotifyUrlHasBeenSet;
+}
+
+string CallBackTemplateInfo::GetAudioAuditNotifyUrl() const
+{
+    return m_audioAuditNotifyUrl;
+}
+
+void CallBackTemplateInfo::SetAudioAuditNotifyUrl(const string& _audioAuditNotifyUrl)
+{
+    m_audioAuditNotifyUrl = _audioAuditNotifyUrl;
+    m_audioAuditNotifyUrlHasBeenSet = true;
+}
+
+bool CallBackTemplateInfo::AudioAuditNotifyUrlHasBeenSet() const
+{
+    return m_audioAuditNotifyUrlHasBeenSet;
+}
+
+string CallBackTemplateInfo::GetRecordExceptionNotifyUrl() const
+{
+    return m_recordExceptionNotifyUrl;
+}
+
+void CallBackTemplateInfo::SetRecordExceptionNotifyUrl(const string& _recordExceptionNotifyUrl)
+{
+    m_recordExceptionNotifyUrl = _recordExceptionNotifyUrl;
+    m_recordExceptionNotifyUrlHasBeenSet = true;
+}
+
+bool CallBackTemplateInfo::RecordExceptionNotifyUrlHasBeenSet() const
+{
+    return m_recordExceptionNotifyUrlHasBeenSet;
+}
+
+vector<string> CallBackTemplateInfo::GetRecordExceptionLevels() const
+{
+    return m_recordExceptionLevels;
+}
+
+void CallBackTemplateInfo::SetRecordExceptionLevels(const vector<string>& _recordExceptionLevels)
+{
+    m_recordExceptionLevels = _recordExceptionLevels;
+    m_recordExceptionLevelsHasBeenSet = true;
+}
+
+bool CallBackTemplateInfo::RecordExceptionLevelsHasBeenSet() const
+{
+    return m_recordExceptionLevelsHasBeenSet;
 }
 

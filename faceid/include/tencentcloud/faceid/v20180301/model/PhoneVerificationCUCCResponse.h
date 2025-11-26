@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,59 +45,65 @@ namespace TencentCloud
 
                     /**
                      * 获取认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
                      * @return Result 认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+                     * 
                      */
                     std::string GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
                      * 获取运营商名称。
-取值范围为["移动","联通","电信",""]
+- 取值范围为["移动","联通","电信",""]。
                      * @return Isp 运营商名称。
-取值范围为["移动","联通","电信",""]
+- 取值范围为["移动","联通","电信",""]。
+                     * 
                      */
                     std::string GetIsp() const;
 
                     /**
                      * 判断参数 Isp 是否已赋值
                      * @return Isp 是否已赋值
+                     * 
                      */
                     bool IspHasBeenSet() const;
 
                     /**
                      * 获取业务结果描述。
                      * @return Description 业务结果描述。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
@@ -105,23 +111,23 @@ namespace TencentCloud
 
                     /**
                      * 认证结果码，收费情况如下。
-收费结果码：
-0: 认证通过
--4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）
-不收费结果码：
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--10: 认证未通过
--11: 验证中心服务繁忙
+- 收费结果码：
+0: 认证通过。
+-4: 信息不一致（手机号已实名，但姓名和身份证号与实名信息不一致）。
+
+- 不收费结果码：
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
 
                     /**
                      * 运营商名称。
-取值范围为["移动","联通","电信",""]
+- 取值范围为["移动","联通","电信",""]。
                      */
                     std::string m_isp;
                     bool m_ispHasBeenSet;

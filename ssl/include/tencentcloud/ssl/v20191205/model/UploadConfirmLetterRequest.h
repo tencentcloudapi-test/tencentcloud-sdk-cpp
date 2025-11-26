@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取证书ID
                      * @return CertificateId 证书ID
+                     * 
                      */
                     std::string GetCertificateId() const;
 
                     /**
                      * 设置证书ID
-                     * @param CertificateId 证书ID
+                     * @param _certificateId 证书ID
+                     * 
                      */
                     void SetCertificateId(const std::string& _certificateId);
 
                     /**
                      * 判断参数 CertificateId 是否已赋值
                      * @return CertificateId 是否已赋值
+                     * 
                      */
                     bool CertificateIdHasBeenSet() const;
 
                     /**
                      * 获取base64编码后的证书确认函文件，格式应为jpg、jpeg、png、pdf，大小应在1kb与1.4M之间。
                      * @return ConfirmLetter base64编码后的证书确认函文件，格式应为jpg、jpeg、png、pdf，大小应在1kb与1.4M之间。
+                     * 
                      */
                     std::string GetConfirmLetter() const;
 
                     /**
                      * 设置base64编码后的证书确认函文件，格式应为jpg、jpeg、png、pdf，大小应在1kb与1.4M之间。
-                     * @param ConfirmLetter base64编码后的证书确认函文件，格式应为jpg、jpeg、png、pdf，大小应在1kb与1.4M之间。
+                     * @param _confirmLetter base64编码后的证书确认函文件，格式应为jpg、jpeg、png、pdf，大小应在1kb与1.4M之间。
+                     * 
                      */
                     void SetConfirmLetter(const std::string& _confirmLetter);
 
                     /**
                      * 判断参数 ConfirmLetter 是否已赋值
                      * @return ConfirmLetter 是否已赋值
+                     * 
                      */
                     bool ConfirmLetterHasBeenSet() const;
 

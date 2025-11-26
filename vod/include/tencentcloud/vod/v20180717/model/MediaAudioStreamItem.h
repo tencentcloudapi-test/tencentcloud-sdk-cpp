@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取音频流的码率，单位：bps。
                      * @return Bitrate 音频流的码率，单位：bps。
+                     * 
                      */
                     int64_t GetBitrate() const;
 
                     /**
                      * 设置音频流的码率，单位：bps。
-                     * @param Bitrate 音频流的码率，单位：bps。
+                     * @param _bitrate 音频流的码率，单位：bps。
+                     * 
                      */
                     void SetBitrate(const int64_t& _bitrate);
 
                     /**
                      * 判断参数 Bitrate 是否已赋值
                      * @return Bitrate 是否已赋值
+                     * 
                      */
                     bool BitrateHasBeenSet() const;
 
                     /**
                      * 获取音频流的采样率，单位：hz。
                      * @return SamplingRate 音频流的采样率，单位：hz。
+                     * 
                      */
                     int64_t GetSamplingRate() const;
 
                     /**
                      * 设置音频流的采样率，单位：hz。
-                     * @param SamplingRate 音频流的采样率，单位：hz。
+                     * @param _samplingRate 音频流的采样率，单位：hz。
+                     * 
                      */
                     void SetSamplingRate(const int64_t& _samplingRate);
 
                     /**
                      * 判断参数 SamplingRate 是否已赋值
                      * @return SamplingRate 是否已赋值
+                     * 
                      */
                     bool SamplingRateHasBeenSet() const;
 
                     /**
                      * 获取音频流的编码格式，例如 aac。
                      * @return Codec 音频流的编码格式，例如 aac。
+                     * 
                      */
                     std::string GetCodec() const;
 
                     /**
                      * 设置音频流的编码格式，例如 aac。
-                     * @param Codec 音频流的编码格式，例如 aac。
+                     * @param _codec 音频流的编码格式，例如 aac。
+                     * 
                      */
                     void SetCodec(const std::string& _codec);
 
                     /**
                      * 判断参数 Codec 是否已赋值
                      * @return Codec 是否已赋值
+                     * 
                      */
                     bool CodecHasBeenSet() const;
 

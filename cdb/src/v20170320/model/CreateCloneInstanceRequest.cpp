@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,13 @@ CreateCloneInstanceRequest::CreateCloneInstanceRequest() :
     m_instanceNodesHasBeenSet(false),
     m_deployGroupIdHasBeenSet(false),
     m_dryRunHasBeenSet(false),
-    m_cageIdHasBeenSet(false)
+    m_cageIdHasBeenSet(false),
+    m_projectIdHasBeenSet(false),
+    m_payTypeHasBeenSet(false),
+    m_periodHasBeenSet(false),
+    m_clusterTopologyHasBeenSet(false),
+    m_srcRegionHasBeenSet(false),
+    m_specifiedSubBackupIdHasBeenSet(false)
 {
 }
 
@@ -223,6 +229,55 @@ string CreateCloneInstanceRequest::ToJsonString() const
         string key = "CageId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_cageId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_projectIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProjectId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_projectId, allocator);
+    }
+
+    if (m_payTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PayType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_payType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_periodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Period";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_period, allocator);
+    }
+
+    if (m_clusterTopologyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterTopology";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_clusterTopology.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_srcRegionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SrcRegion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_srcRegion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_specifiedSubBackupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SpecifiedSubBackupId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_specifiedSubBackupId, allocator);
     }
 
 
@@ -551,6 +606,102 @@ void CreateCloneInstanceRequest::SetCageId(const string& _cageId)
 bool CreateCloneInstanceRequest::CageIdHasBeenSet() const
 {
     return m_cageIdHasBeenSet;
+}
+
+uint64_t CreateCloneInstanceRequest::GetProjectId() const
+{
+    return m_projectId;
+}
+
+void CreateCloneInstanceRequest::SetProjectId(const uint64_t& _projectId)
+{
+    m_projectId = _projectId;
+    m_projectIdHasBeenSet = true;
+}
+
+bool CreateCloneInstanceRequest::ProjectIdHasBeenSet() const
+{
+    return m_projectIdHasBeenSet;
+}
+
+string CreateCloneInstanceRequest::GetPayType() const
+{
+    return m_payType;
+}
+
+void CreateCloneInstanceRequest::SetPayType(const string& _payType)
+{
+    m_payType = _payType;
+    m_payTypeHasBeenSet = true;
+}
+
+bool CreateCloneInstanceRequest::PayTypeHasBeenSet() const
+{
+    return m_payTypeHasBeenSet;
+}
+
+int64_t CreateCloneInstanceRequest::GetPeriod() const
+{
+    return m_period;
+}
+
+void CreateCloneInstanceRequest::SetPeriod(const int64_t& _period)
+{
+    m_period = _period;
+    m_periodHasBeenSet = true;
+}
+
+bool CreateCloneInstanceRequest::PeriodHasBeenSet() const
+{
+    return m_periodHasBeenSet;
+}
+
+ClusterTopology CreateCloneInstanceRequest::GetClusterTopology() const
+{
+    return m_clusterTopology;
+}
+
+void CreateCloneInstanceRequest::SetClusterTopology(const ClusterTopology& _clusterTopology)
+{
+    m_clusterTopology = _clusterTopology;
+    m_clusterTopologyHasBeenSet = true;
+}
+
+bool CreateCloneInstanceRequest::ClusterTopologyHasBeenSet() const
+{
+    return m_clusterTopologyHasBeenSet;
+}
+
+string CreateCloneInstanceRequest::GetSrcRegion() const
+{
+    return m_srcRegion;
+}
+
+void CreateCloneInstanceRequest::SetSrcRegion(const string& _srcRegion)
+{
+    m_srcRegion = _srcRegion;
+    m_srcRegionHasBeenSet = true;
+}
+
+bool CreateCloneInstanceRequest::SrcRegionHasBeenSet() const
+{
+    return m_srcRegionHasBeenSet;
+}
+
+int64_t CreateCloneInstanceRequest::GetSpecifiedSubBackupId() const
+{
+    return m_specifiedSubBackupId;
+}
+
+void CreateCloneInstanceRequest::SetSpecifiedSubBackupId(const int64_t& _specifiedSubBackupId)
+{
+    m_specifiedSubBackupId = _specifiedSubBackupId;
+    m_specifiedSubBackupIdHasBeenSet = true;
+}
+
+bool CreateCloneInstanceRequest::SpecifiedSubBackupIdHasBeenSet() const
+{
+    return m_specifiedSubBackupIdHasBeenSet;
 }
 
 

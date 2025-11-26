@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取图库名称。
                      * @return GroupId 图库名称。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取物品ID。
                      * @return EntityId 物品ID。
+                     * 
                      */
                     std::string GetEntityId() const;
 
                     /**
                      * 判断参数 EntityId 是否已赋值
                      * @return EntityId 是否已赋值
+                     * 
                      */
                     bool EntityIdHasBeenSet() const;
 
                     /**
                      * 获取图片信息。
                      * @return ImageInfos 图片信息。
+                     * 
                      */
                     std::vector<ImageInfo> GetImageInfos() const;
 
                     /**
                      * 判断参数 ImageInfos 是否已赋值
                      * @return ImageInfos 是否已赋值
+                     * 
                      */
                     bool ImageInfosHasBeenSet() const;
 

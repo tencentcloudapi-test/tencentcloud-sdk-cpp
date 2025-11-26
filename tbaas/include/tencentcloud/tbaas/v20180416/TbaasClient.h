@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,78 +23,54 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
+#include <tencentcloud/tbaas/v20180416/model/ApplyChainMakerBatchUserCertRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/ApplyChainMakerBatchUserCertResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/ApplyUserCertRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/ApplyUserCertResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/BlockByNumberHandlerRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/BlockByNumberHandlerResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/CreateChaincodeAndInstallForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/CreateChaincodeAndInstallForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/DeployDynamicBcosContractRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/DeployDynamicBcosContractResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/DeployDynamicContractHandlerRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/DeployDynamicContractHandlerResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/DescribeFabricBlockRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/DescribeFabricBlockResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/DescribeFabricTransactionRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/DescribeFabricTransactionResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/DownloadUserCertRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/DownloadUserCertResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosBlockByNumberRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosBlockByNumberResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosBlockListRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosBlockListResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosTransByHashRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosTransByHashResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosTransListRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBcosTransListResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/GetBlockListRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/GetBlockListResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBlockListHandlerRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetBlockListHandlerResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/GetBlockTransactionListForUserRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/GetBlockTransactionListForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChaincodeCompileLogForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChaincodeCompileLogForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChaincodeInitializeResultForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChaincodeInitializeResultForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChaincodeLogForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChaincodeLogForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChannelListForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetChannelListForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetClusterListForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetClusterListForUserResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/GetClusterSummaryRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/GetClusterSummaryResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/GetInvokeTxRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/GetInvokeTxResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetLatesdTransactionListRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetLatesdTransactionListResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetPeerLogForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetPeerLogForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetTransByHashHandlerRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetTransByHashHandlerResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/GetTransListHandlerRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/GetTransListHandlerResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/GetLatestTransactionListRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/GetLatestTransactionListResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/GetTransactionDetailForUserRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/GetTransactionDetailForUserResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/InitializeChaincodeForUserRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/InitializeChaincodeForUserResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/InvokeRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/InvokeResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/InvokeBcosTransRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/InvokeBcosTransResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/InvokeChainMakerContractRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/InvokeChainMakerContractResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/InvokeChainMakerDemoContractRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/InvokeChainMakerDemoContractResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/InvokeFabricChaincodeRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/InvokeFabricChaincodeResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryChainMakerBlockTransactionRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryChainMakerBlockTransactionResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryChainMakerContractRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryChainMakerContractResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryChainMakerDemoBlockTransactionRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryChainMakerDemoBlockTransactionResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryChainMakerDemoContractRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryChainMakerDemoContractResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryChainMakerDemoTransactionRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryChainMakerDemoTransactionResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryChainMakerTransactionRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/QueryChainMakerTransactionResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/SendTransactionHandlerRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/SendTransactionHandlerResponse.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryFabricChaincodeRequest.h>
+#include <tencentcloud/tbaas/v20180416/model/QueryFabricChaincodeResponse.h>
 #include <tencentcloud/tbaas/v20180416/model/SrvInvokeRequest.h>
 #include <tencentcloud/tbaas/v20180416/model/SrvInvokeResponse.h>
-#include <tencentcloud/tbaas/v20180416/model/TransByDynamicContractHandlerRequest.h>
-#include <tencentcloud/tbaas/v20180416/model/TransByDynamicContractHandlerResponse.h>
 
 
 namespace TencentCloud
@@ -109,93 +85,51 @@ namespace TencentCloud
                 TbaasClient(const Credential &credential, const std::string &region);
                 TbaasClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
+                typedef Outcome<Core::Error, Model::ApplyChainMakerBatchUserCertResponse> ApplyChainMakerBatchUserCertOutcome;
+                typedef std::future<ApplyChainMakerBatchUserCertOutcome> ApplyChainMakerBatchUserCertOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::ApplyChainMakerBatchUserCertRequest&, ApplyChainMakerBatchUserCertOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ApplyChainMakerBatchUserCertAsyncHandler;
                 typedef Outcome<Core::Error, Model::ApplyUserCertResponse> ApplyUserCertOutcome;
                 typedef std::future<ApplyUserCertOutcome> ApplyUserCertOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::ApplyUserCertRequest&, ApplyUserCertOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ApplyUserCertAsyncHandler;
-                typedef Outcome<Core::Error, Model::BlockByNumberHandlerResponse> BlockByNumberHandlerOutcome;
-                typedef std::future<BlockByNumberHandlerOutcome> BlockByNumberHandlerOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::BlockByNumberHandlerRequest&, BlockByNumberHandlerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BlockByNumberHandlerAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateChaincodeAndInstallForUserResponse> CreateChaincodeAndInstallForUserOutcome;
-                typedef std::future<CreateChaincodeAndInstallForUserOutcome> CreateChaincodeAndInstallForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::CreateChaincodeAndInstallForUserRequest&, CreateChaincodeAndInstallForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateChaincodeAndInstallForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeployDynamicBcosContractResponse> DeployDynamicBcosContractOutcome;
-                typedef std::future<DeployDynamicBcosContractOutcome> DeployDynamicBcosContractOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::DeployDynamicBcosContractRequest&, DeployDynamicBcosContractOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeployDynamicBcosContractAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeployDynamicContractHandlerResponse> DeployDynamicContractHandlerOutcome;
-                typedef std::future<DeployDynamicContractHandlerOutcome> DeployDynamicContractHandlerOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::DeployDynamicContractHandlerRequest&, DeployDynamicContractHandlerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeployDynamicContractHandlerAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeFabricBlockResponse> DescribeFabricBlockOutcome;
+                typedef std::future<DescribeFabricBlockOutcome> DescribeFabricBlockOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::DescribeFabricBlockRequest&, DescribeFabricBlockOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFabricBlockAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeFabricTransactionResponse> DescribeFabricTransactionOutcome;
+                typedef std::future<DescribeFabricTransactionOutcome> DescribeFabricTransactionOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::DescribeFabricTransactionRequest&, DescribeFabricTransactionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFabricTransactionAsyncHandler;
                 typedef Outcome<Core::Error, Model::DownloadUserCertResponse> DownloadUserCertOutcome;
                 typedef std::future<DownloadUserCertOutcome> DownloadUserCertOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::DownloadUserCertRequest&, DownloadUserCertOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DownloadUserCertAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetBcosBlockByNumberResponse> GetBcosBlockByNumberOutcome;
-                typedef std::future<GetBcosBlockByNumberOutcome> GetBcosBlockByNumberOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetBcosBlockByNumberRequest&, GetBcosBlockByNumberOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetBcosBlockByNumberAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetBcosBlockListResponse> GetBcosBlockListOutcome;
-                typedef std::future<GetBcosBlockListOutcome> GetBcosBlockListOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetBcosBlockListRequest&, GetBcosBlockListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetBcosBlockListAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetBcosTransByHashResponse> GetBcosTransByHashOutcome;
-                typedef std::future<GetBcosTransByHashOutcome> GetBcosTransByHashOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetBcosTransByHashRequest&, GetBcosTransByHashOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetBcosTransByHashAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetBcosTransListResponse> GetBcosTransListOutcome;
-                typedef std::future<GetBcosTransListOutcome> GetBcosTransListOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetBcosTransListRequest&, GetBcosTransListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetBcosTransListAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetBlockListResponse> GetBlockListOutcome;
                 typedef std::future<GetBlockListOutcome> GetBlockListOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::GetBlockListRequest&, GetBlockListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetBlockListAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetBlockListHandlerResponse> GetBlockListHandlerOutcome;
-                typedef std::future<GetBlockListHandlerOutcome> GetBlockListHandlerOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetBlockListHandlerRequest&, GetBlockListHandlerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetBlockListHandlerAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetBlockTransactionListForUserResponse> GetBlockTransactionListForUserOutcome;
                 typedef std::future<GetBlockTransactionListForUserOutcome> GetBlockTransactionListForUserOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::GetBlockTransactionListForUserRequest&, GetBlockTransactionListForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetBlockTransactionListForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetChaincodeCompileLogForUserResponse> GetChaincodeCompileLogForUserOutcome;
-                typedef std::future<GetChaincodeCompileLogForUserOutcome> GetChaincodeCompileLogForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetChaincodeCompileLogForUserRequest&, GetChaincodeCompileLogForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetChaincodeCompileLogForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetChaincodeInitializeResultForUserResponse> GetChaincodeInitializeResultForUserOutcome;
-                typedef std::future<GetChaincodeInitializeResultForUserOutcome> GetChaincodeInitializeResultForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetChaincodeInitializeResultForUserRequest&, GetChaincodeInitializeResultForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetChaincodeInitializeResultForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetChaincodeLogForUserResponse> GetChaincodeLogForUserOutcome;
-                typedef std::future<GetChaincodeLogForUserOutcome> GetChaincodeLogForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetChaincodeLogForUserRequest&, GetChaincodeLogForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetChaincodeLogForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetChannelListForUserResponse> GetChannelListForUserOutcome;
-                typedef std::future<GetChannelListForUserOutcome> GetChannelListForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetChannelListForUserRequest&, GetChannelListForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetChannelListForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetClusterListForUserResponse> GetClusterListForUserOutcome;
-                typedef std::future<GetClusterListForUserOutcome> GetClusterListForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetClusterListForUserRequest&, GetClusterListForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetClusterListForUserAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetClusterSummaryResponse> GetClusterSummaryOutcome;
                 typedef std::future<GetClusterSummaryOutcome> GetClusterSummaryOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::GetClusterSummaryRequest&, GetClusterSummaryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetClusterSummaryAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetInvokeTxResponse> GetInvokeTxOutcome;
                 typedef std::future<GetInvokeTxOutcome> GetInvokeTxOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::GetInvokeTxRequest&, GetInvokeTxOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetInvokeTxAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetLatesdTransactionListResponse> GetLatesdTransactionListOutcome;
-                typedef std::future<GetLatesdTransactionListOutcome> GetLatesdTransactionListOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetLatesdTransactionListRequest&, GetLatesdTransactionListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetLatesdTransactionListAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetPeerLogForUserResponse> GetPeerLogForUserOutcome;
-                typedef std::future<GetPeerLogForUserOutcome> GetPeerLogForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetPeerLogForUserRequest&, GetPeerLogForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetPeerLogForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetTransByHashHandlerResponse> GetTransByHashHandlerOutcome;
-                typedef std::future<GetTransByHashHandlerOutcome> GetTransByHashHandlerOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetTransByHashHandlerRequest&, GetTransByHashHandlerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetTransByHashHandlerAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetTransListHandlerResponse> GetTransListHandlerOutcome;
-                typedef std::future<GetTransListHandlerOutcome> GetTransListHandlerOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::GetTransListHandlerRequest&, GetTransListHandlerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetTransListHandlerAsyncHandler;
+                typedef Outcome<Core::Error, Model::GetLatestTransactionListResponse> GetLatestTransactionListOutcome;
+                typedef std::future<GetLatestTransactionListOutcome> GetLatestTransactionListOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::GetLatestTransactionListRequest&, GetLatestTransactionListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetLatestTransactionListAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetTransactionDetailForUserResponse> GetTransactionDetailForUserOutcome;
                 typedef std::future<GetTransactionDetailForUserOutcome> GetTransactionDetailForUserOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::GetTransactionDetailForUserRequest&, GetTransactionDetailForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetTransactionDetailForUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::InitializeChaincodeForUserResponse> InitializeChaincodeForUserOutcome;
-                typedef std::future<InitializeChaincodeForUserOutcome> InitializeChaincodeForUserOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::InitializeChaincodeForUserRequest&, InitializeChaincodeForUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InitializeChaincodeForUserAsyncHandler;
                 typedef Outcome<Core::Error, Model::InvokeResponse> InvokeOutcome;
                 typedef std::future<InvokeOutcome> InvokeOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::InvokeRequest&, InvokeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InvokeAsyncHandler;
-                typedef Outcome<Core::Error, Model::InvokeBcosTransResponse> InvokeBcosTransOutcome;
-                typedef std::future<InvokeBcosTransOutcome> InvokeBcosTransOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::InvokeBcosTransRequest&, InvokeBcosTransOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InvokeBcosTransAsyncHandler;
                 typedef Outcome<Core::Error, Model::InvokeChainMakerContractResponse> InvokeChainMakerContractOutcome;
                 typedef std::future<InvokeChainMakerContractOutcome> InvokeChainMakerContractOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::InvokeChainMakerContractRequest&, InvokeChainMakerContractOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InvokeChainMakerContractAsyncHandler;
+                typedef Outcome<Core::Error, Model::InvokeChainMakerDemoContractResponse> InvokeChainMakerDemoContractOutcome;
+                typedef std::future<InvokeChainMakerDemoContractOutcome> InvokeChainMakerDemoContractOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::InvokeChainMakerDemoContractRequest&, InvokeChainMakerDemoContractOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InvokeChainMakerDemoContractAsyncHandler;
+                typedef Outcome<Core::Error, Model::InvokeFabricChaincodeResponse> InvokeFabricChaincodeOutcome;
+                typedef std::future<InvokeFabricChaincodeOutcome> InvokeFabricChaincodeOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::InvokeFabricChaincodeRequest&, InvokeFabricChaincodeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InvokeFabricChaincodeAsyncHandler;
                 typedef Outcome<Core::Error, Model::QueryResponse> QueryOutcome;
                 typedef std::future<QueryOutcome> QueryOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::QueryRequest&, QueryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryAsyncHandler;
@@ -205,20 +139,35 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::QueryChainMakerContractResponse> QueryChainMakerContractOutcome;
                 typedef std::future<QueryChainMakerContractOutcome> QueryChainMakerContractOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::QueryChainMakerContractRequest&, QueryChainMakerContractOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryChainMakerContractAsyncHandler;
+                typedef Outcome<Core::Error, Model::QueryChainMakerDemoBlockTransactionResponse> QueryChainMakerDemoBlockTransactionOutcome;
+                typedef std::future<QueryChainMakerDemoBlockTransactionOutcome> QueryChainMakerDemoBlockTransactionOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::QueryChainMakerDemoBlockTransactionRequest&, QueryChainMakerDemoBlockTransactionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryChainMakerDemoBlockTransactionAsyncHandler;
+                typedef Outcome<Core::Error, Model::QueryChainMakerDemoContractResponse> QueryChainMakerDemoContractOutcome;
+                typedef std::future<QueryChainMakerDemoContractOutcome> QueryChainMakerDemoContractOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::QueryChainMakerDemoContractRequest&, QueryChainMakerDemoContractOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryChainMakerDemoContractAsyncHandler;
+                typedef Outcome<Core::Error, Model::QueryChainMakerDemoTransactionResponse> QueryChainMakerDemoTransactionOutcome;
+                typedef std::future<QueryChainMakerDemoTransactionOutcome> QueryChainMakerDemoTransactionOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::QueryChainMakerDemoTransactionRequest&, QueryChainMakerDemoTransactionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryChainMakerDemoTransactionAsyncHandler;
                 typedef Outcome<Core::Error, Model::QueryChainMakerTransactionResponse> QueryChainMakerTransactionOutcome;
                 typedef std::future<QueryChainMakerTransactionOutcome> QueryChainMakerTransactionOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::QueryChainMakerTransactionRequest&, QueryChainMakerTransactionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryChainMakerTransactionAsyncHandler;
-                typedef Outcome<Core::Error, Model::SendTransactionHandlerResponse> SendTransactionHandlerOutcome;
-                typedef std::future<SendTransactionHandlerOutcome> SendTransactionHandlerOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::SendTransactionHandlerRequest&, SendTransactionHandlerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SendTransactionHandlerAsyncHandler;
+                typedef Outcome<Core::Error, Model::QueryFabricChaincodeResponse> QueryFabricChaincodeOutcome;
+                typedef std::future<QueryFabricChaincodeOutcome> QueryFabricChaincodeOutcomeCallable;
+                typedef std::function<void(const TbaasClient*, const Model::QueryFabricChaincodeRequest&, QueryFabricChaincodeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryFabricChaincodeAsyncHandler;
                 typedef Outcome<Core::Error, Model::SrvInvokeResponse> SrvInvokeOutcome;
                 typedef std::future<SrvInvokeOutcome> SrvInvokeOutcomeCallable;
                 typedef std::function<void(const TbaasClient*, const Model::SrvInvokeRequest&, SrvInvokeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SrvInvokeAsyncHandler;
-                typedef Outcome<Core::Error, Model::TransByDynamicContractHandlerResponse> TransByDynamicContractHandlerOutcome;
-                typedef std::future<TransByDynamicContractHandlerOutcome> TransByDynamicContractHandlerOutcomeCallable;
-                typedef std::function<void(const TbaasClient*, const Model::TransByDynamicContractHandlerRequest&, TransByDynamicContractHandlerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TransByDynamicContractHandlerAsyncHandler;
 
 
+
+                /**
+                 *批量申请长安链用户签名证书
+                 * @param req ApplyChainMakerBatchUserCertRequest
+                 * @return ApplyChainMakerBatchUserCertOutcome
+                 */
+                ApplyChainMakerBatchUserCertOutcome ApplyChainMakerBatchUserCert(const Model::ApplyChainMakerBatchUserCertRequest &request);
+                void ApplyChainMakerBatchUserCertAsync(const Model::ApplyChainMakerBatchUserCertRequest& request, const ApplyChainMakerBatchUserCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ApplyChainMakerBatchUserCertOutcomeCallable ApplyChainMakerBatchUserCertCallable(const Model::ApplyChainMakerBatchUserCertRequest& request);
 
                 /**
                  *申请用户证书
@@ -230,44 +179,22 @@ namespace TencentCloud
                 ApplyUserCertOutcomeCallable ApplyUserCertCallable(const Model::ApplyUserCertRequest& request);
 
                 /**
-                 *版本升级
-
-Bcos根据块高查询区块信息
-                 * @param req BlockByNumberHandlerRequest
-                 * @return BlockByNumberHandlerOutcome
+                 *获取Fabric某区块的详细信息
+                 * @param req DescribeFabricBlockRequest
+                 * @return DescribeFabricBlockOutcome
                  */
-                BlockByNumberHandlerOutcome BlockByNumberHandler(const Model::BlockByNumberHandlerRequest &request);
-                void BlockByNumberHandlerAsync(const Model::BlockByNumberHandlerRequest& request, const BlockByNumberHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                BlockByNumberHandlerOutcomeCallable BlockByNumberHandlerCallable(const Model::BlockByNumberHandlerRequest& request);
+                DescribeFabricBlockOutcome DescribeFabricBlock(const Model::DescribeFabricBlockRequest &request);
+                void DescribeFabricBlockAsync(const Model::DescribeFabricBlockRequest& request, const DescribeFabricBlockAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeFabricBlockOutcomeCallable DescribeFabricBlockCallable(const Model::DescribeFabricBlockRequest& request);
 
                 /**
-                 *创建并安装合约
-                 * @param req CreateChaincodeAndInstallForUserRequest
-                 * @return CreateChaincodeAndInstallForUserOutcome
+                 *获取Fabric交易的详细信息
+                 * @param req DescribeFabricTransactionRequest
+                 * @return DescribeFabricTransactionOutcome
                  */
-                CreateChaincodeAndInstallForUserOutcome CreateChaincodeAndInstallForUser(const Model::CreateChaincodeAndInstallForUserRequest &request);
-                void CreateChaincodeAndInstallForUserAsync(const Model::CreateChaincodeAndInstallForUserRequest& request, const CreateChaincodeAndInstallForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateChaincodeAndInstallForUserOutcomeCallable CreateChaincodeAndInstallForUserCallable(const Model::CreateChaincodeAndInstallForUserRequest& request);
-
-                /**
-                 *动态部署并发布Bcos合约
-                 * @param req DeployDynamicBcosContractRequest
-                 * @return DeployDynamicBcosContractOutcome
-                 */
-                DeployDynamicBcosContractOutcome DeployDynamicBcosContract(const Model::DeployDynamicBcosContractRequest &request);
-                void DeployDynamicBcosContractAsync(const Model::DeployDynamicBcosContractRequest& request, const DeployDynamicBcosContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeployDynamicBcosContractOutcomeCallable DeployDynamicBcosContractCallable(const Model::DeployDynamicBcosContractRequest& request);
-
-                /**
-                 *版本升级
-
-动态部署合约
-                 * @param req DeployDynamicContractHandlerRequest
-                 * @return DeployDynamicContractHandlerOutcome
-                 */
-                DeployDynamicContractHandlerOutcome DeployDynamicContractHandler(const Model::DeployDynamicContractHandlerRequest &request);
-                void DeployDynamicContractHandlerAsync(const Model::DeployDynamicContractHandlerRequest& request, const DeployDynamicContractHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeployDynamicContractHandlerOutcomeCallable DeployDynamicContractHandlerCallable(const Model::DeployDynamicContractHandlerRequest& request);
+                DescribeFabricTransactionOutcome DescribeFabricTransaction(const Model::DescribeFabricTransactionRequest &request);
+                void DescribeFabricTransactionAsync(const Model::DescribeFabricTransactionRequest& request, const DescribeFabricTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeFabricTransactionOutcomeCallable DescribeFabricTransactionCallable(const Model::DescribeFabricTransactionRequest& request);
 
                 /**
                  *下载用户证书
@@ -279,42 +206,6 @@ Bcos根据块高查询区块信息
                 DownloadUserCertOutcomeCallable DownloadUserCertCallable(const Model::DownloadUserCertRequest& request);
 
                 /**
-                 *使用块高查询Bcos区块信息
-                 * @param req GetBcosBlockByNumberRequest
-                 * @return GetBcosBlockByNumberOutcome
-                 */
-                GetBcosBlockByNumberOutcome GetBcosBlockByNumber(const Model::GetBcosBlockByNumberRequest &request);
-                void GetBcosBlockByNumberAsync(const Model::GetBcosBlockByNumberRequest& request, const GetBcosBlockByNumberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetBcosBlockByNumberOutcomeCallable GetBcosBlockByNumberCallable(const Model::GetBcosBlockByNumberRequest& request);
-
-                /**
-                 *Bcos分页查询当前群组下的区块列表
-                 * @param req GetBcosBlockListRequest
-                 * @return GetBcosBlockListOutcome
-                 */
-                GetBcosBlockListOutcome GetBcosBlockList(const Model::GetBcosBlockListRequest &request);
-                void GetBcosBlockListAsync(const Model::GetBcosBlockListRequest& request, const GetBcosBlockListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetBcosBlockListOutcomeCallable GetBcosBlockListCallable(const Model::GetBcosBlockListRequest& request);
-
-                /**
-                 *Bcos根据交易哈希查看交易详细信息
-                 * @param req GetBcosTransByHashRequest
-                 * @return GetBcosTransByHashOutcome
-                 */
-                GetBcosTransByHashOutcome GetBcosTransByHash(const Model::GetBcosTransByHashRequest &request);
-                void GetBcosTransByHashAsync(const Model::GetBcosTransByHashRequest& request, const GetBcosTransByHashAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetBcosTransByHashOutcomeCallable GetBcosTransByHashCallable(const Model::GetBcosTransByHashRequest& request);
-
-                /**
-                 *Bcos分页查询当前群组的交易信息列表
-                 * @param req GetBcosTransListRequest
-                 * @return GetBcosTransListOutcome
-                 */
-                GetBcosTransListOutcome GetBcosTransList(const Model::GetBcosTransListRequest &request);
-                void GetBcosTransListAsync(const Model::GetBcosTransListRequest& request, const GetBcosTransListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetBcosTransListOutcomeCallable GetBcosTransListCallable(const Model::GetBcosTransListRequest& request);
-
-                /**
                  *查看当前网络下的所有区块列表，分页展示
                  * @param req GetBlockListRequest
                  * @return GetBlockListOutcome
@@ -324,69 +215,13 @@ Bcos根据块高查询区块信息
                 GetBlockListOutcomeCallable GetBlockListCallable(const Model::GetBlockListRequest& request);
 
                 /**
-                 *版本升级
-
-Bcos分页查询当前群组下的区块列表
-                 * @param req GetBlockListHandlerRequest
-                 * @return GetBlockListHandlerOutcome
-                 */
-                GetBlockListHandlerOutcome GetBlockListHandler(const Model::GetBlockListHandlerRequest &request);
-                void GetBlockListHandlerAsync(const Model::GetBlockListHandlerRequest& request, const GetBlockListHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetBlockListHandlerOutcomeCallable GetBlockListHandlerCallable(const Model::GetBlockListHandlerRequest& request);
-
-                /**
-                 *获取区块内的交易列表
+                 *获取区块内交易列表
                  * @param req GetBlockTransactionListForUserRequest
                  * @return GetBlockTransactionListForUserOutcome
                  */
                 GetBlockTransactionListForUserOutcome GetBlockTransactionListForUser(const Model::GetBlockTransactionListForUserRequest &request);
                 void GetBlockTransactionListForUserAsync(const Model::GetBlockTransactionListForUserRequest& request, const GetBlockTransactionListForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 GetBlockTransactionListForUserOutcomeCallable GetBlockTransactionListForUserCallable(const Model::GetBlockTransactionListForUserRequest& request);
-
-                /**
-                 *获取合约编译日志
-                 * @param req GetChaincodeCompileLogForUserRequest
-                 * @return GetChaincodeCompileLogForUserOutcome
-                 */
-                GetChaincodeCompileLogForUserOutcome GetChaincodeCompileLogForUser(const Model::GetChaincodeCompileLogForUserRequest &request);
-                void GetChaincodeCompileLogForUserAsync(const Model::GetChaincodeCompileLogForUserRequest& request, const GetChaincodeCompileLogForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetChaincodeCompileLogForUserOutcomeCallable GetChaincodeCompileLogForUserCallable(const Model::GetChaincodeCompileLogForUserRequest& request);
-
-                /**
-                 *实例化结果查询
-                 * @param req GetChaincodeInitializeResultForUserRequest
-                 * @return GetChaincodeInitializeResultForUserOutcome
-                 */
-                GetChaincodeInitializeResultForUserOutcome GetChaincodeInitializeResultForUser(const Model::GetChaincodeInitializeResultForUserRequest &request);
-                void GetChaincodeInitializeResultForUserAsync(const Model::GetChaincodeInitializeResultForUserRequest& request, const GetChaincodeInitializeResultForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetChaincodeInitializeResultForUserOutcomeCallable GetChaincodeInitializeResultForUserCallable(const Model::GetChaincodeInitializeResultForUserRequest& request);
-
-                /**
-                 *获取合约容器日志
-                 * @param req GetChaincodeLogForUserRequest
-                 * @return GetChaincodeLogForUserOutcome
-                 */
-                GetChaincodeLogForUserOutcome GetChaincodeLogForUser(const Model::GetChaincodeLogForUserRequest &request);
-                void GetChaincodeLogForUserAsync(const Model::GetChaincodeLogForUserRequest& request, const GetChaincodeLogForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetChaincodeLogForUserOutcomeCallable GetChaincodeLogForUserCallable(const Model::GetChaincodeLogForUserRequest& request);
-
-                /**
-                 *获取通道列表
-                 * @param req GetChannelListForUserRequest
-                 * @return GetChannelListForUserOutcome
-                 */
-                GetChannelListForUserOutcome GetChannelListForUser(const Model::GetChannelListForUserRequest &request);
-                void GetChannelListForUserAsync(const Model::GetChannelListForUserRequest& request, const GetChannelListForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetChannelListForUserOutcomeCallable GetChannelListForUserCallable(const Model::GetChannelListForUserRequest& request);
-
-                /**
-                 *获取该用户的网络列表。网络信息中包含组织信息，但仅包含该用户所在组织的信息。
-                 * @param req GetClusterListForUserRequest
-                 * @return GetClusterListForUserOutcome
-                 */
-                GetClusterListForUserOutcome GetClusterListForUser(const Model::GetClusterListForUserRequest &request);
-                void GetClusterListForUserAsync(const Model::GetClusterListForUserRequest& request, const GetClusterListForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetClusterListForUserOutcomeCallable GetClusterListForUserCallable(const Model::GetClusterListForUserRequest& request);
 
                 /**
                  *获取区块链网络概要
@@ -407,62 +242,22 @@ Bcos分页查询当前群组下的区块列表
                 GetInvokeTxOutcomeCallable GetInvokeTxCallable(const Model::GetInvokeTxRequest& request);
 
                 /**
-                 *获取最新交易列表
-                 * @param req GetLatesdTransactionListRequest
-                 * @return GetLatesdTransactionListOutcome
+                 *获取fabric最新交易列表
+                 * @param req GetLatestTransactionListRequest
+                 * @return GetLatestTransactionListOutcome
                  */
-                GetLatesdTransactionListOutcome GetLatesdTransactionList(const Model::GetLatesdTransactionListRequest &request);
-                void GetLatesdTransactionListAsync(const Model::GetLatesdTransactionListRequest& request, const GetLatesdTransactionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetLatesdTransactionListOutcomeCallable GetLatesdTransactionListCallable(const Model::GetLatesdTransactionListRequest& request);
+                GetLatestTransactionListOutcome GetLatestTransactionList(const Model::GetLatestTransactionListRequest &request);
+                void GetLatestTransactionListAsync(const Model::GetLatestTransactionListRequest& request, const GetLatestTransactionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                GetLatestTransactionListOutcomeCallable GetLatestTransactionListCallable(const Model::GetLatestTransactionListRequest& request);
 
                 /**
-                 *获取节点日志
-                 * @param req GetPeerLogForUserRequest
-                 * @return GetPeerLogForUserOutcome
-                 */
-                GetPeerLogForUserOutcome GetPeerLogForUser(const Model::GetPeerLogForUserRequest &request);
-                void GetPeerLogForUserAsync(const Model::GetPeerLogForUserRequest& request, const GetPeerLogForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetPeerLogForUserOutcomeCallable GetPeerLogForUserCallable(const Model::GetPeerLogForUserRequest& request);
-
-                /**
-                 *版本升级
-
-Bcos根据交易哈希查看交易详细信息
-                 * @param req GetTransByHashHandlerRequest
-                 * @return GetTransByHashHandlerOutcome
-                 */
-                GetTransByHashHandlerOutcome GetTransByHashHandler(const Model::GetTransByHashHandlerRequest &request);
-                void GetTransByHashHandlerAsync(const Model::GetTransByHashHandlerRequest& request, const GetTransByHashHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetTransByHashHandlerOutcomeCallable GetTransByHashHandlerCallable(const Model::GetTransByHashHandlerRequest& request);
-
-                /**
-                 *版本升级
-
-Bcos分页查询当前群组的交易信息列表
-                 * @param req GetTransListHandlerRequest
-                 * @return GetTransListHandlerOutcome
-                 */
-                GetTransListHandlerOutcome GetTransListHandler(const Model::GetTransListHandlerRequest &request);
-                void GetTransListHandlerAsync(const Model::GetTransListHandlerRequest& request, const GetTransListHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetTransListHandlerOutcomeCallable GetTransListHandlerCallable(const Model::GetTransListHandlerRequest& request);
-
-                /**
-                 *获取交易详情
+                 *获取交易的详情
                  * @param req GetTransactionDetailForUserRequest
                  * @return GetTransactionDetailForUserOutcome
                  */
                 GetTransactionDetailForUserOutcome GetTransactionDetailForUser(const Model::GetTransactionDetailForUserRequest &request);
                 void GetTransactionDetailForUserAsync(const Model::GetTransactionDetailForUserRequest& request, const GetTransactionDetailForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 GetTransactionDetailForUserOutcomeCallable GetTransactionDetailForUserCallable(const Model::GetTransactionDetailForUserRequest& request);
-
-                /**
-                 *实例化合约
-                 * @param req InitializeChaincodeForUserRequest
-                 * @return InitializeChaincodeForUserOutcome
-                 */
-                InitializeChaincodeForUserOutcome InitializeChaincodeForUser(const Model::InitializeChaincodeForUserRequest &request);
-                void InitializeChaincodeForUserAsync(const Model::InitializeChaincodeForUserRequest& request, const InitializeChaincodeForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                InitializeChaincodeForUserOutcomeCallable InitializeChaincodeForUserCallable(const Model::InitializeChaincodeForUserRequest& request);
 
                 /**
                  *新增交易
@@ -474,15 +269,6 @@ Bcos分页查询当前群组的交易信息列表
                 InvokeOutcomeCallable InvokeCallable(const Model::InvokeRequest& request);
 
                 /**
-                 *执行Bcos交易，支持动态部署的合约
-                 * @param req InvokeBcosTransRequest
-                 * @return InvokeBcosTransOutcome
-                 */
-                InvokeBcosTransOutcome InvokeBcosTrans(const Model::InvokeBcosTransRequest &request);
-                void InvokeBcosTransAsync(const Model::InvokeBcosTransRequest& request, const InvokeBcosTransAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                InvokeBcosTransOutcomeCallable InvokeBcosTransCallable(const Model::InvokeBcosTransRequest& request);
-
-                /**
                  *调用长安链合约执行交易
                  * @param req InvokeChainMakerContractRequest
                  * @return InvokeChainMakerContractOutcome
@@ -490,6 +276,24 @@ Bcos分页查询当前群组的交易信息列表
                 InvokeChainMakerContractOutcome InvokeChainMakerContract(const Model::InvokeChainMakerContractRequest &request);
                 void InvokeChainMakerContractAsync(const Model::InvokeChainMakerContractRequest& request, const InvokeChainMakerContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 InvokeChainMakerContractOutcomeCallable InvokeChainMakerContractCallable(const Model::InvokeChainMakerContractRequest& request);
+
+                /**
+                 *调用长安链体验网络合约执行交易
+                 * @param req InvokeChainMakerDemoContractRequest
+                 * @return InvokeChainMakerDemoContractOutcome
+                 */
+                InvokeChainMakerDemoContractOutcome InvokeChainMakerDemoContract(const Model::InvokeChainMakerDemoContractRequest &request);
+                void InvokeChainMakerDemoContractAsync(const Model::InvokeChainMakerDemoContractRequest& request, const InvokeChainMakerDemoContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                InvokeChainMakerDemoContractOutcomeCallable InvokeChainMakerDemoContractCallable(const Model::InvokeChainMakerDemoContractRequest& request);
+
+                /**
+                 *调用Fabric用户合约执行交易
+                 * @param req InvokeFabricChaincodeRequest
+                 * @return InvokeFabricChaincodeOutcome
+                 */
+                InvokeFabricChaincodeOutcome InvokeFabricChaincode(const Model::InvokeFabricChaincodeRequest &request);
+                void InvokeFabricChaincodeAsync(const Model::InvokeFabricChaincodeRequest& request, const InvokeFabricChaincodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                InvokeFabricChaincodeOutcomeCallable InvokeFabricChaincodeCallable(const Model::InvokeFabricChaincodeRequest& request);
 
                 /**
                  *查询交易
@@ -519,6 +323,33 @@ Bcos分页查询当前群组的交易信息列表
                 QueryChainMakerContractOutcomeCallable QueryChainMakerContractCallable(const Model::QueryChainMakerContractRequest& request);
 
                 /**
+                 *查询长安链体验网络指定高度区块的交易
+                 * @param req QueryChainMakerDemoBlockTransactionRequest
+                 * @return QueryChainMakerDemoBlockTransactionOutcome
+                 */
+                QueryChainMakerDemoBlockTransactionOutcome QueryChainMakerDemoBlockTransaction(const Model::QueryChainMakerDemoBlockTransactionRequest &request);
+                void QueryChainMakerDemoBlockTransactionAsync(const Model::QueryChainMakerDemoBlockTransactionRequest& request, const QueryChainMakerDemoBlockTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                QueryChainMakerDemoBlockTransactionOutcomeCallable QueryChainMakerDemoBlockTransactionCallable(const Model::QueryChainMakerDemoBlockTransactionRequest& request);
+
+                /**
+                 *调用长安链体验网络合约查询
+                 * @param req QueryChainMakerDemoContractRequest
+                 * @return QueryChainMakerDemoContractOutcome
+                 */
+                QueryChainMakerDemoContractOutcome QueryChainMakerDemoContract(const Model::QueryChainMakerDemoContractRequest &request);
+                void QueryChainMakerDemoContractAsync(const Model::QueryChainMakerDemoContractRequest& request, const QueryChainMakerDemoContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                QueryChainMakerDemoContractOutcomeCallable QueryChainMakerDemoContractCallable(const Model::QueryChainMakerDemoContractRequest& request);
+
+                /**
+                 *通过交易ID查询长安链体验网络交易
+                 * @param req QueryChainMakerDemoTransactionRequest
+                 * @return QueryChainMakerDemoTransactionOutcome
+                 */
+                QueryChainMakerDemoTransactionOutcome QueryChainMakerDemoTransaction(const Model::QueryChainMakerDemoTransactionRequest &request);
+                void QueryChainMakerDemoTransactionAsync(const Model::QueryChainMakerDemoTransactionRequest& request, const QueryChainMakerDemoTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                QueryChainMakerDemoTransactionOutcomeCallable QueryChainMakerDemoTransactionCallable(const Model::QueryChainMakerDemoTransactionRequest& request);
+
+                /**
                  *通过交易ID查询长安链交易
                  * @param req QueryChainMakerTransactionRequest
                  * @return QueryChainMakerTransactionOutcome
@@ -528,15 +359,13 @@ Bcos分页查询当前群组的交易信息列表
                 QueryChainMakerTransactionOutcomeCallable QueryChainMakerTransactionCallable(const Model::QueryChainMakerTransactionRequest& request);
 
                 /**
-                 *版本升级
-
-Bcos发送交易
-                 * @param req SendTransactionHandlerRequest
-                 * @return SendTransactionHandlerOutcome
+                 *调用Fabric用户合约查询
+                 * @param req QueryFabricChaincodeRequest
+                 * @return QueryFabricChaincodeOutcome
                  */
-                SendTransactionHandlerOutcome SendTransactionHandler(const Model::SendTransactionHandlerRequest &request);
-                void SendTransactionHandlerAsync(const Model::SendTransactionHandlerRequest& request, const SendTransactionHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                SendTransactionHandlerOutcomeCallable SendTransactionHandlerCallable(const Model::SendTransactionHandlerRequest& request);
+                QueryFabricChaincodeOutcome QueryFabricChaincode(const Model::QueryFabricChaincodeRequest &request);
+                void QueryFabricChaincodeAsync(const Model::QueryFabricChaincodeRequest& request, const QueryFabricChaincodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                QueryFabricChaincodeOutcomeCallable QueryFabricChaincodeCallable(const Model::QueryFabricChaincodeRequest& request);
 
                 /**
                  *trustsql服务统一接口
@@ -546,17 +375,6 @@ Bcos发送交易
                 SrvInvokeOutcome SrvInvoke(const Model::SrvInvokeRequest &request);
                 void SrvInvokeAsync(const Model::SrvInvokeRequest& request, const SrvInvokeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 SrvInvokeOutcomeCallable SrvInvokeCallable(const Model::SrvInvokeRequest& request);
-
-                /**
-                 *版本升级
-
-根据动态部署的合约发送交易
-                 * @param req TransByDynamicContractHandlerRequest
-                 * @return TransByDynamicContractHandlerOutcome
-                 */
-                TransByDynamicContractHandlerOutcome TransByDynamicContractHandler(const Model::TransByDynamicContractHandlerRequest &request);
-                void TransByDynamicContractHandlerAsync(const Model::TransByDynamicContractHandlerRequest& request, const TransByDynamicContractHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                TransByDynamicContractHandlerOutcomeCallable TransByDynamicContractHandlerCallable(const Model::TransByDynamicContractHandlerRequest& request);
 
             };
         }

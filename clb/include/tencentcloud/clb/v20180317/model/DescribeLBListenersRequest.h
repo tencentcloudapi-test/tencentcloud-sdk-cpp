@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取需要查询的内网ip列表
                      * @return Backends 需要查询的内网ip列表
+                     * 
                      */
                     std::vector<LbRsItem> GetBackends() const;
 
                     /**
                      * 设置需要查询的内网ip列表
-                     * @param Backends 需要查询的内网ip列表
+                     * @param _backends 需要查询的内网ip列表
+                     * 
                      */
                     void SetBackends(const std::vector<LbRsItem>& _backends);
 
                     /**
                      * 判断参数 Backends 是否已赋值
                      * @return Backends 是否已赋值
+                     * 
                      */
                     bool BackendsHasBeenSet() const;
 

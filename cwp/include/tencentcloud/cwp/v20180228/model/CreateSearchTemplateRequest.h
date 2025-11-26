@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取搜索模板
                      * @return SearchTemplate 搜索模板
+                     * 
                      */
                     SearchTemplate GetSearchTemplate() const;
 
                     /**
                      * 设置搜索模板
-                     * @param SearchTemplate 搜索模板
+                     * @param _searchTemplate 搜索模板
+                     * 
                      */
                     void SetSearchTemplate(const SearchTemplate& _searchTemplate);
 
                     /**
                      * 判断参数 SearchTemplate 是否已赋值
                      * @return SearchTemplate 是否已赋值
+                     * 
                      */
                     bool SearchTemplateHasBeenSet() const;
 

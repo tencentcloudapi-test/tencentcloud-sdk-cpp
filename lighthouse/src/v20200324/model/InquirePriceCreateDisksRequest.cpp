@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ InquirePriceCreateDisksRequest::InquirePriceCreateDisksRequest() :
     m_diskSizeHasBeenSet(false),
     m_diskTypeHasBeenSet(false),
     m_diskChargePrepaidHasBeenSet(false),
-    m_diskCountHasBeenSet(false)
+    m_diskCountHasBeenSet(false),
+    m_diskBackupQuotaHasBeenSet(false)
 {
 }
 
@@ -68,6 +69,14 @@ string InquirePriceCreateDisksRequest::ToJsonString() const
         string key = "DiskCount";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_diskCount, allocator);
+    }
+
+    if (m_diskBackupQuotaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskBackupQuota";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_diskBackupQuota, allocator);
     }
 
 
@@ -140,6 +149,22 @@ void InquirePriceCreateDisksRequest::SetDiskCount(const int64_t& _diskCount)
 bool InquirePriceCreateDisksRequest::DiskCountHasBeenSet() const
 {
     return m_diskCountHasBeenSet;
+}
+
+int64_t InquirePriceCreateDisksRequest::GetDiskBackupQuota() const
+{
+    return m_diskBackupQuota;
+}
+
+void InquirePriceCreateDisksRequest::SetDiskBackupQuota(const int64_t& _diskBackupQuota)
+{
+    m_diskBackupQuota = _diskBackupQuota;
+    m_diskBackupQuotaHasBeenSet = true;
+}
+
+bool InquirePriceCreateDisksRequest::DiskBackupQuotaHasBeenSet() const
+{
+    return m_diskBackupQuotaHasBeenSet;
 }
 
 

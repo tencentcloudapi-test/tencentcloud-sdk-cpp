@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,9 @@ RuleInput::RuleInput() :
     m_trpcCalleeHasBeenSet(false),
     m_trpcFuncHasBeenSet(false),
     m_quicHasBeenSet(false),
-    m_domainsHasBeenSet(false)
+    m_domainsHasBeenSet(false),
+    m_multiCertInfoHasBeenSet(false),
+    m_cookieNameHasBeenSet(false)
 {
 }
 
@@ -200,6 +202,33 @@ CoreInternalOutcome RuleInput::Deserialize(const rapidjson::Value &value)
         m_domainsHasBeenSet = true;
     }
 
+    if (value.HasMember("MultiCertInfo") && !value["MultiCertInfo"].IsNull())
+    {
+        if (!value["MultiCertInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuleInput.MultiCertInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_multiCertInfo.Deserialize(value["MultiCertInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_multiCertInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("CookieName") && !value["CookieName"].IsNull())
+    {
+        if (!value["CookieName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuleInput.CookieName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cookieName = string(value["CookieName"].GetString());
+        m_cookieNameHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -324,6 +353,23 @@ void RuleInput::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_multiCertInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MultiCertInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_multiCertInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_cookieNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CookieName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cookieName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -551,5 +597,37 @@ void RuleInput::SetDomains(const vector<string>& _domains)
 bool RuleInput::DomainsHasBeenSet() const
 {
     return m_domainsHasBeenSet;
+}
+
+MultiCertInfo RuleInput::GetMultiCertInfo() const
+{
+    return m_multiCertInfo;
+}
+
+void RuleInput::SetMultiCertInfo(const MultiCertInfo& _multiCertInfo)
+{
+    m_multiCertInfo = _multiCertInfo;
+    m_multiCertInfoHasBeenSet = true;
+}
+
+bool RuleInput::MultiCertInfoHasBeenSet() const
+{
+    return m_multiCertInfoHasBeenSet;
+}
+
+string RuleInput::GetCookieName() const
+{
+    return m_cookieName;
+}
+
+void RuleInput::SetCookieName(const string& _cookieName)
+{
+    m_cookieName = _cookieName;
+    m_cookieNameHasBeenSet = true;
+}
+
+bool RuleInput::CookieNameHasBeenSet() const
+{
+    return m_cookieNameHasBeenSet;
 }
 

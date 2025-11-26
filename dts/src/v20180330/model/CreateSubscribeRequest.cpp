@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,8 @@ CreateSubscribeRequest::CreateSubscribeRequest() :
     m_durationHasBeenSet(false),
     m_countHasBeenSet(false),
     m_autoRenewHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_nameHasBeenSet(false)
 {
 }
 
@@ -92,6 +93,14 @@ string CreateSubscribeRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_nameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Name";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_name.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -196,6 +205,22 @@ void CreateSubscribeRequest::SetTags(const vector<TagItem>& _tags)
 bool CreateSubscribeRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+string CreateSubscribeRequest::GetName() const
+{
+    return m_name;
+}
+
+void CreateSubscribeRequest::SetName(const string& _name)
+{
+    m_name = _name;
+    m_nameHasBeenSet = true;
+}
+
+bool CreateSubscribeRequest::NameHasBeenSet() const
+{
+    return m_nameHasBeenSet;
 }
 
 

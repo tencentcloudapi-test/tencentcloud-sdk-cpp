@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,133 +48,127 @@ namespace TencentCloud
 
                     /**
                      * 获取资源类型
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ResourceType 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResourceType() const;
 
                     /**
                      * 设置资源类型
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ResourceType 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _resourceType 资源类型
+                     * 
                      */
                     void SetResourceType(const std::string& _resourceType);
 
                     /**
                      * 判断参数 ResourceType 是否已赋值
                      * @return ResourceType 是否已赋值
+                     * 
                      */
                     bool ResourceTypeHasBeenSet() const;
 
                     /**
                      * 获取源资源
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Source 源资源
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSource() const;
 
                     /**
                      * 设置源资源
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Source 源资源
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _source 源资源
+                     * 
                      */
                     void SetSource(const std::string& _source);
 
                     /**
                      * 判断参数 Source 是否已赋值
                      * @return Source 是否已赋值
+                     * 
                      */
                     bool SourceHasBeenSet() const;
 
                     /**
                      * 获取目的资源
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Destination 目的资源
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDestination() const;
 
                     /**
                      * 设置目的资源
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Destination 目的资源
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _destination 目的资源
+                     * 
                      */
                     void SetDestination(const std::string& _destination);
 
                     /**
                      * 判断参数 Destination 是否已赋值
                      * @return Destination 是否已赋值
+                     * 
                      */
                     bool DestinationHasBeenSet() const;
 
                     /**
                      * 获取同步状态
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Status 同步状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置同步状态
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Status 同步状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _status 同步状态
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取开始时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return StartTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
                      * 设置开始时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param StartTime 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _startTime 开始时间
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
                      * 获取结束时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
                      * 设置结束时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EndTime 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _endTime 结束时间
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
@@ -182,42 +176,36 @@ namespace TencentCloud
 
                     /**
                      * 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourceType;
                     bool m_resourceTypeHasBeenSet;
 
                     /**
                      * 源资源
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_source;
                     bool m_sourceHasBeenSet;
 
                     /**
                      * 目的资源
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_destination;
                     bool m_destinationHasBeenSet;
 
                     /**
                      * 同步状态
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
                      * 开始时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
                      * 结束时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,105 +43,120 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID
-                     * @return InstanceId 实例ID
+                     * 获取实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * @return InstanceId 实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * 设置实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * @param _instanceId 实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取数据库代理ID
-                     * @return ProxyGroupId 数据库代理ID
+                     * 获取数据库代理 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * @return ProxyGroupId 数据库代理 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * 
                      */
                     std::string GetProxyGroupId() const;
 
                     /**
-                     * 设置数据库代理ID
-                     * @param ProxyGroupId 数据库代理ID
+                     * 设置数据库代理 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * @param _proxyGroupId 数据库代理 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * 
                      */
                     void SetProxyGroupId(const std::string& _proxyGroupId);
 
                     /**
                      * 判断参数 ProxyGroupId 是否已赋值
                      * @return ProxyGroupId 是否已赋值
+                     * 
                      */
                     bool ProxyGroupIdHasBeenSet() const;
 
                     /**
                      * 获取数据库代理当前版本
                      * @return SrcProxyVersion 数据库代理当前版本
+                     * 
                      */
                     std::string GetSrcProxyVersion() const;
 
                     /**
                      * 设置数据库代理当前版本
-                     * @param SrcProxyVersion 数据库代理当前版本
+                     * @param _srcProxyVersion 数据库代理当前版本
+                     * 
                      */
                     void SetSrcProxyVersion(const std::string& _srcProxyVersion);
 
                     /**
                      * 判断参数 SrcProxyVersion 是否已赋值
                      * @return SrcProxyVersion 是否已赋值
+                     * 
                      */
                     bool SrcProxyVersionHasBeenSet() const;
 
                     /**
                      * 获取数据库代理升级版本
                      * @return DstProxyVersion 数据库代理升级版本
+                     * 
                      */
                     std::string GetDstProxyVersion() const;
 
                     /**
                      * 设置数据库代理升级版本
-                     * @param DstProxyVersion 数据库代理升级版本
+                     * @param _dstProxyVersion 数据库代理升级版本
+                     * 
                      */
                     void SetDstProxyVersion(const std::string& _dstProxyVersion);
 
                     /**
                      * 判断参数 DstProxyVersion 是否已赋值
                      * @return DstProxyVersion 是否已赋值
+                     * 
                      */
                     bool DstProxyVersionHasBeenSet() const;
 
                     /**
                      * 获取升级时间 ：nowTime（升级完成时）timeWindow（实例维护时间）
                      * @return UpgradeTime 升级时间 ：nowTime（升级完成时）timeWindow（实例维护时间）
+                     * 
                      */
                     std::string GetUpgradeTime() const;
 
                     /**
                      * 设置升级时间 ：nowTime（升级完成时）timeWindow（实例维护时间）
-                     * @param UpgradeTime 升级时间 ：nowTime（升级完成时）timeWindow（实例维护时间）
+                     * @param _upgradeTime 升级时间 ：nowTime（升级完成时）timeWindow（实例维护时间）
+                     * 
                      */
                     void SetUpgradeTime(const std::string& _upgradeTime);
 
                     /**
                      * 判断参数 UpgradeTime 是否已赋值
                      * @return UpgradeTime 是否已赋值
+                     * 
                      */
                     bool UpgradeTimeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID
+                     * 实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/product/236/15872) 接口获取。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 数据库代理ID
+                     * 数据库代理 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
                      */
                     std::string m_proxyGroupId;
                     bool m_proxyGroupIdHasBeenSet;

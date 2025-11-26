@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取围栏绑定的设备信息
                      * @return Devices 围栏绑定的设备信息
+                     * 
                      */
                     std::vector<FenceBindDeviceItem> GetDevices() const;
 
                     /**
                      * 设置围栏绑定的设备信息
-                     * @param Devices 围栏绑定的设备信息
+                     * @param _devices 围栏绑定的设备信息
+                     * 
                      */
                     void SetDevices(const std::vector<FenceBindDeviceItem>& _devices);
 
                     /**
                      * 判断参数 Devices 是否已赋值
                      * @return Devices 是否已赋值
+                     * 
                      */
                     bool DevicesHasBeenSet() const;
 
                     /**
                      * 获取围栏绑定的产品Id
                      * @return ProductId 围栏绑定的产品Id
+                     * 
                      */
                     std::string GetProductId() const;
 
                     /**
                      * 设置围栏绑定的产品Id
-                     * @param ProductId 围栏绑定的产品Id
+                     * @param _productId 围栏绑定的产品Id
+                     * 
                      */
                     void SetProductId(const std::string& _productId);
 
                     /**
                      * 判断参数 ProductId 是否已赋值
                      * @return ProductId 是否已赋值
+                     * 
                      */
                     bool ProductIdHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,30 @@ namespace TencentCloud
                     /**
                      * 获取解绑失败的监听器ID。
                      * @return FailListenerIdSet 解绑失败的监听器ID。
+                     * 
                      */
                     std::vector<std::string> GetFailListenerIdSet() const;
 
                     /**
                      * 判断参数 FailListenerIdSet 是否已赋值
                      * @return FailListenerIdSet 是否已赋值
+                     * 
                      */
                     bool FailListenerIdSetHasBeenSet() const;
+
+                    /**
+                     * 获取解绑失败错误原因信息。
+                     * @return Message 解绑失败错误原因信息。
+                     * 
+                     */
+                    std::string GetMessage() const;
+
+                    /**
+                     * 判断参数 Message 是否已赋值
+                     * @return Message 是否已赋值
+                     * 
+                     */
+                    bool MessageHasBeenSet() const;
 
                 private:
 
@@ -62,6 +78,12 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_failListenerIdSet;
                     bool m_failListenerIdSetHasBeenSet;
+
+                    /**
+                     * 解绑失败错误原因信息。
+                     */
+                    std::string m_message;
+                    bool m_messageHasBeenSet;
 
                 };
             }

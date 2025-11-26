@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取混流画布宽高配置
                      * @return LayoutParams 混流画布宽高配置
+                     * 
                      */
                     LayoutParams GetLayoutParams() const;
 
                     /**
                      * 设置混流画布宽高配置
-                     * @param LayoutParams 混流画布宽高配置
+                     * @param _layoutParams 混流画布宽高配置
+                     * 
                      */
                     void SetLayoutParams(const LayoutParams& _layoutParams);
 
                     /**
                      * 判断参数 LayoutParams 是否已赋值
                      * @return LayoutParams 是否已赋值
+                     * 
                      */
                     bool LayoutParamsHasBeenSet() const;
 
                     /**
                      * 获取背景颜色，默认为黑色，格式为RGB格式，如红色为"#FF0000"
                      * @return BackgroundColor 背景颜色，默认为黑色，格式为RGB格式，如红色为"#FF0000"
+                     * 
                      */
                     std::string GetBackgroundColor() const;
 
                     /**
                      * 设置背景颜色，默认为黑色，格式为RGB格式，如红色为"#FF0000"
-                     * @param BackgroundColor 背景颜色，默认为黑色，格式为RGB格式，如红色为"#FF0000"
+                     * @param _backgroundColor 背景颜色，默认为黑色，格式为RGB格式，如红色为"#FF0000"
+                     * 
                      */
                     void SetBackgroundColor(const std::string& _backgroundColor);
 
                     /**
                      * 判断参数 BackgroundColor 是否已赋值
                      * @return BackgroundColor 是否已赋值
+                     * 
                      */
                     bool BackgroundColorHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取域名 ID
                      * @return DomainId 域名 ID
+                     * 
                      */
                     uint64_t GetDomainId() const;
 
                     /**
                      * 设置域名 ID
-                     * @param DomainId 域名 ID
+                     * @param _domainId 域名 ID
+                     * 
                      */
                     void SetDomainId(const uint64_t& _domainId);
 
                     /**
                      * 判断参数 DomainId 是否已赋值
                      * @return DomainId 是否已赋值
+                     * 
                      */
                     bool DomainIdHasBeenSet() const;
 
                     /**
                      * 获取域名解锁码
                      * @return LockCode 域名解锁码
+                     * 
                      */
                     std::string GetLockCode() const;
 
                     /**
                      * 设置域名解锁码
-                     * @param LockCode 域名解锁码
+                     * @param _lockCode 域名解锁码
+                     * 
                      */
                     void SetLockCode(const std::string& _lockCode);
 
                     /**
                      * 判断参数 LockCode 是否已赋值
                      * @return LockCode 是否已赋值
+                     * 
                      */
                     bool LockCodeHasBeenSet() const;
 
                     /**
                      * 获取域名自动解锁日期
                      * @return LockEnd 域名自动解锁日期
+                     * 
                      */
                     std::string GetLockEnd() const;
 
                     /**
                      * 设置域名自动解锁日期
-                     * @param LockEnd 域名自动解锁日期
+                     * @param _lockEnd 域名自动解锁日期
+                     * 
                      */
                     void SetLockEnd(const std::string& _lockEnd);
 
                     /**
                      * 判断参数 LockEnd 是否已赋值
                      * @return LockEnd 是否已赋值
+                     * 
                      */
                     bool LockEndHasBeenSet() const;
 

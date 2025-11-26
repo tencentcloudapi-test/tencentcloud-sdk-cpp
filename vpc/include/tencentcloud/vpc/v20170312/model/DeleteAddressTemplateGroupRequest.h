@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取IP地址模板集合实例ID，例如：ipmg-90cex8mq。
                      * @return AddressTemplateGroupId IP地址模板集合实例ID，例如：ipmg-90cex8mq。
+                     * 
                      */
                     std::string GetAddressTemplateGroupId() const;
 
                     /**
                      * 设置IP地址模板集合实例ID，例如：ipmg-90cex8mq。
-                     * @param AddressTemplateGroupId IP地址模板集合实例ID，例如：ipmg-90cex8mq。
+                     * @param _addressTemplateGroupId IP地址模板集合实例ID，例如：ipmg-90cex8mq。
+                     * 
                      */
                     void SetAddressTemplateGroupId(const std::string& _addressTemplateGroupId);
 
                     /**
                      * 判断参数 AddressTemplateGroupId 是否已赋值
                      * @return AddressTemplateGroupId 是否已赋值
+                     * 
                      */
                     bool AddressTemplateGroupIdHasBeenSet() const;
 

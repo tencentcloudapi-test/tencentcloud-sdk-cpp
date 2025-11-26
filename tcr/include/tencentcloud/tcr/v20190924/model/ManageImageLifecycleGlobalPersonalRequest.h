@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取global_keep_last_days:全局保留最近几天的数据;global_keep_last_nums:全局保留最近多少个
                      * @return Type global_keep_last_days:全局保留最近几天的数据;global_keep_last_nums:全局保留最近多少个
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置global_keep_last_days:全局保留最近几天的数据;global_keep_last_nums:全局保留最近多少个
-                     * @param Type global_keep_last_days:全局保留最近几天的数据;global_keep_last_nums:全局保留最近多少个
+                     * @param _type global_keep_last_days:全局保留最近几天的数据;global_keep_last_nums:全局保留最近多少个
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取策略值
                      * @return Val 策略值
+                     * 
                      */
                     int64_t GetVal() const;
 
                     /**
                      * 设置策略值
-                     * @param Val 策略值
+                     * @param _val 策略值
+                     * 
                      */
                     void SetVal(const int64_t& _val);
 
                     /**
                      * 判断参数 Val 是否已赋值
                      * @return Val 是否已赋值
+                     * 
                      */
                     bool ValHasBeenSet() const;
 

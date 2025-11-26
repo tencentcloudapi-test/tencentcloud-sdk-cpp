@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取需要删除的通道组ID。
                      * @return GroupId 需要删除的通道组ID。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置需要删除的通道组ID。
-                     * @param GroupId 需要删除的通道组ID。
+                     * @param _groupId 需要删除的通道组ID。
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
@@ -69,6 +72,7 @@ namespace TencentCloud
 0，不强制删除，
 1，强制删除。
 默认为0，当通道组中存在通道或通道组中存在监听器/规则绑定了源站时，且Force为0时，该操作会返回失败。
+                     * 
                      */
                     uint64_t GetForce() const;
 
@@ -77,16 +81,18 @@ namespace TencentCloud
 0，不强制删除，
 1，强制删除。
 默认为0，当通道组中存在通道或通道组中存在监听器/规则绑定了源站时，且Force为0时，该操作会返回失败。
-                     * @param Force 强制删除标识。其中：
+                     * @param _force 强制删除标识。其中：
 0，不强制删除，
 1，强制删除。
 默认为0，当通道组中存在通道或通道组中存在监听器/规则绑定了源站时，且Force为0时，该操作会返回失败。
+                     * 
                      */
                     void SetForce(const uint64_t& _force);
 
                     /**
                      * 判断参数 Force 是否已赋值
                      * @return Force 是否已赋值
+                     * 
                      */
                     bool ForceHasBeenSet() const;
 

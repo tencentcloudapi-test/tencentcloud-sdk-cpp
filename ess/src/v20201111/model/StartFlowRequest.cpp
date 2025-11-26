@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,9 @@ using namespace std;
 StartFlowRequest::StartFlowRequest() :
     m_operatorHasBeenSet(false),
     m_flowIdHasBeenSet(false),
+    m_clientTokenHasBeenSet(false),
     m_agentHasBeenSet(false),
-    m_clientTokenHasBeenSet(false)
+    m_ccNotifyTypeHasBeenSet(false)
 {
 }
 
@@ -54,6 +55,14 @@ string StartFlowRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_flowId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_clientTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_agentHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -63,12 +72,12 @@ string StartFlowRequest::ToJsonString() const
         m_agent.ToJsonObject(d[key.c_str()], allocator);
     }
 
-    if (m_clientTokenHasBeenSet)
+    if (m_ccNotifyTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClientToken";
+        string key = "CcNotifyType";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
+        d.AddMember(iKey, m_ccNotifyType, allocator);
     }
 
 
@@ -111,6 +120,22 @@ bool StartFlowRequest::FlowIdHasBeenSet() const
     return m_flowIdHasBeenSet;
 }
 
+string StartFlowRequest::GetClientToken() const
+{
+    return m_clientToken;
+}
+
+void StartFlowRequest::SetClientToken(const string& _clientToken)
+{
+    m_clientToken = _clientToken;
+    m_clientTokenHasBeenSet = true;
+}
+
+bool StartFlowRequest::ClientTokenHasBeenSet() const
+{
+    return m_clientTokenHasBeenSet;
+}
+
 Agent StartFlowRequest::GetAgent() const
 {
     return m_agent;
@@ -127,20 +152,20 @@ bool StartFlowRequest::AgentHasBeenSet() const
     return m_agentHasBeenSet;
 }
 
-string StartFlowRequest::GetClientToken() const
+int64_t StartFlowRequest::GetCcNotifyType() const
 {
-    return m_clientToken;
+    return m_ccNotifyType;
 }
 
-void StartFlowRequest::SetClientToken(const string& _clientToken)
+void StartFlowRequest::SetCcNotifyType(const int64_t& _ccNotifyType)
 {
-    m_clientToken = _clientToken;
-    m_clientTokenHasBeenSet = true;
+    m_ccNotifyType = _ccNotifyType;
+    m_ccNotifyTypeHasBeenSet = true;
 }
 
-bool StartFlowRequest::ClientTokenHasBeenSet() const
+bool StartFlowRequest::CcNotifyTypeHasBeenSet() const
 {
-    return m_clientTokenHasBeenSet;
+    return m_ccNotifyTypeHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ CcnBandwidthInfo::CcnBandwidthInfo() :
     m_regionFlowControlIdHasBeenSet(false),
     m_renewFlagHasBeenSet(false),
     m_ccnRegionBandwidthLimitHasBeenSet(false),
-    m_marketIdHasBeenSet(false)
+    m_marketIdHasBeenSet(false),
+    m_tagSetHasBeenSet(false),
+    m_defaultQosBandwidthFlagHasBeenSet(false),
+    m_qosLevelHasBeenSet(false)
 {
 }
 
@@ -113,6 +116,46 @@ CoreInternalOutcome CcnBandwidthInfo::Deserialize(const rapidjson::Value &value)
         m_marketIdHasBeenSet = true;
     }
 
+    if (value.HasMember("TagSet") && !value["TagSet"].IsNull())
+    {
+        if (!value["TagSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CcnBandwidthInfo.TagSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TagSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tagSet.push_back(item);
+        }
+        m_tagSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("DefaultQosBandwidthFlag") && !value["DefaultQosBandwidthFlag"].IsNull())
+    {
+        if (!value["DefaultQosBandwidthFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CcnBandwidthInfo.DefaultQosBandwidthFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_defaultQosBandwidthFlag = value["DefaultQosBandwidthFlag"].GetBool();
+        m_defaultQosBandwidthFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("QosLevel") && !value["QosLevel"].IsNull())
+    {
+        if (!value["QosLevel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CcnBandwidthInfo.QosLevel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_qosLevel = string(value["QosLevel"].GetString());
+        m_qosLevelHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -175,6 +218,37 @@ void CcnBandwidthInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "MarketId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_marketId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagSet.begin(); itr != m_tagSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_defaultQosBandwidthFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DefaultQosBandwidthFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_defaultQosBandwidthFlag, allocator);
+    }
+
+    if (m_qosLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QosLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_qosLevel.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -290,5 +364,53 @@ void CcnBandwidthInfo::SetMarketId(const string& _marketId)
 bool CcnBandwidthInfo::MarketIdHasBeenSet() const
 {
     return m_marketIdHasBeenSet;
+}
+
+vector<Tag> CcnBandwidthInfo::GetTagSet() const
+{
+    return m_tagSet;
+}
+
+void CcnBandwidthInfo::SetTagSet(const vector<Tag>& _tagSet)
+{
+    m_tagSet = _tagSet;
+    m_tagSetHasBeenSet = true;
+}
+
+bool CcnBandwidthInfo::TagSetHasBeenSet() const
+{
+    return m_tagSetHasBeenSet;
+}
+
+bool CcnBandwidthInfo::GetDefaultQosBandwidthFlag() const
+{
+    return m_defaultQosBandwidthFlag;
+}
+
+void CcnBandwidthInfo::SetDefaultQosBandwidthFlag(const bool& _defaultQosBandwidthFlag)
+{
+    m_defaultQosBandwidthFlag = _defaultQosBandwidthFlag;
+    m_defaultQosBandwidthFlagHasBeenSet = true;
+}
+
+bool CcnBandwidthInfo::DefaultQosBandwidthFlagHasBeenSet() const
+{
+    return m_defaultQosBandwidthFlagHasBeenSet;
+}
+
+string CcnBandwidthInfo::GetQosLevel() const
+{
+    return m_qosLevel;
+}
+
+void CcnBandwidthInfo::SetQosLevel(const string& _qosLevel)
+{
+    m_qosLevel = _qosLevel;
+    m_qosLevelHasBeenSet = true;
+}
+
+bool CcnBandwidthInfo::QosLevelHasBeenSet() const
+{
+    return m_qosLevelHasBeenSet;
 }
 

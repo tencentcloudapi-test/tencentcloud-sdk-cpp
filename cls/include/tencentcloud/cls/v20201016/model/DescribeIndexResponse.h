@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,26 +45,32 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取日志主题ID
-                     * @return TopicId 日志主题ID
+                     * 获取日志主题Id
+                     * @return TopicId 日志主题Id
+                     * 
                      */
                     std::string GetTopicId() const;
 
                     /**
                      * 判断参数 TopicId 是否已赋值
                      * @return TopicId 是否已赋值
+                     * 
                      */
                     bool TopicIdHasBeenSet() const;
 
                     /**
-                     * 获取是否生效
-                     * @return Status 是否生效
+                     * 获取索引状态。true：开启状态，false：关闭状态
+开启后可对日志进行检索分析，将产生索引流量、索引存储及相应费用。[费用详情](https://cloud.tencent.com/document/product/614/45802#.E8.AE.A1.E8.B4.B9.E9.A1.B9)
+                     * @return Status 索引状态。true：开启状态，false：关闭状态
+开启后可对日志进行检索分析，将产生索引流量、索引存储及相应费用。[费用详情](https://cloud.tencent.com/document/product/614/45802#.E8.AE.A1.E8.B4.B9.E9.A1.B9)
+                     * 
                      */
                     bool GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
@@ -73,37 +79,80 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Rule 索引配置信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     RuleInfo GetRule() const;
 
                     /**
                      * 判断参数 Rule 是否已赋值
                      * @return Rule 是否已赋值
+                     * 
                      */
                     bool RuleHasBeenSet() const;
 
                     /**
-                     * 获取索引修改时间，初始值为索引创建时间。
-                     * @return ModifyTime 索引修改时间，初始值为索引创建时间。
+                     * 获取索引修改时间，初始值为索引创建时间。格式 `YYYY-MM-DD HH:MM:SS`
+                     * @return ModifyTime 索引修改时间，初始值为索引创建时间。格式 `YYYY-MM-DD HH:MM:SS`
+                     * 
                      */
                     std::string GetModifyTime() const;
 
                     /**
                      * 判断参数 ModifyTime 是否已赋值
                      * @return ModifyTime 是否已赋值
+                     * 
                      */
                     bool ModifyTimeHasBeenSet() const;
+
+                    /**
+                     * 获取内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
+* false:不包含
+* true:包含
+                     * @return IncludeInternalFields 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
+* false:不包含
+* true:包含
+                     * 
+                     */
+                    bool GetIncludeInternalFields() const;
+
+                    /**
+                     * 判断参数 IncludeInternalFields 是否已赋值
+                     * @return IncludeInternalFields 是否已赋值
+                     * 
+                     */
+                    bool IncludeInternalFieldsHasBeenSet() const;
+
+                    /**
+                     * 获取元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引
+* 0:仅包含开启键值索引的元数据字段
+* 1:包含所有元数据字段
+* 2:不包含任何元数据字段
+                     * @return MetadataFlag 元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引
+* 0:仅包含开启键值索引的元数据字段
+* 1:包含所有元数据字段
+* 2:不包含任何元数据字段
+                     * 
+                     */
+                    uint64_t GetMetadataFlag() const;
+
+                    /**
+                     * 判断参数 MetadataFlag 是否已赋值
+                     * @return MetadataFlag 是否已赋值
+                     * 
+                     */
+                    bool MetadataFlagHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 日志主题ID
+                     * 日志主题Id
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;
 
                     /**
-                     * 是否生效
+                     * 索引状态。true：开启状态，false：关闭状态
+开启后可对日志进行检索分析，将产生索引流量、索引存储及相应费用。[费用详情](https://cloud.tencent.com/document/product/614/45802#.E8.AE.A1.E8.B4.B9.E9.A1.B9)
                      */
                     bool m_status;
                     bool m_statusHasBeenSet;
@@ -116,10 +165,27 @@ namespace TencentCloud
                     bool m_ruleHasBeenSet;
 
                     /**
-                     * 索引修改时间，初始值为索引创建时间。
+                     * 索引修改时间，初始值为索引创建时间。格式 `YYYY-MM-DD HH:MM:SS`
                      */
                     std::string m_modifyTime;
                     bool m_modifyTimeHasBeenSet;
+
+                    /**
+                     * 内置保留字段（`__FILENAME__`，`__HOSTNAME__`及`__SOURCE__`）是否包含至全文索引
+* false:不包含
+* true:包含
+                     */
+                    bool m_includeInternalFields;
+                    bool m_includeInternalFieldsHasBeenSet;
+
+                    /**
+                     * 元数据字段（前缀为`__TAG__`的字段）是否包含至全文索引
+* 0:仅包含开启键值索引的元数据字段
+* 1:包含所有元数据字段
+* 2:不包含任何元数据字段
+                     */
+                    uint64_t m_metadataFlag;
+                    bool m_metadataFlagHasBeenSet;
 
                 };
             }

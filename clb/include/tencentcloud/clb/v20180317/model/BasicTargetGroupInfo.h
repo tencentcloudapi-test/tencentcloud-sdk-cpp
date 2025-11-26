@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,38 +49,65 @@ namespace TencentCloud
                     /**
                      * 获取目标组ID
                      * @return TargetGroupId 目标组ID
+                     * 
                      */
                     std::string GetTargetGroupId() const;
 
                     /**
                      * 设置目标组ID
-                     * @param TargetGroupId 目标组ID
+                     * @param _targetGroupId 目标组ID
+                     * 
                      */
                     void SetTargetGroupId(const std::string& _targetGroupId);
 
                     /**
                      * 判断参数 TargetGroupId 是否已赋值
                      * @return TargetGroupId 是否已赋值
+                     * 
                      */
                     bool TargetGroupIdHasBeenSet() const;
 
                     /**
                      * 获取目标组名称
                      * @return TargetGroupName 目标组名称
+                     * 
                      */
                     std::string GetTargetGroupName() const;
 
                     /**
                      * 设置目标组名称
-                     * @param TargetGroupName 目标组名称
+                     * @param _targetGroupName 目标组名称
+                     * 
                      */
                     void SetTargetGroupName(const std::string& _targetGroupName);
 
                     /**
                      * 判断参数 TargetGroupName 是否已赋值
                      * @return TargetGroupName 是否已赋值
+                     * 
                      */
                     bool TargetGroupNameHasBeenSet() const;
+
+                    /**
+                     * 获取目标组权重
+                     * @return Weight 目标组权重
+                     * 
+                     */
+                    uint64_t GetWeight() const;
+
+                    /**
+                     * 设置目标组权重
+                     * @param _weight 目标组权重
+                     * 
+                     */
+                    void SetWeight(const uint64_t& _weight);
+
+                    /**
+                     * 判断参数 Weight 是否已赋值
+                     * @return Weight 是否已赋值
+                     * 
+                     */
+                    bool WeightHasBeenSet() const;
 
                 private:
 
@@ -95,6 +122,12 @@ namespace TencentCloud
                      */
                     std::string m_targetGroupName;
                     bool m_targetGroupNameHasBeenSet;
+
+                    /**
+                     * 目标组权重
+                     */
+                    uint64_t m_weight;
+                    bool m_weightHasBeenSet;
 
                 };
             }

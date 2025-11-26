@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,33 +44,52 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取支持的产品列表。
-                     * @return Products 支持的产品列表。
+                     * 获取支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。
+                     * @return Products 支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。
+                     * 
                      */
                     std::vector<std::string> GetProducts() const;
 
                     /**
                      * 判断参数 Products 是否已赋值
                      * @return Products 是否已赋值
+                     * 
                      */
                     bool ProductsHasBeenSet() const;
 
                     /**
                      * 获取支持的产品个数
                      * @return TotalCount 支持的产品个数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 支持的产品列表。
+                     * 支持的所有云产品列表。
+每种云产品与凭据类型的对应关系如下：
+当SecretType为1时，支持的云产品列表包括：Mysql、Tdsql-mysql、Tdsql_C_Mysql；
+当SecretType为2时，支持的产品列表为：Cvm；
+当SecretType为3时，支持的产品列表为：Cam（此功能的使用需要联系云助手单独开始白名单）；
+当SecretType为4时，支持的产品列表为：Redis。
                      */
                     std::vector<std::string> m_products;
                     bool m_productsHasBeenSet;

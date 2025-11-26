@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取值
                      * @return Num 值
+                     * 
                      */
                     int64_t GetNum() const;
 
                     /**
                      * 设置值
-                     * @param Num 值
+                     * @param _num 值
+                     * 
                      */
                     void SetNum(const int64_t& _num);
 
                     /**
                      * 判断参数 Num 是否已赋值
                      * @return Num 是否已赋值
+                     * 
                      */
                     bool NumHasBeenSet() const;
 
                     /**
                      * 获取折线图横坐标时间
                      * @return StatTime 折线图横坐标时间
+                     * 
                      */
                     std::string GetStatTime() const;
 
                     /**
                      * 设置折线图横坐标时间
-                     * @param StatTime 折线图横坐标时间
+                     * @param _statTime 折线图横坐标时间
+                     * 
                      */
                     void SetStatTime(const std::string& _statTime);
 
                     /**
                      * 判断参数 StatTime 是否已赋值
                      * @return StatTime 是否已赋值
+                     * 
                      */
                     bool StatTimeHasBeenSet() const;
 

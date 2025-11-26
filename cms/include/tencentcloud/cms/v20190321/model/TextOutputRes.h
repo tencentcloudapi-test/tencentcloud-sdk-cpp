@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,78 +49,90 @@ namespace TencentCloud
                     /**
                      * 获取操作人,信安处理人企业微信ID
                      * @return Operator 操作人,信安处理人企业微信ID
+                     * 
                      */
                     std::string GetOperator() const;
 
                     /**
                      * 设置操作人,信安处理人企业微信ID
-                     * @param Operator 操作人,信安处理人企业微信ID
+                     * @param _operator 操作人,信安处理人企业微信ID
+                     * 
                      */
                     void SetOperator(const std::string& _operator);
 
                     /**
                      * 判断参数 Operator 是否已赋值
                      * @return Operator 是否已赋值
+                     * 
                      */
                     bool OperatorHasBeenSet() const;
 
                     /**
-                     * 获取恶意操作码，
-删除（1）， 通过（2）， 先审后发（100012）
-                     * @return ResultCode 恶意操作码，
-删除（1）， 通过（2）， 先审后发（100012）
-                     */
-                    int64_t GetResultCode() const;
-
-                    /**
-                     * 设置恶意操作码，
-删除（1）， 通过（2）， 先审后发（100012）
-                     * @param ResultCode 恶意操作码，
-删除（1）， 通过（2）， 先审后发（100012）
-                     */
-                    void SetResultCode(const int64_t& _resultCode);
-
-                    /**
-                     * 判断参数 ResultCode 是否已赋值
-                     * @return ResultCode 是否已赋值
-                     */
-                    bool ResultCodeHasBeenSet() const;
-
-                    /**
-                     * 获取操作结果备注说明
-                     * @return ResultMsg 操作结果备注说明
-                     */
-                    std::string GetResultMsg() const;
-
-                    /**
-                     * 设置操作结果备注说明
-                     * @param ResultMsg 操作结果备注说明
-                     */
-                    void SetResultMsg(const std::string& _resultMsg);
-
-                    /**
-                     * 判断参数 ResultMsg 是否已赋值
-                     * @return ResultMsg 是否已赋值
-                     */
-                    bool ResultMsgHasBeenSet() const;
-
-                    /**
                      * 获取恶意类型，广告（10001）， 政治（20001）， 色情（20002）， 社会事件（20004）， 暴力（20011）， 低俗（20012）， 违法犯罪（20006）， 欺诈（20008）， 版权（20013）， 谣言（20104）， 其他（21000）
                      * @return ResultType 恶意类型，广告（10001）， 政治（20001）， 色情（20002）， 社会事件（20004）， 暴力（20011）， 低俗（20012）， 违法犯罪（20006）， 欺诈（20008）， 版权（20013）， 谣言（20104）， 其他（21000）
+                     * 
                      */
                     int64_t GetResultType() const;
 
                     /**
                      * 设置恶意类型，广告（10001）， 政治（20001）， 色情（20002）， 社会事件（20004）， 暴力（20011）， 低俗（20012）， 违法犯罪（20006）， 欺诈（20008）， 版权（20013）， 谣言（20104）， 其他（21000）
-                     * @param ResultType 恶意类型，广告（10001）， 政治（20001）， 色情（20002）， 社会事件（20004）， 暴力（20011）， 低俗（20012）， 违法犯罪（20006）， 欺诈（20008）， 版权（20013）， 谣言（20104）， 其他（21000）
+                     * @param _resultType 恶意类型，广告（10001）， 政治（20001）， 色情（20002）， 社会事件（20004）， 暴力（20011）， 低俗（20012）， 违法犯罪（20006）， 欺诈（20008）， 版权（20013）， 谣言（20104）， 其他（21000）
+                     * 
                      */
                     void SetResultType(const int64_t& _resultType);
 
                     /**
                      * 判断参数 ResultType 是否已赋值
                      * @return ResultType 是否已赋值
+                     * 
                      */
                     bool ResultTypeHasBeenSet() const;
+
+                    /**
+                     * 获取恶意操作码，
+删除（1）， 通过（2）， 先审后发（100012）
+                     * @return ResultCode 恶意操作码，
+删除（1）， 通过（2）， 先审后发（100012）
+                     * 
+                     */
+                    int64_t GetResultCode() const;
+
+                    /**
+                     * 设置恶意操作码，
+删除（1）， 通过（2）， 先审后发（100012）
+                     * @param _resultCode 恶意操作码，
+删除（1）， 通过（2）， 先审后发（100012）
+                     * 
+                     */
+                    void SetResultCode(const int64_t& _resultCode);
+
+                    /**
+                     * 判断参数 ResultCode 是否已赋值
+                     * @return ResultCode 是否已赋值
+                     * 
+                     */
+                    bool ResultCodeHasBeenSet() const;
+
+                    /**
+                     * 获取操作结果备注说明
+                     * @return ResultMsg 操作结果备注说明
+                     * 
+                     */
+                    std::string GetResultMsg() const;
+
+                    /**
+                     * 设置操作结果备注说明
+                     * @param _resultMsg 操作结果备注说明
+                     * 
+                     */
+                    void SetResultMsg(const std::string& _resultMsg);
+
+                    /**
+                     * 判断参数 ResultMsg 是否已赋值
+                     * @return ResultMsg 是否已赋值
+                     * 
+                     */
+                    bool ResultMsgHasBeenSet() const;
 
                 private:
 
@@ -129,6 +141,12 @@ namespace TencentCloud
                      */
                     std::string m_operator;
                     bool m_operatorHasBeenSet;
+
+                    /**
+                     * 恶意类型，广告（10001）， 政治（20001）， 色情（20002）， 社会事件（20004）， 暴力（20011）， 低俗（20012）， 违法犯罪（20006）， 欺诈（20008）， 版权（20013）， 谣言（20104）， 其他（21000）
+                     */
+                    int64_t m_resultType;
+                    bool m_resultTypeHasBeenSet;
 
                     /**
                      * 恶意操作码，
@@ -142,12 +160,6 @@ namespace TencentCloud
                      */
                     std::string m_resultMsg;
                     bool m_resultMsgHasBeenSet;
-
-                    /**
-                     * 恶意类型，广告（10001）， 政治（20001）， 色情（20002）， 社会事件（20004）， 暴力（20011）， 低俗（20012）， 违法犯罪（20006）， 欺诈（20008）， 版权（20013）， 谣言（20104）， 其他（21000）
-                     */
-                    int64_t m_resultType;
-                    bool m_resultTypeHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,51 +44,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取Vpn网关id
-                     * @return VpnGatewayId Vpn网关id
+                     * 获取VPN网关实例ID。
+                     * @return VpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     std::string GetVpnGatewayId() const;
 
                     /**
-                     * 设置Vpn网关id
-                     * @param VpnGatewayId Vpn网关id
+                     * 设置VPN网关实例ID。
+                     * @param _vpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     void SetVpnGatewayId(const std::string& _vpnGatewayId);
 
                     /**
                      * 判断参数 VpnGatewayId 是否已赋值
                      * @return VpnGatewayId 是否已赋值
+                     * 
                      */
                     bool VpnGatewayIdHasBeenSet() const;
 
                     /**
-                     * 获取路由修改参数
-                     * @return Routes 路由修改参数
+                     * 获取路由修改参数。
+                     * @return Routes 路由修改参数。
+                     * 
                      */
                     std::vector<VpnGatewayRouteModify> GetRoutes() const;
 
                     /**
-                     * 设置路由修改参数
-                     * @param Routes 路由修改参数
+                     * 设置路由修改参数。
+                     * @param _routes 路由修改参数。
+                     * 
                      */
                     void SetRoutes(const std::vector<VpnGatewayRouteModify>& _routes);
 
                     /**
                      * 判断参数 Routes 是否已赋值
                      * @return Routes 是否已赋值
+                     * 
                      */
                     bool RoutesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * Vpn网关id
+                     * VPN网关实例ID。
                      */
                     std::string m_vpnGatewayId;
                     bool m_vpnGatewayIdHasBeenSet;
 
                     /**
-                     * 路由修改参数
+                     * 路由修改参数。
                      */
                     std::vector<VpnGatewayRouteModify> m_routes;
                     bool m_routesHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取购买的预付费商品实例列表。
                      * @return ProductInstanceSet 购买的预付费商品实例列表。
+                     * 
                      */
                     std::vector<ProductInstance> GetProductInstanceSet() const;
 
                     /**
                      * 判断参数 ProductInstanceSet 是否已赋值
                      * @return ProductInstanceSet 是否已赋值
+                     * 
                      */
                     bool ProductInstanceSetHasBeenSet() const;
 

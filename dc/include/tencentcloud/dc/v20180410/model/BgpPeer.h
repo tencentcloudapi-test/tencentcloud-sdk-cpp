@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * bgp参数，包括Asn，AuthKey
+                * bgp参数，包括CloudAsn，Asn，AuthKey
                 */
                 class BgpPeer : public AbstractModel
                 {
@@ -47,45 +47,78 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取用户侧，BGP Asn
-                     * @return Asn 用户侧，BGP Asn
+                     * 获取腾讯侧BGP ASN
+                     * @return CloudAsn 腾讯侧BGP ASN
+                     * 
+                     */
+                    int64_t GetCloudAsn() const;
+
+                    /**
+                     * 设置腾讯侧BGP ASN
+                     * @param _cloudAsn 腾讯侧BGP ASN
+                     * 
+                     */
+                    void SetCloudAsn(const int64_t& _cloudAsn);
+
+                    /**
+                     * 判断参数 CloudAsn 是否已赋值
+                     * @return CloudAsn 是否已赋值
+                     * 
+                     */
+                    bool CloudAsnHasBeenSet() const;
+
+                    /**
+                     * 获取用户侧BGP ASN
+                     * @return Asn 用户侧BGP ASN
+                     * 
                      */
                     int64_t GetAsn() const;
 
                     /**
-                     * 设置用户侧，BGP Asn
-                     * @param Asn 用户侧，BGP Asn
+                     * 设置用户侧BGP ASN
+                     * @param _asn 用户侧BGP ASN
+                     * 
                      */
                     void SetAsn(const int64_t& _asn);
 
                     /**
                      * 判断参数 Asn 是否已赋值
                      * @return Asn 是否已赋值
+                     * 
                      */
                     bool AsnHasBeenSet() const;
 
                     /**
                      * 获取用户侧BGP密钥
                      * @return AuthKey 用户侧BGP密钥
+                     * 
                      */
                     std::string GetAuthKey() const;
 
                     /**
                      * 设置用户侧BGP密钥
-                     * @param AuthKey 用户侧BGP密钥
+                     * @param _authKey 用户侧BGP密钥
+                     * 
                      */
                     void SetAuthKey(const std::string& _authKey);
 
                     /**
                      * 判断参数 AuthKey 是否已赋值
                      * @return AuthKey 是否已赋值
+                     * 
                      */
                     bool AuthKeyHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 用户侧，BGP Asn
+                     * 腾讯侧BGP ASN
+                     */
+                    int64_t m_cloudAsn;
+                    bool m_cloudAsnHasBeenSet;
+
+                    /**
+                     * 用户侧BGP ASN
                      */
                     int64_t m_asn;
                     bool m_asnHasBeenSet;

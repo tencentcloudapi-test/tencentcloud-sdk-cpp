@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,12 +25,20 @@ TemplateInfo::TemplateInfo() :
     m_templateNameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_componentsHasBeenSet(false),
+    m_recipientsHasBeenSet(false),
     m_signComponentsHasBeenSet(false),
+    m_templateTypeHasBeenSet(false),
+    m_isPromoterHasBeenSet(false),
     m_creatorHasBeenSet(false),
     m_createdOnHasBeenSet(false),
-    m_templateTypeHasBeenSet(false),
-    m_recipientsHasBeenSet(false),
-    m_isPromoterHasBeenSet(false)
+    m_previewUrlHasBeenSet(false),
+    m_pdfUrlHasBeenSet(false),
+    m_channelTemplateIdHasBeenSet(false),
+    m_channelTemplateNameHasBeenSet(false),
+    m_channelAutoSaveHasBeenSet(false),
+    m_templateVersionHasBeenSet(false),
+    m_availableHasBeenSet(false),
+    m_userFlowTypeHasBeenSet(false)
 {
 }
 
@@ -89,6 +97,26 @@ CoreInternalOutcome TemplateInfo::Deserialize(const rapidjson::Value &value)
         m_componentsHasBeenSet = true;
     }
 
+    if (value.HasMember("Recipients") && !value["Recipients"].IsNull())
+    {
+        if (!value["Recipients"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.Recipients` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Recipients"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Recipient item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_recipients.push_back(item);
+        }
+        m_recipientsHasBeenSet = true;
+    }
+
     if (value.HasMember("SignComponents") && !value["SignComponents"].IsNull())
     {
         if (!value["SignComponents"].IsArray())
@@ -107,6 +135,26 @@ CoreInternalOutcome TemplateInfo::Deserialize(const rapidjson::Value &value)
             m_signComponents.push_back(item);
         }
         m_signComponentsHasBeenSet = true;
+    }
+
+    if (value.HasMember("TemplateType") && !value["TemplateType"].IsNull())
+    {
+        if (!value["TemplateType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.TemplateType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_templateType = value["TemplateType"].GetInt64();
+        m_templateTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsPromoter") && !value["IsPromoter"].IsNull())
+    {
+        if (!value["IsPromoter"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.IsPromoter` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isPromoter = value["IsPromoter"].GetBool();
+        m_isPromoterHasBeenSet = true;
     }
 
     if (value.HasMember("Creator") && !value["Creator"].IsNull())
@@ -129,44 +177,91 @@ CoreInternalOutcome TemplateInfo::Deserialize(const rapidjson::Value &value)
         m_createdOnHasBeenSet = true;
     }
 
-    if (value.HasMember("TemplateType") && !value["TemplateType"].IsNull())
+    if (value.HasMember("PreviewUrl") && !value["PreviewUrl"].IsNull())
     {
-        if (!value["TemplateType"].IsInt64())
+        if (!value["PreviewUrl"].IsString())
         {
-            return CoreInternalOutcome(Core::Error("response `TemplateInfo.TemplateType` IsInt64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.PreviewUrl` IsString=false incorrectly").SetRequestId(requestId));
         }
-        m_templateType = value["TemplateType"].GetInt64();
-        m_templateTypeHasBeenSet = true;
+        m_previewUrl = string(value["PreviewUrl"].GetString());
+        m_previewUrlHasBeenSet = true;
     }
 
-    if (value.HasMember("Recipients") && !value["Recipients"].IsNull())
+    if (value.HasMember("PdfUrl") && !value["PdfUrl"].IsNull())
     {
-        if (!value["Recipients"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `TemplateInfo.Recipients` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["Recipients"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        if (!value["PdfUrl"].IsString())
         {
-            Recipient item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_recipients.push_back(item);
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.PdfUrl` IsString=false incorrectly").SetRequestId(requestId));
         }
-        m_recipientsHasBeenSet = true;
+        m_pdfUrl = string(value["PdfUrl"].GetString());
+        m_pdfUrlHasBeenSet = true;
     }
 
-    if (value.HasMember("IsPromoter") && !value["IsPromoter"].IsNull())
+    if (value.HasMember("ChannelTemplateId") && !value["ChannelTemplateId"].IsNull())
     {
-        if (!value["IsPromoter"].IsBool())
+        if (!value["ChannelTemplateId"].IsString())
         {
-            return CoreInternalOutcome(Core::Error("response `TemplateInfo.IsPromoter` IsBool=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.ChannelTemplateId` IsString=false incorrectly").SetRequestId(requestId));
         }
-        m_isPromoter = value["IsPromoter"].GetBool();
-        m_isPromoterHasBeenSet = true;
+        m_channelTemplateId = string(value["ChannelTemplateId"].GetString());
+        m_channelTemplateIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ChannelTemplateName") && !value["ChannelTemplateName"].IsNull())
+    {
+        if (!value["ChannelTemplateName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.ChannelTemplateName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_channelTemplateName = string(value["ChannelTemplateName"].GetString());
+        m_channelTemplateNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("ChannelAutoSave") && !value["ChannelAutoSave"].IsNull())
+    {
+        if (!value["ChannelAutoSave"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.ChannelAutoSave` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_channelAutoSave = value["ChannelAutoSave"].GetInt64();
+        m_channelAutoSaveHasBeenSet = true;
+    }
+
+    if (value.HasMember("TemplateVersion") && !value["TemplateVersion"].IsNull())
+    {
+        if (!value["TemplateVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.TemplateVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_templateVersion = string(value["TemplateVersion"].GetString());
+        m_templateVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("Available") && !value["Available"].IsNull())
+    {
+        if (!value["Available"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.Available` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_available = value["Available"].GetInt64();
+        m_availableHasBeenSet = true;
+    }
+
+    if (value.HasMember("UserFlowType") && !value["UserFlowType"].IsNull())
+    {
+        if (!value["UserFlowType"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TemplateInfo.UserFlowType` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_userFlowType.Deserialize(value["UserFlowType"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_userFlowTypeHasBeenSet = true;
     }
 
 
@@ -215,6 +310,21 @@ void TemplateInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         }
     }
 
+    if (m_recipientsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Recipients";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_recipients.begin(); itr != m_recipients.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     if (m_signComponentsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -228,6 +338,22 @@ void TemplateInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_templateTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TemplateType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_templateType, allocator);
+    }
+
+    if (m_isPromoterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsPromoter";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isPromoter, allocator);
     }
 
     if (m_creatorHasBeenSet)
@@ -246,35 +372,69 @@ void TemplateInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         value.AddMember(iKey, m_createdOn, allocator);
     }
 
-    if (m_templateTypeHasBeenSet)
+    if (m_previewUrlHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TemplateType";
+        string key = "PreviewUrl";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_templateType, allocator);
+        value.AddMember(iKey, rapidjson::Value(m_previewUrl.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_recipientsHasBeenSet)
+    if (m_pdfUrlHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Recipients";
+        string key = "PdfUrl";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_recipients.begin(); itr != m_recipients.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
+        value.AddMember(iKey, rapidjson::Value(m_pdfUrl.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_isPromoterHasBeenSet)
+    if (m_channelTemplateIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IsPromoter";
+        string key = "ChannelTemplateId";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_isPromoter, allocator);
+        value.AddMember(iKey, rapidjson::Value(m_channelTemplateId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_channelTemplateNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChannelTemplateName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_channelTemplateName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_channelAutoSaveHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChannelAutoSave";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_channelAutoSave, allocator);
+    }
+
+    if (m_templateVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TemplateVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_templateVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_availableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Available";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_available, allocator);
+    }
+
+    if (m_userFlowTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserFlowType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_userFlowType.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -344,6 +504,22 @@ bool TemplateInfo::ComponentsHasBeenSet() const
     return m_componentsHasBeenSet;
 }
 
+vector<Recipient> TemplateInfo::GetRecipients() const
+{
+    return m_recipients;
+}
+
+void TemplateInfo::SetRecipients(const vector<Recipient>& _recipients)
+{
+    m_recipients = _recipients;
+    m_recipientsHasBeenSet = true;
+}
+
+bool TemplateInfo::RecipientsHasBeenSet() const
+{
+    return m_recipientsHasBeenSet;
+}
+
 vector<Component> TemplateInfo::GetSignComponents() const
 {
     return m_signComponents;
@@ -358,6 +534,38 @@ void TemplateInfo::SetSignComponents(const vector<Component>& _signComponents)
 bool TemplateInfo::SignComponentsHasBeenSet() const
 {
     return m_signComponentsHasBeenSet;
+}
+
+int64_t TemplateInfo::GetTemplateType() const
+{
+    return m_templateType;
+}
+
+void TemplateInfo::SetTemplateType(const int64_t& _templateType)
+{
+    m_templateType = _templateType;
+    m_templateTypeHasBeenSet = true;
+}
+
+bool TemplateInfo::TemplateTypeHasBeenSet() const
+{
+    return m_templateTypeHasBeenSet;
+}
+
+bool TemplateInfo::GetIsPromoter() const
+{
+    return m_isPromoter;
+}
+
+void TemplateInfo::SetIsPromoter(const bool& _isPromoter)
+{
+    m_isPromoter = _isPromoter;
+    m_isPromoterHasBeenSet = true;
+}
+
+bool TemplateInfo::IsPromoterHasBeenSet() const
+{
+    return m_isPromoterHasBeenSet;
 }
 
 string TemplateInfo::GetCreator() const
@@ -392,51 +600,131 @@ bool TemplateInfo::CreatedOnHasBeenSet() const
     return m_createdOnHasBeenSet;
 }
 
-int64_t TemplateInfo::GetTemplateType() const
+string TemplateInfo::GetPreviewUrl() const
 {
-    return m_templateType;
+    return m_previewUrl;
 }
 
-void TemplateInfo::SetTemplateType(const int64_t& _templateType)
+void TemplateInfo::SetPreviewUrl(const string& _previewUrl)
 {
-    m_templateType = _templateType;
-    m_templateTypeHasBeenSet = true;
+    m_previewUrl = _previewUrl;
+    m_previewUrlHasBeenSet = true;
 }
 
-bool TemplateInfo::TemplateTypeHasBeenSet() const
+bool TemplateInfo::PreviewUrlHasBeenSet() const
 {
-    return m_templateTypeHasBeenSet;
+    return m_previewUrlHasBeenSet;
 }
 
-vector<Recipient> TemplateInfo::GetRecipients() const
+string TemplateInfo::GetPdfUrl() const
 {
-    return m_recipients;
+    return m_pdfUrl;
 }
 
-void TemplateInfo::SetRecipients(const vector<Recipient>& _recipients)
+void TemplateInfo::SetPdfUrl(const string& _pdfUrl)
 {
-    m_recipients = _recipients;
-    m_recipientsHasBeenSet = true;
+    m_pdfUrl = _pdfUrl;
+    m_pdfUrlHasBeenSet = true;
 }
 
-bool TemplateInfo::RecipientsHasBeenSet() const
+bool TemplateInfo::PdfUrlHasBeenSet() const
 {
-    return m_recipientsHasBeenSet;
+    return m_pdfUrlHasBeenSet;
 }
 
-bool TemplateInfo::GetIsPromoter() const
+string TemplateInfo::GetChannelTemplateId() const
 {
-    return m_isPromoter;
+    return m_channelTemplateId;
 }
 
-void TemplateInfo::SetIsPromoter(const bool& _isPromoter)
+void TemplateInfo::SetChannelTemplateId(const string& _channelTemplateId)
 {
-    m_isPromoter = _isPromoter;
-    m_isPromoterHasBeenSet = true;
+    m_channelTemplateId = _channelTemplateId;
+    m_channelTemplateIdHasBeenSet = true;
 }
 
-bool TemplateInfo::IsPromoterHasBeenSet() const
+bool TemplateInfo::ChannelTemplateIdHasBeenSet() const
 {
-    return m_isPromoterHasBeenSet;
+    return m_channelTemplateIdHasBeenSet;
+}
+
+string TemplateInfo::GetChannelTemplateName() const
+{
+    return m_channelTemplateName;
+}
+
+void TemplateInfo::SetChannelTemplateName(const string& _channelTemplateName)
+{
+    m_channelTemplateName = _channelTemplateName;
+    m_channelTemplateNameHasBeenSet = true;
+}
+
+bool TemplateInfo::ChannelTemplateNameHasBeenSet() const
+{
+    return m_channelTemplateNameHasBeenSet;
+}
+
+int64_t TemplateInfo::GetChannelAutoSave() const
+{
+    return m_channelAutoSave;
+}
+
+void TemplateInfo::SetChannelAutoSave(const int64_t& _channelAutoSave)
+{
+    m_channelAutoSave = _channelAutoSave;
+    m_channelAutoSaveHasBeenSet = true;
+}
+
+bool TemplateInfo::ChannelAutoSaveHasBeenSet() const
+{
+    return m_channelAutoSaveHasBeenSet;
+}
+
+string TemplateInfo::GetTemplateVersion() const
+{
+    return m_templateVersion;
+}
+
+void TemplateInfo::SetTemplateVersion(const string& _templateVersion)
+{
+    m_templateVersion = _templateVersion;
+    m_templateVersionHasBeenSet = true;
+}
+
+bool TemplateInfo::TemplateVersionHasBeenSet() const
+{
+    return m_templateVersionHasBeenSet;
+}
+
+int64_t TemplateInfo::GetAvailable() const
+{
+    return m_available;
+}
+
+void TemplateInfo::SetAvailable(const int64_t& _available)
+{
+    m_available = _available;
+    m_availableHasBeenSet = true;
+}
+
+bool TemplateInfo::AvailableHasBeenSet() const
+{
+    return m_availableHasBeenSet;
+}
+
+UserFlowType TemplateInfo::GetUserFlowType() const
+{
+    return m_userFlowType;
+}
+
+void TemplateInfo::SetUserFlowType(const UserFlowType& _userFlowType)
+{
+    m_userFlowType = _userFlowType;
+    m_userFlowTypeHasBeenSet = true;
+}
+
+bool TemplateInfo::UserFlowTypeHasBeenSet() const
+{
+    return m_userFlowTypeHasBeenSet;
 }
 

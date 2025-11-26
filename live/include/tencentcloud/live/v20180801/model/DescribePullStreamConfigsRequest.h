@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,20 +47,23 @@ namespace TencentCloud
 获取途径：从 CreatePullStreamConfig 接口返回值获取。
                      * @return ConfigId 配置 ID。
 获取途径：从 CreatePullStreamConfig 接口返回值获取。
+                     * 
                      */
                     std::string GetConfigId() const;
 
                     /**
                      * 设置配置 ID。
 获取途径：从 CreatePullStreamConfig 接口返回值获取。
-                     * @param ConfigId 配置 ID。
+                     * @param _configId 配置 ID。
 获取途径：从 CreatePullStreamConfig 接口返回值获取。
+                     * 
                      */
                     void SetConfigId(const std::string& _configId);
 
                     /**
                      * 判断参数 ConfigId 是否已赋值
                      * @return ConfigId 是否已赋值
+                     * 
                      */
                     bool ConfigIdHasBeenSet() const;
 

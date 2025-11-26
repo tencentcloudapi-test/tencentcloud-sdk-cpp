@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取视频ID 列表, 大小限制(100)
                      * @return IntIDs 视频ID 列表, 大小限制(100)
+                     * 
                      */
                     std::vector<int64_t> GetIntIDs() const;
 
                     /**
                      * 设置视频ID 列表, 大小限制(100)
-                     * @param IntIDs 视频ID 列表, 大小限制(100)
+                     * @param _intIDs 视频ID 列表, 大小限制(100)
+                     * 
                      */
                     void SetIntIDs(const std::vector<int64_t>& _intIDs);
 
                     /**
                      * 判断参数 IntIDs 是否已赋值
                      * @return IntIDs 是否已赋值
+                     * 
                      */
                     bool IntIDsHasBeenSet() const;
 
                     /**
                      * 获取过期时间 秒 (-1: 为永不过期)
                      * @return ExpireTime 过期时间 秒 (-1: 为永不过期)
+                     * 
                      */
                     int64_t GetExpireTime() const;
 
                     /**
                      * 设置过期时间 秒 (-1: 为永不过期)
-                     * @param ExpireTime 过期时间 秒 (-1: 为永不过期)
+                     * @param _expireTime 过期时间 秒 (-1: 为永不过期)
+                     * 
                      */
                     void SetExpireTime(const int64_t& _expireTime);
 
                     /**
                      * 判断参数 ExpireTime 是否已赋值
                      * @return ExpireTime 是否已赋值
+                     * 
                      */
                     bool ExpireTimeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,46 +48,64 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Code 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
+                     * @return Code 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
+                     * 
                      */
                     int64_t GetCode() const;
 
                     /**
-                     * 设置返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Code 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
+                     * @param _code 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
+                     * 
                      */
                     void SetCode(const int64_t& _code);
 
                     /**
                      * 判断参数 Code 是否已赋值
                      * @return Code 是否已赋值
+                     * 
                      */
                     bool CodeHasBeenSet() const;
 
                     /**
                      * 获取UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Message UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMessage() const;
 
                     /**
                      * 设置UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Message UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _message UTF-8编码，出错消息。
+                     * 
                      */
                     void SetMessage(const std::string& _message);
 
                     /**
                      * 判断参数 Message 是否已赋值
                      * @return Message 是否已赋值
+                     * 
                      */
                     bool MessageHasBeenSet() const;
 
@@ -96,57 +114,62 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Value 业务详情。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     OutputManageMarketingRiskValue GetValue() const;
 
                     /**
                      * 设置业务详情。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Value 业务详情。
+                     * @param _value 业务详情。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetValue(const OutputManageMarketingRiskValue& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
                     /**
                      * 获取控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return UUid 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUUid() const;
 
                     /**
                      * 设置控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UUid 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _uUid 控制台显示的req_id。
+                     * 
                      */
                     void SetUUid(const std::string& _uUid);
 
                     /**
                      * 判断参数 UUid 是否已赋值
                      * @return UUid 是否已赋值
+                     * 
                      */
                     bool UUidHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 返回码。0表示成功，非0标识失败错误码。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 错误码，0 表示成功，非0表示失败错误码。
+0：成功
+1：错误
+1002：参数错误
+4300：未开通服务
+4301：后端未创建对应产品
                      */
                     int64_t m_code;
                     bool m_codeHasBeenSet;
 
                     /**
                      * UTF-8编码，出错消息。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_message;
                     bool m_messageHasBeenSet;
@@ -160,7 +183,6 @@ namespace TencentCloud
 
                     /**
                      * 控制台显示的req_id。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_uUid;
                     bool m_uUidHasBeenSet;

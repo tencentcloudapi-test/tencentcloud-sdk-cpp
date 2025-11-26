@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,55 +48,96 @@ namespace TencentCloud
 
                     /**
                      * 获取新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
                      * @return Period 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
+                     * 
                      */
                     int64_t GetPeriod() const;
 
                     /**
                      * 设置新购周期。
-                     * @param Period 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
+                     * @param _period 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
+                     * 
                      */
                     void SetPeriod(const int64_t& _period);
 
                     /**
                      * 判断参数 Period 是否已赋值
                      * @return Period 是否已赋值
+                     * 
                      */
                     bool PeriodHasBeenSet() const;
 
                     /**
-                     * 获取续费标识。
-                     * @return RenewFlag 续费标识。
+                     * 获取自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
+
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
+                     * @return RenewFlag 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
+
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
+                     * 
                      */
                     std::string GetRenewFlag() const;
 
                     /**
-                     * 设置续费标识。
-                     * @param RenewFlag 续费标识。
+                     * 设置自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
+
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
+                     * @param _renewFlag 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
+
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
+                     * 
                      */
                     void SetRenewFlag(const std::string& _renewFlag);
 
                     /**
                      * 判断参数 RenewFlag 是否已赋值
                      * @return RenewFlag 是否已赋值
+                     * 
                      */
                     bool RenewFlagHasBeenSet() const;
 
                     /**
-                     * 获取新购单位. 默认值: "m"。
-                     * @return TimeUnit 新购单位. 默认值: "m"。
+                     * 获取新购单位.。
+可选值：m - 月。
+默认值：m - 月。
+                     * @return TimeUnit 新购单位.。
+可选值：m - 月。
+默认值：m - 月。
+                     * 
                      */
                     std::string GetTimeUnit() const;
 
                     /**
-                     * 设置新购单位. 默认值: "m"。
-                     * @param TimeUnit 新购单位. 默认值: "m"。
+                     * 设置新购单位.。
+可选值：m - 月。
+默认值：m - 月。
+                     * @param _timeUnit 新购单位.。
+可选值：m - 月。
+默认值：m - 月。
+                     * 
                      */
                     void SetTimeUnit(const std::string& _timeUnit);
 
                     /**
                      * 判断参数 TimeUnit 是否已赋值
                      * @return TimeUnit 是否已赋值
+                     * 
                      */
                     bool TimeUnitHasBeenSet() const;
 
@@ -104,18 +145,26 @@ namespace TencentCloud
 
                     /**
                      * 新购周期。
+可选值：1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36, 48, 60。
                      */
                     int64_t m_period;
                     bool m_periodHasBeenSet;
 
                     /**
-                     * 续费标识。
+                     * 自动续费标识。取值范围：
+- NOTIFY_AND_AUTO_RENEW：通知过期且自动续费。
+- NOTIFY_AND_MANUAL_RENEW：通知过期不自动续费，用户需要手动续费。
+- DISABLE_NOTIFY_AND_MANUAL_RENEW：不自动续费，且不通知。
+
+默认取值：NOTIFY_AND_MANUAL_RENEW。若该参数指定为NOTIFY_AND_AUTO_RENEW，在账户余额充足的情况下，云硬盘到期后将按月自动续费。
                      */
                     std::string m_renewFlag;
                     bool m_renewFlagHasBeenSet;
 
                     /**
-                     * 新购单位. 默认值: "m"。
+                     * 新购单位.。
+可选值：m - 月。
+默认值：m - 月。
                      */
                     std::string m_timeUnit;
                     bool m_timeUnitHasBeenSet;

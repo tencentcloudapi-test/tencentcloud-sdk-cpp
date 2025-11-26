@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取委托者Id,适用于托管自身证书的客户。普通客户无需填该字段。
                      * @return BailorId 委托者Id,适用于托管自身证书的客户。普通客户无需填该字段。
+                     * 
                      */
                     uint64_t GetBailorId() const;
 
                     /**
                      * 设置委托者Id,适用于托管自身证书的客户。普通客户无需填该字段。
-                     * @param BailorId 委托者Id,适用于托管自身证书的客户。普通客户无需填该字段。
+                     * @param _bailorId 委托者Id,适用于托管自身证书的客户。普通客户无需填该字段。
+                     * 
                      */
                     void SetBailorId(const uint64_t& _bailorId);
 
                     /**
                      * 判断参数 BailorId 是否已赋值
                      * @return BailorId 是否已赋值
+                     * 
                      */
                     bool BailorIdHasBeenSet() const;
 
@@ -65,20 +68,23 @@ namespace TencentCloud
 当该值未填入时，将返回所有的私钥信息。
                      * @return FairPlayPemId 需要查询的pem id。
 当该值未填入时，将返回所有的私钥信息。
+                     * 
                      */
                     uint64_t GetFairPlayPemId() const;
 
                     /**
                      * 设置需要查询的pem id。
 当该值未填入时，将返回所有的私钥信息。
-                     * @param FairPlayPemId 需要查询的pem id。
+                     * @param _fairPlayPemId 需要查询的pem id。
 当该值未填入时，将返回所有的私钥信息。
+                     * 
                      */
                     void SetFairPlayPemId(const uint64_t& _fairPlayPemId);
 
                     /**
                      * 判断参数 FairPlayPemId 是否已赋值
                      * @return FairPlayPemId 是否已赋值
+                     * 
                      */
                     bool FairPlayPemIdHasBeenSet() const;
 

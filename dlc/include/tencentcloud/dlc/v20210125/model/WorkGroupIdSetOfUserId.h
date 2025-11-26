@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取用户Id，和CAM侧Uin匹配
                      * @return UserId 用户Id，和CAM侧Uin匹配
+                     * 
                      */
                     std::string GetUserId() const;
 
                     /**
                      * 设置用户Id，和CAM侧Uin匹配
-                     * @param UserId 用户Id，和CAM侧Uin匹配
+                     * @param _userId 用户Id，和CAM侧Uin匹配
+                     * 
                      */
                     void SetUserId(const std::string& _userId);
 
                     /**
                      * 判断参数 UserId 是否已赋值
                      * @return UserId 是否已赋值
+                     * 
                      */
                     bool UserIdHasBeenSet() const;
 
                     /**
                      * 获取工作组Id集合
                      * @return WorkGroupIds 工作组Id集合
+                     * 
                      */
                     std::vector<int64_t> GetWorkGroupIds() const;
 
                     /**
                      * 设置工作组Id集合
-                     * @param WorkGroupIds 工作组Id集合
+                     * @param _workGroupIds 工作组Id集合
+                     * 
                      */
                     void SetWorkGroupIds(const std::vector<int64_t>& _workGroupIds);
 
                     /**
                      * 判断参数 WorkGroupIds 是否已赋值
                      * @return WorkGroupIds 是否已赋值
+                     * 
                      */
                     bool WorkGroupIdsHasBeenSet() const;
 

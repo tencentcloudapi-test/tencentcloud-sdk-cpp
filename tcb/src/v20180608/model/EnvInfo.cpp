@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,11 @@ EnvInfo::EnvInfo() :
     m_regionHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_customLogServicesHasBeenSet(false),
-    m_envTypeHasBeenSet(false)
+    m_envTypeHasBeenSet(false),
+    m_isDauPackageHasBeenSet(false),
+    m_packageTypeHasBeenSet(false),
+    m_architectureTypeHasBeenSet(false),
+    m_recycleHasBeenSet(false)
 {
 }
 
@@ -330,6 +334,46 @@ CoreInternalOutcome EnvInfo::Deserialize(const rapidjson::Value &value)
         m_envTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("IsDauPackage") && !value["IsDauPackage"].IsNull())
+    {
+        if (!value["IsDauPackage"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.IsDauPackage` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isDauPackage = value["IsDauPackage"].GetBool();
+        m_isDauPackageHasBeenSet = true;
+    }
+
+    if (value.HasMember("PackageType") && !value["PackageType"].IsNull())
+    {
+        if (!value["PackageType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.PackageType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_packageType = string(value["PackageType"].GetString());
+        m_packageTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ArchitectureType") && !value["ArchitectureType"].IsNull())
+    {
+        if (!value["ArchitectureType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.ArchitectureType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_architectureType = string(value["ArchitectureType"].GetString());
+        m_architectureTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Recycle") && !value["Recycle"].IsNull())
+    {
+        if (!value["Recycle"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.Recycle` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_recycle = string(value["Recycle"].GetString());
+        m_recycleHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -552,6 +596,38 @@ void EnvInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "EnvType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_envType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isDauPackageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsDauPackage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isDauPackage, allocator);
+    }
+
+    if (m_packageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PackageType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_packageType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_architectureTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ArchitectureType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_architectureType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_recycleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Recycle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_recycle.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -891,5 +967,69 @@ void EnvInfo::SetEnvType(const string& _envType)
 bool EnvInfo::EnvTypeHasBeenSet() const
 {
     return m_envTypeHasBeenSet;
+}
+
+bool EnvInfo::GetIsDauPackage() const
+{
+    return m_isDauPackage;
+}
+
+void EnvInfo::SetIsDauPackage(const bool& _isDauPackage)
+{
+    m_isDauPackage = _isDauPackage;
+    m_isDauPackageHasBeenSet = true;
+}
+
+bool EnvInfo::IsDauPackageHasBeenSet() const
+{
+    return m_isDauPackageHasBeenSet;
+}
+
+string EnvInfo::GetPackageType() const
+{
+    return m_packageType;
+}
+
+void EnvInfo::SetPackageType(const string& _packageType)
+{
+    m_packageType = _packageType;
+    m_packageTypeHasBeenSet = true;
+}
+
+bool EnvInfo::PackageTypeHasBeenSet() const
+{
+    return m_packageTypeHasBeenSet;
+}
+
+string EnvInfo::GetArchitectureType() const
+{
+    return m_architectureType;
+}
+
+void EnvInfo::SetArchitectureType(const string& _architectureType)
+{
+    m_architectureType = _architectureType;
+    m_architectureTypeHasBeenSet = true;
+}
+
+bool EnvInfo::ArchitectureTypeHasBeenSet() const
+{
+    return m_architectureTypeHasBeenSet;
+}
+
+string EnvInfo::GetRecycle() const
+{
+    return m_recycle;
+}
+
+void EnvInfo::SetRecycle(const string& _recycle)
+{
+    m_recycle = _recycle;
+    m_recycleHasBeenSet = true;
+}
+
+bool EnvInfo::RecycleHasBeenSet() const
+{
+    return m_recycleHasBeenSet;
 }
 

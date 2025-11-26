@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取SAML身份提供商名称
                      * @return Name SAML身份提供商名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置SAML身份提供商名称
-                     * @param Name SAML身份提供商名称
+                     * @param _name SAML身份提供商名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取SAML身份提供商描述
                      * @return Description SAML身份提供商描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置SAML身份提供商描述
-                     * @param Description SAML身份提供商描述
+                     * @param _description SAML身份提供商描述
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取SAML身份提供商创建时间
                      * @return CreateTime SAML身份提供商创建时间
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置SAML身份提供商创建时间
-                     * @param CreateTime SAML身份提供商创建时间
+                     * @param _createTime SAML身份提供商创建时间
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
                      * 获取SAML身份提供商上次修改时间
                      * @return ModifyTime SAML身份提供商上次修改时间
+                     * 
                      */
                     std::string GetModifyTime() const;
 
                     /**
                      * 设置SAML身份提供商上次修改时间
-                     * @param ModifyTime SAML身份提供商上次修改时间
+                     * @param _modifyTime SAML身份提供商上次修改时间
+                     * 
                      */
                     void SetModifyTime(const std::string& _modifyTime);
 
                     /**
                      * 判断参数 ModifyTime 是否已赋值
                      * @return ModifyTime 是否已赋值
+                     * 
                      */
                     bool ModifyTimeHasBeenSet() const;
 

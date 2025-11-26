@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取排序字段，默认为CreateTime
                      * @return By 排序字段，默认为CreateTime
+                     * 
                      */
                     std::string GetBy() const;
 
                     /**
                      * 设置排序字段，默认为CreateTime
-                     * @param By 排序字段，默认为CreateTime
+                     * @param _by 排序字段，默认为CreateTime
+                     * 
                      */
                     void SetBy(const std::string& _by);
 
                     /**
                      * 判断参数 By 是否已赋值
                      * @return By 是否已赋值
+                     * 
                      */
                     bool ByHasBeenSet() const;
 
                     /**
                      * 获取true表示降序，false表示升序
                      * @return Descend true表示降序，false表示升序
+                     * 
                      */
                     bool GetDescend() const;
 
                     /**
                      * 设置true表示降序，false表示升序
-                     * @param Descend true表示降序，false表示升序
+                     * @param _descend true表示降序，false表示升序
+                     * 
                      */
                     void SetDescend(const bool& _descend);
 
                     /**
                      * 判断参数 Descend 是否已赋值
                      * @return Descend 是否已赋值
+                     * 
                      */
                     bool DescendHasBeenSet() const;
 

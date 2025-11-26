@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取SSL证书ID
                      * @return CertId SSL证书ID
+                     * 
                      */
                     std::string GetCertId() const;
 
                     /**
                      * 设置SSL证书ID
-                     * @param CertId SSL证书ID
+                     * @param _certId SSL证书ID
+                     * 
                      */
                     void SetCertId(const std::string& _certId);
 
                     /**
                      * 判断参数 CertId 是否已赋值
                      * @return CertId 是否已赋值
+                     * 
                      */
                     bool CertIdHasBeenSet() const;
 
                     /**
                      * 获取L7域名转发规则列表
                      * @return L7Rules L7域名转发规则列表
+                     * 
                      */
                     std::vector<InsL7Rules> GetL7Rules() const;
 
                     /**
                      * 设置L7域名转发规则列表
-                     * @param L7Rules L7域名转发规则列表
+                     * @param _l7Rules L7域名转发规则列表
+                     * 
                      */
                     void SetL7Rules(const std::vector<InsL7Rules>& _l7Rules);
 
                     /**
                      * 判断参数 L7Rules 是否已赋值
                      * @return L7Rules 是否已赋值
+                     * 
                      */
                     bool L7RulesHasBeenSet() const;
 

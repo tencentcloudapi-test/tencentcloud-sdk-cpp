@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取带宽包唯一ID。
                      * @return BandwidthPackageId 带宽包唯一ID。
+                     * 
                      */
                     std::string GetBandwidthPackageId() const;
 
                     /**
                      * 判断参数 BandwidthPackageId 是否已赋值
                      * @return BandwidthPackageId 是否已赋值
+                     * 
                      */
                     bool BandwidthPackageIdHasBeenSet() const;
 
                     /**
                      * 获取带宽包唯一ID列表(申请数量大于1时有效)。
                      * @return BandwidthPackageIds 带宽包唯一ID列表(申请数量大于1时有效)。
+                     * 
                      */
                     std::vector<std::string> GetBandwidthPackageIds() const;
 
                     /**
                      * 判断参数 BandwidthPackageIds 是否已赋值
                      * @return BandwidthPackageIds 是否已赋值
+                     * 
                      */
                     bool BandwidthPackageIdsHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,67 +49,64 @@ namespace TencentCloud
 
                     /**
                      * 获取释放地址
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ReleaseAddress 释放地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     bool GetReleaseAddress() const;
 
                     /**
                      * 设置释放地址
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ReleaseAddress 释放地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _releaseAddress 释放地址
+                     * 
                      */
                     void SetReleaseAddress(const bool& _releaseAddress);
 
                     /**
                      * 判断参数 ReleaseAddress 是否已赋值
                      * @return ReleaseAddress 是否已赋值
+                     * 
                      */
                     bool ReleaseAddressHasBeenSet() const;
 
                     /**
-                     * 获取不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
+                     * @return UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
+                     * 
                      */
                     std::vector<std::string> GetUnsupportNetworks() const;
 
                     /**
-                     * 设置不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UnsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
+                     * @param _unsupportNetworks 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
+                     * 
                      */
                     void SetUnsupportNetworks(const std::vector<std::string>& _unsupportNetworks);
 
                     /**
                      * 判断参数 UnsupportNetworks 是否已赋值
                      * @return UnsupportNetworks 是否已赋值
+                     * 
                      */
                     bool UnsupportNetworksHasBeenSet() const;
 
                     /**
                      * 获取HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return StorageBlockAttr HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     StorageBlock GetStorageBlockAttr() const;
 
                     /**
                      * 设置HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param StorageBlockAttr HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _storageBlockAttr HDD本地存储属性
+                     * 
                      */
                     void SetStorageBlockAttr(const StorageBlock& _storageBlockAttr);
 
                     /**
                      * 判断参数 StorageBlockAttr 是否已赋值
                      * @return StorageBlockAttr 是否已赋值
+                     * 
                      */
                     bool StorageBlockAttrHasBeenSet() const;
 
@@ -117,21 +114,18 @@ namespace TencentCloud
 
                     /**
                      * 释放地址
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_releaseAddress;
                     bool m_releaseAddressHasBeenSet;
 
                     /**
-                     * 不支持的网络类型，取值范围：<br><li>BASIC：基础网络<br><li>VPC1.0：私有网络VPC1.0
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 不支持的网络类型，取值范围：<br><li>BASIC：基础网络</li><li>VPC1.0：私有网络VPC1.0</li>
                      */
                     std::vector<std::string> m_unsupportNetworks;
                     bool m_unsupportNetworksHasBeenSet;
 
                     /**
                      * HDD本地存储属性
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     StorageBlock m_storageBlockAttr;
                     bool m_storageBlockAttrHasBeenSet;

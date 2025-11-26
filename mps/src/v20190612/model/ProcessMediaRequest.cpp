@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,14 +26,21 @@ ProcessMediaRequest::ProcessMediaRequest() :
     m_inputInfoHasBeenSet(false),
     m_outputStorageHasBeenSet(false),
     m_outputDirHasBeenSet(false),
+    m_scheduleIdHasBeenSet(false),
     m_mediaProcessTaskHasBeenSet(false),
     m_aiContentReviewTaskHasBeenSet(false),
     m_aiAnalysisTaskHasBeenSet(false),
     m_aiRecognitionTaskHasBeenSet(false),
+    m_aiQualityControlTaskHasBeenSet(false),
+    m_smartSubtitlesTaskHasBeenSet(false),
+    m_smartEraseTaskHasBeenSet(false),
     m_taskNotifyConfigHasBeenSet(false),
     m_tasksPriorityHasBeenSet(false),
     m_sessionIdHasBeenSet(false),
-    m_sessionContextHasBeenSet(false)
+    m_sessionContextHasBeenSet(false),
+    m_taskTypeHasBeenSet(false),
+    m_resourceIdHasBeenSet(false),
+    m_skipMateDataHasBeenSet(false)
 {
 }
 
@@ -68,6 +75,14 @@ string ProcessMediaRequest::ToJsonString() const
         string key = "OutputDir";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_outputDir.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_scheduleIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScheduleId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_scheduleId, allocator);
     }
 
     if (m_mediaProcessTaskHasBeenSet)
@@ -106,6 +121,33 @@ string ProcessMediaRequest::ToJsonString() const
         m_aiRecognitionTask.ToJsonObject(d[key.c_str()], allocator);
     }
 
+    if (m_aiQualityControlTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AiQualityControlTask";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_aiQualityControlTask.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_smartSubtitlesTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SmartSubtitlesTask";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_smartSubtitlesTask.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_smartEraseTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SmartEraseTask";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_smartEraseTask.ToJsonObject(d[key.c_str()], allocator);
+    }
+
     if (m_taskNotifyConfigHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -137,6 +179,30 @@ string ProcessMediaRequest::ToJsonString() const
         string key = "SessionContext";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_sessionContext.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_taskTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TaskType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_taskType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_resourceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_resourceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_skipMateDataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SkipMateData";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_skipMateData, allocator);
     }
 
 
@@ -193,6 +259,22 @@ void ProcessMediaRequest::SetOutputDir(const string& _outputDir)
 bool ProcessMediaRequest::OutputDirHasBeenSet() const
 {
     return m_outputDirHasBeenSet;
+}
+
+int64_t ProcessMediaRequest::GetScheduleId() const
+{
+    return m_scheduleId;
+}
+
+void ProcessMediaRequest::SetScheduleId(const int64_t& _scheduleId)
+{
+    m_scheduleId = _scheduleId;
+    m_scheduleIdHasBeenSet = true;
+}
+
+bool ProcessMediaRequest::ScheduleIdHasBeenSet() const
+{
+    return m_scheduleIdHasBeenSet;
 }
 
 MediaProcessTaskInput ProcessMediaRequest::GetMediaProcessTask() const
@@ -259,6 +341,54 @@ bool ProcessMediaRequest::AiRecognitionTaskHasBeenSet() const
     return m_aiRecognitionTaskHasBeenSet;
 }
 
+AiQualityControlTaskInput ProcessMediaRequest::GetAiQualityControlTask() const
+{
+    return m_aiQualityControlTask;
+}
+
+void ProcessMediaRequest::SetAiQualityControlTask(const AiQualityControlTaskInput& _aiQualityControlTask)
+{
+    m_aiQualityControlTask = _aiQualityControlTask;
+    m_aiQualityControlTaskHasBeenSet = true;
+}
+
+bool ProcessMediaRequest::AiQualityControlTaskHasBeenSet() const
+{
+    return m_aiQualityControlTaskHasBeenSet;
+}
+
+SmartSubtitlesTaskInput ProcessMediaRequest::GetSmartSubtitlesTask() const
+{
+    return m_smartSubtitlesTask;
+}
+
+void ProcessMediaRequest::SetSmartSubtitlesTask(const SmartSubtitlesTaskInput& _smartSubtitlesTask)
+{
+    m_smartSubtitlesTask = _smartSubtitlesTask;
+    m_smartSubtitlesTaskHasBeenSet = true;
+}
+
+bool ProcessMediaRequest::SmartSubtitlesTaskHasBeenSet() const
+{
+    return m_smartSubtitlesTaskHasBeenSet;
+}
+
+SmartEraseTaskInput ProcessMediaRequest::GetSmartEraseTask() const
+{
+    return m_smartEraseTask;
+}
+
+void ProcessMediaRequest::SetSmartEraseTask(const SmartEraseTaskInput& _smartEraseTask)
+{
+    m_smartEraseTask = _smartEraseTask;
+    m_smartEraseTaskHasBeenSet = true;
+}
+
+bool ProcessMediaRequest::SmartEraseTaskHasBeenSet() const
+{
+    return m_smartEraseTaskHasBeenSet;
+}
+
 TaskNotifyConfig ProcessMediaRequest::GetTaskNotifyConfig() const
 {
     return m_taskNotifyConfig;
@@ -321,6 +451,54 @@ void ProcessMediaRequest::SetSessionContext(const string& _sessionContext)
 bool ProcessMediaRequest::SessionContextHasBeenSet() const
 {
     return m_sessionContextHasBeenSet;
+}
+
+string ProcessMediaRequest::GetTaskType() const
+{
+    return m_taskType;
+}
+
+void ProcessMediaRequest::SetTaskType(const string& _taskType)
+{
+    m_taskType = _taskType;
+    m_taskTypeHasBeenSet = true;
+}
+
+bool ProcessMediaRequest::TaskTypeHasBeenSet() const
+{
+    return m_taskTypeHasBeenSet;
+}
+
+string ProcessMediaRequest::GetResourceId() const
+{
+    return m_resourceId;
+}
+
+void ProcessMediaRequest::SetResourceId(const string& _resourceId)
+{
+    m_resourceId = _resourceId;
+    m_resourceIdHasBeenSet = true;
+}
+
+bool ProcessMediaRequest::ResourceIdHasBeenSet() const
+{
+    return m_resourceIdHasBeenSet;
+}
+
+int64_t ProcessMediaRequest::GetSkipMateData() const
+{
+    return m_skipMateData;
+}
+
+void ProcessMediaRequest::SetSkipMateData(const int64_t& _skipMateData)
+{
+    m_skipMateData = _skipMateData;
+    m_skipMateDataHasBeenSet = true;
+}
+
+bool ProcessMediaRequest::SkipMateDataHasBeenSet() const
+{
+    return m_skipMateDataHasBeenSet;
 }
 
 

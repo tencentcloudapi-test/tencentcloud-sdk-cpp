@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,42 +45,46 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取流程资源对应链接信息
-                     * @return FlowResourceUrlInfos 流程资源对应链接信息
+                     * 获取合同流程PDF下载链接
+                     * @return FlowResourceUrlInfos 合同流程PDF下载链接
+                     * 
                      */
                     std::vector<FlowResourceUrlInfo> GetFlowResourceUrlInfos() const;
 
                     /**
                      * 判断参数 FlowResourceUrlInfos 是否已赋值
                      * @return FlowResourceUrlInfos 是否已赋值
+                     * 
                      */
                     bool FlowResourceUrlInfosHasBeenSet() const;
 
                     /**
-                     * 获取创建消息，对应多个合同ID，
-成功为“”,创建失败则对应失败消息
-                     * @return ErrorMessages 创建消息，对应多个合同ID，
-成功为“”,创建失败则对应失败消息
+                     * 获取如果某个序号的合同流程生成PDF下载链接成功, 对应序号的值为空
+如果某个序号的合同流程生成PDF下载链接失败, 对应序号的值为错误的原因
+                     * @return ErrorMessages 如果某个序号的合同流程生成PDF下载链接成功, 对应序号的值为空
+如果某个序号的合同流程生成PDF下载链接失败, 对应序号的值为错误的原因
+                     * 
                      */
                     std::vector<std::string> GetErrorMessages() const;
 
                     /**
                      * 判断参数 ErrorMessages 是否已赋值
                      * @return ErrorMessages 是否已赋值
+                     * 
                      */
                     bool ErrorMessagesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 流程资源对应链接信息
+                     * 合同流程PDF下载链接
                      */
                     std::vector<FlowResourceUrlInfo> m_flowResourceUrlInfos;
                     bool m_flowResourceUrlInfosHasBeenSet;
 
                     /**
-                     * 创建消息，对应多个合同ID，
-成功为“”,创建失败则对应失败消息
+                     * 如果某个序号的合同流程生成PDF下载链接成功, 对应序号的值为空
+如果某个序号的合同流程生成PDF下载链接失败, 对应序号的值为错误的原因
                      */
                     std::vector<std::string> m_errorMessages;
                     bool m_errorMessagesHasBeenSet;

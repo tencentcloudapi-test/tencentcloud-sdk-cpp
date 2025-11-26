@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取项目 id
                      * @return ProjectID 项目 id
+                     * 
                      */
                     int64_t GetProjectID() const;
 
                     /**
                      * 设置项目 id
-                     * @param ProjectID 项目 id
+                     * @param _projectID 项目 id
+                     * 
                      */
                     void SetProjectID(const int64_t& _projectID);
 
                     /**
                      * 判断参数 ProjectID 是否已赋值
                      * @return ProjectID 是否已赋值
+                     * 
                      */
                     bool ProjectIDHasBeenSet() const;
 
                     /**
                      * 获取文件信息列表
                      * @return Files 文件信息列表
+                     * 
                      */
                     std::vector<ReleaseFile> GetFiles() const;
 
                     /**
                      * 设置文件信息列表
-                     * @param Files 文件信息列表
+                     * @param _files 文件信息列表
+                     * 
                      */
                     void SetFiles(const std::vector<ReleaseFile>& _files);
 
                     /**
                      * 判断参数 Files 是否已赋值
                      * @return Files 是否已赋值
+                     * 
                      */
                     bool FilesHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取付费模式
                      * @return PayMode 付费模式
+                     * 
                      */
                     std::string GetPayMode() const;
 
                     /**
                      * 设置付费模式
-                     * @param PayMode 付费模式
+                     * @param _payMode 付费模式
+                     * 
                      */
                     void SetPayMode(const std::string& _payMode);
 
                     /**
                      * 判断参数 PayMode 是否已赋值
                      * @return PayMode 是否已赋值
+                     * 
                      */
                     bool PayModeHasBeenSet() const;
 
                     /**
                      * 获取付费模式名称
                      * @return PayModeName 付费模式名称
+                     * 
                      */
                     std::string GetPayModeName() const;
 
                     /**
                      * 设置付费模式名称
-                     * @param PayModeName 付费模式名称
+                     * @param _payModeName 付费模式名称
+                     * 
                      */
                     void SetPayModeName(const std::string& _payModeName);
 
                     /**
                      * 判断参数 PayModeName 是否已赋值
                      * @return PayModeName 是否已赋值
+                     * 
                      */
                     bool PayModeNameHasBeenSet() const;
 

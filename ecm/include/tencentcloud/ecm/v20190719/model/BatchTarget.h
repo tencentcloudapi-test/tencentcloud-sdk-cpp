@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,111 +48,106 @@ namespace TencentCloud
 
                     /**
                      * 获取监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ListenerId 监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetListenerId() const;
 
                     /**
                      * 设置监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ListenerId 监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _listenerId 监听器ID
+                     * 
                      */
                     void SetListenerId(const std::string& _listenerId);
 
                     /**
                      * 判断参数 ListenerId 是否已赋值
                      * @return ListenerId 是否已赋值
+                     * 
                      */
                     bool ListenerIdHasBeenSet() const;
 
                     /**
                      * 获取绑定端口
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Port 绑定端口
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetPort() const;
 
                     /**
                      * 设置绑定端口
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Port 绑定端口
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _port 绑定端口
+                     * 
                      */
                     void SetPort(const int64_t& _port);
 
                     /**
                      * 判断参数 Port 是否已赋值
                      * @return Port 是否已赋值
+                     * 
                      */
                     bool PortHasBeenSet() const;
 
                     /**
                      * 获取子机ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return InstanceId 子机ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置子机ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstanceId 子机ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _instanceId 子机ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取弹性网卡ip
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EniIp 弹性网卡ip
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetEniIp() const;
 
                     /**
                      * 设置弹性网卡ip
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EniIp 弹性网卡ip
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _eniIp 弹性网卡ip
+                     * 
                      */
                     void SetEniIp(const std::string& _eniIp);
 
                     /**
                      * 判断参数 EniIp 是否已赋值
                      * @return EniIp 是否已赋值
+                     * 
                      */
                     bool EniIpHasBeenSet() const;
 
                     /**
                      * 获取子机权重，范围[0, 100]。绑定时如果不存在，则默认为10。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Weight 子机权重，范围[0, 100]。绑定时如果不存在，则默认为10。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetWeight() const;
 
                     /**
                      * 设置子机权重，范围[0, 100]。绑定时如果不存在，则默认为10。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Weight 子机权重，范围[0, 100]。绑定时如果不存在，则默认为10。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _weight 子机权重，范围[0, 100]。绑定时如果不存在，则默认为10。
+                     * 
                      */
                     void SetWeight(const int64_t& _weight);
 
                     /**
                      * 判断参数 Weight 是否已赋值
                      * @return Weight 是否已赋值
+                     * 
                      */
                     bool WeightHasBeenSet() const;
 
@@ -160,35 +155,30 @@ namespace TencentCloud
 
                     /**
                      * 监听器ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;
 
                     /**
                      * 绑定端口
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_port;
                     bool m_portHasBeenSet;
 
                     /**
                      * 子机ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
                      * 弹性网卡ip
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_eniIp;
                     bool m_eniIpHasBeenSet;
 
                     /**
                      * 子机权重，范围[0, 100]。绑定时如果不存在，则默认为10。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_weight;
                     bool m_weightHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例节点组的个数
-                     * @return TotalCount 实例节点组的个数
+                     * 获取实例节点组的个数。
+                     * @return TotalCount 实例节点组的个数。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取实例节点组列表
-                     * @return ReplicaGroups 实例节点组列表
+                     * 获取实例节点组列表。
+                     * @return ReplicaGroups 实例节点组列表。
+                     * 
                      */
                     std::vector<ReplicaGroup> GetReplicaGroups() const;
 
                     /**
                      * 判断参数 ReplicaGroups 是否已赋值
                      * @return ReplicaGroups 是否已赋值
+                     * 
                      */
                     bool ReplicaGroupsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例节点组的个数
+                     * 实例节点组的个数。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 实例节点组列表
+                     * 实例节点组列表。
                      */
                     std::vector<ReplicaGroup> m_replicaGroups;
                     bool m_replicaGroupsHasBeenSet;

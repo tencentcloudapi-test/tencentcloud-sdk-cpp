@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ ModifyNetworkInterfaceAttributeRequest::ModifyNetworkInterfaceAttributeRequest()
     m_networkInterfaceIdHasBeenSet(false),
     m_networkInterfaceNameHasBeenSet(false),
     m_networkInterfaceDescriptionHasBeenSet(false),
-    m_securityGroupIdsHasBeenSet(false)
+    m_securityGroupIdsHasBeenSet(false),
+    m_trunkingFlagHasBeenSet(false)
 {
 }
 
@@ -72,6 +73,14 @@ string ModifyNetworkInterfaceAttributeRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_trunkingFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TrunkingFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_trunkingFlag.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -144,6 +153,22 @@ void ModifyNetworkInterfaceAttributeRequest::SetSecurityGroupIds(const vector<st
 bool ModifyNetworkInterfaceAttributeRequest::SecurityGroupIdsHasBeenSet() const
 {
     return m_securityGroupIdsHasBeenSet;
+}
+
+string ModifyNetworkInterfaceAttributeRequest::GetTrunkingFlag() const
+{
+    return m_trunkingFlag;
+}
+
+void ModifyNetworkInterfaceAttributeRequest::SetTrunkingFlag(const string& _trunkingFlag)
+{
+    m_trunkingFlag = _trunkingFlag;
+    m_trunkingFlagHasBeenSet = true;
+}
+
+bool ModifyNetworkInterfaceAttributeRequest::TrunkingFlagHasBeenSet() const
+{
+    return m_trunkingFlagHasBeenSet;
 }
 
 

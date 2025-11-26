@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,15 +61,27 @@ InstanceSet::InstanceSet() :
     m_dtsStatusHasBeenSet(false),
     m_netLimitHasBeenSet(false),
     m_passwordFreeHasBeenSet(false),
-    m_readOnlyHasBeenSet(false),
     m_vip6HasBeenSet(false),
+    m_iPv6HasBeenSet(false),
+    m_readOnlyHasBeenSet(false),
     m_remainBandwidthDurationHasBeenSet(false),
     m_diskSizeHasBeenSet(false),
     m_monitorVersionHasBeenSet(false),
     m_clientLimitMinHasBeenSet(false),
     m_clientLimitMaxHasBeenSet(false),
     m_nodeSetHasBeenSet(false),
-    m_regionHasBeenSet(false)
+    m_regionHasBeenSet(false),
+    m_wanAddressHasBeenSet(false),
+    m_polarisServerHasBeenSet(false),
+    m_redisClusterIdHasBeenSet(false),
+    m_dedicatedClusterIdHasBeenSet(false),
+    m_productVersionHasBeenSet(false),
+    m_currentProxyVersionHasBeenSet(false),
+    m_currentRedisVersionHasBeenSet(false),
+    m_upgradeProxyVersionHasBeenSet(false),
+    m_upgradeRedisVersionHasBeenSet(false),
+    m_backupModeHasBeenSet(false),
+    m_deleteProtectionSwitchHasBeenSet(false)
 {
 }
 
@@ -501,16 +513,6 @@ CoreInternalOutcome InstanceSet::Deserialize(const rapidjson::Value &value)
         m_passwordFreeHasBeenSet = true;
     }
 
-    if (value.HasMember("ReadOnly") && !value["ReadOnly"].IsNull())
-    {
-        if (!value["ReadOnly"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `InstanceSet.ReadOnly` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_readOnly = value["ReadOnly"].GetInt64();
-        m_readOnlyHasBeenSet = true;
-    }
-
     if (value.HasMember("Vip6") && !value["Vip6"].IsNull())
     {
         if (!value["Vip6"].IsString())
@@ -519,6 +521,26 @@ CoreInternalOutcome InstanceSet::Deserialize(const rapidjson::Value &value)
         }
         m_vip6 = string(value["Vip6"].GetString());
         m_vip6HasBeenSet = true;
+    }
+
+    if (value.HasMember("IPv6") && !value["IPv6"].IsNull())
+    {
+        if (!value["IPv6"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.IPv6` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_iPv6 = string(value["IPv6"].GetString());
+        m_iPv6HasBeenSet = true;
+    }
+
+    if (value.HasMember("ReadOnly") && !value["ReadOnly"].IsNull())
+    {
+        if (!value["ReadOnly"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.ReadOnly` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_readOnly = value["ReadOnly"].GetInt64();
+        m_readOnlyHasBeenSet = true;
     }
 
     if (value.HasMember("RemainBandwidthDuration") && !value["RemainBandwidthDuration"].IsNull())
@@ -599,6 +621,116 @@ CoreInternalOutcome InstanceSet::Deserialize(const rapidjson::Value &value)
         }
         m_region = string(value["Region"].GetString());
         m_regionHasBeenSet = true;
+    }
+
+    if (value.HasMember("WanAddress") && !value["WanAddress"].IsNull())
+    {
+        if (!value["WanAddress"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.WanAddress` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_wanAddress = string(value["WanAddress"].GetString());
+        m_wanAddressHasBeenSet = true;
+    }
+
+    if (value.HasMember("PolarisServer") && !value["PolarisServer"].IsNull())
+    {
+        if (!value["PolarisServer"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.PolarisServer` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_polarisServer = string(value["PolarisServer"].GetString());
+        m_polarisServerHasBeenSet = true;
+    }
+
+    if (value.HasMember("RedisClusterId") && !value["RedisClusterId"].IsNull())
+    {
+        if (!value["RedisClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.RedisClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_redisClusterId = string(value["RedisClusterId"].GetString());
+        m_redisClusterIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("DedicatedClusterId") && !value["DedicatedClusterId"].IsNull())
+    {
+        if (!value["DedicatedClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.DedicatedClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dedicatedClusterId = string(value["DedicatedClusterId"].GetString());
+        m_dedicatedClusterIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProductVersion") && !value["ProductVersion"].IsNull())
+    {
+        if (!value["ProductVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.ProductVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_productVersion = string(value["ProductVersion"].GetString());
+        m_productVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("CurrentProxyVersion") && !value["CurrentProxyVersion"].IsNull())
+    {
+        if (!value["CurrentProxyVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.CurrentProxyVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_currentProxyVersion = string(value["CurrentProxyVersion"].GetString());
+        m_currentProxyVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("CurrentRedisVersion") && !value["CurrentRedisVersion"].IsNull())
+    {
+        if (!value["CurrentRedisVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.CurrentRedisVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_currentRedisVersion = string(value["CurrentRedisVersion"].GetString());
+        m_currentRedisVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("UpgradeProxyVersion") && !value["UpgradeProxyVersion"].IsNull())
+    {
+        if (!value["UpgradeProxyVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.UpgradeProxyVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_upgradeProxyVersion = string(value["UpgradeProxyVersion"].GetString());
+        m_upgradeProxyVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("UpgradeRedisVersion") && !value["UpgradeRedisVersion"].IsNull())
+    {
+        if (!value["UpgradeRedisVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.UpgradeRedisVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_upgradeRedisVersion = string(value["UpgradeRedisVersion"].GetString());
+        m_upgradeRedisVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("BackupMode") && !value["BackupMode"].IsNull())
+    {
+        if (!value["BackupMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.BackupMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_backupMode = string(value["BackupMode"].GetString());
+        m_backupModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeleteProtectionSwitch") && !value["DeleteProtectionSwitch"].IsNull())
+    {
+        if (!value["DeleteProtectionSwitch"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceSet.DeleteProtectionSwitch` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_deleteProtectionSwitch = value["DeleteProtectionSwitch"].GetInt64();
+        m_deleteProtectionSwitchHasBeenSet = true;
     }
 
 
@@ -947,20 +1079,28 @@ void InstanceSet::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         value.AddMember(iKey, m_passwordFree, allocator);
     }
 
-    if (m_readOnlyHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ReadOnly";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_readOnly, allocator);
-    }
-
     if (m_vip6HasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "Vip6";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_vip6.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iPv6HasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPv6";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_iPv6.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_readOnlyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReadOnly";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_readOnly, allocator);
     }
 
     if (m_remainBandwidthDurationHasBeenSet)
@@ -1024,6 +1164,94 @@ void InstanceSet::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "Region";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_region.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_wanAddressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WanAddress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_wanAddress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_polarisServerHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PolarisServer";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_polarisServer.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_redisClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RedisClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_redisClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_productVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProductVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_productVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_currentProxyVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CurrentProxyVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_currentProxyVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_currentRedisVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CurrentRedisVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_currentRedisVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_upgradeProxyVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpgradeProxyVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_upgradeProxyVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_upgradeRedisVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpgradeRedisVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_upgradeRedisVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backupModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_backupMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deleteProtectionSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeleteProtectionSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deleteProtectionSwitch, allocator);
     }
 
 }
@@ -1669,22 +1897,6 @@ bool InstanceSet::PasswordFreeHasBeenSet() const
     return m_passwordFreeHasBeenSet;
 }
 
-int64_t InstanceSet::GetReadOnly() const
-{
-    return m_readOnly;
-}
-
-void InstanceSet::SetReadOnly(const int64_t& _readOnly)
-{
-    m_readOnly = _readOnly;
-    m_readOnlyHasBeenSet = true;
-}
-
-bool InstanceSet::ReadOnlyHasBeenSet() const
-{
-    return m_readOnlyHasBeenSet;
-}
-
 string InstanceSet::GetVip6() const
 {
     return m_vip6;
@@ -1699,6 +1911,38 @@ void InstanceSet::SetVip6(const string& _vip6)
 bool InstanceSet::Vip6HasBeenSet() const
 {
     return m_vip6HasBeenSet;
+}
+
+string InstanceSet::GetIPv6() const
+{
+    return m_iPv6;
+}
+
+void InstanceSet::SetIPv6(const string& _iPv6)
+{
+    m_iPv6 = _iPv6;
+    m_iPv6HasBeenSet = true;
+}
+
+bool InstanceSet::IPv6HasBeenSet() const
+{
+    return m_iPv6HasBeenSet;
+}
+
+int64_t InstanceSet::GetReadOnly() const
+{
+    return m_readOnly;
+}
+
+void InstanceSet::SetReadOnly(const int64_t& _readOnly)
+{
+    m_readOnly = _readOnly;
+    m_readOnlyHasBeenSet = true;
+}
+
+bool InstanceSet::ReadOnlyHasBeenSet() const
+{
+    return m_readOnlyHasBeenSet;
 }
 
 string InstanceSet::GetRemainBandwidthDuration() const
@@ -1811,5 +2055,181 @@ void InstanceSet::SetRegion(const string& _region)
 bool InstanceSet::RegionHasBeenSet() const
 {
     return m_regionHasBeenSet;
+}
+
+string InstanceSet::GetWanAddress() const
+{
+    return m_wanAddress;
+}
+
+void InstanceSet::SetWanAddress(const string& _wanAddress)
+{
+    m_wanAddress = _wanAddress;
+    m_wanAddressHasBeenSet = true;
+}
+
+bool InstanceSet::WanAddressHasBeenSet() const
+{
+    return m_wanAddressHasBeenSet;
+}
+
+string InstanceSet::GetPolarisServer() const
+{
+    return m_polarisServer;
+}
+
+void InstanceSet::SetPolarisServer(const string& _polarisServer)
+{
+    m_polarisServer = _polarisServer;
+    m_polarisServerHasBeenSet = true;
+}
+
+bool InstanceSet::PolarisServerHasBeenSet() const
+{
+    return m_polarisServerHasBeenSet;
+}
+
+string InstanceSet::GetRedisClusterId() const
+{
+    return m_redisClusterId;
+}
+
+void InstanceSet::SetRedisClusterId(const string& _redisClusterId)
+{
+    m_redisClusterId = _redisClusterId;
+    m_redisClusterIdHasBeenSet = true;
+}
+
+bool InstanceSet::RedisClusterIdHasBeenSet() const
+{
+    return m_redisClusterIdHasBeenSet;
+}
+
+string InstanceSet::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void InstanceSet::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool InstanceSet::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
+}
+
+string InstanceSet::GetProductVersion() const
+{
+    return m_productVersion;
+}
+
+void InstanceSet::SetProductVersion(const string& _productVersion)
+{
+    m_productVersion = _productVersion;
+    m_productVersionHasBeenSet = true;
+}
+
+bool InstanceSet::ProductVersionHasBeenSet() const
+{
+    return m_productVersionHasBeenSet;
+}
+
+string InstanceSet::GetCurrentProxyVersion() const
+{
+    return m_currentProxyVersion;
+}
+
+void InstanceSet::SetCurrentProxyVersion(const string& _currentProxyVersion)
+{
+    m_currentProxyVersion = _currentProxyVersion;
+    m_currentProxyVersionHasBeenSet = true;
+}
+
+bool InstanceSet::CurrentProxyVersionHasBeenSet() const
+{
+    return m_currentProxyVersionHasBeenSet;
+}
+
+string InstanceSet::GetCurrentRedisVersion() const
+{
+    return m_currentRedisVersion;
+}
+
+void InstanceSet::SetCurrentRedisVersion(const string& _currentRedisVersion)
+{
+    m_currentRedisVersion = _currentRedisVersion;
+    m_currentRedisVersionHasBeenSet = true;
+}
+
+bool InstanceSet::CurrentRedisVersionHasBeenSet() const
+{
+    return m_currentRedisVersionHasBeenSet;
+}
+
+string InstanceSet::GetUpgradeProxyVersion() const
+{
+    return m_upgradeProxyVersion;
+}
+
+void InstanceSet::SetUpgradeProxyVersion(const string& _upgradeProxyVersion)
+{
+    m_upgradeProxyVersion = _upgradeProxyVersion;
+    m_upgradeProxyVersionHasBeenSet = true;
+}
+
+bool InstanceSet::UpgradeProxyVersionHasBeenSet() const
+{
+    return m_upgradeProxyVersionHasBeenSet;
+}
+
+string InstanceSet::GetUpgradeRedisVersion() const
+{
+    return m_upgradeRedisVersion;
+}
+
+void InstanceSet::SetUpgradeRedisVersion(const string& _upgradeRedisVersion)
+{
+    m_upgradeRedisVersion = _upgradeRedisVersion;
+    m_upgradeRedisVersionHasBeenSet = true;
+}
+
+bool InstanceSet::UpgradeRedisVersionHasBeenSet() const
+{
+    return m_upgradeRedisVersionHasBeenSet;
+}
+
+string InstanceSet::GetBackupMode() const
+{
+    return m_backupMode;
+}
+
+void InstanceSet::SetBackupMode(const string& _backupMode)
+{
+    m_backupMode = _backupMode;
+    m_backupModeHasBeenSet = true;
+}
+
+bool InstanceSet::BackupModeHasBeenSet() const
+{
+    return m_backupModeHasBeenSet;
+}
+
+int64_t InstanceSet::GetDeleteProtectionSwitch() const
+{
+    return m_deleteProtectionSwitch;
+}
+
+void InstanceSet::SetDeleteProtectionSwitch(const int64_t& _deleteProtectionSwitch)
+{
+    m_deleteProtectionSwitch = _deleteProtectionSwitch;
+    m_deleteProtectionSwitchHasBeenSet = true;
+}
+
+bool InstanceSet::DeleteProtectionSwitchHasBeenSet() const
+{
+    return m_deleteProtectionSwitchHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,8 @@ CheckIdCardInformationResponse::CheckIdCardInformationResponse() :
     m_portraitHasBeenSet(false),
     m_warningsHasBeenSet(false),
     m_qualityHasBeenSet(false),
-    m_encryptionHasBeenSet(false)
+    m_encryptionHasBeenSet(false),
+    m_encryptedBodyHasBeenSet(false)
 {
 }
 
@@ -211,6 +212,16 @@ CoreInternalOutcome CheckIdCardInformationResponse::Deserialize(const string &pa
         m_encryptionHasBeenSet = true;
     }
 
+    if (rsp.HasMember("EncryptedBody") && !rsp["EncryptedBody"].IsNull())
+    {
+        if (!rsp["EncryptedBody"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EncryptedBody` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptedBody = string(rsp["EncryptedBody"].GetString());
+        m_encryptedBodyHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -326,11 +337,19 @@ string CheckIdCardInformationResponse::ToJsonString() const
         m_encryption.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_encryptedBodyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptedBody";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_encryptedBody.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -466,6 +485,16 @@ Encryption CheckIdCardInformationResponse::GetEncryption() const
 bool CheckIdCardInformationResponse::EncryptionHasBeenSet() const
 {
     return m_encryptionHasBeenSet;
+}
+
+string CheckIdCardInformationResponse::GetEncryptedBody() const
+{
+    return m_encryptedBody;
+}
+
+bool CheckIdCardInformationResponse::EncryptedBodyHasBeenSet() const
+{
+    return m_encryptedBodyHasBeenSet;
 }
 
 

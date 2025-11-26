@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取事件数
                      * @return EventsNum 事件数
+                     * 
                      */
                     uint64_t GetEventsNum() const;
 
                     /**
                      * 设置事件数
-                     * @param EventsNum 事件数
+                     * @param _eventsNum 事件数
+                     * 
                      */
                     void SetEventsNum(const uint64_t& _eventsNum);
 
                     /**
                      * 判断参数 EventsNum 是否已赋值
                      * @return EventsNum 是否已赋值
+                     * 
                      */
                     bool EventsNumHasBeenSet() const;
 
                     /**
                      * 获取受影响的主机数
                      * @return MachineAffectNum 受影响的主机数
+                     * 
                      */
                     uint64_t GetMachineAffectNum() const;
 
                     /**
                      * 设置受影响的主机数
-                     * @param MachineAffectNum 受影响的主机数
+                     * @param _machineAffectNum 受影响的主机数
+                     * 
                      */
                     void SetMachineAffectNum(const uint64_t& _machineAffectNum);
 
                     /**
                      * 判断参数 MachineAffectNum 是否已赋值
                      * @return MachineAffectNum 是否已赋值
+                     * 
                      */
                     bool MachineAffectNumHasBeenSet() const;
 

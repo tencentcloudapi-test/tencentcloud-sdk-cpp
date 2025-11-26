@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ ModifyConsumerRequest::ModifyConsumerRequest() :
     m_effectiveHasBeenSet(false),
     m_needContentHasBeenSet(false),
     m_contentHasBeenSet(false),
-    m_ckafkaHasBeenSet(false)
+    m_ckafkaHasBeenSet(false),
+    m_compressionHasBeenSet(false)
 {
 }
 
@@ -78,6 +79,14 @@ string ModifyConsumerRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_ckafka.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_compressionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Compression";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_compression, allocator);
     }
 
 
@@ -166,6 +175,22 @@ void ModifyConsumerRequest::SetCkafka(const Ckafka& _ckafka)
 bool ModifyConsumerRequest::CkafkaHasBeenSet() const
 {
     return m_ckafkaHasBeenSet;
+}
+
+int64_t ModifyConsumerRequest::GetCompression() const
+{
+    return m_compression;
+}
+
+void ModifyConsumerRequest::SetCompression(const int64_t& _compression)
+{
+    m_compression = _compression;
+    m_compressionHasBeenSet = true;
+}
+
+bool ModifyConsumerRequest::CompressionHasBeenSet() const
+{
+    return m_compressionHasBeenSet;
 }
 
 

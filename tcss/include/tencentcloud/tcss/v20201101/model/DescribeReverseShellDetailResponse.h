@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,62 +51,70 @@ namespace TencentCloud
                     /**
                      * 获取事件基本信息
                      * @return EventBaseInfo 事件基本信息
+                     * 
                      */
                     RunTimeEventBaseInfo GetEventBaseInfo() const;
 
                     /**
                      * 判断参数 EventBaseInfo 是否已赋值
                      * @return EventBaseInfo 是否已赋值
+                     * 
                      */
                     bool EventBaseInfoHasBeenSet() const;
 
                     /**
                      * 获取进程信息
                      * @return ProcessInfo 进程信息
+                     * 
                      */
                     ProcessDetailInfo GetProcessInfo() const;
 
                     /**
                      * 判断参数 ProcessInfo 是否已赋值
                      * @return ProcessInfo 是否已赋值
+                     * 
                      */
                     bool ProcessInfoHasBeenSet() const;
 
                     /**
                      * 获取父进程信息
                      * @return ParentProcessInfo 父进程信息
+                     * 
                      */
                     ProcessDetailBaseInfo GetParentProcessInfo() const;
 
                     /**
                      * 判断参数 ParentProcessInfo 是否已赋值
                      * @return ParentProcessInfo 是否已赋值
+                     * 
                      */
                     bool ParentProcessInfoHasBeenSet() const;
 
                     /**
                      * 获取事件描述
                      * @return EventDetail 事件描述
+                     * 
                      */
                     ReverseShellEventDescription GetEventDetail() const;
 
                     /**
                      * 判断参数 EventDetail 是否已赋值
                      * @return EventDetail 是否已赋值
+                     * 
                      */
                     bool EventDetailHasBeenSet() const;
 
                     /**
                      * 获取祖先进程信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return AncestorProcessInfo 祖先进程信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     ProcessBaseInfo GetAncestorProcessInfo() const;
 
                     /**
                      * 判断参数 AncestorProcessInfo 是否已赋值
                      * @return AncestorProcessInfo 是否已赋值
+                     * 
                      */
                     bool AncestorProcessInfoHasBeenSet() const;
 
@@ -138,7 +146,6 @@ namespace TencentCloud
 
                     /**
                      * 祖先进程信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ProcessBaseInfo m_ancestorProcessInfo;
                     bool m_ancestorProcessInfoHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取唇色素材ID
                      * @return ModelId 唇色素材ID
+                     * 
                      */
                     std::string GetModelId() const;
 
                     /**
                      * 设置唇色素材ID
-                     * @param ModelId 唇色素材ID
+                     * @param _modelId 唇色素材ID
+                     * 
                      */
                     void SetModelId(const std::string& _modelId);
 
                     /**
                      * 判断参数 ModelId 是否已赋值
                      * @return ModelId 是否已赋值
+                     * 
                      */
                     bool ModelIdHasBeenSet() const;
 
                     /**
                      * 获取唇色素材 url 。 LUT 文件 url 5分钟有效。
                      * @return LUTFileUrl 唇色素材 url 。 LUT 文件 url 5分钟有效。
+                     * 
                      */
                     std::string GetLUTFileUrl() const;
 
                     /**
                      * 设置唇色素材 url 。 LUT 文件 url 5分钟有效。
-                     * @param LUTFileUrl 唇色素材 url 。 LUT 文件 url 5分钟有效。
+                     * @param _lUTFileUrl 唇色素材 url 。 LUT 文件 url 5分钟有效。
+                     * 
                      */
                     void SetLUTFileUrl(const std::string& _lUTFileUrl);
 
                     /**
                      * 判断参数 LUTFileUrl 是否已赋值
                      * @return LUTFileUrl 是否已赋值
+                     * 
                      */
                     bool LUTFileUrlHasBeenSet() const;
 
                     /**
                      * 获取文件描述信息。
                      * @return Description 文件描述信息。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置文件描述信息。
-                     * @param Description 文件描述信息。
+                     * @param _description 文件描述信息。
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 

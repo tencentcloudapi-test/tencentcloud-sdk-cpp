@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,55 +47,66 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取是调整POST请求限制，平台默认为32MB。
-关闭：off，
-开启：on。
-                     * @return Switch 是调整POST请求限制，平台默认为32MB。
-关闭：off，
-开启：on。
+                     * 获取POST请求上传文件流式传输最大限制配置开关，取值有：
+on：开启，平台默认为32MB
+off：关闭
+
+                     * @return Switch POST请求上传文件流式传输最大限制配置开关，取值有：
+on：开启，平台默认为32MB
+off：关闭
+
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置是调整POST请求限制，平台默认为32MB。
-关闭：off，
-开启：on。
-                     * @param Switch 是调整POST请求限制，平台默认为32MB。
-关闭：off，
-开启：on。
+                     * 设置POST请求上传文件流式传输最大限制配置开关，取值有：
+on：开启，平台默认为32MB
+off：关闭
+
+                     * @param _switch POST请求上传文件流式传输最大限制配置开关，取值有：
+on：开启，平台默认为32MB
+off：关闭
+
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
                     /**
                      * 获取最大限制，取值在1MB和200MB之间。
                      * @return MaxSize 最大限制，取值在1MB和200MB之间。
+                     * 
                      */
                     int64_t GetMaxSize() const;
 
                     /**
                      * 设置最大限制，取值在1MB和200MB之间。
-                     * @param MaxSize 最大限制，取值在1MB和200MB之间。
+                     * @param _maxSize 最大限制，取值在1MB和200MB之间。
+                     * 
                      */
                     void SetMaxSize(const int64_t& _maxSize);
 
                     /**
                      * 判断参数 MaxSize 是否已赋值
                      * @return MaxSize 是否已赋值
+                     * 
                      */
                     bool MaxSizeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 是调整POST请求限制，平台默认为32MB。
-关闭：off，
-开启：on。
+                     * POST请求上传文件流式传输最大限制配置开关，取值有：
+on：开启，平台默认为32MB
+off：关闭
+
                      */
                     std::string m_switch;
                     bool m_switchHasBeenSet;

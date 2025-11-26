@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取返回的Top库空间统计信息列表。
                      * @return TopSpaceSchemas 返回的Top库空间统计信息列表。
+                     * 
                      */
                     std::vector<SchemaSpaceData> GetTopSpaceSchemas() const;
 
                     /**
                      * 判断参数 TopSpaceSchemas 是否已赋值
                      * @return TopSpaceSchemas 是否已赋值
+                     * 
                      */
                     bool TopSpaceSchemasHasBeenSet() const;
 
                     /**
                      * 获取采集库空间数据的时间戳（秒）。
                      * @return Timestamp 采集库空间数据的时间戳（秒）。
+                     * 
                      */
                     int64_t GetTimestamp() const;
 
                     /**
                      * 判断参数 Timestamp 是否已赋值
                      * @return Timestamp 是否已赋值
+                     * 
                      */
                     bool TimestampHasBeenSet() const;
 

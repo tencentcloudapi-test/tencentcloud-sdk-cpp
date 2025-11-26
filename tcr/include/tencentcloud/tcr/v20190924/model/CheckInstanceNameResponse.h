@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,30 @@ namespace TencentCloud
                     /**
                      * 获取检查结果，true为合法，false为非法
                      * @return IsValidated 检查结果，true为合法，false为非法
+                     * 
                      */
                     bool GetIsValidated() const;
 
                     /**
                      * 判断参数 IsValidated 是否已赋值
                      * @return IsValidated 是否已赋值
+                     * 
                      */
                     bool IsValidatedHasBeenSet() const;
+
+                    /**
+                     * 获取1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在）
+                     * @return DetailCode 1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在）
+                     * 
+                     */
+                    int64_t GetDetailCode() const;
+
+                    /**
+                     * 判断参数 DetailCode 是否已赋值
+                     * @return DetailCode 是否已赋值
+                     * 
+                     */
+                    bool DetailCodeHasBeenSet() const;
 
                 private:
 
@@ -62,6 +78,12 @@ namespace TencentCloud
                      */
                     bool m_isValidated;
                     bool m_isValidatedHasBeenSet;
+
+                    /**
+                     * 1: Illegal（名称非法）, 2:Reserved（名字保留）, 3:Existed（名字已存在）
+                     */
+                    int64_t m_detailCode;
+                    bool m_detailCodeHasBeenSet;
 
                 };
             }

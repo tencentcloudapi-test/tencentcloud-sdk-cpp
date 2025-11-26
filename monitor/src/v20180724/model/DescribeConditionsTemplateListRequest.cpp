@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ DescribeConditionsTemplateListRequest::DescribeConditionsTemplateListRequest() :
     m_groupIDHasBeenSet(false),
     m_limitHasBeenSet(false),
     m_offsetHasBeenSet(false),
-    m_updateTimeOrderHasBeenSet(false)
+    m_updateTimeOrderHasBeenSet(false),
+    m_policyCountOrderHasBeenSet(false)
 {
 }
 
@@ -94,6 +95,14 @@ string DescribeConditionsTemplateListRequest::ToJsonString() const
         string key = "UpdateTimeOrder";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_updateTimeOrder.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_policyCountOrderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PolicyCountOrder";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_policyCountOrder.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -214,6 +223,22 @@ void DescribeConditionsTemplateListRequest::SetUpdateTimeOrder(const string& _up
 bool DescribeConditionsTemplateListRequest::UpdateTimeOrderHasBeenSet() const
 {
     return m_updateTimeOrderHasBeenSet;
+}
+
+string DescribeConditionsTemplateListRequest::GetPolicyCountOrder() const
+{
+    return m_policyCountOrder;
+}
+
+void DescribeConditionsTemplateListRequest::SetPolicyCountOrder(const string& _policyCountOrder)
+{
+    m_policyCountOrder = _policyCountOrder;
+    m_policyCountOrderHasBeenSet = true;
+}
+
+bool DescribeConditionsTemplateListRequest::PolicyCountOrderHasBeenSet() const
+{
+    return m_policyCountOrderHasBeenSet;
 }
 
 

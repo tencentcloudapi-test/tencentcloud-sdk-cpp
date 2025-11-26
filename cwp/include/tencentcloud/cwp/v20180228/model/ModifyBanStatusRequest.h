@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,30 +43,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取阻断状态 0:关闭 1:开启
-                     * @return Status 阻断状态 0:关闭 1:开启
+                     * 获取阻断开关状态: 0 -- 关闭 1 -- 高级阻断 2 -- 基础阻断(只阻断情报库黑ip)
+                     * @return Status 阻断开关状态: 0 -- 关闭 1 -- 高级阻断 2 -- 基础阻断(只阻断情报库黑ip)
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
-                     * 设置阻断状态 0:关闭 1:开启
-                     * @param Status 阻断状态 0:关闭 1:开启
+                     * 设置阻断开关状态: 0 -- 关闭 1 -- 高级阻断 2 -- 基础阻断(只阻断情报库黑ip)
+                     * @param _status 阻断开关状态: 0 -- 关闭 1 -- 高级阻断 2 -- 基础阻断(只阻断情报库黑ip)
+                     * 
                      */
                     void SetStatus(const uint64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取是否开启智能过白模式
+                     * @return OpenSmartMode 是否开启智能过白模式
+                     * 
+                     */
+                    bool GetOpenSmartMode() const;
+
+                    /**
+                     * 设置是否开启智能过白模式
+                     * @param _openSmartMode 是否开启智能过白模式
+                     * 
+                     */
+                    void SetOpenSmartMode(const bool& _openSmartMode);
+
+                    /**
+                     * 判断参数 OpenSmartMode 是否已赋值
+                     * @return OpenSmartMode 是否已赋值
+                     * 
+                     */
+                    bool OpenSmartModeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 阻断状态 0:关闭 1:开启
+                     * 阻断开关状态: 0 -- 关闭 1 -- 高级阻断 2 -- 基础阻断(只阻断情报库黑ip)
                      */
                     uint64_t m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 是否开启智能过白模式
+                     */
+                    bool m_openSmartMode;
+                    bool m_openSmartModeHasBeenSet;
 
                 };
             }

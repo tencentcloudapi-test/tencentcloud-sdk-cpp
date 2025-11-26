@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ CreateServiceRequest::CreateServiceRequest() :
     m_serviceNameHasBeenSet(false),
     m_protocolHasBeenSet(false),
     m_serviceDescHasBeenSet(false),
-    m_exclusiveSetNameHasBeenSet(false),
     m_netTypesHasBeenSet(false),
     m_ipVersionHasBeenSet(false),
     m_setServerNameHasBeenSet(false),
@@ -66,14 +65,6 @@ string CreateServiceRequest::ToJsonString() const
         string key = "ServiceDesc";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_serviceDesc.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_exclusiveSetNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExclusiveSetName";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_exclusiveSetName.c_str(), allocator).Move(), allocator);
     }
 
     if (m_netTypesHasBeenSet)
@@ -198,22 +189,6 @@ void CreateServiceRequest::SetServiceDesc(const string& _serviceDesc)
 bool CreateServiceRequest::ServiceDescHasBeenSet() const
 {
     return m_serviceDescHasBeenSet;
-}
-
-string CreateServiceRequest::GetExclusiveSetName() const
-{
-    return m_exclusiveSetName;
-}
-
-void CreateServiceRequest::SetExclusiveSetName(const string& _exclusiveSetName)
-{
-    m_exclusiveSetName = _exclusiveSetName;
-    m_exclusiveSetNameHasBeenSet = true;
-}
-
-bool CreateServiceRequest::ExclusiveSetNameHasBeenSet() const
-{
-    return m_exclusiveSetNameHasBeenSet;
 }
 
 vector<string> CreateServiceRequest::GetNetTypes() const

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,133 +40,404 @@ RceClient::RceClient(const Credential &credential, const string &region, const C
 }
 
 
-RceClient::DescribeRiskAssessmentOutcome RceClient::DescribeRiskAssessment(const DescribeRiskAssessmentRequest &request)
+RceClient::CreateNameListOutcome RceClient::CreateNameList(const CreateNameListRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeRiskAssessment");
+    auto outcome = MakeRequest(request, "CreateNameList");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeRiskAssessmentResponse rsp = DescribeRiskAssessmentResponse();
+        CreateNameListResponse rsp = CreateNameListResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeRiskAssessmentOutcome(rsp);
+            return CreateNameListOutcome(rsp);
         else
-            return DescribeRiskAssessmentOutcome(o.GetError());
+            return CreateNameListOutcome(o.GetError());
     }
     else
     {
-        return DescribeRiskAssessmentOutcome(outcome.GetError());
+        return CreateNameListOutcome(outcome.GetError());
     }
 }
 
-void RceClient::DescribeRiskAssessmentAsync(const DescribeRiskAssessmentRequest& request, const DescribeRiskAssessmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void RceClient::CreateNameListAsync(const CreateNameListRequest& request, const CreateNameListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeRiskAssessment(request), context);
-    };
+    using Req = const CreateNameListRequest&;
+    using Resp = CreateNameListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-RceClient::DescribeRiskAssessmentOutcomeCallable RceClient::DescribeRiskAssessmentCallable(const DescribeRiskAssessmentRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeRiskAssessmentOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "CreateNameList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->DescribeRiskAssessment(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-RceClient::DescribeRiskModelOutcome RceClient::DescribeRiskModel(const DescribeRiskModelRequest &request)
+RceClient::CreateNameListOutcomeCallable RceClient::CreateNameListCallable(const CreateNameListRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeRiskModel");
+    const auto prom = std::make_shared<std::promise<CreateNameListOutcome>>();
+    CreateNameListAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const CreateNameListRequest&,
+        CreateNameListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+RceClient::DeleteNameListOutcome RceClient::DeleteNameList(const DeleteNameListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteNameList");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeRiskModelResponse rsp = DescribeRiskModelResponse();
+        DeleteNameListResponse rsp = DeleteNameListResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeRiskModelOutcome(rsp);
+            return DeleteNameListOutcome(rsp);
         else
-            return DescribeRiskModelOutcome(o.GetError());
+            return DeleteNameListOutcome(o.GetError());
     }
     else
     {
-        return DescribeRiskModelOutcome(outcome.GetError());
+        return DeleteNameListOutcome(outcome.GetError());
     }
 }
 
-void RceClient::DescribeRiskModelAsync(const DescribeRiskModelRequest& request, const DescribeRiskModelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void RceClient::DeleteNameListAsync(const DeleteNameListRequest& request, const DeleteNameListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeRiskModel(request), context);
-    };
+    using Req = const DeleteNameListRequest&;
+    using Resp = DeleteNameListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-RceClient::DescribeRiskModelOutcomeCallable RceClient::DescribeRiskModelCallable(const DescribeRiskModelRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeRiskModelOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DeleteNameList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->DescribeRiskModel(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-RceClient::DescribeRiskTrendsOutcome RceClient::DescribeRiskTrends(const DescribeRiskTrendsRequest &request)
+RceClient::DeleteNameListOutcomeCallable RceClient::DeleteNameListCallable(const DeleteNameListRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeRiskTrends");
+    const auto prom = std::make_shared<std::promise<DeleteNameListOutcome>>();
+    DeleteNameListAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const DeleteNameListRequest&,
+        DeleteNameListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+RceClient::DeleteNameListDataOutcome RceClient::DeleteNameListData(const DeleteNameListDataRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteNameListData");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeRiskTrendsResponse rsp = DescribeRiskTrendsResponse();
+        DeleteNameListDataResponse rsp = DeleteNameListDataResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeRiskTrendsOutcome(rsp);
+            return DeleteNameListDataOutcome(rsp);
         else
-            return DescribeRiskTrendsOutcome(o.GetError());
+            return DeleteNameListDataOutcome(o.GetError());
     }
     else
     {
-        return DescribeRiskTrendsOutcome(outcome.GetError());
+        return DeleteNameListDataOutcome(outcome.GetError());
     }
 }
 
-void RceClient::DescribeRiskTrendsAsync(const DescribeRiskTrendsRequest& request, const DescribeRiskTrendsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void RceClient::DeleteNameListDataAsync(const DeleteNameListDataRequest& request, const DeleteNameListDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeRiskTrends(request), context);
-    };
+    using Req = const DeleteNameListDataRequest&;
+    using Resp = DeleteNameListDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteNameListData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-RceClient::DescribeRiskTrendsOutcomeCallable RceClient::DescribeRiskTrendsCallable(const DescribeRiskTrendsRequest &request)
+RceClient::DeleteNameListDataOutcomeCallable RceClient::DeleteNameListDataCallable(const DeleteNameListDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeRiskTrendsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeRiskTrends(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteNameListDataOutcome>>();
+    DeleteNameListDataAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const DeleteNameListDataRequest&,
+        DeleteNameListDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+RceClient::DescribeNameListOutcome RceClient::DescribeNameList(const DescribeNameListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNameList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNameListResponse rsp = DescribeNameListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNameListOutcome(rsp);
+        else
+            return DescribeNameListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNameListOutcome(outcome.GetError());
+    }
+}
+
+void RceClient::DescribeNameListAsync(const DescribeNameListRequest& request, const DescribeNameListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNameListRequest&;
+    using Resp = DescribeNameListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNameList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+RceClient::DescribeNameListOutcomeCallable RceClient::DescribeNameListCallable(const DescribeNameListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNameListOutcome>>();
+    DescribeNameListAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const DescribeNameListRequest&,
+        DescribeNameListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+RceClient::DescribeNameListDataListOutcome RceClient::DescribeNameListDataList(const DescribeNameListDataListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNameListDataList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNameListDataListResponse rsp = DescribeNameListDataListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNameListDataListOutcome(rsp);
+        else
+            return DescribeNameListDataListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNameListDataListOutcome(outcome.GetError());
+    }
+}
+
+void RceClient::DescribeNameListDataListAsync(const DescribeNameListDataListRequest& request, const DescribeNameListDataListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNameListDataListRequest&;
+    using Resp = DescribeNameListDataListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNameListDataList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+RceClient::DescribeNameListDataListOutcomeCallable RceClient::DescribeNameListDataListCallable(const DescribeNameListDataListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNameListDataListOutcome>>();
+    DescribeNameListDataListAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const DescribeNameListDataListRequest&,
+        DescribeNameListDataListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+RceClient::DescribeNameListDetailOutcome RceClient::DescribeNameListDetail(const DescribeNameListDetailRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNameListDetail");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNameListDetailResponse rsp = DescribeNameListDetailResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNameListDetailOutcome(rsp);
+        else
+            return DescribeNameListDetailOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNameListDetailOutcome(outcome.GetError());
+    }
+}
+
+void RceClient::DescribeNameListDetailAsync(const DescribeNameListDetailRequest& request, const DescribeNameListDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNameListDetailRequest&;
+    using Resp = DescribeNameListDetailResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNameListDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+RceClient::DescribeNameListDetailOutcomeCallable RceClient::DescribeNameListDetailCallable(const DescribeNameListDetailRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNameListDetailOutcome>>();
+    DescribeNameListDetailAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const DescribeNameListDetailRequest&,
+        DescribeNameListDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+RceClient::DescribeUserUsageCntOutcome RceClient::DescribeUserUsageCnt(const DescribeUserUsageCntRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeUserUsageCnt");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeUserUsageCntResponse rsp = DescribeUserUsageCntResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeUserUsageCntOutcome(rsp);
+        else
+            return DescribeUserUsageCntOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeUserUsageCntOutcome(outcome.GetError());
+    }
+}
+
+void RceClient::DescribeUserUsageCntAsync(const DescribeUserUsageCntRequest& request, const DescribeUserUsageCntAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeUserUsageCntRequest&;
+    using Resp = DescribeUserUsageCntResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeUserUsageCnt", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+RceClient::DescribeUserUsageCntOutcomeCallable RceClient::DescribeUserUsageCntCallable(const DescribeUserUsageCntRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeUserUsageCntOutcome>>();
+    DescribeUserUsageCntAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const DescribeUserUsageCntRequest&,
+        DescribeUserUsageCntOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+RceClient::ImportNameListDataOutcome RceClient::ImportNameListData(const ImportNameListDataRequest &request)
+{
+    auto outcome = MakeRequest(request, "ImportNameListData");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ImportNameListDataResponse rsp = ImportNameListDataResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ImportNameListDataOutcome(rsp);
+        else
+            return ImportNameListDataOutcome(o.GetError());
+    }
+    else
+    {
+        return ImportNameListDataOutcome(outcome.GetError());
+    }
+}
+
+void RceClient::ImportNameListDataAsync(const ImportNameListDataRequest& request, const ImportNameListDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ImportNameListDataRequest&;
+    using Resp = ImportNameListDataResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ImportNameListData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+RceClient::ImportNameListDataOutcomeCallable RceClient::ImportNameListDataCallable(const ImportNameListDataRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ImportNameListDataOutcome>>();
+    ImportNameListDataAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const ImportNameListDataRequest&,
+        ImportNameListDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 RceClient::ManageMarketingRiskOutcome RceClient::ManageMarketingRisk(const ManageMarketingRiskRequest &request)
@@ -191,24 +462,131 @@ RceClient::ManageMarketingRiskOutcome RceClient::ManageMarketingRisk(const Manag
 
 void RceClient::ManageMarketingRiskAsync(const ManageMarketingRiskRequest& request, const ManageMarketingRiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ManageMarketingRisk(request), context);
-    };
+    using Req = const ManageMarketingRiskRequest&;
+    using Resp = ManageMarketingRiskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ManageMarketingRisk", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 RceClient::ManageMarketingRiskOutcomeCallable RceClient::ManageMarketingRiskCallable(const ManageMarketingRiskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ManageMarketingRiskOutcome()>>(
-        [this, request]()
-        {
-            return this->ManageMarketingRisk(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ManageMarketingRiskOutcome>>();
+    ManageMarketingRiskAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const ManageMarketingRiskRequest&,
+        ManageMarketingRiskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+RceClient::ModifyNameListOutcome RceClient::ModifyNameList(const ModifyNameListRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyNameList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyNameListResponse rsp = ModifyNameListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyNameListOutcome(rsp);
+        else
+            return ModifyNameListOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyNameListOutcome(outcome.GetError());
+    }
+}
+
+void RceClient::ModifyNameListAsync(const ModifyNameListRequest& request, const ModifyNameListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyNameListRequest&;
+    using Resp = ModifyNameListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyNameList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+RceClient::ModifyNameListOutcomeCallable RceClient::ModifyNameListCallable(const ModifyNameListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyNameListOutcome>>();
+    ModifyNameListAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const ModifyNameListRequest&,
+        ModifyNameListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+RceClient::ModifyNameListDataOutcome RceClient::ModifyNameListData(const ModifyNameListDataRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyNameListData");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyNameListDataResponse rsp = ModifyNameListDataResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyNameListDataOutcome(rsp);
+        else
+            return ModifyNameListDataOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyNameListDataOutcome(outcome.GetError());
+    }
+}
+
+void RceClient::ModifyNameListDataAsync(const ModifyNameListDataRequest& request, const ModifyNameListDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyNameListDataRequest&;
+    using Resp = ModifyNameListDataResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyNameListData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+RceClient::ModifyNameListDataOutcomeCallable RceClient::ModifyNameListDataCallable(const ModifyNameListDataRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyNameListDataOutcome>>();
+    ModifyNameListDataAsync(
+    request,
+    [prom](
+        const RceClient*,
+        const ModifyNameListDataRequest&,
+        ModifyNameListDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

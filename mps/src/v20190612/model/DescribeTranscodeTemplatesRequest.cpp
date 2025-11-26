@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,14 @@ DescribeTranscodeTemplatesRequest::DescribeTranscodeTemplatesRequest() :
     m_containerTypeHasBeenSet(false),
     m_tEHDTypeHasBeenSet(false),
     m_offsetHasBeenSet(false),
-    m_limitHasBeenSet(false)
+    m_limitHasBeenSet(false),
+    m_transcodeTypeHasBeenSet(false),
+    m_nameHasBeenSet(false),
+    m_sceneTypeHasBeenSet(false),
+    m_compressTypeHasBeenSet(false),
+    m_enhanceSceneTypeHasBeenSet(false),
+    m_enhanceTranscodeTypeHasBeenSet(false),
+    m_enhanceTypeHasBeenSet(false)
 {
 }
 
@@ -90,6 +97,62 @@ string DescribeTranscodeTemplatesRequest::ToJsonString() const
         string key = "Limit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_limit, allocator);
+    }
+
+    if (m_transcodeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TranscodeType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_transcodeType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Name";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_name.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sceneTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SceneType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_sceneType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_compressTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CompressType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_compressType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enhanceSceneTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnhanceSceneType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_enhanceSceneType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enhanceTranscodeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnhanceTranscodeType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_enhanceTranscodeType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enhanceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnhanceType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_enhanceType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -194,6 +257,118 @@ void DescribeTranscodeTemplatesRequest::SetLimit(const uint64_t& _limit)
 bool DescribeTranscodeTemplatesRequest::LimitHasBeenSet() const
 {
     return m_limitHasBeenSet;
+}
+
+string DescribeTranscodeTemplatesRequest::GetTranscodeType() const
+{
+    return m_transcodeType;
+}
+
+void DescribeTranscodeTemplatesRequest::SetTranscodeType(const string& _transcodeType)
+{
+    m_transcodeType = _transcodeType;
+    m_transcodeTypeHasBeenSet = true;
+}
+
+bool DescribeTranscodeTemplatesRequest::TranscodeTypeHasBeenSet() const
+{
+    return m_transcodeTypeHasBeenSet;
+}
+
+string DescribeTranscodeTemplatesRequest::GetName() const
+{
+    return m_name;
+}
+
+void DescribeTranscodeTemplatesRequest::SetName(const string& _name)
+{
+    m_name = _name;
+    m_nameHasBeenSet = true;
+}
+
+bool DescribeTranscodeTemplatesRequest::NameHasBeenSet() const
+{
+    return m_nameHasBeenSet;
+}
+
+string DescribeTranscodeTemplatesRequest::GetSceneType() const
+{
+    return m_sceneType;
+}
+
+void DescribeTranscodeTemplatesRequest::SetSceneType(const string& _sceneType)
+{
+    m_sceneType = _sceneType;
+    m_sceneTypeHasBeenSet = true;
+}
+
+bool DescribeTranscodeTemplatesRequest::SceneTypeHasBeenSet() const
+{
+    return m_sceneTypeHasBeenSet;
+}
+
+string DescribeTranscodeTemplatesRequest::GetCompressType() const
+{
+    return m_compressType;
+}
+
+void DescribeTranscodeTemplatesRequest::SetCompressType(const string& _compressType)
+{
+    m_compressType = _compressType;
+    m_compressTypeHasBeenSet = true;
+}
+
+bool DescribeTranscodeTemplatesRequest::CompressTypeHasBeenSet() const
+{
+    return m_compressTypeHasBeenSet;
+}
+
+string DescribeTranscodeTemplatesRequest::GetEnhanceSceneType() const
+{
+    return m_enhanceSceneType;
+}
+
+void DescribeTranscodeTemplatesRequest::SetEnhanceSceneType(const string& _enhanceSceneType)
+{
+    m_enhanceSceneType = _enhanceSceneType;
+    m_enhanceSceneTypeHasBeenSet = true;
+}
+
+bool DescribeTranscodeTemplatesRequest::EnhanceSceneTypeHasBeenSet() const
+{
+    return m_enhanceSceneTypeHasBeenSet;
+}
+
+string DescribeTranscodeTemplatesRequest::GetEnhanceTranscodeType() const
+{
+    return m_enhanceTranscodeType;
+}
+
+void DescribeTranscodeTemplatesRequest::SetEnhanceTranscodeType(const string& _enhanceTranscodeType)
+{
+    m_enhanceTranscodeType = _enhanceTranscodeType;
+    m_enhanceTranscodeTypeHasBeenSet = true;
+}
+
+bool DescribeTranscodeTemplatesRequest::EnhanceTranscodeTypeHasBeenSet() const
+{
+    return m_enhanceTranscodeTypeHasBeenSet;
+}
+
+string DescribeTranscodeTemplatesRequest::GetEnhanceType() const
+{
+    return m_enhanceType;
+}
+
+void DescribeTranscodeTemplatesRequest::SetEnhanceType(const string& _enhanceType)
+{
+    m_enhanceType = _enhanceType;
+    m_enhanceTypeHasBeenSet = true;
+}
+
+bool DescribeTranscodeTemplatesRequest::EnhanceTypeHasBeenSet() const
+{
+    return m_enhanceTypeHasBeenSet;
 }
 
 

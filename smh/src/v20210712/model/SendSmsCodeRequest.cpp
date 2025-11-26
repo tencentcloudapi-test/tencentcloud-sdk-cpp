@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,9 @@ using namespace std;
 
 SendSmsCodeRequest::SendSmsCodeRequest() :
     m_purposeHasBeenSet(false),
+    m_phoneNumberHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
-    m_phoneNumberHasBeenSet(false)
+    m_countryCodeHasBeenSet(false)
 {
 }
 
@@ -44,6 +45,14 @@ string SendSmsCodeRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_purpose.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_phoneNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PhoneNumber";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_phoneNumber.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_instanceIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -52,12 +61,12 @@ string SendSmsCodeRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_phoneNumberHasBeenSet)
+    if (m_countryCodeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PhoneNumber";
+        string key = "CountryCode";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_phoneNumber.c_str(), allocator).Move(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_countryCode.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -84,6 +93,22 @@ bool SendSmsCodeRequest::PurposeHasBeenSet() const
     return m_purposeHasBeenSet;
 }
 
+string SendSmsCodeRequest::GetPhoneNumber() const
+{
+    return m_phoneNumber;
+}
+
+void SendSmsCodeRequest::SetPhoneNumber(const string& _phoneNumber)
+{
+    m_phoneNumber = _phoneNumber;
+    m_phoneNumberHasBeenSet = true;
+}
+
+bool SendSmsCodeRequest::PhoneNumberHasBeenSet() const
+{
+    return m_phoneNumberHasBeenSet;
+}
+
 string SendSmsCodeRequest::GetInstanceId() const
 {
     return m_instanceId;
@@ -100,20 +125,20 @@ bool SendSmsCodeRequest::InstanceIdHasBeenSet() const
     return m_instanceIdHasBeenSet;
 }
 
-string SendSmsCodeRequest::GetPhoneNumber() const
+string SendSmsCodeRequest::GetCountryCode() const
 {
-    return m_phoneNumber;
+    return m_countryCode;
 }
 
-void SendSmsCodeRequest::SetPhoneNumber(const string& _phoneNumber)
+void SendSmsCodeRequest::SetCountryCode(const string& _countryCode)
 {
-    m_phoneNumber = _phoneNumber;
-    m_phoneNumberHasBeenSet = true;
+    m_countryCode = _countryCode;
+    m_countryCodeHasBeenSet = true;
 }
 
-bool SendSmsCodeRequest::PhoneNumberHasBeenSet() const
+bool SendSmsCodeRequest::CountryCodeHasBeenSet() const
 {
-    return m_phoneNumberHasBeenSet;
+    return m_countryCodeHasBeenSet;
 }
 
 

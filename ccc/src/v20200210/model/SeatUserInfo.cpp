@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,13 @@ using namespace std;
 SeatUserInfo::SeatUserInfo() :
     m_nameHasBeenSet(false),
     m_mailHasBeenSet(false),
+    m_staffNumberHasBeenSet(false),
     m_phoneHasBeenSet(false),
     m_nickHasBeenSet(false),
     m_userIdHasBeenSet(false),
     m_skillGroupNameListHasBeenSet(false),
-    m_staffNumberHasBeenSet(false)
+    m_roleHasBeenSet(false),
+    m_extensionNumberHasBeenSet(false)
 {
 }
 
@@ -54,6 +56,16 @@ CoreInternalOutcome SeatUserInfo::Deserialize(const rapidjson::Value &value)
         }
         m_mail = string(value["Mail"].GetString());
         m_mailHasBeenSet = true;
+    }
+
+    if (value.HasMember("StaffNumber") && !value["StaffNumber"].IsNull())
+    {
+        if (!value["StaffNumber"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SeatUserInfo.StaffNumber` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_staffNumber = string(value["StaffNumber"].GetString());
+        m_staffNumberHasBeenSet = true;
     }
 
     if (value.HasMember("Phone") && !value["Phone"].IsNull())
@@ -99,14 +111,24 @@ CoreInternalOutcome SeatUserInfo::Deserialize(const rapidjson::Value &value)
         m_skillGroupNameListHasBeenSet = true;
     }
 
-    if (value.HasMember("StaffNumber") && !value["StaffNumber"].IsNull())
+    if (value.HasMember("Role") && !value["Role"].IsNull())
     {
-        if (!value["StaffNumber"].IsString())
+        if (!value["Role"].IsInt64())
         {
-            return CoreInternalOutcome(Core::Error("response `SeatUserInfo.StaffNumber` IsString=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `SeatUserInfo.Role` IsInt64=false incorrectly").SetRequestId(requestId));
         }
-        m_staffNumber = string(value["StaffNumber"].GetString());
-        m_staffNumberHasBeenSet = true;
+        m_role = value["Role"].GetInt64();
+        m_roleHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExtensionNumber") && !value["ExtensionNumber"].IsNull())
+    {
+        if (!value["ExtensionNumber"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SeatUserInfo.ExtensionNumber` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_extensionNumber = string(value["ExtensionNumber"].GetString());
+        m_extensionNumberHasBeenSet = true;
     }
 
 
@@ -130,6 +152,14 @@ void SeatUserInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "Mail";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_mail.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_staffNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StaffNumber";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_staffNumber.c_str(), allocator).Move(), allocator);
     }
 
     if (m_phoneHasBeenSet)
@@ -169,12 +199,20 @@ void SeatUserInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         }
     }
 
-    if (m_staffNumberHasBeenSet)
+    if (m_roleHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StaffNumber";
+        string key = "Role";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_staffNumber.c_str(), allocator).Move(), allocator);
+        value.AddMember(iKey, m_role, allocator);
+    }
+
+    if (m_extensionNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExtensionNumber";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_extensionNumber.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -210,6 +248,22 @@ void SeatUserInfo::SetMail(const string& _mail)
 bool SeatUserInfo::MailHasBeenSet() const
 {
     return m_mailHasBeenSet;
+}
+
+string SeatUserInfo::GetStaffNumber() const
+{
+    return m_staffNumber;
+}
+
+void SeatUserInfo::SetStaffNumber(const string& _staffNumber)
+{
+    m_staffNumber = _staffNumber;
+    m_staffNumberHasBeenSet = true;
+}
+
+bool SeatUserInfo::StaffNumberHasBeenSet() const
+{
+    return m_staffNumberHasBeenSet;
 }
 
 string SeatUserInfo::GetPhone() const
@@ -276,19 +330,35 @@ bool SeatUserInfo::SkillGroupNameListHasBeenSet() const
     return m_skillGroupNameListHasBeenSet;
 }
 
-string SeatUserInfo::GetStaffNumber() const
+int64_t SeatUserInfo::GetRole() const
 {
-    return m_staffNumber;
+    return m_role;
 }
 
-void SeatUserInfo::SetStaffNumber(const string& _staffNumber)
+void SeatUserInfo::SetRole(const int64_t& _role)
 {
-    m_staffNumber = _staffNumber;
-    m_staffNumberHasBeenSet = true;
+    m_role = _role;
+    m_roleHasBeenSet = true;
 }
 
-bool SeatUserInfo::StaffNumberHasBeenSet() const
+bool SeatUserInfo::RoleHasBeenSet() const
 {
-    return m_staffNumberHasBeenSet;
+    return m_roleHasBeenSet;
+}
+
+string SeatUserInfo::GetExtensionNumber() const
+{
+    return m_extensionNumber;
+}
+
+void SeatUserInfo::SetExtensionNumber(const string& _extensionNumber)
+{
+    m_extensionNumber = _extensionNumber;
+    m_extensionNumberHasBeenSet = true;
+}
+
+bool SeatUserInfo::ExtensionNumberHasBeenSet() const
+{
+    return m_extensionNumberHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,12 @@ DriverLicenseOCRResponse::DriverLicenseOCRResponse() :
     m_recognizeWarnMsgHasBeenSet(false),
     m_issuingAuthorityHasBeenSet(false),
     m_stateHasBeenSet(false),
-    m_cumulativeScoreHasBeenSet(false)
+    m_cumulativeScoreHasBeenSet(false),
+    m_currentTimeHasBeenSet(false),
+    m_generateTimeHasBeenSet(false),
+    m_backPageNameHasBeenSet(false),
+    m_backPageCardCodeHasBeenSet(false),
+    m_driverLicenseTypeHasBeenSet(false)
 {
 }
 
@@ -254,6 +259,56 @@ CoreInternalOutcome DriverLicenseOCRResponse::Deserialize(const string &payload)
         m_cumulativeScoreHasBeenSet = true;
     }
 
+    if (rsp.HasMember("CurrentTime") && !rsp["CurrentTime"].IsNull())
+    {
+        if (!rsp["CurrentTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CurrentTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_currentTime = string(rsp["CurrentTime"].GetString());
+        m_currentTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("GenerateTime") && !rsp["GenerateTime"].IsNull())
+    {
+        if (!rsp["GenerateTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `GenerateTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_generateTime = string(rsp["GenerateTime"].GetString());
+        m_generateTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BackPageName") && !rsp["BackPageName"].IsNull())
+    {
+        if (!rsp["BackPageName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackPageName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_backPageName = string(rsp["BackPageName"].GetString());
+        m_backPageNameHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BackPageCardCode") && !rsp["BackPageCardCode"].IsNull())
+    {
+        if (!rsp["BackPageCardCode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackPageCardCode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_backPageCardCode = string(rsp["BackPageCardCode"].GetString());
+        m_backPageCardCodeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("DriverLicenseType") && !rsp["DriverLicenseType"].IsNull())
+    {
+        if (!rsp["DriverLicenseType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DriverLicenseType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_driverLicenseType = string(rsp["DriverLicenseType"].GetString());
+        m_driverLicenseTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -410,11 +465,51 @@ string DriverLicenseOCRResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_cumulativeScore.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_currentTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CurrentTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_currentTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_generateTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GenerateTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_generateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backPageNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackPageName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_backPageName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backPageCardCodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackPageCardCode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_backPageCardCode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_driverLicenseTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DriverLicenseType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_driverLicenseType.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -590,6 +685,56 @@ string DriverLicenseOCRResponse::GetCumulativeScore() const
 bool DriverLicenseOCRResponse::CumulativeScoreHasBeenSet() const
 {
     return m_cumulativeScoreHasBeenSet;
+}
+
+string DriverLicenseOCRResponse::GetCurrentTime() const
+{
+    return m_currentTime;
+}
+
+bool DriverLicenseOCRResponse::CurrentTimeHasBeenSet() const
+{
+    return m_currentTimeHasBeenSet;
+}
+
+string DriverLicenseOCRResponse::GetGenerateTime() const
+{
+    return m_generateTime;
+}
+
+bool DriverLicenseOCRResponse::GenerateTimeHasBeenSet() const
+{
+    return m_generateTimeHasBeenSet;
+}
+
+string DriverLicenseOCRResponse::GetBackPageName() const
+{
+    return m_backPageName;
+}
+
+bool DriverLicenseOCRResponse::BackPageNameHasBeenSet() const
+{
+    return m_backPageNameHasBeenSet;
+}
+
+string DriverLicenseOCRResponse::GetBackPageCardCode() const
+{
+    return m_backPageCardCode;
+}
+
+bool DriverLicenseOCRResponse::BackPageCardCodeHasBeenSet() const
+{
+    return m_backPageCardCodeHasBeenSet;
+}
+
+string DriverLicenseOCRResponse::GetDriverLicenseType() const
+{
+    return m_driverLicenseType;
+}
+
+bool DriverLicenseOCRResponse::DriverLicenseTypeHasBeenSet() const
+{
+    return m_driverLicenseTypeHasBeenSet;
 }
 
 

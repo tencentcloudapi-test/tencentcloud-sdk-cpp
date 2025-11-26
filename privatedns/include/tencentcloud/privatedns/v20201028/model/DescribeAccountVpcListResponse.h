@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取VPC数量
-                     * @return TotalCount VPC数量
+                     * 获取关联账号VPC数量
+                     * @return TotalCount 关联账号VPC数量
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取VPC 列表
-                     * @return VpcSet VPC 列表
+                     * 获取关联账号VPC 列表
+                     * @return VpcSet 关联账号VPC 列表
+                     * 
                      */
                     std::vector<AccountVpcInfoOut> GetVpcSet() const;
 
                     /**
                      * 判断参数 VpcSet 是否已赋值
                      * @return VpcSet 是否已赋值
+                     * 
                      */
                     bool VpcSetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * VPC数量
+                     * 关联账号VPC数量
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * VPC 列表
+                     * 关联账号VPC 列表
                      */
                     std::vector<AccountVpcInfoOut> m_vpcSet;
                     bool m_vpcSetHasBeenSet;

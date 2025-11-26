@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取工作组总数
                      * @return TotalCount 工作组总数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取工作组信息集合
                      * @return WorkGroupSet 工作组信息集合
+                     * 
                      */
                     std::vector<WorkGroupInfo> GetWorkGroupSet() const;
 
                     /**
                      * 判断参数 WorkGroupSet 是否已赋值
                      * @return WorkGroupSet 是否已赋值
+                     * 
                      */
                     bool WorkGroupSetHasBeenSet() const;
 

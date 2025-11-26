@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取返回的IP的数量
                      * @return BlockedIPCount 返回的IP的数量
+                     * 
                      */
                     uint64_t GetBlockedIPCount() const;
 
                     /**
                      * 判断参数 BlockedIPCount 是否已赋值
                      * @return BlockedIPCount 是否已赋值
+                     * 
                      */
                     bool BlockedIPCountHasBeenSet() const;
 
                     /**
                      * 获取获取用户真实IP的字段
                      * @return ClientIPField 获取用户真实IP的字段
+                     * 
                      */
                     std::string GetClientIPField() const;
 
                     /**
                      * 判断参数 ClientIPField 是否已赋值
                      * @return ClientIPField 是否已赋值
+                     * 
                      */
                     bool ClientIPFieldHasBeenSet() const;
 
                     /**
                      * 获取加入了12360黑名单的IP列表
                      * @return BlockedIPList 加入了12360黑名单的IP列表
+                     * 
                      */
                     std::vector<BlockedIP> GetBlockedIPList() const;
 
                     /**
                      * 判断参数 BlockedIPList 是否已赋值
                      * @return BlockedIPList 是否已赋值
+                     * 
                      */
                     bool BlockedIPListHasBeenSet() const;
 

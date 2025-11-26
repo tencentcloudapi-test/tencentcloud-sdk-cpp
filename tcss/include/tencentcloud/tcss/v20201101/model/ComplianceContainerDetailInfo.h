@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,40 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取容器在主机上的ID。
                      * @return ContainerId 容器在主机上的ID。
+                     * 
                      */
                     std::string GetContainerId() const;
 
                     /**
                      * 设置容器在主机上的ID。
-                     * @param ContainerId 容器在主机上的ID。
+                     * @param _containerId 容器在主机上的ID。
+                     * 
                      */
                     void SetContainerId(const std::string& _containerId);
 
                     /**
                      * 判断参数 ContainerId 是否已赋值
                      * @return ContainerId 是否已赋值
+                     * 
                      */
                     bool ContainerIdHasBeenSet() const;
 
                     /**
                      * 获取容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PodName 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPodName() const;
 
                     /**
                      * 设置容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PodName 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _podName 容器所属的Pod的名称。
+                     * 
                      */
                     void SetPodName(const std::string& _podName);
 
                     /**
                      * 判断参数 PodName 是否已赋值
                      * @return PodName 是否已赋值
+                     * 
                      */
                     bool PodNameHasBeenSet() const;
 
@@ -96,7 +98,6 @@ namespace TencentCloud
 
                     /**
                      * 容器所属的Pod的名称。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_podName;
                     bool m_podNameHasBeenSet;

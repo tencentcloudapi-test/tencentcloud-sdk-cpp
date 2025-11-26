@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,56 @@ ImsClient::ImsClient(const Credential &credential, const string &region, const C
 }
 
 
+ImsClient::CreateImageModerationAsyncTaskOutcome ImsClient::CreateImageModerationAsyncTask(const CreateImageModerationAsyncTaskRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateImageModerationAsyncTask");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateImageModerationAsyncTaskResponse rsp = CreateImageModerationAsyncTaskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateImageModerationAsyncTaskOutcome(rsp);
+        else
+            return CreateImageModerationAsyncTaskOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateImageModerationAsyncTaskOutcome(outcome.GetError());
+    }
+}
+
+void ImsClient::CreateImageModerationAsyncTaskAsync(const CreateImageModerationAsyncTaskRequest& request, const CreateImageModerationAsyncTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateImageModerationAsyncTaskRequest&;
+    using Resp = CreateImageModerationAsyncTaskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateImageModerationAsyncTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+ImsClient::CreateImageModerationAsyncTaskOutcomeCallable ImsClient::CreateImageModerationAsyncTaskCallable(const CreateImageModerationAsyncTaskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateImageModerationAsyncTaskOutcome>>();
+    CreateImageModerationAsyncTaskAsync(
+    request,
+    [prom](
+        const ImsClient*,
+        const CreateImageModerationAsyncTaskRequest&,
+        CreateImageModerationAsyncTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 ImsClient::ImageModerationOutcome ImsClient::ImageModeration(const ImageModerationRequest &request)
 {
     auto outcome = MakeRequest(request, "ImageModeration");
@@ -62,24 +112,31 @@ ImsClient::ImageModerationOutcome ImsClient::ImageModeration(const ImageModerati
 
 void ImsClient::ImageModerationAsync(const ImageModerationRequest& request, const ImageModerationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ImageModeration(request), context);
-    };
+    using Req = const ImageModerationRequest&;
+    using Resp = ImageModerationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ImageModeration", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 ImsClient::ImageModerationOutcomeCallable ImsClient::ImageModerationCallable(const ImageModerationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ImageModerationOutcome()>>(
-        [this, request]()
-        {
-            return this->ImageModeration(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ImageModerationOutcome>>();
+    ImageModerationAsync(
+    request,
+    [prom](
+        const ImsClient*,
+        const ImageModerationRequest&,
+        ImageModerationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

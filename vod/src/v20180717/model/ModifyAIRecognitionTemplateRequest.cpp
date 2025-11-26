@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ using namespace std;
 
 ModifyAIRecognitionTemplateRequest::ModifyAIRecognitionTemplateRequest() :
     m_definitionHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_commentHasBeenSet(false),
     m_headTailConfigureHasBeenSet(false),
@@ -33,9 +34,9 @@ ModifyAIRecognitionTemplateRequest::ModifyAIRecognitionTemplateRequest() :
     m_ocrWordsConfigureHasBeenSet(false),
     m_asrFullTextConfigureHasBeenSet(false),
     m_asrWordsConfigureHasBeenSet(false),
+    m_asrTranslateConfigureHasBeenSet(false),
     m_objectConfigureHasBeenSet(false),
-    m_screenshotIntervalHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_screenshotIntervalHasBeenSet(false)
 {
 }
 
@@ -52,6 +53,14 @@ string ModifyAIRecognitionTemplateRequest::ToJsonString() const
         string key = "Definition";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_definition, allocator);
+    }
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_nameHasBeenSet)
@@ -133,6 +142,15 @@ string ModifyAIRecognitionTemplateRequest::ToJsonString() const
         m_asrWordsConfigure.ToJsonObject(d[key.c_str()], allocator);
     }
 
+    if (m_asrTranslateConfigureHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AsrTranslateConfigure";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_asrTranslateConfigure.ToJsonObject(d[key.c_str()], allocator);
+    }
+
     if (m_objectConfigureHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -148,14 +166,6 @@ string ModifyAIRecognitionTemplateRequest::ToJsonString() const
         string key = "ScreenshotInterval";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_screenshotInterval, allocator);
-    }
-
-    if (m_subAppIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
     }
 
 
@@ -180,6 +190,22 @@ void ModifyAIRecognitionTemplateRequest::SetDefinition(const int64_t& _definitio
 bool ModifyAIRecognitionTemplateRequest::DefinitionHasBeenSet() const
 {
     return m_definitionHasBeenSet;
+}
+
+uint64_t ModifyAIRecognitionTemplateRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void ModifyAIRecognitionTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool ModifyAIRecognitionTemplateRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
 }
 
 string ModifyAIRecognitionTemplateRequest::GetName() const
@@ -326,6 +352,22 @@ bool ModifyAIRecognitionTemplateRequest::AsrWordsConfigureHasBeenSet() const
     return m_asrWordsConfigureHasBeenSet;
 }
 
+AsrTranslateConfigureInfoForUpdate ModifyAIRecognitionTemplateRequest::GetAsrTranslateConfigure() const
+{
+    return m_asrTranslateConfigure;
+}
+
+void ModifyAIRecognitionTemplateRequest::SetAsrTranslateConfigure(const AsrTranslateConfigureInfoForUpdate& _asrTranslateConfigure)
+{
+    m_asrTranslateConfigure = _asrTranslateConfigure;
+    m_asrTranslateConfigureHasBeenSet = true;
+}
+
+bool ModifyAIRecognitionTemplateRequest::AsrTranslateConfigureHasBeenSet() const
+{
+    return m_asrTranslateConfigureHasBeenSet;
+}
+
 ObjectConfigureInfoForUpdate ModifyAIRecognitionTemplateRequest::GetObjectConfigure() const
 {
     return m_objectConfigure;
@@ -356,22 +398,6 @@ void ModifyAIRecognitionTemplateRequest::SetScreenshotInterval(const double& _sc
 bool ModifyAIRecognitionTemplateRequest::ScreenshotIntervalHasBeenSet() const
 {
     return m_screenshotIntervalHasBeenSet;
-}
-
-uint64_t ModifyAIRecognitionTemplateRequest::GetSubAppId() const
-{
-    return m_subAppId;
-}
-
-void ModifyAIRecognitionTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
-{
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
-}
-
-bool ModifyAIRecognitionTemplateRequest::SubAppIdHasBeenSet() const
-{
-    return m_subAppIdHasBeenSet;
 }
 
 

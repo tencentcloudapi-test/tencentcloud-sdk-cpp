@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,38 +49,65 @@ namespace TencentCloud
                     /**
                      * 获取标签名称。
                      * @return Tag 标签名称。
+                     * 
                      */
                     std::string GetTag() const;
 
                     /**
                      * 设置标签名称。
-                     * @param Tag 标签名称。
+                     * @param _tag 标签名称。
+                     * 
                      */
                     void SetTag(const std::string& _tag);
 
                     /**
                      * 判断参数 Tag 是否已赋值
                      * @return Tag 是否已赋值
+                     * 
                      */
                     bool TagHasBeenSet() const;
 
                     /**
                      * 获取标签的可信度，取值范围是 0 到 100。
                      * @return Confidence 标签的可信度，取值范围是 0 到 100。
+                     * 
                      */
                     double GetConfidence() const;
 
                     /**
                      * 设置标签的可信度，取值范围是 0 到 100。
-                     * @param Confidence 标签的可信度，取值范围是 0 到 100。
+                     * @param _confidence 标签的可信度，取值范围是 0 到 100。
+                     * 
                      */
                     void SetConfidence(const double& _confidence);
 
                     /**
                      * 判断参数 Confidence 是否已赋值
                      * @return Confidence 是否已赋值
+                     * 
                      */
                     bool ConfidenceHasBeenSet() const;
+
+                    /**
+                     * 获取根据不同类型决定
+                     * @return SpecialInfo 根据不同类型决定
+                     * 
+                     */
+                    std::string GetSpecialInfo() const;
+
+                    /**
+                     * 设置根据不同类型决定
+                     * @param _specialInfo 根据不同类型决定
+                     * 
+                     */
+                    void SetSpecialInfo(const std::string& _specialInfo);
+
+                    /**
+                     * 判断参数 SpecialInfo 是否已赋值
+                     * @return SpecialInfo 是否已赋值
+                     * 
+                     */
+                    bool SpecialInfoHasBeenSet() const;
 
                 private:
 
@@ -95,6 +122,12 @@ namespace TencentCloud
                      */
                     double m_confidence;
                     bool m_confidenceHasBeenSet;
+
+                    /**
+                     * 根据不同类型决定
+                     */
+                    std::string m_specialInfo;
+                    bool m_specialInfoHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mrs/v20200910/model/IndicatorItem.h>
+#include <tencentcloud/mrs/v20200910/model/BlockTitle.h>
 
 
 namespace TencentCloud
@@ -49,34 +50,86 @@ namespace TencentCloud
 
                     /**
                      * 获取检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Indicators 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<IndicatorItem> GetIndicators() const;
 
                     /**
                      * 设置检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Indicators 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _indicators 检验指标项
+                     * 
                      */
                     void SetIndicators(const std::vector<IndicatorItem>& _indicators);
 
                     /**
                      * 判断参数 Indicators 是否已赋值
                      * @return Indicators 是否已赋值
+                     * 
                      */
                     bool IndicatorsHasBeenSet() const;
+
+                    /**
+                     * 获取检验报告块标题
+                     * @return BlockTitle 检验报告块标题
+                     * 
+                     */
+                    std::vector<BlockTitle> GetBlockTitle() const;
+
+                    /**
+                     * 设置检验报告块标题
+                     * @param _blockTitle 检验报告块标题
+                     * 
+                     */
+                    void SetBlockTitle(const std::vector<BlockTitle>& _blockTitle);
+
+                    /**
+                     * 判断参数 BlockTitle 是否已赋值
+                     * @return BlockTitle 是否已赋值
+                     * 
+                     */
+                    bool BlockTitleHasBeenSet() const;
+
+                    /**
+                     * 获取数据在原PDF文件中的第几页
+                     * @return Page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    int64_t GetPage() const;
+
+                    /**
+                     * 设置数据在原PDF文件中的第几页
+                     * @param _page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    void SetPage(const int64_t& _page);
+
+                    /**
+                     * 判断参数 Page 是否已赋值
+                     * @return Page 是否已赋值
+                     * 
+                     */
+                    bool PageHasBeenSet() const;
 
                 private:
 
                     /**
                      * 检验指标项
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<IndicatorItem> m_indicators;
                     bool m_indicatorsHasBeenSet;
+
+                    /**
+                     * 检验报告块标题
+                     */
+                    std::vector<BlockTitle> m_blockTitle;
+                    bool m_blockTitleHasBeenSet;
+
+                    /**
+                     * 数据在原PDF文件中的第几页
+                     */
+                    int64_t m_page;
+                    bool m_pageHasBeenSet;
 
                 };
             }

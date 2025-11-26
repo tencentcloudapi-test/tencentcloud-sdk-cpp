@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,9 @@ TransmitOralProcessWithInitRequest::TransmitOralProcessWithInitRequest() :
     m_serverTypeHasBeenSet(false),
     m_isAsyncHasBeenSet(false),
     m_isQueryHasBeenSet(false),
-    m_textModeHasBeenSet(false)
+    m_textModeHasBeenSet(false),
+    m_keywordHasBeenSet(false),
+    m_cOSBucketURLHasBeenSet(false)
 {
 }
 
@@ -184,6 +186,22 @@ string TransmitOralProcessWithInitRequest::ToJsonString() const
         string key = "TextMode";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_textMode, allocator);
+    }
+
+    if (m_keywordHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Keyword";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_keyword.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cOSBucketURLHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "COSBucketURL";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cOSBucketURL.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -464,6 +482,38 @@ void TransmitOralProcessWithInitRequest::SetTextMode(const int64_t& _textMode)
 bool TransmitOralProcessWithInitRequest::TextModeHasBeenSet() const
 {
     return m_textModeHasBeenSet;
+}
+
+string TransmitOralProcessWithInitRequest::GetKeyword() const
+{
+    return m_keyword;
+}
+
+void TransmitOralProcessWithInitRequest::SetKeyword(const string& _keyword)
+{
+    m_keyword = _keyword;
+    m_keywordHasBeenSet = true;
+}
+
+bool TransmitOralProcessWithInitRequest::KeywordHasBeenSet() const
+{
+    return m_keywordHasBeenSet;
+}
+
+string TransmitOralProcessWithInitRequest::GetCOSBucketURL() const
+{
+    return m_cOSBucketURL;
+}
+
+void TransmitOralProcessWithInitRequest::SetCOSBucketURL(const string& _cOSBucketURL)
+{
+    m_cOSBucketURL = _cOSBucketURL;
+    m_cOSBucketURLHasBeenSet = true;
+}
+
+bool TransmitOralProcessWithInitRequest::COSBucketURLHasBeenSet() const
+{
+    return m_cOSBucketURLHasBeenSet;
 }
 
 

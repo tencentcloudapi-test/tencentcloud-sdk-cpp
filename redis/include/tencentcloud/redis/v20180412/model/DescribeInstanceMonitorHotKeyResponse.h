@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取热Key详细信息
-                     * @return Data 热Key详细信息
+                     * 获取热 Key 详细信息。
+                     * @return Data 热 Key 详细信息。
+                     * 
                      */
                     std::vector<HotKeyInfo> GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 热Key详细信息
+                     * 热 Key 详细信息。
                      */
                     std::vector<HotKeyInfo> m_data;
                     bool m_dataHasBeenSet;

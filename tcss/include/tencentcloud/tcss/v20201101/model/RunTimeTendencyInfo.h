@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取当天时间
                      * @return CurTime 当天时间
+                     * 
                      */
                     std::string GetCurTime() const;
 
                     /**
                      * 设置当天时间
-                     * @param CurTime 当天时间
+                     * @param _curTime 当天时间
+                     * 
                      */
                     void SetCurTime(const std::string& _curTime);
 
                     /**
                      * 判断参数 CurTime 是否已赋值
                      * @return CurTime 是否已赋值
+                     * 
                      */
                     bool CurTimeHasBeenSet() const;
 
                     /**
                      * 获取当前数量
                      * @return Cnt 当前数量
+                     * 
                      */
                     uint64_t GetCnt() const;
 
                     /**
                      * 设置当前数量
-                     * @param Cnt 当前数量
+                     * @param _cnt 当前数量
+                     * 
                      */
                     void SetCnt(const uint64_t& _cnt);
 
                     /**
                      * 判断参数 Cnt 是否已赋值
                      * @return Cnt 是否已赋值
+                     * 
                      */
                     bool CntHasBeenSet() const;
 

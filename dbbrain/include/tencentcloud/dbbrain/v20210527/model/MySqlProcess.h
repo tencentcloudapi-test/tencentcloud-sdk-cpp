@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,146 +49,195 @@ namespace TencentCloud
                     /**
                      * 获取线程ID。
                      * @return ID 线程ID。
+                     * 
                      */
                     std::string GetID() const;
 
                     /**
                      * 设置线程ID。
-                     * @param ID 线程ID。
+                     * @param _iD 线程ID。
+                     * 
                      */
                     void SetID(const std::string& _iD);
 
                     /**
                      * 判断参数 ID 是否已赋值
                      * @return ID 是否已赋值
+                     * 
                      */
                     bool IDHasBeenSet() const;
 
                     /**
                      * 获取线程的操作账号名。
                      * @return User 线程的操作账号名。
+                     * 
                      */
                     std::string GetUser() const;
 
                     /**
                      * 设置线程的操作账号名。
-                     * @param User 线程的操作账号名。
+                     * @param _user 线程的操作账号名。
+                     * 
                      */
                     void SetUser(const std::string& _user);
 
                     /**
                      * 判断参数 User 是否已赋值
                      * @return User 是否已赋值
+                     * 
                      */
                     bool UserHasBeenSet() const;
 
                     /**
                      * 获取线程的操作主机地址。
                      * @return Host 线程的操作主机地址。
+                     * 
                      */
                     std::string GetHost() const;
 
                     /**
                      * 设置线程的操作主机地址。
-                     * @param Host 线程的操作主机地址。
+                     * @param _host 线程的操作主机地址。
+                     * 
                      */
                     void SetHost(const std::string& _host);
 
                     /**
                      * 判断参数 Host 是否已赋值
                      * @return Host 是否已赋值
+                     * 
                      */
                     bool HostHasBeenSet() const;
 
                     /**
                      * 获取线程的操作数据库。
                      * @return DB 线程的操作数据库。
+                     * 
                      */
                     std::string GetDB() const;
 
                     /**
                      * 设置线程的操作数据库。
-                     * @param DB 线程的操作数据库。
+                     * @param _dB 线程的操作数据库。
+                     * 
                      */
                     void SetDB(const std::string& _dB);
 
                     /**
                      * 判断参数 DB 是否已赋值
                      * @return DB 是否已赋值
+                     * 
                      */
                     bool DBHasBeenSet() const;
 
                     /**
-                     * 获取线程的操作状态。
-                     * @return State 线程的操作状态。
+                     * 获取线程的操作状态。包含以下枚举值：Sending data​-线程正在处理查询结果， ​Sorting result​-线程正在对查询结果进行排序​，Creating tmp table​-线程正在创建临时表，Altering table​-线程正在执行表结构变更，Updating-线程执行更新中。
+                     * @return State 线程的操作状态。包含以下枚举值：Sending data​-线程正在处理查询结果， ​Sorting result​-线程正在对查询结果进行排序​，Creating tmp table​-线程正在创建临时表，Altering table​-线程正在执行表结构变更，Updating-线程执行更新中。
+                     * 
                      */
                     std::string GetState() const;
 
                     /**
-                     * 设置线程的操作状态。
-                     * @param State 线程的操作状态。
+                     * 设置线程的操作状态。包含以下枚举值：Sending data​-线程正在处理查询结果， ​Sorting result​-线程正在对查询结果进行排序​，Creating tmp table​-线程正在创建临时表，Altering table​-线程正在执行表结构变更，Updating-线程执行更新中。
+                     * @param _state 线程的操作状态。包含以下枚举值：Sending data​-线程正在处理查询结果， ​Sorting result​-线程正在对查询结果进行排序​，Creating tmp table​-线程正在创建临时表，Altering table​-线程正在执行表结构变更，Updating-线程执行更新中。
+                     * 
                      */
                     void SetState(const std::string& _state);
 
                     /**
                      * 判断参数 State 是否已赋值
                      * @return State 是否已赋值
+                     * 
                      */
                     bool StateHasBeenSet() const;
 
                     /**
-                     * 获取线程的执行类型。
-                     * @return Command 线程的执行类型。
+                     * 获取线程的执行类型。包含以下枚举值：Sleep-线程处于空闲状态，Query-线程正在执行一个查询，Connect-从服务器连接到主服务器，Execute-线程正在执行预处理语句。
+                     * @return Command 线程的执行类型。包含以下枚举值：Sleep-线程处于空闲状态，Query-线程正在执行一个查询，Connect-从服务器连接到主服务器，Execute-线程正在执行预处理语句。
+                     * 
                      */
                     std::string GetCommand() const;
 
                     /**
-                     * 设置线程的执行类型。
-                     * @param Command 线程的执行类型。
+                     * 设置线程的执行类型。包含以下枚举值：Sleep-线程处于空闲状态，Query-线程正在执行一个查询，Connect-从服务器连接到主服务器，Execute-线程正在执行预处理语句。
+                     * @param _command 线程的执行类型。包含以下枚举值：Sleep-线程处于空闲状态，Query-线程正在执行一个查询，Connect-从服务器连接到主服务器，Execute-线程正在执行预处理语句。
+                     * 
                      */
                     void SetCommand(const std::string& _command);
 
                     /**
                      * 判断参数 Command 是否已赋值
                      * @return Command 是否已赋值
+                     * 
                      */
                     bool CommandHasBeenSet() const;
 
                     /**
                      * 获取线程的操作时长，单位秒。
                      * @return Time 线程的操作时长，单位秒。
+                     * 
                      */
                     std::string GetTime() const;
 
                     /**
                      * 设置线程的操作时长，单位秒。
-                     * @param Time 线程的操作时长，单位秒。
+                     * @param _time 线程的操作时长，单位秒。
+                     * 
                      */
                     void SetTime(const std::string& _time);
 
                     /**
                      * 判断参数 Time 是否已赋值
                      * @return Time 是否已赋值
+                     * 
                      */
                     bool TimeHasBeenSet() const;
 
                     /**
                      * 获取线程的操作语句。
                      * @return Info 线程的操作语句。
+                     * 
                      */
                     std::string GetInfo() const;
 
                     /**
                      * 设置线程的操作语句。
-                     * @param Info 线程的操作语句。
+                     * @param _info 线程的操作语句。
+                     * 
                      */
                     void SetInfo(const std::string& _info);
 
                     /**
                      * 判断参数 Info 是否已赋值
                      * @return Info 是否已赋值
+                     * 
                      */
                     bool InfoHasBeenSet() const;
+
+                    /**
+                     * 获取sql类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return SqlType sql类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetSqlType() const;
+
+                    /**
+                     * 设置sql类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _sqlType sql类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetSqlType(const std::string& _sqlType);
+
+                    /**
+                     * 判断参数 SqlType 是否已赋值
+                     * @return SqlType 是否已赋值
+                     * 
+                     */
+                    bool SqlTypeHasBeenSet() const;
 
                 private:
 
@@ -217,13 +266,13 @@ namespace TencentCloud
                     bool m_dBHasBeenSet;
 
                     /**
-                     * 线程的操作状态。
+                     * 线程的操作状态。包含以下枚举值：Sending data​-线程正在处理查询结果， ​Sorting result​-线程正在对查询结果进行排序​，Creating tmp table​-线程正在创建临时表，Altering table​-线程正在执行表结构变更，Updating-线程执行更新中。
                      */
                     std::string m_state;
                     bool m_stateHasBeenSet;
 
                     /**
-                     * 线程的执行类型。
+                     * 线程的执行类型。包含以下枚举值：Sleep-线程处于空闲状态，Query-线程正在执行一个查询，Connect-从服务器连接到主服务器，Execute-线程正在执行预处理语句。
                      */
                     std::string m_command;
                     bool m_commandHasBeenSet;
@@ -239,6 +288,13 @@ namespace TencentCloud
                      */
                     std::string m_info;
                     bool m_infoHasBeenSet;
+
+                    /**
+                     * sql类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_sqlType;
+                    bool m_sqlTypeHasBeenSet;
 
                 };
             }

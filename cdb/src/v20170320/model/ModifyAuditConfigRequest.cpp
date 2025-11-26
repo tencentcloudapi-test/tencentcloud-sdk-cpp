@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 ModifyAuditConfigRequest::ModifyAuditConfigRequest() :
     m_instanceIdHasBeenSet(false),
     m_logExpireDayHasBeenSet(false),
-    m_closeAuditHasBeenSet(false)
+    m_closeAuditHasBeenSet(false),
+    m_highLogExpireDayHasBeenSet(false)
 {
 }
 
@@ -58,6 +59,14 @@ string ModifyAuditConfigRequest::ToJsonString() const
         string key = "CloseAudit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_closeAudit, allocator);
+    }
+
+    if (m_highLogExpireDayHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HighLogExpireDay";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_highLogExpireDay, allocator);
     }
 
 
@@ -114,6 +123,22 @@ void ModifyAuditConfigRequest::SetCloseAudit(const bool& _closeAudit)
 bool ModifyAuditConfigRequest::CloseAuditHasBeenSet() const
 {
     return m_closeAuditHasBeenSet;
+}
+
+int64_t ModifyAuditConfigRequest::GetHighLogExpireDay() const
+{
+    return m_highLogExpireDay;
+}
+
+void ModifyAuditConfigRequest::SetHighLogExpireDay(const int64_t& _highLogExpireDay)
+{
+    m_highLogExpireDay = _highLogExpireDay;
+    m_highLogExpireDayHasBeenSet = true;
+}
+
+bool ModifyAuditConfigRequest::HighLogExpireDayHasBeenSet() const
+{
+    return m_highLogExpireDayHasBeenSet;
 }
 
 

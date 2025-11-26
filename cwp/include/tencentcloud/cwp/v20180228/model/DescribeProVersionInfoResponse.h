@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,45 +44,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取后付费昨日扣费
-                     * @return PostPayCost 后付费昨日扣费
+                     * 获取昨日【专业版-按量付费】扣费明细,(实际已账单为准)
+                     * @return PostPayCost 昨日【专业版-按量付费】扣费明细,(实际已账单为准)
+                     * 
                      */
                     uint64_t GetPostPayCost() const;
 
                     /**
                      * 判断参数 PostPayCost 是否已赋值
                      * @return PostPayCost 是否已赋值
+                     * 
                      */
                     bool PostPayCostHasBeenSet() const;
 
                     /**
                      * 获取新增主机是否自动开通专业版
                      * @return IsAutoOpenProVersion 新增主机是否自动开通专业版
+                     * 
                      */
                     bool GetIsAutoOpenProVersion() const;
 
                     /**
                      * 判断参数 IsAutoOpenProVersion 是否已赋值
                      * @return IsAutoOpenProVersion 是否已赋值
+                     * 
                      */
                     bool IsAutoOpenProVersionHasBeenSet() const;
 
                     /**
-                     * 获取开通专业版主机数
-                     * @return ProVersionNum 开通专业版主机数
+                     * 获取专业版主机数
+                     * @return ProVersionNum 专业版主机数
+                     * 
                      */
                     uint64_t GetProVersionNum() const;
 
                     /**
                      * 判断参数 ProVersionNum 是否已赋值
                      * @return ProVersionNum 是否已赋值
+                     * 
                      */
                     bool ProVersionNumHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 后付费昨日扣费
+                     * 昨日【专业版-按量付费】扣费明细,(实际已账单为准)
                      */
                     uint64_t m_postPayCost;
                     bool m_postPayCostHasBeenSet;
@@ -94,7 +100,7 @@ namespace TencentCloud
                     bool m_isAutoOpenProVersionHasBeenSet;
 
                     /**
-                     * 开通专业版主机数
+                     * 专业版主机数
                      */
                     uint64_t m_proVersionNum;
                     bool m_proVersionNumHasBeenSet;

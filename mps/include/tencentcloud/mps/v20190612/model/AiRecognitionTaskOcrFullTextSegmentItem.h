@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取识别片段起始的偏移时间，单位：秒。
                      * @return StartTimeOffset 识别片段起始的偏移时间，单位：秒。
+                     * 
                      */
                     double GetStartTimeOffset() const;
 
                     /**
                      * 设置识别片段起始的偏移时间，单位：秒。
-                     * @param StartTimeOffset 识别片段起始的偏移时间，单位：秒。
+                     * @param _startTimeOffset 识别片段起始的偏移时间，单位：秒。
+                     * 
                      */
                     void SetStartTimeOffset(const double& _startTimeOffset);
 
                     /**
                      * 判断参数 StartTimeOffset 是否已赋值
                      * @return StartTimeOffset 是否已赋值
+                     * 
                      */
                     bool StartTimeOffsetHasBeenSet() const;
 
                     /**
                      * 获取识别片段终止的偏移时间，单位：秒。
                      * @return EndTimeOffset 识别片段终止的偏移时间，单位：秒。
+                     * 
                      */
                     double GetEndTimeOffset() const;
 
                     /**
                      * 设置识别片段终止的偏移时间，单位：秒。
-                     * @param EndTimeOffset 识别片段终止的偏移时间，单位：秒。
+                     * @param _endTimeOffset 识别片段终止的偏移时间，单位：秒。
+                     * 
                      */
                     void SetEndTimeOffset(const double& _endTimeOffset);
 
                     /**
                      * 判断参数 EndTimeOffset 是否已赋值
                      * @return EndTimeOffset 是否已赋值
+                     * 
                      */
                     bool EndTimeOffsetHasBeenSet() const;
 
                     /**
                      * 获取识别片段结果集。
                      * @return TextSet 识别片段结果集。
+                     * 
                      */
                     std::vector<AiRecognitionTaskOcrFullTextSegmentTextItem> GetTextSet() const;
 
                     /**
                      * 设置识别片段结果集。
-                     * @param TextSet 识别片段结果集。
+                     * @param _textSet 识别片段结果集。
+                     * 
                      */
                     void SetTextSet(const std::vector<AiRecognitionTaskOcrFullTextSegmentTextItem>& _textSet);
 
                     /**
                      * 判断参数 TextSet 是否已赋值
                      * @return TextSet 是否已赋值
+                     * 
                      */
                     bool TextSetHasBeenSet() const;
 

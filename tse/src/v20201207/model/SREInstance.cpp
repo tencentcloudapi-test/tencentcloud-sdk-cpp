@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,22 @@ SREInstance::SREInstance() :
     m_enableConsoleInternetHasBeenSet(false),
     m_enableConsoleIntranetHasBeenSet(false),
     m_configInfoVisibleHasBeenSet(false),
-    m_consoleDefaultPwdHasBeenSet(false)
+    m_consoleDefaultPwdHasBeenSet(false),
+    m_tradeTypeHasBeenSet(false),
+    m_autoRenewFlagHasBeenSet(false),
+    m_curDeadlineHasBeenSet(false),
+    m_isolateTimeHasBeenSet(false),
+    m_regionInfosHasBeenSet(false),
+    m_eKSTypeHasBeenSet(false),
+    m_featureVersionHasBeenSet(false),
+    m_enableClientIntranetHasBeenSet(false),
+    m_storageOptionHasBeenSet(false),
+    m_zookeeperRegionInfoHasBeenSet(false),
+    m_deployModeHasBeenSet(false),
+    m_globalTypeHasBeenSet(false),
+    m_groupTypeHasBeenSet(false),
+    m_groupIdHasBeenSet(false),
+    m_isMainRegionHasBeenSet(false)
 {
 }
 
@@ -347,6 +362,186 @@ CoreInternalOutcome SREInstance::Deserialize(const rapidjson::Value &value)
         m_consoleDefaultPwdHasBeenSet = true;
     }
 
+    if (value.HasMember("TradeType") && !value["TradeType"].IsNull())
+    {
+        if (!value["TradeType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.TradeType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_tradeType = value["TradeType"].GetInt64();
+        m_tradeTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoRenewFlag") && !value["AutoRenewFlag"].IsNull())
+    {
+        if (!value["AutoRenewFlag"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.AutoRenewFlag` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoRenewFlag = value["AutoRenewFlag"].GetInt64();
+        m_autoRenewFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("CurDeadline") && !value["CurDeadline"].IsNull())
+    {
+        if (!value["CurDeadline"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.CurDeadline` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_curDeadline = string(value["CurDeadline"].GetString());
+        m_curDeadlineHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsolateTime") && !value["IsolateTime"].IsNull())
+    {
+        if (!value["IsolateTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.IsolateTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_isolateTime = string(value["IsolateTime"].GetString());
+        m_isolateTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RegionInfos") && !value["RegionInfos"].IsNull())
+    {
+        if (!value["RegionInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `SREInstance.RegionInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["RegionInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            DescribeInstanceRegionInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_regionInfos.push_back(item);
+        }
+        m_regionInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("EKSType") && !value["EKSType"].IsNull())
+    {
+        if (!value["EKSType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.EKSType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_eKSType = string(value["EKSType"].GetString());
+        m_eKSTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("FeatureVersion") && !value["FeatureVersion"].IsNull())
+    {
+        if (!value["FeatureVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.FeatureVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_featureVersion = string(value["FeatureVersion"].GetString());
+        m_featureVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnableClientIntranet") && !value["EnableClientIntranet"].IsNull())
+    {
+        if (!value["EnableClientIntranet"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.EnableClientIntranet` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_enableClientIntranet = value["EnableClientIntranet"].GetBool();
+        m_enableClientIntranetHasBeenSet = true;
+    }
+
+    if (value.HasMember("StorageOption") && !value["StorageOption"].IsNull())
+    {
+        if (!value["StorageOption"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `SREInstance.StorageOption` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["StorageOption"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            StorageOption item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_storageOption.push_back(item);
+        }
+        m_storageOptionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ZookeeperRegionInfo") && !value["ZookeeperRegionInfo"].IsNull())
+    {
+        if (!value["ZookeeperRegionInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.ZookeeperRegionInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_zookeeperRegionInfo.Deserialize(value["ZookeeperRegionInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_zookeeperRegionInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeployMode") && !value["DeployMode"].IsNull())
+    {
+        if (!value["DeployMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.DeployMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_deployMode = string(value["DeployMode"].GetString());
+        m_deployModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("GlobalType") && !value["GlobalType"].IsNull())
+    {
+        if (!value["GlobalType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.GlobalType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_globalType = string(value["GlobalType"].GetString());
+        m_globalTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("GroupType") && !value["GroupType"].IsNull())
+    {
+        if (!value["GroupType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.GroupType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_groupType = string(value["GroupType"].GetString());
+        m_groupTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("GroupId") && !value["GroupId"].IsNull())
+    {
+        if (!value["GroupId"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `SREInstance.GroupId` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["GroupId"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_groupId.push_back((*itr).GetString());
+        }
+        m_groupIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsMainRegion") && !value["IsMainRegion"].IsNull())
+    {
+        if (!value["IsMainRegion"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `SREInstance.IsMainRegion` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isMainRegion = value["IsMainRegion"].GetBool();
+        m_isMainRegionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -585,6 +780,146 @@ void SREInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "ConsoleDefaultPwd";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_consoleDefaultPwd.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tradeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TradeType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_tradeType, allocator);
+    }
+
+    if (m_autoRenewFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRenewFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoRenewFlag, allocator);
+    }
+
+    if (m_curDeadlineHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CurDeadline";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_curDeadline.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isolateTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsolateTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_isolateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regionInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegionInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_regionInfos.begin(); itr != m_regionInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_eKSTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EKSType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_eKSType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_featureVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FeatureVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_featureVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enableClientIntranetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableClientIntranet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enableClientIntranet, allocator);
+    }
+
+    if (m_storageOptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageOption";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_storageOption.begin(); itr != m_storageOption.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_zookeeperRegionInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ZookeeperRegionInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_zookeeperRegionInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_deployModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeployMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_deployMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_globalTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GlobalType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_globalType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_groupTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_groupType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_groupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_groupId.begin(); itr != m_groupId.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_isMainRegionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsMainRegion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isMainRegion, allocator);
     }
 
 }
@@ -988,5 +1323,245 @@ void SREInstance::SetConsoleDefaultPwd(const string& _consoleDefaultPwd)
 bool SREInstance::ConsoleDefaultPwdHasBeenSet() const
 {
     return m_consoleDefaultPwdHasBeenSet;
+}
+
+int64_t SREInstance::GetTradeType() const
+{
+    return m_tradeType;
+}
+
+void SREInstance::SetTradeType(const int64_t& _tradeType)
+{
+    m_tradeType = _tradeType;
+    m_tradeTypeHasBeenSet = true;
+}
+
+bool SREInstance::TradeTypeHasBeenSet() const
+{
+    return m_tradeTypeHasBeenSet;
+}
+
+int64_t SREInstance::GetAutoRenewFlag() const
+{
+    return m_autoRenewFlag;
+}
+
+void SREInstance::SetAutoRenewFlag(const int64_t& _autoRenewFlag)
+{
+    m_autoRenewFlag = _autoRenewFlag;
+    m_autoRenewFlagHasBeenSet = true;
+}
+
+bool SREInstance::AutoRenewFlagHasBeenSet() const
+{
+    return m_autoRenewFlagHasBeenSet;
+}
+
+string SREInstance::GetCurDeadline() const
+{
+    return m_curDeadline;
+}
+
+void SREInstance::SetCurDeadline(const string& _curDeadline)
+{
+    m_curDeadline = _curDeadline;
+    m_curDeadlineHasBeenSet = true;
+}
+
+bool SREInstance::CurDeadlineHasBeenSet() const
+{
+    return m_curDeadlineHasBeenSet;
+}
+
+string SREInstance::GetIsolateTime() const
+{
+    return m_isolateTime;
+}
+
+void SREInstance::SetIsolateTime(const string& _isolateTime)
+{
+    m_isolateTime = _isolateTime;
+    m_isolateTimeHasBeenSet = true;
+}
+
+bool SREInstance::IsolateTimeHasBeenSet() const
+{
+    return m_isolateTimeHasBeenSet;
+}
+
+vector<DescribeInstanceRegionInfo> SREInstance::GetRegionInfos() const
+{
+    return m_regionInfos;
+}
+
+void SREInstance::SetRegionInfos(const vector<DescribeInstanceRegionInfo>& _regionInfos)
+{
+    m_regionInfos = _regionInfos;
+    m_regionInfosHasBeenSet = true;
+}
+
+bool SREInstance::RegionInfosHasBeenSet() const
+{
+    return m_regionInfosHasBeenSet;
+}
+
+string SREInstance::GetEKSType() const
+{
+    return m_eKSType;
+}
+
+void SREInstance::SetEKSType(const string& _eKSType)
+{
+    m_eKSType = _eKSType;
+    m_eKSTypeHasBeenSet = true;
+}
+
+bool SREInstance::EKSTypeHasBeenSet() const
+{
+    return m_eKSTypeHasBeenSet;
+}
+
+string SREInstance::GetFeatureVersion() const
+{
+    return m_featureVersion;
+}
+
+void SREInstance::SetFeatureVersion(const string& _featureVersion)
+{
+    m_featureVersion = _featureVersion;
+    m_featureVersionHasBeenSet = true;
+}
+
+bool SREInstance::FeatureVersionHasBeenSet() const
+{
+    return m_featureVersionHasBeenSet;
+}
+
+bool SREInstance::GetEnableClientIntranet() const
+{
+    return m_enableClientIntranet;
+}
+
+void SREInstance::SetEnableClientIntranet(const bool& _enableClientIntranet)
+{
+    m_enableClientIntranet = _enableClientIntranet;
+    m_enableClientIntranetHasBeenSet = true;
+}
+
+bool SREInstance::EnableClientIntranetHasBeenSet() const
+{
+    return m_enableClientIntranetHasBeenSet;
+}
+
+vector<StorageOption> SREInstance::GetStorageOption() const
+{
+    return m_storageOption;
+}
+
+void SREInstance::SetStorageOption(const vector<StorageOption>& _storageOption)
+{
+    m_storageOption = _storageOption;
+    m_storageOptionHasBeenSet = true;
+}
+
+bool SREInstance::StorageOptionHasBeenSet() const
+{
+    return m_storageOptionHasBeenSet;
+}
+
+ZookeeperRegionInfo SREInstance::GetZookeeperRegionInfo() const
+{
+    return m_zookeeperRegionInfo;
+}
+
+void SREInstance::SetZookeeperRegionInfo(const ZookeeperRegionInfo& _zookeeperRegionInfo)
+{
+    m_zookeeperRegionInfo = _zookeeperRegionInfo;
+    m_zookeeperRegionInfoHasBeenSet = true;
+}
+
+bool SREInstance::ZookeeperRegionInfoHasBeenSet() const
+{
+    return m_zookeeperRegionInfoHasBeenSet;
+}
+
+string SREInstance::GetDeployMode() const
+{
+    return m_deployMode;
+}
+
+void SREInstance::SetDeployMode(const string& _deployMode)
+{
+    m_deployMode = _deployMode;
+    m_deployModeHasBeenSet = true;
+}
+
+bool SREInstance::DeployModeHasBeenSet() const
+{
+    return m_deployModeHasBeenSet;
+}
+
+string SREInstance::GetGlobalType() const
+{
+    return m_globalType;
+}
+
+void SREInstance::SetGlobalType(const string& _globalType)
+{
+    m_globalType = _globalType;
+    m_globalTypeHasBeenSet = true;
+}
+
+bool SREInstance::GlobalTypeHasBeenSet() const
+{
+    return m_globalTypeHasBeenSet;
+}
+
+string SREInstance::GetGroupType() const
+{
+    return m_groupType;
+}
+
+void SREInstance::SetGroupType(const string& _groupType)
+{
+    m_groupType = _groupType;
+    m_groupTypeHasBeenSet = true;
+}
+
+bool SREInstance::GroupTypeHasBeenSet() const
+{
+    return m_groupTypeHasBeenSet;
+}
+
+vector<string> SREInstance::GetGroupId() const
+{
+    return m_groupId;
+}
+
+void SREInstance::SetGroupId(const vector<string>& _groupId)
+{
+    m_groupId = _groupId;
+    m_groupIdHasBeenSet = true;
+}
+
+bool SREInstance::GroupIdHasBeenSet() const
+{
+    return m_groupIdHasBeenSet;
+}
+
+bool SREInstance::GetIsMainRegion() const
+{
+    return m_isMainRegion;
+}
+
+void SREInstance::SetIsMainRegion(const bool& _isMainRegion)
+{
+    m_isMainRegion = _isMainRegion;
+    m_isMainRegionHasBeenSet = true;
+}
+
+bool SREInstance::IsMainRegionHasBeenSet() const
+{
+    return m_isMainRegionHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 EncryptedPhoneVerificationResponse::EncryptedPhoneVerificationResponse() :
     m_resultHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_descriptionHasBeenSet(false),
+    m_iSPHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome EncryptedPhoneVerificationResponse::Deserialize(const string
         m_descriptionHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ISP") && !rsp["ISP"].IsNull())
+    {
+        if (!rsp["ISP"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ISP` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_iSP = string(rsp["ISP"].GetString());
+        m_iSPHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string EncryptedPhoneVerificationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_iSPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ISP";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_iSP.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ string EncryptedPhoneVerificationResponse::GetDescription() const
 bool EncryptedPhoneVerificationResponse::DescriptionHasBeenSet() const
 {
     return m_descriptionHasBeenSet;
+}
+
+string EncryptedPhoneVerificationResponse::GetISP() const
+{
+    return m_iSP;
+}
+
+bool EncryptedPhoneVerificationResponse::ISPHasBeenSet() const
+{
+    return m_iSPHasBeenSet;
 }
 
 

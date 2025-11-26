@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取定时任务的总量。
                      * @return TotalCount 定时任务的总量。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取定时任务信息的列表
                      * @return PeriodTaskSet 定时任务信息的列表
+                     * 
                      */
                     std::vector<CompliancePeriodTask> GetPeriodTaskSet() const;
 
                     /**
                      * 判断参数 PeriodTaskSet 是否已赋值
                      * @return PeriodTaskSet 是否已赋值
+                     * 
                      */
                     bool PeriodTaskSetHasBeenSet() const;
 

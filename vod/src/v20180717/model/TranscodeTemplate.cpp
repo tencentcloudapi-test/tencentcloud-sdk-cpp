@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,8 @@ TranscodeTemplate::TranscodeTemplate() :
     m_tEHDConfigHasBeenSet(false),
     m_containerTypeHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false),
+    m_segmentTypeHasBeenSet(false)
 {
 }
 
@@ -193,6 +194,16 @@ CoreInternalOutcome TranscodeTemplate::Deserialize(const rapidjson::Value &value
         m_updateTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("SegmentType") && !value["SegmentType"].IsNull())
+    {
+        if (!value["SegmentType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TranscodeTemplate.SegmentType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_segmentType = string(value["SegmentType"].GetString());
+        m_segmentTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -305,6 +316,14 @@ void TranscodeTemplate::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_segmentTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SegmentType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_segmentType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -516,5 +535,21 @@ void TranscodeTemplate::SetUpdateTime(const string& _updateTime)
 bool TranscodeTemplate::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
+}
+
+string TranscodeTemplate::GetSegmentType() const
+{
+    return m_segmentType;
+}
+
+void TranscodeTemplate::SetSegmentType(const string& _segmentType)
+{
+    m_segmentType = _segmentType;
+    m_segmentTypeHasBeenSet = true;
+}
+
+bool TranscodeTemplate::SegmentTypeHasBeenSet() const
+{
+    return m_segmentTypeHasBeenSet;
 }
 

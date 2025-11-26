@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,9 @@ ProxyGroupDetail::ProxyGroupDetail() :
     m_clientIPMethodHasBeenSet(false),
     m_iPAddressVersionHasBeenSet(false),
     m_packageTypeHasBeenSet(false),
-    m_http3SupportedHasBeenSet(false)
+    m_http3SupportedHasBeenSet(false),
+    m_featureBitmapHasBeenSet(false),
+    m_isSupportTLSChoiceHasBeenSet(false)
 {
 }
 
@@ -258,6 +260,26 @@ CoreInternalOutcome ProxyGroupDetail::Deserialize(const rapidjson::Value &value)
         m_http3SupportedHasBeenSet = true;
     }
 
+    if (value.HasMember("FeatureBitmap") && !value["FeatureBitmap"].IsNull())
+    {
+        if (!value["FeatureBitmap"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProxyGroupDetail.FeatureBitmap` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_featureBitmap = value["FeatureBitmap"].GetInt64();
+        m_featureBitmapHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsSupportTLSChoice") && !value["IsSupportTLSChoice"].IsNull())
+    {
+        if (!value["IsSupportTLSChoice"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProxyGroupDetail.IsSupportTLSChoice` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSupportTLSChoice = value["IsSupportTLSChoice"].GetUint64();
+        m_isSupportTLSChoiceHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -428,6 +450,22 @@ void ProxyGroupDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "Http3Supported";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_http3Supported, allocator);
+    }
+
+    if (m_featureBitmapHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FeatureBitmap";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_featureBitmap, allocator);
+    }
+
+    if (m_isSupportTLSChoiceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSupportTLSChoice";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSupportTLSChoice, allocator);
     }
 
 }
@@ -735,5 +773,37 @@ void ProxyGroupDetail::SetHttp3Supported(const int64_t& _http3Supported)
 bool ProxyGroupDetail::Http3SupportedHasBeenSet() const
 {
     return m_http3SupportedHasBeenSet;
+}
+
+int64_t ProxyGroupDetail::GetFeatureBitmap() const
+{
+    return m_featureBitmap;
+}
+
+void ProxyGroupDetail::SetFeatureBitmap(const int64_t& _featureBitmap)
+{
+    m_featureBitmap = _featureBitmap;
+    m_featureBitmapHasBeenSet = true;
+}
+
+bool ProxyGroupDetail::FeatureBitmapHasBeenSet() const
+{
+    return m_featureBitmapHasBeenSet;
+}
+
+uint64_t ProxyGroupDetail::GetIsSupportTLSChoice() const
+{
+    return m_isSupportTLSChoice;
+}
+
+void ProxyGroupDetail::SetIsSupportTLSChoice(const uint64_t& _isSupportTLSChoice)
+{
+    m_isSupportTLSChoice = _isSupportTLSChoice;
+    m_isSupportTLSChoiceHasBeenSet = true;
+}
+
+bool ProxyGroupDetail::IsSupportTLSChoiceHasBeenSet() const
+{
+    return m_isSupportTLSChoiceHasBeenSet;
 }
 

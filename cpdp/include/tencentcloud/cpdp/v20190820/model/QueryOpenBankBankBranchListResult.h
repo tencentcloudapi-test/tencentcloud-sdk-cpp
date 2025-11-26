@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取支行列表。
                      * @return BankBranchList 支行列表。
+                     * 
                      */
                     std::vector<BankBranchInfo> GetBankBranchList() const;
 
                     /**
                      * 设置支行列表。
-                     * @param BankBranchList 支行列表。
+                     * @param _bankBranchList 支行列表。
+                     * 
                      */
                     void SetBankBranchList(const std::vector<BankBranchInfo>& _bankBranchList);
 
                     /**
                      * 判断参数 BankBranchList 是否已赋值
                      * @return BankBranchList 是否已赋值
+                     * 
                      */
                     bool BankBranchListHasBeenSet() const;
 
                     /**
                      * 获取列表总数。
                      * @return Count 列表总数。
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置列表总数。
-                     * @param Count 列表总数。
+                     * @param _count 列表总数。
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 

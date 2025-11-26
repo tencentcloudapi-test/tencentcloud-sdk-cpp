@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取待查询的使用计划唯一 ID。
                      * @return UsagePlanId 待查询的使用计划唯一 ID。
+                     * 
                      */
                     std::string GetUsagePlanId() const;
 
                     /**
                      * 设置待查询的使用计划唯一 ID。
-                     * @param UsagePlanId 待查询的使用计划唯一 ID。
+                     * @param _usagePlanId 待查询的使用计划唯一 ID。
+                     * 
                      */
                     void SetUsagePlanId(const std::string& _usagePlanId);
 
                     /**
                      * 判断参数 UsagePlanId 是否已赋值
                      * @return UsagePlanId 是否已赋值
+                     * 
                      */
                     bool UsagePlanIdHasBeenSet() const;
 
                     /**
-                     * 获取定类型，取值为 API、SERVICE，默认值为 SERVICE。
-                     * @return BindType 定类型，取值为 API、SERVICE，默认值为 SERVICE。
+                     * 获取定义类型，取值为 API、SERVICE，默认值为 SERVICE。
+                     * @return BindType 定义类型，取值为 API、SERVICE，默认值为 SERVICE。
+                     * 
                      */
                     std::string GetBindType() const;
 
                     /**
-                     * 设置定类型，取值为 API、SERVICE，默认值为 SERVICE。
-                     * @param BindType 定类型，取值为 API、SERVICE，默认值为 SERVICE。
+                     * 设置定义类型，取值为 API、SERVICE，默认值为 SERVICE。
+                     * @param _bindType 定义类型，取值为 API、SERVICE，默认值为 SERVICE。
+                     * 
                      */
                     void SetBindType(const std::string& _bindType);
 
                     /**
                      * 判断参数 BindType 是否已赋值
                      * @return BindType 是否已赋值
+                     * 
                      */
                     bool BindTypeHasBeenSet() const;
 
                     /**
                      * 获取返回数量，默认为 20，最大值为 100。
                      * @return Limit 返回数量，默认为 20，最大值为 100。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置返回数量，默认为 20，最大值为 100。
-                     * @param Limit 返回数量，默认为 20，最大值为 100。
+                     * @param _limit 返回数量，默认为 20，最大值为 100。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取偏移量，默认为 0。
                      * @return Offset 偏移量，默认为 0。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，默认为 0。
-                     * @param Offset 偏移量，默认为 0。
+                     * @param _offset 偏移量，默认为 0。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
@@ -123,7 +135,7 @@ namespace TencentCloud
                     bool m_usagePlanIdHasBeenSet;
 
                     /**
-                     * 定类型，取值为 API、SERVICE，默认值为 SERVICE。
+                     * 定义类型，取值为 API、SERVICE，默认值为 SERVICE。
                      */
                     std::string m_bindType;
                     bool m_bindTypeHasBeenSet;

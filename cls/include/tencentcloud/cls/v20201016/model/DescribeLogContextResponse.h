@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取日志上下文信息集合
                      * @return LogContextInfos 日志上下文信息集合
+                     * 
                      */
                     std::vector<LogContextInfo> GetLogContextInfos() const;
 
                     /**
                      * 判断参数 LogContextInfos 是否已赋值
                      * @return LogContextInfos 是否已赋值
+                     * 
                      */
                     bool LogContextInfosHasBeenSet() const;
 
                     /**
-                     * 获取上文日志是否已经返回
-                     * @return PrevOver 上文日志是否已经返回
+                     * 获取上文日志是否已经返回完成（当PrevOver为false，表示有上文日志还未全部返回）。
+                     * @return PrevOver 上文日志是否已经返回完成（当PrevOver为false，表示有上文日志还未全部返回）。
+                     * 
                      */
                     bool GetPrevOver() const;
 
                     /**
                      * 判断参数 PrevOver 是否已赋值
                      * @return PrevOver 是否已赋值
+                     * 
                      */
                     bool PrevOverHasBeenSet() const;
 
                     /**
-                     * 获取下文日志是否已经返回
-                     * @return NextOver 下文日志是否已经返回
+                     * 获取下文日志是否已经返回完成（当NextOver为false，表示有下文日志还未全部返回）。
+                     * @return NextOver 下文日志是否已经返回完成（当NextOver为false，表示有下文日志还未全部返回）。
+                     * 
                      */
                     bool GetNextOver() const;
 
                     /**
                      * 判断参数 NextOver 是否已赋值
                      * @return NextOver 是否已赋值
+                     * 
                      */
                     bool NextOverHasBeenSet() const;
 
@@ -89,13 +95,13 @@ namespace TencentCloud
                     bool m_logContextInfosHasBeenSet;
 
                     /**
-                     * 上文日志是否已经返回
+                     * 上文日志是否已经返回完成（当PrevOver为false，表示有上文日志还未全部返回）。
                      */
                     bool m_prevOver;
                     bool m_prevOverHasBeenSet;
 
                     /**
-                     * 下文日志是否已经返回
+                     * 下文日志是否已经返回完成（当NextOver为false，表示有下文日志还未全部返回）。
                      */
                     bool m_nextOver;
                     bool m_nextOverHasBeenSet;

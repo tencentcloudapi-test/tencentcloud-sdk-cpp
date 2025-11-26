@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取后付费昨日扣费
                      * @return PostPayCost 后付费昨日扣费
+                     * 
                      */
                     uint64_t GetPostPayCost() const;
 
                     /**
                      * 判断参数 PostPayCost 是否已赋值
                      * @return PostPayCost 是否已赋值
+                     * 
                      */
                     bool PostPayCostHasBeenSet() const;
 
                     /**
                      * 获取新增主机是否自动开通专业版
                      * @return IsAutoOpenProVersion 新增主机是否自动开通专业版
+                     * 
                      */
                     bool GetIsAutoOpenProVersion() const;
 
                     /**
                      * 判断参数 IsAutoOpenProVersion 是否已赋值
                      * @return IsAutoOpenProVersion 是否已赋值
+                     * 
                      */
                     bool IsAutoOpenProVersionHasBeenSet() const;
 
                     /**
                      * 获取开通专业版主机数
                      * @return ProVersionNum 开通专业版主机数
+                     * 
                      */
                     uint64_t GetProVersionNum() const;
 
                     /**
                      * 判断参数 ProVersionNum 是否已赋值
                      * @return ProVersionNum 是否已赋值
+                     * 
                      */
                     bool ProVersionNumHasBeenSet() const;
 

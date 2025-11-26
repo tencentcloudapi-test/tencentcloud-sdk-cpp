@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,98 +47,128 @@ namespace TencentCloud
                     /**
                      * 获取诊断报告基础信息
                      * @return BaskInfo 诊断报告基础信息
+                     * 
                      */
                     DiagnoseData GetBaskInfo() const;
 
                     /**
                      * 判断参数 BaskInfo 是否已赋值
                      * @return BaskInfo 是否已赋值
+                     * 
                      */
                     bool BaskInfoHasBeenSet() const;
 
                     /**
                      * 获取CNAME检测信息
                      * @return CnameInfo CNAME检测信息
+                     * 
                      */
                     DiagnoseData GetCnameInfo() const;
 
                     /**
                      * 判断参数 CnameInfo 是否已赋值
                      * @return CnameInfo 是否已赋值
+                     * 
                      */
                     bool CnameInfoHasBeenSet() const;
 
                     /**
                      * 获取客户端检测信息
                      * @return ClientInfo 客户端检测信息
+                     * 
                      */
                     DiagnoseData GetClientInfo() const;
 
                     /**
                      * 判断参数 ClientInfo 是否已赋值
                      * @return ClientInfo 是否已赋值
+                     * 
                      */
                     bool ClientInfoHasBeenSet() const;
 
                     /**
                      * 获取DNS检测信息
                      * @return DnsInfo DNS检测信息
+                     * 
                      */
                     DiagnoseData GetDnsInfo() const;
 
                     /**
                      * 判断参数 DnsInfo 是否已赋值
                      * @return DnsInfo 是否已赋值
+                     * 
                      */
                     bool DnsInfoHasBeenSet() const;
 
                     /**
                      * 获取网络检测信息
                      * @return NetworkInfo 网络检测信息
+                     * 
                      */
                     DiagnoseData GetNetworkInfo() const;
 
                     /**
                      * 判断参数 NetworkInfo 是否已赋值
                      * @return NetworkInfo 是否已赋值
+                     * 
                      */
                     bool NetworkInfoHasBeenSet() const;
 
                     /**
                      * 获取边缘节点检测信息
                      * @return OcNodeInfo 边缘节点检测信息
+                     * 
                      */
                     DiagnoseData GetOcNodeInfo() const;
 
                     /**
                      * 判断参数 OcNodeInfo 是否已赋值
                      * @return OcNodeInfo 是否已赋值
+                     * 
                      */
                     bool OcNodeInfoHasBeenSet() const;
 
                     /**
                      * 获取中间源节点检测信息
                      * @return MidNodeInfo 中间源节点检测信息
+                     * 
                      */
                     DiagnoseData GetMidNodeInfo() const;
 
                     /**
                      * 判断参数 MidNodeInfo 是否已赋值
                      * @return MidNodeInfo 是否已赋值
+                     * 
                      */
                     bool MidNodeInfoHasBeenSet() const;
 
                     /**
                      * 获取源站检测信息
                      * @return OriginInfo 源站检测信息
+                     * 
                      */
                     DiagnoseData GetOriginInfo() const;
 
                     /**
                      * 判断参数 OriginInfo 是否已赋值
                      * @return OriginInfo 是否已赋值
+                     * 
                      */
                     bool OriginInfoHasBeenSet() const;
+
+                    /**
+                     * 获取刷新检测信息
+                     * @return PurgeInfo 刷新检测信息
+                     * 
+                     */
+                    DiagnoseData GetPurgeInfo() const;
+
+                    /**
+                     * 判断参数 PurgeInfo 是否已赋值
+                     * @return PurgeInfo 是否已赋值
+                     * 
+                     */
+                    bool PurgeInfoHasBeenSet() const;
 
                 private:
 
@@ -189,6 +219,12 @@ namespace TencentCloud
                      */
                     DiagnoseData m_originInfo;
                     bool m_originInfoHasBeenSet;
+
+                    /**
+                     * 刷新检测信息
+                     */
+                    DiagnoseData m_purgeInfo;
+                    bool m_purgeInfoHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace TencentCloud::Clb::V20180317::Model;
 using namespace std;
 
 ModifyLoadBalancerSlaRequest::ModifyLoadBalancerSlaRequest() :
-    m_loadBalancerSlaHasBeenSet(false)
+    m_loadBalancerSlaHasBeenSet(false),
+    m_forceHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string ModifyLoadBalancerSlaRequest::ToJsonString() const
         }
     }
 
+    if (m_forceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Force";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_force, allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -71,6 +80,22 @@ void ModifyLoadBalancerSlaRequest::SetLoadBalancerSla(const vector<SlaUpdatePara
 bool ModifyLoadBalancerSlaRequest::LoadBalancerSlaHasBeenSet() const
 {
     return m_loadBalancerSlaHasBeenSet;
+}
+
+bool ModifyLoadBalancerSlaRequest::GetForce() const
+{
+    return m_force;
+}
+
+void ModifyLoadBalancerSlaRequest::SetForce(const bool& _force)
+{
+    m_force = _force;
+    m_forceHasBeenSet = true;
+}
+
+bool ModifyLoadBalancerSlaRequest::ForceHasBeenSet() const
+{
+    return m_forceHasBeenSet;
 }
 
 

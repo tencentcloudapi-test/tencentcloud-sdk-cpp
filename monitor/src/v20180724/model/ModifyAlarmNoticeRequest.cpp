@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,9 @@ ModifyAlarmNoticeRequest::ModifyAlarmNoticeRequest() :
     m_noticeIdHasBeenSet(false),
     m_userNoticesHasBeenSet(false),
     m_uRLNoticesHasBeenSet(false),
-    m_cLSNoticesHasBeenSet(false)
+    m_cLSNoticesHasBeenSet(false),
+    m_policyIdsHasBeenSet(false),
+    m_isLoginFreeHasBeenSet(false)
 {
 }
 
@@ -124,6 +126,27 @@ string ModifyAlarmNoticeRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_policyIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PolicyIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_policyIds.begin(); itr != m_policyIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_isLoginFreeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsLoginFree";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isLoginFree, allocator);
     }
 
 
@@ -260,6 +283,38 @@ void ModifyAlarmNoticeRequest::SetCLSNotices(const vector<CLSNotice>& _cLSNotice
 bool ModifyAlarmNoticeRequest::CLSNoticesHasBeenSet() const
 {
     return m_cLSNoticesHasBeenSet;
+}
+
+vector<string> ModifyAlarmNoticeRequest::GetPolicyIds() const
+{
+    return m_policyIds;
+}
+
+void ModifyAlarmNoticeRequest::SetPolicyIds(const vector<string>& _policyIds)
+{
+    m_policyIds = _policyIds;
+    m_policyIdsHasBeenSet = true;
+}
+
+bool ModifyAlarmNoticeRequest::PolicyIdsHasBeenSet() const
+{
+    return m_policyIdsHasBeenSet;
+}
+
+int64_t ModifyAlarmNoticeRequest::GetIsLoginFree() const
+{
+    return m_isLoginFree;
+}
+
+void ModifyAlarmNoticeRequest::SetIsLoginFree(const int64_t& _isLoginFree)
+{
+    m_isLoginFree = _isLoginFree;
+    m_isLoginFreeHasBeenSet = true;
+}
+
+bool ModifyAlarmNoticeRequest::IsLoginFreeHasBeenSet() const
+{
+    return m_isLoginFreeHasBeenSet;
 }
 
 

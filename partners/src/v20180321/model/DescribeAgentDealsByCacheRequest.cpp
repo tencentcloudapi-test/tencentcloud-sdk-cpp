@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ DescribeAgentDealsByCacheRequest::DescribeAgentDealsByCacheRequest() :
     m_statusHasBeenSet(false),
     m_ownerUinsHasBeenSet(false),
     m_dealNamesHasBeenSet(false),
+    m_bigDealIdsHasBeenSet(false),
     m_payerModeHasBeenSet(false)
 {
 }
@@ -111,6 +112,19 @@ string DescribeAgentDealsByCacheRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
 
         for (auto itr = m_dealNames.begin(); itr != m_dealNames.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_bigDealIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BigDealIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_bigDealIds.begin(); itr != m_bigDealIds.end(); ++itr)
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
@@ -258,6 +272,22 @@ void DescribeAgentDealsByCacheRequest::SetDealNames(const vector<string>& _dealN
 bool DescribeAgentDealsByCacheRequest::DealNamesHasBeenSet() const
 {
     return m_dealNamesHasBeenSet;
+}
+
+vector<string> DescribeAgentDealsByCacheRequest::GetBigDealIds() const
+{
+    return m_bigDealIds;
+}
+
+void DescribeAgentDealsByCacheRequest::SetBigDealIds(const vector<string>& _bigDealIds)
+{
+    m_bigDealIds = _bigDealIds;
+    m_bigDealIdsHasBeenSet = true;
+}
+
+bool DescribeAgentDealsByCacheRequest::BigDealIdsHasBeenSet() const
+{
+    return m_bigDealIdsHasBeenSet;
 }
 
 uint64_t DescribeAgentDealsByCacheRequest::GetPayerMode() const

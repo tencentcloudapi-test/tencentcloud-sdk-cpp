@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,92 @@ namespace TencentCloud
                     /**
                      * 获取模板里使用的地址
                      * @return CodeUri 模板里使用的地址
+                     * 
                      */
                     std::string GetCodeUri() const;
 
                     /**
                      * 设置模板里使用的地址
-                     * @param CodeUri 模板里使用的地址
+                     * @param _codeUri 模板里使用的地址
+                     * 
                      */
                     void SetCodeUri(const std::string& _codeUri);
 
                     /**
                      * 判断参数 CodeUri 是否已赋值
                      * @return CodeUri 是否已赋值
+                     * 
                      */
                     bool CodeUriHasBeenSet() const;
 
                     /**
                      * 获取上传文件的临时地址，含签名
                      * @return UploadUrl 上传文件的临时地址，含签名
+                     * 
                      */
                     std::string GetUploadUrl() const;
 
                     /**
                      * 设置上传文件的临时地址，含签名
-                     * @param UploadUrl 上传文件的临时地址，含签名
+                     * @param _uploadUrl 上传文件的临时地址，含签名
+                     * 
                      */
                     void SetUploadUrl(const std::string& _uploadUrl);
 
                     /**
                      * 判断参数 UploadUrl 是否已赋值
                      * @return UploadUrl 是否已赋值
+                     * 
                      */
                     bool UploadUrlHasBeenSet() const;
 
                     /**
-                     * 获取自定义密钥。如果为空，则表示不需要加密
-                     * @return CustomKey 自定义密钥。如果为空，则表示不需要加密
+                     * 获取自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
+                     * @return CustomKey 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
+                     * 
                      */
                     std::string GetCustomKey() const;
 
                     /**
-                     * 设置自定义密钥。如果为空，则表示不需要加密
-                     * @param CustomKey 自定义密钥。如果为空，则表示不需要加密
+                     * 设置自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
+                     * @param _customKey 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
+                     * 
                      */
                     void SetCustomKey(const std::string& _customKey);
 
                     /**
                      * 判断参数 CustomKey 是否已赋值
                      * @return CustomKey 是否已赋值
+                     * 
                      */
                     bool CustomKeyHasBeenSet() const;
 
                     /**
                      * 获取文件大小限制，单位M，客户端上传前需要主动检查文件大小，超过限制的文件会被删除。
                      * @return MaxSize 文件大小限制，单位M，客户端上传前需要主动检查文件大小，超过限制的文件会被删除。
+                     * 
                      */
                     uint64_t GetMaxSize() const;
 
                     /**
                      * 设置文件大小限制，单位M，客户端上传前需要主动检查文件大小，超过限制的文件会被删除。
-                     * @param MaxSize 文件大小限制，单位M，客户端上传前需要主动检查文件大小，超过限制的文件会被删除。
+                     * @param _maxSize 文件大小限制，单位M，客户端上传前需要主动检查文件大小，超过限制的文件会被删除。
+                     * 
                      */
                     void SetMaxSize(const uint64_t& _maxSize);
 
                     /**
                      * 判断参数 MaxSize 是否已赋值
                      * @return MaxSize 是否已赋值
+                     * 
                      */
                     bool MaxSizeHasBeenSet() const;
 
@@ -133,7 +153,9 @@ namespace TencentCloud
                     bool m_uploadUrlHasBeenSet;
 
                     /**
-                     * 自定义密钥。如果为空，则表示不需要加密
+                     * 自定义密钥。如果为空，则表示不需要加密。
+参考cos预签名url上传https://cloud.tencent.com/document/product/436/36121
+上传的时候要按照 SSE-C 的方式设置header：https://cloud.tencent.com/document/product/436/7728
                      */
                     std::string m_customKey;
                     bool m_customKeyHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,75 +43,104 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取投递规则ID
-                     * @return ShipperId 投递规则ID
+                     * 获取投递规则Id。
+
+- 通过 [获取投递任务列表](https://cloud.tencent.com/document/product/614/58745)获取ShipperId。
+                     * @return ShipperId 投递规则Id。
+
+- 通过 [获取投递任务列表](https://cloud.tencent.com/document/product/614/58745)获取ShipperId。
+                     * 
                      */
                     std::string GetShipperId() const;
 
                     /**
-                     * 设置投递规则ID
-                     * @param ShipperId 投递规则ID
+                     * 设置投递规则Id。
+
+- 通过 [获取投递任务列表](https://cloud.tencent.com/document/product/614/58745)获取ShipperId。
+                     * @param _shipperId 投递规则Id。
+
+- 通过 [获取投递任务列表](https://cloud.tencent.com/document/product/614/58745)获取ShipperId。
+                     * 
                      */
                     void SetShipperId(const std::string& _shipperId);
 
                     /**
                      * 判断参数 ShipperId 是否已赋值
                      * @return ShipperId 是否已赋值
+                     * 
                      */
                     bool ShipperIdHasBeenSet() const;
 
                     /**
-                     * 获取查询的开始时间戳，支持最近3天的查询， 毫秒
-                     * @return StartTime 查询的开始时间戳，支持最近3天的查询， 毫秒
+                     * 获取查询的开始时间戳，支持最近3天的查询， 毫秒。
+StartTime必须小于EndTime
+                     * @return StartTime 查询的开始时间戳，支持最近3天的查询， 毫秒。
+StartTime必须小于EndTime
+                     * 
                      */
                     int64_t GetStartTime() const;
 
                     /**
-                     * 设置查询的开始时间戳，支持最近3天的查询， 毫秒
-                     * @param StartTime 查询的开始时间戳，支持最近3天的查询， 毫秒
+                     * 设置查询的开始时间戳，支持最近3天的查询， 毫秒。
+StartTime必须小于EndTime
+                     * @param _startTime 查询的开始时间戳，支持最近3天的查询， 毫秒。
+StartTime必须小于EndTime
+                     * 
                      */
                     void SetStartTime(const int64_t& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取查询的结束时间戳， 毫秒
-                     * @return EndTime 查询的结束时间戳， 毫秒
+                     * 获取查询的结束时间戳， 毫秒。
+StartTime必须小于EndTime
+                     * @return EndTime 查询的结束时间戳， 毫秒。
+StartTime必须小于EndTime
+                     * 
                      */
                     int64_t GetEndTime() const;
 
                     /**
-                     * 设置查询的结束时间戳， 毫秒
-                     * @param EndTime 查询的结束时间戳， 毫秒
+                     * 设置查询的结束时间戳， 毫秒。
+StartTime必须小于EndTime
+                     * @param _endTime 查询的结束时间戳， 毫秒。
+StartTime必须小于EndTime
+                     * 
                      */
                     void SetEndTime(const int64_t& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 投递规则ID
+                     * 投递规则Id。
+
+- 通过 [获取投递任务列表](https://cloud.tencent.com/document/product/614/58745)获取ShipperId。
                      */
                     std::string m_shipperId;
                     bool m_shipperIdHasBeenSet;
 
                     /**
-                     * 查询的开始时间戳，支持最近3天的查询， 毫秒
+                     * 查询的开始时间戳，支持最近3天的查询， 毫秒。
+StartTime必须小于EndTime
                      */
                     int64_t m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * 查询的结束时间戳， 毫秒
+                     * 查询的结束时间戳， 毫秒。
+StartTime必须小于EndTime
                      */
                     int64_t m_endTime;
                     bool m_endTimeHasBeenSet;

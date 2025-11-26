@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@ using namespace std;
 AwsPrivateAccess::AwsPrivateAccess() :
     m_switchHasBeenSet(false),
     m_accessKeyHasBeenSet(false),
-    m_secretKeyHasBeenSet(false)
+    m_secretKeyHasBeenSet(false),
+    m_regionHasBeenSet(false),
+    m_bucketHasBeenSet(false)
 {
 }
 
@@ -62,6 +64,26 @@ CoreInternalOutcome AwsPrivateAccess::Deserialize(const rapidjson::Value &value)
         m_secretKeyHasBeenSet = true;
     }
 
+    if (value.HasMember("Region") && !value["Region"].IsNull())
+    {
+        if (!value["Region"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AwsPrivateAccess.Region` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_region = string(value["Region"].GetString());
+        m_regionHasBeenSet = true;
+    }
+
+    if (value.HasMember("Bucket") && !value["Bucket"].IsNull())
+    {
+        if (!value["Bucket"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AwsPrivateAccess.Bucket` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_bucket = string(value["Bucket"].GetString());
+        m_bucketHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +113,22 @@ void AwsPrivateAccess::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "SecretKey";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_secretKey.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Region";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_region.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_bucketHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Bucket";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_bucket.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -142,5 +180,37 @@ void AwsPrivateAccess::SetSecretKey(const string& _secretKey)
 bool AwsPrivateAccess::SecretKeyHasBeenSet() const
 {
     return m_secretKeyHasBeenSet;
+}
+
+string AwsPrivateAccess::GetRegion() const
+{
+    return m_region;
+}
+
+void AwsPrivateAccess::SetRegion(const string& _region)
+{
+    m_region = _region;
+    m_regionHasBeenSet = true;
+}
+
+bool AwsPrivateAccess::RegionHasBeenSet() const
+{
+    return m_regionHasBeenSet;
+}
+
+string AwsPrivateAccess::GetBucket() const
+{
+    return m_bucket;
+}
+
+void AwsPrivateAccess::SetBucket(const string& _bucket)
+{
+    m_bucket = _bucket;
+    m_bucketHasBeenSet = true;
+}
+
+bool AwsPrivateAccess::BucketHasBeenSet() const
+{
+    return m_bucketHasBeenSet;
 }
 

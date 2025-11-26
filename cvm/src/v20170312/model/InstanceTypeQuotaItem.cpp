@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,10 @@ InstanceTypeQuotaItem::InstanceTypeQuotaItem() :
     m_cpuTypeHasBeenSet(false),
     m_gpuHasBeenSet(false),
     m_fpgaHasBeenSet(false),
-    m_remarkHasBeenSet(false)
+    m_remarkHasBeenSet(false),
+    m_gpuCountHasBeenSet(false),
+    m_frequencyHasBeenSet(false),
+    m_statusCategoryHasBeenSet(false)
 {
 }
 
@@ -273,6 +276,36 @@ CoreInternalOutcome InstanceTypeQuotaItem::Deserialize(const rapidjson::Value &v
         m_remarkHasBeenSet = true;
     }
 
+    if (value.HasMember("GpuCount") && !value["GpuCount"].IsNull())
+    {
+        if (!value["GpuCount"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceTypeQuotaItem.GpuCount` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_gpuCount = value["GpuCount"].GetDouble();
+        m_gpuCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("Frequency") && !value["Frequency"].IsNull())
+    {
+        if (!value["Frequency"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceTypeQuotaItem.Frequency` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_frequency = string(value["Frequency"].GetString());
+        m_frequencyHasBeenSet = true;
+    }
+
+    if (value.HasMember("StatusCategory") && !value["StatusCategory"].IsNull())
+    {
+        if (!value["StatusCategory"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceTypeQuotaItem.StatusCategory` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_statusCategory = string(value["StatusCategory"].GetString());
+        m_statusCategoryHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -447,6 +480,30 @@ void InstanceTypeQuotaItem::ToJsonObject(rapidjson::Value &value, rapidjson::Doc
         string key = "Remark";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gpuCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GpuCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_gpuCount, allocator);
+    }
+
+    if (m_frequencyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Frequency";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_frequency.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_statusCategoryHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StatusCategory";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_statusCategory.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -770,5 +827,53 @@ void InstanceTypeQuotaItem::SetRemark(const string& _remark)
 bool InstanceTypeQuotaItem::RemarkHasBeenSet() const
 {
     return m_remarkHasBeenSet;
+}
+
+double InstanceTypeQuotaItem::GetGpuCount() const
+{
+    return m_gpuCount;
+}
+
+void InstanceTypeQuotaItem::SetGpuCount(const double& _gpuCount)
+{
+    m_gpuCount = _gpuCount;
+    m_gpuCountHasBeenSet = true;
+}
+
+bool InstanceTypeQuotaItem::GpuCountHasBeenSet() const
+{
+    return m_gpuCountHasBeenSet;
+}
+
+string InstanceTypeQuotaItem::GetFrequency() const
+{
+    return m_frequency;
+}
+
+void InstanceTypeQuotaItem::SetFrequency(const string& _frequency)
+{
+    m_frequency = _frequency;
+    m_frequencyHasBeenSet = true;
+}
+
+bool InstanceTypeQuotaItem::FrequencyHasBeenSet() const
+{
+    return m_frequencyHasBeenSet;
+}
+
+string InstanceTypeQuotaItem::GetStatusCategory() const
+{
+    return m_statusCategory;
+}
+
+void InstanceTypeQuotaItem::SetStatusCategory(const string& _statusCategory)
+{
+    m_statusCategory = _statusCategory;
+    m_statusCategoryHasBeenSet = true;
+}
+
+bool InstanceTypeQuotaItem::StatusCategoryHasBeenSet() const
+{
+    return m_statusCategoryHasBeenSet;
 }
 

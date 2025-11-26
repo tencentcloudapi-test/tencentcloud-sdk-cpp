@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,12 @@ DescribeTranscodeResponse::DescribeTranscodeResponse() :
     m_titleHasBeenSet(false),
     m_thumbnailUrlHasBeenSet(false),
     m_thumbnailResolutionHasBeenSet(false),
-    m_compressFileUrlHasBeenSet(false)
+    m_compressFileUrlHasBeenSet(false),
+    m_resourceListUrlHasBeenSet(false),
+    m_extHasBeenSet(false),
+    m_createTimeHasBeenSet(false),
+    m_assignTimeHasBeenSet(false),
+    m_finishedTimeHasBeenSet(false)
 {
 }
 
@@ -171,6 +176,56 @@ CoreInternalOutcome DescribeTranscodeResponse::Deserialize(const string &payload
         m_compressFileUrlHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ResourceListUrl") && !rsp["ResourceListUrl"].IsNull())
+    {
+        if (!rsp["ResourceListUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceListUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_resourceListUrl = string(rsp["ResourceListUrl"].GetString());
+        m_resourceListUrlHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Ext") && !rsp["Ext"].IsNull())
+    {
+        if (!rsp["Ext"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Ext` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_ext = string(rsp["Ext"].GetString());
+        m_extHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CreateTime") && !rsp["CreateTime"].IsNull())
+    {
+        if (!rsp["CreateTime"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CreateTime` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_createTime = rsp["CreateTime"].GetUint64();
+        m_createTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("AssignTime") && !rsp["AssignTime"].IsNull())
+    {
+        if (!rsp["AssignTime"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssignTime` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_assignTime = rsp["AssignTime"].GetUint64();
+        m_assignTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("FinishedTime") && !rsp["FinishedTime"].IsNull())
+    {
+        if (!rsp["FinishedTime"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `FinishedTime` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_finishedTime = rsp["FinishedTime"].GetUint64();
+        m_finishedTimeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -261,11 +316,51 @@ string DescribeTranscodeResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_compressFileUrl.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_resourceListUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceListUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_resourceListUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_extHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ext";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_ext.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_createTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CreateTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_createTime, allocator);
+    }
+
+    if (m_assignTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssignTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_assignTime, allocator);
+    }
+
+    if (m_finishedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FinishedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_finishedTime, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -371,6 +466,56 @@ string DescribeTranscodeResponse::GetCompressFileUrl() const
 bool DescribeTranscodeResponse::CompressFileUrlHasBeenSet() const
 {
     return m_compressFileUrlHasBeenSet;
+}
+
+string DescribeTranscodeResponse::GetResourceListUrl() const
+{
+    return m_resourceListUrl;
+}
+
+bool DescribeTranscodeResponse::ResourceListUrlHasBeenSet() const
+{
+    return m_resourceListUrlHasBeenSet;
+}
+
+string DescribeTranscodeResponse::GetExt() const
+{
+    return m_ext;
+}
+
+bool DescribeTranscodeResponse::ExtHasBeenSet() const
+{
+    return m_extHasBeenSet;
+}
+
+uint64_t DescribeTranscodeResponse::GetCreateTime() const
+{
+    return m_createTime;
+}
+
+bool DescribeTranscodeResponse::CreateTimeHasBeenSet() const
+{
+    return m_createTimeHasBeenSet;
+}
+
+uint64_t DescribeTranscodeResponse::GetAssignTime() const
+{
+    return m_assignTime;
+}
+
+bool DescribeTranscodeResponse::AssignTimeHasBeenSet() const
+{
+    return m_assignTimeHasBeenSet;
+}
+
+uint64_t DescribeTranscodeResponse::GetFinishedTime() const
+{
+    return m_finishedTime;
+}
+
+bool DescribeTranscodeResponse::FinishedTimeHasBeenSet() const
+{
+    return m_finishedTimeHasBeenSet;
 }
 
 

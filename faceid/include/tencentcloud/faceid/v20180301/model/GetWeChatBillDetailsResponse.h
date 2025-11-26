@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,57 +45,66 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
-                     * @return HasNextPage 是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+                     * 获取是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+                     * @return HasNextPage 是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+                     * 
                      */
                     bool GetHasNextPage() const;
 
                     /**
                      * 判断参数 HasNextPage 是否已赋值
                      * @return HasNextPage 是否已赋值
+                     * 
                      */
                     bool HasNextPageHasBeenSet() const;
 
                     /**
-                     * 获取下一页的游标。用于分页。
-                     * @return NextCursor 下一页的游标。用于分页。
+                     * 获取下一页的游标，用于分页。
+                     * @return NextCursor 下一页的游标，用于分页。
+                     * 
                      */
                     uint64_t GetNextCursor() const;
 
                     /**
                      * 判断参数 NextCursor 是否已赋值
                      * @return NextCursor 是否已赋值
+                     * 
                      */
                     bool NextCursorHasBeenSet() const;
 
                     /**
-                     * 获取数据
-                     * @return WeChatBillDetails 数据
+                     * 获取数据。
+                     * @return WeChatBillDetails 数据。
+                     * 
                      */
                     std::vector<WeChatBillDetail> GetWeChatBillDetails() const;
 
                     /**
                      * 判断参数 WeChatBillDetails 是否已赋值
                      * @return WeChatBillDetails 是否已赋值
+                     * 
                      */
                     bool WeChatBillDetailsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 是否还有下一页。该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
+                     * 是否还有下一页。
+- 该字段为true时，需要将NextCursor的值作为入参Cursor继续调用本接口。
                      */
                     bool m_hasNextPage;
                     bool m_hasNextPageHasBeenSet;
 
                     /**
-                     * 下一页的游标。用于分页。
+                     * 下一页的游标，用于分页。
                      */
                     uint64_t m_nextCursor;
                     bool m_nextCursorHasBeenSet;
 
                     /**
-                     * 数据
+                     * 数据。
                      */
                     std::vector<WeChatBillDetail> m_weChatBillDetails;
                     bool m_weChatBillDetailsHasBeenSet;

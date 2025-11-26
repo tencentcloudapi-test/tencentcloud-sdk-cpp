@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,11 @@ using namespace std;
 InquiryPriceCreateInstanceRequest::InquiryPriceCreateInstanceRequest() :
     m_timeUnitHasBeenSet(false),
     m_timeSpanHasBeenSet(false),
-    m_resourceSpecHasBeenSet(false),
     m_currencyHasBeenSet(false),
     m_payModeHasBeenSet(false),
     m_supportHAHasBeenSet(false),
     m_softwareHasBeenSet(false),
+    m_resourceSpecHasBeenSet(false),
     m_placementHasBeenSet(false),
     m_vPCSettingsHasBeenSet(false),
     m_metaTypeHasBeenSet(false),
@@ -37,7 +37,11 @@ InquiryPriceCreateInstanceRequest::InquiryPriceCreateInstanceRequest() :
     m_metaDBInfoHasBeenSet(false),
     m_productIdHasBeenSet(false),
     m_sceneNameHasBeenSet(false),
-    m_externalServiceHasBeenSet(false)
+    m_externalServiceHasBeenSet(false),
+    m_versionIDHasBeenSet(false),
+    m_multiZoneSettingsHasBeenSet(false),
+    m_defaultMetaVersionHasBeenSet(false),
+    m_needCdbAuditHasBeenSet(false)
 {
 }
 
@@ -62,15 +66,6 @@ string InquiryPriceCreateInstanceRequest::ToJsonString() const
         string key = "TimeSpan";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_timeSpan, allocator);
-    }
-
-    if (m_resourceSpecHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ResourceSpec";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_resourceSpec.ToJsonObject(d[key.c_str()], allocator);
     }
 
     if (m_currencyHasBeenSet)
@@ -108,6 +103,15 @@ string InquiryPriceCreateInstanceRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_resourceSpecHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceSpec";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_resourceSpec.ToJsonObject(d[key.c_str()], allocator);
     }
 
     if (m_placementHasBeenSet)
@@ -184,6 +188,45 @@ string InquiryPriceCreateInstanceRequest::ToJsonString() const
         }
     }
 
+    if (m_versionIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VersionID";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_versionID, allocator);
+    }
+
+    if (m_multiZoneSettingsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MultiZoneSettings";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_multiZoneSettings.begin(); itr != m_multiZoneSettings.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_defaultMetaVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DefaultMetaVersion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_defaultMetaVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_needCdbAuditHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NeedCdbAudit";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_needCdbAudit, allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -222,22 +265,6 @@ void InquiryPriceCreateInstanceRequest::SetTimeSpan(const uint64_t& _timeSpan)
 bool InquiryPriceCreateInstanceRequest::TimeSpanHasBeenSet() const
 {
     return m_timeSpanHasBeenSet;
-}
-
-NewResourceSpec InquiryPriceCreateInstanceRequest::GetResourceSpec() const
-{
-    return m_resourceSpec;
-}
-
-void InquiryPriceCreateInstanceRequest::SetResourceSpec(const NewResourceSpec& _resourceSpec)
-{
-    m_resourceSpec = _resourceSpec;
-    m_resourceSpecHasBeenSet = true;
-}
-
-bool InquiryPriceCreateInstanceRequest::ResourceSpecHasBeenSet() const
-{
-    return m_resourceSpecHasBeenSet;
 }
 
 string InquiryPriceCreateInstanceRequest::GetCurrency() const
@@ -302,6 +329,22 @@ void InquiryPriceCreateInstanceRequest::SetSoftware(const vector<string>& _softw
 bool InquiryPriceCreateInstanceRequest::SoftwareHasBeenSet() const
 {
     return m_softwareHasBeenSet;
+}
+
+NewResourceSpec InquiryPriceCreateInstanceRequest::GetResourceSpec() const
+{
+    return m_resourceSpec;
+}
+
+void InquiryPriceCreateInstanceRequest::SetResourceSpec(const NewResourceSpec& _resourceSpec)
+{
+    m_resourceSpec = _resourceSpec;
+    m_resourceSpecHasBeenSet = true;
+}
+
+bool InquiryPriceCreateInstanceRequest::ResourceSpecHasBeenSet() const
+{
+    return m_resourceSpecHasBeenSet;
 }
 
 Placement InquiryPriceCreateInstanceRequest::GetPlacement() const
@@ -430,6 +473,70 @@ void InquiryPriceCreateInstanceRequest::SetExternalService(const vector<External
 bool InquiryPriceCreateInstanceRequest::ExternalServiceHasBeenSet() const
 {
     return m_externalServiceHasBeenSet;
+}
+
+uint64_t InquiryPriceCreateInstanceRequest::GetVersionID() const
+{
+    return m_versionID;
+}
+
+void InquiryPriceCreateInstanceRequest::SetVersionID(const uint64_t& _versionID)
+{
+    m_versionID = _versionID;
+    m_versionIDHasBeenSet = true;
+}
+
+bool InquiryPriceCreateInstanceRequest::VersionIDHasBeenSet() const
+{
+    return m_versionIDHasBeenSet;
+}
+
+vector<MultiZoneSetting> InquiryPriceCreateInstanceRequest::GetMultiZoneSettings() const
+{
+    return m_multiZoneSettings;
+}
+
+void InquiryPriceCreateInstanceRequest::SetMultiZoneSettings(const vector<MultiZoneSetting>& _multiZoneSettings)
+{
+    m_multiZoneSettings = _multiZoneSettings;
+    m_multiZoneSettingsHasBeenSet = true;
+}
+
+bool InquiryPriceCreateInstanceRequest::MultiZoneSettingsHasBeenSet() const
+{
+    return m_multiZoneSettingsHasBeenSet;
+}
+
+string InquiryPriceCreateInstanceRequest::GetDefaultMetaVersion() const
+{
+    return m_defaultMetaVersion;
+}
+
+void InquiryPriceCreateInstanceRequest::SetDefaultMetaVersion(const string& _defaultMetaVersion)
+{
+    m_defaultMetaVersion = _defaultMetaVersion;
+    m_defaultMetaVersionHasBeenSet = true;
+}
+
+bool InquiryPriceCreateInstanceRequest::DefaultMetaVersionHasBeenSet() const
+{
+    return m_defaultMetaVersionHasBeenSet;
+}
+
+int64_t InquiryPriceCreateInstanceRequest::GetNeedCdbAudit() const
+{
+    return m_needCdbAudit;
+}
+
+void InquiryPriceCreateInstanceRequest::SetNeedCdbAudit(const int64_t& _needCdbAudit)
+{
+    m_needCdbAudit = _needCdbAudit;
+    m_needCdbAuditHasBeenSet = true;
+}
+
+bool InquiryPriceCreateInstanceRequest::NeedCdbAuditHasBeenSet() const
+{
+    return m_needCdbAuditHasBeenSet;
 }
 
 

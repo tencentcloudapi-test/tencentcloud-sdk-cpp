@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取漏洞等级
                      * @return VulLevel 漏洞等级
+                     * 
                      */
                     uint64_t GetVulLevel() const;
 
                     /**
                      * 设置漏洞等级
-                     * @param VulLevel 漏洞等级
+                     * @param _vulLevel 漏洞等级
+                     * 
                      */
                     void SetVulLevel(const uint64_t& _vulLevel);
 
                     /**
                      * 判断参数 VulLevel 是否已赋值
                      * @return VulLevel 是否已赋值
+                     * 
                      */
                     bool VulLevelHasBeenSet() const;
 
                     /**
                      * 获取漏洞数量
                      * @return VulCount 漏洞数量
+                     * 
                      */
                     uint64_t GetVulCount() const;
 
                     /**
                      * 设置漏洞数量
-                     * @param VulCount 漏洞数量
+                     * @param _vulCount 漏洞数量
+                     * 
                      */
                     void SetVulCount(const uint64_t& _vulCount);
 
                     /**
                      * 判断参数 VulCount 是否已赋值
                      * @return VulCount 是否已赋值
+                     * 
                      */
                     bool VulCountHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取域名维度数据详情
                      * @return DomainReport 域名维度数据详情
+                     * 
                      */
                     std::vector<ReportData> GetDomainReport() const;
 
                     /**
                      * 判断参数 DomainReport 是否已赋值
                      * @return DomainReport 是否已赋值
+                     * 
                      */
                     bool DomainReportHasBeenSet() const;
 
                     /**
                      * 获取项目维度数据详情
                      * @return ProjectReport 项目维度数据详情
+                     * 
                      */
                     std::vector<ReportData> GetProjectReport() const;
 
                     /**
                      * 判断参数 ProjectReport 是否已赋值
                      * @return ProjectReport 是否已赋值
+                     * 
                      */
                     bool ProjectReportHasBeenSet() const;
 

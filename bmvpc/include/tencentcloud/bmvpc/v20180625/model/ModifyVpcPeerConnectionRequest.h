@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取黑石对等连接唯一ID
                      * @return VpcPeerConnectionId 黑石对等连接唯一ID
+                     * 
                      */
                     std::string GetVpcPeerConnectionId() const;
 
                     /**
                      * 设置黑石对等连接唯一ID
-                     * @param VpcPeerConnectionId 黑石对等连接唯一ID
+                     * @param _vpcPeerConnectionId 黑石对等连接唯一ID
+                     * 
                      */
                     void SetVpcPeerConnectionId(const std::string& _vpcPeerConnectionId);
 
                     /**
                      * 判断参数 VpcPeerConnectionId 是否已赋值
                      * @return VpcPeerConnectionId 是否已赋值
+                     * 
                      */
                     bool VpcPeerConnectionIdHasBeenSet() const;
 
                     /**
                      * 获取对等连接带宽
                      * @return Bandwidth 对等连接带宽
+                     * 
                      */
                     uint64_t GetBandwidth() const;
 
                     /**
                      * 设置对等连接带宽
-                     * @param Bandwidth 对等连接带宽
+                     * @param _bandwidth 对等连接带宽
+                     * 
                      */
                     void SetBandwidth(const uint64_t& _bandwidth);
 
                     /**
                      * 判断参数 Bandwidth 是否已赋值
                      * @return Bandwidth 是否已赋值
+                     * 
                      */
                     bool BandwidthHasBeenSet() const;
 
                     /**
                      * 获取对等连接名称
                      * @return VpcPeerConnectionName 对等连接名称
+                     * 
                      */
                     std::string GetVpcPeerConnectionName() const;
 
                     /**
                      * 设置对等连接名称
-                     * @param VpcPeerConnectionName 对等连接名称
+                     * @param _vpcPeerConnectionName 对等连接名称
+                     * 
                      */
                     void SetVpcPeerConnectionName(const std::string& _vpcPeerConnectionName);
 
                     /**
                      * 判断参数 VpcPeerConnectionName 是否已赋值
                      * @return VpcPeerConnectionName 是否已赋值
+                     * 
                      */
                     bool VpcPeerConnectionNameHasBeenSet() const;
 

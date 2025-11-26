@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,9 @@ TextProcessResponse::TextProcessResponse() :
     m_slotInfoListHasBeenSet(false),
     m_inputTextHasBeenSet(false),
     m_sessionAttributesHasBeenSet(false),
-    m_responseTextHasBeenSet(false)
+    m_responseTextHasBeenSet(false),
+    m_resultTypeHasBeenSet(false),
+    m_responseMessageHasBeenSet(false)
 {
 }
 
@@ -148,6 +150,33 @@ CoreInternalOutcome TextProcessResponse::Deserialize(const string &payload)
         m_responseTextHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ResultType") && !rsp["ResultType"].IsNull())
+    {
+        if (!rsp["ResultType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResultType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_resultType = string(rsp["ResultType"].GetString());
+        m_resultTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ResponseMessage") && !rsp["ResponseMessage"].IsNull())
+    {
+        if (!rsp["ResponseMessage"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResponseMessage` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_responseMessage.Deserialize(rsp["ResponseMessage"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_responseMessageHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -221,11 +250,28 @@ string TextProcessResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_responseText.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_resultTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResultType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_resultType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_responseMessageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResponseMessage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_responseMessage.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -301,6 +347,26 @@ string TextProcessResponse::GetResponseText() const
 bool TextProcessResponse::ResponseTextHasBeenSet() const
 {
     return m_responseTextHasBeenSet;
+}
+
+string TextProcessResponse::GetResultType() const
+{
+    return m_resultType;
+}
+
+bool TextProcessResponse::ResultTypeHasBeenSet() const
+{
+    return m_resultTypeHasBeenSet;
+}
+
+ResponseMessage TextProcessResponse::GetResponseMessage() const
+{
+    return m_responseMessage;
+}
+
+bool TextProcessResponse::ResponseMessageHasBeenSet() const
+{
+    return m_responseMessageHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 批量添加客服时，返回出错客服的像个信息
+                * 批量添加客服时，返回出错客服的信息
                 */
                 class ErrStaffItem : public AbstractModel
                 {
@@ -47,63 +47,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取坐席邮箱地址
-                     * @return StaffEmail 坐席邮箱地址
+                     * 获取座席邮箱地址
+                     * @return StaffEmail 座席邮箱地址
+                     * 
                      */
                     std::string GetStaffEmail() const;
 
                     /**
-                     * 设置坐席邮箱地址
-                     * @param StaffEmail 坐席邮箱地址
+                     * 设置座席邮箱地址
+                     * @param _staffEmail 座席邮箱地址
+                     * 
                      */
                     void SetStaffEmail(const std::string& _staffEmail);
 
                     /**
                      * 判断参数 StaffEmail 是否已赋值
                      * @return StaffEmail 是否已赋值
+                     * 
                      */
                     bool StaffEmailHasBeenSet() const;
 
                     /**
                      * 获取错误码
                      * @return Code 错误码
+                     * 
                      */
                     std::string GetCode() const;
 
                     /**
                      * 设置错误码
-                     * @param Code 错误码
+                     * @param _code 错误码
+                     * 
                      */
                     void SetCode(const std::string& _code);
 
                     /**
                      * 判断参数 Code 是否已赋值
                      * @return Code 是否已赋值
+                     * 
                      */
                     bool CodeHasBeenSet() const;
 
                     /**
                      * 获取错误描述
                      * @return Message 错误描述
+                     * 
                      */
                     std::string GetMessage() const;
 
                     /**
                      * 设置错误描述
-                     * @param Message 错误描述
+                     * @param _message 错误描述
+                     * 
                      */
                     void SetMessage(const std::string& _message);
 
                     /**
                      * 判断参数 Message 是否已赋值
                      * @return Message 是否已赋值
+                     * 
                      */
                     bool MessageHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 坐席邮箱地址
+                     * 座席邮箱地址
                      */
                     std::string m_staffEmail;
                     bool m_staffEmailHasBeenSet;

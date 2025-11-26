@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取分组ID
                      * @return GroupId 分组ID
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置分组ID
-                     * @param GroupId 分组ID
+                     * @param _groupId 分组ID
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取设备唯一标识列表
                      * @return DeviceList 设备唯一标识列表
+                     * 
                      */
                     std::vector<std::string> GetDeviceList() const;
 
                     /**
                      * 设置设备唯一标识列表
-                     * @param DeviceList 设备唯一标识列表
+                     * @param _deviceList 设备唯一标识列表
+                     * 
                      */
                     void SetDeviceList(const std::vector<std::string>& _deviceList);
 
                     /**
                      * 判断参数 DeviceList 是否已赋值
                      * @return DeviceList 是否已赋值
+                     * 
                      */
                     bool DeviceListHasBeenSet() const;
 

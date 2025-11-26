@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 智能识别 Asr 文字的嫌疑片段
+                * 音视频审核 Asr 文字的嫌疑片段
                 */
                 class MediaContentReviewAsrTextSegmentItem : public AbstractModel
                 {
@@ -49,102 +49,117 @@ namespace TencentCloud
                     /**
                      * 获取嫌疑片段起始的偏移时间，单位：秒。
                      * @return StartTimeOffset 嫌疑片段起始的偏移时间，单位：秒。
+                     * 
                      */
                     double GetStartTimeOffset() const;
 
                     /**
                      * 设置嫌疑片段起始的偏移时间，单位：秒。
-                     * @param StartTimeOffset 嫌疑片段起始的偏移时间，单位：秒。
+                     * @param _startTimeOffset 嫌疑片段起始的偏移时间，单位：秒。
+                     * 
                      */
                     void SetStartTimeOffset(const double& _startTimeOffset);
 
                     /**
                      * 判断参数 StartTimeOffset 是否已赋值
                      * @return StartTimeOffset 是否已赋值
+                     * 
                      */
                     bool StartTimeOffsetHasBeenSet() const;
 
                     /**
                      * 获取嫌疑片段结束的偏移时间，单位：秒。
                      * @return EndTimeOffset 嫌疑片段结束的偏移时间，单位：秒。
+                     * 
                      */
                     double GetEndTimeOffset() const;
 
                     /**
                      * 设置嫌疑片段结束的偏移时间，单位：秒。
-                     * @param EndTimeOffset 嫌疑片段结束的偏移时间，单位：秒。
+                     * @param _endTimeOffset 嫌疑片段结束的偏移时间，单位：秒。
+                     * 
                      */
                     void SetEndTimeOffset(const double& _endTimeOffset);
 
                     /**
                      * 判断参数 EndTimeOffset 是否已赋值
                      * @return EndTimeOffset 是否已赋值
+                     * 
                      */
                     bool EndTimeOffsetHasBeenSet() const;
 
                     /**
                      * 获取嫌疑片段置信度。
                      * @return Confidence 嫌疑片段置信度。
+                     * 
                      */
                     double GetConfidence() const;
 
                     /**
                      * 设置嫌疑片段置信度。
-                     * @param Confidence 嫌疑片段置信度。
+                     * @param _confidence 嫌疑片段置信度。
+                     * 
                      */
                     void SetConfidence(const double& _confidence);
 
                     /**
                      * 判断参数 Confidence 是否已赋值
                      * @return Confidence 是否已赋值
+                     * 
                      */
                     bool ConfidenceHasBeenSet() const;
 
                     /**
-                     * 获取嫌疑片段智能识别的结果建议，取值范围：
+                     * 获取嫌疑片段音视频审核的结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-                     * @return Suggestion 嫌疑片段智能识别的结果建议，取值范围：
+                     * @return Suggestion 嫌疑片段音视频审核的结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
+                     * 
                      */
                     std::string GetSuggestion() const;
 
                     /**
-                     * 设置嫌疑片段智能识别的结果建议，取值范围：
+                     * 设置嫌疑片段音视频审核的结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
-                     * @param Suggestion 嫌疑片段智能识别的结果建议，取值范围：
+                     * @param _suggestion 嫌疑片段音视频审核的结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>
+                     * 
                      */
                     void SetSuggestion(const std::string& _suggestion);
 
                     /**
                      * 判断参数 Suggestion 是否已赋值
                      * @return Suggestion 是否已赋值
+                     * 
                      */
                     bool SuggestionHasBeenSet() const;
 
                     /**
                      * 获取嫌疑关键词列表。
                      * @return KeywordSet 嫌疑关键词列表。
+                     * 
                      */
                     std::vector<std::string> GetKeywordSet() const;
 
                     /**
                      * 设置嫌疑关键词列表。
-                     * @param KeywordSet 嫌疑关键词列表。
+                     * @param _keywordSet 嫌疑关键词列表。
+                     * 
                      */
                     void SetKeywordSet(const std::vector<std::string>& _keywordSet);
 
                     /**
                      * 判断参数 KeywordSet 是否已赋值
                      * @return KeywordSet 是否已赋值
+                     * 
                      */
                     bool KeywordSetHasBeenSet() const;
 
@@ -169,7 +184,7 @@ namespace TencentCloud
                     bool m_confidenceHasBeenSet;
 
                     /**
-                     * 嫌疑片段智能识别的结果建议，取值范围：
+                     * 嫌疑片段音视频审核的结果建议，取值范围：
 <li>pass。</li>
 <li>review。</li>
 <li>block。</li>

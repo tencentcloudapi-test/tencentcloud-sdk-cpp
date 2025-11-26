@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/chdfs/v20201112/model/AccessRule.h>
 
 
 namespace TencentCloud
@@ -43,7 +44,27 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取权限规则列表
+                     * @return AccessRules 权限规则列表
+                     * 
+                     */
+                    std::vector<AccessRule> GetAccessRules() const;
+
+                    /**
+                     * 判断参数 AccessRules 是否已赋值
+                     * @return AccessRules 是否已赋值
+                     * 
+                     */
+                    bool AccessRulesHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 权限规则列表
+                     */
+                    std::vector<AccessRule> m_accessRules;
+                    bool m_accessRulesHasBeenSet;
 
                 };
             }

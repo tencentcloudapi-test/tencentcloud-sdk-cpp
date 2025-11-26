@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ limit_phone：手机
 limit_emai：邮件
 limit_wechat：微信
 limit_phone：手机
+                     * 
                      */
                     std::string GetType() const;
 
@@ -63,52 +64,60 @@ limit_phone：手机
 limit_emai：邮件
 limit_wechat：微信
 limit_phone：手机
-                     * @param Type 通知类型：
+                     * @param _type 通知类型：
 limit_emai：邮件
 limit_wechat：微信
 limit_phone：手机
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取总量
                      * @return Total 总量
+                     * 
                      */
                     int64_t GetTotal() const;
 
                     /**
                      * 设置总量
-                     * @param Total 总量
+                     * @param _total 总量
+                     * 
                      */
                     void SetTotal(const int64_t& _total);
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
                     /**
                      * 获取已发送
                      * @return Sent 已发送
+                     * 
                      */
                     int64_t GetSent() const;
 
                     /**
                      * 设置已发送
-                     * @param Sent 已发送
+                     * @param _sent 已发送
+                     * 
                      */
                     void SetSent(const int64_t& _sent);
 
                     /**
                      * 判断参数 Sent 是否已赋值
                      * @return Sent 是否已赋值
+                     * 
                      */
                     bool SentHasBeenSet() const;
 

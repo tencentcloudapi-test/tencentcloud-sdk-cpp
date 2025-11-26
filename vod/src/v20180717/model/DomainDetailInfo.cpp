@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ DomainDetailInfo::DomainDetailInfo() :
     m_hTTPSConfigHasBeenSet(false),
     m_urlSignatureAuthPolicyHasBeenSet(false),
     m_refererAuthPolicyHasBeenSet(false),
-    m_createTimeHasBeenSet(false)
+    m_createTimeHasBeenSet(false),
+    m_qUICConfigHasBeenSet(false),
+    m_iPFilterPolicyHasBeenSet(false),
+    m_typeHasBeenSet(false)
 {
 }
 
@@ -137,6 +140,50 @@ CoreInternalOutcome DomainDetailInfo::Deserialize(const rapidjson::Value &value)
         m_createTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("QUICConfig") && !value["QUICConfig"].IsNull())
+    {
+        if (!value["QUICConfig"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainDetailInfo.QUICConfig` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_qUICConfig.Deserialize(value["QUICConfig"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_qUICConfigHasBeenSet = true;
+    }
+
+    if (value.HasMember("IPFilterPolicy") && !value["IPFilterPolicy"].IsNull())
+    {
+        if (!value["IPFilterPolicy"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainDetailInfo.IPFilterPolicy` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_iPFilterPolicy.Deserialize(value["IPFilterPolicy"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_iPFilterPolicyHasBeenSet = true;
+    }
+
+    if (value.HasMember("Type") && !value["Type"].IsNull())
+    {
+        if (!value["Type"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainDetailInfo.Type` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_type = string(value["Type"].GetString());
+        m_typeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -208,6 +255,32 @@ void DomainDetailInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "CreateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_createTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_qUICConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QUICConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_qUICConfig.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_iPFilterPolicyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPFilterPolicy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_iPFilterPolicy.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_typeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Type";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -323,5 +396,53 @@ void DomainDetailInfo::SetCreateTime(const string& _createTime)
 bool DomainDetailInfo::CreateTimeHasBeenSet() const
 {
     return m_createTimeHasBeenSet;
+}
+
+DomainQUICConfig DomainDetailInfo::GetQUICConfig() const
+{
+    return m_qUICConfig;
+}
+
+void DomainDetailInfo::SetQUICConfig(const DomainQUICConfig& _qUICConfig)
+{
+    m_qUICConfig = _qUICConfig;
+    m_qUICConfigHasBeenSet = true;
+}
+
+bool DomainDetailInfo::QUICConfigHasBeenSet() const
+{
+    return m_qUICConfigHasBeenSet;
+}
+
+IPFilterPolicy DomainDetailInfo::GetIPFilterPolicy() const
+{
+    return m_iPFilterPolicy;
+}
+
+void DomainDetailInfo::SetIPFilterPolicy(const IPFilterPolicy& _iPFilterPolicy)
+{
+    m_iPFilterPolicy = _iPFilterPolicy;
+    m_iPFilterPolicyHasBeenSet = true;
+}
+
+bool DomainDetailInfo::IPFilterPolicyHasBeenSet() const
+{
+    return m_iPFilterPolicyHasBeenSet;
+}
+
+string DomainDetailInfo::GetType() const
+{
+    return m_type;
+}
+
+void DomainDetailInfo::SetType(const string& _type)
+{
+    m_type = _type;
+    m_typeHasBeenSet = true;
+}
+
+bool DomainDetailInfo::TypeHasBeenSet() const
+{
+    return m_typeHasBeenSet;
 }
 

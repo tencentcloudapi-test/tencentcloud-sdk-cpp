@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取企业安全组规则当前执行顺序
                      * @return OrderIndex 企业安全组规则当前执行顺序
+                     * 
                      */
                     uint64_t GetOrderIndex() const;
 
                     /**
                      * 设置企业安全组规则当前执行顺序
-                     * @param OrderIndex 企业安全组规则当前执行顺序
+                     * @param _orderIndex 企业安全组规则当前执行顺序
+                     * 
                      */
                     void SetOrderIndex(const uint64_t& _orderIndex);
 
                     /**
                      * 判断参数 OrderIndex 是否已赋值
                      * @return OrderIndex 是否已赋值
+                     * 
                      */
                     bool OrderIndexHasBeenSet() const;
 
                     /**
                      * 获取企业安全组规则更新目标执行顺序
                      * @return NewOrderIndex 企业安全组规则更新目标执行顺序
+                     * 
                      */
                     uint64_t GetNewOrderIndex() const;
 
                     /**
                      * 设置企业安全组规则更新目标执行顺序
-                     * @param NewOrderIndex 企业安全组规则更新目标执行顺序
+                     * @param _newOrderIndex 企业安全组规则更新目标执行顺序
+                     * 
                      */
                     void SetNewOrderIndex(const uint64_t& _newOrderIndex);
 
                     /**
                      * 判断参数 NewOrderIndex 是否已赋值
                      * @return NewOrderIndex 是否已赋值
+                     * 
                      */
                     bool NewOrderIndexHasBeenSet() const;
 

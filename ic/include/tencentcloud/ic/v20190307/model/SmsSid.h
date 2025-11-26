@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,38 +51,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Iccid 卡片ID
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetIccid() const;
 
                     /**
                      * 设置卡片ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Iccid 卡片ID
+                     * @param _iccid 卡片ID
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetIccid(const std::string& _iccid);
 
                     /**
                      * 判断参数 Iccid 是否已赋值
                      * @return Iccid 是否已赋值
+                     * 
                      */
                     bool IccidHasBeenSet() const;
 
                     /**
                      * 获取信息流水ID
                      * @return Sid 信息流水ID
+                     * 
                      */
                     std::string GetSid() const;
 
                     /**
                      * 设置信息流水ID
-                     * @param Sid 信息流水ID
+                     * @param _sid 信息流水ID
+                     * 
                      */
                     void SetSid(const std::string& _sid);
 
                     /**
                      * 判断参数 Sid 是否已赋值
                      * @return Sid 是否已赋值
+                     * 
                      */
                     bool SidHasBeenSet() const;
 

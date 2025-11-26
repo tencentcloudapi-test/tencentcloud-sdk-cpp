@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,11 @@ QueryOpenBankPaymentOrderResult::QueryOpenBankPaymentOrderResult() :
     m_attachmentHasBeenSet(false),
     m_redirectInfoHasBeenSet(false),
     m_externalReturnDataHasBeenSet(false),
-    m_bankApprovalGuideInfoHasBeenSet(false)
+    m_bankApprovalGuideInfoHasBeenSet(false),
+    m_feeAmountHasBeenSet(false),
+    m_feeRateHasBeenSet(false),
+    m_profitShareRespInfoListHasBeenSet(false),
+    m_timeFinishHasBeenSet(false)
 {
 }
 
@@ -197,6 +201,56 @@ CoreInternalOutcome QueryOpenBankPaymentOrderResult::Deserialize(const rapidjson
         m_bankApprovalGuideInfoHasBeenSet = true;
     }
 
+    if (value.HasMember("FeeAmount") && !value["FeeAmount"].IsNull())
+    {
+        if (!value["FeeAmount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `QueryOpenBankPaymentOrderResult.FeeAmount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_feeAmount = value["FeeAmount"].GetInt64();
+        m_feeAmountHasBeenSet = true;
+    }
+
+    if (value.HasMember("FeeRate") && !value["FeeRate"].IsNull())
+    {
+        if (!value["FeeRate"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `QueryOpenBankPaymentOrderResult.FeeRate` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_feeRate = value["FeeRate"].GetInt64();
+        m_feeRateHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProfitShareRespInfoList") && !value["ProfitShareRespInfoList"].IsNull())
+    {
+        if (!value["ProfitShareRespInfoList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `QueryOpenBankPaymentOrderResult.ProfitShareRespInfoList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ProfitShareRespInfoList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            OpenBankProfitShareRespInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_profitShareRespInfoList.push_back(item);
+        }
+        m_profitShareRespInfoListHasBeenSet = true;
+    }
+
+    if (value.HasMember("TimeFinish") && !value["TimeFinish"].IsNull())
+    {
+        if (!value["TimeFinish"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `QueryOpenBankPaymentOrderResult.TimeFinish` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_timeFinish = string(value["TimeFinish"].GetString());
+        m_timeFinishHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -316,6 +370,45 @@ void QueryOpenBankPaymentOrderResult::ToJsonObject(rapidjson::Value &value, rapi
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_bankApprovalGuideInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_feeAmountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FeeAmount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_feeAmount, allocator);
+    }
+
+    if (m_feeRateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FeeRate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_feeRate, allocator);
+    }
+
+    if (m_profitShareRespInfoListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProfitShareRespInfoList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_profitShareRespInfoList.begin(); itr != m_profitShareRespInfoList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_timeFinishHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TimeFinish";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_timeFinish.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -543,5 +636,69 @@ void QueryOpenBankPaymentOrderResult::SetBankApprovalGuideInfo(const OpenBankApp
 bool QueryOpenBankPaymentOrderResult::BankApprovalGuideInfoHasBeenSet() const
 {
     return m_bankApprovalGuideInfoHasBeenSet;
+}
+
+int64_t QueryOpenBankPaymentOrderResult::GetFeeAmount() const
+{
+    return m_feeAmount;
+}
+
+void QueryOpenBankPaymentOrderResult::SetFeeAmount(const int64_t& _feeAmount)
+{
+    m_feeAmount = _feeAmount;
+    m_feeAmountHasBeenSet = true;
+}
+
+bool QueryOpenBankPaymentOrderResult::FeeAmountHasBeenSet() const
+{
+    return m_feeAmountHasBeenSet;
+}
+
+int64_t QueryOpenBankPaymentOrderResult::GetFeeRate() const
+{
+    return m_feeRate;
+}
+
+void QueryOpenBankPaymentOrderResult::SetFeeRate(const int64_t& _feeRate)
+{
+    m_feeRate = _feeRate;
+    m_feeRateHasBeenSet = true;
+}
+
+bool QueryOpenBankPaymentOrderResult::FeeRateHasBeenSet() const
+{
+    return m_feeRateHasBeenSet;
+}
+
+vector<OpenBankProfitShareRespInfo> QueryOpenBankPaymentOrderResult::GetProfitShareRespInfoList() const
+{
+    return m_profitShareRespInfoList;
+}
+
+void QueryOpenBankPaymentOrderResult::SetProfitShareRespInfoList(const vector<OpenBankProfitShareRespInfo>& _profitShareRespInfoList)
+{
+    m_profitShareRespInfoList = _profitShareRespInfoList;
+    m_profitShareRespInfoListHasBeenSet = true;
+}
+
+bool QueryOpenBankPaymentOrderResult::ProfitShareRespInfoListHasBeenSet() const
+{
+    return m_profitShareRespInfoListHasBeenSet;
+}
+
+string QueryOpenBankPaymentOrderResult::GetTimeFinish() const
+{
+    return m_timeFinish;
+}
+
+void QueryOpenBankPaymentOrderResult::SetTimeFinish(const string& _timeFinish)
+{
+    m_timeFinish = _timeFinish;
+    m_timeFinishHasBeenSet = true;
+}
+
+bool QueryOpenBankPaymentOrderResult::TimeFinishHasBeenSet() const
+{
+    return m_timeFinishHasBeenSet;
 }
 

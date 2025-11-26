@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,24 +48,28 @@ namespace TencentCloud
                     /**
                      * 获取投递任务是否生效
                      * @return Effective 投递任务是否生效
+                     * 
                      */
                     bool GetEffective() const;
 
                     /**
                      * 判断参数 Effective 是否已赋值
                      * @return Effective 是否已赋值
+                     * 
                      */
                     bool EffectiveHasBeenSet() const;
 
                     /**
                      * 获取是否投递日志的元数据信息
                      * @return NeedContent 是否投递日志的元数据信息
+                     * 
                      */
                     bool GetNeedContent() const;
 
                     /**
                      * 判断参数 NeedContent 是否已赋值
                      * @return NeedContent 是否已赋值
+                     * 
                      */
                     bool NeedContentHasBeenSet() const;
 
@@ -74,26 +78,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Content 如果需要投递元数据信息，元数据信息的描述
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     ConsumerContent GetContent() const;
 
                     /**
                      * 判断参数 Content 是否已赋值
                      * @return Content 是否已赋值
+                     * 
                      */
                     bool ContentHasBeenSet() const;
 
                     /**
                      * 获取CKafka的描述
                      * @return Ckafka CKafka的描述
+                     * 
                      */
                     Ckafka GetCkafka() const;
 
                     /**
                      * 判断参数 Ckafka 是否已赋值
                      * @return Ckafka 是否已赋值
+                     * 
                      */
                     bool CkafkaHasBeenSet() const;
+
+                    /**
+                     * 获取压缩方式[0:NONE；2:SNAPPY；3:LZ4]
+                     * @return Compression 压缩方式[0:NONE；2:SNAPPY；3:LZ4]
+                     * 
+                     */
+                    int64_t GetCompression() const;
+
+                    /**
+                     * 判断参数 Compression 是否已赋值
+                     * @return Compression 是否已赋值
+                     * 
+                     */
+                    bool CompressionHasBeenSet() const;
 
                 private:
 
@@ -121,6 +143,12 @@ namespace TencentCloud
                      */
                     Ckafka m_ckafka;
                     bool m_ckafkaHasBeenSet;
+
+                    /**
+                     * 压缩方式[0:NONE；2:SNAPPY；3:LZ4]
+                     */
+                    int64_t m_compression;
+                    bool m_compressionHasBeenSet;
 
                 };
             }

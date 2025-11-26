@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例数
-                     * @return TotalCount 实例数
+                     * 获取实例总数量。
+                     * @return TotalCount 实例总数量。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取实例详细信息列表
-                     * @return InstanceSet 实例详细信息列表
+                     * 获取实例详细信息列表。
+                     * @return InstanceSet 实例详细信息列表。
+                     * 
                      */
                     std::vector<InstanceSet> GetInstanceSet() const;
 
                     /**
                      * 判断参数 InstanceSet 是否已赋值
                      * @return InstanceSet 是否已赋值
+                     * 
                      */
                     bool InstanceSetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例数
+                     * 实例总数量。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 实例详细信息列表
+                     * 实例详细信息列表。
                      */
                     std::vector<InstanceSet> m_instanceSet;
                     bool m_instanceSetHasBeenSet;

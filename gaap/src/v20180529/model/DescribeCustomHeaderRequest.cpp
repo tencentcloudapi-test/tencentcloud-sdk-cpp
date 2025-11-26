@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@
 using namespace TencentCloud::Gaap::V20180529::Model;
 using namespace std;
 
-DescribeCustomHeaderRequest::DescribeCustomHeaderRequest()
+DescribeCustomHeaderRequest::DescribeCustomHeaderRequest() :
+    m_ruleIdHasBeenSet(false)
 {
 }
 
@@ -33,6 +34,14 @@ string DescribeCustomHeaderRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
+    if (m_ruleIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuleId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ruleId.c_str(), allocator).Move(), allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -40,5 +49,21 @@ string DescribeCustomHeaderRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+string DescribeCustomHeaderRequest::GetRuleId() const
+{
+    return m_ruleId;
+}
+
+void DescribeCustomHeaderRequest::SetRuleId(const string& _ruleId)
+{
+    m_ruleId = _ruleId;
+    m_ruleIdHasBeenSet = true;
+}
+
+bool DescribeCustomHeaderRequest::RuleIdHasBeenSet() const
+{
+    return m_ruleIdHasBeenSet;
+}
 
 

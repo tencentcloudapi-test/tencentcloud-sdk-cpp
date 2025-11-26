@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ IntentionVerifyData::IntentionVerifyData() :
     m_asrResultHasBeenSet(false),
     m_errorCodeHasBeenSet(false),
     m_errorMessageHasBeenSet(false),
-    m_intentionVerifyBestFrameHasBeenSet(false)
+    m_intentionVerifyBestFrameHasBeenSet(false),
+    m_asrResultSimilarityHasBeenSet(false),
+    m_intentionVerifyAudioHasBeenSet(false)
 {
 }
 
@@ -84,6 +86,26 @@ CoreInternalOutcome IntentionVerifyData::Deserialize(const rapidjson::Value &val
         m_intentionVerifyBestFrameHasBeenSet = true;
     }
 
+    if (value.HasMember("AsrResultSimilarity") && !value["AsrResultSimilarity"].IsNull())
+    {
+        if (!value["AsrResultSimilarity"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IntentionVerifyData.AsrResultSimilarity` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_asrResultSimilarity = string(value["AsrResultSimilarity"].GetString());
+        m_asrResultSimilarityHasBeenSet = true;
+    }
+
+    if (value.HasMember("IntentionVerifyAudio") && !value["IntentionVerifyAudio"].IsNull())
+    {
+        if (!value["IntentionVerifyAudio"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IntentionVerifyData.IntentionVerifyAudio` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_intentionVerifyAudio = string(value["IntentionVerifyAudio"].GetString());
+        m_intentionVerifyAudioHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +151,22 @@ void IntentionVerifyData::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "IntentionVerifyBestFrame";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_intentionVerifyBestFrame.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_asrResultSimilarityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AsrResultSimilarity";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_asrResultSimilarity.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_intentionVerifyAudioHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntentionVerifyAudio";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_intentionVerifyAudio.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -212,5 +250,37 @@ void IntentionVerifyData::SetIntentionVerifyBestFrame(const string& _intentionVe
 bool IntentionVerifyData::IntentionVerifyBestFrameHasBeenSet() const
 {
     return m_intentionVerifyBestFrameHasBeenSet;
+}
+
+string IntentionVerifyData::GetAsrResultSimilarity() const
+{
+    return m_asrResultSimilarity;
+}
+
+void IntentionVerifyData::SetAsrResultSimilarity(const string& _asrResultSimilarity)
+{
+    m_asrResultSimilarity = _asrResultSimilarity;
+    m_asrResultSimilarityHasBeenSet = true;
+}
+
+bool IntentionVerifyData::AsrResultSimilarityHasBeenSet() const
+{
+    return m_asrResultSimilarityHasBeenSet;
+}
+
+string IntentionVerifyData::GetIntentionVerifyAudio() const
+{
+    return m_intentionVerifyAudio;
+}
+
+void IntentionVerifyData::SetIntentionVerifyAudio(const string& _intentionVerifyAudio)
+{
+    m_intentionVerifyAudio = _intentionVerifyAudio;
+    m_intentionVerifyAudioHasBeenSet = true;
+}
+
+bool IntentionVerifyData::IntentionVerifyAudioHasBeenSet() const
+{
+    return m_intentionVerifyAudioHasBeenSet;
 }
 

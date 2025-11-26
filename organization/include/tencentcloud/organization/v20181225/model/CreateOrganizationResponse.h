@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,48 +46,56 @@ namespace TencentCloud
                     /**
                      * 获取企业组织ID
                      * @return OrgId 企业组织ID
+                     * 
                      */
                     uint64_t GetOrgId() const;
 
                     /**
                      * 判断参数 OrgId 是否已赋值
                      * @return OrgId 是否已赋值
+                     * 
                      */
                     bool OrgIdHasBeenSet() const;
 
                     /**
                      * 获取创建者昵称
                      * @return Nickname 创建者昵称
+                     * 
                      */
                     std::string GetNickname() const;
 
                     /**
                      * 判断参数 Nickname 是否已赋值
                      * @return Nickname 是否已赋值
+                     * 
                      */
                     bool NicknameHasBeenSet() const;
 
                     /**
                      * 获取创建者邮箱
                      * @return Mail 创建者邮箱
+                     * 
                      */
                     std::string GetMail() const;
 
                     /**
                      * 判断参数 Mail 是否已赋值
                      * @return Mail 是否已赋值
+                     * 
                      */
                     bool MailHasBeenSet() const;
 
                     /**
                      * 获取组织类型
                      * @return OrgType 组织类型
+                     * 
                      */
                     uint64_t GetOrgType() const;
 
                     /**
                      * 判断参数 OrgType 是否已赋值
                      * @return OrgType 是否已赋值
+                     * 
                      */
                     bool OrgTypeHasBeenSet() const;
 

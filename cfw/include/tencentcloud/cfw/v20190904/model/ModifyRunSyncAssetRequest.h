@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取0: 互联网防火墙开关，1：vpc 防火墙开关
                      * @return Type 0: 互联网防火墙开关，1：vpc 防火墙开关
+                     * 
                      */
                     uint64_t GetType() const;
 
                     /**
                      * 设置0: 互联网防火墙开关，1：vpc 防火墙开关
-                     * @param Type 0: 互联网防火墙开关，1：vpc 防火墙开关
+                     * @param _type 0: 互联网防火墙开关，1：vpc 防火墙开关
+                     * 
                      */
                     void SetType(const uint64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,45 +49,43 @@ namespace TencentCloud
 
                     /**
                      * 获取虚拟机部署组总数目
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCount 虚拟机部署组总数目
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 设置虚拟机部署组总数目
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TotalCount 虚拟机部署组总数目
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _totalCount 虚拟机部署组总数目
+                     * 
                      */
                     void SetTotalCount(const int64_t& _totalCount);
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取虚拟机部署组列表信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Content 虚拟机部署组列表信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<VmGroupSimple> GetContent() const;
 
                     /**
                      * 设置虚拟机部署组列表信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Content 虚拟机部署组列表信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _content 虚拟机部署组列表信息
+                     * 
                      */
                     void SetContent(const std::vector<VmGroupSimple>& _content);
 
                     /**
                      * 判断参数 Content 是否已赋值
                      * @return Content 是否已赋值
+                     * 
                      */
                     bool ContentHasBeenSet() const;
 
@@ -95,14 +93,12 @@ namespace TencentCloud
 
                     /**
                      * 虚拟机部署组总数目
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
                      * 虚拟机部署组列表信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<VmGroupSimple> m_content;
                     bool m_contentHasBeenSet;

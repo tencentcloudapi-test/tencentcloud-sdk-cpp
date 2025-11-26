@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,72 +50,84 @@ namespace TencentCloud
                     /**
                      * 获取七层监听器实例ID。
                      * @return ListenerId 七层监听器实例ID。
+                     * 
                      */
                     std::string GetListenerId() const;
 
                     /**
                      * 设置七层监听器实例ID。
-                     * @param ListenerId 七层监听器实例ID。
+                     * @param _listenerId 七层监听器实例ID。
+                     * 
                      */
                     void SetListenerId(const std::string& _listenerId);
 
                     /**
                      * 判断参数 ListenerId 是否已赋值
                      * @return ListenerId 是否已赋值
+                     * 
                      */
                     bool ListenerIdHasBeenSet() const;
 
                     /**
                      * 获取七层监听器协议类型，可选值：http,https。
                      * @return Protocol 七层监听器协议类型，可选值：http,https。
+                     * 
                      */
                     std::string GetProtocol() const;
 
                     /**
                      * 设置七层监听器协议类型，可选值：http,https。
-                     * @param Protocol 七层监听器协议类型，可选值：http,https。
+                     * @param _protocol 七层监听器协议类型，可选值：http,https。
+                     * 
                      */
                     void SetProtocol(const std::string& _protocol);
 
                     /**
                      * 判断参数 Protocol 是否已赋值
                      * @return Protocol 是否已赋值
+                     * 
                      */
                     bool ProtocolHasBeenSet() const;
 
                     /**
                      * 获取七层监听器的监听端口。
                      * @return LoadBalancerPort 七层监听器的监听端口。
+                     * 
                      */
                     int64_t GetLoadBalancerPort() const;
 
                     /**
                      * 设置七层监听器的监听端口。
-                     * @param LoadBalancerPort 七层监听器的监听端口。
+                     * @param _loadBalancerPort 七层监听器的监听端口。
+                     * 
                      */
                     void SetLoadBalancerPort(const int64_t& _loadBalancerPort);
 
                     /**
                      * 判断参数 LoadBalancerPort 是否已赋值
                      * @return LoadBalancerPort 是否已赋值
+                     * 
                      */
                     bool LoadBalancerPortHasBeenSet() const;
 
                     /**
                      * 获取返回的转发规则列表。
                      * @return RuleSet 返回的转发规则列表。
+                     * 
                      */
                     std::vector<DevicesBindInfoRule> GetRuleSet() const;
 
                     /**
                      * 设置返回的转发规则列表。
-                     * @param RuleSet 返回的转发规则列表。
+                     * @param _ruleSet 返回的转发规则列表。
+                     * 
                      */
                     void SetRuleSet(const std::vector<DevicesBindInfoRule>& _ruleSet);
 
                     /**
                      * 判断参数 RuleSet 是否已赋值
                      * @return RuleSet 是否已赋值
+                     * 
                      */
                     bool RuleSetHasBeenSet() const;
 

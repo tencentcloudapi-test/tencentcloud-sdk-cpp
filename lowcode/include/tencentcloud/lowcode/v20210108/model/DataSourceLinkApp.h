@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,108 +49,128 @@ namespace TencentCloud
                     /**
                      * 获取应用Id
                      * @return Id 应用Id
+                     * 
                      */
                     std::string GetId() const;
 
                     /**
                      * 设置应用Id
-                     * @param Id 应用Id
+                     * @param _id 应用Id
+                     * 
                      */
                     void SetId(const std::string& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
                      * 获取应用名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Title 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetTitle() const;
 
                     /**
                      * 设置应用名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Title 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _title 应用名称
+                     * 
                      */
                     void SetTitle(const std::string& _title);
 
                     /**
                      * 判断参数 Title 是否已赋值
                      * @return Title 是否已赋值
+                     * 
                      */
                     bool TitleHasBeenSet() const;
 
                     /**
                      * 获取是否编辑状态使用
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EditStatusUse 是否编辑状态使用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetEditStatusUse() const;
 
                     /**
                      * 设置是否编辑状态使用
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EditStatusUse 是否编辑状态使用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _editStatusUse 是否编辑状态使用
+                     * 
                      */
                     void SetEditStatusUse(const int64_t& _editStatusUse);
 
                     /**
                      * 判断参数 EditStatusUse 是否已赋值
                      * @return EditStatusUse 是否已赋值
+                     * 
                      */
                     bool EditStatusUseHasBeenSet() const;
 
                     /**
                      * 获取是否预览状态使用
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PreviewStatusUse 是否预览状态使用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetPreviewStatusUse() const;
 
                     /**
                      * 设置是否预览状态使用
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PreviewStatusUse 是否预览状态使用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _previewStatusUse 是否预览状态使用
+                     * 
                      */
                     void SetPreviewStatusUse(const int64_t& _previewStatusUse);
 
                     /**
                      * 判断参数 PreviewStatusUse 是否已赋值
                      * @return PreviewStatusUse 是否已赋值
+                     * 
                      */
                     bool PreviewStatusUseHasBeenSet() const;
 
                     /**
                      * 获取是否正式状态使用
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return OnlineStatusUse 是否正式状态使用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetOnlineStatusUse() const;
 
                     /**
                      * 设置是否正式状态使用
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OnlineStatusUse 是否正式状态使用
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _onlineStatusUse 是否正式状态使用
+                     * 
                      */
                     void SetOnlineStatusUse(const int64_t& _onlineStatusUse);
 
                     /**
                      * 判断参数 OnlineStatusUse 是否已赋值
                      * @return OnlineStatusUse 是否已赋值
+                     * 
                      */
                     bool OnlineStatusUseHasBeenSet() const;
+
+                    /**
+                     * 获取数据源ID
+                     * @return DataSourceId 数据源ID
+                     * 
+                     */
+                    std::string GetDataSourceId() const;
+
+                    /**
+                     * 设置数据源ID
+                     * @param _dataSourceId 数据源ID
+                     * 
+                     */
+                    void SetDataSourceId(const std::string& _dataSourceId);
+
+                    /**
+                     * 判断参数 DataSourceId 是否已赋值
+                     * @return DataSourceId 是否已赋值
+                     * 
+                     */
+                    bool DataSourceIdHasBeenSet() const;
 
                 private:
 
@@ -162,31 +182,33 @@ namespace TencentCloud
 
                     /**
                      * 应用名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_title;
                     bool m_titleHasBeenSet;
 
                     /**
                      * 是否编辑状态使用
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_editStatusUse;
                     bool m_editStatusUseHasBeenSet;
 
                     /**
                      * 是否预览状态使用
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_previewStatusUse;
                     bool m_previewStatusUseHasBeenSet;
 
                     /**
                      * 是否正式状态使用
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_onlineStatusUse;
                     bool m_onlineStatusUseHasBeenSet;
+
+                    /**
+                     * 数据源ID
+                     */
+                    std::string m_dataSourceId;
+                    bool m_dataSourceIdHasBeenSet;
 
                 };
             }

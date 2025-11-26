@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 用户进出房间信息
+                * 房间内的事件
                 */
                 class InOutTimeInfo : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取进入房间时间
                      * @return StartTime 进入房间时间
+                     * 
                      */
                     int64_t GetStartTime() const;
 
                     /**
                      * 设置进入房间时间
-                     * @param StartTime 进入房间时间
+                     * @param _startTime 进入房间时间
+                     * 
                      */
                     void SetStartTime(const int64_t& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
                      * 获取退出房间时间
                      * @return EndTime 退出房间时间
+                     * 
                      */
                     int64_t GetEndTime() const;
 
                     /**
                      * 设置退出房间时间
-                     * @param EndTime 退出房间时间
+                     * @param _endTime 退出房间时间
+                     * 
                      */
                     void SetEndTime(const int64_t& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 

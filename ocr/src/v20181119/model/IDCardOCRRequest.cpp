@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@ IDCardOCRRequest::IDCardOCRRequest() :
     m_imageBase64HasBeenSet(false),
     m_imageUrlHasBeenSet(false),
     m_cardSideHasBeenSet(false),
-    m_configHasBeenSet(false)
+    m_configHasBeenSet(false),
+    m_enableRecognitionRectifyHasBeenSet(false),
+    m_enableReflectDetailHasBeenSet(false),
+    m_enableDateVerifyHasBeenSet(false),
+    m_cardWarnTypeHasBeenSet(false)
 {
 }
 
@@ -67,6 +71,38 @@ string IDCardOCRRequest::ToJsonString() const
         string key = "Config";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_config.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enableRecognitionRectifyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableRecognitionRectify";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableRecognitionRectify, allocator);
+    }
+
+    if (m_enableReflectDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableReflectDetail";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableReflectDetail, allocator);
+    }
+
+    if (m_enableDateVerifyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableDateVerify";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableDateVerify, allocator);
+    }
+
+    if (m_cardWarnTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CardWarnType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cardWarnType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -139,6 +175,70 @@ void IDCardOCRRequest::SetConfig(const string& _config)
 bool IDCardOCRRequest::ConfigHasBeenSet() const
 {
     return m_configHasBeenSet;
+}
+
+bool IDCardOCRRequest::GetEnableRecognitionRectify() const
+{
+    return m_enableRecognitionRectify;
+}
+
+void IDCardOCRRequest::SetEnableRecognitionRectify(const bool& _enableRecognitionRectify)
+{
+    m_enableRecognitionRectify = _enableRecognitionRectify;
+    m_enableRecognitionRectifyHasBeenSet = true;
+}
+
+bool IDCardOCRRequest::EnableRecognitionRectifyHasBeenSet() const
+{
+    return m_enableRecognitionRectifyHasBeenSet;
+}
+
+bool IDCardOCRRequest::GetEnableReflectDetail() const
+{
+    return m_enableReflectDetail;
+}
+
+void IDCardOCRRequest::SetEnableReflectDetail(const bool& _enableReflectDetail)
+{
+    m_enableReflectDetail = _enableReflectDetail;
+    m_enableReflectDetailHasBeenSet = true;
+}
+
+bool IDCardOCRRequest::EnableReflectDetailHasBeenSet() const
+{
+    return m_enableReflectDetailHasBeenSet;
+}
+
+bool IDCardOCRRequest::GetEnableDateVerify() const
+{
+    return m_enableDateVerify;
+}
+
+void IDCardOCRRequest::SetEnableDateVerify(const bool& _enableDateVerify)
+{
+    m_enableDateVerify = _enableDateVerify;
+    m_enableDateVerifyHasBeenSet = true;
+}
+
+bool IDCardOCRRequest::EnableDateVerifyHasBeenSet() const
+{
+    return m_enableDateVerifyHasBeenSet;
+}
+
+string IDCardOCRRequest::GetCardWarnType() const
+{
+    return m_cardWarnType;
+}
+
+void IDCardOCRRequest::SetCardWarnType(const string& _cardWarnType)
+{
+    m_cardWarnType = _cardWarnType;
+    m_cardWarnTypeHasBeenSet = true;
+}
+
+bool IDCardOCRRequest::CardWarnTypeHasBeenSet() const
+{
+    return m_cardWarnTypeHasBeenSet;
 }
 
 

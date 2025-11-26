@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,74 +45,89 @@ namespace TencentCloud
                     /**
                      * 获取带宽包唯一标识ID
                      * @return BandwidthPackageId 带宽包唯一标识ID
+                     * 
                      */
                     std::string GetBandwidthPackageId() const;
 
                     /**
                      * 设置带宽包唯一标识ID
-                     * @param BandwidthPackageId 带宽包唯一标识ID
+                     * @param _bandwidthPackageId 带宽包唯一标识ID
+                     * 
                      */
                     void SetBandwidthPackageId(const std::string& _bandwidthPackageId);
 
                     /**
                      * 判断参数 BandwidthPackageId 是否已赋值
                      * @return BandwidthPackageId 是否已赋值
+                     * 
                      */
                     bool BandwidthPackageIdHasBeenSet() const;
 
                     /**
                      * 获取带宽包名称
                      * @return BandwidthPackageName 带宽包名称
+                     * 
                      */
                     std::string GetBandwidthPackageName() const;
 
                     /**
                      * 设置带宽包名称
-                     * @param BandwidthPackageName 带宽包名称
+                     * @param _bandwidthPackageName 带宽包名称
+                     * 
                      */
                     void SetBandwidthPackageName(const std::string& _bandwidthPackageName);
 
                     /**
                      * 判断参数 BandwidthPackageName 是否已赋值
                      * @return BandwidthPackageName 是否已赋值
+                     * 
                      */
                     bool BandwidthPackageNameHasBeenSet() const;
 
                     /**
-                     * 获取带宽包计费模式
-                     * @return ChargeType 带宽包计费模式
+                     * 获取带宽包计费模式，可选值:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
+                     * @return ChargeType 带宽包计费模式，可选值:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
+                     * 
                      */
                     std::string GetChargeType() const;
 
                     /**
-                     * 设置带宽包计费模式
-                     * @param ChargeType 带宽包计费模式
+                     * 设置带宽包计费模式，可选值:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
+                     * @param _chargeType 带宽包计费模式，可选值:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
+                     * 
                      */
                     void SetChargeType(const std::string& _chargeType);
 
                     /**
                      * 判断参数 ChargeType 是否已赋值
                      * @return ChargeType 是否已赋值
+                     * 
                      */
                     bool ChargeTypeHasBeenSet() const;
-
-                    /**
-                     * 获取退款时迁移为后付费带宽包。默认值：否
-                     * @return MigrateOnRefund 退款时迁移为后付费带宽包。默认值：否
-                     */
-                    bool GetMigrateOnRefund() const;
-
-                    /**
-                     * 设置退款时迁移为后付费带宽包。默认值：否
-                     * @param MigrateOnRefund 退款时迁移为后付费带宽包。默认值：否
-                     */
-                    void SetMigrateOnRefund(const bool& _migrateOnRefund);
-
-                    /**
-                     * 判断参数 MigrateOnRefund 是否已赋值
-                     * @return MigrateOnRefund 是否已赋值
-                     */
-                    bool MigrateOnRefundHasBeenSet() const;
 
                 private:
 
@@ -129,16 +144,16 @@ namespace TencentCloud
                     bool m_bandwidthPackageNameHasBeenSet;
 
                     /**
-                     * 带宽包计费模式
+                     * 带宽包计费模式，可选值:
+<li>ENHANCED95_POSTPAID_BY_MONTH: 后付费-增强型95计费</li>
+<li>PRIMARY_TRAFFIC_POSTPAID_BY_HOUR: 后付费-按主流量计费</li>
+<li>BANDWIDTH_POSTPAID_BY_DAY: 常规BGP-后付费-按带宽计费</li>
+<li>FIXED_PREPAID_BY_MONTH: 常规BGP-预付费</li>
+<li>PEAK_BANDWIDTH_POSTPAID_BY_DAY: 静态单线-后付费-按日结算</li>
+<li>TOP5_POSTPAID_BY_MONTH: 后付费-TOP5计费，如需使用，请提交工单申请</li>
                      */
                     std::string m_chargeType;
                     bool m_chargeTypeHasBeenSet;
-
-                    /**
-                     * 退款时迁移为后付费带宽包。默认值：否
-                     */
-                    bool m_migrateOnRefund;
-                    bool m_migrateOnRefundHasBeenSet;
 
                 };
             }

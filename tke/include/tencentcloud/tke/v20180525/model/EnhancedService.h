@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,54 +52,63 @@ namespace TencentCloud
                     /**
                      * 获取开启云安全服务。若不指定该参数，则默认开启云安全服务。
                      * @return SecurityService 开启云安全服务。若不指定该参数，则默认开启云安全服务。
+                     * 
                      */
                     RunSecurityServiceEnabled GetSecurityService() const;
 
                     /**
                      * 设置开启云安全服务。若不指定该参数，则默认开启云安全服务。
-                     * @param SecurityService 开启云安全服务。若不指定该参数，则默认开启云安全服务。
+                     * @param _securityService 开启云安全服务。若不指定该参数，则默认开启云安全服务。
+                     * 
                      */
                     void SetSecurityService(const RunSecurityServiceEnabled& _securityService);
 
                     /**
                      * 判断参数 SecurityService 是否已赋值
                      * @return SecurityService 是否已赋值
+                     * 
                      */
                     bool SecurityServiceHasBeenSet() const;
 
                     /**
                      * 获取开启云监控服务。若不指定该参数，则默认开启云监控服务。
                      * @return MonitorService 开启云监控服务。若不指定该参数，则默认开启云监控服务。
+                     * 
                      */
                     RunMonitorServiceEnabled GetMonitorService() const;
 
                     /**
                      * 设置开启云监控服务。若不指定该参数，则默认开启云监控服务。
-                     * @param MonitorService 开启云监控服务。若不指定该参数，则默认开启云监控服务。
+                     * @param _monitorService 开启云监控服务。若不指定该参数，则默认开启云监控服务。
+                     * 
                      */
                     void SetMonitorService(const RunMonitorServiceEnabled& _monitorService);
 
                     /**
                      * 判断参数 MonitorService 是否已赋值
                      * @return MonitorService 是否已赋值
+                     * 
                      */
                     bool MonitorServiceHasBeenSet() const;
 
                     /**
-                     * 获取开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
-                     * @return AutomationService 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
+                     * 获取开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
+                     * @return AutomationService 开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
+                     * 
                      */
                     RunAutomationServiceEnabled GetAutomationService() const;
 
                     /**
-                     * 设置开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
-                     * @param AutomationService 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
+                     * 设置开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
+                     * @param _automationService 开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
+                     * 
                      */
                     void SetAutomationService(const RunAutomationServiceEnabled& _automationService);
 
                     /**
                      * 判断参数 AutomationService 是否已赋值
                      * @return AutomationService 是否已赋值
+                     * 
                      */
                     bool AutomationServiceHasBeenSet() const;
 
@@ -118,7 +127,7 @@ namespace TencentCloud
                     bool m_monitorServiceHasBeenSet;
 
                     /**
-                     * 开启云自动化助手服务。若不指定该参数，则默认不开启云自动化助手服务。
+                     * 开启云自动化助手服务（TencentCloud Automation Tools，TAT）。若不指定该参数，则公共镜像默认开启云自动化助手服务，其他镜像默认不开启云自动化助手服务。
                      */
                     RunAutomationServiceEnabled m_automationService;
                     bool m_automationServiceHasBeenSet;

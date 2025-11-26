@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取删除操作失败的监听器ID列表
                      * @return OperationFailedListenerSet 删除操作失败的监听器ID列表
+                     * 
                      */
                     std::vector<std::string> GetOperationFailedListenerSet() const;
 
                     /**
                      * 判断参数 OperationFailedListenerSet 是否已赋值
                      * @return OperationFailedListenerSet 是否已赋值
+                     * 
                      */
                     bool OperationFailedListenerSetHasBeenSet() const;
 
                     /**
                      * 获取删除操作成功的监听器ID列表
                      * @return OperationSucceedListenerSet 删除操作成功的监听器ID列表
+                     * 
                      */
                     std::vector<std::string> GetOperationSucceedListenerSet() const;
 
                     /**
                      * 判断参数 OperationSucceedListenerSet 是否已赋值
                      * @return OperationSucceedListenerSet 是否已赋值
+                     * 
                      */
                     bool OperationSucceedListenerSetHasBeenSet() const;
 
                     /**
                      * 获取无效的监听器ID列表，如：监听器不存在，监听器对应实例不匹配
                      * @return InvalidStatusListenerSet 无效的监听器ID列表，如：监听器不存在，监听器对应实例不匹配
+                     * 
                      */
                     std::vector<std::string> GetInvalidStatusListenerSet() const;
 
                     /**
                      * 判断参数 InvalidStatusListenerSet 是否已赋值
                      * @return InvalidStatusListenerSet 是否已赋值
+                     * 
                      */
                     bool InvalidStatusListenerSetHasBeenSet() const;
 

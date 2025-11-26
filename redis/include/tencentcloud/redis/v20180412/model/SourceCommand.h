@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,51 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取命令
-                     * @return Cmd 命令
+                     * 获取命令名称。
+                     * @return Cmd 命令名称。
+                     * 
                      */
                     std::string GetCmd() const;
 
                     /**
-                     * 设置命令
-                     * @param Cmd 命令
+                     * 设置命令名称。
+                     * @param _cmd 命令名称。
+                     * 
                      */
                     void SetCmd(const std::string& _cmd);
 
                     /**
                      * 判断参数 Cmd 是否已赋值
                      * @return Cmd 是否已赋值
+                     * 
                      */
                     bool CmdHasBeenSet() const;
 
                     /**
-                     * 获取执行次数
-                     * @return Count 执行次数
+                     * 获取执行次数。
+                     * @return Count 执行次数。
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
-                     * 设置执行次数
-                     * @param Count 执行次数
+                     * 设置执行次数。
+                     * @param _count 执行次数。
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 命令
+                     * 命令名称。
                      */
                     std::string m_cmd;
                     bool m_cmdHasBeenSet;
 
                     /**
-                     * 执行次数
+                     * 执行次数。
                      */
                     int64_t m_count;
                     bool m_countHasBeenSet;

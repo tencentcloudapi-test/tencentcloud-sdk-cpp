@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取各个区域的机器情况
                      * @return RegionDetail 各个区域的机器情况
+                     * 
                      */
                     std::vector<WorkerRegionInfo> GetRegionDetail() const;
 
                     /**
                      * 判断参数 RegionDetail 是否已赋值
                      * @return RegionDetail 是否已赋值
+                     * 
                      */
                     bool RegionDetailHasBeenSet() const;
 
                     /**
                      * 获取空闲机器总数量
                      * @return Idle 空闲机器总数量
+                     * 
                      */
                     uint64_t GetIdle() const;
 
                     /**
                      * 判断参数 Idle 是否已赋值
                      * @return Idle 是否已赋值
+                     * 
                      */
                     bool IdleHasBeenSet() const;
 
                     /**
                      * 获取区域个数
                      * @return RegionNum 区域个数
+                     * 
                      */
                     uint64_t GetRegionNum() const;
 
                     /**
                      * 判断参数 RegionNum 是否已赋值
                      * @return RegionNum 是否已赋值
+                     * 
                      */
                     bool RegionNumHasBeenSet() const;
 

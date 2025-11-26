@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ using namespace std;
 PhoneVerificationResponse::PhoneVerificationResponse() :
     m_resultHasBeenSet(false),
     m_descriptionHasBeenSet(false),
-    m_ispHasBeenSet(false)
+    m_ispHasBeenSet(false),
+    m_resultDetailHasBeenSet(false)
 {
 }
 
@@ -94,6 +95,16 @@ CoreInternalOutcome PhoneVerificationResponse::Deserialize(const string &payload
         m_ispHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ResultDetail") && !rsp["ResultDetail"].IsNull())
+    {
+        if (!rsp["ResultDetail"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResultDetail` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_resultDetail = string(rsp["ResultDetail"].GetString());
+        m_resultDetailHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -128,11 +139,19 @@ string PhoneVerificationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_isp.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_resultDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResultDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_resultDetail.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -168,6 +187,16 @@ string PhoneVerificationResponse::GetIsp() const
 bool PhoneVerificationResponse::IspHasBeenSet() const
 {
     return m_ispHasBeenSet;
+}
+
+string PhoneVerificationResponse::GetResultDetail() const
+{
+    return m_resultDetail;
+}
+
+bool PhoneVerificationResponse::ResultDetailHasBeenSet() const
+{
+    return m_resultDetailHasBeenSet;
 }
 
 

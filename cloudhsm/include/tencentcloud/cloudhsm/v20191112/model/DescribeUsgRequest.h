@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取偏移量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
                      * @return Offset 偏移量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
-                     * @param Offset 偏移量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
+                     * @param _offset 偏移量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取返回量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
                      * @return Limit 返回量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置返回量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
-                     * @param Limit 返回量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
+                     * @param _limit 返回量，当Offset和Limit均为0时将一次性返回用户所有的安全组列表。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取搜索关键字
-                     * @return SearchWord 搜索关键字
+                     * 获取过滤条件，支持安全组id
+                     * @return SearchWord 过滤条件，支持安全组id
+                     * 
                      */
                     std::string GetSearchWord() const;
 
                     /**
-                     * 设置搜索关键字
-                     * @param SearchWord 搜索关键字
+                     * 设置过滤条件，支持安全组id
+                     * @param _searchWord 过滤条件，支持安全组id
+                     * 
                      */
                     void SetSearchWord(const std::string& _searchWord);
 
                     /**
                      * 判断参数 SearchWord 是否已赋值
                      * @return SearchWord 是否已赋值
+                     * 
                      */
                     bool SearchWordHasBeenSet() const;
 
@@ -111,7 +120,7 @@ namespace TencentCloud
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 搜索关键字
+                     * 过滤条件，支持安全组id
                      */
                     std::string m_searchWord;
                     bool m_searchWordHasBeenSet;

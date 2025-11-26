@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,38 +46,64 @@ namespace TencentCloud
                     /**
                      * 获取实名认证状态：0未实名，1已实名
                      * @return IsTenPayMasked 实名认证状态：0未实名，1已实名
+                     * 
                      */
                     std::string GetIsTenPayMasked() const;
 
                     /**
                      * 判断参数 IsTenPayMasked 是否已赋值
                      * @return IsTenPayMasked 是否已赋值
+                     * 
                      */
                     bool IsTenPayMaskedHasBeenSet() const;
 
                     /**
                      * 获取实名认证类型：0个人，1企业
                      * @return IsAuthenticated 实名认证类型：0个人，1企业
+                     * 
                      */
                     std::string GetIsAuthenticated() const;
 
                     /**
                      * 判断参数 IsAuthenticated 是否已赋值
                      * @return IsAuthenticated 是否已赋值
+                     * 
                      */
                     bool IsAuthenticatedHasBeenSet() const;
 
                     /**
                      * 获取认证类型，个人0，企业1
                      * @return Type 认证类型，个人0，企业1
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
+
+                    /**
+                     * 获取大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户
+                     * @return Level 大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户
+                     * 
+                     */
+                    std::string GetLevel() const;
+
+                    /**
+                     * 判断参数 Level 是否已赋值
+                     * @return Level 是否已赋值
+                     * 
+                     */
+                    bool LevelHasBeenSet() const;
 
                 private:
 
@@ -98,6 +124,15 @@ namespace TencentCloud
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
+
+                    /**
+                     * 大客户标识：
+1004、1003、1002、1001
+
+其余为普通的用户
+                     */
+                    std::string m_level;
+                    bool m_levelHasBeenSet;
 
                 };
             }

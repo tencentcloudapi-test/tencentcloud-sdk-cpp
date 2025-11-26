@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,92 +40,6 @@ CatClient::CatClient(const Credential &credential, const string &region, const C
 }
 
 
-CatClient::BindAlarmPolicyOutcome CatClient::BindAlarmPolicy(const BindAlarmPolicyRequest &request)
-{
-    auto outcome = MakeRequest(request, "BindAlarmPolicy");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        BindAlarmPolicyResponse rsp = BindAlarmPolicyResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return BindAlarmPolicyOutcome(rsp);
-        else
-            return BindAlarmPolicyOutcome(o.GetError());
-    }
-    else
-    {
-        return BindAlarmPolicyOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::BindAlarmPolicyAsync(const BindAlarmPolicyRequest& request, const BindAlarmPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BindAlarmPolicy(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::BindAlarmPolicyOutcomeCallable CatClient::BindAlarmPolicyCallable(const BindAlarmPolicyRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<BindAlarmPolicyOutcome()>>(
-        [this, request]()
-        {
-            return this->BindAlarmPolicy(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::CreateAgentGroupOutcome CatClient::CreateAgentGroup(const CreateAgentGroupRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateAgentGroup");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateAgentGroupResponse rsp = CreateAgentGroupResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateAgentGroupOutcome(rsp);
-        else
-            return CreateAgentGroupOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateAgentGroupOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::CreateAgentGroupAsync(const CreateAgentGroupRequest& request, const CreateAgentGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateAgentGroup(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::CreateAgentGroupOutcomeCallable CatClient::CreateAgentGroupCallable(const CreateAgentGroupRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateAgentGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateAgentGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
 CatClient::CreateProbeTasksOutcome CatClient::CreateProbeTasks(const CreateProbeTasksRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateProbeTasks");
@@ -148,111 +62,32 @@ CatClient::CreateProbeTasksOutcome CatClient::CreateProbeTasks(const CreateProbe
 
 void CatClient::CreateProbeTasksAsync(const CreateProbeTasksRequest& request, const CreateProbeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateProbeTasks(request), context);
-    };
+    using Req = const CreateProbeTasksRequest&;
+    using Resp = CreateProbeTasksResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateProbeTasks", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::CreateProbeTasksOutcomeCallable CatClient::CreateProbeTasksCallable(const CreateProbeTasksRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateProbeTasksOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateProbeTasks(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::CreateTaskExOutcome CatClient::CreateTaskEx(const CreateTaskExRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateTaskEx");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<CreateProbeTasksOutcome>>();
+    CreateProbeTasksAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const CreateProbeTasksRequest&,
+        CreateProbeTasksOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateTaskExResponse rsp = CreateTaskExResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateTaskExOutcome(rsp);
-        else
-            return CreateTaskExOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateTaskExOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::CreateTaskExAsync(const CreateTaskExRequest& request, const CreateTaskExAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTaskEx(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::CreateTaskExOutcomeCallable CatClient::CreateTaskExCallable(const CreateTaskExRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateTaskExOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateTaskEx(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DeleteAgentGroupOutcome CatClient::DeleteAgentGroup(const DeleteAgentGroupRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteAgentGroup");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteAgentGroupResponse rsp = DeleteAgentGroupResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteAgentGroupOutcome(rsp);
-        else
-            return DeleteAgentGroupOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteAgentGroupOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DeleteAgentGroupAsync(const DeleteAgentGroupRequest& request, const DeleteAgentGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteAgentGroup(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DeleteAgentGroupOutcomeCallable CatClient::DeleteAgentGroupCallable(const DeleteAgentGroupRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeleteAgentGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteAgentGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CatClient::DeleteProbeTaskOutcome CatClient::DeleteProbeTask(const DeleteProbeTaskRequest &request)
@@ -277,326 +112,32 @@ CatClient::DeleteProbeTaskOutcome CatClient::DeleteProbeTask(const DeleteProbeTa
 
 void CatClient::DeleteProbeTaskAsync(const DeleteProbeTaskRequest& request, const DeleteProbeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteProbeTask(request), context);
-    };
+    using Req = const DeleteProbeTaskRequest&;
+    using Resp = DeleteProbeTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteProbeTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::DeleteProbeTaskOutcomeCallable CatClient::DeleteProbeTaskCallable(const DeleteProbeTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteProbeTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteProbeTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DeleteTasksOutcome CatClient::DeleteTasks(const DeleteTasksRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteTasks");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DeleteProbeTaskOutcome>>();
+    DeleteProbeTaskAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DeleteProbeTaskRequest&,
+        DeleteProbeTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteTasksResponse rsp = DeleteTasksResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteTasksOutcome(rsp);
-        else
-            return DeleteTasksOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteTasksOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DeleteTasksAsync(const DeleteTasksRequest& request, const DeleteTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteTasks(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DeleteTasksOutcomeCallable CatClient::DeleteTasksCallable(const DeleteTasksRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeleteTasksOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteTasks(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeAgentGroupsOutcome CatClient::DescribeAgentGroups(const DescribeAgentGroupsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAgentGroups");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAgentGroupsResponse rsp = DescribeAgentGroupsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAgentGroupsOutcome(rsp);
-        else
-            return DescribeAgentGroupsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAgentGroupsOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeAgentGroupsAsync(const DescribeAgentGroupsRequest& request, const DescribeAgentGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAgentGroups(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeAgentGroupsOutcomeCallable CatClient::DescribeAgentGroupsCallable(const DescribeAgentGroupsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeAgentGroupsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAgentGroups(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeAgentsOutcome CatClient::DescribeAgents(const DescribeAgentsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAgents");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAgentsResponse rsp = DescribeAgentsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAgentsOutcome(rsp);
-        else
-            return DescribeAgentsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAgentsOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeAgentsAsync(const DescribeAgentsRequest& request, const DescribeAgentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAgents(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeAgentsOutcomeCallable CatClient::DescribeAgentsCallable(const DescribeAgentsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeAgentsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAgents(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeAlarmTopicOutcome CatClient::DescribeAlarmTopic(const DescribeAlarmTopicRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAlarmTopic");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAlarmTopicResponse rsp = DescribeAlarmTopicResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAlarmTopicOutcome(rsp);
-        else
-            return DescribeAlarmTopicOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAlarmTopicOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeAlarmTopicAsync(const DescribeAlarmTopicRequest& request, const DescribeAlarmTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAlarmTopic(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeAlarmTopicOutcomeCallable CatClient::DescribeAlarmTopicCallable(const DescribeAlarmTopicRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeAlarmTopicOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAlarmTopic(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeAlarmsOutcome CatClient::DescribeAlarms(const DescribeAlarmsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAlarms");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAlarmsResponse rsp = DescribeAlarmsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAlarmsOutcome(rsp);
-        else
-            return DescribeAlarmsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAlarmsOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeAlarmsAsync(const DescribeAlarmsRequest& request, const DescribeAlarmsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAlarms(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeAlarmsOutcomeCallable CatClient::DescribeAlarmsCallable(const DescribeAlarmsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeAlarmsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAlarms(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeAlarmsByTaskOutcome CatClient::DescribeAlarmsByTask(const DescribeAlarmsByTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAlarmsByTask");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAlarmsByTaskResponse rsp = DescribeAlarmsByTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAlarmsByTaskOutcome(rsp);
-        else
-            return DescribeAlarmsByTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAlarmsByTaskOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeAlarmsByTaskAsync(const DescribeAlarmsByTaskRequest& request, const DescribeAlarmsByTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAlarmsByTask(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeAlarmsByTaskOutcomeCallable CatClient::DescribeAlarmsByTaskCallable(const DescribeAlarmsByTaskRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeAlarmsByTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAlarmsByTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeCatLogsOutcome CatClient::DescribeCatLogs(const DescribeCatLogsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCatLogs");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCatLogsResponse rsp = DescribeCatLogsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCatLogsOutcome(rsp);
-        else
-            return DescribeCatLogsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCatLogsOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeCatLogsAsync(const DescribeCatLogsRequest& request, const DescribeCatLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCatLogs(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeCatLogsOutcomeCallable CatClient::DescribeCatLogsCallable(const DescribeCatLogsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeCatLogsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCatLogs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CatClient::DescribeDetailedSingleProbeDataOutcome CatClient::DescribeDetailedSingleProbeData(const DescribeDetailedSingleProbeDataRequest &request)
@@ -621,25 +162,282 @@ CatClient::DescribeDetailedSingleProbeDataOutcome CatClient::DescribeDetailedSin
 
 void CatClient::DescribeDetailedSingleProbeDataAsync(const DescribeDetailedSingleProbeDataRequest& request, const DescribeDetailedSingleProbeDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDetailedSingleProbeData(request), context);
-    };
+    using Req = const DescribeDetailedSingleProbeDataRequest&;
+    using Resp = DescribeDetailedSingleProbeDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDetailedSingleProbeData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::DescribeDetailedSingleProbeDataOutcomeCallable CatClient::DescribeDetailedSingleProbeDataCallable(const DescribeDetailedSingleProbeDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDetailedSingleProbeDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDetailedSingleProbeData(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeDetailedSingleProbeDataOutcome>>();
+    DescribeDetailedSingleProbeDataAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeDetailedSingleProbeDataRequest&,
+        DescribeDetailedSingleProbeDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CatClient::DescribeInstantTasksOutcome CatClient::DescribeInstantTasks(const DescribeInstantTasksRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeInstantTasks");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeInstantTasksResponse rsp = DescribeInstantTasksResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeInstantTasksOutcome(rsp);
+        else
+            return DescribeInstantTasksOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeInstantTasksOutcome(outcome.GetError());
+    }
+}
+
+void CatClient::DescribeInstantTasksAsync(const DescribeInstantTasksRequest& request, const DescribeInstantTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeInstantTasksRequest&;
+    using Resp = DescribeInstantTasksResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeInstantTasks", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CatClient::DescribeInstantTasksOutcomeCallable CatClient::DescribeInstantTasksCallable(const DescribeInstantTasksRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeInstantTasksOutcome>>();
+    DescribeInstantTasksAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeInstantTasksRequest&,
+        DescribeInstantTasksOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CatClient::DescribeNodeGroupsOutcome CatClient::DescribeNodeGroups(const DescribeNodeGroupsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNodeGroups");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNodeGroupsResponse rsp = DescribeNodeGroupsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNodeGroupsOutcome(rsp);
+        else
+            return DescribeNodeGroupsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNodeGroupsOutcome(outcome.GetError());
+    }
+}
+
+void CatClient::DescribeNodeGroupsAsync(const DescribeNodeGroupsRequest& request, const DescribeNodeGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNodeGroupsRequest&;
+    using Resp = DescribeNodeGroupsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNodeGroups", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CatClient::DescribeNodeGroupsOutcomeCallable CatClient::DescribeNodeGroupsCallable(const DescribeNodeGroupsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNodeGroupsOutcome>>();
+    DescribeNodeGroupsAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeNodeGroupsRequest&,
+        DescribeNodeGroupsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CatClient::DescribeNodesOutcome CatClient::DescribeNodes(const DescribeNodesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeNodes");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeNodesResponse rsp = DescribeNodesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeNodesOutcome(rsp);
+        else
+            return DescribeNodesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeNodesOutcome(outcome.GetError());
+    }
+}
+
+void CatClient::DescribeNodesAsync(const DescribeNodesRequest& request, const DescribeNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeNodesRequest&;
+    using Resp = DescribeNodesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeNodes", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CatClient::DescribeNodesOutcomeCallable CatClient::DescribeNodesCallable(const DescribeNodesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeNodesOutcome>>();
+    DescribeNodesAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeNodesRequest&,
+        DescribeNodesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CatClient::DescribeProbeMetricDataOutcome CatClient::DescribeProbeMetricData(const DescribeProbeMetricDataRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeProbeMetricData");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeProbeMetricDataResponse rsp = DescribeProbeMetricDataResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeProbeMetricDataOutcome(rsp);
+        else
+            return DescribeProbeMetricDataOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeProbeMetricDataOutcome(outcome.GetError());
+    }
+}
+
+void CatClient::DescribeProbeMetricDataAsync(const DescribeProbeMetricDataRequest& request, const DescribeProbeMetricDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeProbeMetricDataRequest&;
+    using Resp = DescribeProbeMetricDataResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeProbeMetricData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CatClient::DescribeProbeMetricDataOutcomeCallable CatClient::DescribeProbeMetricDataCallable(const DescribeProbeMetricDataRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeProbeMetricDataOutcome>>();
+    DescribeProbeMetricDataAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeProbeMetricDataRequest&,
+        DescribeProbeMetricDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CatClient::DescribeProbeMetricTagValuesOutcome CatClient::DescribeProbeMetricTagValues(const DescribeProbeMetricTagValuesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeProbeMetricTagValues");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeProbeMetricTagValuesResponse rsp = DescribeProbeMetricTagValuesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeProbeMetricTagValuesOutcome(rsp);
+        else
+            return DescribeProbeMetricTagValuesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeProbeMetricTagValuesOutcome(outcome.GetError());
+    }
+}
+
+void CatClient::DescribeProbeMetricTagValuesAsync(const DescribeProbeMetricTagValuesRequest& request, const DescribeProbeMetricTagValuesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeProbeMetricTagValuesRequest&;
+    using Resp = DescribeProbeMetricTagValuesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeProbeMetricTagValues", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CatClient::DescribeProbeMetricTagValuesOutcomeCallable CatClient::DescribeProbeMetricTagValuesCallable(const DescribeProbeMetricTagValuesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeProbeMetricTagValuesOutcome>>();
+    DescribeProbeMetricTagValuesAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeProbeMetricTagValuesRequest&,
+        DescribeProbeMetricTagValuesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CatClient::DescribeProbeNodesOutcome CatClient::DescribeProbeNodes(const DescribeProbeNodesRequest &request)
@@ -664,25 +462,32 @@ CatClient::DescribeProbeNodesOutcome CatClient::DescribeProbeNodes(const Describ
 
 void CatClient::DescribeProbeNodesAsync(const DescribeProbeNodesRequest& request, const DescribeProbeNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeProbeNodes(request), context);
-    };
+    using Req = const DescribeProbeNodesRequest&;
+    using Resp = DescribeProbeNodesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeProbeNodes", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::DescribeProbeNodesOutcomeCallable CatClient::DescribeProbeNodesCallable(const DescribeProbeNodesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeProbeNodesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeProbeNodes(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeProbeNodesOutcome>>();
+    DescribeProbeNodesAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeProbeNodesRequest&,
+        DescribeProbeNodesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CatClient::DescribeProbeTasksOutcome CatClient::DescribeProbeTasks(const DescribeProbeTasksRequest &request)
@@ -707,627 +512,32 @@ CatClient::DescribeProbeTasksOutcome CatClient::DescribeProbeTasks(const Describ
 
 void CatClient::DescribeProbeTasksAsync(const DescribeProbeTasksRequest& request, const DescribeProbeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeProbeTasks(request), context);
-    };
+    using Req = const DescribeProbeTasksRequest&;
+    using Resp = DescribeProbeTasksResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeProbeTasks", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::DescribeProbeTasksOutcomeCallable CatClient::DescribeProbeTasksCallable(const DescribeProbeTasksRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeProbeTasksOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeProbeTasks(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeTaskDetailOutcome CatClient::DescribeTaskDetail(const DescribeTaskDetailRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTaskDetail");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeProbeTasksOutcome>>();
+    DescribeProbeTasksAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const DescribeProbeTasksRequest&,
+        DescribeProbeTasksOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTaskDetailResponse rsp = DescribeTaskDetailResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTaskDetailOutcome(rsp);
-        else
-            return DescribeTaskDetailOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTaskDetailOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeTaskDetailAsync(const DescribeTaskDetailRequest& request, const DescribeTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTaskDetail(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeTaskDetailOutcomeCallable CatClient::DescribeTaskDetailCallable(const DescribeTaskDetailRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeTaskDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTaskDetail(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeTasksByTypeOutcome CatClient::DescribeTasksByType(const DescribeTasksByTypeRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTasksByType");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTasksByTypeResponse rsp = DescribeTasksByTypeResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTasksByTypeOutcome(rsp);
-        else
-            return DescribeTasksByTypeOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTasksByTypeOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeTasksByTypeAsync(const DescribeTasksByTypeRequest& request, const DescribeTasksByTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTasksByType(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeTasksByTypeOutcomeCallable CatClient::DescribeTasksByTypeCallable(const DescribeTasksByTypeRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeTasksByTypeOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTasksByType(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::DescribeUserLimitOutcome CatClient::DescribeUserLimit(const DescribeUserLimitRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeUserLimit");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeUserLimitResponse rsp = DescribeUserLimitResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeUserLimitOutcome(rsp);
-        else
-            return DescribeUserLimitOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeUserLimitOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::DescribeUserLimitAsync(const DescribeUserLimitRequest& request, const DescribeUserLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUserLimit(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::DescribeUserLimitOutcomeCallable CatClient::DescribeUserLimitCallable(const DescribeUserLimitRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeUserLimitOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUserLimit(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetAvailRatioHistoryOutcome CatClient::GetAvailRatioHistory(const GetAvailRatioHistoryRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetAvailRatioHistory");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetAvailRatioHistoryResponse rsp = GetAvailRatioHistoryResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetAvailRatioHistoryOutcome(rsp);
-        else
-            return GetAvailRatioHistoryOutcome(o.GetError());
-    }
-    else
-    {
-        return GetAvailRatioHistoryOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetAvailRatioHistoryAsync(const GetAvailRatioHistoryRequest& request, const GetAvailRatioHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetAvailRatioHistory(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetAvailRatioHistoryOutcomeCallable CatClient::GetAvailRatioHistoryCallable(const GetAvailRatioHistoryRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetAvailRatioHistoryOutcome()>>(
-        [this, request]()
-        {
-            return this->GetAvailRatioHistory(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetDailyAvailRatioOutcome CatClient::GetDailyAvailRatio(const GetDailyAvailRatioRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetDailyAvailRatio");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetDailyAvailRatioResponse rsp = GetDailyAvailRatioResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetDailyAvailRatioOutcome(rsp);
-        else
-            return GetDailyAvailRatioOutcome(o.GetError());
-    }
-    else
-    {
-        return GetDailyAvailRatioOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetDailyAvailRatioAsync(const GetDailyAvailRatioRequest& request, const GetDailyAvailRatioAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetDailyAvailRatio(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetDailyAvailRatioOutcomeCallable CatClient::GetDailyAvailRatioCallable(const GetDailyAvailRatioRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetDailyAvailRatioOutcome()>>(
-        [this, request]()
-        {
-            return this->GetDailyAvailRatio(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetRealAvailRatioOutcome CatClient::GetRealAvailRatio(const GetRealAvailRatioRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetRealAvailRatio");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetRealAvailRatioResponse rsp = GetRealAvailRatioResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetRealAvailRatioOutcome(rsp);
-        else
-            return GetRealAvailRatioOutcome(o.GetError());
-    }
-    else
-    {
-        return GetRealAvailRatioOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetRealAvailRatioAsync(const GetRealAvailRatioRequest& request, const GetRealAvailRatioAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetRealAvailRatio(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetRealAvailRatioOutcomeCallable CatClient::GetRealAvailRatioCallable(const GetRealAvailRatioRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetRealAvailRatioOutcome()>>(
-        [this, request]()
-        {
-            return this->GetRealAvailRatio(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetRespTimeTrendExOutcome CatClient::GetRespTimeTrendEx(const GetRespTimeTrendExRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetRespTimeTrendEx");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetRespTimeTrendExResponse rsp = GetRespTimeTrendExResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetRespTimeTrendExOutcome(rsp);
-        else
-            return GetRespTimeTrendExOutcome(o.GetError());
-    }
-    else
-    {
-        return GetRespTimeTrendExOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetRespTimeTrendExAsync(const GetRespTimeTrendExRequest& request, const GetRespTimeTrendExAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetRespTimeTrendEx(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetRespTimeTrendExOutcomeCallable CatClient::GetRespTimeTrendExCallable(const GetRespTimeTrendExRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetRespTimeTrendExOutcome()>>(
-        [this, request]()
-        {
-            return this->GetRespTimeTrendEx(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetResultSummaryOutcome CatClient::GetResultSummary(const GetResultSummaryRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetResultSummary");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetResultSummaryResponse rsp = GetResultSummaryResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetResultSummaryOutcome(rsp);
-        else
-            return GetResultSummaryOutcome(o.GetError());
-    }
-    else
-    {
-        return GetResultSummaryOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetResultSummaryAsync(const GetResultSummaryRequest& request, const GetResultSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetResultSummary(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetResultSummaryOutcomeCallable CatClient::GetResultSummaryCallable(const GetResultSummaryRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetResultSummaryOutcome()>>(
-        [this, request]()
-        {
-            return this->GetResultSummary(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetReturnCodeHistoryOutcome CatClient::GetReturnCodeHistory(const GetReturnCodeHistoryRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetReturnCodeHistory");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetReturnCodeHistoryResponse rsp = GetReturnCodeHistoryResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetReturnCodeHistoryOutcome(rsp);
-        else
-            return GetReturnCodeHistoryOutcome(o.GetError());
-    }
-    else
-    {
-        return GetReturnCodeHistoryOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetReturnCodeHistoryAsync(const GetReturnCodeHistoryRequest& request, const GetReturnCodeHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetReturnCodeHistory(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetReturnCodeHistoryOutcomeCallable CatClient::GetReturnCodeHistoryCallable(const GetReturnCodeHistoryRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetReturnCodeHistoryOutcome()>>(
-        [this, request]()
-        {
-            return this->GetReturnCodeHistory(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetReturnCodeInfoOutcome CatClient::GetReturnCodeInfo(const GetReturnCodeInfoRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetReturnCodeInfo");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetReturnCodeInfoResponse rsp = GetReturnCodeInfoResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetReturnCodeInfoOutcome(rsp);
-        else
-            return GetReturnCodeInfoOutcome(o.GetError());
-    }
-    else
-    {
-        return GetReturnCodeInfoOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetReturnCodeInfoAsync(const GetReturnCodeInfoRequest& request, const GetReturnCodeInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetReturnCodeInfo(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetReturnCodeInfoOutcomeCallable CatClient::GetReturnCodeInfoCallable(const GetReturnCodeInfoRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetReturnCodeInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->GetReturnCodeInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::GetTaskTotalNumberOutcome CatClient::GetTaskTotalNumber(const GetTaskTotalNumberRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetTaskTotalNumber");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetTaskTotalNumberResponse rsp = GetTaskTotalNumberResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetTaskTotalNumberOutcome(rsp);
-        else
-            return GetTaskTotalNumberOutcome(o.GetError());
-    }
-    else
-    {
-        return GetTaskTotalNumberOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::GetTaskTotalNumberAsync(const GetTaskTotalNumberRequest& request, const GetTaskTotalNumberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetTaskTotalNumber(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::GetTaskTotalNumberOutcomeCallable CatClient::GetTaskTotalNumberCallable(const GetTaskTotalNumberRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetTaskTotalNumberOutcome()>>(
-        [this, request]()
-        {
-            return this->GetTaskTotalNumber(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::ModifyAgentGroupOutcome CatClient::ModifyAgentGroup(const ModifyAgentGroupRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyAgentGroup");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyAgentGroupResponse rsp = ModifyAgentGroupResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyAgentGroupOutcome(rsp);
-        else
-            return ModifyAgentGroupOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyAgentGroupOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::ModifyAgentGroupAsync(const ModifyAgentGroupRequest& request, const ModifyAgentGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyAgentGroup(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::ModifyAgentGroupOutcomeCallable CatClient::ModifyAgentGroupCallable(const ModifyAgentGroupRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ModifyAgentGroupOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyAgentGroup(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::ModifyTaskExOutcome CatClient::ModifyTaskEx(const ModifyTaskExRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyTaskEx");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyTaskExResponse rsp = ModifyTaskExResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyTaskExOutcome(rsp);
-        else
-            return ModifyTaskExOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyTaskExOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::ModifyTaskExAsync(const ModifyTaskExRequest& request, const ModifyTaskExAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyTaskEx(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::ModifyTaskExOutcomeCallable CatClient::ModifyTaskExCallable(const ModifyTaskExRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ModifyTaskExOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyTaskEx(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::PauseTaskOutcome CatClient::PauseTask(const PauseTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "PauseTask");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        PauseTaskResponse rsp = PauseTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return PauseTaskOutcome(rsp);
-        else
-            return PauseTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return PauseTaskOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::PauseTaskAsync(const PauseTaskRequest& request, const PauseTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PauseTask(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::PauseTaskOutcomeCallable CatClient::PauseTaskCallable(const PauseTaskRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<PauseTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->PauseTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CatClient::ResumeProbeTaskOutcome CatClient::ResumeProbeTask(const ResumeProbeTaskRequest &request)
@@ -1352,68 +562,32 @@ CatClient::ResumeProbeTaskOutcome CatClient::ResumeProbeTask(const ResumeProbeTa
 
 void CatClient::ResumeProbeTaskAsync(const ResumeProbeTaskRequest& request, const ResumeProbeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ResumeProbeTask(request), context);
-    };
+    using Req = const ResumeProbeTaskRequest&;
+    using Resp = ResumeProbeTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ResumeProbeTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::ResumeProbeTaskOutcomeCallable CatClient::ResumeProbeTaskCallable(const ResumeProbeTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ResumeProbeTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->ResumeProbeTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::RunTaskOutcome CatClient::RunTask(const RunTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "RunTask");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ResumeProbeTaskOutcome>>();
+    ResumeProbeTaskAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const ResumeProbeTaskRequest&,
+        ResumeProbeTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        RunTaskResponse rsp = RunTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return RunTaskOutcome(rsp);
-        else
-            return RunTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return RunTaskOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::RunTaskAsync(const RunTaskRequest& request, const RunTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->RunTask(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::RunTaskOutcomeCallable CatClient::RunTaskCallable(const RunTaskRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<RunTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->RunTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CatClient::SuspendProbeTaskOutcome CatClient::SuspendProbeTask(const SuspendProbeTaskRequest &request)
@@ -1438,25 +612,82 @@ CatClient::SuspendProbeTaskOutcome CatClient::SuspendProbeTask(const SuspendProb
 
 void CatClient::SuspendProbeTaskAsync(const SuspendProbeTaskRequest& request, const SuspendProbeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SuspendProbeTask(request), context);
-    };
+    using Req = const SuspendProbeTaskRequest&;
+    using Resp = SuspendProbeTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SuspendProbeTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::SuspendProbeTaskOutcomeCallable CatClient::SuspendProbeTaskCallable(const SuspendProbeTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SuspendProbeTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->SuspendProbeTask(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<SuspendProbeTaskOutcome>>();
+    SuspendProbeTaskAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const SuspendProbeTaskRequest&,
+        SuspendProbeTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CatClient::UpdateProbeTaskAttributesOutcome CatClient::UpdateProbeTaskAttributes(const UpdateProbeTaskAttributesRequest &request)
+{
+    auto outcome = MakeRequest(request, "UpdateProbeTaskAttributes");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        UpdateProbeTaskAttributesResponse rsp = UpdateProbeTaskAttributesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return UpdateProbeTaskAttributesOutcome(rsp);
+        else
+            return UpdateProbeTaskAttributesOutcome(o.GetError());
+    }
+    else
+    {
+        return UpdateProbeTaskAttributesOutcome(outcome.GetError());
+    }
+}
+
+void CatClient::UpdateProbeTaskAttributesAsync(const UpdateProbeTaskAttributesRequest& request, const UpdateProbeTaskAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const UpdateProbeTaskAttributesRequest&;
+    using Resp = UpdateProbeTaskAttributesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "UpdateProbeTaskAttributes", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CatClient::UpdateProbeTaskAttributesOutcomeCallable CatClient::UpdateProbeTaskAttributesCallable(const UpdateProbeTaskAttributesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<UpdateProbeTaskAttributesOutcome>>();
+    UpdateProbeTaskAttributesAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const UpdateProbeTaskAttributesRequest&,
+        UpdateProbeTaskAttributesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CatClient::UpdateProbeTaskConfigurationListOutcome CatClient::UpdateProbeTaskConfigurationList(const UpdateProbeTaskConfigurationListRequest &request)
@@ -1481,67 +712,31 @@ CatClient::UpdateProbeTaskConfigurationListOutcome CatClient::UpdateProbeTaskCon
 
 void CatClient::UpdateProbeTaskConfigurationListAsync(const UpdateProbeTaskConfigurationListRequest& request, const UpdateProbeTaskConfigurationListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateProbeTaskConfigurationList(request), context);
-    };
+    using Req = const UpdateProbeTaskConfigurationListRequest&;
+    using Resp = UpdateProbeTaskConfigurationListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateProbeTaskConfigurationList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CatClient::UpdateProbeTaskConfigurationListOutcomeCallable CatClient::UpdateProbeTaskConfigurationListCallable(const UpdateProbeTaskConfigurationListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateProbeTaskConfigurationListOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateProbeTaskConfigurationList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CatClient::VerifyResultOutcome CatClient::VerifyResult(const VerifyResultRequest &request)
-{
-    auto outcome = MakeRequest(request, "VerifyResult");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<UpdateProbeTaskConfigurationListOutcome>>();
+    UpdateProbeTaskConfigurationListAsync(
+    request,
+    [prom](
+        const CatClient*,
+        const UpdateProbeTaskConfigurationListRequest&,
+        UpdateProbeTaskConfigurationListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        VerifyResultResponse rsp = VerifyResultResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return VerifyResultOutcome(rsp);
-        else
-            return VerifyResultOutcome(o.GetError());
-    }
-    else
-    {
-        return VerifyResultOutcome(outcome.GetError());
-    }
-}
-
-void CatClient::VerifyResultAsync(const VerifyResultRequest& request, const VerifyResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VerifyResult(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CatClient::VerifyResultOutcomeCallable CatClient::VerifyResultCallable(const VerifyResultRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<VerifyResultOutcome()>>(
-        [this, request]()
-        {
-            return this->VerifyResult(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

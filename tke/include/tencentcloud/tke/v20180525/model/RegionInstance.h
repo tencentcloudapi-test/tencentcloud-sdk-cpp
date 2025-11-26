@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,133 +48,127 @@ namespace TencentCloud
 
                     /**
                      * 获取地域名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RegionName 地域名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRegionName() const;
 
                     /**
                      * 设置地域名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RegionName 地域名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _regionName 地域名称
+                     * 
                      */
                     void SetRegionName(const std::string& _regionName);
 
                     /**
                      * 判断参数 RegionName 是否已赋值
                      * @return RegionName 是否已赋值
+                     * 
                      */
                     bool RegionNameHasBeenSet() const;
 
                     /**
                      * 获取地域ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetRegionId() const;
 
                     /**
                      * 设置地域ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RegionId 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _regionId 地域ID
+                     * 
                      */
                     void SetRegionId(const int64_t& _regionId);
 
                     /**
                      * 判断参数 RegionId 是否已赋值
                      * @return RegionId 是否已赋值
+                     * 
                      */
                     bool RegionIdHasBeenSet() const;
 
                     /**
-                     * 获取地域状态
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Status 地域状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取地域状态\n- alluser: 所有用户可见
+                     * @return Status 地域状态\n- alluser: 所有用户可见
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置地域状态
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Status 地域状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置地域状态\n- alluser: 所有用户可见
+                     * @param _status 地域状态\n- alluser: 所有用户可见
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FeatureGates 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFeatureGates() const;
 
                     /**
                      * 设置地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FeatureGates 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _featureGates 地域特性开关(按照JSON的形式返回所有属性)
+                     * 
                      */
                     void SetFeatureGates(const std::string& _featureGates);
 
                     /**
                      * 判断参数 FeatureGates 是否已赋值
                      * @return FeatureGates 是否已赋值
+                     * 
                      */
                     bool FeatureGatesHasBeenSet() const;
 
                     /**
                      * 获取地域简称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Alias 地域简称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetAlias() const;
 
                     /**
                      * 设置地域简称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Alias 地域简称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _alias 地域简称
+                     * 
                      */
                     void SetAlias(const std::string& _alias);
 
                     /**
                      * 判断参数 Alias 是否已赋值
                      * @return Alias 是否已赋值
+                     * 
                      */
                     bool AliasHasBeenSet() const;
 
                     /**
                      * 获取地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Remark 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
                      * 设置地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Remark 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _remark 地域白名单
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
 
@@ -182,42 +176,36 @@ namespace TencentCloud
 
                     /**
                      * 地域名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_regionName;
                     bool m_regionNameHasBeenSet;
 
                     /**
                      * 地域ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_regionId;
                     bool m_regionIdHasBeenSet;
 
                     /**
-                     * 地域状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 地域状态\n- alluser: 所有用户可见
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
                      * 地域特性开关(按照JSON的形式返回所有属性)
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_featureGates;
                     bool m_featureGatesHasBeenSet;
 
                     /**
                      * 地域简称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_alias;
                     bool m_aliasHasBeenSet;
 
                     /**
                      * 地域白名单
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;

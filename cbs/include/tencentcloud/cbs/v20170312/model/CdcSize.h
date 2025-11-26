@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,54 +47,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取独享集群的可用容量大小，单位GiB
-                     * @return DiskAavilable 独享集群的可用容量大小，单位GiB
-                     */
-                    uint64_t GetDiskAavilable() const;
-
-                    /**
-                     * 设置独享集群的可用容量大小，单位GiB
-                     * @param DiskAavilable 独享集群的可用容量大小，单位GiB
-                     */
-                    void SetDiskAavilable(const uint64_t& _diskAavilable);
-
-                    /**
-                     * 判断参数 DiskAavilable 是否已赋值
-                     * @return DiskAavilable 是否已赋值
-                     */
-                    bool DiskAavilableHasBeenSet() const;
-
-                    /**
                      * 获取独享集群的总容量大小，单位GiB
                      * @return DiskTotal 独享集群的总容量大小，单位GiB
+                     * 
                      */
                     uint64_t GetDiskTotal() const;
 
                     /**
                      * 设置独享集群的总容量大小，单位GiB
-                     * @param DiskTotal 独享集群的总容量大小，单位GiB
+                     * @param _diskTotal 独享集群的总容量大小，单位GiB
+                     * 
                      */
                     void SetDiskTotal(const uint64_t& _diskTotal);
 
                     /**
                      * 判断参数 DiskTotal 是否已赋值
                      * @return DiskTotal 是否已赋值
+                     * 
                      */
                     bool DiskTotalHasBeenSet() const;
 
-                private:
+                    /**
+                     * 获取独享集群的可用容量大小，单位GiB
+                     * @return DiskAvailable 独享集群的可用容量大小，单位GiB
+                     * 
+                     */
+                    uint64_t GetDiskAvailable() const;
 
                     /**
-                     * 独享集群的可用容量大小，单位GiB
+                     * 设置独享集群的可用容量大小，单位GiB
+                     * @param _diskAvailable 独享集群的可用容量大小，单位GiB
+                     * 
                      */
-                    uint64_t m_diskAavilable;
-                    bool m_diskAavilableHasBeenSet;
+                    void SetDiskAvailable(const uint64_t& _diskAvailable);
+
+                    /**
+                     * 判断参数 DiskAvailable 是否已赋值
+                     * @return DiskAvailable 是否已赋值
+                     * 
+                     */
+                    bool DiskAvailableHasBeenSet() const;
+
+                private:
 
                     /**
                      * 独享集群的总容量大小，单位GiB
                      */
                     uint64_t m_diskTotal;
                     bool m_diskTotalHasBeenSet;
+
+                    /**
+                     * 独享集群的可用容量大小，单位GiB
+                     */
+                    uint64_t m_diskAvailable;
+                    bool m_diskAvailableHasBeenSet;
 
                 };
             }

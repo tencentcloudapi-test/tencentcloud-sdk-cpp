@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,54 +52,63 @@ namespace TencentCloud
                     /**
                      * 获取是否开启云镜服务。
                      * @return SecurityService 是否开启云镜服务。
+                     * 
                      */
                     RunSecurityServiceEnabled GetSecurityService() const;
 
                     /**
                      * 设置是否开启云镜服务。
-                     * @param SecurityService 是否开启云镜服务。
+                     * @param _securityService 是否开启云镜服务。
+                     * 
                      */
                     void SetSecurityService(const RunSecurityServiceEnabled& _securityService);
 
                     /**
                      * 判断参数 SecurityService 是否已赋值
                      * @return SecurityService 是否已赋值
+                     * 
                      */
                     bool SecurityServiceHasBeenSet() const;
 
                     /**
                      * 获取是否开启云监控服务。
                      * @return MonitorService 是否开启云监控服务。
+                     * 
                      */
                     RunMonitorServiceEnabled GetMonitorService() const;
 
                     /**
                      * 设置是否开启云监控服务。
-                     * @param MonitorService 是否开启云监控服务。
+                     * @param _monitorService 是否开启云监控服务。
+                     * 
                      */
                     void SetMonitorService(const RunMonitorServiceEnabled& _monitorService);
 
                     /**
                      * 判断参数 MonitorService 是否已赋值
                      * @return MonitorService 是否已赋值
+                     * 
                      */
                     bool MonitorServiceHasBeenSet() const;
 
                     /**
                      * 获取是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
                      * @return EIPDirectService 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
+                     * 
                      */
                     RunEIPDirectServiceEnabled GetEIPDirectService() const;
 
                     /**
                      * 设置是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
-                     * @param EIPDirectService 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
+                     * @param _eIPDirectService 是否开通IP直通。若不指定该参数，则Linux镜像默认开通，windows镜像暂不支持IP直通。
+                     * 
                      */
                     void SetEIPDirectService(const RunEIPDirectServiceEnabled& _eIPDirectService);
 
                     /**
                      * 判断参数 EIPDirectService 是否已赋值
                      * @return EIPDirectService 是否已赋值
+                     * 
                      */
                     bool EIPDirectServiceHasBeenSet() const;
 

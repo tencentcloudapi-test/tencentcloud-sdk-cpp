@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,10 @@ AlarmNotice::AlarmNotice() :
     m_isPresetHasBeenSet(false),
     m_noticeLanguageHasBeenSet(false),
     m_policyIdsHasBeenSet(false),
-    m_cLSNoticesHasBeenSet(false)
+    m_aMPConsumerIdHasBeenSet(false),
+    m_cLSNoticesHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_isLoginFreeHasBeenSet(false)
 {
 }
 
@@ -163,6 +166,16 @@ CoreInternalOutcome AlarmNotice::Deserialize(const rapidjson::Value &value)
         m_policyIdsHasBeenSet = true;
     }
 
+    if (value.HasMember("AMPConsumerId") && !value["AMPConsumerId"].IsNull())
+    {
+        if (!value["AMPConsumerId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmNotice.AMPConsumerId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_aMPConsumerId = string(value["AMPConsumerId"].GetString());
+        m_aMPConsumerIdHasBeenSet = true;
+    }
+
     if (value.HasMember("CLSNotices") && !value["CLSNotices"].IsNull())
     {
         if (!value["CLSNotices"].IsArray())
@@ -181,6 +194,36 @@ CoreInternalOutcome AlarmNotice::Deserialize(const rapidjson::Value &value)
             m_cLSNotices.push_back(item);
         }
         m_cLSNoticesHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AlarmNotice.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsLoginFree") && !value["IsLoginFree"].IsNull())
+    {
+        if (!value["IsLoginFree"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmNotice.IsLoginFree` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isLoginFree = value["IsLoginFree"].GetInt64();
+        m_isLoginFreeHasBeenSet = true;
     }
 
 
@@ -289,6 +332,14 @@ void AlarmNotice::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         }
     }
 
+    if (m_aMPConsumerIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AMPConsumerId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_aMPConsumerId.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_cLSNoticesHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -302,6 +353,29 @@ void AlarmNotice::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_isLoginFreeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsLoginFree";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isLoginFree, allocator);
     }
 
 }
@@ -467,6 +541,22 @@ bool AlarmNotice::PolicyIdsHasBeenSet() const
     return m_policyIdsHasBeenSet;
 }
 
+string AlarmNotice::GetAMPConsumerId() const
+{
+    return m_aMPConsumerId;
+}
+
+void AlarmNotice::SetAMPConsumerId(const string& _aMPConsumerId)
+{
+    m_aMPConsumerId = _aMPConsumerId;
+    m_aMPConsumerIdHasBeenSet = true;
+}
+
+bool AlarmNotice::AMPConsumerIdHasBeenSet() const
+{
+    return m_aMPConsumerIdHasBeenSet;
+}
+
 vector<CLSNotice> AlarmNotice::GetCLSNotices() const
 {
     return m_cLSNotices;
@@ -481,5 +571,37 @@ void AlarmNotice::SetCLSNotices(const vector<CLSNotice>& _cLSNotices)
 bool AlarmNotice::CLSNoticesHasBeenSet() const
 {
     return m_cLSNoticesHasBeenSet;
+}
+
+vector<Tag> AlarmNotice::GetTags() const
+{
+    return m_tags;
+}
+
+void AlarmNotice::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool AlarmNotice::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+int64_t AlarmNotice::GetIsLoginFree() const
+{
+    return m_isLoginFree;
+}
+
+void AlarmNotice::SetIsLoginFree(const int64_t& _isLoginFree)
+{
+    m_isLoginFree = _isLoginFree;
+    m_isLoginFreeHasBeenSet = true;
+}
+
+bool AlarmNotice::IsLoginFreeHasBeenSet() const
+{
+    return m_isLoginFreeHasBeenSet;
 }
 

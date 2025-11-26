@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,9 @@ CreateApplicationRequest::CreateApplicationRequest() :
     m_subnetListHasBeenSet(false),
     m_codingLanguageHasBeenSet(false),
     m_deployModeHasBeenSet(false),
-    m_enableTracingHasBeenSet(false)
+    m_enableTracingHasBeenSet(false),
+    m_useDefaultImageServiceParametersHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -144,6 +146,30 @@ string CreateApplicationRequest::ToJsonString() const
         string key = "EnableTracing";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_enableTracing, allocator);
+    }
+
+    if (m_useDefaultImageServiceParametersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UseDefaultImageServiceParameters";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_useDefaultImageServiceParameters.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -344,6 +370,38 @@ void CreateApplicationRequest::SetEnableTracing(const int64_t& _enableTracing)
 bool CreateApplicationRequest::EnableTracingHasBeenSet() const
 {
     return m_enableTracingHasBeenSet;
+}
+
+UseDefaultRepoParameters CreateApplicationRequest::GetUseDefaultImageServiceParameters() const
+{
+    return m_useDefaultImageServiceParameters;
+}
+
+void CreateApplicationRequest::SetUseDefaultImageServiceParameters(const UseDefaultRepoParameters& _useDefaultImageServiceParameters)
+{
+    m_useDefaultImageServiceParameters = _useDefaultImageServiceParameters;
+    m_useDefaultImageServiceParametersHasBeenSet = true;
+}
+
+bool CreateApplicationRequest::UseDefaultImageServiceParametersHasBeenSet() const
+{
+    return m_useDefaultImageServiceParametersHasBeenSet;
+}
+
+vector<Tag> CreateApplicationRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateApplicationRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateApplicationRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 
 

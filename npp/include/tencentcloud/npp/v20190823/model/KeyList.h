@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取用户按键（0-9、*、#、A-D)
                      * @return Key 用户按键（0-9、*、#、A-D)
+                     * 
                      */
                     std::string GetKey() const;
 
                     /**
                      * 设置用户按键（0-9、*、#、A-D)
-                     * @param Key 用户按键（0-9、*、#、A-D)
+                     * @param _key 用户按键（0-9、*、#、A-D)
+                     * 
                      */
                     void SetKey(const std::string& _key);
 
                     /**
                      * 判断参数 Key 是否已赋值
                      * @return Key 是否已赋值
+                     * 
                      */
                     bool KeyHasBeenSet() const;
 
                     /**
                      * 获取1: 呼通被叫 2：interruptPrompt 重播提示 3：拆线
                      * @return Operate 1: 呼通被叫 2：interruptPrompt 重播提示 3：拆线
+                     * 
                      */
                     std::string GetOperate() const;
 
                     /**
                      * 设置1: 呼通被叫 2：interruptPrompt 重播提示 3：拆线
-                     * @param Operate 1: 呼通被叫 2：interruptPrompt 重播提示 3：拆线
+                     * @param _operate 1: 呼通被叫 2：interruptPrompt 重播提示 3：拆线
+                     * 
                      */
                     void SetOperate(const std::string& _operate);
 
                     /**
                      * 判断参数 Operate 是否已赋值
                      * @return Operate 是否已赋值
+                     * 
                      */
                     bool OperateHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,46 @@ namespace TencentCloud
                     /**
                      * 获取是否开启内网访问LB
                      * @return Enabled 是否开启内网访问LB
+                     * 
                      */
                     bool GetEnabled() const;
 
                     /**
                      * 设置是否开启内网访问LB
-                     * @param Enabled 是否开启内网访问LB
+                     * @param _enabled 是否开启内网访问LB
+                     * 
                      */
                     void SetEnabled(const bool& _enabled);
 
                     /**
                      * 判断参数 Enabled 是否已赋值
                      * @return Enabled 是否已赋值
+                     * 
                      */
                     bool EnabledHasBeenSet() const;
 
                     /**
                      * 获取内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return SubnetId 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
                      * 设置内网访问LB关联的子网Id
-                     * @param SubnetId 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _subnetId 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
 
                     /**
                      * 判断参数 SubnetId 是否已赋值
                      * @return SubnetId 是否已赋值
+                     * 
                      */
                     bool SubnetIdHasBeenSet() const;
 
@@ -92,6 +102,7 @@ namespace TencentCloud
 
                     /**
                      * 内网访问LB关联的子网Id
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_subnetId;
                     bool m_subnetIdHasBeenSet;

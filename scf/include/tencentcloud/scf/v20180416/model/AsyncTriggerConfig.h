@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取用户错误的异步重试重试配置
                      * @return RetryConfig 用户错误的异步重试重试配置
+                     * 
                      */
                     std::vector<RetryConfig> GetRetryConfig() const;
 
                     /**
                      * 设置用户错误的异步重试重试配置
-                     * @param RetryConfig 用户错误的异步重试重试配置
+                     * @param _retryConfig 用户错误的异步重试重试配置
+                     * 
                      */
                     void SetRetryConfig(const std::vector<RetryConfig>& _retryConfig);
 
                     /**
                      * 判断参数 RetryConfig 是否已赋值
                      * @return RetryConfig 是否已赋值
+                     * 
                      */
                     bool RetryConfigHasBeenSet() const;
 
                     /**
                      * 获取消息保留时间
                      * @return MsgTTL 消息保留时间
+                     * 
                      */
                     int64_t GetMsgTTL() const;
 
                     /**
                      * 设置消息保留时间
-                     * @param MsgTTL 消息保留时间
+                     * @param _msgTTL 消息保留时间
+                     * 
                      */
                     void SetMsgTTL(const int64_t& _msgTTL);
 
                     /**
                      * 判断参数 MsgTTL 是否已赋值
                      * @return MsgTTL 是否已赋值
+                     * 
                      */
                     bool MsgTTLHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,60 +47,70 @@ namespace TencentCloud
                     /**
                      * 获取创建时间
                      * @return CreationTime 创建时间
+                     * 
                      */
                     std::string GetCreationTime() const;
 
                     /**
                      * 判断参数 CreationTime 是否已赋值
                      * @return CreationTime 是否已赋值
+                     * 
                      */
                     bool CreationTimeHasBeenSet() const;
 
                     /**
                      * 获取更新时间
                      * @return LastModifiedTime 更新时间
+                     * 
                      */
                     std::string GetLastModifiedTime() const;
 
                     /**
                      * 判断参数 LastModifiedTime 是否已赋值
                      * @return LastModifiedTime 是否已赋值
+                     * 
                      */
                     bool LastModifiedTimeHasBeenSet() const;
 
                     /**
                      * 获取存储库名称
                      * @return CodeRepositoryName 存储库名称
+                     * 
                      */
                     std::string GetCodeRepositoryName() const;
 
                     /**
                      * 判断参数 CodeRepositoryName 是否已赋值
                      * @return CodeRepositoryName 是否已赋值
+                     * 
                      */
                     bool CodeRepositoryNameHasBeenSet() const;
 
                     /**
                      * 获取Git存储配置
                      * @return GitConfig Git存储配置
+                     * 
                      */
                     GitConfig GetGitConfig() const;
 
                     /**
                      * 判断参数 GitConfig 是否已赋值
                      * @return GitConfig 是否已赋值
+                     * 
                      */
                     bool GitConfigHasBeenSet() const;
 
                     /**
                      * 获取是否有Git凭证
                      * @return NoSecret 是否有Git凭证
+                     * 
                      */
                     bool GetNoSecret() const;
 
                     /**
                      * 判断参数 NoSecret 是否已赋值
                      * @return NoSecret 是否已赋值
+                     * 
                      */
                     bool NoSecretHasBeenSet() const;
 

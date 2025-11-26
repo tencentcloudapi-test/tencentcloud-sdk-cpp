@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,10 @@ InquiryPriceRunInstancesRequest::InquiryPriceRunInstancesRequest() :
     m_hostNameHasBeenSet(false),
     m_tagSpecificationHasBeenSet(false),
     m_instanceMarketOptionsHasBeenSet(false),
-    m_hpcClusterIdHasBeenSet(false)
+    m_metadataHasBeenSet(false),
+    m_hpcClusterIdHasBeenSet(false),
+    m_cpuTopologyHasBeenSet(false),
+    m_launchTemplateHasBeenSet(false)
 {
 }
 
@@ -223,12 +226,39 @@ string InquiryPriceRunInstancesRequest::ToJsonString() const
         m_instanceMarketOptions.ToJsonObject(d[key.c_str()], allocator);
     }
 
+    if (m_metadataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Metadata";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_metadata.ToJsonObject(d[key.c_str()], allocator);
+    }
+
     if (m_hpcClusterIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "HpcClusterId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_hpcClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cpuTopologyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CpuTopology";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_cpuTopology.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_launchTemplateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LaunchTemplate";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_launchTemplate.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -527,6 +557,22 @@ bool InquiryPriceRunInstancesRequest::InstanceMarketOptionsHasBeenSet() const
     return m_instanceMarketOptionsHasBeenSet;
 }
 
+Metadata InquiryPriceRunInstancesRequest::GetMetadata() const
+{
+    return m_metadata;
+}
+
+void InquiryPriceRunInstancesRequest::SetMetadata(const Metadata& _metadata)
+{
+    m_metadata = _metadata;
+    m_metadataHasBeenSet = true;
+}
+
+bool InquiryPriceRunInstancesRequest::MetadataHasBeenSet() const
+{
+    return m_metadataHasBeenSet;
+}
+
 string InquiryPriceRunInstancesRequest::GetHpcClusterId() const
 {
     return m_hpcClusterId;
@@ -541,6 +587,38 @@ void InquiryPriceRunInstancesRequest::SetHpcClusterId(const string& _hpcClusterI
 bool InquiryPriceRunInstancesRequest::HpcClusterIdHasBeenSet() const
 {
     return m_hpcClusterIdHasBeenSet;
+}
+
+CpuTopology InquiryPriceRunInstancesRequest::GetCpuTopology() const
+{
+    return m_cpuTopology;
+}
+
+void InquiryPriceRunInstancesRequest::SetCpuTopology(const CpuTopology& _cpuTopology)
+{
+    m_cpuTopology = _cpuTopology;
+    m_cpuTopologyHasBeenSet = true;
+}
+
+bool InquiryPriceRunInstancesRequest::CpuTopologyHasBeenSet() const
+{
+    return m_cpuTopologyHasBeenSet;
+}
+
+LaunchTemplate InquiryPriceRunInstancesRequest::GetLaunchTemplate() const
+{
+    return m_launchTemplate;
+}
+
+void InquiryPriceRunInstancesRequest::SetLaunchTemplate(const LaunchTemplate& _launchTemplate)
+{
+    m_launchTemplate = _launchTemplate;
+    m_launchTemplateHasBeenSet = true;
+}
+
+bool InquiryPriceRunInstancesRequest::LaunchTemplateHasBeenSet() const
+{
+    return m_launchTemplateHasBeenSet;
 }
 
 

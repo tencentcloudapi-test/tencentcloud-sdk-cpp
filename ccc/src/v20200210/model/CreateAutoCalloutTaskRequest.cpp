@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,13 @@ CreateAutoCalloutTaskRequest::CreateAutoCalloutTaskRequest() :
     m_nameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_notAfterHasBeenSet(false),
-    m_triesHasBeenSet(false)
+    m_triesHasBeenSet(false),
+    m_variablesHasBeenSet(false),
+    m_uUIHasBeenSet(false),
+    m_calleeAttributesHasBeenSet(false),
+    m_timeZoneHasBeenSet(false),
+    m_availableTimeHasBeenSet(false),
+    m_aIAgentIdHasBeenSet(false)
 {
 }
 
@@ -122,6 +128,75 @@ string CreateAutoCalloutTaskRequest::ToJsonString() const
         string key = "Tries";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_tries, allocator);
+    }
+
+    if (m_variablesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Variables";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_variables.begin(); itr != m_variables.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_uUIHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UUI";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_uUI.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_calleeAttributesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CalleeAttributes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_calleeAttributes.begin(); itr != m_calleeAttributes.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_timeZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TimeZone";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_timeZone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_availableTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AvailableTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_availableTime.begin(); itr != m_availableTime.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_aIAgentIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AIAgentId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_aIAgentId, allocator);
     }
 
 
@@ -274,6 +349,102 @@ void CreateAutoCalloutTaskRequest::SetTries(const uint64_t& _tries)
 bool CreateAutoCalloutTaskRequest::TriesHasBeenSet() const
 {
     return m_triesHasBeenSet;
+}
+
+vector<Variable> CreateAutoCalloutTaskRequest::GetVariables() const
+{
+    return m_variables;
+}
+
+void CreateAutoCalloutTaskRequest::SetVariables(const vector<Variable>& _variables)
+{
+    m_variables = _variables;
+    m_variablesHasBeenSet = true;
+}
+
+bool CreateAutoCalloutTaskRequest::VariablesHasBeenSet() const
+{
+    return m_variablesHasBeenSet;
+}
+
+string CreateAutoCalloutTaskRequest::GetUUI() const
+{
+    return m_uUI;
+}
+
+void CreateAutoCalloutTaskRequest::SetUUI(const string& _uUI)
+{
+    m_uUI = _uUI;
+    m_uUIHasBeenSet = true;
+}
+
+bool CreateAutoCalloutTaskRequest::UUIHasBeenSet() const
+{
+    return m_uUIHasBeenSet;
+}
+
+vector<CalleeAttribute> CreateAutoCalloutTaskRequest::GetCalleeAttributes() const
+{
+    return m_calleeAttributes;
+}
+
+void CreateAutoCalloutTaskRequest::SetCalleeAttributes(const vector<CalleeAttribute>& _calleeAttributes)
+{
+    m_calleeAttributes = _calleeAttributes;
+    m_calleeAttributesHasBeenSet = true;
+}
+
+bool CreateAutoCalloutTaskRequest::CalleeAttributesHasBeenSet() const
+{
+    return m_calleeAttributesHasBeenSet;
+}
+
+string CreateAutoCalloutTaskRequest::GetTimeZone() const
+{
+    return m_timeZone;
+}
+
+void CreateAutoCalloutTaskRequest::SetTimeZone(const string& _timeZone)
+{
+    m_timeZone = _timeZone;
+    m_timeZoneHasBeenSet = true;
+}
+
+bool CreateAutoCalloutTaskRequest::TimeZoneHasBeenSet() const
+{
+    return m_timeZoneHasBeenSet;
+}
+
+vector<TimeRange> CreateAutoCalloutTaskRequest::GetAvailableTime() const
+{
+    return m_availableTime;
+}
+
+void CreateAutoCalloutTaskRequest::SetAvailableTime(const vector<TimeRange>& _availableTime)
+{
+    m_availableTime = _availableTime;
+    m_availableTimeHasBeenSet = true;
+}
+
+bool CreateAutoCalloutTaskRequest::AvailableTimeHasBeenSet() const
+{
+    return m_availableTimeHasBeenSet;
+}
+
+int64_t CreateAutoCalloutTaskRequest::GetAIAgentId() const
+{
+    return m_aIAgentId;
+}
+
+void CreateAutoCalloutTaskRequest::SetAIAgentId(const int64_t& _aIAgentId)
+{
+    m_aIAgentId = _aIAgentId;
+    m_aIAgentIdHasBeenSet = true;
+}
+
+bool CreateAutoCalloutTaskRequest::AIAgentIdHasBeenSet() const
+{
+    return m_aIAgentIdHasBeenSet;
 }
 
 

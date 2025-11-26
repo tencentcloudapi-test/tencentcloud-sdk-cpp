@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/tdmq/v20200217/model/BundleSetOpt.h>
 
 
 namespace TencentCloud
@@ -47,26 +46,16 @@ namespace TencentCloud
                     /**
                      * 获取记录条数
                      * @return TotalCount 记录条数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
-
-                    /**
-                     * 获取bundle列表
-                     * @return BundleSet bundle列表
-                     */
-                    std::vector<BundleSetOpt> GetBundleSet() const;
-
-                    /**
-                     * 判断参数 BundleSet 是否已赋值
-                     * @return BundleSet 是否已赋值
-                     */
-                    bool BundleSetHasBeenSet() const;
 
                 private:
 
@@ -75,12 +64,6 @@ namespace TencentCloud
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
-
-                    /**
-                     * bundle列表
-                     */
-                    std::vector<BundleSetOpt> m_bundleSet;
-                    bool m_bundleSetHasBeenSet;
 
                 };
             }

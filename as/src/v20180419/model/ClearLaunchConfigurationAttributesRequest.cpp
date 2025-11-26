@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,10 @@ ClearLaunchConfigurationAttributesRequest::ClearLaunchConfigurationAttributesReq
     m_launchConfigurationIdHasBeenSet(false),
     m_clearDataDisksHasBeenSet(false),
     m_clearHostNameSettingsHasBeenSet(false),
-    m_clearInstanceNameSettingsHasBeenSet(false)
+    m_clearInstanceNameSettingsHasBeenSet(false),
+    m_clearDisasterRecoverGroupIdsHasBeenSet(false),
+    m_clearInstanceTagsHasBeenSet(false),
+    m_clearMetadataHasBeenSet(false)
 {
 }
 
@@ -67,6 +70,30 @@ string ClearLaunchConfigurationAttributesRequest::ToJsonString() const
         string key = "ClearInstanceNameSettings";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_clearInstanceNameSettings, allocator);
+    }
+
+    if (m_clearDisasterRecoverGroupIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClearDisasterRecoverGroupIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_clearDisasterRecoverGroupIds, allocator);
+    }
+
+    if (m_clearInstanceTagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClearInstanceTags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_clearInstanceTags, allocator);
+    }
+
+    if (m_clearMetadataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClearMetadata";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_clearMetadata, allocator);
     }
 
 
@@ -139,6 +166,54 @@ void ClearLaunchConfigurationAttributesRequest::SetClearInstanceNameSettings(con
 bool ClearLaunchConfigurationAttributesRequest::ClearInstanceNameSettingsHasBeenSet() const
 {
     return m_clearInstanceNameSettingsHasBeenSet;
+}
+
+bool ClearLaunchConfigurationAttributesRequest::GetClearDisasterRecoverGroupIds() const
+{
+    return m_clearDisasterRecoverGroupIds;
+}
+
+void ClearLaunchConfigurationAttributesRequest::SetClearDisasterRecoverGroupIds(const bool& _clearDisasterRecoverGroupIds)
+{
+    m_clearDisasterRecoverGroupIds = _clearDisasterRecoverGroupIds;
+    m_clearDisasterRecoverGroupIdsHasBeenSet = true;
+}
+
+bool ClearLaunchConfigurationAttributesRequest::ClearDisasterRecoverGroupIdsHasBeenSet() const
+{
+    return m_clearDisasterRecoverGroupIdsHasBeenSet;
+}
+
+bool ClearLaunchConfigurationAttributesRequest::GetClearInstanceTags() const
+{
+    return m_clearInstanceTags;
+}
+
+void ClearLaunchConfigurationAttributesRequest::SetClearInstanceTags(const bool& _clearInstanceTags)
+{
+    m_clearInstanceTags = _clearInstanceTags;
+    m_clearInstanceTagsHasBeenSet = true;
+}
+
+bool ClearLaunchConfigurationAttributesRequest::ClearInstanceTagsHasBeenSet() const
+{
+    return m_clearInstanceTagsHasBeenSet;
+}
+
+bool ClearLaunchConfigurationAttributesRequest::GetClearMetadata() const
+{
+    return m_clearMetadata;
+}
+
+void ClearLaunchConfigurationAttributesRequest::SetClearMetadata(const bool& _clearMetadata)
+{
+    m_clearMetadata = _clearMetadata;
+    m_clearMetadataHasBeenSet = true;
+}
+
+bool ClearLaunchConfigurationAttributesRequest::ClearMetadataHasBeenSet() const
+{
+    return m_clearMetadataHasBeenSet;
 }
 
 

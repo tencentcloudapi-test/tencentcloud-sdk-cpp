@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,20 +44,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取任务模板ID列表，与Filters参数不能同时指定。
-                     * @return TaskTemplateIds 任务模板ID列表，与Filters参数不能同时指定。
+                     * 获取任务模板ID列表，与Filters参数不能同时指定。模版ID最大限制100.
+                     * @return TaskTemplateIds 任务模板ID列表，与Filters参数不能同时指定。模版ID最大限制100.
+                     * 
                      */
                     std::vector<std::string> GetTaskTemplateIds() const;
 
                     /**
-                     * 设置任务模板ID列表，与Filters参数不能同时指定。
-                     * @param TaskTemplateIds 任务模板ID列表，与Filters参数不能同时指定。
+                     * 设置任务模板ID列表，与Filters参数不能同时指定。模版ID最大限制100.
+                     * @param _taskTemplateIds 任务模板ID列表，与Filters参数不能同时指定。模版ID最大限制100.
+                     * 
                      */
                     void SetTaskTemplateIds(const std::vector<std::string>& _taskTemplateIds);
 
                     /**
                      * 判断参数 TaskTemplateIds 是否已赋值
                      * @return TaskTemplateIds 是否已赋值
+                     * 
                      */
                     bool TaskTemplateIdsHasBeenSet() const;
 
@@ -74,6 +77,7 @@ namespace TencentCloud
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
 <li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
@@ -84,61 +88,69 @@ namespace TencentCloud
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
 <li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。
-                     * @param Filters 过滤条件
+                     * @param _filters 过滤条件
 <li> task-template-name - String - 是否必填：否 -（过滤条件）按照任务模板名称过滤。</li>
 <li> tag-key - String - 是否必填：否 -（过滤条件）按照标签键进行过滤。</li>
 <li> tag-value - String - 是否必填：否 -（过滤条件）按照标签值进行过滤。</li>
 <li> tag:tag-key - String - 是否必填：否 -（过滤条件）按照标签键值对进行过滤。 tag-key使用具体的标签键进行替换。</li>
 与TaskTemplateIds参数不能同时指定。
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
                      * 获取偏移量
                      * @return Offset 偏移量
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置偏移量
-                     * @param Offset 偏移量
+                     * @param _offset 偏移量
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取返回数量
-                     * @return Limit 返回数量
+                     * 获取返回数量; 可选范围[1-100]；默认值为20。
+                     * @return Limit 返回数量; 可选范围[1-100]；默认值为20。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置返回数量
-                     * @param Limit 返回数量
+                     * 设置返回数量; 可选范围[1-100]；默认值为20。
+                     * @param _limit 返回数量; 可选范围[1-100]；默认值为20。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 任务模板ID列表，与Filters参数不能同时指定。
+                     * 任务模板ID列表，与Filters参数不能同时指定。模版ID最大限制100.
                      */
                     std::vector<std::string> m_taskTemplateIds;
                     bool m_taskTemplateIdsHasBeenSet;
@@ -161,7 +173,7 @@ namespace TencentCloud
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 返回数量
+                     * 返回数量; 可选范围[1-100]；默认值为20。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;

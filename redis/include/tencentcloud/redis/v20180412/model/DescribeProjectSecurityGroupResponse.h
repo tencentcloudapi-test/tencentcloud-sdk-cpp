@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取项目安全组
                      * @return SecurityGroupDetails 项目安全组
+                     * 
                      */
                     std::vector<SecurityGroupDetail> GetSecurityGroupDetails() const;
 
                     /**
                      * 判断参数 SecurityGroupDetails 是否已赋值
                      * @return SecurityGroupDetails 是否已赋值
+                     * 
                      */
                     bool SecurityGroupDetailsHasBeenSet() const;
 

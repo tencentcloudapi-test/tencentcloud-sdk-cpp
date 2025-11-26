@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ CreateLiveRecordTemplateRequest::CreateLiveRecordTemplateRequest() :
     m_isDelayLiveHasBeenSet(false),
     m_hlsSpecialParamHasBeenSet(false),
     m_mp3ParamHasBeenSet(false),
-    m_removeWatermarkHasBeenSet(false)
+    m_cosStoreHasBeenSet(false),
+    m_removeWatermarkHasBeenSet(false),
+    m_flvSpecialParamHasBeenSet(false)
 {
 }
 
@@ -121,12 +123,29 @@ string CreateLiveRecordTemplateRequest::ToJsonString() const
         m_mp3Param.ToJsonObject(d[key.c_str()], allocator);
     }
 
+    if (m_cosStoreHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CosStore";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_cosStore, allocator);
+    }
+
     if (m_removeWatermarkHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "RemoveWatermark";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_removeWatermark, allocator);
+    }
+
+    if (m_flvSpecialParamHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlvSpecialParam";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_flvSpecialParam.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -281,6 +300,22 @@ bool CreateLiveRecordTemplateRequest::Mp3ParamHasBeenSet() const
     return m_mp3ParamHasBeenSet;
 }
 
+int64_t CreateLiveRecordTemplateRequest::GetCosStore() const
+{
+    return m_cosStore;
+}
+
+void CreateLiveRecordTemplateRequest::SetCosStore(const int64_t& _cosStore)
+{
+    m_cosStore = _cosStore;
+    m_cosStoreHasBeenSet = true;
+}
+
+bool CreateLiveRecordTemplateRequest::CosStoreHasBeenSet() const
+{
+    return m_cosStoreHasBeenSet;
+}
+
 bool CreateLiveRecordTemplateRequest::GetRemoveWatermark() const
 {
     return m_removeWatermark;
@@ -295,6 +330,22 @@ void CreateLiveRecordTemplateRequest::SetRemoveWatermark(const bool& _removeWate
 bool CreateLiveRecordTemplateRequest::RemoveWatermarkHasBeenSet() const
 {
     return m_removeWatermarkHasBeenSet;
+}
+
+FlvSpecialParam CreateLiveRecordTemplateRequest::GetFlvSpecialParam() const
+{
+    return m_flvSpecialParam;
+}
+
+void CreateLiveRecordTemplateRequest::SetFlvSpecialParam(const FlvSpecialParam& _flvSpecialParam)
+{
+    m_flvSpecialParam = _flvSpecialParam;
+    m_flvSpecialParamHasBeenSet = true;
+}
+
+bool CreateLiveRecordTemplateRequest::FlvSpecialParamHasBeenSet() const
+{
+    return m_flvSpecialParamHasBeenSet;
 }
 
 

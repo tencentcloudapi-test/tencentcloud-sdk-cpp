@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,38 +50,65 @@ namespace TencentCloud
                     /**
                      * 获取要投递到的ckafka topic
                      * @return TopicName 要投递到的ckafka topic
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置要投递到的ckafka topic
-                     * @param TopicName 要投递到的ckafka topic
+                     * @param _topicName 要投递到的ckafka topic
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
                      * 获取重试策略
                      * @return RetryPolicy 重试策略
+                     * 
                      */
                     RetryPolicy GetRetryPolicy() const;
 
                     /**
                      * 设置重试策略
-                     * @param RetryPolicy 重试策略
+                     * @param _retryPolicy 重试策略
+                     * 
                      */
                     void SetRetryPolicy(const RetryPolicy& _retryPolicy);
 
                     /**
                      * 判断参数 RetryPolicy 是否已赋值
                      * @return RetryPolicy 是否已赋值
+                     * 
                      */
                     bool RetryPolicyHasBeenSet() const;
+
+                    /**
+                     * 获取事件投递kafka时的协议格式；目前只支持两种格式：1.CloudEvent(完整的cloudevent消息协议)2.CloudEventDataKey(cloudevent协议中的data字段内容)
+                     * @return EventDeliveryFormat 事件投递kafka时的协议格式；目前只支持两种格式：1.CloudEvent(完整的cloudevent消息协议)2.CloudEventDataKey(cloudevent协议中的data字段内容)
+                     * 
+                     */
+                    std::string GetEventDeliveryFormat() const;
+
+                    /**
+                     * 设置事件投递kafka时的协议格式；目前只支持两种格式：1.CloudEvent(完整的cloudevent消息协议)2.CloudEventDataKey(cloudevent协议中的data字段内容)
+                     * @param _eventDeliveryFormat 事件投递kafka时的协议格式；目前只支持两种格式：1.CloudEvent(完整的cloudevent消息协议)2.CloudEventDataKey(cloudevent协议中的data字段内容)
+                     * 
+                     */
+                    void SetEventDeliveryFormat(const std::string& _eventDeliveryFormat);
+
+                    /**
+                     * 判断参数 EventDeliveryFormat 是否已赋值
+                     * @return EventDeliveryFormat 是否已赋值
+                     * 
+                     */
+                    bool EventDeliveryFormatHasBeenSet() const;
 
                 private:
 
@@ -96,6 +123,12 @@ namespace TencentCloud
                      */
                     RetryPolicy m_retryPolicy;
                     bool m_retryPolicyHasBeenSet;
+
+                    /**
+                     * 事件投递kafka时的协议格式；目前只支持两种格式：1.CloudEvent(完整的cloudevent消息协议)2.CloudEventDataKey(cloudevent协议中的data字段内容)
+                     */
+                    std::string m_eventDeliveryFormat;
+                    bool m_eventDeliveryFormatHasBeenSet;
 
                 };
             }

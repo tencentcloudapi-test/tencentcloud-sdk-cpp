@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 ModifyDomainOwnerBatchRequest::ModifyDomainOwnerBatchRequest() :
     m_domainsHasBeenSet(false),
     m_newOwnerUinHasBeenSet(false),
-    m_transferDnsHasBeenSet(false)
+    m_transferDnsHasBeenSet(false),
+    m_newOwnerAppIdHasBeenSet(false)
 {
 }
 
@@ -63,6 +64,14 @@ string ModifyDomainOwnerBatchRequest::ToJsonString() const
         string key = "TransferDns";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_transferDns, allocator);
+    }
+
+    if (m_newOwnerAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NewOwnerAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_newOwnerAppId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -119,6 +128,22 @@ void ModifyDomainOwnerBatchRequest::SetTransferDns(const bool& _transferDns)
 bool ModifyDomainOwnerBatchRequest::TransferDnsHasBeenSet() const
 {
     return m_transferDnsHasBeenSet;
+}
+
+string ModifyDomainOwnerBatchRequest::GetNewOwnerAppId() const
+{
+    return m_newOwnerAppId;
+}
+
+void ModifyDomainOwnerBatchRequest::SetNewOwnerAppId(const string& _newOwnerAppId)
+{
+    m_newOwnerAppId = _newOwnerAppId;
+    m_newOwnerAppIdHasBeenSet = true;
+}
+
+bool ModifyDomainOwnerBatchRequest::NewOwnerAppIdHasBeenSet() const
+{
+    return m_newOwnerAppIdHasBeenSet;
 }
 
 

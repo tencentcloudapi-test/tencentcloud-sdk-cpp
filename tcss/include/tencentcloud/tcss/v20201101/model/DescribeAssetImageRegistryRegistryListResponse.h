@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/tcss/v20201101/model/ImageRepoRegistryInfo.h>
 
 
 namespace TencentCloud
@@ -43,7 +44,47 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取镜像仓库列表
+                     * @return List 镜像仓库列表
+                     * 
+                     */
+                    std::vector<ImageRepoRegistryInfo> GetList() const;
+
+                    /**
+                     * 判断参数 List 是否已赋值
+                     * @return List 是否已赋值
+                     * 
+                     */
+                    bool ListHasBeenSet() const;
+
+                    /**
+                     * 获取总数量
+                     * @return TotalCount 总数量
+                     * 
+                     */
+                    uint64_t GetTotalCount() const;
+
+                    /**
+                     * 判断参数 TotalCount 是否已赋值
+                     * @return TotalCount 是否已赋值
+                     * 
+                     */
+                    bool TotalCountHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 镜像仓库列表
+                     */
+                    std::vector<ImageRepoRegistryInfo> m_list;
+                    bool m_listHasBeenSet;
+
+                    /**
+                     * 总数量
+                     */
+                    uint64_t m_totalCount;
+                    bool m_totalCountHasBeenSet;
 
                 };
             }

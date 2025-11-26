@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取数组，数组成员是策略 id，支持批量删除策略
                      * @return PolicyId 数组，数组成员是策略 id，支持批量删除策略
+                     * 
                      */
                     std::vector<uint64_t> GetPolicyId() const;
 
                     /**
                      * 设置数组，数组成员是策略 id，支持批量删除策略
-                     * @param PolicyId 数组，数组成员是策略 id，支持批量删除策略
+                     * @param _policyId 数组，数组成员是策略 id，支持批量删除策略
+                     * 
                      */
                     void SetPolicyId(const std::vector<uint64_t>& _policyId);
 
                     /**
                      * 判断参数 PolicyId 是否已赋值
                      * @return PolicyId 是否已赋值
+                     * 
                      */
                     bool PolicyIdHasBeenSet() const;
 

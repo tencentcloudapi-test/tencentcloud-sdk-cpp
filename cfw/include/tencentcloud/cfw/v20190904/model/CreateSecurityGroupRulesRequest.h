@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,72 +46,84 @@ namespace TencentCloud
                     /**
                      * 获取添加的企业安全组规则数据
                      * @return Data 添加的企业安全组规则数据
+                     * 
                      */
                     std::vector<SecurityGroupListData> GetData() const;
 
                     /**
                      * 设置添加的企业安全组规则数据
-                     * @param Data 添加的企业安全组规则数据
+                     * @param _data 添加的企业安全组规则数据
+                     * 
                      */
                     void SetData(const std::vector<SecurityGroupListData>& _data);
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                     /**
                      * 获取方向，0：出站，1：入站，默认1
                      * @return Direction 方向，0：出站，1：入站，默认1
+                     * 
                      */
                     uint64_t GetDirection() const;
 
                     /**
                      * 设置方向，0：出站，1：入站，默认1
-                     * @param Direction 方向，0：出站，1：入站，默认1
+                     * @param _direction 方向，0：出站，1：入站，默认1
+                     * 
                      */
                     void SetDirection(const uint64_t& _direction);
 
                     /**
                      * 判断参数 Direction 是否已赋值
                      * @return Direction 是否已赋值
+                     * 
                      */
                     bool DirectionHasBeenSet() const;
 
                     /**
                      * 获取0：后插，1：前插，2：中插，默认0
                      * @return Type 0：后插，1：前插，2：中插，默认0
+                     * 
                      */
                     uint64_t GetType() const;
 
                     /**
                      * 设置0：后插，1：前插，2：中插，默认0
-                     * @param Type 0：后插，1：前插，2：中插，默认0
+                     * @param _type 0：后插，1：前插，2：中插，默认0
+                     * 
                      */
                     void SetType(const uint64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取添加后是否启用规则，0：不启用，1：启用，默认1
                      * @return Enable 添加后是否启用规则，0：不启用，1：启用，默认1
+                     * 
                      */
                     uint64_t GetEnable() const;
 
                     /**
                      * 设置添加后是否启用规则，0：不启用，1：启用，默认1
-                     * @param Enable 添加后是否启用规则，0：不启用，1：启用，默认1
+                     * @param _enable 添加后是否启用规则，0：不启用，1：启用，默认1
+                     * 
                      */
                     void SetEnable(const uint64_t& _enable);
 
                     /**
                      * 判断参数 Enable 是否已赋值
                      * @return Enable 是否已赋值
+                     * 
                      */
                     bool EnableHasBeenSet() const;
 

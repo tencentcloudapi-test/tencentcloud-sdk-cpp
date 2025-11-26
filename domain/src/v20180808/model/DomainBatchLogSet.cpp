@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,12 @@ DomainBatchLogSet::DomainBatchLogSet() :
     m_logIdHasBeenSet(false),
     m_numberHasBeenSet(false),
     m_statusHasBeenSet(false),
-    m_createdOnHasBeenSet(false)
+    m_createdOnHasBeenSet(false),
+    m_successHasBeenSet(false),
+    m_doingHasBeenSet(false),
+    m_failedHasBeenSet(false),
+    m_payStatusHasBeenSet(false),
+    m_bigDealIdHasBeenSet(false)
 {
 }
 
@@ -73,6 +78,56 @@ CoreInternalOutcome DomainBatchLogSet::Deserialize(const rapidjson::Value &value
         m_createdOnHasBeenSet = true;
     }
 
+    if (value.HasMember("Success") && !value["Success"].IsNull())
+    {
+        if (!value["Success"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainBatchLogSet.Success` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_success = value["Success"].GetInt64();
+        m_successHasBeenSet = true;
+    }
+
+    if (value.HasMember("Doing") && !value["Doing"].IsNull())
+    {
+        if (!value["Doing"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainBatchLogSet.Doing` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_doing = value["Doing"].GetInt64();
+        m_doingHasBeenSet = true;
+    }
+
+    if (value.HasMember("Failed") && !value["Failed"].IsNull())
+    {
+        if (!value["Failed"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainBatchLogSet.Failed` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_failed = value["Failed"].GetInt64();
+        m_failedHasBeenSet = true;
+    }
+
+    if (value.HasMember("PayStatus") && !value["PayStatus"].IsNull())
+    {
+        if (!value["PayStatus"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainBatchLogSet.PayStatus` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_payStatus = value["PayStatus"].GetBool();
+        m_payStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("BigDealId") && !value["BigDealId"].IsNull())
+    {
+        if (!value["BigDealId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DomainBatchLogSet.BigDealId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_bigDealId = string(value["BigDealId"].GetString());
+        m_bigDealIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -110,6 +165,46 @@ void DomainBatchLogSet::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "CreatedOn";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_createdOn.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_successHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Success";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_success, allocator);
+    }
+
+    if (m_doingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Doing";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_doing, allocator);
+    }
+
+    if (m_failedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Failed";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_failed, allocator);
+    }
+
+    if (m_payStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PayStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_payStatus, allocator);
+    }
+
+    if (m_bigDealIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BigDealId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_bigDealId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -177,5 +272,85 @@ void DomainBatchLogSet::SetCreatedOn(const string& _createdOn)
 bool DomainBatchLogSet::CreatedOnHasBeenSet() const
 {
     return m_createdOnHasBeenSet;
+}
+
+int64_t DomainBatchLogSet::GetSuccess() const
+{
+    return m_success;
+}
+
+void DomainBatchLogSet::SetSuccess(const int64_t& _success)
+{
+    m_success = _success;
+    m_successHasBeenSet = true;
+}
+
+bool DomainBatchLogSet::SuccessHasBeenSet() const
+{
+    return m_successHasBeenSet;
+}
+
+int64_t DomainBatchLogSet::GetDoing() const
+{
+    return m_doing;
+}
+
+void DomainBatchLogSet::SetDoing(const int64_t& _doing)
+{
+    m_doing = _doing;
+    m_doingHasBeenSet = true;
+}
+
+bool DomainBatchLogSet::DoingHasBeenSet() const
+{
+    return m_doingHasBeenSet;
+}
+
+int64_t DomainBatchLogSet::GetFailed() const
+{
+    return m_failed;
+}
+
+void DomainBatchLogSet::SetFailed(const int64_t& _failed)
+{
+    m_failed = _failed;
+    m_failedHasBeenSet = true;
+}
+
+bool DomainBatchLogSet::FailedHasBeenSet() const
+{
+    return m_failedHasBeenSet;
+}
+
+bool DomainBatchLogSet::GetPayStatus() const
+{
+    return m_payStatus;
+}
+
+void DomainBatchLogSet::SetPayStatus(const bool& _payStatus)
+{
+    m_payStatus = _payStatus;
+    m_payStatusHasBeenSet = true;
+}
+
+bool DomainBatchLogSet::PayStatusHasBeenSet() const
+{
+    return m_payStatusHasBeenSet;
+}
+
+string DomainBatchLogSet::GetBigDealId() const
+{
+    return m_bigDealId;
+}
+
+void DomainBatchLogSet::SetBigDealId(const string& _bigDealId)
+{
+    m_bigDealId = _bigDealId;
+    m_bigDealIdHasBeenSet = true;
+}
+
+bool DomainBatchLogSet::BigDealIdHasBeenSet() const
+{
+    return m_bigDealIdHasBeenSet;
 }
 

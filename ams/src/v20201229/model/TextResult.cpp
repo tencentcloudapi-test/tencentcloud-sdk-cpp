@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ TextResult::TextResult() :
     m_libNameHasBeenSet(false),
     m_scoreHasBeenSet(false),
     m_suggestionHasBeenSet(false),
-    m_libTypeHasBeenSet(false)
+    m_libTypeHasBeenSet(false),
+    m_subLabelHasBeenSet(false),
+    m_hitInfosHasBeenSet(false)
 {
 }
 
@@ -109,6 +111,36 @@ CoreInternalOutcome TextResult::Deserialize(const rapidjson::Value &value)
         m_libTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("SubLabel") && !value["SubLabel"].IsNull())
+    {
+        if (!value["SubLabel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TextResult.SubLabel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_subLabel = string(value["SubLabel"].GetString());
+        m_subLabelHasBeenSet = true;
+    }
+
+    if (value.HasMember("HitInfos") && !value["HitInfos"].IsNull())
+    {
+        if (!value["HitInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TextResult.HitInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["HitInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            HitInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_hitInfos.push_back(item);
+        }
+        m_hitInfosHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -175,6 +207,29 @@ void TextResult::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "LibType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_libType, allocator);
+    }
+
+    if (m_subLabelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubLabel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_subLabel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hitInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HitInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_hitInfos.begin(); itr != m_hitInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -290,5 +345,37 @@ void TextResult::SetLibType(const int64_t& _libType)
 bool TextResult::LibTypeHasBeenSet() const
 {
     return m_libTypeHasBeenSet;
+}
+
+string TextResult::GetSubLabel() const
+{
+    return m_subLabel;
+}
+
+void TextResult::SetSubLabel(const string& _subLabel)
+{
+    m_subLabel = _subLabel;
+    m_subLabelHasBeenSet = true;
+}
+
+bool TextResult::SubLabelHasBeenSet() const
+{
+    return m_subLabelHasBeenSet;
+}
+
+vector<HitInfo> TextResult::GetHitInfos() const
+{
+    return m_hitInfos;
+}
+
+void TextResult::SetHitInfos(const vector<HitInfo>& _hitInfos)
+{
+    m_hitInfos = _hitInfos;
+    m_hitInfosHasBeenSet = true;
+}
+
+bool TextResult::HitInfosHasBeenSet() const
+{
+    return m_hitInfosHasBeenSet;
 }
 

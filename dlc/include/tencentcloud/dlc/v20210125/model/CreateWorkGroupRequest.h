@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,72 +46,84 @@ namespace TencentCloud
                     /**
                      * 获取工作组名称
                      * @return WorkGroupName 工作组名称
+                     * 
                      */
                     std::string GetWorkGroupName() const;
 
                     /**
                      * 设置工作组名称
-                     * @param WorkGroupName 工作组名称
+                     * @param _workGroupName 工作组名称
+                     * 
                      */
                     void SetWorkGroupName(const std::string& _workGroupName);
 
                     /**
                      * 判断参数 WorkGroupName 是否已赋值
                      * @return WorkGroupName 是否已赋值
+                     * 
                      */
                     bool WorkGroupNameHasBeenSet() const;
 
                     /**
                      * 获取工作组描述
                      * @return WorkGroupDescription 工作组描述
+                     * 
                      */
                     std::string GetWorkGroupDescription() const;
 
                     /**
                      * 设置工作组描述
-                     * @param WorkGroupDescription 工作组描述
+                     * @param _workGroupDescription 工作组描述
+                     * 
                      */
                     void SetWorkGroupDescription(const std::string& _workGroupDescription);
 
                     /**
                      * 判断参数 WorkGroupDescription 是否已赋值
                      * @return WorkGroupDescription 是否已赋值
+                     * 
                      */
                     bool WorkGroupDescriptionHasBeenSet() const;
 
                     /**
                      * 获取工作组绑定的鉴权策略集合
                      * @return PolicySet 工作组绑定的鉴权策略集合
+                     * 
                      */
                     std::vector<Policy> GetPolicySet() const;
 
                     /**
                      * 设置工作组绑定的鉴权策略集合
-                     * @param PolicySet 工作组绑定的鉴权策略集合
+                     * @param _policySet 工作组绑定的鉴权策略集合
+                     * 
                      */
                     void SetPolicySet(const std::vector<Policy>& _policySet);
 
                     /**
                      * 判断参数 PolicySet 是否已赋值
                      * @return PolicySet 是否已赋值
+                     * 
                      */
                     bool PolicySetHasBeenSet() const;
 
                     /**
                      * 获取需要绑定到工作组的用户Id集合
                      * @return UserIds 需要绑定到工作组的用户Id集合
+                     * 
                      */
                     std::vector<std::string> GetUserIds() const;
 
                     /**
                      * 设置需要绑定到工作组的用户Id集合
-                     * @param UserIds 需要绑定到工作组的用户Id集合
+                     * @param _userIds 需要绑定到工作组的用户Id集合
+                     * 
                      */
                     void SetUserIds(const std::vector<std::string>& _userIds);
 
                     /**
                      * 判断参数 UserIds 是否已赋值
                      * @return UserIds 是否已赋值
+                     * 
                      */
                     bool UserIdsHasBeenSet() const;
 

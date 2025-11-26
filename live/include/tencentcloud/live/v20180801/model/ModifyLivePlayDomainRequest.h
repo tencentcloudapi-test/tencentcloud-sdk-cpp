@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取播放域名。
                      * @return DomainName 播放域名。
+                     * 
                      */
                     std::string GetDomainName() const;
 
                     /**
                      * 设置播放域名。
-                     * @param DomainName 播放域名。
+                     * @param _domainName 播放域名。
+                     * 
                      */
                     void SetDomainName(const std::string& _domainName);
 
                     /**
                      * 判断参数 DomainName 是否已赋值
                      * @return DomainName 是否已赋值
+                     * 
                      */
                     bool DomainNameHasBeenSet() const;
 
                     /**
                      * 获取拉流域名类型。1-国内；2-全球；3-境外
                      * @return PlayType 拉流域名类型。1-国内；2-全球；3-境外
+                     * 
                      */
                     int64_t GetPlayType() const;
 
                     /**
                      * 设置拉流域名类型。1-国内；2-全球；3-境外
-                     * @param PlayType 拉流域名类型。1-国内；2-全球；3-境外
+                     * @param _playType 拉流域名类型。1-国内；2-全球；3-境外
+                     * 
                      */
                     void SetPlayType(const int64_t& _playType);
 
                     /**
                      * 判断参数 PlayType 是否已赋值
                      * @return PlayType 是否已赋值
+                     * 
                      */
                     bool PlayTypeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,26 +45,45 @@ namespace TencentCloud
 
                     /**
                      * 获取0: 修改成功, 其他: 修改失败
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Status 0: 修改成功, 其他: 修改失败
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取规则限制数量
+                     * @return RuleLimitNum 规则限制数量
+                     * 
+                     */
+                    int64_t GetRuleLimitNum() const;
+
+                    /**
+                     * 判断参数 RuleLimitNum 是否已赋值
+                     * @return RuleLimitNum 是否已赋值
+                     * 
+                     */
+                    bool RuleLimitNumHasBeenSet() const;
 
                 private:
 
                     /**
                      * 0: 修改成功, 其他: 修改失败
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 规则限制数量
+                     */
+                    int64_t m_ruleLimitNum;
+                    bool m_ruleLimitNumHasBeenSet;
 
                 };
             }

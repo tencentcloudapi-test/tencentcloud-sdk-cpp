@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取快照跨地域复制的结果，如果请求下发成功，则返回相应地地域的新快照ID，否则返回Error。
                      * @return SnapshotCopyResultSet 快照跨地域复制的结果，如果请求下发成功，则返回相应地地域的新快照ID，否则返回Error。
+                     * 
                      */
                     std::vector<SnapshotCopyResult> GetSnapshotCopyResultSet() const;
 
                     /**
                      * 判断参数 SnapshotCopyResultSet 是否已赋值
                      * @return SnapshotCopyResultSet 是否已赋值
+                     * 
                      */
                     bool SnapshotCopyResultSetHasBeenSet() const;
 

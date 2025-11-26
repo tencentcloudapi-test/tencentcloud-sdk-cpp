@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,9 @@
 using namespace TencentCloud::Eis::V20210601::Model;
 using namespace std;
 
-ListRuntimesMCRequest::ListRuntimesMCRequest()
+ListRuntimesMCRequest::ListRuntimesMCRequest() :
+    m_runtimeClassHasBeenSet(false),
+    m_planTypeHasBeenSet(false)
 {
 }
 
@@ -33,6 +35,22 @@ string ListRuntimesMCRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
+    if (m_runtimeClassHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuntimeClass";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_runtimeClass, allocator);
+    }
+
+    if (m_planTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PlanType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_planType, allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -40,5 +58,37 @@ string ListRuntimesMCRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+int64_t ListRuntimesMCRequest::GetRuntimeClass() const
+{
+    return m_runtimeClass;
+}
+
+void ListRuntimesMCRequest::SetRuntimeClass(const int64_t& _runtimeClass)
+{
+    m_runtimeClass = _runtimeClass;
+    m_runtimeClassHasBeenSet = true;
+}
+
+bool ListRuntimesMCRequest::RuntimeClassHasBeenSet() const
+{
+    return m_runtimeClassHasBeenSet;
+}
+
+int64_t ListRuntimesMCRequest::GetPlanType() const
+{
+    return m_planType;
+}
+
+void ListRuntimesMCRequest::SetPlanType(const int64_t& _planType)
+{
+    m_planType = _planType;
+    m_planTypeHasBeenSet = true;
+}
+
+bool ListRuntimesMCRequest::PlanTypeHasBeenSet() const
+{
+    return m_planTypeHasBeenSet;
+}
 
 

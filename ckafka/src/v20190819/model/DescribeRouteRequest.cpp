@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@ using namespace TencentCloud::Ckafka::V20190819::Model;
 using namespace std;
 
 DescribeRouteRequest::DescribeRouteRequest() :
-    m_instanceIdHasBeenSet(false)
+    m_instanceIdHasBeenSet(false),
+    m_routeIdHasBeenSet(false),
+    m_mainRouteFlagHasBeenSet(false)
 {
 }
 
@@ -40,6 +42,22 @@ string DescribeRouteRequest::ToJsonString() const
         string key = "InstanceId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_routeIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RouteId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_routeId, allocator);
+    }
+
+    if (m_mainRouteFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MainRouteFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_mainRouteFlag, allocator);
     }
 
 
@@ -64,6 +82,38 @@ void DescribeRouteRequest::SetInstanceId(const string& _instanceId)
 bool DescribeRouteRequest::InstanceIdHasBeenSet() const
 {
     return m_instanceIdHasBeenSet;
+}
+
+int64_t DescribeRouteRequest::GetRouteId() const
+{
+    return m_routeId;
+}
+
+void DescribeRouteRequest::SetRouteId(const int64_t& _routeId)
+{
+    m_routeId = _routeId;
+    m_routeIdHasBeenSet = true;
+}
+
+bool DescribeRouteRequest::RouteIdHasBeenSet() const
+{
+    return m_routeIdHasBeenSet;
+}
+
+bool DescribeRouteRequest::GetMainRouteFlag() const
+{
+    return m_mainRouteFlag;
+}
+
+void DescribeRouteRequest::SetMainRouteFlag(const bool& _mainRouteFlag)
+{
+    m_mainRouteFlag = _mainRouteFlag;
+    m_mainRouteFlagHasBeenSet = true;
+}
+
+bool DescribeRouteRequest::MainRouteFlagHasBeenSet() const
+{
+    return m_mainRouteFlagHasBeenSet;
 }
 
 

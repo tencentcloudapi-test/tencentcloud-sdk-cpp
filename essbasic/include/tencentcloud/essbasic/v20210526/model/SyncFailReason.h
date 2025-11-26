@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 同步经办人失败原因
+                * 同步员工失败原因
                 */
                 class SyncFailReason : public AbstractModel
                 {
@@ -47,61 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取经办人Id
-                     * @return Id 经办人Id
+                     * 获取企业员工标识(即OpenId)
+                     * @return Id 企业员工标识(即OpenId)
+                     * 
                      */
                     std::string GetId() const;
 
                     /**
-                     * 设置经办人Id
-                     * @param Id 经办人Id
+                     * 设置企业员工标识(即OpenId)
+                     * @param _id 企业员工标识(即OpenId)
+                     * 
                      */
                     void SetId(const std::string& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Message 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
+                     * @return Message 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
+                     * 
                      */
                     std::string GetMessage() const;
 
                     /**
-                     * 设置失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Message 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
+                     * @param _message 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
+                     * 
                      */
                     void SetMessage(const std::string& _message);
 
                     /**
                      * 判断参数 Message 是否已赋值
                      * @return Message 是否已赋值
+                     * 
                      */
                     bool MessageHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 经办人Id
+                     * 企业员工标识(即OpenId)
                      */
                     std::string m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * 失败原因
-例如：Id不符合规范、证件号码不合法等
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 新增员工或者员工离职失败原因, 可能存证ID不符合规范、证件号码不合法等原因
                      */
                     std::string m_message;
                     bool m_messageHasBeenSet;

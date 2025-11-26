@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取可购买的最小规格码。
                      * @return MinSpecCode 可购买的最小规格码。
+                     * 
                      */
                     std::string GetMinSpecCode() const;
 
                     /**
                      * 判断参数 MinSpecCode 是否已赋值
                      * @return MinSpecCode 是否已赋值
+                     * 
                      */
                     bool MinSpecCodeHasBeenSet() const;
 
                     /**
                      * 获取可购买的最小磁盘容量，单位GB。
                      * @return MinStorage 可购买的最小磁盘容量，单位GB。
+                     * 
                      */
                     int64_t GetMinStorage() const;
 
                     /**
                      * 判断参数 MinStorage 是否已赋值
                      * @return MinStorage 是否已赋值
+                     * 
                      */
                     bool MinStorageHasBeenSet() const;
 

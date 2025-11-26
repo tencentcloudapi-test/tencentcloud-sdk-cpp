@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,10 +71,12 @@ CreateApiRequest::CreateApiRequest() :
     m_isBase64EncodedHasBeenSet(false),
     m_eventBusIdHasBeenSet(false),
     m_serviceScfFunctionTypeHasBeenSet(false),
+    m_serviceScfEventIsAsyncCallHasBeenSet(false),
     m_eIAMAppTypeHasBeenSet(false),
     m_eIAMAuthTypeHasBeenSet(false),
     m_tokenTimeoutHasBeenSet(false),
-    m_eIAMAppIdHasBeenSet(false)
+    m_eIAMAppIdHasBeenSet(false),
+    m_ownerHasBeenSet(false)
 {
 }
 
@@ -517,6 +519,14 @@ string CreateApiRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_serviceScfFunctionType.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_serviceScfEventIsAsyncCallHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceScfEventIsAsyncCall";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_serviceScfEventIsAsyncCall, allocator);
+    }
+
     if (m_eIAMAppTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -547,6 +557,14 @@ string CreateApiRequest::ToJsonString() const
         string key = "EIAMAppId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_eIAMAppId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ownerHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Owner";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_owner.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -1325,6 +1343,22 @@ bool CreateApiRequest::ServiceScfFunctionTypeHasBeenSet() const
     return m_serviceScfFunctionTypeHasBeenSet;
 }
 
+bool CreateApiRequest::GetServiceScfEventIsAsyncCall() const
+{
+    return m_serviceScfEventIsAsyncCall;
+}
+
+void CreateApiRequest::SetServiceScfEventIsAsyncCall(const bool& _serviceScfEventIsAsyncCall)
+{
+    m_serviceScfEventIsAsyncCall = _serviceScfEventIsAsyncCall;
+    m_serviceScfEventIsAsyncCallHasBeenSet = true;
+}
+
+bool CreateApiRequest::ServiceScfEventIsAsyncCallHasBeenSet() const
+{
+    return m_serviceScfEventIsAsyncCallHasBeenSet;
+}
+
 string CreateApiRequest::GetEIAMAppType() const
 {
     return m_eIAMAppType;
@@ -1387,6 +1421,22 @@ void CreateApiRequest::SetEIAMAppId(const string& _eIAMAppId)
 bool CreateApiRequest::EIAMAppIdHasBeenSet() const
 {
     return m_eIAMAppIdHasBeenSet;
+}
+
+string CreateApiRequest::GetOwner() const
+{
+    return m_owner;
+}
+
+void CreateApiRequest::SetOwner(const string& _owner)
+{
+    m_owner = _owner;
+    m_ownerHasBeenSet = true;
+}
+
+bool CreateApiRequest::OwnerHasBeenSet() const
+{
+    return m_ownerHasBeenSet;
 }
 
 

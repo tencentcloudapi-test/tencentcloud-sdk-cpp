@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +26,11 @@ ModifyDynamicDNSRequest::ModifyDynamicDNSRequest() :
     m_domainHasBeenSet(false),
     m_recordIdHasBeenSet(false),
     m_recordLineHasBeenSet(false),
-    m_valueHasBeenSet(false),
     m_domainIdHasBeenSet(false),
     m_subDomainHasBeenSet(false),
-    m_recordLineIdHasBeenSet(false)
+    m_recordLineIdHasBeenSet(false),
+    m_valueHasBeenSet(false),
+    m_ttlHasBeenSet(false)
 {
 }
 
@@ -64,14 +65,6 @@ string ModifyDynamicDNSRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_recordLine.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_valueHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Value";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_value.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_domainIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -94,6 +87,22 @@ string ModifyDynamicDNSRequest::ToJsonString() const
         string key = "RecordLineId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_recordLineId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_valueHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Value";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_value.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ttlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ttl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_ttl, allocator);
     }
 
 
@@ -152,22 +161,6 @@ bool ModifyDynamicDNSRequest::RecordLineHasBeenSet() const
     return m_recordLineHasBeenSet;
 }
 
-string ModifyDynamicDNSRequest::GetValue() const
-{
-    return m_value;
-}
-
-void ModifyDynamicDNSRequest::SetValue(const string& _value)
-{
-    m_value = _value;
-    m_valueHasBeenSet = true;
-}
-
-bool ModifyDynamicDNSRequest::ValueHasBeenSet() const
-{
-    return m_valueHasBeenSet;
-}
-
 uint64_t ModifyDynamicDNSRequest::GetDomainId() const
 {
     return m_domainId;
@@ -214,6 +207,38 @@ void ModifyDynamicDNSRequest::SetRecordLineId(const string& _recordLineId)
 bool ModifyDynamicDNSRequest::RecordLineIdHasBeenSet() const
 {
     return m_recordLineIdHasBeenSet;
+}
+
+string ModifyDynamicDNSRequest::GetValue() const
+{
+    return m_value;
+}
+
+void ModifyDynamicDNSRequest::SetValue(const string& _value)
+{
+    m_value = _value;
+    m_valueHasBeenSet = true;
+}
+
+bool ModifyDynamicDNSRequest::ValueHasBeenSet() const
+{
+    return m_valueHasBeenSet;
+}
+
+uint64_t ModifyDynamicDNSRequest::GetTtl() const
+{
+    return m_ttl;
+}
+
+void ModifyDynamicDNSRequest::SetTtl(const uint64_t& _ttl)
+{
+    m_ttl = _ttl;
+    m_ttlHasBeenSet = true;
+}
+
+bool ModifyDynamicDNSRequest::TtlHasBeenSet() const
+{
+    return m_ttlHasBeenSet;
 }
 
 

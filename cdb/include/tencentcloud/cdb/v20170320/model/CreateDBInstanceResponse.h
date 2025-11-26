@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,33 +44,37 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取短订单 ID。
-                     * @return DealIds 短订单 ID。
+                     * 获取计费子订单 ID。
+                     * @return DealIds 计费子订单 ID。
+                     * 
                      */
                     std::vector<std::string> GetDealIds() const;
 
                     /**
                      * 判断参数 DealIds 是否已赋值
                      * @return DealIds 是否已赋值
+                     * 
                      */
                     bool DealIdsHasBeenSet() const;
 
                     /**
                      * 获取实例 ID 列表。
                      * @return InstanceIds 实例 ID 列表。
+                     * 
                      */
                     std::vector<std::string> GetInstanceIds() const;
 
                     /**
                      * 判断参数 InstanceIds 是否已赋值
                      * @return InstanceIds 是否已赋值
+                     * 
                      */
                     bool InstanceIdsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 短订单 ID。
+                     * 计费子订单 ID。
                      */
                     std::vector<std::string> m_dealIds;
                     bool m_dealIdsHasBeenSet;

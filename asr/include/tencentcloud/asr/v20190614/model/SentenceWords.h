@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Word 词文本
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetWord() const;
 
                     /**
                      * 设置词文本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Word 词文本
+                     * @param _word 词文本
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetWord(const std::string& _word);
 
                     /**
                      * 判断参数 Word 是否已赋值
                      * @return Word 是否已赋值
+                     * 
                      */
                     bool WordHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OffsetStartMs 在句子中的开始时间偏移量
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetOffsetStartMs() const;
 
                     /**
                      * 设置在句子中的开始时间偏移量
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OffsetStartMs 在句子中的开始时间偏移量
+                     * @param _offsetStartMs 在句子中的开始时间偏移量
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetOffsetStartMs(const int64_t& _offsetStartMs);
 
                     /**
                      * 判断参数 OffsetStartMs 是否已赋值
                      * @return OffsetStartMs 是否已赋值
+                     * 
                      */
                     bool OffsetStartMsHasBeenSet() const;
 
@@ -95,20 +101,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OffsetEndMs 在句子中的结束时间偏移量
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetOffsetEndMs() const;
 
                     /**
                      * 设置在句子中的结束时间偏移量
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OffsetEndMs 在句子中的结束时间偏移量
+                     * @param _offsetEndMs 在句子中的结束时间偏移量
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetOffsetEndMs(const int64_t& _offsetEndMs);
 
                     /**
                      * 判断参数 OffsetEndMs 是否已赋值
                      * @return OffsetEndMs 是否已赋值
+                     * 
                      */
                     bool OffsetEndMsHasBeenSet() const;
 

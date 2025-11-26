@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,23 +48,22 @@ namespace TencentCloud
 
                     /**
                      * 获取k8s 的 Resource
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Resource k8s 的 Resource
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResource() const;
 
                     /**
                      * 设置k8s 的 Resource
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Resource k8s 的 Resource
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _resource k8s 的 Resource
+                     * 
                      */
                     void SetResource(const std::string& _resource);
 
                     /**
                      * 判断参数 Resource 是否已赋值
                      * @return Resource 是否已赋值
+                     * 
                      */
                     bool ResourceHasBeenSet() const;
 
@@ -72,7 +71,6 @@ namespace TencentCloud
 
                     /**
                      * k8s 的 Resource
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resource;
                     bool m_resourceHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取事件集信息
                      * @return EventBuses 事件集信息
+                     * 
                      */
                     std::vector<EventBus> GetEventBuses() const;
 
                     /**
                      * 判断参数 EventBuses 是否已赋值
                      * @return EventBuses 是否已赋值
+                     * 
                      */
                     bool EventBusesHasBeenSet() const;
 
                     /**
                      * 获取事件集总数
                      * @return TotalCount 事件集总数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 

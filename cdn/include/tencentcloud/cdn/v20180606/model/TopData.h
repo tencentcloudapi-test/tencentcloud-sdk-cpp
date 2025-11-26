@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,6 +58,7 @@ all：账号维度明细数据
 multiDomains：表示多域名汇总明细数据
 项目 ID：指定项目查询时，显示为项目 ID
 all：账号维度明细数据
+                     * 
                      */
                     std::string GetResource() const;
 
@@ -67,35 +68,40 @@ all：账号维度明细数据
 multiDomains：表示多域名汇总明细数据
 项目 ID：指定项目查询时，显示为项目 ID
 all：账号维度明细数据
-                     * @param Resource 资源名称，根据查询条件不同分为以下几类：
+                     * @param _resource 资源名称，根据查询条件不同分为以下几类：
 具体域名：表示该域名明细数据
 multiDomains：表示多域名汇总明细数据
 项目 ID：指定项目查询时，显示为项目 ID
 all：账号维度明细数据
+                     * 
                      */
                     void SetResource(const std::string& _resource);
 
                     /**
                      * 判断参数 Resource 是否已赋值
                      * @return Resource 是否已赋值
+                     * 
                      */
                     bool ResourceHasBeenSet() const;
 
                     /**
                      * 获取排序结果详情
                      * @return DetailData 排序结果详情
+                     * 
                      */
                     std::vector<TopDetailData> GetDetailData() const;
 
                     /**
                      * 设置排序结果详情
-                     * @param DetailData 排序结果详情
+                     * @param _detailData 排序结果详情
+                     * 
                      */
                     void SetDetailData(const std::vector<TopDetailData>& _detailData);
 
                     /**
                      * 判断参数 DetailData 是否已赋值
                      * @return DetailData 是否已赋值
+                     * 
                      */
                     bool DetailDataHasBeenSet() const;
 

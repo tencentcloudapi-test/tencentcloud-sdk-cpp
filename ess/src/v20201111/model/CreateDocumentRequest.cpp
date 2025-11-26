@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,10 @@ CreateDocumentRequest::CreateDocumentRequest() :
     m_flowIdHasBeenSet(false),
     m_fileNamesHasBeenSet(false),
     m_formFieldsHasBeenSet(false),
+    m_needPreviewHasBeenSet(false),
+    m_previewTypeHasBeenSet(false),
     m_agentHasBeenSet(false),
-    m_clientTokenHasBeenSet(false),
-    m_needPreviewHasBeenSet(false)
+    m_clientTokenHasBeenSet(false)
 {
 }
 
@@ -94,6 +95,22 @@ string CreateDocumentRequest::ToJsonString() const
         }
     }
 
+    if (m_needPreviewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NeedPreview";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_needPreview, allocator);
+    }
+
+    if (m_previewTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PreviewType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_previewType, allocator);
+    }
+
     if (m_agentHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -109,14 +126,6 @@ string CreateDocumentRequest::ToJsonString() const
         string key = "ClientToken";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_needPreviewHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "NeedPreview";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_needPreview, allocator);
     }
 
 
@@ -207,6 +216,38 @@ bool CreateDocumentRequest::FormFieldsHasBeenSet() const
     return m_formFieldsHasBeenSet;
 }
 
+bool CreateDocumentRequest::GetNeedPreview() const
+{
+    return m_needPreview;
+}
+
+void CreateDocumentRequest::SetNeedPreview(const bool& _needPreview)
+{
+    m_needPreview = _needPreview;
+    m_needPreviewHasBeenSet = true;
+}
+
+bool CreateDocumentRequest::NeedPreviewHasBeenSet() const
+{
+    return m_needPreviewHasBeenSet;
+}
+
+int64_t CreateDocumentRequest::GetPreviewType() const
+{
+    return m_previewType;
+}
+
+void CreateDocumentRequest::SetPreviewType(const int64_t& _previewType)
+{
+    m_previewType = _previewType;
+    m_previewTypeHasBeenSet = true;
+}
+
+bool CreateDocumentRequest::PreviewTypeHasBeenSet() const
+{
+    return m_previewTypeHasBeenSet;
+}
+
 Agent CreateDocumentRequest::GetAgent() const
 {
     return m_agent;
@@ -237,22 +278,6 @@ void CreateDocumentRequest::SetClientToken(const string& _clientToken)
 bool CreateDocumentRequest::ClientTokenHasBeenSet() const
 {
     return m_clientTokenHasBeenSet;
-}
-
-bool CreateDocumentRequest::GetNeedPreview() const
-{
-    return m_needPreview;
-}
-
-void CreateDocumentRequest::SetNeedPreview(const bool& _needPreview)
-{
-    m_needPreview = _needPreview;
-    m_needPreviewHasBeenSet = true;
-}
-
-bool CreateDocumentRequest::NeedPreviewHasBeenSet() const
-{
-    return m_needPreviewHasBeenSet;
 }
 
 

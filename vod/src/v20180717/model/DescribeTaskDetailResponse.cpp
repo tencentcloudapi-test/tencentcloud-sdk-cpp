@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,18 @@ DescribeTaskDetailResponse::DescribeTaskDetailResponse() :
     m_concatTaskHasBeenSet(false),
     m_clipTaskHasBeenSet(false),
     m_createImageSpriteTaskHasBeenSet(false),
-    m_snapshotByTimeOffsetTaskHasBeenSet(false)
+    m_snapshotByTimeOffsetTaskHasBeenSet(false),
+    m_removeWatermarkTaskHasBeenSet(false),
+    m_rebuildMediaTaskHasBeenSet(false),
+    m_extractTraceWatermarkTaskHasBeenSet(false),
+    m_extractCopyRightWatermarkTaskHasBeenSet(false),
+    m_reviewAudioVideoTaskHasBeenSet(false),
+    m_reduceMediaBitrateTaskHasBeenSet(false),
+    m_describeFileAttributesTaskHasBeenSet(false),
+    m_qualityInspectTaskHasBeenSet(false),
+    m_qualityEnhanceTaskHasBeenSet(false),
+    m_complexAdaptiveDynamicStreamingTaskHasBeenSet(false),
+    m_processMediaByMPSTaskHasBeenSet(false)
 {
 }
 
@@ -332,6 +343,193 @@ CoreInternalOutcome DescribeTaskDetailResponse::Deserialize(const string &payloa
         m_snapshotByTimeOffsetTaskHasBeenSet = true;
     }
 
+    if (rsp.HasMember("RemoveWatermarkTask") && !rsp["RemoveWatermarkTask"].IsNull())
+    {
+        if (!rsp["RemoveWatermarkTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RemoveWatermarkTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_removeWatermarkTask.Deserialize(rsp["RemoveWatermarkTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_removeWatermarkTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("RebuildMediaTask") && !rsp["RebuildMediaTask"].IsNull())
+    {
+        if (!rsp["RebuildMediaTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RebuildMediaTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_rebuildMediaTask.Deserialize(rsp["RebuildMediaTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_rebuildMediaTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ExtractTraceWatermarkTask") && !rsp["ExtractTraceWatermarkTask"].IsNull())
+    {
+        if (!rsp["ExtractTraceWatermarkTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ExtractTraceWatermarkTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_extractTraceWatermarkTask.Deserialize(rsp["ExtractTraceWatermarkTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_extractTraceWatermarkTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ExtractCopyRightWatermarkTask") && !rsp["ExtractCopyRightWatermarkTask"].IsNull())
+    {
+        if (!rsp["ExtractCopyRightWatermarkTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ExtractCopyRightWatermarkTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_extractCopyRightWatermarkTask.Deserialize(rsp["ExtractCopyRightWatermarkTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_extractCopyRightWatermarkTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ReviewAudioVideoTask") && !rsp["ReviewAudioVideoTask"].IsNull())
+    {
+        if (!rsp["ReviewAudioVideoTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReviewAudioVideoTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_reviewAudioVideoTask.Deserialize(rsp["ReviewAudioVideoTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_reviewAudioVideoTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ReduceMediaBitrateTask") && !rsp["ReduceMediaBitrateTask"].IsNull())
+    {
+        if (!rsp["ReduceMediaBitrateTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReduceMediaBitrateTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_reduceMediaBitrateTask.Deserialize(rsp["ReduceMediaBitrateTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_reduceMediaBitrateTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("DescribeFileAttributesTask") && !rsp["DescribeFileAttributesTask"].IsNull())
+    {
+        if (!rsp["DescribeFileAttributesTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DescribeFileAttributesTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_describeFileAttributesTask.Deserialize(rsp["DescribeFileAttributesTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_describeFileAttributesTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("QualityInspectTask") && !rsp["QualityInspectTask"].IsNull())
+    {
+        if (!rsp["QualityInspectTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `QualityInspectTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_qualityInspectTask.Deserialize(rsp["QualityInspectTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_qualityInspectTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("QualityEnhanceTask") && !rsp["QualityEnhanceTask"].IsNull())
+    {
+        if (!rsp["QualityEnhanceTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `QualityEnhanceTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_qualityEnhanceTask.Deserialize(rsp["QualityEnhanceTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_qualityEnhanceTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ComplexAdaptiveDynamicStreamingTask") && !rsp["ComplexAdaptiveDynamicStreamingTask"].IsNull())
+    {
+        if (!rsp["ComplexAdaptiveDynamicStreamingTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ComplexAdaptiveDynamicStreamingTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_complexAdaptiveDynamicStreamingTask.Deserialize(rsp["ComplexAdaptiveDynamicStreamingTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_complexAdaptiveDynamicStreamingTaskHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ProcessMediaByMPSTask") && !rsp["ProcessMediaByMPSTask"].IsNull())
+    {
+        if (!rsp["ProcessMediaByMPSTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProcessMediaByMPSTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_processMediaByMPSTask.Deserialize(rsp["ProcessMediaByMPSTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_processMediaByMPSTaskHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -490,11 +688,110 @@ string DescribeTaskDetailResponse::ToJsonString() const
         m_snapshotByTimeOffsetTask.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_removeWatermarkTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RemoveWatermarkTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_removeWatermarkTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_rebuildMediaTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RebuildMediaTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_rebuildMediaTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_extractTraceWatermarkTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExtractTraceWatermarkTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_extractTraceWatermarkTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_extractCopyRightWatermarkTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExtractCopyRightWatermarkTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_extractCopyRightWatermarkTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_reviewAudioVideoTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReviewAudioVideoTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_reviewAudioVideoTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_reduceMediaBitrateTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReduceMediaBitrateTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_reduceMediaBitrateTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_describeFileAttributesTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DescribeFileAttributesTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_describeFileAttributesTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_qualityInspectTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QualityInspectTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_qualityInspectTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_qualityEnhanceTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QualityEnhanceTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_qualityEnhanceTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_complexAdaptiveDynamicStreamingTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ComplexAdaptiveDynamicStreamingTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_complexAdaptiveDynamicStreamingTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_processMediaByMPSTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProcessMediaByMPSTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_processMediaByMPSTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -670,6 +967,116 @@ SnapshotByTimeOffsetTask2017 DescribeTaskDetailResponse::GetSnapshotByTimeOffset
 bool DescribeTaskDetailResponse::SnapshotByTimeOffsetTaskHasBeenSet() const
 {
     return m_snapshotByTimeOffsetTaskHasBeenSet;
+}
+
+RemoveWatermarkTask DescribeTaskDetailResponse::GetRemoveWatermarkTask() const
+{
+    return m_removeWatermarkTask;
+}
+
+bool DescribeTaskDetailResponse::RemoveWatermarkTaskHasBeenSet() const
+{
+    return m_removeWatermarkTaskHasBeenSet;
+}
+
+RebuildMediaTask DescribeTaskDetailResponse::GetRebuildMediaTask() const
+{
+    return m_rebuildMediaTask;
+}
+
+bool DescribeTaskDetailResponse::RebuildMediaTaskHasBeenSet() const
+{
+    return m_rebuildMediaTaskHasBeenSet;
+}
+
+ExtractTraceWatermarkTask DescribeTaskDetailResponse::GetExtractTraceWatermarkTask() const
+{
+    return m_extractTraceWatermarkTask;
+}
+
+bool DescribeTaskDetailResponse::ExtractTraceWatermarkTaskHasBeenSet() const
+{
+    return m_extractTraceWatermarkTaskHasBeenSet;
+}
+
+ExtractCopyRightWatermarkTask DescribeTaskDetailResponse::GetExtractCopyRightWatermarkTask() const
+{
+    return m_extractCopyRightWatermarkTask;
+}
+
+bool DescribeTaskDetailResponse::ExtractCopyRightWatermarkTaskHasBeenSet() const
+{
+    return m_extractCopyRightWatermarkTaskHasBeenSet;
+}
+
+ReviewAudioVideoTask DescribeTaskDetailResponse::GetReviewAudioVideoTask() const
+{
+    return m_reviewAudioVideoTask;
+}
+
+bool DescribeTaskDetailResponse::ReviewAudioVideoTaskHasBeenSet() const
+{
+    return m_reviewAudioVideoTaskHasBeenSet;
+}
+
+ReduceMediaBitrateTask DescribeTaskDetailResponse::GetReduceMediaBitrateTask() const
+{
+    return m_reduceMediaBitrateTask;
+}
+
+bool DescribeTaskDetailResponse::ReduceMediaBitrateTaskHasBeenSet() const
+{
+    return m_reduceMediaBitrateTaskHasBeenSet;
+}
+
+DescribeFileAttributesTask DescribeTaskDetailResponse::GetDescribeFileAttributesTask() const
+{
+    return m_describeFileAttributesTask;
+}
+
+bool DescribeTaskDetailResponse::DescribeFileAttributesTaskHasBeenSet() const
+{
+    return m_describeFileAttributesTaskHasBeenSet;
+}
+
+QualityInspectTask DescribeTaskDetailResponse::GetQualityInspectTask() const
+{
+    return m_qualityInspectTask;
+}
+
+bool DescribeTaskDetailResponse::QualityInspectTaskHasBeenSet() const
+{
+    return m_qualityInspectTaskHasBeenSet;
+}
+
+QualityEnhanceTask DescribeTaskDetailResponse::GetQualityEnhanceTask() const
+{
+    return m_qualityEnhanceTask;
+}
+
+bool DescribeTaskDetailResponse::QualityEnhanceTaskHasBeenSet() const
+{
+    return m_qualityEnhanceTaskHasBeenSet;
+}
+
+ComplexAdaptiveDynamicStreamingTask DescribeTaskDetailResponse::GetComplexAdaptiveDynamicStreamingTask() const
+{
+    return m_complexAdaptiveDynamicStreamingTask;
+}
+
+bool DescribeTaskDetailResponse::ComplexAdaptiveDynamicStreamingTaskHasBeenSet() const
+{
+    return m_complexAdaptiveDynamicStreamingTaskHasBeenSet;
+}
+
+ProcessMediaByMPS DescribeTaskDetailResponse::GetProcessMediaByMPSTask() const
+{
+    return m_processMediaByMPSTask;
+}
+
+bool DescribeTaskDetailResponse::ProcessMediaByMPSTaskHasBeenSet() const
+{
+    return m_processMediaByMPSTaskHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,51 +43,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例 ID
-                     * @return InstanceId 实例 ID
+                     * 获取ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
+                     * @return InstanceId ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例 ID
-                     * @param InstanceId 实例 ID
+                     * 设置ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
+                     * @param _instanceId ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取主题名称
-                     * @return TopicName 主题名称
+                     * 获取主题名称，可通过[DescribeTopic](https://cloud.tencent.com/document/product/597/40847)接口获取
+                     * @return TopicName 主题名称，可通过[DescribeTopic](https://cloud.tencent.com/document/product/597/40847)接口获取
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
-                     * 设置主题名称
-                     * @param TopicName 主题名称
+                     * 设置主题名称，可通过[DescribeTopic](https://cloud.tencent.com/document/product/597/40847)接口获取
+                     * @param _topicName 主题名称，可通过[DescribeTopic](https://cloud.tencent.com/document/product/597/40847)接口获取
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例 ID
+                     * ckafka集群实例Id，可通过[DescribeInstances](https://cloud.tencent.com/document/product/597/40835)接口获取
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 主题名称
+                     * 主题名称，可通过[DescribeTopic](https://cloud.tencent.com/document/product/597/40847)接口获取
                      */
                     std::string m_topicName;
                     bool m_topicNameHasBeenSet;

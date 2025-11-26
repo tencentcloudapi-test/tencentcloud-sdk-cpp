@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/waf/v20180125/model/AccessFieldValueRatioInfo.h>
 
 
 namespace TencentCloud
@@ -43,7 +44,47 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取注意：此字段可能返回 null，表示取不到有效值
+                     * @return FieldValueRatioInfos 注意：此字段可能返回 null，表示取不到有效值
+                     * 
+                     */
+                    std::vector<AccessFieldValueRatioInfo> GetFieldValueRatioInfos() const;
+
+                    /**
+                     * 判断参数 FieldValueRatioInfos 是否已赋值
+                     * @return FieldValueRatioInfos 是否已赋值
+                     * 
+                     */
+                    bool FieldValueRatioInfosHasBeenSet() const;
+
+                    /**
+                     * 获取日志条数
+                     * @return TotalCount 日志条数
+                     * 
+                     */
+                    int64_t GetTotalCount() const;
+
+                    /**
+                     * 判断参数 TotalCount 是否已赋值
+                     * @return TotalCount 是否已赋值
+                     * 
+                     */
+                    bool TotalCountHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 注意：此字段可能返回 null，表示取不到有效值
+                     */
+                    std::vector<AccessFieldValueRatioInfo> m_fieldValueRatioInfos;
+                    bool m_fieldValueRatioInfosHasBeenSet;
+
+                    /**
+                     * 日志条数
+                     */
+                    int64_t m_totalCount;
+                    bool m_totalCountHasBeenSet;
 
                 };
             }

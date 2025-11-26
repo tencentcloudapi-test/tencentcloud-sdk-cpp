@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取新创建的定期快照策略ID。
                      * @return AutoSnapshotPolicyId 新创建的定期快照策略ID。
+                     * 
                      */
                     std::string GetAutoSnapshotPolicyId() const;
 
                     /**
                      * 判断参数 AutoSnapshotPolicyId 是否已赋值
                      * @return AutoSnapshotPolicyId 是否已赋值
+                     * 
                      */
                     bool AutoSnapshotPolicyIdHasBeenSet() const;
 
                     /**
                      * 获取首次开始备份的时间。
                      * @return NextTriggerTime 首次开始备份的时间。
+                     * 
                      */
                     std::string GetNextTriggerTime() const;
 
                     /**
                      * 判断参数 NextTriggerTime 是否已赋值
                      * @return NextTriggerTime 是否已赋值
+                     * 
                      */
                     bool NextTriggerTimeHasBeenSet() const;
 

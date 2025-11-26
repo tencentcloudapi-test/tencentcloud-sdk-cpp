@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,226 +55,231 @@ namespace TencentCloud
                     /**
                      * 获取计算环境 ID
                      * @return EnvId 计算环境 ID
+                     * 
                      */
                     std::string GetEnvId() const;
 
                     /**
                      * 设置计算环境 ID
-                     * @param EnvId 计算环境 ID
+                     * @param _envId 计算环境 ID
+                     * 
                      */
                     void SetEnvId(const std::string& _envId);
 
                     /**
                      * 判断参数 EnvId 是否已赋值
                      * @return EnvId 是否已赋值
+                     * 
                      */
                     bool EnvIdHasBeenSet() const;
 
                     /**
                      * 获取计算环境名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EnvName 计算环境名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetEnvName() const;
 
                     /**
                      * 设置计算环境名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EnvName 计算环境名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _envName 计算环境名称
+                     * 
                      */
                     void SetEnvName(const std::string& _envName);
 
                     /**
                      * 判断参数 EnvName 是否已赋值
                      * @return EnvName 是否已赋值
+                     * 
                      */
                     bool EnvNameHasBeenSet() const;
 
                     /**
                      * 获取计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EnvDescription 计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetEnvDescription() const;
 
                     /**
                      * 设置计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EnvDescription 计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _envDescription 计算环境描述
+                     * 
                      */
                     void SetEnvDescription(const std::string& _envDescription);
 
                     /**
                      * 判断参数 EnvDescription 是否已赋值
                      * @return EnvDescription 是否已赋值
+                     * 
                      */
                     bool EnvDescriptionHasBeenSet() const;
 
                     /**
                      * 获取计算环境类型，仅支持“MANAGED”类型
                      * @return EnvType 计算环境类型，仅支持“MANAGED”类型
+                     * 
                      */
                     std::string GetEnvType() const;
 
                     /**
                      * 设置计算环境类型，仅支持“MANAGED”类型
-                     * @param EnvType 计算环境类型，仅支持“MANAGED”类型
+                     * @param _envType 计算环境类型，仅支持“MANAGED”类型
+                     * 
                      */
                     void SetEnvType(const std::string& _envType);
 
                     /**
                      * 判断参数 EnvType 是否已赋值
                      * @return EnvType 是否已赋值
+                     * 
                      */
                     bool EnvTypeHasBeenSet() const;
 
                     /**
                      * 获取计算环境参数
                      * @return EnvData 计算环境参数
+                     * 
                      */
                     EnvData GetEnvData() const;
 
                     /**
                      * 设置计算环境参数
-                     * @param EnvData 计算环境参数
+                     * @param _envData 计算环境参数
+                     * 
                      */
                     void SetEnvData(const EnvData& _envData);
 
                     /**
                      * 判断参数 EnvData 是否已赋值
                      * @return EnvData 是否已赋值
+                     * 
                      */
                     bool EnvDataHasBeenSet() const;
 
                     /**
                      * 获取数据盘挂载选项
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return MountDataDisks 数据盘挂载选项
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<MountDataDisk> GetMountDataDisks() const;
 
                     /**
                      * 设置数据盘挂载选项
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MountDataDisks 数据盘挂载选项
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _mountDataDisks 数据盘挂载选项
+                     * 
                      */
                     void SetMountDataDisks(const std::vector<MountDataDisk>& _mountDataDisks);
 
                     /**
                      * 判断参数 MountDataDisks 是否已赋值
                      * @return MountDataDisks 是否已赋值
+                     * 
                      */
                     bool MountDataDisksHasBeenSet() const;
 
                     /**
                      * 获取输入映射
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return InputMappings 输入映射
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<InputMapping> GetInputMappings() const;
 
                     /**
                      * 设置输入映射
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InputMappings 输入映射
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _inputMappings 输入映射
+                     * 
                      */
                     void SetInputMappings(const std::vector<InputMapping>& _inputMappings);
 
                     /**
                      * 判断参数 InputMappings 是否已赋值
                      * @return InputMappings 是否已赋值
+                     * 
                      */
                     bool InputMappingsHasBeenSet() const;
 
                     /**
                      * 获取授权信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Authentications 授权信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Authentication> GetAuthentications() const;
 
                     /**
                      * 设置授权信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Authentications 授权信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _authentications 授权信息
+                     * 
                      */
                     void SetAuthentications(const std::vector<Authentication>& _authentications);
 
                     /**
                      * 判断参数 Authentications 是否已赋值
                      * @return Authentications 是否已赋值
+                     * 
                      */
                     bool AuthenticationsHasBeenSet() const;
 
                     /**
                      * 获取通知信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Notifications 通知信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Notification> GetNotifications() const;
 
                     /**
                      * 设置通知信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Notifications 通知信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _notifications 通知信息
+                     * 
                      */
                     void SetNotifications(const std::vector<Notification>& _notifications);
 
                     /**
                      * 判断参数 Notifications 是否已赋值
                      * @return Notifications 是否已赋值
+                     * 
                      */
                     bool NotificationsHasBeenSet() const;
 
                     /**
                      * 获取计算节点期望个数
                      * @return DesiredComputeNodeCount 计算节点期望个数
+                     * 
                      */
                     uint64_t GetDesiredComputeNodeCount() const;
 
                     /**
                      * 设置计算节点期望个数
-                     * @param DesiredComputeNodeCount 计算节点期望个数
+                     * @param _desiredComputeNodeCount 计算节点期望个数
+                     * 
                      */
                     void SetDesiredComputeNodeCount(const uint64_t& _desiredComputeNodeCount);
 
                     /**
                      * 判断参数 DesiredComputeNodeCount 是否已赋值
                      * @return DesiredComputeNodeCount 是否已赋值
+                     * 
                      */
                     bool DesiredComputeNodeCountHasBeenSet() const;
 
                     /**
                      * 获取计算环境标签列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Tags 计算环境标签列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
                      * 设置计算环境标签列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Tags 计算环境标签列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tags 计算环境标签列表
+                     * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 
@@ -288,14 +293,12 @@ namespace TencentCloud
 
                     /**
                      * 计算环境名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_envName;
                     bool m_envNameHasBeenSet;
 
                     /**
                      * 计算环境描述
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_envDescription;
                     bool m_envDescriptionHasBeenSet;
@@ -314,28 +317,24 @@ namespace TencentCloud
 
                     /**
                      * 数据盘挂载选项
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<MountDataDisk> m_mountDataDisks;
                     bool m_mountDataDisksHasBeenSet;
 
                     /**
                      * 输入映射
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<InputMapping> m_inputMappings;
                     bool m_inputMappingsHasBeenSet;
 
                     /**
                      * 授权信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Authentication> m_authentications;
                     bool m_authenticationsHasBeenSet;
 
                     /**
                      * 通知信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Notification> m_notifications;
                     bool m_notificationsHasBeenSet;
@@ -348,7 +347,6 @@ namespace TencentCloud
 
                     /**
                      * 计算环境标签列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;

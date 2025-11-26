@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,146 +45,163 @@ namespace TencentCloud
                     /**
                      * 获取指定域名查询
                      * @return Domain 指定域名查询
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置指定域名查询
-                     * @param Domain 指定域名查询
+                     * @param _domain 指定域名查询
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                     /**
-                     * 获取开始时间，如 2019-09-04 00:00:00
-                     * @return StartTime 开始时间，如 2019-09-04 00:00:00
+                     * 获取开始时间
+                     * @return StartTime 开始时间
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置开始时间，如 2019-09-04 00:00:00
-                     * @param StartTime 开始时间，如 2019-09-04 00:00:00
+                     * 设置开始时间
+                     * @param _startTime 开始时间
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取结束时间，如 2019-09-04 12:00:00
-                     * @return EndTime 结束时间，如 2019-09-04 12:00:00
+                     * 获取结束时间
+                     * @return EndTime 结束时间
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置结束时间，如 2019-09-04 12:00:00
-                     * @param EndTime 结束时间，如 2019-09-04 12:00:00
+                     * 设置结束时间
+                     * @param _endTime 结束时间
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
                      * 获取分页查询偏移量，默认为 0
                      * @return Offset 分页查询偏移量，默认为 0
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置分页查询偏移量，默认为 0
-                     * @param Offset 分页查询偏移量，默认为 0
+                     * @param _offset 分页查询偏移量，默认为 0
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取分页查询限制数目，默认为 100，最大为 1000
                      * @return Limit 分页查询限制数目，默认为 100，最大为 1000
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置分页查询限制数目，默认为 100，最大为 1000
-                     * @param Limit 分页查询限制数目，默认为 100，最大为 1000
+                     * @param _limit 分页查询限制数目，默认为 100，最大为 1000
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取指定区域下载日志
-mainland：获取境内加速日志包下载链接
-overseas：获取境外加速日志包下载链接
-global：同时获取境内、境外加速日志包下载链接（分开打包）
-不指定时默认为 mainland
-                     * @return Area 指定区域下载日志
-mainland：获取境内加速日志包下载链接
-overseas：获取境外加速日志包下载链接
-global：同时获取境内、境外加速日志包下载链接（分开打包）
-不指定时默认为 mainland
+                     * 获取指定区域下载日志，默认为 mainland，可取值有：
+<li>mainland：获取境内加速日志包下载链接</li>
+<li>overseas：获取境外加速日志包下载链接</li>
+<li>global：同时获取境内、境外加速日志包下载链接（分开打包）</li>
+                     * @return Area 指定区域下载日志，默认为 mainland，可取值有：
+<li>mainland：获取境内加速日志包下载链接</li>
+<li>overseas：获取境外加速日志包下载链接</li>
+<li>global：同时获取境内、境外加速日志包下载链接（分开打包）</li>
+                     * 
                      */
                     std::string GetArea() const;
 
                     /**
-                     * 设置指定区域下载日志
-mainland：获取境内加速日志包下载链接
-overseas：获取境外加速日志包下载链接
-global：同时获取境内、境外加速日志包下载链接（分开打包）
-不指定时默认为 mainland
-                     * @param Area 指定区域下载日志
-mainland：获取境内加速日志包下载链接
-overseas：获取境外加速日志包下载链接
-global：同时获取境内、境外加速日志包下载链接（分开打包）
-不指定时默认为 mainland
+                     * 设置指定区域下载日志，默认为 mainland，可取值有：
+<li>mainland：获取境内加速日志包下载链接</li>
+<li>overseas：获取境外加速日志包下载链接</li>
+<li>global：同时获取境内、境外加速日志包下载链接（分开打包）</li>
+                     * @param _area 指定区域下载日志，默认为 mainland，可取值有：
+<li>mainland：获取境内加速日志包下载链接</li>
+<li>overseas：获取境外加速日志包下载链接</li>
+<li>global：同时获取境内、境外加速日志包下载链接（分开打包）</li>
+                     * 
                      */
                     void SetArea(const std::string& _area);
 
                     /**
                      * 判断参数 Area 是否已赋值
                      * @return Area 是否已赋值
+                     * 
                      */
                     bool AreaHasBeenSet() const;
 
                     /**
-                     * 获取指定下载日志的类型。
-access：获取访问日志
-                     * @return LogType 指定下载日志的类型。
-access：获取访问日志
+                     * 获取指定下载日志的类型，可取值有：
+<li>access：访问日志</li>
+                     * @return LogType 指定下载日志的类型，可取值有：
+<li>access：访问日志</li>
+                     * 
                      */
                     std::string GetLogType() const;
 
                     /**
-                     * 设置指定下载日志的类型。
-access：获取访问日志
-                     * @param LogType 指定下载日志的类型。
-access：获取访问日志
+                     * 设置指定下载日志的类型，可取值有：
+<li>access：访问日志</li>
+                     * @param _logType 指定下载日志的类型，可取值有：
+<li>access：访问日志</li>
+                     * 
                      */
                     void SetLogType(const std::string& _logType);
 
                     /**
                      * 判断参数 LogType 是否已赋值
                      * @return LogType 是否已赋值
+                     * 
                      */
                     bool LogTypeHasBeenSet() const;
 
@@ -197,13 +214,13 @@ access：获取访问日志
                     bool m_domainHasBeenSet;
 
                     /**
-                     * 开始时间，如 2019-09-04 00:00:00
+                     * 开始时间
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * 结束时间，如 2019-09-04 12:00:00
+                     * 结束时间
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
@@ -221,18 +238,17 @@ access：获取访问日志
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 指定区域下载日志
-mainland：获取境内加速日志包下载链接
-overseas：获取境外加速日志包下载链接
-global：同时获取境内、境外加速日志包下载链接（分开打包）
-不指定时默认为 mainland
+                     * 指定区域下载日志，默认为 mainland，可取值有：
+<li>mainland：获取境内加速日志包下载链接</li>
+<li>overseas：获取境外加速日志包下载链接</li>
+<li>global：同时获取境内、境外加速日志包下载链接（分开打包）</li>
                      */
                     std::string m_area;
                     bool m_areaHasBeenSet;
 
                     /**
-                     * 指定下载日志的类型。
-access：获取访问日志
+                     * 指定下载日志的类型，可取值有：
+<li>access：访问日志</li>
                      */
                     std::string m_logType;
                     bool m_logTypeHasBeenSet;

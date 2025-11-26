@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ URLNotice::URLNotice() :
     m_isValidHasBeenSet(false),
     m_validationCodeHasBeenSet(false),
     m_startTimeHasBeenSet(false),
-    m_endTimeHasBeenSet(false)
+    m_endTimeHasBeenSet(false),
+    m_weekdayHasBeenSet(false),
+    m_groupMembersHasBeenSet(false)
 {
 }
 
@@ -84,6 +86,29 @@ CoreInternalOutcome URLNotice::Deserialize(const rapidjson::Value &value)
         m_endTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("Weekday") && !value["Weekday"].IsNull())
+    {
+        if (!value["Weekday"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `URLNotice.Weekday` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Weekday"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_weekday.push_back((*itr).GetInt64());
+        }
+        m_weekdayHasBeenSet = true;
+    }
+
+    if (value.HasMember("GroupMembers") && !value["GroupMembers"].IsNull())
+    {
+        if (!value["GroupMembers"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `URLNotice.GroupMembers` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_groupMembers = string(value["GroupMembers"].GetString());
+        m_groupMembersHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +154,27 @@ void URLNotice::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "EndTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_endTime, allocator);
+    }
+
+    if (m_weekdayHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Weekday";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_weekday.begin(); itr != m_weekday.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_groupMembersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupMembers";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_groupMembers.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -212,5 +258,37 @@ void URLNotice::SetEndTime(const int64_t& _endTime)
 bool URLNotice::EndTimeHasBeenSet() const
 {
     return m_endTimeHasBeenSet;
+}
+
+vector<int64_t> URLNotice::GetWeekday() const
+{
+    return m_weekday;
+}
+
+void URLNotice::SetWeekday(const vector<int64_t>& _weekday)
+{
+    m_weekday = _weekday;
+    m_weekdayHasBeenSet = true;
+}
+
+bool URLNotice::WeekdayHasBeenSet() const
+{
+    return m_weekdayHasBeenSet;
+}
+
+string URLNotice::GetGroupMembers() const
+{
+    return m_groupMembers;
+}
+
+void URLNotice::SetGroupMembers(const string& _groupMembers)
+{
+    m_groupMembers = _groupMembers;
+    m_groupMembersHasBeenSet = true;
+}
+
+bool URLNotice::GroupMembersHasBeenSet() const
+{
+    return m_groupMembersHasBeenSet;
 }
 

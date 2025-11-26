@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,54 +51,63 @@ namespace TencentCloud
                     /**
                      * 获取语音全文识别片段列表。
                      * @return SegmentSet 语音全文识别片段列表。
+                     * 
                      */
                     std::vector<AiRecognitionTaskAsrFullTextSegmentItem> GetSegmentSet() const;
 
                     /**
                      * 设置语音全文识别片段列表。
-                     * @param SegmentSet 语音全文识别片段列表。
+                     * @param _segmentSet 语音全文识别片段列表。
+                     * 
                      */
                     void SetSegmentSet(const std::vector<AiRecognitionTaskAsrFullTextSegmentItem>& _segmentSet);
 
                     /**
                      * 判断参数 SegmentSet 是否已赋值
                      * @return SegmentSet 是否已赋值
+                     * 
                      */
                     bool SegmentSetHasBeenSet() const;
 
                     /**
                      * 获取字幕文件地址。
                      * @return SubtitlePath 字幕文件地址。
+                     * 
                      */
                     std::string GetSubtitlePath() const;
 
                     /**
                      * 设置字幕文件地址。
-                     * @param SubtitlePath 字幕文件地址。
+                     * @param _subtitlePath 字幕文件地址。
+                     * 
                      */
                     void SetSubtitlePath(const std::string& _subtitlePath);
 
                     /**
                      * 判断参数 SubtitlePath 是否已赋值
                      * @return SubtitlePath 是否已赋值
+                     * 
                      */
                     bool SubtitlePathHasBeenSet() const;
 
                     /**
                      * 获取字幕文件存储位置。
                      * @return OutputStorage 字幕文件存储位置。
+                     * @deprecated
                      */
                     TaskOutputStorage GetOutputStorage() const;
 
                     /**
                      * 设置字幕文件存储位置。
-                     * @param OutputStorage 字幕文件存储位置。
+                     * @param _outputStorage 字幕文件存储位置。
+                     * @deprecated
                      */
                     void SetOutputStorage(const TaskOutputStorage& _outputStorage);
 
                     /**
                      * 判断参数 OutputStorage 是否已赋值
                      * @return OutputStorage 是否已赋值
+                     * @deprecated
                      */
                     bool OutputStorageHasBeenSet() const;
 

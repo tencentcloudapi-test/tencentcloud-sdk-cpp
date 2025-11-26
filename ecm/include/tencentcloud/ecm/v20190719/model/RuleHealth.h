@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,20 +52,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Targets 本规则上绑定的后端的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<TargetHealth> GetTargets() const;
 
                     /**
                      * 设置本规则上绑定的后端的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Targets 本规则上绑定的后端的健康检查状态
+                     * @param _targets 本规则上绑定的后端的健康检查状态
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTargets(const std::vector<TargetHealth>& _targets);
 
                     /**
                      * 判断参数 Targets 是否已赋值
                      * @return Targets 是否已赋值
+                     * 
                      */
                     bool TargetsHasBeenSet() const;
 

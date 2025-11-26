@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@ CreateInstanceRequest::CreateInstanceRequest() :
     m_registryNameHasBeenSet(false),
     m_registryTypeHasBeenSet(false),
     m_tagSpecificationHasBeenSet(false),
-    m_registryChargeTypeHasBeenSet(false)
+    m_registryChargeTypeHasBeenSet(false),
+    m_registryChargePrepaidHasBeenSet(false),
+    m_syncTagHasBeenSet(false),
+    m_enableCosMAZHasBeenSet(false),
+    m_deletionProtectionHasBeenSet(false)
 {
 }
 
@@ -68,6 +72,39 @@ string CreateInstanceRequest::ToJsonString() const
         string key = "RegistryChargeType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_registryChargeType, allocator);
+    }
+
+    if (m_registryChargePrepaidHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegistryChargePrepaid";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_registryChargePrepaid.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_syncTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SyncTag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_syncTag, allocator);
+    }
+
+    if (m_enableCosMAZHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableCosMAZ";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableCosMAZ, allocator);
+    }
+
+    if (m_deletionProtectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeletionProtection";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_deletionProtection, allocator);
     }
 
 
@@ -140,6 +177,70 @@ void CreateInstanceRequest::SetRegistryChargeType(const int64_t& _registryCharge
 bool CreateInstanceRequest::RegistryChargeTypeHasBeenSet() const
 {
     return m_registryChargeTypeHasBeenSet;
+}
+
+RegistryChargePrepaid CreateInstanceRequest::GetRegistryChargePrepaid() const
+{
+    return m_registryChargePrepaid;
+}
+
+void CreateInstanceRequest::SetRegistryChargePrepaid(const RegistryChargePrepaid& _registryChargePrepaid)
+{
+    m_registryChargePrepaid = _registryChargePrepaid;
+    m_registryChargePrepaidHasBeenSet = true;
+}
+
+bool CreateInstanceRequest::RegistryChargePrepaidHasBeenSet() const
+{
+    return m_registryChargePrepaidHasBeenSet;
+}
+
+bool CreateInstanceRequest::GetSyncTag() const
+{
+    return m_syncTag;
+}
+
+void CreateInstanceRequest::SetSyncTag(const bool& _syncTag)
+{
+    m_syncTag = _syncTag;
+    m_syncTagHasBeenSet = true;
+}
+
+bool CreateInstanceRequest::SyncTagHasBeenSet() const
+{
+    return m_syncTagHasBeenSet;
+}
+
+bool CreateInstanceRequest::GetEnableCosMAZ() const
+{
+    return m_enableCosMAZ;
+}
+
+void CreateInstanceRequest::SetEnableCosMAZ(const bool& _enableCosMAZ)
+{
+    m_enableCosMAZ = _enableCosMAZ;
+    m_enableCosMAZHasBeenSet = true;
+}
+
+bool CreateInstanceRequest::EnableCosMAZHasBeenSet() const
+{
+    return m_enableCosMAZHasBeenSet;
+}
+
+bool CreateInstanceRequest::GetDeletionProtection() const
+{
+    return m_deletionProtection;
+}
+
+void CreateInstanceRequest::SetDeletionProtection(const bool& _deletionProtection)
+{
+    m_deletionProtection = _deletionProtection;
+    m_deletionProtectionHasBeenSet = true;
+}
+
+bool CreateInstanceRequest::DeletionProtectionHasBeenSet() const
+{
+    return m_deletionProtectionHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,34 +49,59 @@ namespace TencentCloud
 
                     /**
                      * 获取免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VaccineList 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Vaccination> GetVaccineList() const;
 
                     /**
                      * 设置免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param VaccineList 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _vaccineList 免疫接种列表
+                     * 
                      */
                     void SetVaccineList(const std::vector<Vaccination>& _vaccineList);
 
                     /**
                      * 判断参数 VaccineList 是否已赋值
                      * @return VaccineList 是否已赋值
+                     * 
                      */
                     bool VaccineListHasBeenSet() const;
+
+                    /**
+                     * 获取数据在原PDF文件中的第几页
+                     * @return Page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    int64_t GetPage() const;
+
+                    /**
+                     * 设置数据在原PDF文件中的第几页
+                     * @param _page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    void SetPage(const int64_t& _page);
+
+                    /**
+                     * 判断参数 Page 是否已赋值
+                     * @return Page 是否已赋值
+                     * 
+                     */
+                    bool PageHasBeenSet() const;
 
                 private:
 
                     /**
                      * 免疫接种列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Vaccination> m_vaccineList;
                     bool m_vaccineListHasBeenSet;
+
+                    /**
+                     * 数据在原PDF文件中的第几页
+                     */
+                    int64_t m_page;
+                    bool m_pageHasBeenSet;
 
                 };
             }

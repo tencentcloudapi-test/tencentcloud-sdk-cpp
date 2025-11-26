@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取需要修改的监听器ID
                      * @return ListenerId 需要修改的监听器ID
+                     * 
                      */
                     std::string GetListenerId() const;
 
                     /**
                      * 设置需要修改的监听器ID
-                     * @param ListenerId 需要修改的监听器ID
+                     * @param _listenerId 需要修改的监听器ID
+                     * 
                      */
                     void SetListenerId(const std::string& _listenerId);
 
                     /**
                      * 判断参数 ListenerId 是否已赋值
                      * @return ListenerId 是否已赋值
+                     * 
                      */
                     bool ListenerIdHasBeenSet() const;
 
                     /**
                      * 获取新的监听器名称
                      * @return ListenerName 新的监听器名称
+                     * 
                      */
                     std::string GetListenerName() const;
 
                     /**
                      * 设置新的监听器名称
-                     * @param ListenerName 新的监听器名称
+                     * @param _listenerName 新的监听器名称
+                     * 
                      */
                     void SetListenerName(const std::string& _listenerName);
 
                     /**
                      * 判断参数 ListenerName 是否已赋值
                      * @return ListenerName 是否已赋值
+                     * 
                      */
                     bool ListenerNameHasBeenSet() const;
 
                     /**
                      * 获取通道ID
                      * @return ProxyId 通道ID
+                     * 
                      */
                     std::string GetProxyId() const;
 
                     /**
                      * 设置通道ID
-                     * @param ProxyId 通道ID
+                     * @param _proxyId 通道ID
+                     * 
                      */
                     void SetProxyId(const std::string& _proxyId);
 
                     /**
                      * 判断参数 ProxyId 是否已赋值
                      * @return ProxyId 是否已赋值
+                     * 
                      */
                     bool ProxyIdHasBeenSet() const;
 

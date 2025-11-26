@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取团队成员 ID。
                      * @return MemberId 团队成员 ID。
+                     * 
                      */
                     std::string GetMemberId() const;
 
                     /**
                      * 设置团队成员 ID。
-                     * @param MemberId 团队成员 ID。
+                     * @param _memberId 团队成员 ID。
+                     * 
                      */
                     void SetMemberId(const std::string& _memberId);
 
                     /**
                      * 判断参数 MemberId 是否已赋值
                      * @return MemberId 是否已赋值
+                     * 
                      */
                     bool MemberIdHasBeenSet() const;
 
                     /**
                      * 获取团队成员备注。
                      * @return Remark 团队成员备注。
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
                      * 设置团队成员备注。
-                     * @param Remark 团队成员备注。
+                     * @param _remark 团队成员备注。
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
 
@@ -91,6 +97,7 @@ namespace TencentCloud
 <li>Owner：团队所有者，添加团队成员及修改团队成员解决时不能填此角色；</li>
 <li>Admin：团队管理员；</li>
 <li>Member：普通成员。</li>
+                     * 
                      */
                     std::string GetRole() const;
 
@@ -99,16 +106,18 @@ namespace TencentCloud
 <li>Owner：团队所有者，添加团队成员及修改团队成员解决时不能填此角色；</li>
 <li>Admin：团队管理员；</li>
 <li>Member：普通成员。</li>
-                     * @param Role 团队成员角色，取值：
+                     * @param _role 团队成员角色，取值：
 <li>Owner：团队所有者，添加团队成员及修改团队成员解决时不能填此角色；</li>
 <li>Admin：团队管理员；</li>
 <li>Member：普通成员。</li>
+                     * 
                      */
                     void SetRole(const std::string& _role);
 
                     /**
                      * 判断参数 Role 是否已赋值
                      * @return Role 是否已赋值
+                     * 
                      */
                     bool RoleHasBeenSet() const;
 

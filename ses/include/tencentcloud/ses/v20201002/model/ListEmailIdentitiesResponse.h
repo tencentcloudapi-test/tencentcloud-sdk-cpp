@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,14 +47,58 @@ namespace TencentCloud
                     /**
                      * 获取发信域名列表
                      * @return EmailIdentities 发信域名列表
+                     * 
                      */
                     std::vector<EmailIdentity> GetEmailIdentities() const;
 
                     /**
                      * 判断参数 EmailIdentities 是否已赋值
                      * @return EmailIdentities 是否已赋值
+                     * 
                      */
                     bool EmailIdentitiesHasBeenSet() const;
+
+                    /**
+                     * 获取最大信誉等级
+                     * @return MaxReputationLevel 最大信誉等级
+                     * 
+                     */
+                    uint64_t GetMaxReputationLevel() const;
+
+                    /**
+                     * 判断参数 MaxReputationLevel 是否已赋值
+                     * @return MaxReputationLevel 是否已赋值
+                     * 
+                     */
+                    bool MaxReputationLevelHasBeenSet() const;
+
+                    /**
+                     * 获取单域名最高日发送量
+                     * @return MaxDailyQuota 单域名最高日发送量
+                     * 
+                     */
+                    uint64_t GetMaxDailyQuota() const;
+
+                    /**
+                     * 判断参数 MaxDailyQuota 是否已赋值
+                     * @return MaxDailyQuota 是否已赋值
+                     * 
+                     */
+                    bool MaxDailyQuotaHasBeenSet() const;
+
+                    /**
+                     * 获取总数
+                     * @return Total 总数
+                     * 
+                     */
+                    uint64_t GetTotal() const;
+
+                    /**
+                     * 判断参数 Total 是否已赋值
+                     * @return Total 是否已赋值
+                     * 
+                     */
+                    bool TotalHasBeenSet() const;
 
                 private:
 
@@ -63,6 +107,24 @@ namespace TencentCloud
                      */
                     std::vector<EmailIdentity> m_emailIdentities;
                     bool m_emailIdentitiesHasBeenSet;
+
+                    /**
+                     * 最大信誉等级
+                     */
+                    uint64_t m_maxReputationLevel;
+                    bool m_maxReputationLevelHasBeenSet;
+
+                    /**
+                     * 单域名最高日发送量
+                     */
+                    uint64_t m_maxDailyQuota;
+                    bool m_maxDailyQuotaHasBeenSet;
+
+                    /**
+                     * 总数
+                     */
+                    uint64_t m_total;
+                    bool m_totalHasBeenSet;
 
                 };
             }

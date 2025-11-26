@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,44 @@ namespace TencentCloud
                     /**
                      * 获取终端节点对象。
                      * @return EndPointSet 终端节点对象。
+                     * 
                      */
                     std::vector<EndPoint> GetEndPointSet() const;
 
                     /**
                      * 判断参数 EndPointSet 是否已赋值
                      * @return EndPointSet 是否已赋值
+                     * 
                      */
                     bool EndPointSetHasBeenSet() const;
 
                     /**
                      * 获取符合查询条件的终端节点个数。
                      * @return TotalCount 符合查询条件的终端节点个数。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
+
+                    /**
+                     * 获取如果NextToken返回非空字符串 ，表示还有更多可用结果。 NextToken是每个页面唯一的分页令牌。使用返回的令牌再次调用以检索下一页。需要保持所有其他参数不变。每个分页令牌在 24 小时后过期。
+                     * @return NextToken 如果NextToken返回非空字符串 ，表示还有更多可用结果。 NextToken是每个页面唯一的分页令牌。使用返回的令牌再次调用以检索下一页。需要保持所有其他参数不变。每个分页令牌在 24 小时后过期。
+                     * 
+                     */
+                    std::string GetNextToken() const;
+
+                    /**
+                     * 判断参数 NextToken 是否已赋值
+                     * @return NextToken 是否已赋值
+                     * 
+                     */
+                    bool NextTokenHasBeenSet() const;
 
                 private:
 
@@ -81,6 +99,12 @@ namespace TencentCloud
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
+
+                    /**
+                     * 如果NextToken返回非空字符串 ，表示还有更多可用结果。 NextToken是每个页面唯一的分页令牌。使用返回的令牌再次调用以检索下一页。需要保持所有其他参数不变。每个分页令牌在 24 小时后过期。
+                     */
+                    std::string m_nextToken;
+                    bool m_nextTokenHasBeenSet;
 
                 };
             }

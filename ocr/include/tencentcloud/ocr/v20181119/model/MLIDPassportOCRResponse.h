@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/ocr/v20181119/model/PassportRecognizeInfos.h>
 
 
 namespace TencentCloud
@@ -44,240 +45,325 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取护照ID
-                     * @return ID 护照ID
+                     * 获取护照ID（机读码区的解析结果）
+                     * @return ID 护照ID（机读码区的解析结果）
+                     * 
                      */
                     std::string GetID() const;
 
                     /**
                      * 判断参数 ID 是否已赋值
                      * @return ID 是否已赋值
+                     * 
                      */
                     bool IDHasBeenSet() const;
 
                     /**
-                     * 获取姓名
-                     * @return Name 姓名
+                     * 获取姓名（机读码区的解析结果）
+                     * @return Name 姓名（机读码区的解析结果）
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取出生日期
-                     * @return DateOfBirth 出生日期
+                     * 获取出生日期（机读码区的解析结果）
+                     * @return DateOfBirth 出生日期（机读码区的解析结果）
+                     * 
                      */
                     std::string GetDateOfBirth() const;
 
                     /**
                      * 判断参数 DateOfBirth 是否已赋值
                      * @return DateOfBirth 是否已赋值
+                     * 
                      */
                     bool DateOfBirthHasBeenSet() const;
 
                     /**
-                     * 获取性别（F女，M男）
-                     * @return Sex 性别（F女，M男）
+                     * 获取性别（F女，M男）（机读码区的解析结果）
+                     * @return Sex 性别（F女，M男）（机读码区的解析结果）
+                     * 
                      */
                     std::string GetSex() const;
 
                     /**
                      * 判断参数 Sex 是否已赋值
                      * @return Sex 是否已赋值
+                     * 
                      */
                     bool SexHasBeenSet() const;
 
                     /**
-                     * 获取有效期
-                     * @return DateOfExpiration 有效期
+                     * 获取有效期（机读码区的解析结果）
+                     * @return DateOfExpiration 有效期（机读码区的解析结果）
+                     * 
                      */
                     std::string GetDateOfExpiration() const;
 
                     /**
                      * 判断参数 DateOfExpiration 是否已赋值
                      * @return DateOfExpiration 是否已赋值
+                     * 
                      */
                     bool DateOfExpirationHasBeenSet() const;
 
                     /**
-                     * 获取发行国
-                     * @return IssuingCountry 发行国
+                     * 获取发行国（机读码区的解析结果）
+                     * @return IssuingCountry 发行国（机读码区的解析结果）
+                     * 
                      */
                     std::string GetIssuingCountry() const;
 
                     /**
                      * 判断参数 IssuingCountry 是否已赋值
                      * @return IssuingCountry 是否已赋值
+                     * 
                      */
                     bool IssuingCountryHasBeenSet() const;
 
                     /**
-                     * 获取国籍
-                     * @return Nationality 国籍
+                     * 获取国家地区代码（机读码区的解析结果）
+                     * @return Nationality 国家地区代码（机读码区的解析结果）
+                     * 
                      */
                     std::string GetNationality() const;
 
                     /**
                      * 判断参数 Nationality 是否已赋值
                      * @return Nationality 是否已赋值
+                     * 
                      */
                     bool NationalityHasBeenSet() const;
 
                     /**
-                     * 获取告警码
--9103	证照翻拍告警
--9102	证照复印件告警
--9106       证件遮挡告警
-                     * @return Warn 告警码
--9103	证照翻拍告警
--9102	证照复印件告警
--9106       证件遮挡告警
+                     * 获取该字段已废弃， 将固定返回空数组，不建议使用。
+
+                     * @return Warn 该字段已废弃， 将固定返回空数组，不建议使用。
+
+                     * @deprecated
                      */
                     std::vector<int64_t> GetWarn() const;
 
                     /**
                      * 判断参数 Warn 是否已赋值
                      * @return Warn 是否已赋值
+                     * @deprecated
                      */
                     bool WarnHasBeenSet() const;
 
                     /**
-                     * 获取证件图片
-                     * @return Image 证件图片
+                     * 获取证件中的人像图片base64
+                     * @return Image 证件中的人像图片base64
+                     * 
                      */
                     std::string GetImage() const;
 
                     /**
                      * 判断参数 Image 是否已赋值
                      * @return Image 是否已赋值
+                     * 
                      */
                     bool ImageHasBeenSet() const;
 
                     /**
-                     * 获取扩展字段:
-{
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
-}
-                     * @return AdvancedInfo 扩展字段:
-{
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
-}
+                     * 获取该字段已废弃， 将固定返回"1"，不建议使用。
+
+                     * @return AdvancedInfo 该字段已废弃， 将固定返回"1"，不建议使用。
+
+                     * @deprecated
                      */
                     std::string GetAdvancedInfo() const;
 
                     /**
                      * 判断参数 AdvancedInfo 是否已赋值
                      * @return AdvancedInfo 是否已赋值
+                     * @deprecated
                      */
                     bool AdvancedInfoHasBeenSet() const;
 
                     /**
                      * 获取最下方第一行 MRZ Code 序列
                      * @return CodeSet 最下方第一行 MRZ Code 序列
+                     * 
                      */
                     std::string GetCodeSet() const;
 
                     /**
                      * 判断参数 CodeSet 是否已赋值
                      * @return CodeSet 是否已赋值
+                     * 
                      */
                     bool CodeSetHasBeenSet() const;
 
                     /**
                      * 获取最下方第二行 MRZ Code 序列
                      * @return CodeCrc 最下方第二行 MRZ Code 序列
+                     * 
                      */
                     std::string GetCodeCrc() const;
 
                     /**
                      * 判断参数 CodeCrc 是否已赋值
                      * @return CodeCrc 是否已赋值
+                     * 
                      */
                     bool CodeCrcHasBeenSet() const;
+
+                    /**
+                     * 获取姓（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Surname 姓（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetSurname() const;
+
+                    /**
+                     * 判断参数 Surname 是否已赋值
+                     * @return Surname 是否已赋值
+                     * 
+                     */
+                    bool SurnameHasBeenSet() const;
+
+                    /**
+                     * 获取名（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return GivenName 名（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetGivenName() const;
+
+                    /**
+                     * 判断参数 GivenName 是否已赋值
+                     * @return GivenName 是否已赋值
+                     * 
+                     */
+                    bool GivenNameHasBeenSet() const;
+
+                    /**
+                     * 获取类型（机读码区的解析结果）
+                     * @return Type 类型（机读码区的解析结果）
+                     * 
+                     */
+                    std::string GetType() const;
+
+                    /**
+                     * 判断参数 Type 是否已赋值
+                     * @return Type 是否已赋值
+                     * 
+                     */
+                    bool TypeHasBeenSet() const;
+
+                    /**
+                     * 获取信息区证件内容
+                     * @return PassportRecognizeInfos 信息区证件内容
+                     * 
+                     */
+                    PassportRecognizeInfos GetPassportRecognizeInfos() const;
+
+                    /**
+                     * 判断参数 PassportRecognizeInfos 是否已赋值
+                     * @return PassportRecognizeInfos 是否已赋值
+                     * 
+                     */
+                    bool PassportRecognizeInfosHasBeenSet() const;
+
+                    /**
+                     * 获取该字段仅对国际站请求起作用，国内站该字段将固定返回空数组。国际站告警码如下：  告警码-9101 证件边框不完整告警-9102 证件复印件告警-9103 证件翻拍告警-9104 证件PS告警-9107 证件反光告警-9108 证件模糊告警-9109 告警能力未开通
+                     * @return WarnCardInfos 该字段仅对国际站请求起作用，国内站该字段将固定返回空数组。国际站告警码如下：  告警码-9101 证件边框不完整告警-9102 证件复印件告警-9103 证件翻拍告警-9104 证件PS告警-9107 证件反光告警-9108 证件模糊告警-9109 告警能力未开通
+                     * 
+                     */
+                    std::vector<int64_t> GetWarnCardInfos() const;
+
+                    /**
+                     * 判断参数 WarnCardInfos 是否已赋值
+                     * @return WarnCardInfos 是否已赋值
+                     * 
+                     */
+                    bool WarnCardInfosHasBeenSet() const;
+
+                    /**
+                     * 获取输入图片中的卡证数量（仅请求曼谷地域[ap-bangkok]返回）
+                     * @return CardCount 输入图片中的卡证数量（仅请求曼谷地域[ap-bangkok]返回）
+                     * 
+                     */
+                    int64_t GetCardCount() const;
+
+                    /**
+                     * 判断参数 CardCount 是否已赋值
+                     * @return CardCount 是否已赋值
+                     * 
+                     */
+                    bool CardCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 护照ID
+                     * 护照ID（机读码区的解析结果）
                      */
                     std::string m_iD;
                     bool m_iDHasBeenSet;
 
                     /**
-                     * 姓名
+                     * 姓名（机读码区的解析结果）
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 出生日期
+                     * 出生日期（机读码区的解析结果）
                      */
                     std::string m_dateOfBirth;
                     bool m_dateOfBirthHasBeenSet;
 
                     /**
-                     * 性别（F女，M男）
+                     * 性别（F女，M男）（机读码区的解析结果）
                      */
                     std::string m_sex;
                     bool m_sexHasBeenSet;
 
                     /**
-                     * 有效期
+                     * 有效期（机读码区的解析结果）
                      */
                     std::string m_dateOfExpiration;
                     bool m_dateOfExpirationHasBeenSet;
 
                     /**
-                     * 发行国
+                     * 发行国（机读码区的解析结果）
                      */
                     std::string m_issuingCountry;
                     bool m_issuingCountryHasBeenSet;
 
                     /**
-                     * 国籍
+                     * 国家地区代码（机读码区的解析结果）
                      */
                     std::string m_nationality;
                     bool m_nationalityHasBeenSet;
 
                     /**
-                     * 告警码
--9103	证照翻拍告警
--9102	证照复印件告警
--9106       证件遮挡告警
+                     * 该字段已废弃， 将固定返回空数组，不建议使用。
+
                      */
                     std::vector<int64_t> m_warn;
                     bool m_warnHasBeenSet;
 
                     /**
-                     * 证件图片
+                     * 证件中的人像图片base64
                      */
                     std::string m_image;
                     bool m_imageHasBeenSet;
 
                     /**
-                     * 扩展字段:
-{
-    ID:{
-        Confidence:0.9999
-    },
-    Name:{
-        Confidence:0.9996
-    }
-}
+                     * 该字段已废弃， 将固定返回"1"，不建议使用。
+
                      */
                     std::string m_advancedInfo;
                     bool m_advancedInfoHasBeenSet;
@@ -293,6 +379,44 @@ namespace TencentCloud
                      */
                     std::string m_codeCrc;
                     bool m_codeCrcHasBeenSet;
+
+                    /**
+                     * 姓（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_surname;
+                    bool m_surnameHasBeenSet;
+
+                    /**
+                     * 名（机读码区的解析结果）
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_givenName;
+                    bool m_givenNameHasBeenSet;
+
+                    /**
+                     * 类型（机读码区的解析结果）
+                     */
+                    std::string m_type;
+                    bool m_typeHasBeenSet;
+
+                    /**
+                     * 信息区证件内容
+                     */
+                    PassportRecognizeInfos m_passportRecognizeInfos;
+                    bool m_passportRecognizeInfosHasBeenSet;
+
+                    /**
+                     * 该字段仅对国际站请求起作用，国内站该字段将固定返回空数组。国际站告警码如下：  告警码-9101 证件边框不完整告警-9102 证件复印件告警-9103 证件翻拍告警-9104 证件PS告警-9107 证件反光告警-9108 证件模糊告警-9109 告警能力未开通
+                     */
+                    std::vector<int64_t> m_warnCardInfos;
+                    bool m_warnCardInfosHasBeenSet;
+
+                    /**
+                     * 输入图片中的卡证数量（仅请求曼谷地域[ap-bangkok]返回）
+                     */
+                    int64_t m_cardCount;
+                    bool m_cardCountHasBeenSet;
 
                 };
             }

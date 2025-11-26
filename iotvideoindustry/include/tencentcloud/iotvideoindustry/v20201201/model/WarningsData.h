@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,177 +48,169 @@ namespace TencentCloud
 
                     /**
                      * 获取唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Id 唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetId() const;
 
                     /**
                      * 设置唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Id 唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _id 唯一ID
+                     * 
                      */
                     void SetId(const int64_t& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
                      * 获取设备ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DeviceId 设备ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDeviceId() const;
 
                     /**
                      * 设置设备ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param DeviceId 设备ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _deviceId 设备ID
+                     * 
                      */
                     void SetDeviceId(const std::string& _deviceId);
 
                     /**
                      * 判断参数 DeviceId 是否已赋值
                      * @return DeviceId 是否已赋值
+                     * 
                      */
                     bool DeviceIdHasBeenSet() const;
 
                     /**
                      * 获取设备名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DeviceName 设备名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDeviceName() const;
 
                     /**
                      * 设置设备名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param DeviceName 设备名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _deviceName 设备名称
+                     * 
                      */
                     void SetDeviceName(const std::string& _deviceName);
 
                     /**
                      * 判断参数 DeviceName 是否已赋值
                      * @return DeviceName 是否已赋值
+                     * 
                      */
                     bool DeviceNameHasBeenSet() const;
 
                     /**
                      * 获取告警通道
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return WarnChannel 告警通道
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetWarnChannel() const;
 
                     /**
                      * 设置告警通道
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param WarnChannel 告警通道
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _warnChannel 告警通道
+                     * 
                      */
                     void SetWarnChannel(const std::string& _warnChannel);
 
                     /**
                      * 判断参数 WarnChannel 是否已赋值
                      * @return WarnChannel 是否已赋值
+                     * 
                      */
                     bool WarnChannelHasBeenSet() const;
 
                     /**
                      * 获取告警级别 1: "一级警情", 2: "二级警情", 3: "三级警情", 4: "四级警情",
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return WarnLevel 告警级别 1: "一级警情", 2: "二级警情", 3: "三级警情", 4: "四级警情",
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetWarnLevel() const;
 
                     /**
                      * 设置告警级别 1: "一级警情", 2: "二级警情", 3: "三级警情", 4: "四级警情",
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param WarnLevel 告警级别 1: "一级警情", 2: "二级警情", 3: "三级警情", 4: "四级警情",
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _warnLevel 告警级别 1: "一级警情", 2: "二级警情", 3: "三级警情", 4: "四级警情",
+                     * 
                      */
                     void SetWarnLevel(const int64_t& _warnLevel);
 
                     /**
                      * 判断参数 WarnLevel 是否已赋值
                      * @return WarnLevel 是否已赋值
+                     * 
                      */
                     bool WarnLevelHasBeenSet() const;
 
                     /**
                      * 获取告警级别名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return WarnLevelName 告警级别名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetWarnLevelName() const;
 
                     /**
                      * 设置告警级别名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param WarnLevelName 告警级别名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _warnLevelName 告警级别名称
+                     * 
                      */
                     void SetWarnLevelName(const std::string& _warnLevelName);
 
                     /**
                      * 判断参数 WarnLevelName 是否已赋值
                      * @return WarnLevelName 是否已赋值
+                     * 
                      */
                     bool WarnLevelNameHasBeenSet() const;
 
                     /**
                      * 获取告警方式 2 设备报警 5 视频报警 6 设备故障报警
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return WarnMode 告警方式 2 设备报警 5 视频报警 6 设备故障报警
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetWarnMode() const;
 
                     /**
                      * 设置告警方式 2 设备报警 5 视频报警 6 设备故障报警
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param WarnMode 告警方式 2 设备报警 5 视频报警 6 设备故障报警
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _warnMode 告警方式 2 设备报警 5 视频报警 6 设备故障报警
+                     * 
                      */
                     void SetWarnMode(const int64_t& _warnMode);
 
                     /**
                      * 判断参数 WarnMode 是否已赋值
                      * @return WarnMode 是否已赋值
+                     * 
                      */
                     bool WarnModeHasBeenSet() const;
 
                     /**
                      * 获取告警方式名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return WarnModeName 告警方式名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetWarnModeName() const;
 
                     /**
                      * 设置告警方式名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param WarnModeName 告警方式名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _warnModeName 告警方式名称
+                     * 
                      */
                     void SetWarnModeName(const std::string& _warnModeName);
 
                     /**
                      * 判断参数 WarnModeName 是否已赋值
                      * @return WarnModeName 是否已赋值
+                     * 
                      */
                     bool WarnModeNameHasBeenSet() const;
 
@@ -257,7 +249,6 @@ namespace TencentCloud
 				2: "存储设备风扇故障报警",
 			},
 		}
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return WarnType 告警类型  2: {
 			Name: "设备报警",
 			WarnType: map[int]string{
@@ -292,7 +283,7 @@ namespace TencentCloud
 				2: "存储设备风扇故障报警",
 			},
 		}
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetWarnType() const;
 
@@ -331,8 +322,7 @@ namespace TencentCloud
 				2: "存储设备风扇故障报警",
 			},
 		}
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param WarnType 告警类型  2: {
+                     * @param _warnType 告警类型  2: {
 			Name: "设备报警",
 			WarnType: map[int]string{
 				1: "视频丢失报警",
@@ -366,79 +356,77 @@ namespace TencentCloud
 				2: "存储设备风扇故障报警",
 			},
 		}
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetWarnType(const int64_t& _warnType);
 
                     /**
                      * 判断参数 WarnType 是否已赋值
                      * @return WarnType 是否已赋值
+                     * 
                      */
                     bool WarnTypeHasBeenSet() const;
 
                     /**
                      * 获取是否删除
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Del 是否删除
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetDel() const;
 
                     /**
                      * 设置是否删除
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Del 是否删除
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _del 是否删除
+                     * 
                      */
                     void SetDel(const int64_t& _del);
 
                     /**
                      * 判断参数 Del 是否已赋值
                      * @return Del 是否已赋值
+                     * 
                      */
                     bool DelHasBeenSet() const;
 
                     /**
                      * 获取创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _createTime 创建时间
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
                      * 获取更新时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
                      * 设置更新时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _updateTime 更新时间
+                     * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
 
                     /**
                      * 判断参数 UpdateTime 是否已赋值
                      * @return UpdateTime 是否已赋值
+                     * 
                      */
                     bool UpdateTimeHasBeenSet() const;
 
@@ -446,56 +434,48 @@ namespace TencentCloud
 
                     /**
                      * 唯一ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
                      * 设备ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_deviceId;
                     bool m_deviceIdHasBeenSet;
 
                     /**
                      * 设备名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_deviceName;
                     bool m_deviceNameHasBeenSet;
 
                     /**
                      * 告警通道
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_warnChannel;
                     bool m_warnChannelHasBeenSet;
 
                     /**
                      * 告警级别 1: "一级警情", 2: "二级警情", 3: "三级警情", 4: "四级警情",
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_warnLevel;
                     bool m_warnLevelHasBeenSet;
 
                     /**
                      * 告警级别名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_warnLevelName;
                     bool m_warnLevelNameHasBeenSet;
 
                     /**
                      * 告警方式 2 设备报警 5 视频报警 6 设备故障报警
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_warnMode;
                     bool m_warnModeHasBeenSet;
 
                     /**
                      * 告警方式名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_warnModeName;
                     bool m_warnModeNameHasBeenSet;
@@ -535,28 +515,24 @@ namespace TencentCloud
 				2: "存储设备风扇故障报警",
 			},
 		}
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_warnType;
                     bool m_warnTypeHasBeenSet;
 
                     /**
                      * 是否删除
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_del;
                     bool m_delHasBeenSet;
 
                     /**
                      * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
                      * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;

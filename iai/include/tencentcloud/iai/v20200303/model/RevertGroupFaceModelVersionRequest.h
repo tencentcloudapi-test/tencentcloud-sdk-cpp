@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取需要回滚的升级任务ID。
                      * @return JobId 需要回滚的升级任务ID。
+                     * 
                      */
                     std::string GetJobId() const;
 
                     /**
                      * 设置需要回滚的升级任务ID。
-                     * @param JobId 需要回滚的升级任务ID。
+                     * @param _jobId 需要回滚的升级任务ID。
+                     * 
                      */
                     void SetJobId(const std::string& _jobId);
 
                     /**
                      * 判断参数 JobId 是否已赋值
                      * @return JobId 是否已赋值
+                     * 
                      */
                     bool JobIdHasBeenSet() const;
 

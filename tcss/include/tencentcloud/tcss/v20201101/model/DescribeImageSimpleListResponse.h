@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取镜像列表
                      * @return ImageList 镜像列表
+                     * 
                      */
                     std::vector<ImageSimpleInfo> GetImageList() const;
 
                     /**
                      * 判断参数 ImageList 是否已赋值
                      * @return ImageList 是否已赋值
+                     * 
                      */
                     bool ImageListHasBeenSet() const;
 
                     /**
                      * 获取镜像数
                      * @return ImageCnt 镜像数
+                     * 
                      */
                     uint64_t GetImageCnt() const;
 
                     /**
                      * 判断参数 ImageCnt 是否已赋值
                      * @return ImageCnt 是否已赋值
+                     * 
                      */
                     bool ImageCntHasBeenSet() const;
 

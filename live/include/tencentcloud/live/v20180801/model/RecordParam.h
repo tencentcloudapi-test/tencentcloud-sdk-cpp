@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,30 +49,33 @@ namespace TencentCloud
                     /**
                      * 获取录制间隔。
 单位秒，默认：1800。
-取值范围：30-7200。
+FLV、MP4取值范围： 60-43200， AAC取值范围： 60-7200 。
 此参数对 HLS 无效，当录制 HLS 时从推流到断流生成一个文件。
                      * @return RecordInterval 录制间隔。
 单位秒，默认：1800。
-取值范围：30-7200。
+FLV、MP4取值范围： 60-43200， AAC取值范围： 60-7200 。
 此参数对 HLS 无效，当录制 HLS 时从推流到断流生成一个文件。
+                     * 
                      */
                     int64_t GetRecordInterval() const;
 
                     /**
                      * 设置录制间隔。
 单位秒，默认：1800。
-取值范围：30-7200。
+FLV、MP4取值范围： 60-43200， AAC取值范围： 60-7200 。
 此参数对 HLS 无效，当录制 HLS 时从推流到断流生成一个文件。
-                     * @param RecordInterval 录制间隔。
+                     * @param _recordInterval 录制间隔。
 单位秒，默认：1800。
-取值范围：30-7200。
+FLV、MP4取值范围： 60-43200， AAC取值范围： 60-7200 。
 此参数对 HLS 无效，当录制 HLS 时从推流到断流生成一个文件。
+                     * 
                      */
                     void SetRecordInterval(const int64_t& _recordInterval);
 
                     /**
                      * 判断参数 RecordInterval 是否已赋值
                      * @return RecordInterval 是否已赋值
+                     * 
                      */
                     bool RecordIntervalHasBeenSet() const;
 
@@ -80,9 +83,12 @@ namespace TencentCloud
                      * 获取录制存储时长。
 单位秒，取值范围： 0 - 1500天。
 0：表示永久存储。
+注：此参数只对录制到VOD有效。
                      * @return StorageTime 录制存储时长。
 单位秒，取值范围： 0 - 1500天。
 0：表示永久存储。
+注：此参数只对录制到VOD有效。
+                     * 
                      */
                     int64_t GetStorageTime() const;
 
@@ -90,51 +96,61 @@ namespace TencentCloud
                      * 设置录制存储时长。
 单位秒，取值范围： 0 - 1500天。
 0：表示永久存储。
-                     * @param StorageTime 录制存储时长。
+注：此参数只对录制到VOD有效。
+                     * @param _storageTime 录制存储时长。
 单位秒，取值范围： 0 - 1500天。
 0：表示永久存储。
+注：此参数只对录制到VOD有效。
+                     * 
                      */
                     void SetStorageTime(const int64_t& _storageTime);
 
                     /**
                      * 判断参数 StorageTime 是否已赋值
                      * @return StorageTime 是否已赋值
+                     * 
                      */
                     bool StorageTimeHasBeenSet() const;
 
                     /**
                      * 获取是否开启当前格式录制，默认值为0，0：否， 1：是。
                      * @return Enable 是否开启当前格式录制，默认值为0，0：否， 1：是。
+                     * 
                      */
                     int64_t GetEnable() const;
 
                     /**
                      * 设置是否开启当前格式录制，默认值为0，0：否， 1：是。
-                     * @param Enable 是否开启当前格式录制，默认值为0，0：否， 1：是。
+                     * @param _enable 是否开启当前格式录制，默认值为0，0：否， 1：是。
+                     * 
                      */
                     void SetEnable(const int64_t& _enable);
 
                     /**
                      * 判断参数 Enable 是否已赋值
                      * @return Enable 是否已赋值
+                     * 
                      */
                     bool EnableHasBeenSet() const;
 
                     /**
                      * 获取点播子应用 ID。
                      * @return VodSubAppId 点播子应用 ID。
+                     * 
                      */
                     int64_t GetVodSubAppId() const;
 
                     /**
                      * 设置点播子应用 ID。
-                     * @param VodSubAppId 点播子应用 ID。
+                     * @param _vodSubAppId 点播子应用 ID。
+                     * 
                      */
                     void SetVodSubAppId(const int64_t& _vodSubAppId);
 
                     /**
                      * 判断参数 VodSubAppId 是否已赋值
                      * @return VodSubAppId 是否已赋值
+                     * 
                      */
                     bool VodSubAppIdHasBeenSet() const;
 
@@ -177,6 +193,7 @@ namespace TencentCloud
 {EndMillisecond}: 结束时间-毫秒
 
 若未设置默认录制文件名为{StreamID}_{StartYear}-{StartMonth}-{StartDay}-{StartHour}-{StartMinute}-{StartSecond}_{EndYear}-{EndMonth}-{EndDay}-{EndHour}-{EndMinute}-{EndSecond}
+                     * 
                      */
                     std::string GetVodFileName() const;
 
@@ -200,7 +217,7 @@ namespace TencentCloud
 {EndMillisecond}: 结束时间-毫秒
 
 若未设置默认录制文件名为{StreamID}_{StartYear}-{StartMonth}-{StartDay}-{StartHour}-{StartMinute}-{StartSecond}_{EndYear}-{EndMonth}-{EndDay}-{EndHour}-{EndMinute}-{EndSecond}
-                     * @param VodFileName 录制文件名。
+                     * @param _vodFileName 录制文件名。
 支持的特殊占位符有：
 {StreamID}: 流ID
 {StartYear}: 开始时间-年
@@ -219,12 +236,14 @@ namespace TencentCloud
 {EndMillisecond}: 结束时间-毫秒
 
 若未设置默认录制文件名为{StreamID}_{StartYear}-{StartMonth}-{StartDay}-{StartHour}-{StartMinute}-{StartSecond}_{EndYear}-{EndMonth}-{EndDay}-{EndHour}-{EndMinute}-{EndSecond}
+                     * 
                      */
                     void SetVodFileName(const std::string& _vodFileName);
 
                     /**
                      * 判断参数 VodFileName 是否已赋值
                      * @return VodFileName 是否已赋值
+                     * 
                      */
                     bool VodFileNameHasBeenSet() const;
 
@@ -233,20 +252,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Procedure 任务流
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetProcedure() const;
 
                     /**
                      * 设置任务流
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Procedure 任务流
+                     * @param _procedure 任务流
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetProcedure(const std::string& _procedure);
 
                     /**
                      * 判断参数 Procedure 是否已赋值
                      * @return Procedure 是否已赋值
+                     * 
                      */
                     bool ProcedureHasBeenSet() const;
 
@@ -259,6 +281,7 @@ cold：低频存储。
 normal：标准存储。
 cold：低频存储。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetStorageMode() const;
 
@@ -267,16 +290,18 @@ cold：低频存储。
 normal：标准存储。
 cold：低频存储。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param StorageMode 视频存储策略。
+                     * @param _storageMode 视频存储策略。
 normal：标准存储。
 cold：低频存储。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetStorageMode(const std::string& _storageMode);
 
                     /**
                      * 判断参数 StorageMode 是否已赋值
                      * @return StorageMode 是否已赋值
+                     * 
                      */
                     bool StorageModeHasBeenSet() const;
 
@@ -285,29 +310,111 @@ cold：低频存储。
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ClassId 点播应用分类
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetClassId() const;
 
                     /**
                      * 设置点播应用分类
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ClassId 点播应用分类
+                     * @param _classId 点播应用分类
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetClassId(const int64_t& _classId);
 
                     /**
                      * 判断参数 ClassId 是否已赋值
                      * @return ClassId 是否已赋值
+                     * 
                      */
                     bool ClassIdHasBeenSet() const;
+
+                    /**
+                     * 获取存储至 cos 的 bucket 桶名称。
+注：CosBucketName参数值不能包含-[appid] 部分。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CosBucketName 存储至 cos 的 bucket 桶名称。
+注：CosBucketName参数值不能包含-[appid] 部分。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetCosBucketName() const;
+
+                    /**
+                     * 设置存储至 cos 的 bucket 桶名称。
+注：CosBucketName参数值不能包含-[appid] 部分。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _cosBucketName 存储至 cos 的 bucket 桶名称。
+注：CosBucketName参数值不能包含-[appid] 部分。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetCosBucketName(const std::string& _cosBucketName);
+
+                    /**
+                     * 判断参数 CosBucketName 是否已赋值
+                     * @return CosBucketName 是否已赋值
+                     * 
+                     */
+                    bool CosBucketNameHasBeenSet() const;
+
+                    /**
+                     * 获取存储至 cos 的 bucket 区域。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CosBucketRegion 存储至 cos 的 bucket 区域。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetCosBucketRegion() const;
+
+                    /**
+                     * 设置存储至 cos 的 bucket 区域。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _cosBucketRegion 存储至 cos 的 bucket 区域。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetCosBucketRegion(const std::string& _cosBucketRegion);
+
+                    /**
+                     * 判断参数 CosBucketRegion 是否已赋值
+                     * @return CosBucketRegion 是否已赋值
+                     * 
+                     */
+                    bool CosBucketRegionHasBeenSet() const;
+
+                    /**
+                     * 获取存储至 cos 的 bucket 路径。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CosBucketPath 存储至 cos 的 bucket 路径。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetCosBucketPath() const;
+
+                    /**
+                     * 设置存储至 cos 的 bucket 路径。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _cosBucketPath 存储至 cos 的 bucket 路径。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetCosBucketPath(const std::string& _cosBucketPath);
+
+                    /**
+                     * 判断参数 CosBucketPath 是否已赋值
+                     * @return CosBucketPath 是否已赋值
+                     * 
+                     */
+                    bool CosBucketPathHasBeenSet() const;
 
                 private:
 
                     /**
                      * 录制间隔。
 单位秒，默认：1800。
-取值范围：30-7200。
+FLV、MP4取值范围： 60-43200， AAC取值范围： 60-7200 。
 此参数对 HLS 无效，当录制 HLS 时从推流到断流生成一个文件。
                      */
                     int64_t m_recordInterval;
@@ -317,6 +424,7 @@ cold：低频存储。
                      * 录制存储时长。
 单位秒，取值范围： 0 - 1500天。
 0：表示永久存储。
+注：此参数只对录制到VOD有效。
                      */
                     int64_t m_storageTime;
                     bool m_storageTimeHasBeenSet;
@@ -379,6 +487,28 @@ cold：低频存储。
                      */
                     int64_t m_classId;
                     bool m_classIdHasBeenSet;
+
+                    /**
+                     * 存储至 cos 的 bucket 桶名称。
+注：CosBucketName参数值不能包含-[appid] 部分。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_cosBucketName;
+                    bool m_cosBucketNameHasBeenSet;
+
+                    /**
+                     * 存储至 cos 的 bucket 区域。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_cosBucketRegion;
+                    bool m_cosBucketRegionHasBeenSet;
+
+                    /**
+                     * 存储至 cos 的 bucket 路径。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_cosBucketPath;
+                    bool m_cosBucketPathHasBeenSet;
 
                 };
             }

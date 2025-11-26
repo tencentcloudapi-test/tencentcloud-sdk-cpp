@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 DescribePayTypeRequest::DescribePayTypeRequest() :
     m_areaHasBeenSet(false),
-    m_productHasBeenSet(false)
+    m_productHasBeenSet(false),
+    m_typeHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string DescribePayTypeRequest::ToJsonString() const
         string key = "Product";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_product.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_typeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Type";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +98,22 @@ void DescribePayTypeRequest::SetProduct(const string& _product)
 bool DescribePayTypeRequest::ProductHasBeenSet() const
 {
     return m_productHasBeenSet;
+}
+
+string DescribePayTypeRequest::GetType() const
+{
+    return m_type;
+}
+
+void DescribePayTypeRequest::SetType(const string& _type)
+{
+    m_type = _type;
+    m_typeHasBeenSet = true;
+}
+
+bool DescribePayTypeRequest::TypeHasBeenSet() const
+{
+    return m_typeHasBeenSet;
 }
 
 

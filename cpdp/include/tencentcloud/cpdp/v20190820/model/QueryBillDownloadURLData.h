@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return BillDownloadURL 统一对账单下载链接
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetBillDownloadURL() const;
 
                     /**
                      * 设置统一对账单下载链接
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param BillDownloadURL 统一对账单下载链接
+                     * @param _billDownloadURL 统一对账单下载链接
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetBillDownloadURL(const std::string& _billDownloadURL);
 
                     /**
                      * 判断参数 BillDownloadURL 是否已赋值
                      * @return BillDownloadURL 是否已赋值
+                     * 
                      */
                     bool BillDownloadURLHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OriginalBillDownloadURL 渠道原始对账单下载链接
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetOriginalBillDownloadURL() const;
 
                     /**
                      * 设置渠道原始对账单下载链接
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OriginalBillDownloadURL 渠道原始对账单下载链接
+                     * @param _originalBillDownloadURL 渠道原始对账单下载链接
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetOriginalBillDownloadURL(const std::string& _originalBillDownloadURL);
 
                     /**
                      * 判断参数 OriginalBillDownloadURL 是否已赋值
                      * @return OriginalBillDownloadURL 是否已赋值
+                     * 
                      */
                     bool OriginalBillDownloadURLHasBeenSet() const;
 

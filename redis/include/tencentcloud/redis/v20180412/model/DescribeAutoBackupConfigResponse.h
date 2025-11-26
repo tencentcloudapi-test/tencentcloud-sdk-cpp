@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,93 +44,103 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取备份类型。自动备份类型： 1 “定时回档”
-                     * @return AutoBackupType 备份类型。自动备份类型： 1 “定时回档”
+                     * 获取该参数因兼容性问题暂时保留，请忽略。
+                     * @return AutoBackupType 该参数因兼容性问题暂时保留，请忽略。
+                     * 
                      */
                     int64_t GetAutoBackupType() const;
 
                     /**
                      * 判断参数 AutoBackupType 是否已赋值
                      * @return AutoBackupType 是否已赋值
+                     * 
                      */
                     bool AutoBackupTypeHasBeenSet() const;
 
                     /**
-                     * 获取Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
-                     * @return WeekDays Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+                     * 获取备份周期，默认为每天自动备份，Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+                     * @return WeekDays 备份周期，默认为每天自动备份，Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+                     * 
                      */
                     std::vector<std::string> GetWeekDays() const;
 
                     /**
                      * 判断参数 WeekDays 是否已赋值
                      * @return WeekDays 是否已赋值
+                     * 
                      */
                     bool WeekDaysHasBeenSet() const;
 
                     /**
-                     * 获取时间段。
-                     * @return TimePeriod 时间段。
+                     * 获取备份任务发起时间段。
+                     * @return TimePeriod 备份任务发起时间段。
+                     * 
                      */
                     std::string GetTimePeriod() const;
 
                     /**
                      * 判断参数 TimePeriod 是否已赋值
                      * @return TimePeriod 是否已赋值
+                     * 
                      */
                     bool TimePeriodHasBeenSet() const;
 
                     /**
-                     * 获取全量备份文件保存天数
-                     * @return BackupStorageDays 全量备份文件保存天数
+                     * 获取全量备份文件保存天数。默认为7天。如需保存更多天数，请[提交工单](https://console.cloud.tencent.com/workorder/category)申请。
+                     * @return BackupStorageDays 全量备份文件保存天数。默认为7天。如需保存更多天数，请[提交工单](https://console.cloud.tencent.com/workorder/category)申请。
+                     * 
                      */
                     int64_t GetBackupStorageDays() const;
 
                     /**
                      * 判断参数 BackupStorageDays 是否已赋值
                      * @return BackupStorageDays 是否已赋值
+                     * 
                      */
                     bool BackupStorageDaysHasBeenSet() const;
 
                     /**
-                     * 获取tendis binlog备份文件保存天数
-                     * @return BinlogStorageDays tendis binlog备份文件保存天数
+                     * 获取该参数不再使用，请忽略。
+                     * @return BinlogStorageDays 该参数不再使用，请忽略。
+                     * 
                      */
                     int64_t GetBinlogStorageDays() const;
 
                     /**
                      * 判断参数 BinlogStorageDays 是否已赋值
                      * @return BinlogStorageDays 是否已赋值
+                     * 
                      */
                     bool BinlogStorageDaysHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 备份类型。自动备份类型： 1 “定时回档”
+                     * 该参数因兼容性问题暂时保留，请忽略。
                      */
                     int64_t m_autoBackupType;
                     bool m_autoBackupTypeHasBeenSet;
 
                     /**
-                     * Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
+                     * 备份周期，默认为每天自动备份，Monday，Tuesday，Wednesday，Thursday，Friday，Saturday，Sunday。
                      */
                     std::vector<std::string> m_weekDays;
                     bool m_weekDaysHasBeenSet;
 
                     /**
-                     * 时间段。
+                     * 备份任务发起时间段。
                      */
                     std::string m_timePeriod;
                     bool m_timePeriodHasBeenSet;
 
                     /**
-                     * 全量备份文件保存天数
+                     * 全量备份文件保存天数。默认为7天。如需保存更多天数，请[提交工单](https://console.cloud.tencent.com/workorder/category)申请。
                      */
                     int64_t m_backupStorageDays;
                     bool m_backupStorageDaysHasBeenSet;
 
                     /**
-                     * tendis binlog备份文件保存天数
+                     * 该参数不再使用，请忽略。
                      */
                     int64_t m_binlogStorageDays;
                     bool m_binlogStorageDaysHasBeenSet;

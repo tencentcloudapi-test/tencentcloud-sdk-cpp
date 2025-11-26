@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,26 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取流程列表
-                     * @return FlowBriefs 流程列表
+                     * 获取合同流程基础信息列表，包含流程的名称、状态、创建日期等基本信息。 
+注：`与入参 FlowIds 的顺序可能存在不一致的情况。`
+                     * @return FlowBriefs 合同流程基础信息列表，包含流程的名称、状态、创建日期等基本信息。 
+注：`与入参 FlowIds 的顺序可能存在不一致的情况。`
+                     * 
                      */
                     std::vector<FlowBrief> GetFlowBriefs() const;
 
                     /**
                      * 判断参数 FlowBriefs 是否已赋值
                      * @return FlowBriefs 是否已赋值
+                     * 
                      */
                     bool FlowBriefsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 流程列表
+                     * 合同流程基础信息列表，包含流程的名称、状态、创建日期等基本信息。 
+注：`与入参 FlowIds 的顺序可能存在不一致的情况。`
                      */
                     std::vector<FlowBrief> m_flowBriefs;
                     bool m_flowBriefsHasBeenSet;

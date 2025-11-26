@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ using namespace std;
 DescribeSafeAuthFlagCollResponse::DescribeSafeAuthFlagCollResponse() :
     m_loginFlagHasBeenSet(false),
     m_actionFlagHasBeenSet(false),
-    m_offsiteFlagHasBeenSet(false)
+    m_offsiteFlagHasBeenSet(false),
+    m_promptTrustHasBeenSet(false)
 {
 }
 
@@ -115,6 +116,16 @@ CoreInternalOutcome DescribeSafeAuthFlagCollResponse::Deserialize(const string &
         m_offsiteFlagHasBeenSet = true;
     }
 
+    if (rsp.HasMember("PromptTrust") && !rsp["PromptTrust"].IsNull())
+    {
+        if (!rsp["PromptTrust"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PromptTrust` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_promptTrust = rsp["PromptTrust"].GetInt64();
+        m_promptTrustHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -152,11 +163,19 @@ string DescribeSafeAuthFlagCollResponse::ToJsonString() const
         m_offsiteFlag.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_promptTrustHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PromptTrust";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_promptTrust, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -192,6 +211,16 @@ OffsiteFlag DescribeSafeAuthFlagCollResponse::GetOffsiteFlag() const
 bool DescribeSafeAuthFlagCollResponse::OffsiteFlagHasBeenSet() const
 {
     return m_offsiteFlagHasBeenSet;
+}
+
+int64_t DescribeSafeAuthFlagCollResponse::GetPromptTrust() const
+{
+    return m_promptTrust;
+}
+
+bool DescribeSafeAuthFlagCollResponse::PromptTrustHasBeenSet() const
+{
+    return m_promptTrustHasBeenSet;
 }
 
 

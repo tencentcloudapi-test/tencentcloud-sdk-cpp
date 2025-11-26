@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ ImageVirusInfo::ImageVirusInfo() :
     m_firstScanTimeHasBeenSet(false),
     m_latestScanTimeHasBeenSet(false),
     m_md5HasBeenSet(false),
-    m_fileNameHasBeenSet(false)
+    m_fileNameHasBeenSet(false),
+    m_checkPlatformHasBeenSet(false)
 {
 }
 
@@ -153,6 +154,19 @@ CoreInternalOutcome ImageVirusInfo::Deserialize(const rapidjson::Value &value)
         m_fileNameHasBeenSet = true;
     }
 
+    if (value.HasMember("CheckPlatform") && !value["CheckPlatform"].IsNull())
+    {
+        if (!value["CheckPlatform"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ImageVirusInfo.CheckPlatform` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CheckPlatform"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_checkPlatform.push_back((*itr).GetString());
+        }
+        m_checkPlatformHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -251,6 +265,19 @@ void ImageVirusInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "FileName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_fileName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_checkPlatformHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CheckPlatform";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_checkPlatform.begin(); itr != m_checkPlatform.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 }
@@ -430,5 +457,21 @@ void ImageVirusInfo::SetFileName(const string& _fileName)
 bool ImageVirusInfo::FileNameHasBeenSet() const
 {
     return m_fileNameHasBeenSet;
+}
+
+vector<string> ImageVirusInfo::GetCheckPlatform() const
+{
+    return m_checkPlatform;
+}
+
+void ImageVirusInfo::SetCheckPlatform(const vector<string>& _checkPlatform)
+{
+    m_checkPlatform = _checkPlatform;
+    m_checkPlatformHasBeenSet = true;
+}
+
+bool ImageVirusInfo::CheckPlatformHasBeenSet() const
+{
+    return m_checkPlatformHasBeenSet;
 }
 

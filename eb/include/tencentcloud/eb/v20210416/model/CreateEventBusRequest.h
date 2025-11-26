@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,54 +43,114 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取事件集名称，只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2~60个字符
-                     * @return EventBusName 事件集名称，只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2~60个字符
+                     * 获取事件集名称，只能包含字母、中文、数字、下划线、连字符，以字母/中文开头，以数字、字母或中文结尾，2~60个字符
+                     * @return EventBusName 事件集名称，只能包含字母、中文、数字、下划线、连字符，以字母/中文开头，以数字、字母或中文结尾，2~60个字符
+                     * 
                      */
                     std::string GetEventBusName() const;
 
                     /**
-                     * 设置事件集名称，只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2~60个字符
-                     * @param EventBusName 事件集名称，只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2~60个字符
+                     * 设置事件集名称，只能包含字母、中文、数字、下划线、连字符，以字母/中文开头，以数字、字母或中文结尾，2~60个字符
+                     * @param _eventBusName 事件集名称，只能包含字母、中文、数字、下划线、连字符，以字母/中文开头，以数字、字母或中文结尾，2~60个字符
+                     * 
                      */
                     void SetEventBusName(const std::string& _eventBusName);
 
                     /**
                      * 判断参数 EventBusName 是否已赋值
                      * @return EventBusName 是否已赋值
+                     * 
                      */
                     bool EventBusNameHasBeenSet() const;
 
                     /**
-                     * 获取事件集描述，不限字符类型，200字符描述以内
-                     * @return Description 事件集描述，不限字符类型，200字符描述以内
+                     * 获取事件集描述，只能包含数字、中英文及常用标点符号，不超过200个字符
+                     * @return Description 事件集描述，只能包含数字、中英文及常用标点符号，不超过200个字符
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置事件集描述，不限字符类型，200字符描述以内
-                     * @param Description 事件集描述，不限字符类型，200字符描述以内
+                     * 设置事件集描述，只能包含数字、中英文及常用标点符号，不超过200个字符
+                     * @param _description 事件集描述，只能包含数字、中英文及常用标点符号，不超过200个字符
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
+
+                    /**
+                     * 获取EB存储时长
+                     * @return SaveDays EB存储时长
+                     * 
+                     */
+                    int64_t GetSaveDays() const;
+
+                    /**
+                     * 设置EB存储时长
+                     * @param _saveDays EB存储时长
+                     * 
+                     */
+                    void SetSaveDays(const int64_t& _saveDays);
+
+                    /**
+                     * 判断参数 SaveDays 是否已赋值
+                     * @return SaveDays 是否已赋值
+                     * 
+                     */
+                    bool SaveDaysHasBeenSet() const;
+
+                    /**
+                     * 获取EB是否开启存储
+                     * @return EnableStore EB是否开启存储
+                     * 
+                     */
+                    bool GetEnableStore() const;
+
+                    /**
+                     * 设置EB是否开启存储
+                     * @param _enableStore EB是否开启存储
+                     * 
+                     */
+                    void SetEnableStore(const bool& _enableStore);
+
+                    /**
+                     * 判断参数 EnableStore 是否已赋值
+                     * @return EnableStore 是否已赋值
+                     * 
+                     */
+                    bool EnableStoreHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 事件集名称，只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2~60个字符
+                     * 事件集名称，只能包含字母、中文、数字、下划线、连字符，以字母/中文开头，以数字、字母或中文结尾，2~60个字符
                      */
                     std::string m_eventBusName;
                     bool m_eventBusNameHasBeenSet;
 
                     /**
-                     * 事件集描述，不限字符类型，200字符描述以内
+                     * 事件集描述，只能包含数字、中英文及常用标点符号，不超过200个字符
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
+
+                    /**
+                     * EB存储时长
+                     */
+                    int64_t m_saveDays;
+                    bool m_saveDaysHasBeenSet;
+
+                    /**
+                     * EB是否开启存储
+                     */
+                    bool m_enableStore;
+                    bool m_enableStoreHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 DescribeTrafficPackagesRequest::DescribeTrafficPackagesRequest() :
     m_offsetHasBeenSet(false),
-    m_limitHasBeenSet(false)
+    m_limitHasBeenSet(false),
+    m_sortByHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string DescribeTrafficPackagesRequest::ToJsonString() const
         string key = "Limit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_limit, allocator);
+    }
+
+    if (m_sortByHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SortBy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_sortBy.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +98,22 @@ void DescribeTrafficPackagesRequest::SetLimit(const int64_t& _limit)
 bool DescribeTrafficPackagesRequest::LimitHasBeenSet() const
 {
     return m_limitHasBeenSet;
+}
+
+string DescribeTrafficPackagesRequest::GetSortBy() const
+{
+    return m_sortBy;
+}
+
+void DescribeTrafficPackagesRequest::SetSortBy(const string& _sortBy)
+{
+    m_sortBy = _sortBy;
+    m_sortByHasBeenSet = true;
+}
+
+bool DescribeTrafficPackagesRequest::SortByHasBeenSet() const
+{
+    return m_sortByHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,45 +47,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取groupId
-                     * @return Group groupId
+                     * 获取消费分组名称
+                     * @return Group 消费分组名称
+                     * 
                      */
                     std::string GetGroup() const;
 
                     /**
-                     * 设置groupId
-                     * @param Group groupId
+                     * 设置消费分组名称
+                     * @param _group 消费分组名称
+                     * 
                      */
                     void SetGroup(const std::string& _group);
 
                     /**
                      * 判断参数 Group 是否已赋值
                      * @return Group 是否已赋值
+                     * 
                      */
                     bool GroupHasBeenSet() const;
 
                     /**
                      * 获取该 group 使用的协议。
                      * @return Protocol 该 group 使用的协议。
+                     * 
                      */
                     std::string GetProtocol() const;
 
                     /**
                      * 设置该 group 使用的协议。
-                     * @param Protocol 该 group 使用的协议。
+                     * @param _protocol 该 group 使用的协议。
+                     * 
                      */
                     void SetProtocol(const std::string& _protocol);
 
                     /**
                      * 判断参数 Protocol 是否已赋值
                      * @return Protocol 是否已赋值
+                     * 
                      */
                     bool ProtocolHasBeenSet() const;
 
                 private:
 
                     /**
-                     * groupId
+                     * 消费分组名称
                      */
                     std::string m_group;
                     bool m_groupHasBeenSet;

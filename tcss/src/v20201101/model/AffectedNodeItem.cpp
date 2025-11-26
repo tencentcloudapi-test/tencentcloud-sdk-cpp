@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ AffectedNodeItem::AffectedNodeItem() :
     m_clusterVersionHasBeenSet(false),
     m_containerRuntimeHasBeenSet(false),
     m_regionHasBeenSet(false),
-    m_verifyInfoHasBeenSet(false)
+    m_verifyInfoHasBeenSet(false),
+    m_nodeNameHasBeenSet(false)
 {
 }
 
@@ -128,6 +129,16 @@ CoreInternalOutcome AffectedNodeItem::Deserialize(const rapidjson::Value &value)
         m_verifyInfoHasBeenSet = true;
     }
 
+    if (value.HasMember("NodeName") && !value["NodeName"].IsNull())
+    {
+        if (!value["NodeName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AffectedNodeItem.NodeName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeName = string(value["NodeName"].GetString());
+        m_nodeNameHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -205,6 +216,14 @@ void AffectedNodeItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "VerifyInfo";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_verifyInfo.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nodeName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -352,5 +371,21 @@ void AffectedNodeItem::SetVerifyInfo(const string& _verifyInfo)
 bool AffectedNodeItem::VerifyInfoHasBeenSet() const
 {
     return m_verifyInfoHasBeenSet;
+}
+
+string AffectedNodeItem::GetNodeName() const
+{
+    return m_nodeName;
+}
+
+void AffectedNodeItem::SetNodeName(const string& _nodeName)
+{
+    m_nodeName = _nodeName;
+    m_nodeNameHasBeenSet = true;
+}
+
+bool AffectedNodeItem::NodeNameHasBeenSet() const
+{
+    return m_nodeNameHasBeenSet;
 }
 

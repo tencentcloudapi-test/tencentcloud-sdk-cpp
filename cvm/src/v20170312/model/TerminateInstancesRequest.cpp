@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@ using namespace TencentCloud::Cvm::V20170312::Model;
 using namespace std;
 
 TerminateInstancesRequest::TerminateInstancesRequest() :
-    m_instanceIdsHasBeenSet(false)
+    m_instanceIdsHasBeenSet(false),
+    m_releaseAddressHasBeenSet(false),
+    m_releasePrepaidDataDisksHasBeenSet(false)
 {
 }
 
@@ -45,6 +47,22 @@ string TerminateInstancesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_releaseAddressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReleaseAddress";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_releaseAddress, allocator);
+    }
+
+    if (m_releasePrepaidDataDisksHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReleasePrepaidDataDisks";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_releasePrepaidDataDisks, allocator);
     }
 
 
@@ -69,6 +87,38 @@ void TerminateInstancesRequest::SetInstanceIds(const vector<string>& _instanceId
 bool TerminateInstancesRequest::InstanceIdsHasBeenSet() const
 {
     return m_instanceIdsHasBeenSet;
+}
+
+bool TerminateInstancesRequest::GetReleaseAddress() const
+{
+    return m_releaseAddress;
+}
+
+void TerminateInstancesRequest::SetReleaseAddress(const bool& _releaseAddress)
+{
+    m_releaseAddress = _releaseAddress;
+    m_releaseAddressHasBeenSet = true;
+}
+
+bool TerminateInstancesRequest::ReleaseAddressHasBeenSet() const
+{
+    return m_releaseAddressHasBeenSet;
+}
+
+bool TerminateInstancesRequest::GetReleasePrepaidDataDisks() const
+{
+    return m_releasePrepaidDataDisks;
+}
+
+void TerminateInstancesRequest::SetReleasePrepaidDataDisks(const bool& _releasePrepaidDataDisks)
+{
+    m_releasePrepaidDataDisks = _releasePrepaidDataDisks;
+    m_releasePrepaidDataDisksHasBeenSet = true;
+}
+
+bool TerminateInstancesRequest::ReleasePrepaidDataDisksHasBeenSet() const
+{
+    return m_releasePrepaidDataDisksHasBeenSet;
 }
 
 

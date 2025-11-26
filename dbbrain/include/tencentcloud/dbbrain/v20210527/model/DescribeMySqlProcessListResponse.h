@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/dbbrain/v20210527/model/MySqlProcess.h>
+#include <tencentcloud/dbbrain/v20210527/model/StatisticInfo.h>
 
 
 namespace TencentCloud
@@ -47,14 +48,30 @@ namespace TencentCloud
                     /**
                      * 获取实时线程列表。
                      * @return ProcessList 实时线程列表。
+                     * 
                      */
                     std::vector<MySqlProcess> GetProcessList() const;
 
                     /**
                      * 判断参数 ProcessList 是否已赋值
                      * @return ProcessList 是否已赋值
+                     * 
                      */
                     bool ProcessListHasBeenSet() const;
+
+                    /**
+                     * 获取sql会话统计信息。如果请求参数中包含StatDimensions，该参数则可能返回，否则不返回。
+                     * @return Statistics sql会话统计信息。如果请求参数中包含StatDimensions，该参数则可能返回，否则不返回。
+                     * 
+                     */
+                    std::vector<StatisticInfo> GetStatistics() const;
+
+                    /**
+                     * 判断参数 Statistics 是否已赋值
+                     * @return Statistics 是否已赋值
+                     * 
+                     */
+                    bool StatisticsHasBeenSet() const;
 
                 private:
 
@@ -63,6 +80,12 @@ namespace TencentCloud
                      */
                     std::vector<MySqlProcess> m_processList;
                     bool m_processListHasBeenSet;
+
+                    /**
+                     * sql会话统计信息。如果请求参数中包含StatDimensions，该参数则可能返回，否则不返回。
+                     */
+                    std::vector<StatisticInfo> m_statistics;
+                    bool m_statisticsHasBeenSet;
 
                 };
             }

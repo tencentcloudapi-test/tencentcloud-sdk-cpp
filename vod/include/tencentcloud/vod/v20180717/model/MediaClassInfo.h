@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,99 +47,135 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取分类 ID
-                     * @return ClassId 分类 ID
+                     * 获取分类 ID。
+                     * @return ClassId 分类 ID。
+                     * 
                      */
                     int64_t GetClassId() const;
 
                     /**
-                     * 设置分类 ID
-                     * @param ClassId 分类 ID
+                     * 设置分类 ID。
+                     * @param _classId 分类 ID。
+                     * 
                      */
                     void SetClassId(const int64_t& _classId);
 
                     /**
                      * 判断参数 ClassId 是否已赋值
                      * @return ClassId 是否已赋值
+                     * 
                      */
                     bool ClassIdHasBeenSet() const;
 
                     /**
                      * 获取父类 ID，一级分类的父类 ID 为 -1。
                      * @return ParentId 父类 ID，一级分类的父类 ID 为 -1。
+                     * 
                      */
                     int64_t GetParentId() const;
 
                     /**
                      * 设置父类 ID，一级分类的父类 ID 为 -1。
-                     * @param ParentId 父类 ID，一级分类的父类 ID 为 -1。
+                     * @param _parentId 父类 ID，一级分类的父类 ID 为 -1。
+                     * 
                      */
                     void SetParentId(const int64_t& _parentId);
 
                     /**
                      * 判断参数 ParentId 是否已赋值
                      * @return ParentId 是否已赋值
+                     * 
                      */
                     bool ParentIdHasBeenSet() const;
 
                     /**
-                     * 获取分类名称
-                     * @return ClassName 分类名称
+                     * 获取分类名称。
+                     * @return Name 分类名称。
+                     * 
                      */
-                    std::string GetClassName() const;
+                    std::string GetName() const;
 
                     /**
-                     * 设置分类名称
-                     * @param ClassName 分类名称
+                     * 设置分类名称。
+                     * @param _name 分类名称。
+                     * 
                      */
-                    void SetClassName(const std::string& _className);
+                    void SetName(const std::string& _name);
 
                     /**
-                     * 判断参数 ClassName 是否已赋值
-                     * @return ClassName 是否已赋值
+                     * 判断参数 Name 是否已赋值
+                     * @return Name 是否已赋值
+                     * 
                      */
-                    bool ClassNameHasBeenSet() const;
+                    bool NameHasBeenSet() const;
 
                     /**
                      * 获取分类级别，一级分类为 0，最大值为 3，即最多允许 4 级分类层次。
                      * @return Level 分类级别，一级分类为 0，最大值为 3，即最多允许 4 级分类层次。
+                     * 
                      */
                     uint64_t GetLevel() const;
 
                     /**
                      * 设置分类级别，一级分类为 0，最大值为 3，即最多允许 4 级分类层次。
-                     * @param Level 分类级别，一级分类为 0，最大值为 3，即最多允许 4 级分类层次。
+                     * @param _level 分类级别，一级分类为 0，最大值为 3，即最多允许 4 级分类层次。
+                     * 
                      */
                     void SetLevel(const uint64_t& _level);
 
                     /**
                      * 判断参数 Level 是否已赋值
                      * @return Level 是否已赋值
+                     * 
                      */
                     bool LevelHasBeenSet() const;
 
                     /**
-                     * 获取当前分类的第一级子类 ID 集合
-                     * @return SubClassIdSet 当前分类的第一级子类 ID 集合
+                     * 获取当前分类的第一级子类 ID 集合。
+                     * @return SubClassIdSet 当前分类的第一级子类 ID 集合。
+                     * 
                      */
                     std::vector<int64_t> GetSubClassIdSet() const;
 
                     /**
-                     * 设置当前分类的第一级子类 ID 集合
-                     * @param SubClassIdSet 当前分类的第一级子类 ID 集合
+                     * 设置当前分类的第一级子类 ID 集合。
+                     * @param _subClassIdSet 当前分类的第一级子类 ID 集合。
+                     * 
                      */
                     void SetSubClassIdSet(const std::vector<int64_t>& _subClassIdSet);
 
                     /**
                      * 判断参数 SubClassIdSet 是否已赋值
                      * @return SubClassIdSet 是否已赋值
+                     * 
                      */
                     bool SubClassIdSetHasBeenSet() const;
+
+                    /**
+                     * 获取分类名称（该字段已不推荐使用，建议使用新的分类名称字段 Name）。
+                     * @return ClassName 分类名称（该字段已不推荐使用，建议使用新的分类名称字段 Name）。
+                     * 
+                     */
+                    std::string GetClassName() const;
+
+                    /**
+                     * 设置分类名称（该字段已不推荐使用，建议使用新的分类名称字段 Name）。
+                     * @param _className 分类名称（该字段已不推荐使用，建议使用新的分类名称字段 Name）。
+                     * 
+                     */
+                    void SetClassName(const std::string& _className);
+
+                    /**
+                     * 判断参数 ClassName 是否已赋值
+                     * @return ClassName 是否已赋值
+                     * 
+                     */
+                    bool ClassNameHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 分类 ID
+                     * 分类 ID。
                      */
                     int64_t m_classId;
                     bool m_classIdHasBeenSet;
@@ -151,10 +187,10 @@ namespace TencentCloud
                     bool m_parentIdHasBeenSet;
 
                     /**
-                     * 分类名称
+                     * 分类名称。
                      */
-                    std::string m_className;
-                    bool m_classNameHasBeenSet;
+                    std::string m_name;
+                    bool m_nameHasBeenSet;
 
                     /**
                      * 分类级别，一级分类为 0，最大值为 3，即最多允许 4 级分类层次。
@@ -163,10 +199,16 @@ namespace TencentCloud
                     bool m_levelHasBeenSet;
 
                     /**
-                     * 当前分类的第一级子类 ID 集合
+                     * 当前分类的第一级子类 ID 集合。
                      */
                     std::vector<int64_t> m_subClassIdSet;
                     bool m_subClassIdSetHasBeenSet;
+
+                    /**
+                     * 分类名称（该字段已不推荐使用，建议使用新的分类名称字段 Name）。
+                     */
+                    std::string m_className;
+                    bool m_classNameHasBeenSet;
 
                 };
             }

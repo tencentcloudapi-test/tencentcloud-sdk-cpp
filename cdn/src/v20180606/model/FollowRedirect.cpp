@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ using namespace TencentCloud::Cdn::V20180606::Model;
 using namespace std;
 
 FollowRedirect::FollowRedirect() :
-    m_switchHasBeenSet(false)
+    m_switchHasBeenSet(false),
+    m_redirectConfigHasBeenSet(false)
 {
 }
 
@@ -40,6 +41,23 @@ CoreInternalOutcome FollowRedirect::Deserialize(const rapidjson::Value &value)
         m_switchHasBeenSet = true;
     }
 
+    if (value.HasMember("RedirectConfig") && !value["RedirectConfig"].IsNull())
+    {
+        if (!value["RedirectConfig"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `FollowRedirect.RedirectConfig` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_redirectConfig.Deserialize(value["RedirectConfig"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_redirectConfigHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -53,6 +71,15 @@ void FollowRedirect::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "Switch";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_switch.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_redirectConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RedirectConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_redirectConfig.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -72,5 +99,21 @@ void FollowRedirect::SetSwitch(const string& _switch)
 bool FollowRedirect::SwitchHasBeenSet() const
 {
     return m_switchHasBeenSet;
+}
+
+RedirectConfig FollowRedirect::GetRedirectConfig() const
+{
+    return m_redirectConfig;
+}
+
+void FollowRedirect::SetRedirectConfig(const RedirectConfig& _redirectConfig)
+{
+    m_redirectConfig = _redirectConfig;
+    m_redirectConfigHasBeenSet = true;
+}
+
+bool FollowRedirect::RedirectConfigHasBeenSet() const
+{
+    return m_redirectConfigHasBeenSet;
 }
 

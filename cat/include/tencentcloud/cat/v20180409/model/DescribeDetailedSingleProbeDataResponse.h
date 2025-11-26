@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,44 @@ namespace TencentCloud
                     /**
                      * 获取单次详情数据
                      * @return DataSet 单次详情数据
+                     * 
                      */
                     std::vector<DetailedSingleDataDefine> GetDataSet() const;
 
                     /**
                      * 判断参数 DataSet 是否已赋值
                      * @return DataSet 是否已赋值
+                     * 
                      */
                     bool DataSetHasBeenSet() const;
 
                     /**
                      * 获取符合条件的数据总数
                      * @return TotalNumber 符合条件的数据总数
+                     * 
                      */
                     int64_t GetTotalNumber() const;
 
                     /**
                      * 判断参数 TotalNumber 是否已赋值
                      * @return TotalNumber 是否已赋值
+                     * 
                      */
                     bool TotalNumberHasBeenSet() const;
+
+                    /**
+                     * 获取es scroll查询的id
+                     * @return ScrollID es scroll查询的id
+                     * 
+                     */
+                    std::string GetScrollID() const;
+
+                    /**
+                     * 判断参数 ScrollID 是否已赋值
+                     * @return ScrollID 是否已赋值
+                     * 
+                     */
+                    bool ScrollIDHasBeenSet() const;
 
                 private:
 
@@ -81,6 +99,12 @@ namespace TencentCloud
                      */
                     int64_t m_totalNumber;
                     bool m_totalNumberHasBeenSet;
+
+                    /**
+                     * es scroll查询的id
+                     */
+                    std::string m_scrollID;
+                    bool m_scrollIDHasBeenSet;
 
                 };
             }

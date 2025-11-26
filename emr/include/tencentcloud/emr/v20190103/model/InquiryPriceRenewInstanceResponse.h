@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/emr/v20190103/model/PriceDetail.h>
+#include <tencentcloud/emr/v20190103/model/NodeRenewPriceDetail.h>
 
 
 namespace TencentCloud
@@ -45,92 +47,131 @@ namespace TencentCloud
 
                     /**
                      * 获取原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return OriginalCost 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     double GetOriginalCost() const;
 
                     /**
                      * 判断参数 OriginalCost 是否已赋值
                      * @return OriginalCost 是否已赋值
+                     * 
                      */
                     bool OriginalCostHasBeenSet() const;
 
                     /**
                      * 获取折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DiscountCost 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     double GetDiscountCost() const;
 
                     /**
                      * 判断参数 DiscountCost 是否已赋值
                      * @return DiscountCost 是否已赋值
+                     * 
                      */
                     bool DiscountCostHasBeenSet() const;
 
                     /**
                      * 获取实例续费的时间单位。取值范围：
-<li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>m：表示月份。</li>
                      * @return TimeUnit 实例续费的时间单位。取值范围：
-<li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>m：表示月份。</li>
+                     * 
                      */
                     std::string GetTimeUnit() const;
 
                     /**
                      * 判断参数 TimeUnit 是否已赋值
                      * @return TimeUnit 是否已赋值
+                     * 
                      */
                     bool TimeUnitHasBeenSet() const;
 
                     /**
                      * 获取实例续费的时长。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TimeSpan 实例续费的时长。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTimeSpan() const;
 
                     /**
                      * 判断参数 TimeSpan 是否已赋值
                      * @return TimeSpan 是否已赋值
+                     * 
                      */
                     bool TimeSpanHasBeenSet() const;
+
+                    /**
+                     * 获取价格详情
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return PriceDetail 价格详情
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<PriceDetail> GetPriceDetail() const;
+
+                    /**
+                     * 判断参数 PriceDetail 是否已赋值
+                     * @return PriceDetail 是否已赋值
+                     * 
+                     */
+                    bool PriceDetailHasBeenSet() const;
+
+                    /**
+                     * 获取节点续费询价明细列表
+                     * @return NodeRenewPriceDetails 节点续费询价明细列表
+                     * 
+                     */
+                    std::vector<NodeRenewPriceDetail> GetNodeRenewPriceDetails() const;
+
+                    /**
+                     * 判断参数 NodeRenewPriceDetails 是否已赋值
+                     * @return NodeRenewPriceDetails 是否已赋值
+                     * 
+                     */
+                    bool NodeRenewPriceDetailsHasBeenSet() const;
 
                 private:
 
                     /**
                      * 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_originalCost;
                     bool m_originalCostHasBeenSet;
 
                     /**
                      * 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_discountCost;
                     bool m_discountCostHasBeenSet;
 
                     /**
                      * 实例续费的时间单位。取值范围：
-<li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>m：表示月份。</li>
                      */
                     std::string m_timeUnit;
                     bool m_timeUnitHasBeenSet;
 
                     /**
                      * 实例续费的时长。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_timeSpan;
                     bool m_timeSpanHasBeenSet;
+
+                    /**
+                     * 价格详情
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<PriceDetail> m_priceDetail;
+                    bool m_priceDetailHasBeenSet;
+
+                    /**
+                     * 节点续费询价明细列表
+                     */
+                    std::vector<NodeRenewPriceDetail> m_nodeRenewPriceDetails;
+                    bool m_nodeRenewPriceDetailsHasBeenSet;
 
                 };
             }

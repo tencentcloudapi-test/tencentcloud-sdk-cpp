@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取待开放外网访问的实例ID。形如：dcdbt-ow728lmc。
                      * @return InstanceId 待开放外网访问的实例ID。形如：dcdbt-ow728lmc。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置待开放外网访问的实例ID。形如：dcdbt-ow728lmc。
-                     * @param InstanceId 待开放外网访问的实例ID。形如：dcdbt-ow728lmc。
+                     * @param _instanceId 待开放外网访问的实例ID。形如：dcdbt-ow728lmc。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取是否IPv6，默认0
                      * @return Ipv6Flag 是否IPv6，默认0
+                     * 
                      */
                     int64_t GetIpv6Flag() const;
 
                     /**
                      * 设置是否IPv6，默认0
-                     * @param Ipv6Flag 是否IPv6，默认0
+                     * @param _ipv6Flag 是否IPv6，默认0
+                     * 
                      */
                     void SetIpv6Flag(const int64_t& _ipv6Flag);
 
                     /**
                      * 判断参数 Ipv6Flag 是否已赋值
                      * @return Ipv6Flag 是否已赋值
+                     * 
                      */
                     bool Ipv6FlagHasBeenSet() const;
 

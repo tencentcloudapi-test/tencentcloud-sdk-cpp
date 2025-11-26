@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,7 +71,8 @@ ApiInfo::ApiInfo() :
     m_environmentsHasBeenSet(false),
     m_isBase64EncodedHasBeenSet(false),
     m_isBase64TriggerHasBeenSet(false),
-    m_base64EncodedTriggerRulesHasBeenSet(false)
+    m_base64EncodedTriggerRulesHasBeenSet(false),
+    m_serviceScfEventIsAsyncCallHasBeenSet(false)
 {
 }
 
@@ -369,7 +370,7 @@ CoreInternalOutcome ApiInfo::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["ServiceParameters"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            ServiceParameter item;
+            DescribeApiResultServiceParametersInfo item;
             CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
@@ -699,6 +700,16 @@ CoreInternalOutcome ApiInfo::Deserialize(const rapidjson::Value &value)
             m_base64EncodedTriggerRules.push_back(item);
         }
         m_base64EncodedTriggerRulesHasBeenSet = true;
+    }
+
+    if (value.HasMember("ServiceScfEventIsAsyncCall") && !value["ServiceScfEventIsAsyncCall"].IsNull())
+    {
+        if (!value["ServiceScfEventIsAsyncCall"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiInfo.ServiceScfEventIsAsyncCall` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_serviceScfEventIsAsyncCall = value["ServiceScfEventIsAsyncCall"].GetBool();
+        m_serviceScfEventIsAsyncCallHasBeenSet = true;
     }
 
 
@@ -1180,6 +1191,14 @@ void ApiInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         }
     }
 
+    if (m_serviceScfEventIsAsyncCallHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceScfEventIsAsyncCall";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_serviceScfEventIsAsyncCall, allocator);
+    }
+
 }
 
 
@@ -1567,12 +1586,12 @@ bool ApiInfo::ServiceConfigHasBeenSet() const
     return m_serviceConfigHasBeenSet;
 }
 
-vector<ServiceParameter> ApiInfo::GetServiceParameters() const
+vector<DescribeApiResultServiceParametersInfo> ApiInfo::GetServiceParameters() const
 {
     return m_serviceParameters;
 }
 
-void ApiInfo::SetServiceParameters(const vector<ServiceParameter>& _serviceParameters)
+void ApiInfo::SetServiceParameters(const vector<DescribeApiResultServiceParametersInfo>& _serviceParameters)
 {
     m_serviceParameters = _serviceParameters;
     m_serviceParametersHasBeenSet = true;
@@ -1997,5 +2016,21 @@ void ApiInfo::SetBase64EncodedTriggerRules(const vector<Base64EncodedTriggerRule
 bool ApiInfo::Base64EncodedTriggerRulesHasBeenSet() const
 {
     return m_base64EncodedTriggerRulesHasBeenSet;
+}
+
+bool ApiInfo::GetServiceScfEventIsAsyncCall() const
+{
+    return m_serviceScfEventIsAsyncCall;
+}
+
+void ApiInfo::SetServiceScfEventIsAsyncCall(const bool& _serviceScfEventIsAsyncCall)
+{
+    m_serviceScfEventIsAsyncCall = _serviceScfEventIsAsyncCall;
+    m_serviceScfEventIsAsyncCallHasBeenSet = true;
+}
+
+bool ApiInfo::ServiceScfEventIsAsyncCallHasBeenSet() const
+{
+    return m_serviceScfEventIsAsyncCallHasBeenSet;
 }
 

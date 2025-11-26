@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ ModifyLoadBalancerAttributesRequest::ModifyLoadBalancerAttributesRequest() :
     m_internetChargeInfoHasBeenSet(false),
     m_loadBalancerPassToTargetHasBeenSet(false),
     m_snatProHasBeenSet(false),
-    m_deleteProtectHasBeenSet(false)
+    m_deleteProtectHasBeenSet(false),
+    m_modifyClassicDomainHasBeenSet(false),
+    m_associateEndpointHasBeenSet(false)
 {
 }
 
@@ -96,6 +98,22 @@ string ModifyLoadBalancerAttributesRequest::ToJsonString() const
         string key = "DeleteProtect";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_deleteProtect, allocator);
+    }
+
+    if (m_modifyClassicDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ModifyClassicDomain";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_modifyClassicDomain, allocator);
+    }
+
+    if (m_associateEndpointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssociateEndpoint";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_associateEndpoint.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -216,6 +234,38 @@ void ModifyLoadBalancerAttributesRequest::SetDeleteProtect(const bool& _deletePr
 bool ModifyLoadBalancerAttributesRequest::DeleteProtectHasBeenSet() const
 {
     return m_deleteProtectHasBeenSet;
+}
+
+bool ModifyLoadBalancerAttributesRequest::GetModifyClassicDomain() const
+{
+    return m_modifyClassicDomain;
+}
+
+void ModifyLoadBalancerAttributesRequest::SetModifyClassicDomain(const bool& _modifyClassicDomain)
+{
+    m_modifyClassicDomain = _modifyClassicDomain;
+    m_modifyClassicDomainHasBeenSet = true;
+}
+
+bool ModifyLoadBalancerAttributesRequest::ModifyClassicDomainHasBeenSet() const
+{
+    return m_modifyClassicDomainHasBeenSet;
+}
+
+string ModifyLoadBalancerAttributesRequest::GetAssociateEndpoint() const
+{
+    return m_associateEndpoint;
+}
+
+void ModifyLoadBalancerAttributesRequest::SetAssociateEndpoint(const string& _associateEndpoint)
+{
+    m_associateEndpoint = _associateEndpoint;
+    m_associateEndpointHasBeenSet = true;
+}
+
+bool ModifyLoadBalancerAttributesRequest::AssociateEndpointHasBeenSet() const
+{
+    return m_associateEndpointHasBeenSet;
 }
 
 

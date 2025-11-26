@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ PushUrlsCacheRequest::PushUrlsCacheRequest() :
     m_userAgentHasBeenSet(false),
     m_areaHasBeenSet(false),
     m_layerHasBeenSet(false),
-    m_parseM3U8HasBeenSet(false)
+    m_parseM3U8HasBeenSet(false),
+    m_disableRangeHasBeenSet(false),
+    m_headersHasBeenSet(false),
+    m_urlEncodeHasBeenSet(false)
 {
 }
 
@@ -81,6 +84,37 @@ string PushUrlsCacheRequest::ToJsonString() const
         string key = "ParseM3U8";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_parseM3U8, allocator);
+    }
+
+    if (m_disableRangeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DisableRange";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_disableRange, allocator);
+    }
+
+    if (m_headersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Headers";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_headers.begin(); itr != m_headers.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_urlEncodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UrlEncode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_urlEncode, allocator);
     }
 
 
@@ -169,6 +203,54 @@ void PushUrlsCacheRequest::SetParseM3U8(const bool& _parseM3U8)
 bool PushUrlsCacheRequest::ParseM3U8HasBeenSet() const
 {
     return m_parseM3U8HasBeenSet;
+}
+
+bool PushUrlsCacheRequest::GetDisableRange() const
+{
+    return m_disableRange;
+}
+
+void PushUrlsCacheRequest::SetDisableRange(const bool& _disableRange)
+{
+    m_disableRange = _disableRange;
+    m_disableRangeHasBeenSet = true;
+}
+
+bool PushUrlsCacheRequest::DisableRangeHasBeenSet() const
+{
+    return m_disableRangeHasBeenSet;
+}
+
+vector<HTTPHeader> PushUrlsCacheRequest::GetHeaders() const
+{
+    return m_headers;
+}
+
+void PushUrlsCacheRequest::SetHeaders(const vector<HTTPHeader>& _headers)
+{
+    m_headers = _headers;
+    m_headersHasBeenSet = true;
+}
+
+bool PushUrlsCacheRequest::HeadersHasBeenSet() const
+{
+    return m_headersHasBeenSet;
+}
+
+bool PushUrlsCacheRequest::GetUrlEncode() const
+{
+    return m_urlEncode;
+}
+
+void PushUrlsCacheRequest::SetUrlEncode(const bool& _urlEncode)
+{
+    m_urlEncode = _urlEncode;
+    m_urlEncodeHasBeenSet = true;
+}
+
+bool PushUrlsCacheRequest::UrlEncodeHasBeenSet() const
+{
+    return m_urlEncodeHasBeenSet;
 }
 
 

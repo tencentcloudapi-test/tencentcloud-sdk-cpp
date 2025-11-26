@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ using namespace TencentCloud::Emr::V20190103::Model;
 using namespace std;
 
 Placement::Placement() :
-    m_projectIdHasBeenSet(false),
-    m_zoneHasBeenSet(false)
+    m_zoneHasBeenSet(false),
+    m_projectIdHasBeenSet(false)
 {
 }
 
@@ -30,16 +30,6 @@ CoreInternalOutcome Placement::Deserialize(const rapidjson::Value &value)
 {
     string requestId = "";
 
-
-    if (value.HasMember("ProjectId") && !value["ProjectId"].IsNull())
-    {
-        if (!value["ProjectId"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `Placement.ProjectId` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_projectId = value["ProjectId"].GetInt64();
-        m_projectIdHasBeenSet = true;
-    }
 
     if (value.HasMember("Zone") && !value["Zone"].IsNull())
     {
@@ -51,20 +41,22 @@ CoreInternalOutcome Placement::Deserialize(const rapidjson::Value &value)
         m_zoneHasBeenSet = true;
     }
 
+    if (value.HasMember("ProjectId") && !value["ProjectId"].IsNull())
+    {
+        if (!value["ProjectId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Placement.ProjectId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_projectId = value["ProjectId"].GetInt64();
+        m_projectIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
 
 void Placement::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const
 {
-
-    if (m_projectIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ProjectId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_projectId, allocator);
-    }
 
     if (m_zoneHasBeenSet)
     {
@@ -74,24 +66,16 @@ void Placement::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         value.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_projectIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProjectId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_projectId, allocator);
+    }
+
 }
 
-
-int64_t Placement::GetProjectId() const
-{
-    return m_projectId;
-}
-
-void Placement::SetProjectId(const int64_t& _projectId)
-{
-    m_projectId = _projectId;
-    m_projectIdHasBeenSet = true;
-}
-
-bool Placement::ProjectIdHasBeenSet() const
-{
-    return m_projectIdHasBeenSet;
-}
 
 string Placement::GetZone() const
 {
@@ -107,5 +91,21 @@ void Placement::SetZone(const string& _zone)
 bool Placement::ZoneHasBeenSet() const
 {
     return m_zoneHasBeenSet;
+}
+
+int64_t Placement::GetProjectId() const
+{
+    return m_projectId;
+}
+
+void Placement::SetProjectId(const int64_t& _projectId)
+{
+    m_projectId = _projectId;
+    m_projectIdHasBeenSet = true;
+}
+
+bool Placement::ProjectIdHasBeenSet() const
+{
+    return m_projectIdHasBeenSet;
 }
 

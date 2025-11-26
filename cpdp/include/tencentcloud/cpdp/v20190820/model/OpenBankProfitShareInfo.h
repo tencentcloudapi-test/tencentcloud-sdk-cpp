@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取分润接收方，渠道商户号ID
                      * @return RecvId 分润接收方，渠道商户号ID
+                     * 
                      */
                     std::string GetRecvId() const;
 
                     /**
                      * 设置分润接收方，渠道商户号ID
-                     * @param RecvId 分润接收方，渠道商户号ID
+                     * @param _recvId 分润接收方，渠道商户号ID
+                     * 
                      */
                     void SetRecvId(const std::string& _recvId);
 
                     /**
                      * 判断参数 RecvId 是否已赋值
                      * @return RecvId 是否已赋值
+                     * 
                      */
                     bool RecvIdHasBeenSet() const;
 
                     /**
                      * 获取分润金额，单位分
                      * @return ProfitShareFee 分润金额，单位分
+                     * 
                      */
                     int64_t GetProfitShareFee() const;
 
                     /**
                      * 设置分润金额，单位分
-                     * @param ProfitShareFee 分润金额，单位分
+                     * @param _profitShareFee 分润金额，单位分
+                     * 
                      */
                     void SetProfitShareFee(const int64_t& _profitShareFee);
 
                     /**
                      * 判断参数 ProfitShareFee 是否已赋值
                      * @return ProfitShareFee 是否已赋值
+                     * 
                      */
                     bool ProfitShareFeeHasBeenSet() const;
 

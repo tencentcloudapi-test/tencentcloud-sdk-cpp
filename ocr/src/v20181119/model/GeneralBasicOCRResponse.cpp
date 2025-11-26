@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ GeneralBasicOCRResponse::GeneralBasicOCRResponse() :
     m_textDetectionsHasBeenSet(false),
     m_languageHasBeenSet(false),
     m_angelHasBeenSet(false),
-    m_pdfPageSizeHasBeenSet(false)
+    m_pdfPageSizeHasBeenSet(false),
+    m_angleHasBeenSet(false)
 {
 }
 
@@ -115,6 +116,16 @@ CoreInternalOutcome GeneralBasicOCRResponse::Deserialize(const string &payload)
         m_pdfPageSizeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Angle") && !rsp["Angle"].IsNull())
+    {
+        if (!rsp["Angle"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `Angle` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_angle = rsp["Angle"].GetDouble();
+        m_angleHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -164,11 +175,19 @@ string GeneralBasicOCRResponse::ToJsonString() const
         value.AddMember(iKey, m_pdfPageSize, allocator);
     }
 
+    if (m_angleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Angle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_angle, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -214,6 +233,16 @@ int64_t GeneralBasicOCRResponse::GetPdfPageSize() const
 bool GeneralBasicOCRResponse::PdfPageSizeHasBeenSet() const
 {
     return m_pdfPageSizeHasBeenSet;
+}
+
+double GeneralBasicOCRResponse::GetAngle() const
+{
+    return m_angle;
+}
+
+bool GeneralBasicOCRResponse::AngleHasBeenSet() const
+{
+    return m_angleHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,51 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取Vpn网关路由ID
-                     * @return RouteId Vpn网关路由ID
+                     * 获取VPN网关路由ID。
+                     * @return RouteId VPN网关路由ID。
+                     * 
                      */
                     std::string GetRouteId() const;
 
                     /**
-                     * 设置Vpn网关路由ID
-                     * @param RouteId Vpn网关路由ID
+                     * 设置VPN网关路由ID。
+                     * @param _routeId VPN网关路由ID。
+                     * 
                      */
                     void SetRouteId(const std::string& _routeId);
 
                     /**
                      * 判断参数 RouteId 是否已赋值
                      * @return RouteId 是否已赋值
+                     * 
                      */
                     bool RouteIdHasBeenSet() const;
 
                     /**
-                     * 获取Vpn网关状态, ENABEL 启用, DISABLE禁用
-                     * @return Status Vpn网关状态, ENABEL 启用, DISABLE禁用
+                     * 获取VPN网关状态, ENABLE 启用, DISABLE禁用。
+                     * @return Status VPN网关状态, ENABLE 启用, DISABLE禁用。
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置Vpn网关状态, ENABEL 启用, DISABLE禁用
-                     * @param Status Vpn网关状态, ENABEL 启用, DISABLE禁用
+                     * 设置VPN网关状态, ENABLE 启用, DISABLE禁用。
+                     * @param _status VPN网关状态, ENABLE 启用, DISABLE禁用。
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                 private:
 
                     /**
-                     * Vpn网关路由ID
+                     * VPN网关路由ID。
                      */
                     std::string m_routeId;
                     bool m_routeIdHasBeenSet;
 
                     /**
-                     * Vpn网关状态, ENABEL 启用, DISABLE禁用
+                     * VPN网关状态, ENABLE 启用, DISABLE禁用。
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;

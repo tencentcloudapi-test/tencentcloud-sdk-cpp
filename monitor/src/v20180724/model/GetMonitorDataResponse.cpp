@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,8 @@ GetMonitorDataResponse::GetMonitorDataResponse() :
     m_metricNameHasBeenSet(false),
     m_dataPointsHasBeenSet(false),
     m_startTimeHasBeenSet(false),
-    m_endTimeHasBeenSet(false)
+    m_endTimeHasBeenSet(false),
+    m_msgHasBeenSet(false)
 {
 }
 
@@ -126,6 +127,16 @@ CoreInternalOutcome GetMonitorDataResponse::Deserialize(const string &payload)
         m_endTimeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Msg") && !rsp["Msg"].IsNull())
+    {
+        if (!rsp["Msg"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Msg` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_msg = string(rsp["Msg"].GetString());
+        m_msgHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -183,11 +194,19 @@ string GetMonitorDataResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_endTime.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_msgHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Msg";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_msg.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -243,6 +262,16 @@ string GetMonitorDataResponse::GetEndTime() const
 bool GetMonitorDataResponse::EndTimeHasBeenSet() const
 {
     return m_endTimeHasBeenSet;
+}
+
+string GetMonitorDataResponse::GetMsg() const
+{
+    return m_msg;
+}
+
+bool GetMonitorDataResponse::MsgHasBeenSet() const
+{
+    return m_msgHasBeenSet;
 }
 
 

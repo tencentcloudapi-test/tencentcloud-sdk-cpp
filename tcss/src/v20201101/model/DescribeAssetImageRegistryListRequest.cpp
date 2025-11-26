@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,8 @@ DescribeAssetImageRegistryListRequest::DescribeAssetImageRegistryListRequest() :
     m_filtersHasBeenSet(false),
     m_byHasBeenSet(false),
     m_orderHasBeenSet(false),
-    m_onlyShowLatestHasBeenSet(false)
+    m_onlyShowLatestHasBeenSet(false),
+    m_isRunningHasBeenSet(false)
 {
 }
 
@@ -92,6 +93,14 @@ string DescribeAssetImageRegistryListRequest::ToJsonString() const
         string key = "OnlyShowLatest";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_onlyShowLatest, allocator);
+    }
+
+    if (m_isRunningHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsRunning";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isRunning, allocator);
     }
 
 
@@ -196,6 +205,22 @@ void DescribeAssetImageRegistryListRequest::SetOnlyShowLatest(const bool& _onlyS
 bool DescribeAssetImageRegistryListRequest::OnlyShowLatestHasBeenSet() const
 {
     return m_onlyShowLatestHasBeenSet;
+}
+
+bool DescribeAssetImageRegistryListRequest::GetIsRunning() const
+{
+    return m_isRunning;
+}
+
+void DescribeAssetImageRegistryListRequest::SetIsRunning(const bool& _isRunning)
+{
+    m_isRunning = _isRunning;
+    m_isRunningHasBeenSet = true;
+}
+
+bool DescribeAssetImageRegistryListRequest::IsRunningHasBeenSet() const
+{
+    return m_isRunningHasBeenSet;
 }
 
 

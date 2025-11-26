@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取子应用信息集合。
-                     * @return SubAppIdInfoSet 子应用信息集合。
+                     * 获取应用信息集合。
+                     * @return SubAppIdInfoSet 应用信息集合。
+                     * 
                      */
                     std::vector<SubAppIdInfo> GetSubAppIdInfoSet() const;
 
                     /**
                      * 判断参数 SubAppIdInfoSet 是否已赋值
                      * @return SubAppIdInfoSet 是否已赋值
+                     * 
                      */
                     bool SubAppIdInfoSetHasBeenSet() const;
 
                     /**
-                     * 获取子应用总数量。
-                     * @return TotalCount 子应用总数量。
+                     * 获取应用总数量。
+                     * @return TotalCount 应用总数量。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 子应用信息集合。
+                     * 应用信息集合。
                      */
                     std::vector<SubAppIdInfo> m_subAppIdInfoSet;
                     bool m_subAppIdInfoSetHasBeenSet;
 
                     /**
-                     * 子应用总数量。
+                     * 应用总数量。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,40 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取是否是固定IP，["ENABLE","DISABLE"]
                      * @return EipStatus 是否是固定IP，["ENABLE","DISABLE"]
+                     * 
                      */
                     std::string GetEipStatus() const;
 
                     /**
                      * 设置是否是固定IP，["ENABLE","DISABLE"]
-                     * @param EipStatus 是否是固定IP，["ENABLE","DISABLE"]
+                     * @param _eipStatus 是否是固定IP，["ENABLE","DISABLE"]
+                     * 
                      */
                     void SetEipStatus(const std::string& _eipStatus);
 
                     /**
                      * 判断参数 EipStatus 是否已赋值
                      * @return EipStatus 是否已赋值
+                     * 
                      */
                     bool EipStatusHasBeenSet() const;
 
                     /**
                      * 获取IP列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EipAddress IP列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetEipAddress() const;
 
                     /**
                      * 设置IP列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EipAddress IP列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _eipAddress IP列表
+                     * 
                      */
                     void SetEipAddress(const std::vector<std::string>& _eipAddress);
 
                     /**
                      * 判断参数 EipAddress 是否已赋值
                      * @return EipAddress 是否已赋值
+                     * 
                      */
                     bool EipAddressHasBeenSet() const;
 
@@ -96,7 +98,6 @@ namespace TencentCloud
 
                     /**
                      * IP列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_eipAddress;
                     bool m_eipAddressHasBeenSet;

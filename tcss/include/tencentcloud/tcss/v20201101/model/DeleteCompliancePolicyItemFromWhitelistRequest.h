@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取指定的白名单项的ID的列表
                      * @return WhitelistIdSet 指定的白名单项的ID的列表
+                     * 
                      */
                     std::vector<uint64_t> GetWhitelistIdSet() const;
 
                     /**
                      * 设置指定的白名单项的ID的列表
-                     * @param WhitelistIdSet 指定的白名单项的ID的列表
+                     * @param _whitelistIdSet 指定的白名单项的ID的列表
+                     * 
                      */
                     void SetWhitelistIdSet(const std::vector<uint64_t>& _whitelistIdSet);
 
                     /**
                      * 判断参数 WhitelistIdSet 是否已赋值
                      * @return WhitelistIdSet 是否已赋值
+                     * 
                      */
                     bool WhitelistIdSetHasBeenSet() const;
 

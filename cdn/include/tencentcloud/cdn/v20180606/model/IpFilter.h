@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,28 +48,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取IP 黑白名单配置开关
+                     * 获取IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
-                     * @return Switch IP 黑白名单配置开关
+                     * @return Switch IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置IP 黑白名单配置开关
+                     * 设置IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
-                     * @param Switch IP 黑白名单配置开关
+                     * @param _switch IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -82,6 +85,7 @@ blacklist：黑名单
 whitelist：白名单
 blacklist：黑名单
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFilterType() const;
 
@@ -90,101 +94,128 @@ blacklist：黑名单
 whitelist：白名单
 blacklist：黑名单
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FilterType IP 黑白名单类型
+                     * @param _filterType IP 黑白名单类型
 whitelist：白名单
 blacklist：黑名单
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFilterType(const std::string& _filterType);
 
                     /**
                      * 判断参数 FilterType 是否已赋值
                      * @return FilterType 是否已赋值
+                     * 
                      */
                     bool FilterTypeHasBeenSet() const;
 
                     /**
                      * 获取IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 200 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Filters IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 200 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetFilters() const;
 
                     /**
                      * 设置IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 200 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Filters IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+                     * @param _filters IP 黑白名单列表
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 200 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFilters(const std::vector<std::string>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取IP 黑白名单分路径配置，白名单功能
+                     * 获取IP 黑白名单分路径配置。黑白名单 IP 总数不能超过 1000 个。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FilterRules IP 黑白名单分路径配置，白名单功能
+                     * @return FilterRules IP 黑白名单分路径配置。黑白名单 IP 总数不能超过 1000 个。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<IpFilterPathRule> GetFilterRules() const;
 
                     /**
-                     * 设置IP 黑白名单分路径配置，白名单功能
+                     * 设置IP 黑白名单分路径配置。黑白名单 IP 总数不能超过 1000 个。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FilterRules IP 黑白名单分路径配置，白名单功能
+                     * @param _filterRules IP 黑白名单分路径配置。黑白名单 IP 总数不能超过 1000 个。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFilterRules(const std::vector<IpFilterPathRule>& _filterRules);
 
                     /**
                      * 判断参数 FilterRules 是否已赋值
                      * @return FilterRules 是否已赋值
+                     * 
                      */
                     bool FilterRulesHasBeenSet() const;
 
                     /**
-                     * 获取IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+                     * 获取IP 黑白名单验证失败时返回的状态码。
+注意：
+请求拒绝时，平台默认响应514状态。
+支持自定义为403，404，609状态码，空值时或自定义的不在范围内，均默认为514.
+非514状态码将计入HTTPS计费统计，最终账单将按您的计费规则生成。
+若您开启了自定义状态码，则默认您认同<a href="https://cloud.tencent.com/document/product/228/75563">HTTPS计费规则</a>。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ReturnCode IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+                     * @return ReturnCode IP 黑白名单验证失败时返回的状态码。
+注意：
+请求拒绝时，平台默认响应514状态。
+支持自定义为403，404，609状态码，空值时或自定义的不在范围内，均默认为514.
+非514状态码将计入HTTPS计费统计，最终账单将按您的计费规则生成。
+若您开启了自定义状态码，则默认您认同<a href="https://cloud.tencent.com/document/product/228/75563">HTTPS计费规则</a>。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetReturnCode() const;
 
                     /**
-                     * 设置IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+                     * 设置IP 黑白名单验证失败时返回的状态码。
+注意：
+请求拒绝时，平台默认响应514状态。
+支持自定义为403，404，609状态码，空值时或自定义的不在范围内，均默认为514.
+非514状态码将计入HTTPS计费统计，最终账单将按您的计费规则生成。
+若您开启了自定义状态码，则默认您认同<a href="https://cloud.tencent.com/document/product/228/75563">HTTPS计费规则</a>。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ReturnCode IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+                     * @param _returnCode IP 黑白名单验证失败时返回的状态码。
+注意：
+请求拒绝时，平台默认响应514状态。
+支持自定义为403，404，609状态码，空值时或自定义的不在范围内，均默认为514.
+非514状态码将计入HTTPS计费统计，最终账单将按您的计费规则生成。
+若您开启了自定义状态码，则默认您认同<a href="https://cloud.tencent.com/document/product/228/75563">HTTPS计费规则</a>。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetReturnCode(const int64_t& _returnCode);
 
                     /**
                      * 判断参数 ReturnCode 是否已赋值
                      * @return ReturnCode 是否已赋值
+                     * 
                      */
                     bool ReturnCodeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * IP 黑白名单配置开关
+                     * IP 黑白名单配置开关，取值有
 on：开启
 off：关闭
                      */
@@ -202,23 +233,27 @@ blacklist：黑名单
 
                     /**
                      * IP 黑白名单列表
-支持 X.X.X.X 形式 IP，或 /8、 /16、/24 形式网段
-最多可填充 50 个白名单或 50 个黑名单
+支持 X.X.X.X 格式IPV4地址 或X:X:X:X:X:X:X:X 格式IPV6地址， 或网段格式/X（IPV4:1≤X≤32；IPV6:1≤X≤128）
+最多可填充 200 个白名单或 200 个黑名单；
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_filters;
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * IP 黑白名单分路径配置，白名单功能
+                     * IP 黑白名单分路径配置。黑白名单 IP 总数不能超过 1000 个。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<IpFilterPathRule> m_filterRules;
                     bool m_filterRulesHasBeenSet;
 
                     /**
-                     * IP 黑白名单验证失败时返回的 HTTP Code
-合法值: 400~499
+                     * IP 黑白名单验证失败时返回的状态码。
+注意：
+请求拒绝时，平台默认响应514状态。
+支持自定义为403，404，609状态码，空值时或自定义的不在范围内，均默认为514.
+非514状态码将计入HTTPS计费统计，最终账单将按您的计费规则生成。
+若您开启了自定义状态码，则默认您认同<a href="https://cloud.tencent.com/document/product/228/75563">HTTPS计费规则</a>。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_returnCode;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,9 +27,12 @@ CreateSecretRequest::CreateSecretRequest() :
     m_versionIdHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_kmsKeyIdHasBeenSet(false),
+    m_secretTypeHasBeenSet(false),
     m_secretBinaryHasBeenSet(false),
     m_secretStringHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_additionalConfigHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_kmsHsmClusterIdHasBeenSet(false)
 {
 }
 
@@ -72,6 +75,14 @@ string CreateSecretRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_kmsKeyId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_secretTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SecretType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_secretType, allocator);
+    }
+
     if (m_secretBinaryHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -88,6 +99,14 @@ string CreateSecretRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_secretString.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_additionalConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdditionalConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_additionalConfig.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_tagsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -101,6 +120,14 @@ string CreateSecretRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_kmsHsmClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KmsHsmClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_kmsHsmClusterId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -175,6 +202,22 @@ bool CreateSecretRequest::KmsKeyIdHasBeenSet() const
     return m_kmsKeyIdHasBeenSet;
 }
 
+uint64_t CreateSecretRequest::GetSecretType() const
+{
+    return m_secretType;
+}
+
+void CreateSecretRequest::SetSecretType(const uint64_t& _secretType)
+{
+    m_secretType = _secretType;
+    m_secretTypeHasBeenSet = true;
+}
+
+bool CreateSecretRequest::SecretTypeHasBeenSet() const
+{
+    return m_secretTypeHasBeenSet;
+}
+
 string CreateSecretRequest::GetSecretBinary() const
 {
     return m_secretBinary;
@@ -207,6 +250,22 @@ bool CreateSecretRequest::SecretStringHasBeenSet() const
     return m_secretStringHasBeenSet;
 }
 
+string CreateSecretRequest::GetAdditionalConfig() const
+{
+    return m_additionalConfig;
+}
+
+void CreateSecretRequest::SetAdditionalConfig(const string& _additionalConfig)
+{
+    m_additionalConfig = _additionalConfig;
+    m_additionalConfigHasBeenSet = true;
+}
+
+bool CreateSecretRequest::AdditionalConfigHasBeenSet() const
+{
+    return m_additionalConfigHasBeenSet;
+}
+
 vector<Tag> CreateSecretRequest::GetTags() const
 {
     return m_tags;
@@ -221,6 +280,22 @@ void CreateSecretRequest::SetTags(const vector<Tag>& _tags)
 bool CreateSecretRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+string CreateSecretRequest::GetKmsHsmClusterId() const
+{
+    return m_kmsHsmClusterId;
+}
+
+void CreateSecretRequest::SetKmsHsmClusterId(const string& _kmsHsmClusterId)
+{
+    m_kmsHsmClusterId = _kmsHsmClusterId;
+    m_kmsHsmClusterIdHasBeenSet = true;
+}
+
+bool CreateSecretRequest::KmsHsmClusterIdHasBeenSet() const
+{
+    return m_kmsHsmClusterIdHasBeenSet;
 }
 
 

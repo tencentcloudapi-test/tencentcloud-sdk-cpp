@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ CreateBackupRequest::CreateBackupRequest() :
     m_strategyHasBeenSet(false),
     m_dBNamesHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
-    m_backupNameHasBeenSet(false)
+    m_backupNameHasBeenSet(false),
+    m_storageStrategyHasBeenSet(false)
 {
 }
 
@@ -72,6 +73,14 @@ string CreateBackupRequest::ToJsonString() const
         string key = "BackupName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_backupName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_storageStrategyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageStrategy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_storageStrategy, allocator);
     }
 
 
@@ -144,6 +153,22 @@ void CreateBackupRequest::SetBackupName(const string& _backupName)
 bool CreateBackupRequest::BackupNameHasBeenSet() const
 {
     return m_backupNameHasBeenSet;
+}
+
+int64_t CreateBackupRequest::GetStorageStrategy() const
+{
+    return m_storageStrategy;
+}
+
+void CreateBackupRequest::SetStorageStrategy(const int64_t& _storageStrategy)
+{
+    m_storageStrategy = _storageStrategy;
+    m_storageStrategyHasBeenSet = true;
+}
+
+bool CreateBackupRequest::StorageStrategyHasBeenSet() const
+{
+    return m_storageStrategyHasBeenSet;
 }
 
 

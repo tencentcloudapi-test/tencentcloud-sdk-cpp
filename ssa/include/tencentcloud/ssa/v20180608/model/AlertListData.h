@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/ssa/v20180608/model/AlertType.h>
+#include <tencentcloud/ssa/v20180608/model/AlertListAggregations.h>
 
 
 namespace TencentCloud
@@ -52,20 +53,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Total 总数
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotal() const;
 
                     /**
                      * 设置总数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Total 总数
+                     * @param _total 总数
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTotal(const int64_t& _total);
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
@@ -74,22 +78,50 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return AlertList 返回列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AlertType> GetAlertList() const;
 
                     /**
                      * 设置返回列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AlertList 返回列表
+                     * @param _alertList 返回列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetAlertList(const std::vector<AlertType>& _alertList);
 
                     /**
                      * 判断参数 AlertList 是否已赋值
                      * @return AlertList 是否已赋值
+                     * 
                      */
                     bool AlertListHasBeenSet() const;
+
+                    /**
+                     * 获取聚合参数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Aggregations 聚合参数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    AlertListAggregations GetAggregations() const;
+
+                    /**
+                     * 设置聚合参数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _aggregations 聚合参数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetAggregations(const AlertListAggregations& _aggregations);
+
+                    /**
+                     * 判断参数 Aggregations 是否已赋值
+                     * @return Aggregations 是否已赋值
+                     * 
+                     */
+                    bool AggregationsHasBeenSet() const;
 
                 private:
 
@@ -106,6 +138,13 @@ namespace TencentCloud
                      */
                     std::vector<AlertType> m_alertList;
                     bool m_alertListHasBeenSet;
+
+                    /**
+                     * 聚合参数
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    AlertListAggregations m_aggregations;
+                    bool m_aggregationsHasBeenSet;
 
                 };
             }

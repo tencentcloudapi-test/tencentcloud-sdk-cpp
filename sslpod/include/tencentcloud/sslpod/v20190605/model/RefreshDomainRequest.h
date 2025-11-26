@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取域名列表中的ID，可通过搜索域名接口获得
                      * @return DomainId 域名列表中的ID，可通过搜索域名接口获得
+                     * 
                      */
                     int64_t GetDomainId() const;
 
                     /**
                      * 设置域名列表中的ID，可通过搜索域名接口获得
-                     * @param DomainId 域名列表中的ID，可通过搜索域名接口获得
+                     * @param _domainId 域名列表中的ID，可通过搜索域名接口获得
+                     * 
                      */
                     void SetDomainId(const int64_t& _domainId);
 
                     /**
                      * 判断参数 DomainId 是否已赋值
                      * @return DomainId 是否已赋值
+                     * 
                      */
                     bool DomainIdHasBeenSet() const;
 

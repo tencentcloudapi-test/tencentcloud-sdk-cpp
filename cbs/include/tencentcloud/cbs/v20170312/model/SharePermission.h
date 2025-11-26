@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取快照分享的时间
                      * @return CreatedTime 快照分享的时间
+                     * 
                      */
                     std::string GetCreatedTime() const;
 
                     /**
                      * 设置快照分享的时间
-                     * @param CreatedTime 快照分享的时间
+                     * @param _createdTime 快照分享的时间
+                     * 
                      */
                     void SetCreatedTime(const std::string& _createdTime);
 
                     /**
                      * 判断参数 CreatedTime 是否已赋值
                      * @return CreatedTime 是否已赋值
+                     * 
                      */
                     bool CreatedTimeHasBeenSet() const;
 
                     /**
                      * 获取分享的账号Id
                      * @return AccountId 分享的账号Id
+                     * 
                      */
                     std::string GetAccountId() const;
 
                     /**
                      * 设置分享的账号Id
-                     * @param AccountId 分享的账号Id
+                     * @param _accountId 分享的账号Id
+                     * 
                      */
                     void SetAccountId(const std::string& _accountId);
 
                     /**
                      * 判断参数 AccountId 是否已赋值
                      * @return AccountId 是否已赋值
+                     * 
                      */
                     bool AccountIdHasBeenSet() const;
 

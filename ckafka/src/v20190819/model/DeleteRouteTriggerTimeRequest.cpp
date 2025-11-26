@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ using namespace TencentCloud::Ckafka::V20190819::Model;
 using namespace std;
 
 DeleteRouteTriggerTimeRequest::DeleteRouteTriggerTimeRequest() :
+    m_instanceIdHasBeenSet(false),
     m_delayTimeHasBeenSet(false)
 {
 }
@@ -33,6 +34,14 @@ string DeleteRouteTriggerTimeRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
+
+    if (m_instanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
+    }
 
     if (m_delayTimeHasBeenSet)
     {
@@ -49,6 +58,22 @@ string DeleteRouteTriggerTimeRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+string DeleteRouteTriggerTimeRequest::GetInstanceId() const
+{
+    return m_instanceId;
+}
+
+void DeleteRouteTriggerTimeRequest::SetInstanceId(const string& _instanceId)
+{
+    m_instanceId = _instanceId;
+    m_instanceIdHasBeenSet = true;
+}
+
+bool DeleteRouteTriggerTimeRequest::InstanceIdHasBeenSet() const
+{
+    return m_instanceIdHasBeenSet;
+}
 
 string DeleteRouteTriggerTimeRequest::GetDelayTime() const
 {

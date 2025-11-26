@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ UpgradeClusterInstancesRequest::UpgradeClusterInstancesRequest() :
     m_instanceIdsHasBeenSet(false),
     m_resetParamHasBeenSet(false),
     m_skipPreCheckHasBeenSet(false),
-    m_maxNotReadyPercentHasBeenSet(false)
+    m_maxNotReadyPercentHasBeenSet(false),
+    m_upgradeRunTimeHasBeenSet(false)
 {
 }
 
@@ -100,6 +101,14 @@ string UpgradeClusterInstancesRequest::ToJsonString() const
         string key = "MaxNotReadyPercent";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_maxNotReadyPercent, allocator);
+    }
+
+    if (m_upgradeRunTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpgradeRunTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_upgradeRunTime, allocator);
     }
 
 
@@ -220,6 +229,22 @@ void UpgradeClusterInstancesRequest::SetMaxNotReadyPercent(const double& _maxNot
 bool UpgradeClusterInstancesRequest::MaxNotReadyPercentHasBeenSet() const
 {
     return m_maxNotReadyPercentHasBeenSet;
+}
+
+bool UpgradeClusterInstancesRequest::GetUpgradeRunTime() const
+{
+    return m_upgradeRunTime;
+}
+
+void UpgradeClusterInstancesRequest::SetUpgradeRunTime(const bool& _upgradeRunTime)
+{
+    m_upgradeRunTime = _upgradeRunTime;
+    m_upgradeRunTimeHasBeenSet = true;
+}
+
+bool UpgradeClusterInstancesRequest::UpgradeRunTimeHasBeenSet() const
+{
+    return m_upgradeRunTimeHasBeenSet;
 }
 
 

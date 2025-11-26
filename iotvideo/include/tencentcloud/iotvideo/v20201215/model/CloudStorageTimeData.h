@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取云存时间轴信息列表
                      * @return TimeList 云存时间轴信息列表
+                     * 
                      */
                     std::vector<CloudStorageTimeInfo> GetTimeList() const;
 
                     /**
                      * 设置云存时间轴信息列表
-                     * @param TimeList 云存时间轴信息列表
+                     * @param _timeList 云存时间轴信息列表
+                     * 
                      */
                     void SetTimeList(const std::vector<CloudStorageTimeInfo>& _timeList);
 
                     /**
                      * 判断参数 TimeList 是否已赋值
                      * @return TimeList 是否已赋值
+                     * 
                      */
                     bool TimeListHasBeenSet() const;
 
                     /**
                      * 获取播放地址
                      * @return VideoURL 播放地址
+                     * 
                      */
                     std::string GetVideoURL() const;
 
                     /**
                      * 设置播放地址
-                     * @param VideoURL 播放地址
+                     * @param _videoURL 播放地址
+                     * 
                      */
                     void SetVideoURL(const std::string& _videoURL);
 
                     /**
                      * 判断参数 VideoURL 是否已赋值
                      * @return VideoURL 是否已赋值
+                     * 
                      */
                     bool VideoURLHasBeenSet() const;
 

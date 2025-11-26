@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ using namespace std;
 
 ModifyImageSpriteTemplateRequest::ModifyImageSpriteTemplateRequest() :
     m_definitionHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_widthHasBeenSet(false),
     m_heightHasBeenSet(false),
@@ -34,7 +35,7 @@ ModifyImageSpriteTemplateRequest::ModifyImageSpriteTemplateRequest() :
     m_columnCountHasBeenSet(false),
     m_fillTypeHasBeenSet(false),
     m_commentHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_formatHasBeenSet(false)
 {
 }
 
@@ -51,6 +52,14 @@ string ModifyImageSpriteTemplateRequest::ToJsonString() const
         string key = "Definition";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_definition, allocator);
+    }
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_nameHasBeenSet)
@@ -133,12 +142,12 @@ string ModifyImageSpriteTemplateRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_comment.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_subAppIdHasBeenSet)
+    if (m_formatHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
+        string key = "Format";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
+        d.AddMember(iKey, rapidjson::Value(m_format.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -163,6 +172,22 @@ void ModifyImageSpriteTemplateRequest::SetDefinition(const uint64_t& _definition
 bool ModifyImageSpriteTemplateRequest::DefinitionHasBeenSet() const
 {
     return m_definitionHasBeenSet;
+}
+
+uint64_t ModifyImageSpriteTemplateRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void ModifyImageSpriteTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool ModifyImageSpriteTemplateRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
 }
 
 string ModifyImageSpriteTemplateRequest::GetName() const
@@ -325,20 +350,20 @@ bool ModifyImageSpriteTemplateRequest::CommentHasBeenSet() const
     return m_commentHasBeenSet;
 }
 
-uint64_t ModifyImageSpriteTemplateRequest::GetSubAppId() const
+string ModifyImageSpriteTemplateRequest::GetFormat() const
 {
-    return m_subAppId;
+    return m_format;
 }
 
-void ModifyImageSpriteTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+void ModifyImageSpriteTemplateRequest::SetFormat(const string& _format)
 {
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
+    m_format = _format;
+    m_formatHasBeenSet = true;
 }
 
-bool ModifyImageSpriteTemplateRequest::SubAppIdHasBeenSet() const
+bool ModifyImageSpriteTemplateRequest::FormatHasBeenSet() const
 {
-    return m_subAppIdHasBeenSet;
+    return m_formatHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取实例可回档开始时间，时间格式：2016-10-29 01:06:04
                      * @return Begin 实例可回档开始时间，时间格式：2016-10-29 01:06:04
+                     * 
                      */
                     std::string GetBegin() const;
 
                     /**
                      * 设置实例可回档开始时间，时间格式：2016-10-29 01:06:04
-                     * @param Begin 实例可回档开始时间，时间格式：2016-10-29 01:06:04
+                     * @param _begin 实例可回档开始时间，时间格式：2016-10-29 01:06:04
+                     * 
                      */
                     void SetBegin(const std::string& _begin);
 
                     /**
                      * 判断参数 Begin 是否已赋值
                      * @return Begin 是否已赋值
+                     * 
                      */
                     bool BeginHasBeenSet() const;
 
                     /**
                      * 获取实例可回档结束时间，时间格式：2016-11-02 11:44:47
                      * @return End 实例可回档结束时间，时间格式：2016-11-02 11:44:47
+                     * 
                      */
                     std::string GetEnd() const;
 
                     /**
                      * 设置实例可回档结束时间，时间格式：2016-11-02 11:44:47
-                     * @param End 实例可回档结束时间，时间格式：2016-11-02 11:44:47
+                     * @param _end 实例可回档结束时间，时间格式：2016-11-02 11:44:47
+                     * 
                      */
                     void SetEnd(const std::string& _end);
 
                     /**
                      * 判断参数 End 是否已赋值
                      * @return End 是否已赋值
+                     * 
                      */
                     bool EndHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取事件时间。
                      * @return Date 事件时间。
+                     * 
                      */
                     std::string GetDate() const;
 
                     /**
                      * 设置事件时间。
-                     * @param Date 事件时间。
+                     * @param _date 事件时间。
+                     * 
                      */
                     void SetDate(const std::string& _date);
 
                     /**
                      * 判断参数 Date 是否已赋值
                      * @return Date 是否已赋值
+                     * 
                      */
                     bool DateHasBeenSet() const;
 
                     /**
                      * 获取事件数量。
                      * @return EventNum 事件数量。
+                     * 
                      */
                     uint64_t GetEventNum() const;
 
                     /**
                      * 设置事件数量。
-                     * @param EventNum 事件数量。
+                     * @param _eventNum 事件数量。
+                     * 
                      */
                     void SetEventNum(const uint64_t& _eventNum);
 
                     /**
                      * 判断参数 EventNum 是否已赋值
                      * @return EventNum 是否已赋值
+                     * 
                      */
                     bool EventNumHasBeenSet() const;
 

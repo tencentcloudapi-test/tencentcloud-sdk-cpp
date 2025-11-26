@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取API文档ID
                      * @return ApiDocId API文档ID
+                     * 
                      */
                     std::string GetApiDocId() const;
 
                     /**
                      * 设置API文档ID
-                     * @param ApiDocId API文档ID
+                     * @param _apiDocId API文档ID
+                     * 
                      */
                     void SetApiDocId(const std::string& _apiDocId);
 
                     /**
                      * 判断参数 ApiDocId 是否已赋值
                      * @return ApiDocId 是否已赋值
+                     * 
                      */
                     bool ApiDocIdHasBeenSet() const;
 

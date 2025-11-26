@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace TencentCloud::Vpc::V20170312::Model;
 using namespace std;
 
 CreateVpnGatewaySslClientResponse::CreateVpnGatewaySslClientResponse() :
-    m_taskIdHasBeenSet(false)
+    m_taskIdHasBeenSet(false),
+    m_sslVpnClientIdHasBeenSet(false)
 {
 }
 
@@ -72,6 +73,16 @@ CoreInternalOutcome CreateVpnGatewaySslClientResponse::Deserialize(const string 
         m_taskIdHasBeenSet = true;
     }
 
+    if (rsp.HasMember("SslVpnClientId") && !rsp["SslVpnClientId"].IsNull())
+    {
+        if (!rsp["SslVpnClientId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SslVpnClientId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sslVpnClientId = string(rsp["SslVpnClientId"].GetString());
+        m_sslVpnClientIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -90,11 +101,19 @@ string CreateVpnGatewaySslClientResponse::ToJsonString() const
         value.AddMember(iKey, m_taskId, allocator);
     }
 
+    if (m_sslVpnClientIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SslVpnClientId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sslVpnClientId.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -110,6 +129,16 @@ uint64_t CreateVpnGatewaySslClientResponse::GetTaskId() const
 bool CreateVpnGatewaySslClientResponse::TaskIdHasBeenSet() const
 {
     return m_taskIdHasBeenSet;
+}
+
+string CreateVpnGatewaySslClientResponse::GetSslVpnClientId() const
+{
+    return m_sslVpnClientId;
+}
+
+bool CreateVpnGatewaySslClientResponse::SslVpnClientIdHasBeenSet() const
+{
+    return m_sslVpnClientIdHasBeenSet;
 }
 
 

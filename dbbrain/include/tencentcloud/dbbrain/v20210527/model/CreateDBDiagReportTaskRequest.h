@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,135 +43,156 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID。
-                     * @return InstanceId 实例ID。
+                     * 获取实例 ID。可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
+                     * @return InstanceId 实例 ID。可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例ID。
-                     * @param InstanceId 实例ID。
+                     * 设置实例 ID。可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
+                     * @param _instanceId 实例 ID。可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取开始时间，如“2020-11-08T14:00:00+08:00”。
                      * @return StartTime 开始时间，如“2020-11-08T14:00:00+08:00”。
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
                      * 设置开始时间，如“2020-11-08T14:00:00+08:00”。
-                     * @param StartTime 开始时间，如“2020-11-08T14:00:00+08:00”。
+                     * @param _startTime 开始时间，如“2020-11-08T14:00:00+08:00”。
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
                      * 获取结束时间，如“2020-11-09T14:00:00+08:00”。
                      * @return EndTime 结束时间，如“2020-11-09T14:00:00+08:00”。
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
                      * 设置结束时间，如“2020-11-09T14:00:00+08:00”。
-                     * @param EndTime 结束时间，如“2020-11-09T14:00:00+08:00”。
+                     * @param _endTime 结束时间，如“2020-11-09T14:00:00+08:00”。
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
                      * 获取是否发送邮件: 0 - 否，1 - 是。
                      * @return SendMailFlag 是否发送邮件: 0 - 否，1 - 是。
+                     * 
                      */
                     int64_t GetSendMailFlag() const;
 
                     /**
                      * 设置是否发送邮件: 0 - 否，1 - 是。
-                     * @param SendMailFlag 是否发送邮件: 0 - 否，1 - 是。
+                     * @param _sendMailFlag 是否发送邮件: 0 - 否，1 - 是。
+                     * 
                      */
                     void SetSendMailFlag(const int64_t& _sendMailFlag);
 
                     /**
                      * 判断参数 SendMailFlag 是否已赋值
                      * @return SendMailFlag 是否已赋值
+                     * 
                      */
                     bool SendMailFlagHasBeenSet() const;
 
                     /**
                      * 获取接收邮件的联系人ID数组。
                      * @return ContactPerson 接收邮件的联系人ID数组。
+                     * 
                      */
                     std::vector<int64_t> GetContactPerson() const;
 
                     /**
                      * 设置接收邮件的联系人ID数组。
-                     * @param ContactPerson 接收邮件的联系人ID数组。
+                     * @param _contactPerson 接收邮件的联系人ID数组。
+                     * 
                      */
                     void SetContactPerson(const std::vector<int64_t>& _contactPerson);
 
                     /**
                      * 判断参数 ContactPerson 是否已赋值
                      * @return ContactPerson 是否已赋值
+                     * 
                      */
                     bool ContactPersonHasBeenSet() const;
 
                     /**
                      * 获取接收邮件的联系组ID数组。
                      * @return ContactGroup 接收邮件的联系组ID数组。
+                     * 
                      */
                     std::vector<int64_t> GetContactGroup() const;
 
                     /**
                      * 设置接收邮件的联系组ID数组。
-                     * @param ContactGroup 接收邮件的联系组ID数组。
+                     * @param _contactGroup 接收邮件的联系组ID数组。
+                     * 
                      */
                     void SetContactGroup(const std::vector<int64_t>& _contactGroup);
 
                     /**
                      * 判断参数 ContactGroup 是否已赋值
                      * @return ContactGroup 是否已赋值
+                     * 
                      */
                     bool ContactGroupHasBeenSet() const;
 
                     /**
-                     * 获取服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认值为"mysql"。
-                     * @return Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认值为"mysql"。
+                     * 获取服务产品类型，支持值："mysql" - 云数据库 MySQL；"cynosdb" - 云数据库 TDSQL-C for MySQL，"redis" - 云数据库 Redis，"mongodb" - 云数据库 MongoDB，"mariadb" - 云数据库 MariaDB，"dcdb" - 云数据库 TDSQL MySQL，默认为"mysql"。
+                     * @return Product 服务产品类型，支持值："mysql" - 云数据库 MySQL；"cynosdb" - 云数据库 TDSQL-C for MySQL，"redis" - 云数据库 Redis，"mongodb" - 云数据库 MongoDB，"mariadb" - 云数据库 MariaDB，"dcdb" - 云数据库 TDSQL MySQL，默认为"mysql"。
+                     * 
                      */
                     std::string GetProduct() const;
 
                     /**
-                     * 设置服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认值为"mysql"。
-                     * @param Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认值为"mysql"。
+                     * 设置服务产品类型，支持值："mysql" - 云数据库 MySQL；"cynosdb" - 云数据库 TDSQL-C for MySQL，"redis" - 云数据库 Redis，"mongodb" - 云数据库 MongoDB，"mariadb" - 云数据库 MariaDB，"dcdb" - 云数据库 TDSQL MySQL，默认为"mysql"。
+                     * @param _product 服务产品类型，支持值："mysql" - 云数据库 MySQL；"cynosdb" - 云数据库 TDSQL-C for MySQL，"redis" - 云数据库 Redis，"mongodb" - 云数据库 MongoDB，"mariadb" - 云数据库 MariaDB，"dcdb" - 云数据库 TDSQL MySQL，默认为"mysql"。
+                     * 
                      */
                     void SetProduct(const std::string& _product);
 
                     /**
                      * 判断参数 Product 是否已赋值
                      * @return Product 是否已赋值
+                     * 
                      */
                     bool ProductHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID。
+                     * 实例 ID。可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
@@ -207,7 +228,7 @@ namespace TencentCloud
                     bool m_contactGroupHasBeenSet;
 
                     /**
-                     * 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL，默认值为"mysql"。
+                     * 服务产品类型，支持值："mysql" - 云数据库 MySQL；"cynosdb" - 云数据库 TDSQL-C for MySQL，"redis" - 云数据库 Redis，"mongodb" - 云数据库 MongoDB，"mariadb" - 云数据库 MariaDB，"dcdb" - 云数据库 TDSQL MySQL，默认为"mysql"。
                      */
                     std::string m_product;
                     bool m_productHasBeenSet;

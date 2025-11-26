@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,22 +43,25 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取水印模板唯一标识过滤条件，数组长度限制：100。
-                     * @return Definitions 水印模板唯一标识过滤条件，数组长度限制：100。
+                     * 获取<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * 
                      */
-                    std::vector<int64_t> GetDefinitions() const;
+                    uint64_t GetSubAppId() const;
 
                     /**
-                     * 设置水印模板唯一标识过滤条件，数组长度限制：100。
-                     * @param Definitions 水印模板唯一标识过滤条件，数组长度限制：100。
+                     * 设置<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @param _subAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * 
                      */
-                    void SetDefinitions(const std::vector<int64_t>& _definitions);
+                    void SetSubAppId(const uint64_t& _subAppId);
 
                     /**
-                     * 判断参数 Definitions 是否已赋值
-                     * @return Definitions 是否已赋值
+                     * 判断参数 SubAppId 是否已赋值
+                     * @return SubAppId 是否已赋值
+                     * 
                      */
-                    bool DefinitionsHasBeenSet() const;
+                    bool SubAppIdHasBeenSet() const;
 
                     /**
                      * 获取水印类型过滤条件，可选值：
@@ -69,6 +72,7 @@ namespace TencentCloud
 <li>image：图片水印；</li>
 <li>text：文字水印；</li>
 <li>svg：SVG 水印。</li>
+                     * 
                      */
                     std::string GetType() const;
 
@@ -77,36 +81,62 @@ namespace TencentCloud
 <li>image：图片水印；</li>
 <li>text：文字水印；</li>
 <li>svg：SVG 水印。</li>
-                     * @param Type 水印类型过滤条件，可选值：
+                     * @param _type 水印类型过滤条件，可选值：
 <li>image：图片水印；</li>
 <li>text：文字水印；</li>
 <li>svg：SVG 水印。</li>
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取分页偏移量，默认值：0。
                      * @return Offset 分页偏移量，默认值：0。
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置分页偏移量，默认值：0。
-                     * @param Offset 分页偏移量，默认值：0。
+                     * @param _offset 分页偏移量，默认值：0。
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
+
+                    /**
+                     * 获取水印模板唯一标识过滤条件，数组长度限制：100。
+                     * @return Definitions 水印模板唯一标识过滤条件，数组长度限制：100。
+                     * 
+                     */
+                    std::vector<int64_t> GetDefinitions() const;
+
+                    /**
+                     * 设置水印模板唯一标识过滤条件，数组长度限制：100。
+                     * @param _definitions 水印模板唯一标识过滤条件，数组长度限制：100。
+                     * 
+                     */
+                    void SetDefinitions(const std::vector<int64_t>& _definitions);
+
+                    /**
+                     * 判断参数 Definitions 是否已赋值
+                     * @return Definitions 是否已赋值
+                     * 
+                     */
+                    bool DefinitionsHasBeenSet() const;
 
                     /**
                      * 获取返回记录条数
@@ -115,6 +145,7 @@ namespace TencentCloud
                      * @return Limit 返回记录条数
 <li>默认值：10；</li>
 <li>最大值：100。</li>
+                     * 
                      */
                     uint64_t GetLimit() const;
 
@@ -122,43 +153,27 @@ namespace TencentCloud
                      * 设置返回记录条数
 <li>默认值：10；</li>
 <li>最大值：100。</li>
-                     * @param Limit 返回记录条数
+                     * @param _limit 返回记录条数
 <li>默认值：10；</li>
 <li>最大值：100。</li>
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
-
-                    /**
-                     * 获取点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     */
-                    uint64_t GetSubAppId() const;
-
-                    /**
-                     * 设置点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     */
-                    void SetSubAppId(const uint64_t& _subAppId);
-
-                    /**
-                     * 判断参数 SubAppId 是否已赋值
-                     * @return SubAppId 是否已赋值
-                     */
-                    bool SubAppIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 水印模板唯一标识过滤条件，数组长度限制：100。
+                     * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
                      */
-                    std::vector<int64_t> m_definitions;
-                    bool m_definitionsHasBeenSet;
+                    uint64_t m_subAppId;
+                    bool m_subAppIdHasBeenSet;
 
                     /**
                      * 水印类型过滤条件，可选值：
@@ -176,18 +191,18 @@ namespace TencentCloud
                     bool m_offsetHasBeenSet;
 
                     /**
+                     * 水印模板唯一标识过滤条件，数组长度限制：100。
+                     */
+                    std::vector<int64_t> m_definitions;
+                    bool m_definitionsHasBeenSet;
+
+                    /**
                      * 返回记录条数
 <li>默认值：10；</li>
 <li>最大值：100。</li>
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;
-
-                    /**
-                     * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     */
-                    uint64_t m_subAppId;
-                    bool m_subAppIdHasBeenSet;
 
                 };
             }

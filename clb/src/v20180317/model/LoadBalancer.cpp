@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,7 +73,12 @@ LoadBalancer::LoadBalancer() :
     m_healthLogSetIdHasBeenSet(false),
     m_healthLogTopicIdHasBeenSet(false),
     m_clusterIdsHasBeenSet(false),
-    m_attributeFlagsHasBeenSet(false)
+    m_attributeFlagsHasBeenSet(false),
+    m_loadBalancerDomainHasBeenSet(false),
+    m_egressHasBeenSet(false),
+    m_exclusiveHasBeenSet(false),
+    m_targetCountHasBeenSet(false),
+    m_associateEndpointHasBeenSet(false)
 {
 }
 
@@ -699,6 +704,56 @@ CoreInternalOutcome LoadBalancer::Deserialize(const rapidjson::Value &value)
         m_attributeFlagsHasBeenSet = true;
     }
 
+    if (value.HasMember("LoadBalancerDomain") && !value["LoadBalancerDomain"].IsNull())
+    {
+        if (!value["LoadBalancerDomain"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancer.LoadBalancerDomain` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_loadBalancerDomain = string(value["LoadBalancerDomain"].GetString());
+        m_loadBalancerDomainHasBeenSet = true;
+    }
+
+    if (value.HasMember("Egress") && !value["Egress"].IsNull())
+    {
+        if (!value["Egress"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancer.Egress` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_egress = string(value["Egress"].GetString());
+        m_egressHasBeenSet = true;
+    }
+
+    if (value.HasMember("Exclusive") && !value["Exclusive"].IsNull())
+    {
+        if (!value["Exclusive"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancer.Exclusive` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_exclusive = value["Exclusive"].GetUint64();
+        m_exclusiveHasBeenSet = true;
+    }
+
+    if (value.HasMember("TargetCount") && !value["TargetCount"].IsNull())
+    {
+        if (!value["TargetCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancer.TargetCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_targetCount = value["TargetCount"].GetUint64();
+        m_targetCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("AssociateEndpoint") && !value["AssociateEndpoint"].IsNull())
+    {
+        if (!value["AssociateEndpoint"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LoadBalancer.AssociateEndpoint` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_associateEndpoint = string(value["AssociateEndpoint"].GetString());
+        m_associateEndpointHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -1180,6 +1235,46 @@ void LoadBalancer::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_loadBalancerDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LoadBalancerDomain";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_loadBalancerDomain.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_egressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Egress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_egress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_exclusiveHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Exclusive";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_exclusive, allocator);
+    }
+
+    if (m_targetCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TargetCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_targetCount, allocator);
+    }
+
+    if (m_associateEndpointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssociateEndpoint";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_associateEndpoint.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -2031,5 +2126,85 @@ void LoadBalancer::SetAttributeFlags(const vector<string>& _attributeFlags)
 bool LoadBalancer::AttributeFlagsHasBeenSet() const
 {
     return m_attributeFlagsHasBeenSet;
+}
+
+string LoadBalancer::GetLoadBalancerDomain() const
+{
+    return m_loadBalancerDomain;
+}
+
+void LoadBalancer::SetLoadBalancerDomain(const string& _loadBalancerDomain)
+{
+    m_loadBalancerDomain = _loadBalancerDomain;
+    m_loadBalancerDomainHasBeenSet = true;
+}
+
+bool LoadBalancer::LoadBalancerDomainHasBeenSet() const
+{
+    return m_loadBalancerDomainHasBeenSet;
+}
+
+string LoadBalancer::GetEgress() const
+{
+    return m_egress;
+}
+
+void LoadBalancer::SetEgress(const string& _egress)
+{
+    m_egress = _egress;
+    m_egressHasBeenSet = true;
+}
+
+bool LoadBalancer::EgressHasBeenSet() const
+{
+    return m_egressHasBeenSet;
+}
+
+uint64_t LoadBalancer::GetExclusive() const
+{
+    return m_exclusive;
+}
+
+void LoadBalancer::SetExclusive(const uint64_t& _exclusive)
+{
+    m_exclusive = _exclusive;
+    m_exclusiveHasBeenSet = true;
+}
+
+bool LoadBalancer::ExclusiveHasBeenSet() const
+{
+    return m_exclusiveHasBeenSet;
+}
+
+uint64_t LoadBalancer::GetTargetCount() const
+{
+    return m_targetCount;
+}
+
+void LoadBalancer::SetTargetCount(const uint64_t& _targetCount)
+{
+    m_targetCount = _targetCount;
+    m_targetCountHasBeenSet = true;
+}
+
+bool LoadBalancer::TargetCountHasBeenSet() const
+{
+    return m_targetCountHasBeenSet;
+}
+
+string LoadBalancer::GetAssociateEndpoint() const
+{
+    return m_associateEndpoint;
+}
+
+void LoadBalancer::SetAssociateEndpoint(const string& _associateEndpoint)
+{
+    m_associateEndpoint = _associateEndpoint;
+    m_associateEndpointHasBeenSet = true;
+}
+
+bool LoadBalancer::AssociateEndpointHasBeenSet() const
+{
+    return m_associateEndpointHasBeenSet;
 }
 

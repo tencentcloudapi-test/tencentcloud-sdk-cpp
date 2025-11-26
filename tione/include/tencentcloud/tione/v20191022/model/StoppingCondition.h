@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return MaxRuntimeInSeconds 最长运行运行时间（秒）
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetMaxRuntimeInSeconds() const;
 
                     /**
                      * 设置最长运行运行时间（秒）
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MaxRuntimeInSeconds 最长运行运行时间（秒）
+                     * @param _maxRuntimeInSeconds 最长运行运行时间（秒）
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMaxRuntimeInSeconds(const uint64_t& _maxRuntimeInSeconds);
 
                     /**
                      * 判断参数 MaxRuntimeInSeconds 是否已赋值
                      * @return MaxRuntimeInSeconds 是否已赋值
+                     * 
                      */
                     bool MaxRuntimeInSecondsHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return MaxWaitTimeInSeconds 最长等待运行时间（秒）
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetMaxWaitTimeInSeconds() const;
 
                     /**
                      * 设置最长等待运行时间（秒）
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MaxWaitTimeInSeconds 最长等待运行时间（秒）
+                     * @param _maxWaitTimeInSeconds 最长等待运行时间（秒）
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMaxWaitTimeInSeconds(const uint64_t& _maxWaitTimeInSeconds);
 
                     /**
                      * 判断参数 MaxWaitTimeInSeconds 是否已赋值
                      * @return MaxWaitTimeInSeconds 是否已赋值
+                     * 
                      */
                     bool MaxWaitTimeInSecondsHasBeenSet() const;
 

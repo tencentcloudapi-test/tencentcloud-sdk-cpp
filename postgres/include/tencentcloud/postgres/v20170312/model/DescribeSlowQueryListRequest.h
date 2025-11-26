@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,195 +43,219 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID。
-                     * @return DBInstanceId 实例ID。
+                     * 获取实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * @return DBInstanceId 实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * 
                      */
                     std::string GetDBInstanceId() const;
 
                     /**
-                     * 设置实例ID。
-                     * @param DBInstanceId 实例ID。
+                     * 设置实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * @param _dBInstanceId 实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * 
                      */
                     void SetDBInstanceId(const std::string& _dBInstanceId);
 
                     /**
                      * 判断参数 DBInstanceId 是否已赋值
                      * @return DBInstanceId 是否已赋值
+                     * 
                      */
                     bool DBInstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取查询起始时间戳，格式 “YYYY-MM-DD HH:mm:ss” ，日志保留时间默认为7天，起始时间不能超出保留时间范围。
-                     * @return StartTime 查询起始时间戳，格式 “YYYY-MM-DD HH:mm:ss” ，日志保留时间默认为7天，起始时间不能超出保留时间范围。
+                     * 获取查询起始时间，形如2018-01-01 00:00:00。日志保留时间默认为7天，起始时间不能超出保留时间范围。
+                     * @return StartTime 查询起始时间，形如2018-01-01 00:00:00。日志保留时间默认为7天，起始时间不能超出保留时间范围。
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置查询起始时间戳，格式 “YYYY-MM-DD HH:mm:ss” ，日志保留时间默认为7天，起始时间不能超出保留时间范围。
-                     * @param StartTime 查询起始时间戳，格式 “YYYY-MM-DD HH:mm:ss” ，日志保留时间默认为7天，起始时间不能超出保留时间范围。
+                     * 设置查询起始时间，形如2018-01-01 00:00:00。日志保留时间默认为7天，起始时间不能超出保留时间范围。
+                     * @param _startTime 查询起始时间，形如2018-01-01 00:00:00。日志保留时间默认为7天，起始时间不能超出保留时间范围。
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取查询结束时间戳，格式 “YYYY-MM-DD HH:mm:ss”。
-                     * @return EndTime 查询结束时间戳，格式 “YYYY-MM-DD HH:mm:ss”。
+                     * 获取查询结束时间，形如2018-01-01 00:00:00。	
+                     * @return EndTime 查询结束时间，形如2018-01-01 00:00:00。	
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置查询结束时间戳，格式 “YYYY-MM-DD HH:mm:ss”。
-                     * @param EndTime 查询结束时间戳，格式 “YYYY-MM-DD HH:mm:ss”。
+                     * 设置查询结束时间，形如2018-01-01 00:00:00。	
+                     * @param _endTime 查询结束时间，形如2018-01-01 00:00:00。	
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取根据数据库名进行筛选，可以为空。
-                     * @return DatabaseName 根据数据库名进行筛选，可以为空。
+                     * 获取数据库名字。	
+                     * @return DatabaseName 数据库名字。	
+                     * 
                      */
                     std::string GetDatabaseName() const;
 
                     /**
-                     * 设置根据数据库名进行筛选，可以为空。
-                     * @param DatabaseName 根据数据库名进行筛选，可以为空。
+                     * 设置数据库名字。	
+                     * @param _databaseName 数据库名字。	
+                     * 
                      */
                     void SetDatabaseName(const std::string& _databaseName);
 
                     /**
                      * 判断参数 DatabaseName 是否已赋值
                      * @return DatabaseName 是否已赋值
+                     * 
                      */
                     bool DatabaseNameHasBeenSet() const;
 
                     /**
-                     * 获取排序类型。升序asc、降序desc。默认为desc。
-                     * @return OrderByType 排序类型。升序asc、降序desc。默认为desc。
+                     * 获取排序方式，包括升序：asc 降序：desc。默认值为desc。	
+                     * @return OrderByType 排序方式，包括升序：asc 降序：desc。默认值为desc。	
+                     * 
                      */
                     std::string GetOrderByType() const;
 
                     /**
-                     * 设置排序类型。升序asc、降序desc。默认为desc。
-                     * @param OrderByType 排序类型。升序asc、降序desc。默认为desc。
+                     * 设置排序方式，包括升序：asc 降序：desc。默认值为desc。	
+                     * @param _orderByType 排序方式，包括升序：asc 降序：desc。默认值为desc。	
+                     * 
                      */
                     void SetOrderByType(const std::string& _orderByType);
 
                     /**
                      * 判断参数 OrderByType 是否已赋值
                      * @return OrderByType 是否已赋值
+                     * 
                      */
                     bool OrderByTypeHasBeenSet() const;
 
                     /**
-                     * 获取排序维度。 可选参数，取值范围[SessionStartTime,Duration]，默认为SessionStartTime。
-                     * @return OrderBy 排序维度。 可选参数，取值范围[SessionStartTime,Duration]，默认为SessionStartTime。
+                     * 获取排序字段，取值范围[SessionStartTime,Duration]。默认值为SessionStartTime。
+                     * @return OrderBy 排序字段，取值范围[SessionStartTime,Duration]。默认值为SessionStartTime。
+                     * 
                      */
                     std::string GetOrderBy() const;
 
                     /**
-                     * 设置排序维度。 可选参数，取值范围[SessionStartTime,Duration]，默认为SessionStartTime。
-                     * @param OrderBy 排序维度。 可选参数，取值范围[SessionStartTime,Duration]，默认为SessionStartTime。
+                     * 设置排序字段，取值范围[SessionStartTime,Duration]。默认值为SessionStartTime。
+                     * @param _orderBy 排序字段，取值范围[SessionStartTime,Duration]。默认值为SessionStartTime。
+                     * 
                      */
                     void SetOrderBy(const std::string& _orderBy);
 
                     /**
                      * 判断参数 OrderBy 是否已赋值
                      * @return OrderBy 是否已赋值
+                     * 
                      */
                     bool OrderByHasBeenSet() const;
 
                     /**
-                     * 获取分页大小。取值范围[1,100],默认为20。
-                     * @return Limit 分页大小。取值范围[1,100],默认为20。
+                     * 获取每页显示数量，取值范围为1-100。默认值为50。	
+                     * @return Limit 每页显示数量，取值范围为1-100。默认值为50。	
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置分页大小。取值范围[1,100],默认为20。
-                     * @param Limit 分页大小。取值范围[1,100],默认为20。
+                     * 设置每页显示数量，取值范围为1-100。默认值为50。	
+                     * @param _limit 每页显示数量，取值范围为1-100。默认值为50。	
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取分页偏移。取值范围[0,INF)，默认为0。
-                     * @return Offset 分页偏移。取值范围[0,INF)，默认为0。
+                     * 获取数据偏移量，从0开始。默认值为0。	
+                     * @return Offset 数据偏移量，从0开始。默认值为0。	
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置分页偏移。取值范围[0,INF)，默认为0。
-                     * @param Offset 分页偏移。取值范围[0,INF)，默认为0。
+                     * 设置数据偏移量，从0开始。默认值为0。	
+                     * @param _offset 数据偏移量，从0开始。默认值为0。	
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID。
+                     * 实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
                      */
                     std::string m_dBInstanceId;
                     bool m_dBInstanceIdHasBeenSet;
 
                     /**
-                     * 查询起始时间戳，格式 “YYYY-MM-DD HH:mm:ss” ，日志保留时间默认为7天，起始时间不能超出保留时间范围。
+                     * 查询起始时间，形如2018-01-01 00:00:00。日志保留时间默认为7天，起始时间不能超出保留时间范围。
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * 查询结束时间戳，格式 “YYYY-MM-DD HH:mm:ss”。
+                     * 查询结束时间，形如2018-01-01 00:00:00。	
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * 根据数据库名进行筛选，可以为空。
+                     * 数据库名字。	
                      */
                     std::string m_databaseName;
                     bool m_databaseNameHasBeenSet;
 
                     /**
-                     * 排序类型。升序asc、降序desc。默认为desc。
+                     * 排序方式，包括升序：asc 降序：desc。默认值为desc。	
                      */
                     std::string m_orderByType;
                     bool m_orderByTypeHasBeenSet;
 
                     /**
-                     * 排序维度。 可选参数，取值范围[SessionStartTime,Duration]，默认为SessionStartTime。
+                     * 排序字段，取值范围[SessionStartTime,Duration]。默认值为SessionStartTime。
                      */
                     std::string m_orderBy;
                     bool m_orderByHasBeenSet;
 
                     /**
-                     * 分页大小。取值范围[1,100],默认为20。
+                     * 每页显示数量，取值范围为1-100。默认值为50。	
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 分页偏移。取值范围[0,INF)，默认为0。
+                     * 数据偏移量，从0开始。默认值为0。	
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;

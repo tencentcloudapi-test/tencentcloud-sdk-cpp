@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/apigateway/v20180808/model/Tag.h>
 
 
 namespace TencentCloud
@@ -49,56 +50,90 @@ namespace TencentCloud
                     /**
                      * 获取API文档ID
                      * @return ApiDocId API文档ID
+                     * 
                      */
                     std::string GetApiDocId() const;
 
                     /**
                      * 设置API文档ID
-                     * @param ApiDocId API文档ID
+                     * @param _apiDocId API文档ID
+                     * 
                      */
                     void SetApiDocId(const std::string& _apiDocId);
 
                     /**
                      * 判断参数 ApiDocId 是否已赋值
                      * @return ApiDocId 是否已赋值
+                     * 
                      */
                     bool ApiDocIdHasBeenSet() const;
 
                     /**
                      * 获取API文档名称
                      * @return ApiDocName API文档名称
+                     * 
                      */
                     std::string GetApiDocName() const;
 
                     /**
                      * 设置API文档名称
-                     * @param ApiDocName API文档名称
+                     * @param _apiDocName API文档名称
+                     * 
                      */
                     void SetApiDocName(const std::string& _apiDocName);
 
                     /**
                      * 判断参数 ApiDocName 是否已赋值
                      * @return ApiDocName 是否已赋值
+                     * 
                      */
                     bool ApiDocNameHasBeenSet() const;
 
                     /**
                      * 获取API文档构建状态
                      * @return ApiDocStatus API文档构建状态
+                     * 
                      */
                     std::string GetApiDocStatus() const;
 
                     /**
                      * 设置API文档构建状态
-                     * @param ApiDocStatus API文档构建状态
+                     * @param _apiDocStatus API文档构建状态
+                     * 
                      */
                     void SetApiDocStatus(const std::string& _apiDocStatus);
 
                     /**
                      * 判断参数 ApiDocStatus 是否已赋值
                      * @return ApiDocStatus 是否已赋值
+                     * 
                      */
                     bool ApiDocStatusHasBeenSet() const;
+
+                    /**
+                     * 获取标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tags 标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
@@ -119,6 +154,13 @@ namespace TencentCloud
                      */
                     std::string m_apiDocStatus;
                     bool m_apiDocStatusHasBeenSet;
+
+                    /**
+                     * 标签
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

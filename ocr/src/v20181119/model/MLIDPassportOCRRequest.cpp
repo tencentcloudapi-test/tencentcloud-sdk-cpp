@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 MLIDPassportOCRRequest::MLIDPassportOCRRequest() :
     m_imageBase64HasBeenSet(false),
-    m_retImageHasBeenSet(false)
+    m_retImageHasBeenSet(false),
+    m_imageUrlHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string MLIDPassportOCRRequest::ToJsonString() const
         string key = "RetImage";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_retImage, allocator);
+    }
+
+    if (m_imageUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_imageUrl.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +98,22 @@ void MLIDPassportOCRRequest::SetRetImage(const bool& _retImage)
 bool MLIDPassportOCRRequest::RetImageHasBeenSet() const
 {
     return m_retImageHasBeenSet;
+}
+
+string MLIDPassportOCRRequest::GetImageUrl() const
+{
+    return m_imageUrl;
+}
+
+void MLIDPassportOCRRequest::SetImageUrl(const string& _imageUrl)
+{
+    m_imageUrl = _imageUrl;
+    m_imageUrlHasBeenSet = true;
+}
+
+bool MLIDPassportOCRRequest::ImageUrlHasBeenSet() const
+{
+    return m_imageUrlHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,10 @@ using namespace std;
 CreatePersonSampleRequest::CreatePersonSampleRequest() :
     m_nameHasBeenSet(false),
     m_usagesHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_faceContentsHasBeenSet(false),
-    m_tagsHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -58,6 +58,14 @@ string CreatePersonSampleRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_descriptionHasBeenSet)
@@ -92,14 +100,6 @@ string CreatePersonSampleRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
-    }
-
-    if (m_subAppIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
     }
 
 
@@ -140,6 +140,22 @@ void CreatePersonSampleRequest::SetUsages(const vector<string>& _usages)
 bool CreatePersonSampleRequest::UsagesHasBeenSet() const
 {
     return m_usagesHasBeenSet;
+}
+
+uint64_t CreatePersonSampleRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void CreatePersonSampleRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool CreatePersonSampleRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
 }
 
 string CreatePersonSampleRequest::GetDescription() const
@@ -188,22 +204,6 @@ void CreatePersonSampleRequest::SetTags(const vector<string>& _tags)
 bool CreatePersonSampleRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
-}
-
-uint64_t CreatePersonSampleRequest::GetSubAppId() const
-{
-    return m_subAppId;
-}
-
-void CreatePersonSampleRequest::SetSubAppId(const uint64_t& _subAppId)
-{
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
-}
-
-bool CreatePersonSampleRequest::SubAppIdHasBeenSet() const
-{
-    return m_subAppIdHasBeenSet;
 }
 
 

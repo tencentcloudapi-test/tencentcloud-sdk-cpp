@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,124 @@ namespace TencentCloud
                     /**
                      * 获取实例 ID。
                      * @return InstanceId 实例 ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例 ID。
-                     * @param InstanceId 实例 ID。
+                     * @param _instanceId 实例 ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取实例是否可退还。
                      * @return IsReturnable 实例是否可退还。
+                     * 
                      */
                     bool GetIsReturnable() const;
 
                     /**
                      * 设置实例是否可退还。
-                     * @param IsReturnable 实例是否可退还。
+                     * @param _isReturnable 实例是否可退还。
+                     * 
                      */
                     void SetIsReturnable(const bool& _isReturnable);
 
                     /**
                      * 判断参数 IsReturnable 是否已赋值
                      * @return IsReturnable 是否已赋值
+                     * 
                      */
                     bool IsReturnableHasBeenSet() const;
 
                     /**
-                     * 获取实例退还失败错误码。
-                     * @return ReturnFailCode 实例退还失败错误码。
+                     * 获取实例退还失败错误码。取值:
+0: 可以退还
+1: 资源已退货。
+2: 资源已到期
+3: 资源购买超过5天不支持退款
+4: 非预付费资源不支持退款
+8: 退货数量超出限额
+9: 涉及活动订单不支持退款
+10: 资源不支持自助退，请走工单退款
+11: 涉及推广奖励渠道订单，请提工单咨询
+12: 根据业务侧产品规定，该资源不允许退款
+                     * @return ReturnFailCode 实例退还失败错误码。取值:
+0: 可以退还
+1: 资源已退货。
+2: 资源已到期
+3: 资源购买超过5天不支持退款
+4: 非预付费资源不支持退款
+8: 退货数量超出限额
+9: 涉及活动订单不支持退款
+10: 资源不支持自助退，请走工单退款
+11: 涉及推广奖励渠道订单，请提工单咨询
+12: 根据业务侧产品规定，该资源不允许退款
+                     * 
                      */
                     int64_t GetReturnFailCode() const;
 
                     /**
-                     * 设置实例退还失败错误码。
-                     * @param ReturnFailCode 实例退还失败错误码。
+                     * 设置实例退还失败错误码。取值:
+0: 可以退还
+1: 资源已退货。
+2: 资源已到期
+3: 资源购买超过5天不支持退款
+4: 非预付费资源不支持退款
+8: 退货数量超出限额
+9: 涉及活动订单不支持退款
+10: 资源不支持自助退，请走工单退款
+11: 涉及推广奖励渠道订单，请提工单咨询
+12: 根据业务侧产品规定，该资源不允许退款
+                     * @param _returnFailCode 实例退还失败错误码。取值:
+0: 可以退还
+1: 资源已退货。
+2: 资源已到期
+3: 资源购买超过5天不支持退款
+4: 非预付费资源不支持退款
+8: 退货数量超出限额
+9: 涉及活动订单不支持退款
+10: 资源不支持自助退，请走工单退款
+11: 涉及推广奖励渠道订单，请提工单咨询
+12: 根据业务侧产品规定，该资源不允许退款
+                     * 
                      */
                     void SetReturnFailCode(const int64_t& _returnFailCode);
 
                     /**
                      * 判断参数 ReturnFailCode 是否已赋值
                      * @return ReturnFailCode 是否已赋值
+                     * 
                      */
                     bool ReturnFailCodeHasBeenSet() const;
 
                     /**
                      * 获取实例退还失败错误信息。
                      * @return ReturnFailMessage 实例退还失败错误信息。
+                     * 
                      */
                     std::string GetReturnFailMessage() const;
 
                     /**
                      * 设置实例退还失败错误信息。
-                     * @param ReturnFailMessage 实例退还失败错误信息。
+                     * @param _returnFailMessage 实例退还失败错误信息。
+                     * 
                      */
                     void SetReturnFailMessage(const std::string& _returnFailMessage);
 
                     /**
                      * 判断参数 ReturnFailMessage 是否已赋值
                      * @return ReturnFailMessage 是否已赋值
+                     * 
                      */
                     bool ReturnFailMessageHasBeenSet() const;
 
@@ -133,7 +185,17 @@ namespace TencentCloud
                     bool m_isReturnableHasBeenSet;
 
                     /**
-                     * 实例退还失败错误码。
+                     * 实例退还失败错误码。取值:
+0: 可以退还
+1: 资源已退货。
+2: 资源已到期
+3: 资源购买超过5天不支持退款
+4: 非预付费资源不支持退款
+8: 退货数量超出限额
+9: 涉及活动订单不支持退款
+10: 资源不支持自助退，请走工单退款
+11: 涉及推广奖励渠道订单，请提工单咨询
+12: 根据业务侧产品规定，该资源不允许退款
                      */
                     int64_t m_returnFailCode;
                     bool m_returnFailCodeHasBeenSet;

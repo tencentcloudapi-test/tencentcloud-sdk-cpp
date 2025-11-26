@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,8 @@ BashEvent::BashEvent() :
     m_exeHasBeenSet(false),
     m_modifyTimeHasBeenSet(false),
     m_ruleCategoryHasBeenSet(false),
-    m_regexBashCmdHasBeenSet(false)
+    m_regexBashCmdHasBeenSet(false),
+    m_hostNameHasBeenSet(false)
 {
 }
 
@@ -238,6 +239,16 @@ CoreInternalOutcome BashEvent::Deserialize(const rapidjson::Value &value)
         m_regexBashCmdHasBeenSet = true;
     }
 
+    if (value.HasMember("HostName") && !value["HostName"].IsNull())
+    {
+        if (!value["HostName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BashEvent.HostName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostName = string(value["HostName"].GetString());
+        m_hostNameHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -395,6 +406,14 @@ void BashEvent::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "RegexBashCmd";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_regexBashCmd.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hostNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hostName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -702,5 +721,21 @@ void BashEvent::SetRegexBashCmd(const string& _regexBashCmd)
 bool BashEvent::RegexBashCmdHasBeenSet() const
 {
     return m_regexBashCmdHasBeenSet;
+}
+
+string BashEvent::GetHostName() const
+{
+    return m_hostName;
+}
+
+void BashEvent::SetHostName(const string& _hostName)
+{
+    m_hostName = _hostName;
+    m_hostNameHasBeenSet = true;
+}
+
+bool BashEvent::HostNameHasBeenSet() const
+{
+    return m_hostNameHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取Eip实例ID
                      * @return EipId Eip实例ID
+                     * 
                      */
                     std::string GetEipId() const;
 
                     /**
                      * 设置Eip实例ID
-                     * @param EipId Eip实例ID
+                     * @param _eipId Eip实例ID
+                     * 
                      */
                     void SetEipId(const std::string& _eipId);
 
                     /**
                      * 判断参数 EipId 是否已赋值
                      * @return EipId 是否已赋值
+                     * 
                      */
                     bool EipIdHasBeenSet() const;
 
                     /**
                      * 获取EIP归属VpcId，例如vpc-k7j1t2x1
                      * @return VpcId EIP归属VpcId，例如vpc-k7j1t2x1
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置EIP归属VpcId，例如vpc-k7j1t2x1
-                     * @param VpcId EIP归属VpcId，例如vpc-k7j1t2x1
+                     * @param _vpcId EIP归属VpcId，例如vpc-k7j1t2x1
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取绑定的VPC内IP地址
                      * @return VpcIp 绑定的VPC内IP地址
+                     * 
                      */
                     std::string GetVpcIp() const;
 
                     /**
                      * 设置绑定的VPC内IP地址
-                     * @param VpcIp 绑定的VPC内IP地址
+                     * @param _vpcIp 绑定的VPC内IP地址
+                     * 
                      */
                     void SetVpcIp(const std::string& _vpcIp);
 
                     /**
                      * 判断参数 VpcIp 是否已赋值
                      * @return VpcIp 是否已赋值
+                     * 
                      */
                     bool VpcIpHasBeenSet() const;
 

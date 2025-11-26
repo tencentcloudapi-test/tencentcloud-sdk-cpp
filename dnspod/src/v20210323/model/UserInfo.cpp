@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,9 @@ UserInfo::UserInfo() :
     m_userGradeHasBeenSet(false),
     m_realNameHasBeenSet(false),
     m_wechatBindedHasBeenSet(false),
-    m_uinHasBeenSet(false)
+    m_uinHasBeenSet(false),
+    m_freeNsHasBeenSet(false),
+    m_allowTransferInHasBeenSet(false)
 {
 }
 
@@ -150,6 +152,29 @@ CoreInternalOutcome UserInfo::Deserialize(const rapidjson::Value &value)
         m_uinHasBeenSet = true;
     }
 
+    if (value.HasMember("FreeNs") && !value["FreeNs"].IsNull())
+    {
+        if (!value["FreeNs"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `UserInfo.FreeNs` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["FreeNs"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_freeNs.push_back((*itr).GetString());
+        }
+        m_freeNsHasBeenSet = true;
+    }
+
+    if (value.HasMember("AllowTransferIn") && !value["AllowTransferIn"].IsNull())
+    {
+        if (!value["AllowTransferIn"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `UserInfo.AllowTransferIn` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_allowTransferIn = value["AllowTransferIn"].GetBool();
+        m_allowTransferInHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -243,6 +268,27 @@ void UserInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "Uin";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_uin, allocator);
+    }
+
+    if (m_freeNsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FreeNs";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_freeNs.begin(); itr != m_freeNs.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_allowTransferInHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AllowTransferIn";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_allowTransferIn, allocator);
     }
 
 }
@@ -422,5 +468,37 @@ void UserInfo::SetUin(const int64_t& _uin)
 bool UserInfo::UinHasBeenSet() const
 {
     return m_uinHasBeenSet;
+}
+
+vector<string> UserInfo::GetFreeNs() const
+{
+    return m_freeNs;
+}
+
+void UserInfo::SetFreeNs(const vector<string>& _freeNs)
+{
+    m_freeNs = _freeNs;
+    m_freeNsHasBeenSet = true;
+}
+
+bool UserInfo::FreeNsHasBeenSet() const
+{
+    return m_freeNsHasBeenSet;
+}
+
+bool UserInfo::GetAllowTransferIn() const
+{
+    return m_allowTransferIn;
+}
+
+void UserInfo::SetAllowTransferIn(const bool& _allowTransferIn)
+{
+    m_allowTransferIn = _allowTransferIn;
+    m_allowTransferInHasBeenSet = true;
+}
+
+bool UserInfo::AllowTransferInHasBeenSet() const
+{
+    return m_allowTransferInHasBeenSet;
 }
 

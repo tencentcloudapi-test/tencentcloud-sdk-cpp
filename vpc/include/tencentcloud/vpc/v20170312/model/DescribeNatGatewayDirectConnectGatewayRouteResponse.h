@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取路由数据
                      * @return NatDirectConnectGatewayRouteSet 路由数据
+                     * 
                      */
                     std::vector<NatDirectConnectGatewayRoute> GetNatDirectConnectGatewayRouteSet() const;
 
                     /**
                      * 判断参数 NatDirectConnectGatewayRouteSet 是否已赋值
                      * @return NatDirectConnectGatewayRouteSet 是否已赋值
+                     * 
                      */
                     bool NatDirectConnectGatewayRouteSetHasBeenSet() const;
 
                     /**
                      * 获取路由总数
                      * @return Total 路由总数
+                     * 
                      */
                     int64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 

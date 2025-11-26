@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,42 +44,66 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取总费用，打折前的
-                     * @return OriginalPrice 总费用，打折前的
+                     * 获取刊例价费用
+                     * @return OriginalPrice 刊例价费用
+                     * 
                      */
                     int64_t GetOriginalPrice() const;
 
                     /**
                      * 判断参数 OriginalPrice 是否已赋值
                      * @return OriginalPrice 是否已赋值
+                     * 
                      */
                     bool OriginalPriceHasBeenSet() const;
 
                     /**
-                     * 获取实际需要付款金额
-                     * @return Price 实际需要付款金额
+                     * 获取折后实际付款金额
+                     * @return Price 折后实际付款金额
+                     * 
                      */
                     int64_t GetPrice() const;
 
                     /**
                      * 判断参数 Price 是否已赋值
                      * @return Price 是否已赋值
+                     * 
                      */
                     bool PriceHasBeenSet() const;
+
+                    /**
+                     * 获取币种。例如，CNY：人民币。
+                     * @return Currency 币种。例如，CNY：人民币。
+                     * 
+                     */
+                    std::string GetCurrency() const;
+
+                    /**
+                     * 判断参数 Currency 是否已赋值
+                     * @return Currency 是否已赋值
+                     * 
+                     */
+                    bool CurrencyHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 总费用，打折前的
+                     * 刊例价费用
                      */
                     int64_t m_originalPrice;
                     bool m_originalPriceHasBeenSet;
 
                     /**
-                     * 实际需要付款金额
+                     * 折后实际付款金额
                      */
                     int64_t m_price;
                     bool m_priceHasBeenSet;
+
+                    /**
+                     * 币种。例如，CNY：人民币。
+                     */
+                    std::string m_currency;
+                    bool m_currencyHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,11 @@ using namespace std;
 DescribeDBsRequest::DescribeDBsRequest() :
     m_instanceIdSetHasBeenSet(false),
     m_limitHasBeenSet(false),
-    m_offsetHasBeenSet(false)
+    m_offsetHasBeenSet(false),
+    m_nameHasBeenSet(false),
+    m_orderByTypeHasBeenSet(false),
+    m_encryptionHasBeenSet(false),
+    m_orderByHasBeenSet(false)
 {
 }
 
@@ -63,6 +67,38 @@ string DescribeDBsRequest::ToJsonString() const
         string key = "Offset";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_offset, allocator);
+    }
+
+    if (m_nameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Name";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_name.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orderByTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderByType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_orderByType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_encryptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Encryption";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_encryption.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orderByHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderBy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_orderBy.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -119,6 +155,70 @@ void DescribeDBsRequest::SetOffset(const uint64_t& _offset)
 bool DescribeDBsRequest::OffsetHasBeenSet() const
 {
     return m_offsetHasBeenSet;
+}
+
+string DescribeDBsRequest::GetName() const
+{
+    return m_name;
+}
+
+void DescribeDBsRequest::SetName(const string& _name)
+{
+    m_name = _name;
+    m_nameHasBeenSet = true;
+}
+
+bool DescribeDBsRequest::NameHasBeenSet() const
+{
+    return m_nameHasBeenSet;
+}
+
+string DescribeDBsRequest::GetOrderByType() const
+{
+    return m_orderByType;
+}
+
+void DescribeDBsRequest::SetOrderByType(const string& _orderByType)
+{
+    m_orderByType = _orderByType;
+    m_orderByTypeHasBeenSet = true;
+}
+
+bool DescribeDBsRequest::OrderByTypeHasBeenSet() const
+{
+    return m_orderByTypeHasBeenSet;
+}
+
+string DescribeDBsRequest::GetEncryption() const
+{
+    return m_encryption;
+}
+
+void DescribeDBsRequest::SetEncryption(const string& _encryption)
+{
+    m_encryption = _encryption;
+    m_encryptionHasBeenSet = true;
+}
+
+bool DescribeDBsRequest::EncryptionHasBeenSet() const
+{
+    return m_encryptionHasBeenSet;
+}
+
+string DescribeDBsRequest::GetOrderBy() const
+{
+    return m_orderBy;
+}
+
+void DescribeDBsRequest::SetOrderBy(const string& _orderBy)
+{
+    m_orderBy = _orderBy;
+    m_orderByHasBeenSet = true;
+}
+
+bool DescribeDBsRequest::OrderByHasBeenSet() const
+{
+    return m_orderByHasBeenSet;
 }
 
 

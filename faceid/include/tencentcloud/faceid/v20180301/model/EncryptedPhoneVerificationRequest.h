@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,84 +45,104 @@ namespace TencentCloud
                     /**
                      * 获取身份证号，加密方式以EncryptionMode为准
                      * @return IdCard 身份证号，加密方式以EncryptionMode为准
+                     * 
                      */
                     std::string GetIdCard() const;
 
                     /**
                      * 设置身份证号，加密方式以EncryptionMode为准
-                     * @param IdCard 身份证号，加密方式以EncryptionMode为准
+                     * @param _idCard 身份证号，加密方式以EncryptionMode为准
+                     * 
                      */
                     void SetIdCard(const std::string& _idCard);
 
                     /**
                      * 判断参数 IdCard 是否已赋值
                      * @return IdCard 是否已赋值
+                     * 
                      */
                     bool IdCardHasBeenSet() const;
 
                     /**
                      * 获取姓名，加密方式以EncryptionMode为准
                      * @return Name 姓名，加密方式以EncryptionMode为准
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置姓名，加密方式以EncryptionMode为准
-                     * @param Name 姓名，加密方式以EncryptionMode为准
+                     * @param _name 姓名，加密方式以EncryptionMode为准
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取手机号，加密方式以EncryptionMode为准
                      * @return Phone 手机号，加密方式以EncryptionMode为准
+                     * 
                      */
                     std::string GetPhone() const;
 
                     /**
                      * 设置手机号，加密方式以EncryptionMode为准
-                     * @param Phone 手机号，加密方式以EncryptionMode为准
+                     * @param _phone 手机号，加密方式以EncryptionMode为准
+                     * 
                      */
                     void SetPhone(const std::string& _phone);
 
                     /**
                      * 判断参数 Phone 是否已赋值
                      * @return Phone 是否已赋值
+                     * 
                      */
                     bool PhoneHasBeenSet() const;
 
                     /**
-                     * 获取敏感信息的加密方式，目前只支持MD5加密传输，参数取值：
+                     * 获取敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
 1：使用MD5加密
-                     * @return EncryptionMode 敏感信息的加密方式，目前只支持MD5加密传输，参数取值：
+2：使用SHA256
+3：使用SM3加密
+                     * @return EncryptionMode 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
 1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密
+                     * 
                      */
                     std::string GetEncryptionMode() const;
 
                     /**
-                     * 设置敏感信息的加密方式，目前只支持MD5加密传输，参数取值：
+                     * 设置敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
 1：使用MD5加密
-                     * @param EncryptionMode 敏感信息的加密方式，目前只支持MD5加密传输，参数取值：
+2：使用SHA256
+3：使用SM3加密
+                     * @param _encryptionMode 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
 1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密
+                     * 
                      */
                     void SetEncryptionMode(const std::string& _encryptionMode);
 
                     /**
                      * 判断参数 EncryptionMode 是否已赋值
                      * @return EncryptionMode 是否已赋值
+                     * 
                      */
                     bool EncryptionModeHasBeenSet() const;
 
@@ -147,10 +167,12 @@ namespace TencentCloud
                     bool m_phoneHasBeenSet;
 
                     /**
-                     * 敏感信息的加密方式，目前只支持MD5加密传输，参数取值：
+                     * 敏感信息的加密方式，目前支持明文、MD5和SHA256加密传输，参数取值：
 
 0：明文，不加密
 1：使用MD5加密
+2：使用SHA256
+3：使用SM3加密
                      */
                     std::string m_encryptionMode;
                     bool m_encryptionModeHasBeenSet;

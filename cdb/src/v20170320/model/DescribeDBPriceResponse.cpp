@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeDBPriceResponse::DescribeDBPriceResponse() :
     m_priceHasBeenSet(false),
-    m_originalPriceHasBeenSet(false)
+    m_originalPriceHasBeenSet(false),
+    m_currencyHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome DescribeDBPriceResponse::Deserialize(const string &payload)
         m_originalPriceHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Currency") && !rsp["Currency"].IsNull())
+    {
+        if (!rsp["Currency"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Currency` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_currency = string(rsp["Currency"].GetString());
+        m_currencyHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string DescribeDBPriceResponse::ToJsonString() const
         value.AddMember(iKey, m_originalPrice, allocator);
     }
 
+    if (m_currencyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Currency";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_currency.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ int64_t DescribeDBPriceResponse::GetOriginalPrice() const
 bool DescribeDBPriceResponse::OriginalPriceHasBeenSet() const
 {
     return m_originalPriceHasBeenSet;
+}
+
+string DescribeDBPriceResponse::GetCurrency() const
+{
+    return m_currency;
+}
+
+bool DescribeDBPriceResponse::CurrencyHasBeenSet() const
+{
+    return m_currencyHasBeenSet;
 }
 
 

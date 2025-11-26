@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,48 +46,56 @@ namespace TencentCloud
                     /**
                      * 获取ACL 实例 ID
                      * @return AclId ACL 实例 ID
+                     * 
                      */
                     std::string GetAclId() const;
 
                     /**
                      * 判断参数 AclId 是否已赋值
                      * @return AclId 是否已赋值
+                     * 
                      */
                     bool AclIdHasBeenSet() const;
 
                     /**
                      * 获取ACL 实例状态
                      * @return Status ACL 实例状态
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取ACL 实例名称
                      * @return AclName ACL 实例名称
+                     * 
                      */
                     std::string GetAclName() const;
 
                     /**
                      * 判断参数 AclName 是否已赋值
                      * @return AclName 是否已赋值
+                     * 
                      */
                     bool AclNameHasBeenSet() const;
 
                     /**
                      * 获取ACL 实例创建时间
                      * @return CreatedAt ACL 实例创建时间
+                     * 
                      */
                     std::string GetCreatedAt() const;
 
                     /**
                      * 判断参数 CreatedAt 是否已赋值
                      * @return CreatedAt 是否已赋值
+                     * 
                      */
                     bool CreatedAtHasBeenSet() const;
 

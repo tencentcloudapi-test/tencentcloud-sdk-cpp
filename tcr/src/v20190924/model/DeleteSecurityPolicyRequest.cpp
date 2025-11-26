@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 DeleteSecurityPolicyRequest::DeleteSecurityPolicyRequest() :
     m_registryIdHasBeenSet(false),
     m_policyIndexHasBeenSet(false),
-    m_policyVersionHasBeenSet(false)
+    m_policyVersionHasBeenSet(false),
+    m_cidrBlockHasBeenSet(false)
 {
 }
 
@@ -58,6 +59,14 @@ string DeleteSecurityPolicyRequest::ToJsonString() const
         string key = "PolicyVersion";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_policyVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cidrBlockHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CidrBlock";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cidrBlock.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -114,6 +123,22 @@ void DeleteSecurityPolicyRequest::SetPolicyVersion(const string& _policyVersion)
 bool DeleteSecurityPolicyRequest::PolicyVersionHasBeenSet() const
 {
     return m_policyVersionHasBeenSet;
+}
+
+string DeleteSecurityPolicyRequest::GetCidrBlock() const
+{
+    return m_cidrBlock;
+}
+
+void DeleteSecurityPolicyRequest::SetCidrBlock(const string& _cidrBlock)
+{
+    m_cidrBlock = _cidrBlock;
+    m_cidrBlockHasBeenSet = true;
+}
+
+bool DeleteSecurityPolicyRequest::CidrBlockHasBeenSet() const
+{
+    return m_cidrBlockHasBeenSet;
 }
 
 

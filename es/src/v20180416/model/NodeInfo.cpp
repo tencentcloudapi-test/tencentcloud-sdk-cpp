@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,11 @@ NodeInfo::NodeInfo() :
     m_diskSizeHasBeenSet(false),
     m_localDiskInfoHasBeenSet(false),
     m_diskCountHasBeenSet(false),
-    m_diskEncryptHasBeenSet(false)
+    m_diskEncryptHasBeenSet(false),
+    m_cpuNumHasBeenSet(false),
+    m_memSizeHasBeenSet(false),
+    m_diskEnhanceHasBeenSet(false),
+    m_gpuInfoHasBeenSet(false)
 {
 }
 
@@ -124,6 +128,53 @@ CoreInternalOutcome NodeInfo::Deserialize(const rapidjson::Value &value)
         m_diskEncryptHasBeenSet = true;
     }
 
+    if (value.HasMember("CpuNum") && !value["CpuNum"].IsNull())
+    {
+        if (!value["CpuNum"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeInfo.CpuNum` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_cpuNum = value["CpuNum"].GetUint64();
+        m_cpuNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("MemSize") && !value["MemSize"].IsNull())
+    {
+        if (!value["MemSize"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeInfo.MemSize` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_memSize = value["MemSize"].GetInt64();
+        m_memSizeHasBeenSet = true;
+    }
+
+    if (value.HasMember("DiskEnhance") && !value["DiskEnhance"].IsNull())
+    {
+        if (!value["DiskEnhance"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeInfo.DiskEnhance` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_diskEnhance = value["DiskEnhance"].GetInt64();
+        m_diskEnhanceHasBeenSet = true;
+    }
+
+    if (value.HasMember("GpuInfo") && !value["GpuInfo"].IsNull())
+    {
+        if (!value["GpuInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeInfo.GpuInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_gpuInfo.Deserialize(value["GpuInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_gpuInfoHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -194,6 +245,39 @@ void NodeInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "DiskEncrypt";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_diskEncrypt, allocator);
+    }
+
+    if (m_cpuNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CpuNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_cpuNum, allocator);
+    }
+
+    if (m_memSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MemSize";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_memSize, allocator);
+    }
+
+    if (m_diskEnhanceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskEnhance";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_diskEnhance, allocator);
+    }
+
+    if (m_gpuInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GpuInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_gpuInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -325,5 +409,69 @@ void NodeInfo::SetDiskEncrypt(const uint64_t& _diskEncrypt)
 bool NodeInfo::DiskEncryptHasBeenSet() const
 {
     return m_diskEncryptHasBeenSet;
+}
+
+uint64_t NodeInfo::GetCpuNum() const
+{
+    return m_cpuNum;
+}
+
+void NodeInfo::SetCpuNum(const uint64_t& _cpuNum)
+{
+    m_cpuNum = _cpuNum;
+    m_cpuNumHasBeenSet = true;
+}
+
+bool NodeInfo::CpuNumHasBeenSet() const
+{
+    return m_cpuNumHasBeenSet;
+}
+
+int64_t NodeInfo::GetMemSize() const
+{
+    return m_memSize;
+}
+
+void NodeInfo::SetMemSize(const int64_t& _memSize)
+{
+    m_memSize = _memSize;
+    m_memSizeHasBeenSet = true;
+}
+
+bool NodeInfo::MemSizeHasBeenSet() const
+{
+    return m_memSizeHasBeenSet;
+}
+
+int64_t NodeInfo::GetDiskEnhance() const
+{
+    return m_diskEnhance;
+}
+
+void NodeInfo::SetDiskEnhance(const int64_t& _diskEnhance)
+{
+    m_diskEnhance = _diskEnhance;
+    m_diskEnhanceHasBeenSet = true;
+}
+
+bool NodeInfo::DiskEnhanceHasBeenSet() const
+{
+    return m_diskEnhanceHasBeenSet;
+}
+
+GpuInfo NodeInfo::GetGpuInfo() const
+{
+    return m_gpuInfo;
+}
+
+void NodeInfo::SetGpuInfo(const GpuInfo& _gpuInfo)
+{
+    m_gpuInfo = _gpuInfo;
+    m_gpuInfoHasBeenSet = true;
+}
+
+bool NodeInfo::GpuInfoHasBeenSet() const
+{
+    return m_gpuInfoHasBeenSet;
 }
 

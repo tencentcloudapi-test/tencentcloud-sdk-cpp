@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,20 +52,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Orders 分账订单列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<MultiApplyOrder> GetOrders() const;
 
                     /**
                      * 设置分账订单列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Orders 分账订单列表
+                     * @param _orders 分账订单列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetOrders(const std::vector<MultiApplyOrder>& _orders);
 
                     /**
                      * 判断参数 Orders 是否已赋值
                      * @return Orders 是否已赋值
+                     * 
                      */
                     bool OrdersHasBeenSet() const;
 

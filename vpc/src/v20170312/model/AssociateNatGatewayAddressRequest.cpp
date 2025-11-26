@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ AssociateNatGatewayAddressRequest::AssociateNatGatewayAddressRequest() :
     m_zoneHasBeenSet(false),
     m_stockPublicIpAddressesBandwidthOutHasBeenSet(false),
     m_publicIpAddressesBandwidthOutHasBeenSet(false),
-    m_publicIpFromSameZoneHasBeenSet(false)
+    m_publicIpFromSameZoneHasBeenSet(false),
+    m_ipAddressEnableModeHasBeenSet(false)
 {
 }
 
@@ -99,6 +100,14 @@ string AssociateNatGatewayAddressRequest::ToJsonString() const
         string key = "PublicIpFromSameZone";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_publicIpFromSameZone, allocator);
+    }
+
+    if (m_ipAddressEnableModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IpAddressEnableMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_ipAddressEnableMode, allocator);
     }
 
 
@@ -219,6 +228,22 @@ void AssociateNatGatewayAddressRequest::SetPublicIpFromSameZone(const bool& _pub
 bool AssociateNatGatewayAddressRequest::PublicIpFromSameZoneHasBeenSet() const
 {
     return m_publicIpFromSameZoneHasBeenSet;
+}
+
+bool AssociateNatGatewayAddressRequest::GetIpAddressEnableMode() const
+{
+    return m_ipAddressEnableMode;
+}
+
+void AssociateNatGatewayAddressRequest::SetIpAddressEnableMode(const bool& _ipAddressEnableMode)
+{
+    m_ipAddressEnableMode = _ipAddressEnableMode;
+    m_ipAddressEnableModeHasBeenSet = true;
+}
+
+bool AssociateNatGatewayAddressRequest::IpAddressEnableModeHasBeenSet() const
+{
+    return m_ipAddressEnableModeHasBeenSet;
 }
 
 

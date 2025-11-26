@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取设备硬件配置信息
                      * @return DeviceHardwareInfoSet 设备硬件配置信息
+                     * 
                      */
                     std::vector<DeviceHardwareInfo> GetDeviceHardwareInfoSet() const;
 
                     /**
                      * 判断参数 DeviceHardwareInfoSet 是否已赋值
                      * @return DeviceHardwareInfoSet 是否已赋值
+                     * 
                      */
                     bool DeviceHardwareInfoSetHasBeenSet() const;
 

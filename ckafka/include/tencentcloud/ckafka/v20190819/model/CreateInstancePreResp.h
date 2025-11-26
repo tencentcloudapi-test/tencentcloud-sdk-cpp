@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 创建预付费实例返回结构
+                * 预付费实例相关接口返回结构
                 */
                 class CreateInstancePreResp : public AbstractModel
                 {
@@ -50,80 +50,88 @@ namespace TencentCloud
                     /**
                      * 获取返回的code，0为正常，非0为错误
                      * @return ReturnCode 返回的code，0为正常，非0为错误
+                     * 
                      */
                     std::string GetReturnCode() const;
 
                     /**
                      * 设置返回的code，0为正常，非0为错误
-                     * @param ReturnCode 返回的code，0为正常，非0为错误
+                     * @param _returnCode 返回的code，0为正常，非0为错误
+                     * 
                      */
                     void SetReturnCode(const std::string& _returnCode);
 
                     /**
                      * 判断参数 ReturnCode 是否已赋值
                      * @return ReturnCode 是否已赋值
+                     * 
                      */
                     bool ReturnCodeHasBeenSet() const;
 
                     /**
                      * 获取成功消息
                      * @return ReturnMessage 成功消息
+                     * 
                      */
                     std::string GetReturnMessage() const;
 
                     /**
                      * 设置成功消息
-                     * @param ReturnMessage 成功消息
+                     * @param _returnMessage 成功消息
+                     * 
                      */
                     void SetReturnMessage(const std::string& _returnMessage);
 
                     /**
                      * 判断参数 ReturnMessage 是否已赋值
                      * @return ReturnMessage 是否已赋值
+                     * 
                      */
                     bool ReturnMessageHasBeenSet() const;
 
                     /**
                      * 获取操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Data 操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     CreateInstancePreData GetData() const;
 
                     /**
                      * 设置操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Data 操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _data 操作型返回的Data数据
+                     * 
                      */
                     void SetData(const CreateInstancePreData& _data);
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                     /**
-                     * 获取删除是时间
+                     * 获取删除时间。目前该参数字段已废弃，将会在未来被删除
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DeleteRouteTimestamp 删除是时间
+                     * @return DeleteRouteTimestamp 删除时间。目前该参数字段已废弃，将会在未来被删除
 注意：此字段可能返回 null，表示取不到有效值。
+                     * @deprecated
                      */
                     std::string GetDeleteRouteTimestamp() const;
 
                     /**
-                     * 设置删除是时间
+                     * 设置删除时间。目前该参数字段已废弃，将会在未来被删除
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param DeleteRouteTimestamp 删除是时间
+                     * @param _deleteRouteTimestamp 删除时间。目前该参数字段已废弃，将会在未来被删除
 注意：此字段可能返回 null，表示取不到有效值。
+                     * @deprecated
                      */
                     void SetDeleteRouteTimestamp(const std::string& _deleteRouteTimestamp);
 
                     /**
                      * 判断参数 DeleteRouteTimestamp 是否已赋值
                      * @return DeleteRouteTimestamp 是否已赋值
+                     * @deprecated
                      */
                     bool DeleteRouteTimestampHasBeenSet() const;
 
@@ -143,13 +151,12 @@ namespace TencentCloud
 
                     /**
                      * 操作型返回的Data数据
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     CreateInstancePreData m_data;
                     bool m_dataHasBeenSet;
 
                     /**
-                     * 删除是时间
+                     * 删除时间。目前该参数字段已废弃，将会在未来被删除
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_deleteRouteTimestamp;

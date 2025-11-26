@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,6 @@ namespace TencentCloud
             {
                 /**
                 * 识别结果。
-
                 */
                 class ResultsReturnsByGroup : public AbstractModel
                 {
@@ -52,58 +51,71 @@ namespace TencentCloud
                     /**
                      * 获取检测出的人脸框位置。
                      * @return FaceRect 检测出的人脸框位置。
+                     * 
                      */
                     FaceRect GetFaceRect() const;
 
                     /**
                      * 设置检测出的人脸框位置。
-                     * @param FaceRect 检测出的人脸框位置。
+                     * @param _faceRect 检测出的人脸框位置。
+                     * 
                      */
                     void SetFaceRect(const FaceRect& _faceRect);
 
                     /**
                      * 判断参数 FaceRect 是否已赋值
                      * @return FaceRect 是否已赋值
+                     * 
                      */
                     bool FaceRectHasBeenSet() const;
 
                     /**
                      * 获取识别结果。
                      * @return GroupCandidates 识别结果。
+                     * 
                      */
                     std::vector<GroupCandidate> GetGroupCandidates() const;
 
                     /**
                      * 设置识别结果。
-                     * @param GroupCandidates 识别结果。
+                     * @param _groupCandidates 识别结果。
+                     * 
                      */
                     void SetGroupCandidates(const std::vector<GroupCandidate>& _groupCandidates);
 
                     /**
                      * 判断参数 GroupCandidates 是否已赋值
                      * @return GroupCandidates 是否已赋值
+                     * 
                      */
                     bool GroupCandidatesHasBeenSet() const;
 
                     /**
-                     * 获取检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
-                     * @return RetCode 检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
+                     * 获取检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
+                     * @return RetCode 检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
+                     * 
                      */
                     int64_t GetRetCode() const;
 
                     /**
-                     * 设置检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
-                     * @param RetCode 检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
+                     * 设置检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
+                     * @param _retCode 检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
+                     * 
                      */
                     void SetRetCode(const int64_t& _retCode);
 
                     /**
                      * 判断参数 RetCode 是否已赋值
                      * @return RetCode 是否已赋值
+                     * 
                      */
                     bool RetCodeHasBeenSet() const;
 
@@ -122,8 +134,9 @@ namespace TencentCloud
                     bool m_groupCandidatesHasBeenSet;
 
                     /**
-                     * 检测出的人脸图片状态返回码。0 表示正常。 
--1601代表不符合图片质量控制要求，此时Candidate内容为空。
+                     * 检测出的人脸图片状态返回码。
+- 0 表示正常。 
+- -1601代表不符合图片质量控制要求，此时Candidate内容为空。
                      */
                     int64_t m_retCode;
                     bool m_retCodeHasBeenSet;

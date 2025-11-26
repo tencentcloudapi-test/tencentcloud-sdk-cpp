@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,10 @@ ProductProperties::ProductProperties() :
     m_registerLimitHasBeenSet(false),
     m_originProductIdHasBeenSet(false),
     m_privateCANameHasBeenSet(false),
-    m_originUserIdHasBeenSet(false)
+    m_originUserIdHasBeenSet(false),
+    m_deviceLimitHasBeenSet(false),
+    m_forbiddenStatusHasBeenSet(false),
+    m_appEUIHasBeenSet(false)
 {
 }
 
@@ -205,6 +208,36 @@ CoreInternalOutcome ProductProperties::Deserialize(const rapidjson::Value &value
         m_originUserIdHasBeenSet = true;
     }
 
+    if (value.HasMember("DeviceLimit") && !value["DeviceLimit"].IsNull())
+    {
+        if (!value["DeviceLimit"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductProperties.DeviceLimit` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_deviceLimit = value["DeviceLimit"].GetUint64();
+        m_deviceLimitHasBeenSet = true;
+    }
+
+    if (value.HasMember("ForbiddenStatus") && !value["ForbiddenStatus"].IsNull())
+    {
+        if (!value["ForbiddenStatus"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductProperties.ForbiddenStatus` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_forbiddenStatus = value["ForbiddenStatus"].GetUint64();
+        m_forbiddenStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("AppEUI") && !value["AppEUI"].IsNull())
+    {
+        if (!value["AppEUI"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductProperties.AppEUI` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_appEUI = string(value["AppEUI"].GetString());
+        m_appEUIHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -338,6 +371,30 @@ void ProductProperties::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "OriginUserId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_originUserId, allocator);
+    }
+
+    if (m_deviceLimitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeviceLimit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deviceLimit, allocator);
+    }
+
+    if (m_forbiddenStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ForbiddenStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_forbiddenStatus, allocator);
+    }
+
+    if (m_appEUIHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AppEUI";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_appEUI.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -597,5 +654,53 @@ void ProductProperties::SetOriginUserId(const uint64_t& _originUserId)
 bool ProductProperties::OriginUserIdHasBeenSet() const
 {
     return m_originUserIdHasBeenSet;
+}
+
+uint64_t ProductProperties::GetDeviceLimit() const
+{
+    return m_deviceLimit;
+}
+
+void ProductProperties::SetDeviceLimit(const uint64_t& _deviceLimit)
+{
+    m_deviceLimit = _deviceLimit;
+    m_deviceLimitHasBeenSet = true;
+}
+
+bool ProductProperties::DeviceLimitHasBeenSet() const
+{
+    return m_deviceLimitHasBeenSet;
+}
+
+uint64_t ProductProperties::GetForbiddenStatus() const
+{
+    return m_forbiddenStatus;
+}
+
+void ProductProperties::SetForbiddenStatus(const uint64_t& _forbiddenStatus)
+{
+    m_forbiddenStatus = _forbiddenStatus;
+    m_forbiddenStatusHasBeenSet = true;
+}
+
+bool ProductProperties::ForbiddenStatusHasBeenSet() const
+{
+    return m_forbiddenStatusHasBeenSet;
+}
+
+string ProductProperties::GetAppEUI() const
+{
+    return m_appEUI;
+}
+
+void ProductProperties::SetAppEUI(const string& _appEUI)
+{
+    m_appEUI = _appEUI;
+    m_appEUIHasBeenSet = true;
+}
+
+bool ProductProperties::AppEUIHasBeenSet() const
+{
+    return m_appEUIHasBeenSet;
 }
 

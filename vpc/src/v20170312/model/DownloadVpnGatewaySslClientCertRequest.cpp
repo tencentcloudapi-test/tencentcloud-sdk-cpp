@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,10 @@ using namespace TencentCloud::Vpc::V20170312::Model;
 using namespace std;
 
 DownloadVpnGatewaySslClientCertRequest::DownloadVpnGatewaySslClientCertRequest() :
-    m_sslVpnClientIdHasBeenSet(false)
+    m_sslVpnClientIdHasBeenSet(false),
+    m_samlTokenHasBeenSet(false),
+    m_isVpnPortalHasBeenSet(false),
+    m_sslVpnClientIdsHasBeenSet(false)
 {
 }
 
@@ -40,6 +43,35 @@ string DownloadVpnGatewaySslClientCertRequest::ToJsonString() const
         string key = "SslVpnClientId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_sslVpnClientId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_samlTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SamlToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_samlToken.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isVpnPortalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsVpnPortal";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isVpnPortal, allocator);
+    }
+
+    if (m_sslVpnClientIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SslVpnClientIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_sslVpnClientIds.begin(); itr != m_sslVpnClientIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 
@@ -64,6 +96,54 @@ void DownloadVpnGatewaySslClientCertRequest::SetSslVpnClientId(const string& _ss
 bool DownloadVpnGatewaySslClientCertRequest::SslVpnClientIdHasBeenSet() const
 {
     return m_sslVpnClientIdHasBeenSet;
+}
+
+string DownloadVpnGatewaySslClientCertRequest::GetSamlToken() const
+{
+    return m_samlToken;
+}
+
+void DownloadVpnGatewaySslClientCertRequest::SetSamlToken(const string& _samlToken)
+{
+    m_samlToken = _samlToken;
+    m_samlTokenHasBeenSet = true;
+}
+
+bool DownloadVpnGatewaySslClientCertRequest::SamlTokenHasBeenSet() const
+{
+    return m_samlTokenHasBeenSet;
+}
+
+bool DownloadVpnGatewaySslClientCertRequest::GetIsVpnPortal() const
+{
+    return m_isVpnPortal;
+}
+
+void DownloadVpnGatewaySslClientCertRequest::SetIsVpnPortal(const bool& _isVpnPortal)
+{
+    m_isVpnPortal = _isVpnPortal;
+    m_isVpnPortalHasBeenSet = true;
+}
+
+bool DownloadVpnGatewaySslClientCertRequest::IsVpnPortalHasBeenSet() const
+{
+    return m_isVpnPortalHasBeenSet;
+}
+
+vector<string> DownloadVpnGatewaySslClientCertRequest::GetSslVpnClientIds() const
+{
+    return m_sslVpnClientIds;
+}
+
+void DownloadVpnGatewaySslClientCertRequest::SetSslVpnClientIds(const vector<string>& _sslVpnClientIds)
+{
+    m_sslVpnClientIds = _sslVpnClientIds;
+    m_sslVpnClientIdsHasBeenSet = true;
+}
+
+bool DownloadVpnGatewaySslClientCertRequest::SslVpnClientIdsHasBeenSet() const
+{
+    return m_sslVpnClientIdsHasBeenSet;
 }
 
 

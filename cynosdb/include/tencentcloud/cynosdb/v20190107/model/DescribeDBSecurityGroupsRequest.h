@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,30 +43,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例组ID
-                     * @return InstanceId 实例组ID
+                     * 获取实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+                     * @return InstanceId 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+                     * @deprecated
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例组ID
-                     * @param InstanceId 实例组ID
+                     * 设置实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+                     * @param _instanceId 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
+                     * @deprecated
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * @deprecated
                      */
                     bool InstanceIdHasBeenSet() const;
+
+                    /**
+                     * 获取实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
+                     * @return InstanceGroupId 实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
+                     * 
+                     */
+                    std::string GetInstanceGroupId() const;
+
+                    /**
+                     * 设置实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
+                     * @param _instanceGroupId 实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
+                     * 
+                     */
+                    void SetInstanceGroupId(const std::string& _instanceGroupId);
+
+                    /**
+                     * 判断参数 InstanceGroupId 是否已赋值
+                     * @return InstanceGroupId 是否已赋值
+                     * 
+                     */
+                    bool InstanceGroupIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例组ID
+                     * 实例ID（InstanceId与InstanceGroupId必须任选一个传入）
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
+
+                    /**
+                     * 实例组 ID，可通过 [DescribeClusterInstanceGroups](https://cloud.tencent.com/document/product/1003/103934) 接口查询。
+                     */
+                    std::string m_instanceGroupId;
+                    bool m_instanceGroupIdHasBeenSet;
 
                 };
             }

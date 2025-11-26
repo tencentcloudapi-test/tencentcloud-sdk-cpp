@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取风险详情数组
                      * @return ClusterRiskItems 风险详情数组
+                     * 
                      */
                     std::vector<ClusterRiskItem> GetClusterRiskItems() const;
 
                     /**
                      * 判断参数 ClusterRiskItems 是否已赋值
                      * @return ClusterRiskItems 是否已赋值
+                     * 
                      */
                     bool ClusterRiskItemsHasBeenSet() const;
 
                     /**
                      * 获取风险项的总数
                      * @return TotalCount 风险项的总数
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 

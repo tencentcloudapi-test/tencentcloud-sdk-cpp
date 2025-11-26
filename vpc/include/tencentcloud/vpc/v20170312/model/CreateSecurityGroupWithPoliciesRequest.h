@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/vpc/v20170312/model/SecurityGroupPolicySet.h>
+#include <tencentcloud/vpc/v20170312/model/Tag.h>
 
 
 namespace TencentCloud
@@ -46,74 +47,107 @@ namespace TencentCloud
                     /**
                      * 获取安全组名称，可任意命名，但不得超过60个字符。
                      * @return GroupName 安全组名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     std::string GetGroupName() const;
 
                     /**
                      * 设置安全组名称，可任意命名，但不得超过60个字符。
-                     * @param GroupName 安全组名称，可任意命名，但不得超过60个字符。
+                     * @param _groupName 安全组名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     void SetGroupName(const std::string& _groupName);
 
                     /**
                      * 判断参数 GroupName 是否已赋值
                      * @return GroupName 是否已赋值
+                     * 
                      */
                     bool GroupNameHasBeenSet() const;
 
                     /**
                      * 获取安全组备注，最多100个字符。
                      * @return GroupDescription 安全组备注，最多100个字符。
+                     * 
                      */
                     std::string GetGroupDescription() const;
 
                     /**
                      * 设置安全组备注，最多100个字符。
-                     * @param GroupDescription 安全组备注，最多100个字符。
+                     * @param _groupDescription 安全组备注，最多100个字符。
+                     * 
                      */
                     void SetGroupDescription(const std::string& _groupDescription);
 
                     /**
                      * 判断参数 GroupDescription 是否已赋值
                      * @return GroupDescription 是否已赋值
+                     * 
                      */
                     bool GroupDescriptionHasBeenSet() const;
 
                     /**
-                     * 获取项目ID，默认0。可在qcloud控制台项目管理页面查询到。
-                     * @return ProjectId 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+                     * 获取项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
+                     * @return ProjectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
+                     * 
                      */
                     std::string GetProjectId() const;
 
                     /**
-                     * 设置项目ID，默认0。可在qcloud控制台项目管理页面查询到。
-                     * @param ProjectId 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+                     * 设置项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
+                     * @param _projectId 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
+                     * 
                      */
                     void SetProjectId(const std::string& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 
                     /**
                      * 获取安全组规则集合。
                      * @return SecurityGroupPolicySet 安全组规则集合。
+                     * 
                      */
                     SecurityGroupPolicySet GetSecurityGroupPolicySet() const;
 
                     /**
                      * 设置安全组规则集合。
-                     * @param SecurityGroupPolicySet 安全组规则集合。
+                     * @param _securityGroupPolicySet 安全组规则集合。
+                     * 
                      */
                     void SetSecurityGroupPolicySet(const SecurityGroupPolicySet& _securityGroupPolicySet);
 
                     /**
                      * 判断参数 SecurityGroupPolicySet 是否已赋值
                      * @return SecurityGroupPolicySet 是否已赋值
+                     * 
                      */
                     bool SecurityGroupPolicySetHasBeenSet() const;
+
+                    /**
+                     * 获取指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * @param _tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
@@ -130,7 +164,7 @@ namespace TencentCloud
                     bool m_groupDescriptionHasBeenSet;
 
                     /**
-                     * 项目ID，默认0。可在qcloud控制台项目管理页面查询到。
+                     * 项目ID，默认0。可在<a href="https://console.cloud.tencent.com/project">控制台项目管理页面</a>查询到。
                      */
                     std::string m_projectId;
                     bool m_projectIdHasBeenSet;
@@ -140,6 +174,12 @@ namespace TencentCloud
                      */
                     SecurityGroupPolicySet m_securityGroupPolicySet;
                     bool m_securityGroupPolicySetHasBeenSet;
+
+                    /**
+                     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

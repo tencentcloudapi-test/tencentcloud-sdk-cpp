@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,57 +45,63 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取安全组规则
-                     * @return Groups 安全组规则
+                     * 获取安全组规则。
+                     * @return Groups 安全组规则。
+                     * 
                      */
                     std::vector<SecurityGroup> GetGroups() const;
 
                     /**
                      * 判断参数 Groups 是否已赋值
                      * @return Groups 是否已赋值
+                     * 
                      */
                     bool GroupsHasBeenSet() const;
 
                     /**
-                     * 获取安全组生效内网地址
-                     * @return VIP 安全组生效内网地址
+                     * 获取实例内网IPv4地址。
+                     * @return VIP 实例内网IPv4地址。
+                     * 
                      */
                     std::string GetVIP() const;
 
                     /**
                      * 判断参数 VIP 是否已赋值
                      * @return VIP 是否已赋值
+                     * 
                      */
                     bool VIPHasBeenSet() const;
 
                     /**
-                     * 获取安全组生效内网端口
-                     * @return VPort 安全组生效内网端口
+                     * 获取内网端口。
+                     * @return VPort 内网端口。
+                     * 
                      */
                     std::string GetVPort() const;
 
                     /**
                      * 判断参数 VPort 是否已赋值
                      * @return VPort 是否已赋值
+                     * 
                      */
                     bool VPortHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 安全组规则
+                     * 安全组规则。
                      */
                     std::vector<SecurityGroup> m_groups;
                     bool m_groupsHasBeenSet;
 
                     /**
-                     * 安全组生效内网地址
+                     * 实例内网IPv4地址。
                      */
                     std::string m_vIP;
                     bool m_vIPHasBeenSet;
 
                     /**
-                     * 安全组生效内网端口
+                     * 内网端口。
                      */
                     std::string m_vPort;
                     bool m_vPortHasBeenSet;

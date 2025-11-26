@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,20 +53,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return AsrReviewInfo 语音违禁控制参数。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     ProhibitedAsrReviewTemplateInfo GetAsrReviewInfo() const;
 
                     /**
                      * 设置语音违禁控制参数。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AsrReviewInfo 语音违禁控制参数。
+                     * @param _asrReviewInfo 语音违禁控制参数。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetAsrReviewInfo(const ProhibitedAsrReviewTemplateInfo& _asrReviewInfo);
 
                     /**
                      * 判断参数 AsrReviewInfo 是否已赋值
                      * @return AsrReviewInfo 是否已赋值
+                     * 
                      */
                     bool AsrReviewInfoHasBeenSet() const;
 
@@ -75,20 +78,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OcrReviewInfo 文本违禁控制参数。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     ProhibitedOcrReviewTemplateInfo GetOcrReviewInfo() const;
 
                     /**
                      * 设置文本违禁控制参数。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OcrReviewInfo 文本违禁控制参数。
+                     * @param _ocrReviewInfo 文本违禁控制参数。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetOcrReviewInfo(const ProhibitedOcrReviewTemplateInfo& _ocrReviewInfo);
 
                     /**
                      * 判断参数 OcrReviewInfo 是否已赋值
                      * @return OcrReviewInfo 是否已赋值
+                     * 
                      */
                     bool OcrReviewInfoHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ DescribeApmAgentRequest::DescribeApmAgentRequest() :
     m_instanceIdHasBeenSet(false),
     m_agentTypeHasBeenSet(false),
     m_networkModeHasBeenSet(false),
-    m_languageEnvironmentHasBeenSet(false)
+    m_languageEnvironmentHasBeenSet(false),
+    m_reportMethodHasBeenSet(false)
 {
 }
 
@@ -67,6 +68,14 @@ string DescribeApmAgentRequest::ToJsonString() const
         string key = "LanguageEnvironment";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_languageEnvironment.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_reportMethodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReportMethod";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_reportMethod.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -139,6 +148,22 @@ void DescribeApmAgentRequest::SetLanguageEnvironment(const string& _languageEnvi
 bool DescribeApmAgentRequest::LanguageEnvironmentHasBeenSet() const
 {
     return m_languageEnvironmentHasBeenSet;
+}
+
+string DescribeApmAgentRequest::GetReportMethod() const
+{
+    return m_reportMethod;
+}
+
+void DescribeApmAgentRequest::SetReportMethod(const string& _reportMethod)
+{
+    m_reportMethod = _reportMethod;
+    m_reportMethodHasBeenSet = true;
+}
+
+bool DescribeApmAgentRequest::ReportMethodHasBeenSet() const
+{
+    return m_reportMethodHasBeenSet;
 }
 
 

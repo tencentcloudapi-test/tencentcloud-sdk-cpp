@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cynosdb/v20190107/model/CynosdbInstanceGrp.h>
+#include <tencentcloud/cynosdb/v20190107/model/CynosdbInstanceGroup.h>
 
 
 namespace TencentCloud
@@ -47,26 +48,44 @@ namespace TencentCloud
                     /**
                      * 获取实例组个数
                      * @return TotalCount 实例组个数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取实例组列表
                      * @return InstanceGrpInfoList 实例组列表
+                     * @deprecated
                      */
                     std::vector<CynosdbInstanceGrp> GetInstanceGrpInfoList() const;
 
                     /**
                      * 判断参数 InstanceGrpInfoList 是否已赋值
                      * @return InstanceGrpInfoList 是否已赋值
+                     * @deprecated
                      */
                     bool InstanceGrpInfoListHasBeenSet() const;
+
+                    /**
+                     * 获取实例组列表
+                     * @return InstanceGroupInfoList 实例组列表
+                     * 
+                     */
+                    std::vector<CynosdbInstanceGroup> GetInstanceGroupInfoList() const;
+
+                    /**
+                     * 判断参数 InstanceGroupInfoList 是否已赋值
+                     * @return InstanceGroupInfoList 是否已赋值
+                     * 
+                     */
+                    bool InstanceGroupInfoListHasBeenSet() const;
 
                 private:
 
@@ -81,6 +100,12 @@ namespace TencentCloud
                      */
                     std::vector<CynosdbInstanceGrp> m_instanceGrpInfoList;
                     bool m_instanceGrpInfoListHasBeenSet;
+
+                    /**
+                     * 实例组列表
+                     */
+                    std::vector<CynosdbInstanceGroup> m_instanceGroupInfoList;
+                    bool m_instanceGroupInfoListHasBeenSet;
 
                 };
             }

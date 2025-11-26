@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取状态机资源名
                      * @return FlowServiceResource 状态机资源名
+                     * 
                      */
                     std::string GetFlowServiceResource() const;
 
                     /**
                      * 判断参数 FlowServiceResource 是否已赋值
                      * @return FlowServiceResource 是否已赋值
+                     * 
                      */
                     bool FlowServiceResourceHasBeenSet() const;
 
                     /**
                      * 获取更新时间
                      * @return UpdateDate 更新时间
+                     * 
                      */
                     std::string GetUpdateDate() const;
 
                     /**
                      * 判断参数 UpdateDate 是否已赋值
                      * @return UpdateDate 是否已赋值
+                     * 
                      */
                     bool UpdateDateHasBeenSet() const;
 

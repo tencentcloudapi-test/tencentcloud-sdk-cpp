@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取环境ID
                      * @return EnvId 环境ID
+                     * 
                      */
                     std::string GetEnvId() const;
 
                     /**
                      * 设置环境ID
-                     * @param EnvId 环境ID
+                     * @param _envId 环境ID
+                     * 
                      */
                     void SetEnvId(const std::string& _envId);
 
                     /**
                      * 判断参数 EnvId 是否已赋值
                      * @return EnvId 是否已赋值
+                     * 
                      */
                     bool EnvIdHasBeenSet() const;
 
                     /**
                      * 获取集合名称
                      * @return CollectionName 集合名称
+                     * 
                      */
                     std::string GetCollectionName() const;
 
                     /**
                      * 设置集合名称
-                     * @param CollectionName 集合名称
+                     * @param _collectionName 集合名称
+                     * 
                      */
                     void SetCollectionName(const std::string& _collectionName);
 
                     /**
                      * 判断参数 CollectionName 是否已赋值
                      * @return CollectionName 是否已赋值
+                     * 
                      */
                     bool CollectionNameHasBeenSet() const;
 

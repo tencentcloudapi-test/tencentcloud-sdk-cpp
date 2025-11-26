@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,20 +52,23 @@ namespace TencentCloud
 AttributeItem对应的Type为 —— 0：光头，1：短发，2：中发，3：长发，4：绑发。
                      * @return Length 头发长度信息。
 AttributeItem对应的Type为 —— 0：光头，1：短发，2：中发，3：长发，4：绑发。
+                     * 
                      */
                     AttributeItem GetLength() const;
 
                     /**
                      * 设置头发长度信息。
 AttributeItem对应的Type为 —— 0：光头，1：短发，2：中发，3：长发，4：绑发。
-                     * @param Length 头发长度信息。
+                     * @param _length 头发长度信息。
 AttributeItem对应的Type为 —— 0：光头，1：短发，2：中发，3：长发，4：绑发。
+                     * 
                      */
                     void SetLength(const AttributeItem& _length);
 
                     /**
                      * 判断参数 Length 是否已赋值
                      * @return Length 是否已赋值
+                     * 
                      */
                     bool LengthHasBeenSet() const;
 
@@ -74,20 +77,23 @@ AttributeItem对应的Type为 —— 0：光头，1：短发，2：中发，3：
 AttributeItem对应的Type为 —— 0：无刘海，1：有刘海。
                      * @return Bang 刘海信息。
 AttributeItem对应的Type为 —— 0：无刘海，1：有刘海。
+                     * 
                      */
                     AttributeItem GetBang() const;
 
                     /**
                      * 设置刘海信息。
 AttributeItem对应的Type为 —— 0：无刘海，1：有刘海。
-                     * @param Bang 刘海信息。
+                     * @param _bang 刘海信息。
 AttributeItem对应的Type为 —— 0：无刘海，1：有刘海。
+                     * 
                      */
                     void SetBang(const AttributeItem& _bang);
 
                     /**
                      * 判断参数 Bang 是否已赋值
                      * @return Bang 是否已赋值
+                     * 
                      */
                     bool BangHasBeenSet() const;
 
@@ -96,20 +102,23 @@ AttributeItem对应的Type为 —— 0：无刘海，1：有刘海。
 AttributeItem对应的Type为 —— 0：黑色，1：金色，2：棕色，3：灰白色。
                      * @return Color 头发颜色信息。
 AttributeItem对应的Type为 —— 0：黑色，1：金色，2：棕色，3：灰白色。
+                     * 
                      */
                     AttributeItem GetColor() const;
 
                     /**
                      * 设置头发颜色信息。
 AttributeItem对应的Type为 —— 0：黑色，1：金色，2：棕色，3：灰白色。
-                     * @param Color 头发颜色信息。
+                     * @param _color 头发颜色信息。
 AttributeItem对应的Type为 —— 0：黑色，1：金色，2：棕色，3：灰白色。
+                     * 
                      */
                     void SetColor(const AttributeItem& _color);
 
                     /**
                      * 判断参数 Color 是否已赋值
                      * @return Color 是否已赋值
+                     * 
                      */
                     bool ColorHasBeenSet() const;
 

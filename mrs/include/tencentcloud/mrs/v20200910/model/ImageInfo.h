@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取图片id
                      * @return Id 图片id
+                     * 
                      */
                     uint64_t GetId() const;
 
                     /**
                      * 设置图片id
-                     * @param Id 图片id
+                     * @param _id 图片id
+                     * 
                      */
                     void SetId(const uint64_t& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取图片url
-                     * @return Url 图片url
+                     * 获取图片url(暂不支持传图片Url信息,请使用Base64字段传递图片的Base64编码)
+                     * @return Url 图片url(暂不支持传图片Url信息,请使用Base64字段传递图片的Base64编码)
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
-                     * 设置图片url
-                     * @param Url 图片url
+                     * 设置图片url(暂不支持传图片Url信息,请使用Base64字段传递图片的Base64编码)
+                     * @param _url 图片url(暂不支持传图片Url信息,请使用Base64字段传递图片的Base64编码)
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
                      * 获取图片base64编码
                      * @return Base64 图片base64编码
+                     * 
                      */
                     std::string GetBase64() const;
 
                     /**
                      * 设置图片base64编码
-                     * @param Base64 图片base64编码
+                     * @param _base64 图片base64编码
+                     * 
                      */
                     void SetBase64(const std::string& _base64);
 
                     /**
                      * 判断参数 Base64 是否已赋值
                      * @return Base64 是否已赋值
+                     * 
                      */
                     bool Base64HasBeenSet() const;
 
@@ -109,7 +118,7 @@ namespace TencentCloud
                     bool m_idHasBeenSet;
 
                     /**
-                     * 图片url
+                     * 图片url(暂不支持传图片Url信息,请使用Base64字段传递图片的Base64编码)
                      */
                     std::string m_url;
                     bool m_urlHasBeenSet;

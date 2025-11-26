@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,10 @@ InstanceClusterShard::InstanceClusterShard() :
     m_storageHasBeenSet(false),
     m_storageSlopeHasBeenSet(false),
     m_runidHasBeenSet(false),
-    m_connectedHasBeenSet(false)
+    m_runIdHasBeenSet(false),
+    m_connectedHasBeenSet(false),
+    m_zoneIdHasBeenSet(false),
+    m_replicasNodeIdHasBeenSet(false)
 {
 }
 
@@ -118,6 +121,16 @@ CoreInternalOutcome InstanceClusterShard::Deserialize(const rapidjson::Value &va
         m_runidHasBeenSet = true;
     }
 
+    if (value.HasMember("RunId") && !value["RunId"].IsNull())
+    {
+        if (!value["RunId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceClusterShard.RunId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_runId = string(value["RunId"].GetString());
+        m_runIdHasBeenSet = true;
+    }
+
     if (value.HasMember("Connected") && !value["Connected"].IsNull())
     {
         if (!value["Connected"].IsInt64())
@@ -126,6 +139,26 @@ CoreInternalOutcome InstanceClusterShard::Deserialize(const rapidjson::Value &va
         }
         m_connected = value["Connected"].GetInt64();
         m_connectedHasBeenSet = true;
+    }
+
+    if (value.HasMember("ZoneId") && !value["ZoneId"].IsNull())
+    {
+        if (!value["ZoneId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceClusterShard.ZoneId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_zoneId = string(value["ZoneId"].GetString());
+        m_zoneIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReplicasNodeId") && !value["ReplicasNodeId"].IsNull())
+    {
+        if (!value["ReplicasNodeId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceClusterShard.ReplicasNodeId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_replicasNodeId = value["ReplicasNodeId"].GetInt64();
+        m_replicasNodeIdHasBeenSet = true;
     }
 
 
@@ -199,12 +232,36 @@ void InstanceClusterShard::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         value.AddMember(iKey, rapidjson::Value(m_runid.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_runIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RunId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_runId.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_connectedHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "Connected";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_connected, allocator);
+    }
+
+    if (m_zoneIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ZoneId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_zoneId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_replicasNodeIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReplicasNodeId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_replicasNodeId, allocator);
     }
 
 }
@@ -338,6 +395,22 @@ bool InstanceClusterShard::RunidHasBeenSet() const
     return m_runidHasBeenSet;
 }
 
+string InstanceClusterShard::GetRunId() const
+{
+    return m_runId;
+}
+
+void InstanceClusterShard::SetRunId(const string& _runId)
+{
+    m_runId = _runId;
+    m_runIdHasBeenSet = true;
+}
+
+bool InstanceClusterShard::RunIdHasBeenSet() const
+{
+    return m_runIdHasBeenSet;
+}
+
 int64_t InstanceClusterShard::GetConnected() const
 {
     return m_connected;
@@ -352,5 +425,37 @@ void InstanceClusterShard::SetConnected(const int64_t& _connected)
 bool InstanceClusterShard::ConnectedHasBeenSet() const
 {
     return m_connectedHasBeenSet;
+}
+
+string InstanceClusterShard::GetZoneId() const
+{
+    return m_zoneId;
+}
+
+void InstanceClusterShard::SetZoneId(const string& _zoneId)
+{
+    m_zoneId = _zoneId;
+    m_zoneIdHasBeenSet = true;
+}
+
+bool InstanceClusterShard::ZoneIdHasBeenSet() const
+{
+    return m_zoneIdHasBeenSet;
+}
+
+int64_t InstanceClusterShard::GetReplicasNodeId() const
+{
+    return m_replicasNodeId;
+}
+
+void InstanceClusterShard::SetReplicasNodeId(const int64_t& _replicasNodeId)
+{
+    m_replicasNodeId = _replicasNodeId;
+    m_replicasNodeIdHasBeenSet = true;
+}
+
+bool InstanceClusterShard::ReplicasNodeIdHasBeenSet() const
+{
+    return m_replicasNodeIdHasBeenSet;
 }
 

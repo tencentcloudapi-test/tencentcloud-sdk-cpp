@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,12 +30,19 @@ ModifyClusterNodePoolRequest::ModifyClusterNodePoolRequest() :
     m_minNodesNumHasBeenSet(false),
     m_labelsHasBeenSet(false),
     m_taintsHasBeenSet(false),
+    m_annotationsHasBeenSet(false),
     m_enableAutoscaleHasBeenSet(false),
     m_osNameHasBeenSet(false),
     m_osCustomizeTypeHasBeenSet(false),
+    m_gPUArgsHasBeenSet(false),
+    m_userScriptHasBeenSet(false),
+    m_ignoreExistedNodeHasBeenSet(false),
     m_extraArgsHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_unschedulableHasBeenSet(false)
+    m_unschedulableHasBeenSet(false),
+    m_deletionProtectionHasBeenSet(false),
+    m_dockerGraphPathHasBeenSet(false),
+    m_preStartUserScriptHasBeenSet(false)
 {
 }
 
@@ -116,6 +123,21 @@ string ModifyClusterNodePoolRequest::ToJsonString() const
         }
     }
 
+    if (m_annotationsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Annotations";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_annotations.begin(); itr != m_annotations.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
     if (m_enableAutoscaleHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -138,6 +160,31 @@ string ModifyClusterNodePoolRequest::ToJsonString() const
         string key = "OsCustomizeType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_osCustomizeType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gPUArgsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GPUArgs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_gPUArgs.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_userScriptHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserScript";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_userScript.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ignoreExistedNodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IgnoreExistedNode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_ignoreExistedNode, allocator);
     }
 
     if (m_extraArgsHasBeenSet)
@@ -170,6 +217,30 @@ string ModifyClusterNodePoolRequest::ToJsonString() const
         string key = "Unschedulable";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_unschedulable, allocator);
+    }
+
+    if (m_deletionProtectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeletionProtection";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_deletionProtection, allocator);
+    }
+
+    if (m_dockerGraphPathHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DockerGraphPath";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dockerGraphPath.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_preStartUserScriptHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PreStartUserScript";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_preStartUserScript.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -292,6 +363,22 @@ bool ModifyClusterNodePoolRequest::TaintsHasBeenSet() const
     return m_taintsHasBeenSet;
 }
 
+vector<AnnotationValue> ModifyClusterNodePoolRequest::GetAnnotations() const
+{
+    return m_annotations;
+}
+
+void ModifyClusterNodePoolRequest::SetAnnotations(const vector<AnnotationValue>& _annotations)
+{
+    m_annotations = _annotations;
+    m_annotationsHasBeenSet = true;
+}
+
+bool ModifyClusterNodePoolRequest::AnnotationsHasBeenSet() const
+{
+    return m_annotationsHasBeenSet;
+}
+
 bool ModifyClusterNodePoolRequest::GetEnableAutoscale() const
 {
     return m_enableAutoscale;
@@ -340,6 +427,54 @@ bool ModifyClusterNodePoolRequest::OsCustomizeTypeHasBeenSet() const
     return m_osCustomizeTypeHasBeenSet;
 }
 
+GPUArgs ModifyClusterNodePoolRequest::GetGPUArgs() const
+{
+    return m_gPUArgs;
+}
+
+void ModifyClusterNodePoolRequest::SetGPUArgs(const GPUArgs& _gPUArgs)
+{
+    m_gPUArgs = _gPUArgs;
+    m_gPUArgsHasBeenSet = true;
+}
+
+bool ModifyClusterNodePoolRequest::GPUArgsHasBeenSet() const
+{
+    return m_gPUArgsHasBeenSet;
+}
+
+string ModifyClusterNodePoolRequest::GetUserScript() const
+{
+    return m_userScript;
+}
+
+void ModifyClusterNodePoolRequest::SetUserScript(const string& _userScript)
+{
+    m_userScript = _userScript;
+    m_userScriptHasBeenSet = true;
+}
+
+bool ModifyClusterNodePoolRequest::UserScriptHasBeenSet() const
+{
+    return m_userScriptHasBeenSet;
+}
+
+bool ModifyClusterNodePoolRequest::GetIgnoreExistedNode() const
+{
+    return m_ignoreExistedNode;
+}
+
+void ModifyClusterNodePoolRequest::SetIgnoreExistedNode(const bool& _ignoreExistedNode)
+{
+    m_ignoreExistedNode = _ignoreExistedNode;
+    m_ignoreExistedNodeHasBeenSet = true;
+}
+
+bool ModifyClusterNodePoolRequest::IgnoreExistedNodeHasBeenSet() const
+{
+    return m_ignoreExistedNodeHasBeenSet;
+}
+
 InstanceExtraArgs ModifyClusterNodePoolRequest::GetExtraArgs() const
 {
     return m_extraArgs;
@@ -386,6 +521,54 @@ void ModifyClusterNodePoolRequest::SetUnschedulable(const int64_t& _unschedulabl
 bool ModifyClusterNodePoolRequest::UnschedulableHasBeenSet() const
 {
     return m_unschedulableHasBeenSet;
+}
+
+bool ModifyClusterNodePoolRequest::GetDeletionProtection() const
+{
+    return m_deletionProtection;
+}
+
+void ModifyClusterNodePoolRequest::SetDeletionProtection(const bool& _deletionProtection)
+{
+    m_deletionProtection = _deletionProtection;
+    m_deletionProtectionHasBeenSet = true;
+}
+
+bool ModifyClusterNodePoolRequest::DeletionProtectionHasBeenSet() const
+{
+    return m_deletionProtectionHasBeenSet;
+}
+
+string ModifyClusterNodePoolRequest::GetDockerGraphPath() const
+{
+    return m_dockerGraphPath;
+}
+
+void ModifyClusterNodePoolRequest::SetDockerGraphPath(const string& _dockerGraphPath)
+{
+    m_dockerGraphPath = _dockerGraphPath;
+    m_dockerGraphPathHasBeenSet = true;
+}
+
+bool ModifyClusterNodePoolRequest::DockerGraphPathHasBeenSet() const
+{
+    return m_dockerGraphPathHasBeenSet;
+}
+
+string ModifyClusterNodePoolRequest::GetPreStartUserScript() const
+{
+    return m_preStartUserScript;
+}
+
+void ModifyClusterNodePoolRequest::SetPreStartUserScript(const string& _preStartUserScript)
+{
+    m_preStartUserScript = _preStartUserScript;
+    m_preStartUserScriptHasBeenSet = true;
+}
+
+bool ModifyClusterNodePoolRequest::PreStartUserScriptHasBeenSet() const
+{
+    return m_preStartUserScriptHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,8 +25,7 @@ using namespace std;
 ModifyBandwidthPackageAttributeRequest::ModifyBandwidthPackageAttributeRequest() :
     m_bandwidthPackageIdHasBeenSet(false),
     m_bandwidthPackageNameHasBeenSet(false),
-    m_chargeTypeHasBeenSet(false),
-    m_migrateOnRefundHasBeenSet(false)
+    m_chargeTypeHasBeenSet(false)
 {
 }
 
@@ -59,14 +58,6 @@ string ModifyBandwidthPackageAttributeRequest::ToJsonString() const
         string key = "ChargeType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_chargeType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_migrateOnRefundHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MigrateOnRefund";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_migrateOnRefund, allocator);
     }
 
 
@@ -123,22 +114,6 @@ void ModifyBandwidthPackageAttributeRequest::SetChargeType(const string& _charge
 bool ModifyBandwidthPackageAttributeRequest::ChargeTypeHasBeenSet() const
 {
     return m_chargeTypeHasBeenSet;
-}
-
-bool ModifyBandwidthPackageAttributeRequest::GetMigrateOnRefund() const
-{
-    return m_migrateOnRefund;
-}
-
-void ModifyBandwidthPackageAttributeRequest::SetMigrateOnRefund(const bool& _migrateOnRefund)
-{
-    m_migrateOnRefund = _migrateOnRefund;
-    m_migrateOnRefundHasBeenSet = true;
-}
-
-bool ModifyBandwidthPackageAttributeRequest::MigrateOnRefundHasBeenSet() const
-{
-    return m_migrateOnRefundHasBeenSet;
 }
 
 

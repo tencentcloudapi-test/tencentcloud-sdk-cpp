@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取是否自动创建主题
                      * @return AutoCreateTopicsEnable 是否自动创建主题
+                     * 
                      */
                     bool GetAutoCreateTopicsEnable() const;
 
                     /**
                      * 设置是否自动创建主题
-                     * @param AutoCreateTopicsEnable 是否自动创建主题
+                     * @param _autoCreateTopicsEnable 是否自动创建主题
+                     * 
                      */
                     void SetAutoCreateTopicsEnable(const bool& _autoCreateTopicsEnable);
 
                     /**
                      * 判断参数 AutoCreateTopicsEnable 是否已赋值
                      * @return AutoCreateTopicsEnable 是否已赋值
+                     * 
                      */
                     bool AutoCreateTopicsEnableHasBeenSet() const;
 
                     /**
                      * 获取分区数
                      * @return DefaultNumPartitions 分区数
+                     * 
                      */
                     int64_t GetDefaultNumPartitions() const;
 
                     /**
                      * 设置分区数
-                     * @param DefaultNumPartitions 分区数
+                     * @param _defaultNumPartitions 分区数
+                     * 
                      */
                     void SetDefaultNumPartitions(const int64_t& _defaultNumPartitions);
 
                     /**
                      * 判断参数 DefaultNumPartitions 是否已赋值
                      * @return DefaultNumPartitions 是否已赋值
+                     * 
                      */
                     bool DefaultNumPartitionsHasBeenSet() const;
 
                     /**
                      * 获取默认的复制Factor
                      * @return DefaultReplicationFactor 默认的复制Factor
+                     * 
                      */
                     int64_t GetDefaultReplicationFactor() const;
 
                     /**
                      * 设置默认的复制Factor
-                     * @param DefaultReplicationFactor 默认的复制Factor
+                     * @param _defaultReplicationFactor 默认的复制Factor
+                     * 
                      */
                     void SetDefaultReplicationFactor(const int64_t& _defaultReplicationFactor);
 
                     /**
                      * 判断参数 DefaultReplicationFactor 是否已赋值
                      * @return DefaultReplicationFactor 是否已赋值
+                     * 
                      */
                     bool DefaultReplicationFactorHasBeenSet() const;
 

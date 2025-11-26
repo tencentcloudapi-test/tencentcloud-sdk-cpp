@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,20 +45,44 @@ namespace TencentCloud
                     /**
                      * 获取wx应用Id
                      * @return WxAppId wx应用Id
+                     * 
                      */
                     std::string GetWxAppId() const;
 
                     /**
                      * 设置wx应用Id
-                     * @param WxAppId wx应用Id
+                     * @param _wxAppId wx应用Id
+                     * 
                      */
                     void SetWxAppId(const std::string& _wxAppId);
 
                     /**
                      * 判断参数 WxAppId 是否已赋值
                      * @return WxAppId 是否已赋值
+                     * 
                      */
                     bool WxAppIdHasBeenSet() const;
+
+                    /**
+                     * 获取是否查询全地域
+                     * @return AllRegions 是否查询全地域
+                     * 
+                     */
+                    bool GetAllRegions() const;
+
+                    /**
+                     * 设置是否查询全地域
+                     * @param _allRegions 是否查询全地域
+                     * 
+                     */
+                    void SetAllRegions(const bool& _allRegions);
+
+                    /**
+                     * 判断参数 AllRegions 是否已赋值
+                     * @return AllRegions 是否已赋值
+                     * 
+                     */
+                    bool AllRegionsHasBeenSet() const;
 
                 private:
 
@@ -67,6 +91,12 @@ namespace TencentCloud
                      */
                     std::string m_wxAppId;
                     bool m_wxAppIdHasBeenSet;
+
+                    /**
+                     * 是否查询全地域
+                     */
+                    bool m_allRegions;
+                    bool m_allRegionsHasBeenSet;
 
                 };
             }

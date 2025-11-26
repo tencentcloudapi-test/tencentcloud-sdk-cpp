@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取机器唯一id
                      * @return ServerUid 机器唯一id
+                     * 
                      */
                     std::string GetServerUid() const;
 
                     /**
                      * 设置机器唯一id
-                     * @param ServerUid 机器唯一id
+                     * @param _serverUid 机器唯一id
+                     * 
                      */
                     void SetServerUid(const std::string& _serverUid);
 
                     /**
                      * 判断参数 ServerUid 是否已赋值
                      * @return ServerUid 是否已赋值
+                     * 
                      */
                     bool ServerUidHasBeenSet() const;
 
                     /**
                      * 获取机器类型
                      * @return MachineType 机器类型
+                     * 
                      */
                     std::string GetMachineType() const;
 
                     /**
                      * 设置机器类型
-                     * @param MachineType 机器类型
+                     * @param _machineType 机器类型
+                     * 
                      */
                     void SetMachineType(const std::string& _machineType);
 
                     /**
                      * 判断参数 MachineType 是否已赋值
                      * @return MachineType 是否已赋值
+                     * 
                      */
                     bool MachineTypeHasBeenSet() const;
 

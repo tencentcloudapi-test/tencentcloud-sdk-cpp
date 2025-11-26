@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/apigateway/v20180808/model/CreateApiRsp.h>
+#include <tencentcloud/apigateway/v20180808/model/CreateApiResultInfo.h>
 
 
 namespace TencentCloud
@@ -49,12 +49,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Result api信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    CreateApiRsp GetResult() const;
+                    CreateApiResultInfo GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
@@ -64,7 +66,7 @@ namespace TencentCloud
                      * api信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    CreateApiRsp m_result;
+                    CreateApiResultInfo m_result;
                     bool m_resultHasBeenSet;
 
                 };

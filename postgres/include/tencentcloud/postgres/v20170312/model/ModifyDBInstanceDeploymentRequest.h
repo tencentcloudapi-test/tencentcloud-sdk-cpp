@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,123 +44,163 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID。
-                     * @return DBInstanceId 实例ID。
+                     * 获取实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * @return DBInstanceId 实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * 
                      */
                     std::string GetDBInstanceId() const;
 
                     /**
-                     * 设置实例ID。
-                     * @param DBInstanceId 实例ID。
+                     * 设置实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * @param _dBInstanceId 实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
+                     * 
                      */
                     void SetDBInstanceId(const std::string& _dBInstanceId);
 
                     /**
                      * 判断参数 DBInstanceId 是否已赋值
                      * @return DBInstanceId 是否已赋值
+                     * 
                      */
                     bool DBInstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取实例节点信息。
-                     * @return DBNodeSet 实例节点信息。
+                     * 获取实例节点部署信息，支持多可用区部署时需要指定每个节点的部署可用区信息。
+可用区信息可以通过调用 [DescribeZones](https://cloud.tencent.com/document/api/409/16769) 接口的返回值中的Zone字段来获取。
+                     * @return DBNodeSet 实例节点部署信息，支持多可用区部署时需要指定每个节点的部署可用区信息。
+可用区信息可以通过调用 [DescribeZones](https://cloud.tencent.com/document/api/409/16769) 接口的返回值中的Zone字段来获取。
+                     * 
                      */
                     std::vector<DBNode> GetDBNodeSet() const;
 
                     /**
-                     * 设置实例节点信息。
-                     * @param DBNodeSet 实例节点信息。
+                     * 设置实例节点部署信息，支持多可用区部署时需要指定每个节点的部署可用区信息。
+可用区信息可以通过调用 [DescribeZones](https://cloud.tencent.com/document/api/409/16769) 接口的返回值中的Zone字段来获取。
+                     * @param _dBNodeSet 实例节点部署信息，支持多可用区部署时需要指定每个节点的部署可用区信息。
+可用区信息可以通过调用 [DescribeZones](https://cloud.tencent.com/document/api/409/16769) 接口的返回值中的Zone字段来获取。
+                     * 
                      */
                     void SetDBNodeSet(const std::vector<DBNode>& _dBNodeSet);
 
                     /**
                      * 判断参数 DBNodeSet 是否已赋值
                      * @return DBNodeSet 是否已赋值
+                     * 
                      */
                     bool DBNodeSetHasBeenSet() const;
 
                     /**
-                     * 获取切换时间，默认为 立即切换，入参为 0 ：立即切换 。1：指定时间切换。
-                     * @return SwitchTag 切换时间，默认为 立即切换，入参为 0 ：立即切换 。1：指定时间切换。
+                     * 获取指定实例配置完成变更后的切换时间。
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内切换</li>
+
+                     * @return SwitchTag 指定实例配置完成变更后的切换时间。
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内切换</li>
+
+                     * 
                      */
                     int64_t GetSwitchTag() const;
 
                     /**
-                     * 设置切换时间，默认为 立即切换，入参为 0 ：立即切换 。1：指定时间切换。
-                     * @param SwitchTag 切换时间，默认为 立即切换，入参为 0 ：立即切换 。1：指定时间切换。
+                     * 设置指定实例配置完成变更后的切换时间。
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内切换</li>
+
+                     * @param _switchTag 指定实例配置完成变更后的切换时间。
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内切换</li>
+
+                     * 
                      */
                     void SetSwitchTag(const int64_t& _switchTag);
 
                     /**
                      * 判断参数 SwitchTag 是否已赋值
                      * @return SwitchTag 是否已赋值
+                     * 
                      */
                     bool SwitchTagHasBeenSet() const;
 
                     /**
-                     * 获取切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。
-                     * @return SwitchStartTime 切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。
+                     * 获取切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。当SwitchTag为0或2时，该参数失效。
+                     * @return SwitchStartTime 切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。当SwitchTag为0或2时，该参数失效。
+                     * 
                      */
                     std::string GetSwitchStartTime() const;
 
                     /**
-                     * 设置切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。
-                     * @param SwitchStartTime 切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。
+                     * 设置切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。当SwitchTag为0或2时，该参数失效。
+                     * @param _switchStartTime 切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。当SwitchTag为0或2时，该参数失效。
+                     * 
                      */
                     void SetSwitchStartTime(const std::string& _switchStartTime);
 
                     /**
                      * 判断参数 SwitchStartTime 是否已赋值
                      * @return SwitchStartTime 是否已赋值
+                     * 
                      */
                     bool SwitchStartTimeHasBeenSet() const;
 
                     /**
-                     * 获取切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。
-                     * @return SwitchEndTime 切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。
+                     * 获取切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。当SwitchTag为0或2时，该参数失效。
+                     * @return SwitchEndTime 切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。当SwitchTag为0或2时，该参数失效。
+                     * 
                      */
                     std::string GetSwitchEndTime() const;
 
                     /**
-                     * 设置切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。
-                     * @param SwitchEndTime 切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。
+                     * 设置切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。当SwitchTag为0或2时，该参数失效。
+                     * @param _switchEndTime 切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。当SwitchTag为0或2时，该参数失效。
+                     * 
                      */
                     void SetSwitchEndTime(const std::string& _switchEndTime);
 
                     /**
                      * 判断参数 SwitchEndTime 是否已赋值
                      * @return SwitchEndTime 是否已赋值
+                     * 
                      */
                     bool SwitchEndTimeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID。
+                     * 实例ID。可通过[DescribeDBInstances](https://cloud.tencent.com/document/api/409/16773)接口获取
                      */
                     std::string m_dBInstanceId;
                     bool m_dBInstanceIdHasBeenSet;
 
                     /**
-                     * 实例节点信息。
+                     * 实例节点部署信息，支持多可用区部署时需要指定每个节点的部署可用区信息。
+可用区信息可以通过调用 [DescribeZones](https://cloud.tencent.com/document/api/409/16769) 接口的返回值中的Zone字段来获取。
                      */
                     std::vector<DBNode> m_dBNodeSet;
                     bool m_dBNodeSetHasBeenSet;
 
                     /**
-                     * 切换时间，默认为 立即切换，入参为 0 ：立即切换 。1：指定时间切换。
+                     * 指定实例配置完成变更后的切换时间。
+<li>0：立即切换 </li>
+<li>1：指定时间切换</li>
+<li>2：维护时间窗口内切换</li>
+
                      */
                     int64_t m_switchTag;
                     bool m_switchTagHasBeenSet;
 
                     /**
-                     * 切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。
+                     * 切换开始时间，时间格式：HH:MM:SS，例如：01:00:00。当SwitchTag为0或2时，该参数失效。
                      */
                     std::string m_switchStartTime;
                     bool m_switchStartTimeHasBeenSet;
 
                     /**
-                     * 切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。
+                     * 切换截止时间，时间格式：HH:MM:SS，例如：01:30:00。当SwitchTag为0或2时，该参数失效。
                      */
                     std::string m_switchEndTime;
                     bool m_switchEndTimeHasBeenSet;

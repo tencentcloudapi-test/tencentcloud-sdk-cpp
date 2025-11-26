@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,48 +46,56 @@ namespace TencentCloud
                     /**
                      * 获取严重风险影响的节点数量,返回7天数据
                      * @return SeriousRiskNodeCount 严重风险影响的节点数量,返回7天数据
+                     * 
                      */
                     std::vector<uint64_t> GetSeriousRiskNodeCount() const;
 
                     /**
                      * 判断参数 SeriousRiskNodeCount 是否已赋值
                      * @return SeriousRiskNodeCount 是否已赋值
+                     * 
                      */
                     bool SeriousRiskNodeCountHasBeenSet() const;
 
                     /**
                      * 获取高风险影响的节点的数量,返回7天数据
                      * @return HighRiskNodeCount 高风险影响的节点的数量,返回7天数据
+                     * 
                      */
                     std::vector<uint64_t> GetHighRiskNodeCount() const;
 
                     /**
                      * 判断参数 HighRiskNodeCount 是否已赋值
                      * @return HighRiskNodeCount 是否已赋值
+                     * 
                      */
                     bool HighRiskNodeCountHasBeenSet() const;
 
                     /**
                      * 获取中风险检查项的节点数量,返回7天数据
                      * @return MiddleRiskNodeCount 中风险检查项的节点数量,返回7天数据
+                     * 
                      */
                     std::vector<uint64_t> GetMiddleRiskNodeCount() const;
 
                     /**
                      * 判断参数 MiddleRiskNodeCount 是否已赋值
                      * @return MiddleRiskNodeCount 是否已赋值
+                     * 
                      */
                     bool MiddleRiskNodeCountHasBeenSet() const;
 
                     /**
                      * 获取提示风险检查项的节点数量,返回7天数据
                      * @return HintRiskNodeCount 提示风险检查项的节点数量,返回7天数据
+                     * 
                      */
                     std::vector<uint64_t> GetHintRiskNodeCount() const;
 
                     /**
                      * 判断参数 HintRiskNodeCount 是否已赋值
                      * @return HintRiskNodeCount 是否已赋值
+                     * 
                      */
                     bool HintRiskNodeCountHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,30 +43,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取应用ID
-                     * @return ApplicationId 应用ID
+                     * 获取应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * @return ApplicationId 应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * 
                      */
                     std::string GetApplicationId() const;
 
                     /**
-                     * 设置应用ID
-                     * @param ApplicationId 应用ID
+                     * 设置应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * @param _applicationId 应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * 
                      */
                     void SetApplicationId(const std::string& _applicationId);
 
                     /**
                      * 判断参数 ApplicationId 是否已赋值
                      * @return ApplicationId 是否已赋值
+                     * 
                      */
                     bool ApplicationIdHasBeenSet() const;
+
+                    /**
+                     * 获取是否删除镜像仓库
+                     * @return SyncDeleteImageRepository 是否删除镜像仓库
+                     * 
+                     */
+                    bool GetSyncDeleteImageRepository() const;
+
+                    /**
+                     * 设置是否删除镜像仓库
+                     * @param _syncDeleteImageRepository 是否删除镜像仓库
+                     * 
+                     */
+                    void SetSyncDeleteImageRepository(const bool& _syncDeleteImageRepository);
+
+                    /**
+                     * 判断参数 SyncDeleteImageRepository 是否已赋值
+                     * @return SyncDeleteImageRepository 是否已赋值
+                     * 
+                     */
+                    bool SyncDeleteImageRepositoryHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 应用ID
+                     * 应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
                      */
                     std::string m_applicationId;
                     bool m_applicationIdHasBeenSet;
+
+                    /**
+                     * 是否删除镜像仓库
+                     */
+                    bool m_syncDeleteImageRepository;
+                    bool m_syncDeleteImageRepositoryHasBeenSet;
 
                 };
             }

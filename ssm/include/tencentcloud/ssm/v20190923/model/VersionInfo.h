@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,45 +47,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取版本号。
-                     * @return VersionId 版本号。
+                     * 获取版本号
+                     * @return VersionId 版本号
+                     * 
                      */
                     std::string GetVersionId() const;
 
                     /**
-                     * 设置版本号。
-                     * @param VersionId 版本号。
+                     * 设置版本号
+                     * @param _versionId 版本号
+                     * 
                      */
                     void SetVersionId(const std::string& _versionId);
 
                     /**
                      * 判断参数 VersionId 是否已赋值
                      * @return VersionId 是否已赋值
+                     * 
                      */
                     bool VersionIdHasBeenSet() const;
 
                     /**
                      * 获取创建时间，unix时间戳。
                      * @return CreateTime 创建时间，unix时间戳。
+                     * 
                      */
                     uint64_t GetCreateTime() const;
 
                     /**
                      * 设置创建时间，unix时间戳。
-                     * @param CreateTime 创建时间，unix时间戳。
+                     * @param _createTime 创建时间，unix时间戳。
+                     * 
                      */
                     void SetCreateTime(const uint64_t& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 版本号。
+                     * 版本号
                      */
                     std::string m_versionId;
                     bool m_versionIdHasBeenSet;

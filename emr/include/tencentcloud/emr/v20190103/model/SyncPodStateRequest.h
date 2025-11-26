@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取EmrService中pod状态信息
                      * @return Message EmrService中pod状态信息
+                     * 
                      */
                     PodState GetMessage() const;
 
                     /**
                      * 设置EmrService中pod状态信息
-                     * @param Message EmrService中pod状态信息
+                     * @param _message EmrService中pod状态信息
+                     * 
                      */
                     void SetMessage(const PodState& _message);
 
                     /**
                      * 判断参数 Message 是否已赋值
                      * @return Message 是否已赋值
+                     * 
                      */
                     bool MessageHasBeenSet() const;
 

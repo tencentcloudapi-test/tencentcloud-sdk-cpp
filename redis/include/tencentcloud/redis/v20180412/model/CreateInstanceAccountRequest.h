@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,180 +43,245 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID
-                     * @return InstanceId 实例ID
+                     * 获取实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * @return InstanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * 设置实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * @param _instanceId 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取子账号名称
-                     * @return AccountName 子账号名称
+                     * 获取自定义的访问数据库的账号名称。
+- 仅由字母、数字、下划线、中划线组成。
+- 长度不能大于32位。
+                     * @return AccountName 自定义的访问数据库的账号名称。
+- 仅由字母、数字、下划线、中划线组成。
+- 长度不能大于32位。
+                     * 
                      */
                     std::string GetAccountName() const;
 
                     /**
-                     * 设置子账号名称
-                     * @param AccountName 子账号名称
+                     * 设置自定义的访问数据库的账号名称。
+- 仅由字母、数字、下划线、中划线组成。
+- 长度不能大于32位。
+                     * @param _accountName 自定义的访问数据库的账号名称。
+- 仅由字母、数字、下划线、中划线组成。
+- 长度不能大于32位。
+                     * 
                      */
                     void SetAccountName(const std::string& _accountName);
 
                     /**
                      * 判断参数 AccountName 是否已赋值
                      * @return AccountName 是否已赋值
+                     * 
                      */
                     bool AccountNameHasBeenSet() const;
 
                     /**
-                     * 获取1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
-                     * @return AccountPassword 1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
+                     * 获取设置自定义账号的密码。密码复杂度要求如下：
+- 字符个数为[8,64]。
+- 至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的两种。
+- 不能以"/"开头。
+
+                     * @return AccountPassword 设置自定义账号的密码。密码复杂度要求如下：
+- 字符个数为[8,64]。
+- 至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的两种。
+- 不能以"/"开头。
+
+                     * 
                      */
                     std::string GetAccountPassword() const;
 
                     /**
-                     * 设置1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
-                     * @param AccountPassword 1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
+                     * 设置设置自定义账号的密码。密码复杂度要求如下：
+- 字符个数为[8,64]。
+- 至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的两种。
+- 不能以"/"开头。
+
+                     * @param _accountPassword 设置自定义账号的密码。密码复杂度要求如下：
+- 字符个数为[8,64]。
+- 至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的两种。
+- 不能以"/"开头。
+
+                     * 
                      */
                     void SetAccountPassword(const std::string& _accountPassword);
 
                     /**
                      * 判断参数 AccountPassword 是否已赋值
                      * @return AccountPassword 是否已赋值
+                     * 
                      */
                     bool AccountPasswordHasBeenSet() const;
 
                     /**
-                     * 获取路由策略：填写master或者replication，表示主节点或者从节点
-                     * @return ReadonlyPolicy 路由策略：填写master或者replication，表示主节点或者从节点
+                     * 获取指定账号的读请求路由分发至主节点或副本节点。未开启副本只读，不支持选择副本节点。
+- master：主节点
+- replication：副本节点
+                     * @return ReadonlyPolicy 指定账号的读请求路由分发至主节点或副本节点。未开启副本只读，不支持选择副本节点。
+- master：主节点
+- replication：副本节点
+                     * 
                      */
                     std::vector<std::string> GetReadonlyPolicy() const;
 
                     /**
-                     * 设置路由策略：填写master或者replication，表示主节点或者从节点
-                     * @param ReadonlyPolicy 路由策略：填写master或者replication，表示主节点或者从节点
+                     * 设置指定账号的读请求路由分发至主节点或副本节点。未开启副本只读，不支持选择副本节点。
+- master：主节点
+- replication：副本节点
+                     * @param _readonlyPolicy 指定账号的读请求路由分发至主节点或副本节点。未开启副本只读，不支持选择副本节点。
+- master：主节点
+- replication：副本节点
+                     * 
                      */
                     void SetReadonlyPolicy(const std::vector<std::string>& _readonlyPolicy);
 
                     /**
                      * 判断参数 ReadonlyPolicy 是否已赋值
                      * @return ReadonlyPolicy 是否已赋值
+                     * 
                      */
                     bool ReadonlyPolicyHasBeenSet() const;
 
                     /**
-                     * 获取读写策略：填写r、rw，表示只读、读写
-                     * @return Privilege 读写策略：填写r、rw，表示只读、读写
+                     * 获取账户读写权限，支持选择只读与读写权限。
+- r：只读。
+- rw: 读写。
+                     * @return Privilege 账户读写权限，支持选择只读与读写权限。
+- r：只读。
+- rw: 读写。
+                     * 
                      */
                     std::string GetPrivilege() const;
 
                     /**
-                     * 设置读写策略：填写r、rw，表示只读、读写
-                     * @param Privilege 读写策略：填写r、rw，表示只读、读写
+                     * 设置账户读写权限，支持选择只读与读写权限。
+- r：只读。
+- rw: 读写。
+                     * @param _privilege 账户读写权限，支持选择只读与读写权限。
+- r：只读。
+- rw: 读写。
+                     * 
                      */
                     void SetPrivilege(const std::string& _privilege);
 
                     /**
                      * 判断参数 Privilege 是否已赋值
                      * @return Privilege 是否已赋值
+                     * 
                      */
                     bool PrivilegeHasBeenSet() const;
 
                     /**
-                     * 获取子账号描述信息
-                     * @return Remark 子账号描述信息
+                     * 获取账号备注描述信息，长度为[0,64] 字节，支持中文。
+                     * @return Remark 账号备注描述信息，长度为[0,64] 字节，支持中文。
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置子账号描述信息
-                     * @param Remark 子账号描述信息
+                     * 设置账号备注描述信息，长度为[0,64] 字节，支持中文。
+                     * @param _remark 账号备注描述信息，长度为[0,64] 字节，支持中文。
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
+
+                    /**
+                     * 获取是否加密密码
+                     * @return EncryptPassword 是否加密密码
+                     * 
+                     */
+                    bool GetEncryptPassword() const;
+
+                    /**
+                     * 设置是否加密密码
+                     * @param _encryptPassword 是否加密密码
+                     * 
+                     */
+                    void SetEncryptPassword(const bool& _encryptPassword);
+
+                    /**
+                     * 判断参数 EncryptPassword 是否已赋值
+                     * @return EncryptPassword 是否已赋值
+                     * 
+                     */
+                    bool EncryptPasswordHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID
+                     * 实例 ID，请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 子账号名称
+                     * 自定义的访问数据库的账号名称。
+- 仅由字母、数字、下划线、中划线组成。
+- 长度不能大于32位。
                      */
                     std::string m_accountName;
                     bool m_accountNameHasBeenSet;
 
                     /**
-                     * 1.长度8-30位,推荐使用12位以上的密码
-2.不能以"/"开头
-3.至少包含两项
-    a.小写字母a-z
-    b.大写字母A-Z
-    c.数字0-9
-    d.()`~!@#$%^&*-+=_|{}[]:;<>,.?/
+                     * 设置自定义账号的密码。密码复杂度要求如下：
+- 字符个数为[8,64]。
+- 至少包含小写字母、大写字母、数字和字符 ()`~!@#$%^&*-+=_|{}[]:;<>,.?/ 中的两种。
+- 不能以"/"开头。
+
                      */
                     std::string m_accountPassword;
                     bool m_accountPasswordHasBeenSet;
 
                     /**
-                     * 路由策略：填写master或者replication，表示主节点或者从节点
+                     * 指定账号的读请求路由分发至主节点或副本节点。未开启副本只读，不支持选择副本节点。
+- master：主节点
+- replication：副本节点
                      */
                     std::vector<std::string> m_readonlyPolicy;
                     bool m_readonlyPolicyHasBeenSet;
 
                     /**
-                     * 读写策略：填写r、rw，表示只读、读写
+                     * 账户读写权限，支持选择只读与读写权限。
+- r：只读。
+- rw: 读写。
                      */
                     std::string m_privilege;
                     bool m_privilegeHasBeenSet;
 
                     /**
-                     * 子账号描述信息
+                     * 账号备注描述信息，长度为[0,64] 字节，支持中文。
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
+
+                    /**
+                     * 是否加密密码
+                     */
+                    bool m_encryptPassword;
+                    bool m_encryptPasswordHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,78 +52,75 @@ namespace TencentCloud
                     /**
                      * 获取全文索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FullText 全文索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AccessFullTextInfo GetFullText() const;
 
                     /**
                      * 设置全文索引配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _fullText 全文索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FullText 全文索引配置
-注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFullText(const AccessFullTextInfo& _fullText);
 
                     /**
                      * 判断参数 FullText 是否已赋值
                      * @return FullText 是否已赋值
+                     * 
                      */
                     bool FullTextHasBeenSet() const;
 
                     /**
                      * 获取键值索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return KeyValue 键值索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AccessRuleKeyValueInfo GetKeyValue() const;
 
                     /**
                      * 设置键值索引配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _keyValue 键值索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param KeyValue 键值索引配置
-注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetKeyValue(const AccessRuleKeyValueInfo& _keyValue);
 
                     /**
                      * 判断参数 KeyValue 是否已赋值
                      * @return KeyValue 是否已赋值
+                     * 
                      */
                     bool KeyValueHasBeenSet() const;
 
                     /**
                      * 获取元字段索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Tag 元字段索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AccessRuleTagInfo GetTag() const;
 
                     /**
                      * 设置元字段索引配置
 注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tag 元字段索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Tag 元字段索引配置
-注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTag(const AccessRuleTagInfo& _tag);
 
                     /**
                      * 判断参数 Tag 是否已赋值
                      * @return Tag 是否已赋值
+                     * 
                      */
                     bool TagHasBeenSet() const;
 
@@ -132,7 +129,6 @@ namespace TencentCloud
                     /**
                      * 全文索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AccessFullTextInfo m_fullText;
                     bool m_fullTextHasBeenSet;
@@ -140,14 +136,12 @@ namespace TencentCloud
                     /**
                      * 键值索引配置
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AccessRuleKeyValueInfo m_keyValue;
                     bool m_keyValueHasBeenSet;
 
                     /**
                      * 元字段索引配置
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AccessRuleTagInfo m_tag;

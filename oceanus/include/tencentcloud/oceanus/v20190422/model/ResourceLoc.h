@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取资源位置的存储类型，目前只支持1:COS
                      * @return StorageType 资源位置的存储类型，目前只支持1:COS
+                     * 
                      */
                     int64_t GetStorageType() const;
 
                     /**
                      * 设置资源位置的存储类型，目前只支持1:COS
-                     * @param StorageType 资源位置的存储类型，目前只支持1:COS
+                     * @param _storageType 资源位置的存储类型，目前只支持1:COS
+                     * 
                      */
                     void SetStorageType(const int64_t& _storageType);
 
                     /**
                      * 判断参数 StorageType 是否已赋值
                      * @return StorageType 是否已赋值
+                     * 
                      */
                     bool StorageTypeHasBeenSet() const;
 
                     /**
                      * 获取描述资源位置的json
                      * @return Param 描述资源位置的json
+                     * 
                      */
                     ResourceLocParam GetParam() const;
 
                     /**
                      * 设置描述资源位置的json
-                     * @param Param 描述资源位置的json
+                     * @param _param 描述资源位置的json
+                     * 
                      */
                     void SetParam(const ResourceLocParam& _param);
 
                     /**
                      * 判断参数 Param 是否已赋值
                      * @return Param 是否已赋值
+                     * 
                      */
                     bool ParamHasBeenSet() const;
 

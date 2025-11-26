@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取省份Id
                      * @return ProvinceId 省份Id
+                     * 
                      */
                     std::string GetProvinceId() const;
 
                     /**
                      * 设置省份Id
-                     * @param ProvinceId 省份Id
+                     * @param _provinceId 省份Id
+                     * 
                      */
                     void SetProvinceId(const std::string& _provinceId);
 
                     /**
                      * 判断参数 ProvinceId 是否已赋值
                      * @return ProvinceId 是否已赋值
+                     * 
                      */
                     bool ProvinceIdHasBeenSet() const;
 
                     /**
                      * 获取省份名称
                      * @return ProvinceName 省份名称
+                     * 
                      */
                     std::string GetProvinceName() const;
 
                     /**
                      * 设置省份名称
-                     * @param ProvinceName 省份名称
+                     * @param _provinceName 省份名称
+                     * 
                      */
                     void SetProvinceName(const std::string& _provinceName);
 
                     /**
                      * 判断参数 ProvinceName 是否已赋值
                      * @return ProvinceName 是否已赋值
+                     * 
                      */
                     bool ProvinceNameHasBeenSet() const;
 

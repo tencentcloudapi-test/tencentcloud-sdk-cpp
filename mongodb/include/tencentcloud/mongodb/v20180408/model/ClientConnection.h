@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取连接的客户端IP
                      * @return IP 连接的客户端IP
+                     * 
                      */
                     std::string GetIP() const;
 
                     /**
                      * 设置连接的客户端IP
-                     * @param IP 连接的客户端IP
+                     * @param _iP 连接的客户端IP
+                     * 
                      */
                     void SetIP(const std::string& _iP);
 
                     /**
                      * 判断参数 IP 是否已赋值
                      * @return IP 是否已赋值
+                     * 
                      */
                     bool IPHasBeenSet() const;
 
                     /**
                      * 获取对应客户端IP的连接数
                      * @return Count 对应客户端IP的连接数
+                     * 
                      */
                     uint64_t GetCount() const;
 
                     /**
                      * 设置对应客户端IP的连接数
-                     * @param Count 对应客户端IP的连接数
+                     * @param _count 对应客户端IP的连接数
+                     * 
                      */
                     void SetCount(const uint64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 

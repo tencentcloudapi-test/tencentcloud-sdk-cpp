@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,11 @@ CompliancePolicyItemSummary::CompliancePolicyItemSummary() :
     m_failedAssetCountHasBeenSet(false),
     m_whitelistIdHasBeenSet(false),
     m_fixSuggestionHasBeenSet(false),
-    m_benchmarkStandardIdHasBeenSet(false)
+    m_benchmarkStandardIdHasBeenSet(false),
+    m_applicableVersionHasBeenSet(false),
+    m_descriptionHasBeenSet(false),
+    m_auditProcedureHasBeenSet(false),
+    m_isEnableHasBeenSet(false)
 {
 }
 
@@ -194,6 +198,46 @@ CoreInternalOutcome CompliancePolicyItemSummary::Deserialize(const rapidjson::Va
         m_benchmarkStandardIdHasBeenSet = true;
     }
 
+    if (value.HasMember("ApplicableVersion") && !value["ApplicableVersion"].IsNull())
+    {
+        if (!value["ApplicableVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompliancePolicyItemSummary.ApplicableVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_applicableVersion = string(value["ApplicableVersion"].GetString());
+        m_applicableVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("Description") && !value["Description"].IsNull())
+    {
+        if (!value["Description"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompliancePolicyItemSummary.Description` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_description = string(value["Description"].GetString());
+        m_descriptionHasBeenSet = true;
+    }
+
+    if (value.HasMember("AuditProcedure") && !value["AuditProcedure"].IsNull())
+    {
+        if (!value["AuditProcedure"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompliancePolicyItemSummary.AuditProcedure` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_auditProcedure = string(value["AuditProcedure"].GetString());
+        m_auditProcedureHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsEnable") && !value["IsEnable"].IsNull())
+    {
+        if (!value["IsEnable"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompliancePolicyItemSummary.IsEnable` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isEnable = value["IsEnable"].GetUint64();
+        m_isEnableHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -319,6 +363,38 @@ void CompliancePolicyItemSummary::ToJsonObject(rapidjson::Value &value, rapidjso
         string key = "BenchmarkStandardId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_benchmarkStandardId, allocator);
+    }
+
+    if (m_applicableVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ApplicableVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_applicableVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_descriptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Description";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_auditProcedureHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AuditProcedure";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_auditProcedure.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsEnable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isEnable, allocator);
     }
 
 }
@@ -562,5 +638,69 @@ void CompliancePolicyItemSummary::SetBenchmarkStandardId(const uint64_t& _benchm
 bool CompliancePolicyItemSummary::BenchmarkStandardIdHasBeenSet() const
 {
     return m_benchmarkStandardIdHasBeenSet;
+}
+
+string CompliancePolicyItemSummary::GetApplicableVersion() const
+{
+    return m_applicableVersion;
+}
+
+void CompliancePolicyItemSummary::SetApplicableVersion(const string& _applicableVersion)
+{
+    m_applicableVersion = _applicableVersion;
+    m_applicableVersionHasBeenSet = true;
+}
+
+bool CompliancePolicyItemSummary::ApplicableVersionHasBeenSet() const
+{
+    return m_applicableVersionHasBeenSet;
+}
+
+string CompliancePolicyItemSummary::GetDescription() const
+{
+    return m_description;
+}
+
+void CompliancePolicyItemSummary::SetDescription(const string& _description)
+{
+    m_description = _description;
+    m_descriptionHasBeenSet = true;
+}
+
+bool CompliancePolicyItemSummary::DescriptionHasBeenSet() const
+{
+    return m_descriptionHasBeenSet;
+}
+
+string CompliancePolicyItemSummary::GetAuditProcedure() const
+{
+    return m_auditProcedure;
+}
+
+void CompliancePolicyItemSummary::SetAuditProcedure(const string& _auditProcedure)
+{
+    m_auditProcedure = _auditProcedure;
+    m_auditProcedureHasBeenSet = true;
+}
+
+bool CompliancePolicyItemSummary::AuditProcedureHasBeenSet() const
+{
+    return m_auditProcedureHasBeenSet;
+}
+
+uint64_t CompliancePolicyItemSummary::GetIsEnable() const
+{
+    return m_isEnable;
+}
+
+void CompliancePolicyItemSummary::SetIsEnable(const uint64_t& _isEnable)
+{
+    m_isEnable = _isEnable;
+    m_isEnableHasBeenSet = true;
+}
+
+bool CompliancePolicyItemSummary::IsEnableHasBeenSet() const
+{
+    return m_isEnableHasBeenSet;
 }
 

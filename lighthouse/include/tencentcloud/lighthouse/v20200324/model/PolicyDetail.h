@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,76 +49,154 @@ namespace TencentCloud
                     /**
                      * 获取用户折扣。
                      * @return UserDiscount 用户折扣。
+                     * 
                      */
-                    int64_t GetUserDiscount() const;
+                    double GetUserDiscount() const;
 
                     /**
                      * 设置用户折扣。
-                     * @param UserDiscount 用户折扣。
+                     * @param _userDiscount 用户折扣。
+                     * 
                      */
-                    void SetUserDiscount(const int64_t& _userDiscount);
+                    void SetUserDiscount(const double& _userDiscount);
 
                     /**
                      * 判断参数 UserDiscount 是否已赋值
                      * @return UserDiscount 是否已赋值
+                     * 
                      */
                     bool UserDiscountHasBeenSet() const;
 
                     /**
                      * 获取公共折扣。
                      * @return CommonDiscount 公共折扣。
+                     * 
                      */
-                    int64_t GetCommonDiscount() const;
+                    double GetCommonDiscount() const;
 
                     /**
                      * 设置公共折扣。
-                     * @param CommonDiscount 公共折扣。
+                     * @param _commonDiscount 公共折扣。
+                     * 
                      */
-                    void SetCommonDiscount(const int64_t& _commonDiscount);
+                    void SetCommonDiscount(const double& _commonDiscount);
 
                     /**
                      * 判断参数 CommonDiscount 是否已赋值
                      * @return CommonDiscount 是否已赋值
+                     * 
                      */
                     bool CommonDiscountHasBeenSet() const;
 
                     /**
                      * 获取最终折扣。
                      * @return FinalDiscount 最终折扣。
+                     * 
                      */
-                    int64_t GetFinalDiscount() const;
+                    double GetFinalDiscount() const;
 
                     /**
                      * 设置最终折扣。
-                     * @param FinalDiscount 最终折扣。
+                     * @param _finalDiscount 最终折扣。
+                     * 
                      */
-                    void SetFinalDiscount(const int64_t& _finalDiscount);
+                    void SetFinalDiscount(const double& _finalDiscount);
 
                     /**
                      * 判断参数 FinalDiscount 是否已赋值
                      * @return FinalDiscount 是否已赋值
+                     * 
                      */
                     bool FinalDiscountHasBeenSet() const;
+
+                    /**
+                     * 获取活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ActivityDiscount 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    double GetActivityDiscount() const;
+
+                    /**
+                     * 设置活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _activityDiscount 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetActivityDiscount(const double& _activityDiscount);
+
+                    /**
+                     * 判断参数 ActivityDiscount 是否已赋值
+                     * @return ActivityDiscount 是否已赋值
+                     * 
+                     */
+                    bool ActivityDiscountHasBeenSet() const;
+
+                    /**
+                     * 获取折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return DiscountType 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetDiscountType() const;
+
+                    /**
+                     * 设置折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _discountType 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetDiscountType(const std::string& _discountType);
+
+                    /**
+                     * 判断参数 DiscountType 是否已赋值
+                     * @return DiscountType 是否已赋值
+                     * 
+                     */
+                    bool DiscountTypeHasBeenSet() const;
 
                 private:
 
                     /**
                      * 用户折扣。
                      */
-                    int64_t m_userDiscount;
+                    double m_userDiscount;
                     bool m_userDiscountHasBeenSet;
 
                     /**
                      * 公共折扣。
                      */
-                    int64_t m_commonDiscount;
+                    double m_commonDiscount;
                     bool m_commonDiscountHasBeenSet;
 
                     /**
                      * 最终折扣。
                      */
-                    int64_t m_finalDiscount;
+                    double m_finalDiscount;
                     bool m_finalDiscountHasBeenSet;
+
+                    /**
+                     * 活动折扣。取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    double m_activityDiscount;
+                    bool m_activityDiscountHasBeenSet;
+
+                    /**
+                     * 折扣类型。
+user：用户折扣; common：官网折扣; activity：活动折扣。 取值为null，表示无有效值，即没有折扣。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_discountType;
+                    bool m_discountTypeHasBeenSet;
 
                 };
             }

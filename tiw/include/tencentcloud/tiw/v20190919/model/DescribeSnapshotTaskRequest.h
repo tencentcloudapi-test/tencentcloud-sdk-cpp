@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取查询任务ID
                      * @return TaskID 查询任务ID
+                     * 
                      */
                     std::string GetTaskID() const;
 
                     /**
                      * 设置查询任务ID
-                     * @param TaskID 查询任务ID
+                     * @param _taskID 查询任务ID
+                     * 
                      */
                     void SetTaskID(const std::string& _taskID);
 
                     /**
                      * 判断参数 TaskID 是否已赋值
                      * @return TaskID 是否已赋值
+                     * 
                      */
                     bool TaskIDHasBeenSet() const;
 
                     /**
                      * 获取任务SdkAppId
                      * @return SdkAppId 任务SdkAppId
+                     * 
                      */
                     uint64_t GetSdkAppId() const;
 
                     /**
                      * 设置任务SdkAppId
-                     * @param SdkAppId 任务SdkAppId
+                     * @param _sdkAppId 任务SdkAppId
+                     * 
                      */
                     void SetSdkAppId(const uint64_t& _sdkAppId);
 
                     /**
                      * 判断参数 SdkAppId 是否已赋值
                      * @return SdkAppId 是否已赋值
+                     * 
                      */
                     bool SdkAppIdHasBeenSet() const;
 

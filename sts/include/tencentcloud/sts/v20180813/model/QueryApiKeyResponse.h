@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取密钥ID列表
-                     * @return IdKeys 密钥ID列表
+                     * 获取密钥ID列表。
+                     * @return IdKeys 密钥ID列表。
+                     * 
                      */
                     std::vector<ApiKey> GetIdKeys() const;
 
                     /**
                      * 判断参数 IdKeys 是否已赋值
                      * @return IdKeys 是否已赋值
+                     * 
                      */
                     bool IdKeysHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 密钥ID列表
+                     * 密钥ID列表。
                      */
                     std::vector<ApiKey> m_idKeys;
                     bool m_idKeysHasBeenSet;

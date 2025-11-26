@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,99 +47,121 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取执行动作
-                     * @return Action 执行动作
+                     * 获取标识出入数据库的IP与端口是否被允许。
+- ACCEPT：允许。
+- DROP：不允许。
+                     * @return Action 标识出入数据库的IP与端口是否被允许。
+- ACCEPT：允许。
+- DROP：不允许。
+                     * 
                      */
                     std::string GetAction() const;
 
                     /**
-                     * 设置执行动作
-                     * @param Action 执行动作
+                     * 设置标识出入数据库的IP与端口是否被允许。
+- ACCEPT：允许。
+- DROP：不允许。
+                     * @param _action 标识出入数据库的IP与端口是否被允许。
+- ACCEPT：允许。
+- DROP：不允许。
+                     * 
                      */
                     void SetAction(const std::string& _action);
 
                     /**
                      * 判断参数 Action 是否已赋值
                      * @return Action 是否已赋值
+                     * 
                      */
                     bool ActionHasBeenSet() const;
 
                     /**
-                     * 获取IP地址
-                     * @return Ip IP地址
+                     * 获取出入数据库的IP地址
+                     * @return Ip 出入数据库的IP地址
+                     * 
                      */
                     std::string GetIp() const;
 
                     /**
-                     * 设置IP地址
-                     * @param Ip IP地址
+                     * 设置出入数据库的IP地址
+                     * @param _ip 出入数据库的IP地址
+                     * 
                      */
                     void SetIp(const std::string& _ip);
 
                     /**
                      * 判断参数 Ip 是否已赋值
                      * @return Ip 是否已赋值
+                     * 
                      */
                     bool IpHasBeenSet() const;
 
                     /**
-                     * 获取端口号
-                     * @return Port 端口号
+                     * 获取端口号。
+                     * @return Port 端口号。
+                     * 
                      */
                     std::string GetPort() const;
 
                     /**
-                     * 设置端口号
-                     * @param Port 端口号
+                     * 设置端口号。
+                     * @param _port 端口号。
+                     * 
                      */
                     void SetPort(const std::string& _port);
 
                     /**
                      * 判断参数 Port 是否已赋值
                      * @return Port 是否已赋值
+                     * 
                      */
                     bool PortHasBeenSet() const;
 
                     /**
-                     * 获取协议类型
-                     * @return Proto 协议类型
+                     * 获取协议类型。
+                     * @return Proto 协议类型。
+                     * 
                      */
                     std::string GetProto() const;
 
                     /**
-                     * 设置协议类型
-                     * @param Proto 协议类型
+                     * 设置协议类型。
+                     * @param _proto 协议类型。
+                     * 
                      */
                     void SetProto(const std::string& _proto);
 
                     /**
                      * 判断参数 Proto 是否已赋值
                      * @return Proto 是否已赋值
+                     * 
                      */
                     bool ProtoHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 执行动作
+                     * 标识出入数据库的IP与端口是否被允许。
+- ACCEPT：允许。
+- DROP：不允许。
                      */
                     std::string m_action;
                     bool m_actionHasBeenSet;
 
                     /**
-                     * IP地址
+                     * 出入数据库的IP地址
                      */
                     std::string m_ip;
                     bool m_ipHasBeenSet;
 
                     /**
-                     * 端口号
+                     * 端口号。
                      */
                     std::string m_port;
                     bool m_portHasBeenSet;
 
                     /**
-                     * 协议类型
+                     * 协议类型。
                      */
                     std::string m_proto;
                     bool m_protoHasBeenSet;

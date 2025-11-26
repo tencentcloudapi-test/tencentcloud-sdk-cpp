@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,67 +48,64 @@ namespace TencentCloud
 
                     /**
                      * 获取期望执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ExpectTimeLen 期望执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetExpectTimeLen() const;
 
                     /**
                      * 设置期望执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ExpectTimeLen 期望执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _expectTimeLen 期望执行时间 秒
+                     * 
                      */
                     void SetExpectTimeLen(const int64_t& _expectTimeLen);
 
                     /**
                      * 判断参数 ExpectTimeLen 是否已赋值
                      * @return ExpectTimeLen 是否已赋值
+                     * 
                      */
                     bool ExpectTimeLenHasBeenSet() const;
 
                     /**
                      * 获取实际执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RecordTimeLen 实际执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetRecordTimeLen() const;
 
                     /**
                      * 设置实际执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RecordTimeLen 实际执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _recordTimeLen 实际执行时间 秒
+                     * 
                      */
                     void SetRecordTimeLen(const int64_t& _recordTimeLen);
 
                     /**
                      * 判断参数 RecordTimeLen 是否已赋值
                      * @return RecordTimeLen 是否已赋值
+                     * 
                      */
                     bool RecordTimeLenHasBeenSet() const;
 
                     /**
                      * 获取存储大小 G
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FileSize 存储大小 G
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     double GetFileSize() const;
 
                     /**
                      * 设置存储大小 G
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FileSize 存储大小 G
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _fileSize 存储大小 G
+                     * 
                      */
                     void SetFileSize(const double& _fileSize);
 
                     /**
                      * 判断参数 FileSize 是否已赋值
                      * @return FileSize 是否已赋值
+                     * 
                      */
                     bool FileSizeHasBeenSet() const;
 
@@ -116,21 +113,18 @@ namespace TencentCloud
 
                     /**
                      * 期望执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_expectTimeLen;
                     bool m_expectTimeLenHasBeenSet;
 
                     /**
                      * 实际执行时间 秒
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_recordTimeLen;
                     bool m_recordTimeLenHasBeenSet;
 
                     /**
                      * 存储大小 G
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_fileSize;
                     bool m_fileSizeHasBeenSet;

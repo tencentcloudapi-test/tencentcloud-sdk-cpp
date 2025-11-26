@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取横坐标x
                      * @return X 横坐标x
+                     * 
                      */
                     int64_t GetX() const;
 
                     /**
                      * 设置横坐标x
-                     * @param X 横坐标x
+                     * @param _x 横坐标x
+                     * 
                      */
                     void SetX(const int64_t& _x);
 
                     /**
                      * 判断参数 X 是否已赋值
                      * @return X 是否已赋值
+                     * 
                      */
                     bool XHasBeenSet() const;
 
                     /**
                      * 获取纵坐标y
                      * @return Y 纵坐标y
+                     * 
                      */
                     int64_t GetY() const;
 
                     /**
                      * 设置纵坐标y
-                     * @param Y 纵坐标y
+                     * @param _y 纵坐标y
+                     * 
                      */
                     void SetY(const int64_t& _y);
 
                     /**
                      * 判断参数 Y 是否已赋值
                      * @return Y 是否已赋值
+                     * 
                      */
                     bool YHasBeenSet() const;
 

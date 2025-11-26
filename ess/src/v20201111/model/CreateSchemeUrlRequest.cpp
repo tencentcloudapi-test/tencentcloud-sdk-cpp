@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,11 +24,22 @@ using namespace std;
 
 CreateSchemeUrlRequest::CreateSchemeUrlRequest() :
     m_operatorHasBeenSet(false),
-    m_agentHasBeenSet(false),
+    m_organizationNameHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_mobileHasBeenSet(false),
+    m_idCardTypeHasBeenSet(false),
+    m_idCardNumberHasBeenSet(false),
+    m_endPointHasBeenSet(false),
+    m_flowIdHasBeenSet(false),
+    m_flowGroupIdHasBeenSet(false),
     m_pathTypeHasBeenSet(false),
-    m_flowIdHasBeenSet(false)
+    m_autoJumpBackHasBeenSet(false),
+    m_agentHasBeenSet(false),
+    m_hidesHasBeenSet(false),
+    m_recipientIdHasBeenSet(false),
+    m_flowGroupUrlInfoHasBeenSet(false),
+    m_urlUseEnvHasBeenSet(false),
+    m_pickUpAfterJoinedHasBeenSet(false)
 {
 }
 
@@ -48,13 +59,12 @@ string CreateSchemeUrlRequest::ToJsonString() const
         m_operator.ToJsonObject(d[key.c_str()], allocator);
     }
 
-    if (m_agentHasBeenSet)
+    if (m_organizationNameHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Agent";
+        string key = "OrganizationName";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_agent.ToJsonObject(d[key.c_str()], allocator);
+        d.AddMember(iKey, rapidjson::Value(m_organizationName.c_str(), allocator).Move(), allocator);
     }
 
     if (m_nameHasBeenSet)
@@ -73,12 +83,28 @@ string CreateSchemeUrlRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_mobile.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_pathTypeHasBeenSet)
+    if (m_idCardTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PathType";
+        string key = "IdCardType";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_pathType, allocator);
+        d.AddMember(iKey, rapidjson::Value(m_idCardType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_idCardNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdCardNumber";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_idCardNumber.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_endPointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EndPoint";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_endPoint.c_str(), allocator).Move(), allocator);
     }
 
     if (m_flowIdHasBeenSet)
@@ -87,6 +113,85 @@ string CreateSchemeUrlRequest::ToJsonString() const
         string key = "FlowId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_flowId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_flowGroupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlowGroupId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_flowGroupId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_pathTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PathType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_pathType, allocator);
+    }
+
+    if (m_autoJumpBackHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoJumpBack";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoJumpBack, allocator);
+    }
+
+    if (m_agentHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Agent";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_agent.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_hidesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Hides";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_hides.begin(); itr != m_hides.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_recipientIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecipientId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_recipientId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_flowGroupUrlInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlowGroupUrlInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_flowGroupUrlInfo.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_urlUseEnvHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UrlUseEnv";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_urlUseEnv.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_pickUpAfterJoinedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PickUpAfterJoined";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_pickUpAfterJoined, allocator);
     }
 
 
@@ -113,20 +218,20 @@ bool CreateSchemeUrlRequest::OperatorHasBeenSet() const
     return m_operatorHasBeenSet;
 }
 
-Agent CreateSchemeUrlRequest::GetAgent() const
+string CreateSchemeUrlRequest::GetOrganizationName() const
 {
-    return m_agent;
+    return m_organizationName;
 }
 
-void CreateSchemeUrlRequest::SetAgent(const Agent& _agent)
+void CreateSchemeUrlRequest::SetOrganizationName(const string& _organizationName)
 {
-    m_agent = _agent;
-    m_agentHasBeenSet = true;
+    m_organizationName = _organizationName;
+    m_organizationNameHasBeenSet = true;
 }
 
-bool CreateSchemeUrlRequest::AgentHasBeenSet() const
+bool CreateSchemeUrlRequest::OrganizationNameHasBeenSet() const
 {
-    return m_agentHasBeenSet;
+    return m_organizationNameHasBeenSet;
 }
 
 string CreateSchemeUrlRequest::GetName() const
@@ -161,20 +266,52 @@ bool CreateSchemeUrlRequest::MobileHasBeenSet() const
     return m_mobileHasBeenSet;
 }
 
-uint64_t CreateSchemeUrlRequest::GetPathType() const
+string CreateSchemeUrlRequest::GetIdCardType() const
 {
-    return m_pathType;
+    return m_idCardType;
 }
 
-void CreateSchemeUrlRequest::SetPathType(const uint64_t& _pathType)
+void CreateSchemeUrlRequest::SetIdCardType(const string& _idCardType)
 {
-    m_pathType = _pathType;
-    m_pathTypeHasBeenSet = true;
+    m_idCardType = _idCardType;
+    m_idCardTypeHasBeenSet = true;
 }
 
-bool CreateSchemeUrlRequest::PathTypeHasBeenSet() const
+bool CreateSchemeUrlRequest::IdCardTypeHasBeenSet() const
 {
-    return m_pathTypeHasBeenSet;
+    return m_idCardTypeHasBeenSet;
+}
+
+string CreateSchemeUrlRequest::GetIdCardNumber() const
+{
+    return m_idCardNumber;
+}
+
+void CreateSchemeUrlRequest::SetIdCardNumber(const string& _idCardNumber)
+{
+    m_idCardNumber = _idCardNumber;
+    m_idCardNumberHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::IdCardNumberHasBeenSet() const
+{
+    return m_idCardNumberHasBeenSet;
+}
+
+string CreateSchemeUrlRequest::GetEndPoint() const
+{
+    return m_endPoint;
+}
+
+void CreateSchemeUrlRequest::SetEndPoint(const string& _endPoint)
+{
+    m_endPoint = _endPoint;
+    m_endPointHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::EndPointHasBeenSet() const
+{
+    return m_endPointHasBeenSet;
 }
 
 string CreateSchemeUrlRequest::GetFlowId() const
@@ -191,6 +328,150 @@ void CreateSchemeUrlRequest::SetFlowId(const string& _flowId)
 bool CreateSchemeUrlRequest::FlowIdHasBeenSet() const
 {
     return m_flowIdHasBeenSet;
+}
+
+string CreateSchemeUrlRequest::GetFlowGroupId() const
+{
+    return m_flowGroupId;
+}
+
+void CreateSchemeUrlRequest::SetFlowGroupId(const string& _flowGroupId)
+{
+    m_flowGroupId = _flowGroupId;
+    m_flowGroupIdHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::FlowGroupIdHasBeenSet() const
+{
+    return m_flowGroupIdHasBeenSet;
+}
+
+uint64_t CreateSchemeUrlRequest::GetPathType() const
+{
+    return m_pathType;
+}
+
+void CreateSchemeUrlRequest::SetPathType(const uint64_t& _pathType)
+{
+    m_pathType = _pathType;
+    m_pathTypeHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::PathTypeHasBeenSet() const
+{
+    return m_pathTypeHasBeenSet;
+}
+
+bool CreateSchemeUrlRequest::GetAutoJumpBack() const
+{
+    return m_autoJumpBack;
+}
+
+void CreateSchemeUrlRequest::SetAutoJumpBack(const bool& _autoJumpBack)
+{
+    m_autoJumpBack = _autoJumpBack;
+    m_autoJumpBackHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::AutoJumpBackHasBeenSet() const
+{
+    return m_autoJumpBackHasBeenSet;
+}
+
+Agent CreateSchemeUrlRequest::GetAgent() const
+{
+    return m_agent;
+}
+
+void CreateSchemeUrlRequest::SetAgent(const Agent& _agent)
+{
+    m_agent = _agent;
+    m_agentHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::AgentHasBeenSet() const
+{
+    return m_agentHasBeenSet;
+}
+
+vector<int64_t> CreateSchemeUrlRequest::GetHides() const
+{
+    return m_hides;
+}
+
+void CreateSchemeUrlRequest::SetHides(const vector<int64_t>& _hides)
+{
+    m_hides = _hides;
+    m_hidesHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::HidesHasBeenSet() const
+{
+    return m_hidesHasBeenSet;
+}
+
+string CreateSchemeUrlRequest::GetRecipientId() const
+{
+    return m_recipientId;
+}
+
+void CreateSchemeUrlRequest::SetRecipientId(const string& _recipientId)
+{
+    m_recipientId = _recipientId;
+    m_recipientIdHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::RecipientIdHasBeenSet() const
+{
+    return m_recipientIdHasBeenSet;
+}
+
+FlowGroupUrlInfo CreateSchemeUrlRequest::GetFlowGroupUrlInfo() const
+{
+    return m_flowGroupUrlInfo;
+}
+
+void CreateSchemeUrlRequest::SetFlowGroupUrlInfo(const FlowGroupUrlInfo& _flowGroupUrlInfo)
+{
+    m_flowGroupUrlInfo = _flowGroupUrlInfo;
+    m_flowGroupUrlInfoHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::FlowGroupUrlInfoHasBeenSet() const
+{
+    return m_flowGroupUrlInfoHasBeenSet;
+}
+
+string CreateSchemeUrlRequest::GetUrlUseEnv() const
+{
+    return m_urlUseEnv;
+}
+
+void CreateSchemeUrlRequest::SetUrlUseEnv(const string& _urlUseEnv)
+{
+    m_urlUseEnv = _urlUseEnv;
+    m_urlUseEnvHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::UrlUseEnvHasBeenSet() const
+{
+    return m_urlUseEnvHasBeenSet;
+}
+
+bool CreateSchemeUrlRequest::GetPickUpAfterJoined() const
+{
+    return m_pickUpAfterJoined;
+}
+
+void CreateSchemeUrlRequest::SetPickUpAfterJoined(const bool& _pickUpAfterJoined)
+{
+    m_pickUpAfterJoined = _pickUpAfterJoined;
+    m_pickUpAfterJoinedHasBeenSet = true;
+}
+
+bool CreateSchemeUrlRequest::PickUpAfterJoinedHasBeenSet() const
+{
+    return m_pickUpAfterJoinedHasBeenSet;
 }
 
 

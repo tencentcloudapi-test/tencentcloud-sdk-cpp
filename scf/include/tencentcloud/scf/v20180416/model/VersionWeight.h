@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取函数版本名称
                      * @return Version 函数版本名称
+                     * 
                      */
                     std::string GetVersion() const;
 
                     /**
                      * 设置函数版本名称
-                     * @param Version 函数版本名称
+                     * @param _version 函数版本名称
+                     * 
                      */
                     void SetVersion(const std::string& _version);
 
                     /**
                      * 判断参数 Version 是否已赋值
                      * @return Version 是否已赋值
+                     * 
                      */
                     bool VersionHasBeenSet() const;
 
                     /**
                      * 获取该版本的权重
                      * @return Weight 该版本的权重
+                     * 
                      */
                     double GetWeight() const;
 
                     /**
                      * 设置该版本的权重
-                     * @param Weight 该版本的权重
+                     * @param _weight 该版本的权重
+                     * 
                      */
                     void SetWeight(const double& _weight);
 
                     /**
                      * 判断参数 Weight 是否已赋值
                      * @return Weight 是否已赋值
+                     * 
                      */
                     bool WeightHasBeenSet() const;
 

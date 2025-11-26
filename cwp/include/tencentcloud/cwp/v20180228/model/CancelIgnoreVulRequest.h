@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取漏洞事件id串，多个用英文逗号分隔
                      * @return EventIds 漏洞事件id串，多个用英文逗号分隔
+                     * 
                      */
                     std::string GetEventIds() const;
 
                     /**
                      * 设置漏洞事件id串，多个用英文逗号分隔
-                     * @param EventIds 漏洞事件id串，多个用英文逗号分隔
+                     * @param _eventIds 漏洞事件id串，多个用英文逗号分隔
+                     * 
                      */
                     void SetEventIds(const std::string& _eventIds);
 
                     /**
                      * 判断参数 EventIds 是否已赋值
                      * @return EventIds 是否已赋值
+                     * 
                      */
                     bool EventIdsHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ AddInstancesRequest::AddInstancesRequest() :
     m_cpuHasBeenSet(false),
     m_memoryHasBeenSet(false),
     m_readOnlyCountHasBeenSet(false),
+    m_deviceTypeHasBeenSet(false),
     m_instanceGrpIdHasBeenSet(false),
     m_vpcIdHasBeenSet(false),
     m_subnetIdHasBeenSet(false),
@@ -35,7 +36,11 @@ AddInstancesRequest::AddInstancesRequest() :
     m_autoVoucherHasBeenSet(false),
     m_dbTypeHasBeenSet(false),
     m_orderSourceHasBeenSet(false),
-    m_dealModeHasBeenSet(false)
+    m_dealModeHasBeenSet(false),
+    m_paramTemplateIdHasBeenSet(false),
+    m_instanceParamsHasBeenSet(false),
+    m_securityGroupIdsHasBeenSet(false),
+    m_upgradeProxyHasBeenSet(false)
 {
 }
 
@@ -76,6 +81,14 @@ string AddInstancesRequest::ToJsonString() const
         string key = "ReadOnlyCount";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_readOnlyCount, allocator);
+    }
+
+    if (m_deviceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeviceType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_deviceType.c_str(), allocator).Move(), allocator);
     }
 
     if (m_instanceGrpIdHasBeenSet)
@@ -150,6 +163,51 @@ string AddInstancesRequest::ToJsonString() const
         d.AddMember(iKey, m_dealMode, allocator);
     }
 
+    if (m_paramTemplateIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ParamTemplateId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_paramTemplateId, allocator);
+    }
+
+    if (m_instanceParamsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceParams";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_instanceParams.begin(); itr != m_instanceParams.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_securityGroupIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SecurityGroupIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_securityGroupIds.begin(); itr != m_securityGroupIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_upgradeProxyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpgradeProxy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_upgradeProxy.ToJsonObject(d[key.c_str()], allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -220,6 +278,22 @@ void AddInstancesRequest::SetReadOnlyCount(const int64_t& _readOnlyCount)
 bool AddInstancesRequest::ReadOnlyCountHasBeenSet() const
 {
     return m_readOnlyCountHasBeenSet;
+}
+
+string AddInstancesRequest::GetDeviceType() const
+{
+    return m_deviceType;
+}
+
+void AddInstancesRequest::SetDeviceType(const string& _deviceType)
+{
+    m_deviceType = _deviceType;
+    m_deviceTypeHasBeenSet = true;
+}
+
+bool AddInstancesRequest::DeviceTypeHasBeenSet() const
+{
+    return m_deviceTypeHasBeenSet;
 }
 
 string AddInstancesRequest::GetInstanceGrpId() const
@@ -364,6 +438,70 @@ void AddInstancesRequest::SetDealMode(const int64_t& _dealMode)
 bool AddInstancesRequest::DealModeHasBeenSet() const
 {
     return m_dealModeHasBeenSet;
+}
+
+int64_t AddInstancesRequest::GetParamTemplateId() const
+{
+    return m_paramTemplateId;
+}
+
+void AddInstancesRequest::SetParamTemplateId(const int64_t& _paramTemplateId)
+{
+    m_paramTemplateId = _paramTemplateId;
+    m_paramTemplateIdHasBeenSet = true;
+}
+
+bool AddInstancesRequest::ParamTemplateIdHasBeenSet() const
+{
+    return m_paramTemplateIdHasBeenSet;
+}
+
+vector<ModifyParamItem> AddInstancesRequest::GetInstanceParams() const
+{
+    return m_instanceParams;
+}
+
+void AddInstancesRequest::SetInstanceParams(const vector<ModifyParamItem>& _instanceParams)
+{
+    m_instanceParams = _instanceParams;
+    m_instanceParamsHasBeenSet = true;
+}
+
+bool AddInstancesRequest::InstanceParamsHasBeenSet() const
+{
+    return m_instanceParamsHasBeenSet;
+}
+
+vector<string> AddInstancesRequest::GetSecurityGroupIds() const
+{
+    return m_securityGroupIds;
+}
+
+void AddInstancesRequest::SetSecurityGroupIds(const vector<string>& _securityGroupIds)
+{
+    m_securityGroupIds = _securityGroupIds;
+    m_securityGroupIdsHasBeenSet = true;
+}
+
+bool AddInstancesRequest::SecurityGroupIdsHasBeenSet() const
+{
+    return m_securityGroupIdsHasBeenSet;
+}
+
+UpgradeProxy AddInstancesRequest::GetUpgradeProxy() const
+{
+    return m_upgradeProxy;
+}
+
+void AddInstancesRequest::SetUpgradeProxy(const UpgradeProxy& _upgradeProxy)
+{
+    m_upgradeProxy = _upgradeProxy;
+    m_upgradeProxyHasBeenSet = true;
+}
+
+bool AddInstancesRequest::UpgradeProxyHasBeenSet() const
+{
+    return m_upgradeProxyHasBeenSet;
 }
 
 

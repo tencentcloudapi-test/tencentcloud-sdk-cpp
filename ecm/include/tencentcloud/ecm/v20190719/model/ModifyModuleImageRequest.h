@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取默认镜像ID
                      * @return DefaultImageId 默认镜像ID
+                     * 
                      */
                     std::string GetDefaultImageId() const;
 
                     /**
                      * 设置默认镜像ID
-                     * @param DefaultImageId 默认镜像ID
+                     * @param _defaultImageId 默认镜像ID
+                     * 
                      */
                     void SetDefaultImageId(const std::string& _defaultImageId);
 
                     /**
                      * 判断参数 DefaultImageId 是否已赋值
                      * @return DefaultImageId 是否已赋值
+                     * 
                      */
                     bool DefaultImageIdHasBeenSet() const;
 
                     /**
                      * 获取模块ID
                      * @return ModuleId 模块ID
+                     * 
                      */
                     std::string GetModuleId() const;
 
                     /**
                      * 设置模块ID
-                     * @param ModuleId 模块ID
+                     * @param _moduleId 模块ID
+                     * 
                      */
                     void SetModuleId(const std::string& _moduleId);
 
                     /**
                      * 判断参数 ModuleId 是否已赋值
                      * @return ModuleId 是否已赋值
+                     * 
                      */
                     bool ModuleIdHasBeenSet() const;
 

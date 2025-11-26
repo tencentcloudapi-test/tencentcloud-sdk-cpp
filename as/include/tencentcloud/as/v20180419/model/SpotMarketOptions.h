@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,40 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取竞价出价，例如“1.05”
                      * @return MaxPrice 竞价出价，例如“1.05”
+                     * 
                      */
                     std::string GetMaxPrice() const;
 
                     /**
                      * 设置竞价出价，例如“1.05”
-                     * @param MaxPrice 竞价出价，例如“1.05”
+                     * @param _maxPrice 竞价出价，例如“1.05”
+                     * 
                      */
                     void SetMaxPrice(const std::string& _maxPrice);
 
                     /**
                      * 判断参数 MaxPrice 是否已赋值
                      * @return MaxPrice 是否已赋值
+                     * 
                      */
                     bool MaxPriceHasBeenSet() const;
 
                     /**
                      * 获取竞价请求类型，当前仅支持类型：one-time，默认值为one-time
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SpotInstanceType 竞价请求类型，当前仅支持类型：one-time，默认值为one-time
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSpotInstanceType() const;
 
                     /**
                      * 设置竞价请求类型，当前仅支持类型：one-time，默认值为one-time
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SpotInstanceType 竞价请求类型，当前仅支持类型：one-time，默认值为one-time
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _spotInstanceType 竞价请求类型，当前仅支持类型：one-time，默认值为one-time
+                     * 
                      */
                     void SetSpotInstanceType(const std::string& _spotInstanceType);
 
                     /**
                      * 判断参数 SpotInstanceType 是否已赋值
                      * @return SpotInstanceType 是否已赋值
+                     * 
                      */
                     bool SpotInstanceTypeHasBeenSet() const;
 
@@ -96,7 +98,6 @@ namespace TencentCloud
 
                     /**
                      * 竞价请求类型，当前仅支持类型：one-time，默认值为one-time
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_spotInstanceType;
                     bool m_spotInstanceTypeHasBeenSet;

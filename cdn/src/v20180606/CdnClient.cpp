@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,56 @@ CdnClient::CdnClient(const Credential &credential, const string &region, const C
 }
 
 
+CdnClient::AddCLSTopicDomainsOutcome CdnClient::AddCLSTopicDomains(const AddCLSTopicDomainsRequest &request)
+{
+    auto outcome = MakeRequest(request, "AddCLSTopicDomains");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AddCLSTopicDomainsResponse rsp = AddCLSTopicDomainsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AddCLSTopicDomainsOutcome(rsp);
+        else
+            return AddCLSTopicDomainsOutcome(o.GetError());
+    }
+    else
+    {
+        return AddCLSTopicDomainsOutcome(outcome.GetError());
+    }
+}
+
+void CdnClient::AddCLSTopicDomainsAsync(const AddCLSTopicDomainsRequest& request, const AddCLSTopicDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AddCLSTopicDomainsRequest&;
+    using Resp = AddCLSTopicDomainsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AddCLSTopicDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CdnClient::AddCLSTopicDomainsOutcomeCallable CdnClient::AddCLSTopicDomainsCallable(const AddCLSTopicDomainsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AddCLSTopicDomainsOutcome>>();
+    AddCLSTopicDomainsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const AddCLSTopicDomainsRequest&,
+        AddCLSTopicDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 CdnClient::AddCdnDomainOutcome CdnClient::AddCdnDomain(const AddCdnDomainRequest &request)
 {
     auto outcome = MakeRequest(request, "AddCdnDomain");
@@ -62,25 +112,32 @@ CdnClient::AddCdnDomainOutcome CdnClient::AddCdnDomain(const AddCdnDomainRequest
 
 void CdnClient::AddCdnDomainAsync(const AddCdnDomainRequest& request, const AddCdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AddCdnDomain(request), context);
-    };
+    using Req = const AddCdnDomainRequest&;
+    using Resp = AddCdnDomainResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AddCdnDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::AddCdnDomainOutcomeCallable CdnClient::AddCdnDomainCallable(const AddCdnDomainRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AddCdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->AddCdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<AddCdnDomainOutcome>>();
+    AddCdnDomainAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const AddCdnDomainRequest&,
+        AddCdnDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::CreateClsLogTopicOutcome CdnClient::CreateClsLogTopic(const CreateClsLogTopicRequest &request)
@@ -105,25 +162,32 @@ CdnClient::CreateClsLogTopicOutcome CdnClient::CreateClsLogTopic(const CreateCls
 
 void CdnClient::CreateClsLogTopicAsync(const CreateClsLogTopicRequest& request, const CreateClsLogTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateClsLogTopic(request), context);
-    };
+    using Req = const CreateClsLogTopicRequest&;
+    using Resp = CreateClsLogTopicResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateClsLogTopic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::CreateClsLogTopicOutcomeCallable CdnClient::CreateClsLogTopicCallable(const CreateClsLogTopicRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateClsLogTopicOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateClsLogTopic(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateClsLogTopicOutcome>>();
+    CreateClsLogTopicAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const CreateClsLogTopicRequest&,
+        CreateClsLogTopicOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::CreateDiagnoseUrlOutcome CdnClient::CreateDiagnoseUrl(const CreateDiagnoseUrlRequest &request)
@@ -148,25 +212,32 @@ CdnClient::CreateDiagnoseUrlOutcome CdnClient::CreateDiagnoseUrl(const CreateDia
 
 void CdnClient::CreateDiagnoseUrlAsync(const CreateDiagnoseUrlRequest& request, const CreateDiagnoseUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateDiagnoseUrl(request), context);
-    };
+    using Req = const CreateDiagnoseUrlRequest&;
+    using Resp = CreateDiagnoseUrlResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateDiagnoseUrl", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::CreateDiagnoseUrlOutcomeCallable CdnClient::CreateDiagnoseUrlCallable(const CreateDiagnoseUrlRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateDiagnoseUrlOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateDiagnoseUrl(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateDiagnoseUrlOutcome>>();
+    CreateDiagnoseUrlAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const CreateDiagnoseUrlRequest&,
+        CreateDiagnoseUrlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::CreateEdgePackTaskOutcome CdnClient::CreateEdgePackTask(const CreateEdgePackTaskRequest &request)
@@ -191,154 +262,32 @@ CdnClient::CreateEdgePackTaskOutcome CdnClient::CreateEdgePackTask(const CreateE
 
 void CdnClient::CreateEdgePackTaskAsync(const CreateEdgePackTaskRequest& request, const CreateEdgePackTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateEdgePackTask(request), context);
-    };
+    using Req = const CreateEdgePackTaskRequest&;
+    using Resp = CreateEdgePackTaskResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateEdgePackTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::CreateEdgePackTaskOutcomeCallable CdnClient::CreateEdgePackTaskCallable(const CreateEdgePackTaskRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateEdgePackTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateEdgePackTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::CreateScdnDomainOutcome CdnClient::CreateScdnDomain(const CreateScdnDomainRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateScdnDomain");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<CreateEdgePackTaskOutcome>>();
+    CreateEdgePackTaskAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const CreateEdgePackTaskRequest&,
+        CreateEdgePackTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateScdnDomainResponse rsp = CreateScdnDomainResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateScdnDomainOutcome(rsp);
-        else
-            return CreateScdnDomainOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateScdnDomainOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::CreateScdnDomainAsync(const CreateScdnDomainRequest& request, const CreateScdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateScdnDomain(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::CreateScdnDomainOutcomeCallable CdnClient::CreateScdnDomainCallable(const CreateScdnDomainRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateScdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateScdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::CreateScdnFailedLogTaskOutcome CdnClient::CreateScdnFailedLogTask(const CreateScdnFailedLogTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateScdnFailedLogTask");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateScdnFailedLogTaskResponse rsp = CreateScdnFailedLogTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateScdnFailedLogTaskOutcome(rsp);
-        else
-            return CreateScdnFailedLogTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateScdnFailedLogTaskOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::CreateScdnFailedLogTaskAsync(const CreateScdnFailedLogTaskRequest& request, const CreateScdnFailedLogTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateScdnFailedLogTask(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::CreateScdnFailedLogTaskOutcomeCallable CdnClient::CreateScdnFailedLogTaskCallable(const CreateScdnFailedLogTaskRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateScdnFailedLogTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateScdnFailedLogTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::CreateScdnLogTaskOutcome CdnClient::CreateScdnLogTask(const CreateScdnLogTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateScdnLogTask");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateScdnLogTaskResponse rsp = CreateScdnLogTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateScdnLogTaskOutcome(rsp);
-        else
-            return CreateScdnLogTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateScdnLogTaskOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::CreateScdnLogTaskAsync(const CreateScdnLogTaskRequest& request, const CreateScdnLogTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateScdnLogTask(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::CreateScdnLogTaskOutcomeCallable CdnClient::CreateScdnLogTaskCallable(const CreateScdnLogTaskRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateScdnLogTaskOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateScdnLogTask(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::CreateVerifyRecordOutcome CdnClient::CreateVerifyRecord(const CreateVerifyRecordRequest &request)
@@ -363,25 +312,32 @@ CdnClient::CreateVerifyRecordOutcome CdnClient::CreateVerifyRecord(const CreateV
 
 void CdnClient::CreateVerifyRecordAsync(const CreateVerifyRecordRequest& request, const CreateVerifyRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateVerifyRecord(request), context);
-    };
+    using Req = const CreateVerifyRecordRequest&;
+    using Resp = CreateVerifyRecordResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateVerifyRecord", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::CreateVerifyRecordOutcomeCallable CdnClient::CreateVerifyRecordCallable(const CreateVerifyRecordRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateVerifyRecordOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateVerifyRecord(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateVerifyRecordOutcome>>();
+    CreateVerifyRecordAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const CreateVerifyRecordRequest&,
+        CreateVerifyRecordOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DeleteCdnDomainOutcome CdnClient::DeleteCdnDomain(const DeleteCdnDomainRequest &request)
@@ -406,25 +362,32 @@ CdnClient::DeleteCdnDomainOutcome CdnClient::DeleteCdnDomain(const DeleteCdnDoma
 
 void CdnClient::DeleteCdnDomainAsync(const DeleteCdnDomainRequest& request, const DeleteCdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteCdnDomain(request), context);
-    };
+    using Req = const DeleteCdnDomainRequest&;
+    using Resp = DeleteCdnDomainResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteCdnDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DeleteCdnDomainOutcomeCallable CdnClient::DeleteCdnDomainCallable(const DeleteCdnDomainRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteCdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteCdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteCdnDomainOutcome>>();
+    DeleteCdnDomainAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DeleteCdnDomainRequest&,
+        DeleteCdnDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DeleteClsLogTopicOutcome CdnClient::DeleteClsLogTopic(const DeleteClsLogTopicRequest &request)
@@ -449,68 +412,32 @@ CdnClient::DeleteClsLogTopicOutcome CdnClient::DeleteClsLogTopic(const DeleteCls
 
 void CdnClient::DeleteClsLogTopicAsync(const DeleteClsLogTopicRequest& request, const DeleteClsLogTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteClsLogTopic(request), context);
-    };
+    using Req = const DeleteClsLogTopicRequest&;
+    using Resp = DeleteClsLogTopicResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteClsLogTopic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DeleteClsLogTopicOutcomeCallable CdnClient::DeleteClsLogTopicCallable(const DeleteClsLogTopicRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteClsLogTopicOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteClsLogTopic(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DeleteScdnDomainOutcome CdnClient::DeleteScdnDomain(const DeleteScdnDomainRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteScdnDomain");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DeleteClsLogTopicOutcome>>();
+    DeleteClsLogTopicAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DeleteClsLogTopicRequest&,
+        DeleteClsLogTopicOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteScdnDomainResponse rsp = DeleteScdnDomainResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteScdnDomainOutcome(rsp);
-        else
-            return DeleteScdnDomainOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteScdnDomainOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DeleteScdnDomainAsync(const DeleteScdnDomainRequest& request, const DeleteScdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteScdnDomain(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DeleteScdnDomainOutcomeCallable CdnClient::DeleteScdnDomainCallable(const DeleteScdnDomainRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeleteScdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteScdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeBillingDataOutcome CdnClient::DescribeBillingData(const DescribeBillingDataRequest &request)
@@ -535,68 +462,32 @@ CdnClient::DescribeBillingDataOutcome CdnClient::DescribeBillingData(const Descr
 
 void CdnClient::DescribeBillingDataAsync(const DescribeBillingDataRequest& request, const DescribeBillingDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeBillingData(request), context);
-    };
+    using Req = const DescribeBillingDataRequest&;
+    using Resp = DescribeBillingDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeBillingData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeBillingDataOutcomeCallable CdnClient::DescribeBillingDataCallable(const DescribeBillingDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeBillingDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeBillingData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeCcDataOutcome CdnClient::DescribeCcData(const DescribeCcDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCcData");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeBillingDataOutcome>>();
+    DescribeBillingDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeBillingDataRequest&,
+        DescribeBillingDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCcDataResponse rsp = DescribeCcDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCcDataOutcome(rsp);
-        else
-            return DescribeCcDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCcDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeCcDataAsync(const DescribeCcDataRequest& request, const DescribeCcDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCcData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeCcDataOutcomeCallable CdnClient::DescribeCcDataCallable(const DescribeCcDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeCcDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCcData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeCdnDataOutcome CdnClient::DescribeCdnData(const DescribeCdnDataRequest &request)
@@ -621,25 +512,32 @@ CdnClient::DescribeCdnDataOutcome CdnClient::DescribeCdnData(const DescribeCdnDa
 
 void CdnClient::DescribeCdnDataAsync(const DescribeCdnDataRequest& request, const DescribeCdnDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCdnData(request), context);
-    };
+    using Req = const DescribeCdnDataRequest&;
+    using Resp = DescribeCdnDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCdnData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeCdnDataOutcomeCallable CdnClient::DescribeCdnDataCallable(const DescribeCdnDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCdnDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCdnData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeCdnDataOutcome>>();
+    DescribeCdnDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeCdnDataRequest&,
+        DescribeCdnDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeCdnDomainLogsOutcome CdnClient::DescribeCdnDomainLogs(const DescribeCdnDomainLogsRequest &request)
@@ -664,25 +562,32 @@ CdnClient::DescribeCdnDomainLogsOutcome CdnClient::DescribeCdnDomainLogs(const D
 
 void CdnClient::DescribeCdnDomainLogsAsync(const DescribeCdnDomainLogsRequest& request, const DescribeCdnDomainLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCdnDomainLogs(request), context);
-    };
+    using Req = const DescribeCdnDomainLogsRequest&;
+    using Resp = DescribeCdnDomainLogsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCdnDomainLogs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeCdnDomainLogsOutcomeCallable CdnClient::DescribeCdnDomainLogsCallable(const DescribeCdnDomainLogsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCdnDomainLogsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCdnDomainLogs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeCdnDomainLogsOutcome>>();
+    DescribeCdnDomainLogsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeCdnDomainLogsRequest&,
+        DescribeCdnDomainLogsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeCdnIpOutcome CdnClient::DescribeCdnIp(const DescribeCdnIpRequest &request)
@@ -707,25 +612,32 @@ CdnClient::DescribeCdnIpOutcome CdnClient::DescribeCdnIp(const DescribeCdnIpRequ
 
 void CdnClient::DescribeCdnIpAsync(const DescribeCdnIpRequest& request, const DescribeCdnIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCdnIp(request), context);
-    };
+    using Req = const DescribeCdnIpRequest&;
+    using Resp = DescribeCdnIpResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCdnIp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeCdnIpOutcomeCallable CdnClient::DescribeCdnIpCallable(const DescribeCdnIpRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCdnIpOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCdnIp(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeCdnIpOutcome>>();
+    DescribeCdnIpAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeCdnIpRequest&,
+        DescribeCdnIpOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeCdnOriginIpOutcome CdnClient::DescribeCdnOriginIp(const DescribeCdnOriginIpRequest &request)
@@ -750,25 +662,32 @@ CdnClient::DescribeCdnOriginIpOutcome CdnClient::DescribeCdnOriginIp(const Descr
 
 void CdnClient::DescribeCdnOriginIpAsync(const DescribeCdnOriginIpRequest& request, const DescribeCdnOriginIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCdnOriginIp(request), context);
-    };
+    using Req = const DescribeCdnOriginIpRequest&;
+    using Resp = DescribeCdnOriginIpResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCdnOriginIp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeCdnOriginIpOutcomeCallable CdnClient::DescribeCdnOriginIpCallable(const DescribeCdnOriginIpRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCdnOriginIpOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCdnOriginIp(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeCdnOriginIpOutcome>>();
+    DescribeCdnOriginIpAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeCdnOriginIpRequest&,
+        DescribeCdnOriginIpOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeCertDomainsOutcome CdnClient::DescribeCertDomains(const DescribeCertDomainsRequest &request)
@@ -793,68 +712,32 @@ CdnClient::DescribeCertDomainsOutcome CdnClient::DescribeCertDomains(const Descr
 
 void CdnClient::DescribeCertDomainsAsync(const DescribeCertDomainsRequest& request, const DescribeCertDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCertDomains(request), context);
-    };
+    using Req = const DescribeCertDomainsRequest&;
+    using Resp = DescribeCertDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCertDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeCertDomainsOutcomeCallable CdnClient::DescribeCertDomainsCallable(const DescribeCertDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCertDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCertDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeDDoSDataOutcome CdnClient::DescribeDDoSData(const DescribeDDoSDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeDDoSData");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeCertDomainsOutcome>>();
+    DescribeCertDomainsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeCertDomainsRequest&,
+        DescribeCertDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeDDoSDataResponse rsp = DescribeDDoSDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeDDoSDataOutcome(rsp);
-        else
-            return DescribeDDoSDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeDDoSDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeDDoSDataAsync(const DescribeDDoSDataRequest& request, const DescribeDDoSDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDDoSData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeDDoSDataOutcomeCallable CdnClient::DescribeDDoSDataCallable(const DescribeDDoSDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeDDoSDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDDoSData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeDiagnoseReportOutcome CdnClient::DescribeDiagnoseReport(const DescribeDiagnoseReportRequest &request)
@@ -879,25 +762,32 @@ CdnClient::DescribeDiagnoseReportOutcome CdnClient::DescribeDiagnoseReport(const
 
 void CdnClient::DescribeDiagnoseReportAsync(const DescribeDiagnoseReportRequest& request, const DescribeDiagnoseReportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDiagnoseReport(request), context);
-    };
+    using Req = const DescribeDiagnoseReportRequest&;
+    using Resp = DescribeDiagnoseReportResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDiagnoseReport", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeDiagnoseReportOutcomeCallable CdnClient::DescribeDiagnoseReportCallable(const DescribeDiagnoseReportRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDiagnoseReportOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDiagnoseReport(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeDiagnoseReportOutcome>>();
+    DescribeDiagnoseReportAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeDiagnoseReportRequest&,
+        DescribeDiagnoseReportOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeDistrictIspDataOutcome CdnClient::DescribeDistrictIspData(const DescribeDistrictIspDataRequest &request)
@@ -922,25 +812,32 @@ CdnClient::DescribeDistrictIspDataOutcome CdnClient::DescribeDistrictIspData(con
 
 void CdnClient::DescribeDistrictIspDataAsync(const DescribeDistrictIspDataRequest& request, const DescribeDistrictIspDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDistrictIspData(request), context);
-    };
+    using Req = const DescribeDistrictIspDataRequest&;
+    using Resp = DescribeDistrictIspDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDistrictIspData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeDistrictIspDataOutcomeCallable CdnClient::DescribeDistrictIspDataCallable(const DescribeDistrictIspDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDistrictIspDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDistrictIspData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeDistrictIspDataOutcome>>();
+    DescribeDistrictIspDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeDistrictIspDataRequest&,
+        DescribeDistrictIspDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeDomainsOutcome CdnClient::DescribeDomains(const DescribeDomainsRequest &request)
@@ -965,25 +862,32 @@ CdnClient::DescribeDomainsOutcome CdnClient::DescribeDomains(const DescribeDomai
 
 void CdnClient::DescribeDomainsAsync(const DescribeDomainsRequest& request, const DescribeDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDomains(request), context);
-    };
+    using Req = const DescribeDomainsRequest&;
+    using Resp = DescribeDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeDomainsOutcomeCallable CdnClient::DescribeDomainsCallable(const DescribeDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeDomainsOutcome>>();
+    DescribeDomainsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeDomainsRequest&,
+        DescribeDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeDomainsConfigOutcome CdnClient::DescribeDomainsConfig(const DescribeDomainsConfigRequest &request)
@@ -1008,68 +912,132 @@ CdnClient::DescribeDomainsConfigOutcome CdnClient::DescribeDomainsConfig(const D
 
 void CdnClient::DescribeDomainsConfigAsync(const DescribeDomainsConfigRequest& request, const DescribeDomainsConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDomainsConfig(request), context);
-    };
+    using Req = const DescribeDomainsConfigRequest&;
+    using Resp = DescribeDomainsConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDomainsConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeDomainsConfigOutcomeCallable CdnClient::DescribeDomainsConfigCallable(const DescribeDomainsConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDomainsConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDomainsConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeDomainsConfigOutcome>>();
+    DescribeDomainsConfigAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeDomainsConfigRequest&,
+        DescribeDomainsConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-CdnClient::DescribeEventLogDataOutcome CdnClient::DescribeEventLogData(const DescribeEventLogDataRequest &request)
+CdnClient::DescribeEdgePackTaskStatusOutcome CdnClient::DescribeEdgePackTaskStatus(const DescribeEdgePackTaskStatusRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeEventLogData");
+    auto outcome = MakeRequest(request, "DescribeEdgePackTaskStatus");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeEventLogDataResponse rsp = DescribeEventLogDataResponse();
+        DescribeEdgePackTaskStatusResponse rsp = DescribeEdgePackTaskStatusResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeEventLogDataOutcome(rsp);
+            return DescribeEdgePackTaskStatusOutcome(rsp);
         else
-            return DescribeEventLogDataOutcome(o.GetError());
+            return DescribeEdgePackTaskStatusOutcome(o.GetError());
     }
     else
     {
-        return DescribeEventLogDataOutcome(outcome.GetError());
+        return DescribeEdgePackTaskStatusOutcome(outcome.GetError());
     }
 }
 
-void CdnClient::DescribeEventLogDataAsync(const DescribeEventLogDataRequest& request, const DescribeEventLogDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CdnClient::DescribeEdgePackTaskStatusAsync(const DescribeEdgePackTaskStatusRequest& request, const DescribeEdgePackTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeEventLogData(request), context);
-    };
+    using Req = const DescribeEdgePackTaskStatusRequest&;
+    using Resp = DescribeEdgePackTaskStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeEdgePackTaskStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CdnClient::DescribeEventLogDataOutcomeCallable CdnClient::DescribeEventLogDataCallable(const DescribeEventLogDataRequest &request)
+CdnClient::DescribeEdgePackTaskStatusOutcomeCallable CdnClient::DescribeEdgePackTaskStatusCallable(const DescribeEdgePackTaskStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeEventLogDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeEventLogData(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DescribeEdgePackTaskStatusOutcome>>();
+    DescribeEdgePackTaskStatusAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeEdgePackTaskStatusRequest&,
+        DescribeEdgePackTaskStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CdnClient::DescribeHttpsPackagesOutcome CdnClient::DescribeHttpsPackages(const DescribeHttpsPackagesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeHttpsPackages");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeHttpsPackagesResponse rsp = DescribeHttpsPackagesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeHttpsPackagesOutcome(rsp);
+        else
+            return DescribeHttpsPackagesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeHttpsPackagesOutcome(outcome.GetError());
+    }
+}
+
+void CdnClient::DescribeHttpsPackagesAsync(const DescribeHttpsPackagesRequest& request, const DescribeHttpsPackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeHttpsPackagesRequest&;
+    using Resp = DescribeHttpsPackagesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeHttpsPackages", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CdnClient::DescribeHttpsPackagesOutcomeCallable CdnClient::DescribeHttpsPackagesCallable(const DescribeHttpsPackagesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeHttpsPackagesOutcome>>();
+    DescribeHttpsPackagesAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeHttpsPackagesRequest&,
+        DescribeHttpsPackagesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeImageConfigOutcome CdnClient::DescribeImageConfig(const DescribeImageConfigRequest &request)
@@ -1094,25 +1062,32 @@ CdnClient::DescribeImageConfigOutcome CdnClient::DescribeImageConfig(const Descr
 
 void CdnClient::DescribeImageConfigAsync(const DescribeImageConfigRequest& request, const DescribeImageConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeImageConfig(request), context);
-    };
+    using Req = const DescribeImageConfigRequest&;
+    using Resp = DescribeImageConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeImageConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeImageConfigOutcomeCallable CdnClient::DescribeImageConfigCallable(const DescribeImageConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeImageConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeImageConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeImageConfigOutcome>>();
+    DescribeImageConfigAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeImageConfigRequest&,
+        DescribeImageConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeIpStatusOutcome CdnClient::DescribeIpStatus(const DescribeIpStatusRequest &request)
@@ -1137,25 +1112,32 @@ CdnClient::DescribeIpStatusOutcome CdnClient::DescribeIpStatus(const DescribeIpS
 
 void CdnClient::DescribeIpStatusAsync(const DescribeIpStatusRequest& request, const DescribeIpStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeIpStatus(request), context);
-    };
+    using Req = const DescribeIpStatusRequest&;
+    using Resp = DescribeIpStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeIpStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeIpStatusOutcomeCallable CdnClient::DescribeIpStatusCallable(const DescribeIpStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeIpStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeIpStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeIpStatusOutcome>>();
+    DescribeIpStatusAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeIpStatusRequest&,
+        DescribeIpStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeIpVisitOutcome CdnClient::DescribeIpVisit(const DescribeIpVisitRequest &request)
@@ -1180,25 +1162,32 @@ CdnClient::DescribeIpVisitOutcome CdnClient::DescribeIpVisit(const DescribeIpVis
 
 void CdnClient::DescribeIpVisitAsync(const DescribeIpVisitRequest& request, const DescribeIpVisitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeIpVisit(request), context);
-    };
+    using Req = const DescribeIpVisitRequest&;
+    using Resp = DescribeIpVisitResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeIpVisit", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeIpVisitOutcomeCallable CdnClient::DescribeIpVisitCallable(const DescribeIpVisitRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeIpVisitOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeIpVisit(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeIpVisitOutcome>>();
+    DescribeIpVisitAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeIpVisitRequest&,
+        DescribeIpVisitOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeMapInfoOutcome CdnClient::DescribeMapInfo(const DescribeMapInfoRequest &request)
@@ -1223,25 +1212,32 @@ CdnClient::DescribeMapInfoOutcome CdnClient::DescribeMapInfo(const DescribeMapIn
 
 void CdnClient::DescribeMapInfoAsync(const DescribeMapInfoRequest& request, const DescribeMapInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeMapInfo(request), context);
-    };
+    using Req = const DescribeMapInfoRequest&;
+    using Resp = DescribeMapInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeMapInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeMapInfoOutcomeCallable CdnClient::DescribeMapInfoCallable(const DescribeMapInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeMapInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeMapInfo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeMapInfoOutcome>>();
+    DescribeMapInfoAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeMapInfoRequest&,
+        DescribeMapInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeOriginDataOutcome CdnClient::DescribeOriginData(const DescribeOriginDataRequest &request)
@@ -1266,25 +1262,32 @@ CdnClient::DescribeOriginDataOutcome CdnClient::DescribeOriginData(const Describ
 
 void CdnClient::DescribeOriginDataAsync(const DescribeOriginDataRequest& request, const DescribeOriginDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeOriginData(request), context);
-    };
+    using Req = const DescribeOriginDataRequest&;
+    using Resp = DescribeOriginDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeOriginData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeOriginDataOutcomeCallable CdnClient::DescribeOriginDataCallable(const DescribeOriginDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeOriginDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeOriginData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeOriginDataOutcome>>();
+    DescribeOriginDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeOriginDataRequest&,
+        DescribeOriginDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribePayTypeOutcome CdnClient::DescribePayType(const DescribePayTypeRequest &request)
@@ -1309,25 +1312,32 @@ CdnClient::DescribePayTypeOutcome CdnClient::DescribePayType(const DescribePayTy
 
 void CdnClient::DescribePayTypeAsync(const DescribePayTypeRequest& request, const DescribePayTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePayType(request), context);
-    };
+    using Req = const DescribePayTypeRequest&;
+    using Resp = DescribePayTypeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePayType", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribePayTypeOutcomeCallable CdnClient::DescribePayTypeCallable(const DescribePayTypeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePayTypeOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePayType(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePayTypeOutcome>>();
+    DescribePayTypeAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribePayTypeRequest&,
+        DescribePayTypeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribePurgeQuotaOutcome CdnClient::DescribePurgeQuota(const DescribePurgeQuotaRequest &request)
@@ -1352,25 +1362,32 @@ CdnClient::DescribePurgeQuotaOutcome CdnClient::DescribePurgeQuota(const Describ
 
 void CdnClient::DescribePurgeQuotaAsync(const DescribePurgeQuotaRequest& request, const DescribePurgeQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePurgeQuota(request), context);
-    };
+    using Req = const DescribePurgeQuotaRequest&;
+    using Resp = DescribePurgeQuotaResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePurgeQuota", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribePurgeQuotaOutcomeCallable CdnClient::DescribePurgeQuotaCallable(const DescribePurgeQuotaRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePurgeQuotaOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePurgeQuota(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePurgeQuotaOutcome>>();
+    DescribePurgeQuotaAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribePurgeQuotaRequest&,
+        DescribePurgeQuotaOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribePurgeTasksOutcome CdnClient::DescribePurgeTasks(const DescribePurgeTasksRequest &request)
@@ -1395,25 +1412,32 @@ CdnClient::DescribePurgeTasksOutcome CdnClient::DescribePurgeTasks(const Describ
 
 void CdnClient::DescribePurgeTasksAsync(const DescribePurgeTasksRequest& request, const DescribePurgeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePurgeTasks(request), context);
-    };
+    using Req = const DescribePurgeTasksRequest&;
+    using Resp = DescribePurgeTasksResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePurgeTasks", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribePurgeTasksOutcomeCallable CdnClient::DescribePurgeTasksCallable(const DescribePurgeTasksRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePurgeTasksOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePurgeTasks(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePurgeTasksOutcome>>();
+    DescribePurgeTasksAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribePurgeTasksRequest&,
+        DescribePurgeTasksOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribePushQuotaOutcome CdnClient::DescribePushQuota(const DescribePushQuotaRequest &request)
@@ -1438,25 +1462,32 @@ CdnClient::DescribePushQuotaOutcome CdnClient::DescribePushQuota(const DescribeP
 
 void CdnClient::DescribePushQuotaAsync(const DescribePushQuotaRequest& request, const DescribePushQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePushQuota(request), context);
-    };
+    using Req = const DescribePushQuotaRequest&;
+    using Resp = DescribePushQuotaResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePushQuota", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribePushQuotaOutcomeCallable CdnClient::DescribePushQuotaCallable(const DescribePushQuotaRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePushQuotaOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePushQuota(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePushQuotaOutcome>>();
+    DescribePushQuotaAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribePushQuotaRequest&,
+        DescribePushQuotaOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribePushTasksOutcome CdnClient::DescribePushTasks(const DescribePushTasksRequest &request)
@@ -1481,25 +1512,32 @@ CdnClient::DescribePushTasksOutcome CdnClient::DescribePushTasks(const DescribeP
 
 void CdnClient::DescribePushTasksAsync(const DescribePushTasksRequest& request, const DescribePushTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePushTasks(request), context);
-    };
+    using Req = const DescribePushTasksRequest&;
+    using Resp = DescribePushTasksResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePushTasks", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribePushTasksOutcomeCallable CdnClient::DescribePushTasksCallable(const DescribePushTasksRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePushTasksOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePushTasks(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePushTasksOutcome>>();
+    DescribePushTasksAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribePushTasksRequest&,
+        DescribePushTasksOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeReportDataOutcome CdnClient::DescribeReportData(const DescribeReportDataRequest &request)
@@ -1524,240 +1562,32 @@ CdnClient::DescribeReportDataOutcome CdnClient::DescribeReportData(const Describ
 
 void CdnClient::DescribeReportDataAsync(const DescribeReportDataRequest& request, const DescribeReportDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeReportData(request), context);
-    };
+    using Req = const DescribeReportDataRequest&;
+    using Resp = DescribeReportDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeReportData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeReportDataOutcomeCallable CdnClient::DescribeReportDataCallable(const DescribeReportDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeReportDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeReportData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeScdnBotDataOutcome CdnClient::DescribeScdnBotData(const DescribeScdnBotDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeScdnBotData");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeReportDataOutcome>>();
+    DescribeReportDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeReportDataRequest&,
+        DescribeReportDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeScdnBotDataResponse rsp = DescribeScdnBotDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeScdnBotDataOutcome(rsp);
-        else
-            return DescribeScdnBotDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeScdnBotDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeScdnBotDataAsync(const DescribeScdnBotDataRequest& request, const DescribeScdnBotDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeScdnBotData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeScdnBotDataOutcomeCallable CdnClient::DescribeScdnBotDataCallable(const DescribeScdnBotDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeScdnBotDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeScdnBotData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeScdnBotRecordsOutcome CdnClient::DescribeScdnBotRecords(const DescribeScdnBotRecordsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeScdnBotRecords");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeScdnBotRecordsResponse rsp = DescribeScdnBotRecordsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeScdnBotRecordsOutcome(rsp);
-        else
-            return DescribeScdnBotRecordsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeScdnBotRecordsOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeScdnBotRecordsAsync(const DescribeScdnBotRecordsRequest& request, const DescribeScdnBotRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeScdnBotRecords(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeScdnBotRecordsOutcomeCallable CdnClient::DescribeScdnBotRecordsCallable(const DescribeScdnBotRecordsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeScdnBotRecordsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeScdnBotRecords(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeScdnConfigOutcome CdnClient::DescribeScdnConfig(const DescribeScdnConfigRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeScdnConfig");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeScdnConfigResponse rsp = DescribeScdnConfigResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeScdnConfigOutcome(rsp);
-        else
-            return DescribeScdnConfigOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeScdnConfigOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeScdnConfigAsync(const DescribeScdnConfigRequest& request, const DescribeScdnConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeScdnConfig(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeScdnConfigOutcomeCallable CdnClient::DescribeScdnConfigCallable(const DescribeScdnConfigRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeScdnConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeScdnConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeScdnIpStrategyOutcome CdnClient::DescribeScdnIpStrategy(const DescribeScdnIpStrategyRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeScdnIpStrategy");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeScdnIpStrategyResponse rsp = DescribeScdnIpStrategyResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeScdnIpStrategyOutcome(rsp);
-        else
-            return DescribeScdnIpStrategyOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeScdnIpStrategyOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeScdnIpStrategyAsync(const DescribeScdnIpStrategyRequest& request, const DescribeScdnIpStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeScdnIpStrategy(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeScdnIpStrategyOutcomeCallable CdnClient::DescribeScdnIpStrategyCallable(const DescribeScdnIpStrategyRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeScdnIpStrategyOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeScdnIpStrategy(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeScdnTopDataOutcome CdnClient::DescribeScdnTopData(const DescribeScdnTopDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeScdnTopData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeScdnTopDataResponse rsp = DescribeScdnTopDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeScdnTopDataOutcome(rsp);
-        else
-            return DescribeScdnTopDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeScdnTopDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeScdnTopDataAsync(const DescribeScdnTopDataRequest& request, const DescribeScdnTopDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeScdnTopData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeScdnTopDataOutcomeCallable CdnClient::DescribeScdnTopDataCallable(const DescribeScdnTopDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeScdnTopDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeScdnTopData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeTopDataOutcome CdnClient::DescribeTopData(const DescribeTopDataRequest &request)
@@ -1782,25 +1612,32 @@ CdnClient::DescribeTopDataOutcome CdnClient::DescribeTopData(const DescribeTopDa
 
 void CdnClient::DescribeTopDataAsync(const DescribeTopDataRequest& request, const DescribeTopDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTopData(request), context);
-    };
+    using Req = const DescribeTopDataRequest&;
+    using Resp = DescribeTopDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTopData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeTopDataOutcomeCallable CdnClient::DescribeTopDataCallable(const DescribeTopDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTopDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTopData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTopDataOutcome>>();
+    DescribeTopDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeTopDataRequest&,
+        DescribeTopDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeTrafficPackagesOutcome CdnClient::DescribeTrafficPackages(const DescribeTrafficPackagesRequest &request)
@@ -1825,25 +1662,32 @@ CdnClient::DescribeTrafficPackagesOutcome CdnClient::DescribeTrafficPackages(con
 
 void CdnClient::DescribeTrafficPackagesAsync(const DescribeTrafficPackagesRequest& request, const DescribeTrafficPackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTrafficPackages(request), context);
-    };
+    using Req = const DescribeTrafficPackagesRequest&;
+    using Resp = DescribeTrafficPackagesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeTrafficPackages", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeTrafficPackagesOutcomeCallable CdnClient::DescribeTrafficPackagesCallable(const DescribeTrafficPackagesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeTrafficPackagesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTrafficPackages(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeTrafficPackagesOutcome>>();
+    DescribeTrafficPackagesAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeTrafficPackagesRequest&,
+        DescribeTrafficPackagesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DescribeUrlViolationsOutcome CdnClient::DescribeUrlViolations(const DescribeUrlViolationsRequest &request)
@@ -1868,111 +1712,32 @@ CdnClient::DescribeUrlViolationsOutcome CdnClient::DescribeUrlViolations(const D
 
 void CdnClient::DescribeUrlViolationsAsync(const DescribeUrlViolationsRequest& request, const DescribeUrlViolationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeUrlViolations(request), context);
-    };
+    using Req = const DescribeUrlViolationsRequest&;
+    using Resp = DescribeUrlViolationsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeUrlViolations", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DescribeUrlViolationsOutcomeCallable CdnClient::DescribeUrlViolationsCallable(const DescribeUrlViolationsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeUrlViolationsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeUrlViolations(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DescribeWafDataOutcome CdnClient::DescribeWafData(const DescribeWafDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeWafData");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeUrlViolationsOutcome>>();
+    DescribeUrlViolationsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DescribeUrlViolationsRequest&,
+        DescribeUrlViolationsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeWafDataResponse rsp = DescribeWafDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeWafDataOutcome(rsp);
-        else
-            return DescribeWafDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeWafDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DescribeWafDataAsync(const DescribeWafDataRequest& request, const DescribeWafDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeWafData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DescribeWafDataOutcomeCallable CdnClient::DescribeWafDataCallable(const DescribeWafDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeWafDataOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeWafData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::DisableCachesOutcome CdnClient::DisableCaches(const DisableCachesRequest &request)
-{
-    auto outcome = MakeRequest(request, "DisableCaches");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DisableCachesResponse rsp = DisableCachesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DisableCachesOutcome(rsp);
-        else
-            return DisableCachesOutcome(o.GetError());
-    }
-    else
-    {
-        return DisableCachesOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::DisableCachesAsync(const DisableCachesRequest& request, const DisableCachesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DisableCaches(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::DisableCachesOutcomeCallable CdnClient::DisableCachesCallable(const DisableCachesRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DisableCachesOutcome()>>(
-        [this, request]()
-        {
-            return this->DisableCaches(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DisableClsLogTopicOutcome CdnClient::DisableClsLogTopic(const DisableClsLogTopicRequest &request)
@@ -1997,25 +1762,32 @@ CdnClient::DisableClsLogTopicOutcome CdnClient::DisableClsLogTopic(const Disable
 
 void CdnClient::DisableClsLogTopicAsync(const DisableClsLogTopicRequest& request, const DisableClsLogTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DisableClsLogTopic(request), context);
-    };
+    using Req = const DisableClsLogTopicRequest&;
+    using Resp = DisableClsLogTopicResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DisableClsLogTopic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DisableClsLogTopicOutcomeCallable CdnClient::DisableClsLogTopicCallable(const DisableClsLogTopicRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DisableClsLogTopicOutcome()>>(
-        [this, request]()
-        {
-            return this->DisableClsLogTopic(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DisableClsLogTopicOutcome>>();
+    DisableClsLogTopicAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DisableClsLogTopicRequest&,
+        DisableClsLogTopicOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::DuplicateDomainConfigOutcome CdnClient::DuplicateDomainConfig(const DuplicateDomainConfigRequest &request)
@@ -2040,68 +1812,32 @@ CdnClient::DuplicateDomainConfigOutcome CdnClient::DuplicateDomainConfig(const D
 
 void CdnClient::DuplicateDomainConfigAsync(const DuplicateDomainConfigRequest& request, const DuplicateDomainConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DuplicateDomainConfig(request), context);
-    };
+    using Req = const DuplicateDomainConfigRequest&;
+    using Resp = DuplicateDomainConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DuplicateDomainConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::DuplicateDomainConfigOutcomeCallable CdnClient::DuplicateDomainConfigCallable(const DuplicateDomainConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DuplicateDomainConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->DuplicateDomainConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::EnableCachesOutcome CdnClient::EnableCaches(const EnableCachesRequest &request)
-{
-    auto outcome = MakeRequest(request, "EnableCaches");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DuplicateDomainConfigOutcome>>();
+    DuplicateDomainConfigAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const DuplicateDomainConfigRequest&,
+        DuplicateDomainConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        EnableCachesResponse rsp = EnableCachesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return EnableCachesOutcome(rsp);
-        else
-            return EnableCachesOutcome(o.GetError());
-    }
-    else
-    {
-        return EnableCachesOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::EnableCachesAsync(const EnableCachesRequest& request, const EnableCachesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnableCaches(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::EnableCachesOutcomeCallable CdnClient::EnableCachesCallable(const EnableCachesRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<EnableCachesOutcome()>>(
-        [this, request]()
-        {
-            return this->EnableCaches(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::EnableClsLogTopicOutcome CdnClient::EnableClsLogTopic(const EnableClsLogTopicRequest &request)
@@ -2126,68 +1862,32 @@ CdnClient::EnableClsLogTopicOutcome CdnClient::EnableClsLogTopic(const EnableCls
 
 void CdnClient::EnableClsLogTopicAsync(const EnableClsLogTopicRequest& request, const EnableClsLogTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->EnableClsLogTopic(request), context);
-    };
+    using Req = const EnableClsLogTopicRequest&;
+    using Resp = EnableClsLogTopicResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "EnableClsLogTopic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::EnableClsLogTopicOutcomeCallable CdnClient::EnableClsLogTopicCallable(const EnableClsLogTopicRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<EnableClsLogTopicOutcome()>>(
-        [this, request]()
-        {
-            return this->EnableClsLogTopic(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::GetDisableRecordsOutcome CdnClient::GetDisableRecords(const GetDisableRecordsRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetDisableRecords");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<EnableClsLogTopicOutcome>>();
+    EnableClsLogTopicAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const EnableClsLogTopicRequest&,
+        EnableClsLogTopicOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetDisableRecordsResponse rsp = GetDisableRecordsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetDisableRecordsOutcome(rsp);
-        else
-            return GetDisableRecordsOutcome(o.GetError());
-    }
-    else
-    {
-        return GetDisableRecordsOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::GetDisableRecordsAsync(const GetDisableRecordsRequest& request, const GetDisableRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetDisableRecords(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::GetDisableRecordsOutcomeCallable CdnClient::GetDisableRecordsCallable(const GetDisableRecordsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetDisableRecordsOutcome()>>(
-        [this, request]()
-        {
-            return this->GetDisableRecords(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::ListClsLogTopicsOutcome CdnClient::ListClsLogTopics(const ListClsLogTopicsRequest &request)
@@ -2212,25 +1912,32 @@ CdnClient::ListClsLogTopicsOutcome CdnClient::ListClsLogTopics(const ListClsLogT
 
 void CdnClient::ListClsLogTopicsAsync(const ListClsLogTopicsRequest& request, const ListClsLogTopicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListClsLogTopics(request), context);
-    };
+    using Req = const ListClsLogTopicsRequest&;
+    using Resp = ListClsLogTopicsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListClsLogTopics", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::ListClsLogTopicsOutcomeCallable CdnClient::ListClsLogTopicsCallable(const ListClsLogTopicsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListClsLogTopicsOutcome()>>(
-        [this, request]()
-        {
-            return this->ListClsLogTopics(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ListClsLogTopicsOutcome>>();
+    ListClsLogTopicsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ListClsLogTopicsRequest&,
+        ListClsLogTopicsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::ListClsTopicDomainsOutcome CdnClient::ListClsTopicDomains(const ListClsTopicDomainsRequest &request)
@@ -2255,25 +1962,32 @@ CdnClient::ListClsTopicDomainsOutcome CdnClient::ListClsTopicDomains(const ListC
 
 void CdnClient::ListClsTopicDomainsAsync(const ListClsTopicDomainsRequest& request, const ListClsTopicDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListClsTopicDomains(request), context);
-    };
+    using Req = const ListClsTopicDomainsRequest&;
+    using Resp = ListClsTopicDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListClsTopicDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::ListClsTopicDomainsOutcomeCallable CdnClient::ListClsTopicDomainsCallable(const ListClsTopicDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListClsTopicDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->ListClsTopicDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ListClsTopicDomainsOutcome>>();
+    ListClsTopicDomainsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ListClsTopicDomainsRequest&,
+        ListClsTopicDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::ListDiagnoseReportOutcome CdnClient::ListDiagnoseReport(const ListDiagnoseReportRequest &request)
@@ -2298,240 +2012,32 @@ CdnClient::ListDiagnoseReportOutcome CdnClient::ListDiagnoseReport(const ListDia
 
 void CdnClient::ListDiagnoseReportAsync(const ListDiagnoseReportRequest& request, const ListDiagnoseReportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListDiagnoseReport(request), context);
-    };
+    using Req = const ListDiagnoseReportRequest&;
+    using Resp = ListDiagnoseReportResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListDiagnoseReport", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::ListDiagnoseReportOutcomeCallable CdnClient::ListDiagnoseReportCallable(const ListDiagnoseReportRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListDiagnoseReportOutcome()>>(
-        [this, request]()
-        {
-            return this->ListDiagnoseReport(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::ListScdnDomainsOutcome CdnClient::ListScdnDomains(const ListScdnDomainsRequest &request)
-{
-    auto outcome = MakeRequest(request, "ListScdnDomains");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ListDiagnoseReportOutcome>>();
+    ListDiagnoseReportAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ListDiagnoseReportRequest&,
+        ListDiagnoseReportOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ListScdnDomainsResponse rsp = ListScdnDomainsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ListScdnDomainsOutcome(rsp);
-        else
-            return ListScdnDomainsOutcome(o.GetError());
-    }
-    else
-    {
-        return ListScdnDomainsOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::ListScdnDomainsAsync(const ListScdnDomainsRequest& request, const ListScdnDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListScdnDomains(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::ListScdnDomainsOutcomeCallable CdnClient::ListScdnDomainsCallable(const ListScdnDomainsRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ListScdnDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->ListScdnDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::ListScdnLogTasksOutcome CdnClient::ListScdnLogTasks(const ListScdnLogTasksRequest &request)
-{
-    auto outcome = MakeRequest(request, "ListScdnLogTasks");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ListScdnLogTasksResponse rsp = ListScdnLogTasksResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ListScdnLogTasksOutcome(rsp);
-        else
-            return ListScdnLogTasksOutcome(o.GetError());
-    }
-    else
-    {
-        return ListScdnLogTasksOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::ListScdnLogTasksAsync(const ListScdnLogTasksRequest& request, const ListScdnLogTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListScdnLogTasks(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::ListScdnLogTasksOutcomeCallable CdnClient::ListScdnLogTasksCallable(const ListScdnLogTasksRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ListScdnLogTasksOutcome()>>(
-        [this, request]()
-        {
-            return this->ListScdnLogTasks(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::ListScdnTopBotDataOutcome CdnClient::ListScdnTopBotData(const ListScdnTopBotDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "ListScdnTopBotData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ListScdnTopBotDataResponse rsp = ListScdnTopBotDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ListScdnTopBotDataOutcome(rsp);
-        else
-            return ListScdnTopBotDataOutcome(o.GetError());
-    }
-    else
-    {
-        return ListScdnTopBotDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::ListScdnTopBotDataAsync(const ListScdnTopBotDataRequest& request, const ListScdnTopBotDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListScdnTopBotData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::ListScdnTopBotDataOutcomeCallable CdnClient::ListScdnTopBotDataCallable(const ListScdnTopBotDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ListScdnTopBotDataOutcome()>>(
-        [this, request]()
-        {
-            return this->ListScdnTopBotData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::ListTopBotDataOutcome CdnClient::ListTopBotData(const ListTopBotDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "ListTopBotData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ListTopBotDataResponse rsp = ListTopBotDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ListTopBotDataOutcome(rsp);
-        else
-            return ListTopBotDataOutcome(o.GetError());
-    }
-    else
-    {
-        return ListTopBotDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::ListTopBotDataAsync(const ListTopBotDataRequest& request, const ListTopBotDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListTopBotData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::ListTopBotDataOutcomeCallable CdnClient::ListTopBotDataCallable(const ListTopBotDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ListTopBotDataOutcome()>>(
-        [this, request]()
-        {
-            return this->ListTopBotData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::ListTopCcDataOutcome CdnClient::ListTopCcData(const ListTopCcDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "ListTopCcData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ListTopCcDataResponse rsp = ListTopCcDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ListTopCcDataOutcome(rsp);
-        else
-            return ListTopCcDataOutcome(o.GetError());
-    }
-    else
-    {
-        return ListTopCcDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::ListTopCcDataAsync(const ListTopCcDataRequest& request, const ListTopCcDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListTopCcData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::ListTopCcDataOutcomeCallable CdnClient::ListTopCcDataCallable(const ListTopCcDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ListTopCcDataOutcome()>>(
-        [this, request]()
-        {
-            return this->ListTopCcData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::ListTopClsLogDataOutcome CdnClient::ListTopClsLogData(const ListTopClsLogDataRequest &request)
@@ -2556,68 +2062,32 @@ CdnClient::ListTopClsLogDataOutcome CdnClient::ListTopClsLogData(const ListTopCl
 
 void CdnClient::ListTopClsLogDataAsync(const ListTopClsLogDataRequest& request, const ListTopClsLogDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListTopClsLogData(request), context);
-    };
+    using Req = const ListTopClsLogDataRequest&;
+    using Resp = ListTopClsLogDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListTopClsLogData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::ListTopClsLogDataOutcomeCallable CdnClient::ListTopClsLogDataCallable(const ListTopClsLogDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListTopClsLogDataOutcome()>>(
-        [this, request]()
-        {
-            return this->ListTopClsLogData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::ListTopDDoSDataOutcome CdnClient::ListTopDDoSData(const ListTopDDoSDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "ListTopDDoSData");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ListTopClsLogDataOutcome>>();
+    ListTopClsLogDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ListTopClsLogDataRequest&,
+        ListTopClsLogDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ListTopDDoSDataResponse rsp = ListTopDDoSDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ListTopDDoSDataOutcome(rsp);
-        else
-            return ListTopDDoSDataOutcome(o.GetError());
-    }
-    else
-    {
-        return ListTopDDoSDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::ListTopDDoSDataAsync(const ListTopDDoSDataRequest& request, const ListTopDDoSDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListTopDDoSData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::ListTopDDoSDataOutcomeCallable CdnClient::ListTopDDoSDataCallable(const ListTopDDoSDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ListTopDDoSDataOutcome()>>(
-        [this, request]()
-        {
-            return this->ListTopDDoSData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::ListTopDataOutcome CdnClient::ListTopData(const ListTopDataRequest &request)
@@ -2642,68 +2112,32 @@ CdnClient::ListTopDataOutcome CdnClient::ListTopData(const ListTopDataRequest &r
 
 void CdnClient::ListTopDataAsync(const ListTopDataRequest& request, const ListTopDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListTopData(request), context);
-    };
+    using Req = const ListTopDataRequest&;
+    using Resp = ListTopDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListTopData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::ListTopDataOutcomeCallable CdnClient::ListTopDataCallable(const ListTopDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListTopDataOutcome()>>(
-        [this, request]()
-        {
-            return this->ListTopData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::ListTopWafDataOutcome CdnClient::ListTopWafData(const ListTopWafDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "ListTopWafData");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ListTopDataOutcome>>();
+    ListTopDataAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ListTopDataRequest&,
+        ListTopDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ListTopWafDataResponse rsp = ListTopWafDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ListTopWafDataOutcome(rsp);
-        else
-            return ListTopWafDataOutcome(o.GetError());
-    }
-    else
-    {
-        return ListTopWafDataOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::ListTopWafDataAsync(const ListTopWafDataRequest& request, const ListTopWafDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListTopWafData(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::ListTopWafDataOutcomeCallable CdnClient::ListTopWafDataCallable(const ListTopWafDataRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ListTopWafDataOutcome()>>(
-        [this, request]()
-        {
-            return this->ListTopWafData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::ManageClsTopicDomainsOutcome CdnClient::ManageClsTopicDomains(const ManageClsTopicDomainsRequest &request)
@@ -2728,25 +2162,82 @@ CdnClient::ManageClsTopicDomainsOutcome CdnClient::ManageClsTopicDomains(const M
 
 void CdnClient::ManageClsTopicDomainsAsync(const ManageClsTopicDomainsRequest& request, const ManageClsTopicDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ManageClsTopicDomains(request), context);
-    };
+    using Req = const ManageClsTopicDomainsRequest&;
+    using Resp = ManageClsTopicDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ManageClsTopicDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::ManageClsTopicDomainsOutcomeCallable CdnClient::ManageClsTopicDomainsCallable(const ManageClsTopicDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ManageClsTopicDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->ManageClsTopicDomains(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ManageClsTopicDomainsOutcome>>();
+    ManageClsTopicDomainsAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ManageClsTopicDomainsRequest&,
+        ManageClsTopicDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+CdnClient::ModifyDomainConfigOutcome CdnClient::ModifyDomainConfig(const ModifyDomainConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyDomainConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyDomainConfigResponse rsp = ModifyDomainConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyDomainConfigOutcome(rsp);
+        else
+            return ModifyDomainConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyDomainConfigOutcome(outcome.GetError());
+    }
+}
+
+void CdnClient::ModifyDomainConfigAsync(const ModifyDomainConfigRequest& request, const ModifyDomainConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyDomainConfigRequest&;
+    using Resp = ModifyDomainConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyDomainConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CdnClient::ModifyDomainConfigOutcomeCallable CdnClient::ModifyDomainConfigCallable(const ModifyDomainConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyDomainConfigOutcome>>();
+    ModifyDomainConfigAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ModifyDomainConfigRequest&,
+        ModifyDomainConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::ModifyPurgeFetchTaskStatusOutcome CdnClient::ModifyPurgeFetchTaskStatus(const ModifyPurgeFetchTaskStatusRequest &request)
@@ -2771,25 +2262,32 @@ CdnClient::ModifyPurgeFetchTaskStatusOutcome CdnClient::ModifyPurgeFetchTaskStat
 
 void CdnClient::ModifyPurgeFetchTaskStatusAsync(const ModifyPurgeFetchTaskStatusRequest& request, const ModifyPurgeFetchTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyPurgeFetchTaskStatus(request), context);
-    };
+    using Req = const ModifyPurgeFetchTaskStatusRequest&;
+    using Resp = ModifyPurgeFetchTaskStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyPurgeFetchTaskStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::ModifyPurgeFetchTaskStatusOutcomeCallable CdnClient::ModifyPurgeFetchTaskStatusCallable(const ModifyPurgeFetchTaskStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyPurgeFetchTaskStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyPurgeFetchTaskStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyPurgeFetchTaskStatusOutcome>>();
+    ModifyPurgeFetchTaskStatusAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const ModifyPurgeFetchTaskStatusRequest&,
+        ModifyPurgeFetchTaskStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::PurgePathCacheOutcome CdnClient::PurgePathCache(const PurgePathCacheRequest &request)
@@ -2814,25 +2312,32 @@ CdnClient::PurgePathCacheOutcome CdnClient::PurgePathCache(const PurgePathCacheR
 
 void CdnClient::PurgePathCacheAsync(const PurgePathCacheRequest& request, const PurgePathCacheAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PurgePathCache(request), context);
-    };
+    using Req = const PurgePathCacheRequest&;
+    using Resp = PurgePathCacheResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "PurgePathCache", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::PurgePathCacheOutcomeCallable CdnClient::PurgePathCacheCallable(const PurgePathCacheRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<PurgePathCacheOutcome()>>(
-        [this, request]()
-        {
-            return this->PurgePathCache(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<PurgePathCacheOutcome>>();
+    PurgePathCacheAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const PurgePathCacheRequest&,
+        PurgePathCacheOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::PurgeUrlsCacheOutcome CdnClient::PurgeUrlsCache(const PurgeUrlsCacheRequest &request)
@@ -2857,25 +2362,32 @@ CdnClient::PurgeUrlsCacheOutcome CdnClient::PurgeUrlsCache(const PurgeUrlsCacheR
 
 void CdnClient::PurgeUrlsCacheAsync(const PurgeUrlsCacheRequest& request, const PurgeUrlsCacheAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PurgeUrlsCache(request), context);
-    };
+    using Req = const PurgeUrlsCacheRequest&;
+    using Resp = PurgeUrlsCacheResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "PurgeUrlsCache", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::PurgeUrlsCacheOutcomeCallable CdnClient::PurgeUrlsCacheCallable(const PurgeUrlsCacheRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<PurgeUrlsCacheOutcome()>>(
-        [this, request]()
-        {
-            return this->PurgeUrlsCache(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<PurgeUrlsCacheOutcome>>();
+    PurgeUrlsCacheAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const PurgeUrlsCacheRequest&,
+        PurgeUrlsCacheOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::PushUrlsCacheOutcome CdnClient::PushUrlsCache(const PushUrlsCacheRequest &request)
@@ -2900,25 +2412,32 @@ CdnClient::PushUrlsCacheOutcome CdnClient::PushUrlsCache(const PushUrlsCacheRequ
 
 void CdnClient::PushUrlsCacheAsync(const PushUrlsCacheRequest& request, const PushUrlsCacheAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PushUrlsCache(request), context);
-    };
+    using Req = const PushUrlsCacheRequest&;
+    using Resp = PushUrlsCacheResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "PushUrlsCache", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::PushUrlsCacheOutcomeCallable CdnClient::PushUrlsCacheCallable(const PushUrlsCacheRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<PushUrlsCacheOutcome()>>(
-        [this, request]()
-        {
-            return this->PushUrlsCache(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<PushUrlsCacheOutcome>>();
+    PushUrlsCacheAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const PushUrlsCacheRequest&,
+        PushUrlsCacheOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::SearchClsLogOutcome CdnClient::SearchClsLog(const SearchClsLogRequest &request)
@@ -2943,25 +2462,32 @@ CdnClient::SearchClsLogOutcome CdnClient::SearchClsLog(const SearchClsLogRequest
 
 void CdnClient::SearchClsLogAsync(const SearchClsLogRequest& request, const SearchClsLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SearchClsLog(request), context);
-    };
+    using Req = const SearchClsLogRequest&;
+    using Resp = SearchClsLogResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SearchClsLog", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::SearchClsLogOutcomeCallable CdnClient::SearchClsLogCallable(const SearchClsLogRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SearchClsLogOutcome()>>(
-        [this, request]()
-        {
-            return this->SearchClsLog(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<SearchClsLogOutcome>>();
+    SearchClsLogAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const SearchClsLogRequest&,
+        SearchClsLogOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::StartCdnDomainOutcome CdnClient::StartCdnDomain(const StartCdnDomainRequest &request)
@@ -2986,68 +2512,32 @@ CdnClient::StartCdnDomainOutcome CdnClient::StartCdnDomain(const StartCdnDomainR
 
 void CdnClient::StartCdnDomainAsync(const StartCdnDomainRequest& request, const StartCdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StartCdnDomain(request), context);
-    };
+    using Req = const StartCdnDomainRequest&;
+    using Resp = StartCdnDomainResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StartCdnDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::StartCdnDomainOutcomeCallable CdnClient::StartCdnDomainCallable(const StartCdnDomainRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StartCdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->StartCdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::StartScdnDomainOutcome CdnClient::StartScdnDomain(const StartScdnDomainRequest &request)
-{
-    auto outcome = MakeRequest(request, "StartScdnDomain");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<StartCdnDomainOutcome>>();
+    StartCdnDomainAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const StartCdnDomainRequest&,
+        StartCdnDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        StartScdnDomainResponse rsp = StartScdnDomainResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return StartScdnDomainOutcome(rsp);
-        else
-            return StartScdnDomainOutcome(o.GetError());
-    }
-    else
-    {
-        return StartScdnDomainOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::StartScdnDomainAsync(const StartScdnDomainRequest& request, const StartScdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StartScdnDomain(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::StartScdnDomainOutcomeCallable CdnClient::StartScdnDomainCallable(const StartScdnDomainRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<StartScdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->StartScdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::StopCdnDomainOutcome CdnClient::StopCdnDomain(const StopCdnDomainRequest &request)
@@ -3072,68 +2562,32 @@ CdnClient::StopCdnDomainOutcome CdnClient::StopCdnDomain(const StopCdnDomainRequ
 
 void CdnClient::StopCdnDomainAsync(const StopCdnDomainRequest& request, const StopCdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopCdnDomain(request), context);
-    };
+    using Req = const StopCdnDomainRequest&;
+    using Resp = StopCdnDomainResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StopCdnDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::StopCdnDomainOutcomeCallable CdnClient::StopCdnDomainCallable(const StopCdnDomainRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StopCdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->StopCdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::StopScdnDomainOutcome CdnClient::StopScdnDomain(const StopScdnDomainRequest &request)
-{
-    auto outcome = MakeRequest(request, "StopScdnDomain");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<StopCdnDomainOutcome>>();
+    StopCdnDomainAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const StopCdnDomainRequest&,
+        StopCdnDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        StopScdnDomainResponse rsp = StopScdnDomainResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return StopScdnDomainOutcome(rsp);
-        else
-            return StopScdnDomainOutcome(o.GetError());
-    }
-    else
-    {
-        return StopScdnDomainOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::StopScdnDomainAsync(const StopScdnDomainRequest& request, const StopScdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopScdnDomain(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::StopScdnDomainOutcomeCallable CdnClient::StopScdnDomainCallable(const StopScdnDomainRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<StopScdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->StopScdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::UpdateDomainConfigOutcome CdnClient::UpdateDomainConfig(const UpdateDomainConfigRequest &request)
@@ -3158,25 +2612,32 @@ CdnClient::UpdateDomainConfigOutcome CdnClient::UpdateDomainConfig(const UpdateD
 
 void CdnClient::UpdateDomainConfigAsync(const UpdateDomainConfigRequest& request, const UpdateDomainConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateDomainConfig(request), context);
-    };
+    using Req = const UpdateDomainConfigRequest&;
+    using Resp = UpdateDomainConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateDomainConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::UpdateDomainConfigOutcomeCallable CdnClient::UpdateDomainConfigCallable(const UpdateDomainConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateDomainConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateDomainConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateDomainConfigOutcome>>();
+    UpdateDomainConfigAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const UpdateDomainConfigRequest&,
+        UpdateDomainConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::UpdateImageConfigOutcome CdnClient::UpdateImageConfig(const UpdateImageConfigRequest &request)
@@ -3201,25 +2662,32 @@ CdnClient::UpdateImageConfigOutcome CdnClient::UpdateImageConfig(const UpdateIma
 
 void CdnClient::UpdateImageConfigAsync(const UpdateImageConfigRequest& request, const UpdateImageConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateImageConfig(request), context);
-    };
+    using Req = const UpdateImageConfigRequest&;
+    using Resp = UpdateImageConfigResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateImageConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::UpdateImageConfigOutcomeCallable CdnClient::UpdateImageConfigCallable(const UpdateImageConfigRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateImageConfigOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateImageConfig(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateImageConfigOutcome>>();
+    UpdateImageConfigAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const UpdateImageConfigRequest&,
+        UpdateImageConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::UpdatePayTypeOutcome CdnClient::UpdatePayType(const UpdatePayTypeRequest &request)
@@ -3244,68 +2712,32 @@ CdnClient::UpdatePayTypeOutcome CdnClient::UpdatePayType(const UpdatePayTypeRequ
 
 void CdnClient::UpdatePayTypeAsync(const UpdatePayTypeRequest& request, const UpdatePayTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdatePayType(request), context);
-    };
+    using Req = const UpdatePayTypeRequest&;
+    using Resp = UpdatePayTypeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdatePayType", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::UpdatePayTypeOutcomeCallable CdnClient::UpdatePayTypeCallable(const UpdatePayTypeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdatePayTypeOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdatePayType(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CdnClient::UpdateScdnDomainOutcome CdnClient::UpdateScdnDomain(const UpdateScdnDomainRequest &request)
-{
-    auto outcome = MakeRequest(request, "UpdateScdnDomain");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<UpdatePayTypeOutcome>>();
+    UpdatePayTypeAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const UpdatePayTypeRequest&,
+        UpdatePayTypeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        UpdateScdnDomainResponse rsp = UpdateScdnDomainResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return UpdateScdnDomainOutcome(rsp);
-        else
-            return UpdateScdnDomainOutcome(o.GetError());
-    }
-    else
-    {
-        return UpdateScdnDomainOutcome(outcome.GetError());
-    }
-}
-
-void CdnClient::UpdateScdnDomainAsync(const UpdateScdnDomainRequest& request, const UpdateScdnDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateScdnDomain(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CdnClient::UpdateScdnDomainOutcomeCallable CdnClient::UpdateScdnDomainCallable(const UpdateScdnDomainRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<UpdateScdnDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateScdnDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CdnClient::VerifyDomainRecordOutcome CdnClient::VerifyDomainRecord(const VerifyDomainRecordRequest &request)
@@ -3330,24 +2762,31 @@ CdnClient::VerifyDomainRecordOutcome CdnClient::VerifyDomainRecord(const VerifyD
 
 void CdnClient::VerifyDomainRecordAsync(const VerifyDomainRecordRequest& request, const VerifyDomainRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VerifyDomainRecord(request), context);
-    };
+    using Req = const VerifyDomainRecordRequest&;
+    using Resp = VerifyDomainRecordResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "VerifyDomainRecord", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CdnClient::VerifyDomainRecordOutcomeCallable CdnClient::VerifyDomainRecordCallable(const VerifyDomainRecordRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VerifyDomainRecordOutcome()>>(
-        [this, request]()
-        {
-            return this->VerifyDomainRecord(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<VerifyDomainRecordOutcome>>();
+    VerifyDomainRecordAsync(
+    request,
+    [prom](
+        const CdnClient*,
+        const VerifyDomainRecordRequest&,
+        VerifyDomainRecordOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

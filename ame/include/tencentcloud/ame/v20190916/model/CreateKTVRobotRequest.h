@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/ame/v20190916/model/JoinRoomInput.h>
 #include <tencentcloud/ame/v20190916/model/ApplicationLicenseInput.h>
+#include <tencentcloud/ame/v20190916/model/SyncRobotCommand.h>
 
 
 namespace TencentCloud
@@ -49,58 +50,88 @@ namespace TencentCloud
 <li>TRTC</li>
                      * @return RTCSystem RTC厂商类型，取值有：
 <li>TRTC</li>
+                     * 
                      */
                     std::string GetRTCSystem() const;
 
                     /**
                      * 设置RTC厂商类型，取值有：
 <li>TRTC</li>
-                     * @param RTCSystem RTC厂商类型，取值有：
+                     * @param _rTCSystem RTC厂商类型，取值有：
 <li>TRTC</li>
+                     * 
                      */
                     void SetRTCSystem(const std::string& _rTCSystem);
 
                     /**
                      * 判断参数 RTCSystem 是否已赋值
                      * @return RTCSystem 是否已赋值
+                     * 
                      */
                     bool RTCSystemHasBeenSet() const;
 
                     /**
                      * 获取进房参数。
                      * @return JoinRoomInput 进房参数。
+                     * 
                      */
                     JoinRoomInput GetJoinRoomInput() const;
 
                     /**
                      * 设置进房参数。
-                     * @param JoinRoomInput 进房参数。
+                     * @param _joinRoomInput 进房参数。
+                     * 
                      */
                     void SetJoinRoomInput(const JoinRoomInput& _joinRoomInput);
 
                     /**
                      * 判断参数 JoinRoomInput 是否已赋值
                      * @return JoinRoomInput 是否已赋值
+                     * 
                      */
                     bool JoinRoomInputHasBeenSet() const;
 
                     /**
                      * 获取license基础信息
                      * @return ApplicationLicenseInput license基础信息
+                     * 
                      */
                     ApplicationLicenseInput GetApplicationLicenseInput() const;
 
                     /**
                      * 设置license基础信息
-                     * @param ApplicationLicenseInput license基础信息
+                     * @param _applicationLicenseInput license基础信息
+                     * 
                      */
                     void SetApplicationLicenseInput(const ApplicationLicenseInput& _applicationLicenseInput);
 
                     /**
                      * 判断参数 ApplicationLicenseInput 是否已赋值
                      * @return ApplicationLicenseInput 是否已赋值
+                     * 
                      */
                     bool ApplicationLicenseInputHasBeenSet() const;
+
+                    /**
+                     * 获取创建机器人时初始化参数。
+                     * @return SyncRobotCommands 创建机器人时初始化参数。
+                     * 
+                     */
+                    std::vector<SyncRobotCommand> GetSyncRobotCommands() const;
+
+                    /**
+                     * 设置创建机器人时初始化参数。
+                     * @param _syncRobotCommands 创建机器人时初始化参数。
+                     * 
+                     */
+                    void SetSyncRobotCommands(const std::vector<SyncRobotCommand>& _syncRobotCommands);
+
+                    /**
+                     * 判断参数 SyncRobotCommands 是否已赋值
+                     * @return SyncRobotCommands 是否已赋值
+                     * 
+                     */
+                    bool SyncRobotCommandsHasBeenSet() const;
 
                 private:
 
@@ -122,6 +153,12 @@ namespace TencentCloud
                      */
                     ApplicationLicenseInput m_applicationLicenseInput;
                     bool m_applicationLicenseInputHasBeenSet;
+
+                    /**
+                     * 创建机器人时初始化参数。
+                     */
+                    std::vector<SyncRobotCommand> m_syncRobotCommands;
+                    bool m_syncRobotCommandsHasBeenSet;
 
                 };
             }

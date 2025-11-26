@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取模板 ID 数组。
                      * @return TemplateIdSet 模板 ID 数组。
+                     * 
                      */
                     std::vector<uint64_t> GetTemplateIdSet() const;
 
                     /**
                      * 设置模板 ID 数组。
-                     * @param TemplateIdSet 模板 ID 数组。
+                     * @param _templateIdSet 模板 ID 数组。
+                     * 
                      */
                     void SetTemplateIdSet(const std::vector<uint64_t>& _templateIdSet);
 
                     /**
                      * 判断参数 TemplateIdSet 是否已赋值
                      * @return TemplateIdSet 是否已赋值
+                     * 
                      */
                     bool TemplateIdSetHasBeenSet() const;
 
@@ -67,6 +70,7 @@ namespace TencentCloud
                      * @return International 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+                     * 
                      */
                     uint64_t GetInternational() const;
 
@@ -74,15 +78,17 @@ namespace TencentCloud
                      * 设置是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
-                     * @param International 是否国际/港澳台短信：
+                     * @param _international 是否国际/港澳台短信：
 0：表示国内短信。
 1：表示国际/港澳台短信。
+                     * 
                      */
                     void SetInternational(const uint64_t& _international);
 
                     /**
                      * 判断参数 International 是否已赋值
                      * @return International 是否已赋值
+                     * 
                      */
                     bool InternationalHasBeenSet() const;
 

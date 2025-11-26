@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tke/v20180525/model/ServiceAccountAuthenticationOptions.h>
+#include <tencentcloud/tke/v20180525/model/OIDCConfigAuthenticationOptions.h>
 
 
 namespace TencentCloud
@@ -46,38 +47,65 @@ namespace TencentCloud
                     /**
                      * 获取集群ID
                      * @return ClusterId 集群ID
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置集群ID
-                     * @param ClusterId 集群ID
+                     * @param _clusterId 集群ID
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取ServiceAccount认证配置
                      * @return ServiceAccounts ServiceAccount认证配置
+                     * 
                      */
                     ServiceAccountAuthenticationOptions GetServiceAccounts() const;
 
                     /**
                      * 设置ServiceAccount认证配置
-                     * @param ServiceAccounts ServiceAccount认证配置
+                     * @param _serviceAccounts ServiceAccount认证配置
+                     * 
                      */
                     void SetServiceAccounts(const ServiceAccountAuthenticationOptions& _serviceAccounts);
 
                     /**
                      * 判断参数 ServiceAccounts 是否已赋值
                      * @return ServiceAccounts 是否已赋值
+                     * 
                      */
                     bool ServiceAccountsHasBeenSet() const;
+
+                    /**
+                     * 获取OIDC认证配置
+                     * @return OIDCConfig OIDC认证配置
+                     * 
+                     */
+                    OIDCConfigAuthenticationOptions GetOIDCConfig() const;
+
+                    /**
+                     * 设置OIDC认证配置
+                     * @param _oIDCConfig OIDC认证配置
+                     * 
+                     */
+                    void SetOIDCConfig(const OIDCConfigAuthenticationOptions& _oIDCConfig);
+
+                    /**
+                     * 判断参数 OIDCConfig 是否已赋值
+                     * @return OIDCConfig 是否已赋值
+                     * 
+                     */
+                    bool OIDCConfigHasBeenSet() const;
 
                 private:
 
@@ -92,6 +120,12 @@ namespace TencentCloud
                      */
                     ServiceAccountAuthenticationOptions m_serviceAccounts;
                     bool m_serviceAccountsHasBeenSet;
+
+                    /**
+                     * OIDC认证配置
+                     */
+                    OIDCConfigAuthenticationOptions m_oIDCConfig;
+                    bool m_oIDCConfigHasBeenSet;
 
                 };
             }

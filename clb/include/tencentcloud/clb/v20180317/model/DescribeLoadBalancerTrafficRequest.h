@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取负载均衡所在地域，不传默认返回所有地域负载均衡。
                      * @return LoadBalancerRegion 负载均衡所在地域，不传默认返回所有地域负载均衡。
+                     * 
                      */
                     std::string GetLoadBalancerRegion() const;
 
                     /**
                      * 设置负载均衡所在地域，不传默认返回所有地域负载均衡。
-                     * @param LoadBalancerRegion 负载均衡所在地域，不传默认返回所有地域负载均衡。
+                     * @param _loadBalancerRegion 负载均衡所在地域，不传默认返回所有地域负载均衡。
+                     * 
                      */
                     void SetLoadBalancerRegion(const std::string& _loadBalancerRegion);
 
                     /**
                      * 判断参数 LoadBalancerRegion 是否已赋值
                      * @return LoadBalancerRegion 是否已赋值
+                     * 
                      */
                     bool LoadBalancerRegionHasBeenSet() const;
 

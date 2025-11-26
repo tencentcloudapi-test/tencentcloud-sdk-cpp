@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,61 +45,65 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取日志集合是否结束
-                     * @return ListOver 日志集合是否结束
+                     * 获取日志集合是否结束。true表示结束，无需进行翻页。
+                     * @return ListOver 日志集合是否结束。true表示结束，无需进行翻页。
+                     * 
                      */
                     bool GetListOver() const;
 
                     /**
                      * 判断参数 ListOver 是否已赋值
                      * @return ListOver 是否已赋值
+                     * 
                      */
                     bool ListOverHasBeenSet() const;
 
                     /**
                      * 获取查看更多日志的凭证
                      * @return NextToken 查看更多日志的凭证
+                     * 
                      */
                     uint64_t GetNextToken() const;
 
                     /**
                      * 判断参数 NextToken 是否已赋值
                      * @return NextToken 是否已赋值
+                     * 
                      */
                     bool NextTokenHasBeenSet() const;
 
                     /**
                      * 获取日志集合
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Events 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Event> GetEvents() const;
 
                     /**
                      * 判断参数 Events 是否已赋值
                      * @return Events 是否已赋值
+                     * 
                      */
                     bool EventsHasBeenSet() const;
 
                     /**
-                     * 获取总数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TotalCount 总数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
+                     * @return TotalCount 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 日志集合是否结束
+                     * 日志集合是否结束。true表示结束，无需进行翻页。
                      */
                     bool m_listOver;
                     bool m_listOverHasBeenSet;
@@ -112,14 +116,12 @@ namespace TencentCloud
 
                     /**
                      * 日志集合
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Event> m_events;
                     bool m_eventsHasBeenSet;
 
                     /**
-                     * 总数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 此字段已经废弃。翻页请使用ListOver配合NextToken，在ListOver为false进行下一页数据读取。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

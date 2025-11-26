@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,67 +49,64 @@ namespace TencentCloud
 
                     /**
                      * 获取参数名
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ParamName 参数名
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetParamName() const;
 
                     /**
                      * 设置参数名
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ParamName 参数名
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _paramName 参数名
+                     * 
                      */
                     void SetParamName(const std::string& _paramName);
 
                     /**
                      * 判断参数 ParamName 是否已赋值
                      * @return ParamName 是否已赋值
+                     * 
                      */
                     bool ParamNameHasBeenSet() const;
 
                     /**
                      * 获取修改事件数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EventCount 修改事件数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetEventCount() const;
 
                     /**
                      * 设置修改事件数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EventCount 修改事件数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _eventCount 修改事件数
+                     * 
                      */
                     void SetEventCount(const int64_t& _eventCount);
 
                     /**
                      * 判断参数 EventCount 是否已赋值
                      * @return EventCount 是否已赋值
+                     * 
                      */
                     bool EventCountHasBeenSet() const;
 
                     /**
                      * 获取修改时间详情
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EventDetail 修改时间详情
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<EventInfo> GetEventDetail() const;
 
                     /**
                      * 设置修改时间详情
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EventDetail 修改时间详情
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _eventDetail 修改时间详情
+                     * 
                      */
                     void SetEventDetail(const std::vector<EventInfo>& _eventDetail);
 
                     /**
                      * 判断参数 EventDetail 是否已赋值
                      * @return EventDetail 是否已赋值
+                     * 
                      */
                     bool EventDetailHasBeenSet() const;
 
@@ -117,21 +114,18 @@ namespace TencentCloud
 
                     /**
                      * 参数名
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_paramName;
                     bool m_paramNameHasBeenSet;
 
                     /**
                      * 修改事件数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_eventCount;
                     bool m_eventCountHasBeenSet;
 
                     /**
                      * 修改时间详情
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<EventInfo> m_eventDetail;
                     bool m_eventDetailHasBeenSet;

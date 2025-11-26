@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取查询的媒体库 ID
                      * @return LibraryId 查询的媒体库 ID
+                     * 
                      */
                     std::string GetLibraryId() const;
 
                     /**
                      * 判断参数 LibraryId 是否已赋值
                      * @return LibraryId 是否已赋值
+                     * 
                      */
                     bool LibraryIdHasBeenSet() const;
 
                     /**
                      * 获取查询到的媒体库密钥
                      * @return LibrarySecret 查询到的媒体库密钥
+                     * 
                      */
                     std::string GetLibrarySecret() const;
 
                     /**
                      * 判断参数 LibrarySecret 是否已赋值
                      * @return LibrarySecret 是否已赋值
+                     * 
                      */
                     bool LibrarySecretHasBeenSet() const;
 

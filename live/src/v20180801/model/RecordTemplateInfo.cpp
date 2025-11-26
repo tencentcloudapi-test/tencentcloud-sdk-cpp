@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,9 @@ RecordTemplateInfo::RecordTemplateInfo() :
     m_isDelayLiveHasBeenSet(false),
     m_hlsSpecialParamHasBeenSet(false),
     m_mp3ParamHasBeenSet(false),
-    m_removeWatermarkHasBeenSet(false)
+    m_removeWatermarkHasBeenSet(false),
+    m_cosStoreHasBeenSet(false),
+    m_flvSpecialParamHasBeenSet(false)
 {
 }
 
@@ -192,6 +194,33 @@ CoreInternalOutcome RecordTemplateInfo::Deserialize(const rapidjson::Value &valu
         m_removeWatermarkHasBeenSet = true;
     }
 
+    if (value.HasMember("CosStore") && !value["CosStore"].IsNull())
+    {
+        if (!value["CosStore"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RecordTemplateInfo.CosStore` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_cosStore = value["CosStore"].GetInt64();
+        m_cosStoreHasBeenSet = true;
+    }
+
+    if (value.HasMember("FlvSpecialParam") && !value["FlvSpecialParam"].IsNull())
+    {
+        if (!value["FlvSpecialParam"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RecordTemplateInfo.FlvSpecialParam` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_flvSpecialParam.Deserialize(value["FlvSpecialParam"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_flvSpecialParamHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -291,6 +320,23 @@ void RecordTemplateInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "RemoveWatermark";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_removeWatermark, allocator);
+    }
+
+    if (m_cosStoreHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CosStore";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_cosStore, allocator);
+    }
+
+    if (m_flvSpecialParamHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlvSpecialParam";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_flvSpecialParam.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -470,5 +516,37 @@ void RecordTemplateInfo::SetRemoveWatermark(const bool& _removeWatermark)
 bool RecordTemplateInfo::RemoveWatermarkHasBeenSet() const
 {
     return m_removeWatermarkHasBeenSet;
+}
+
+int64_t RecordTemplateInfo::GetCosStore() const
+{
+    return m_cosStore;
+}
+
+void RecordTemplateInfo::SetCosStore(const int64_t& _cosStore)
+{
+    m_cosStore = _cosStore;
+    m_cosStoreHasBeenSet = true;
+}
+
+bool RecordTemplateInfo::CosStoreHasBeenSet() const
+{
+    return m_cosStoreHasBeenSet;
+}
+
+FlvSpecialParam RecordTemplateInfo::GetFlvSpecialParam() const
+{
+    return m_flvSpecialParam;
+}
+
+void RecordTemplateInfo::SetFlvSpecialParam(const FlvSpecialParam& _flvSpecialParam)
+{
+    m_flvSpecialParam = _flvSpecialParam;
+    m_flvSpecialParamHasBeenSet = true;
+}
+
+bool RecordTemplateInfo::FlvSpecialParamHasBeenSet() const
+{
+    return m_flvSpecialParamHasBeenSet;
 }
 

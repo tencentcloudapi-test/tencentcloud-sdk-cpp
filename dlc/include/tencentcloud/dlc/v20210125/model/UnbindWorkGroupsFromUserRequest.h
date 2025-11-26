@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取解绑的工作组Id和用户Id的关联关系
                      * @return AddInfo 解绑的工作组Id和用户Id的关联关系
+                     * 
                      */
                     WorkGroupIdSetOfUserId GetAddInfo() const;
 
                     /**
                      * 设置解绑的工作组Id和用户Id的关联关系
-                     * @param AddInfo 解绑的工作组Id和用户Id的关联关系
+                     * @param _addInfo 解绑的工作组Id和用户Id的关联关系
+                     * 
                      */
                     void SetAddInfo(const WorkGroupIdSetOfUserId& _addInfo);
 
                     /**
                      * 判断参数 AddInfo 是否已赋值
                      * @return AddInfo 是否已赋值
+                     * 
                      */
                     bool AddInfoHasBeenSet() const;
 

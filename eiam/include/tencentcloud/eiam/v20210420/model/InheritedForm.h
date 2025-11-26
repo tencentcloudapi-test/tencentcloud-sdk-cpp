@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UserGroupIds 用户所在的用户组ID列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetUserGroupIds() const;
 
                     /**
                      * 设置用户所在的用户组ID列表。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UserGroupIds 用户所在的用户组ID列表。
+                     * @param _userGroupIds 用户所在的用户组ID列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetUserGroupIds(const std::vector<std::string>& _userGroupIds);
 
                     /**
                      * 判断参数 UserGroupIds 是否已赋值
                      * @return UserGroupIds 是否已赋值
+                     * 
                      */
                     bool UserGroupIdsHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return OrgNodeIds 用户所在的机构节点ID列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetOrgNodeIds() const;
 
                     /**
                      * 设置用户所在的机构节点ID列表。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OrgNodeIds 用户所在的机构节点ID列表。
+                     * @param _orgNodeIds 用户所在的机构节点ID列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetOrgNodeIds(const std::vector<std::string>& _orgNodeIds);
 
                     /**
                      * 判断参数 OrgNodeIds 是否已赋值
                      * @return OrgNodeIds 是否已赋值
+                     * 
                      */
                     bool OrgNodeIdsHasBeenSet() const;
 

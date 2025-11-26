@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,72 +46,88 @@ namespace TencentCloud
                     /**
                      * 获取巡检开关。
                      * @return InstanceConfs 巡检开关。
+                     * 
                      */
                     InstanceConfs GetInstanceConfs() const;
 
                     /**
                      * 设置巡检开关。
-                     * @param InstanceConfs 巡检开关。
+                     * @param _instanceConfs 巡检开关。
+                     * 
                      */
                     void SetInstanceConfs(const InstanceConfs& _instanceConfs);
 
                     /**
                      * 判断参数 InstanceConfs 是否已赋值
                      * @return InstanceConfs 是否已赋值
+                     * 
                      */
                     bool InstanceConfsHasBeenSet() const;
 
                     /**
-                     * 获取生效实例地域，取值为"All"，代表全地域。
-                     * @return Regions 生效实例地域，取值为"All"，代表全地域。
+                     * 获取生效实例地域，固定为"All"，代表全地域。
+                     * @return Regions 生效实例地域，固定为"All"，代表全地域。
+                     * 
                      */
                     std::string GetRegions() const;
 
                     /**
-                     * 设置生效实例地域，取值为"All"，代表全地域。
-                     * @param Regions 生效实例地域，取值为"All"，代表全地域。
+                     * 设置生效实例地域，固定为"All"，代表全地域。
+                     * @param _regions 生效实例地域，固定为"All"，代表全地域。
+                     * 
                      */
                     void SetRegions(const std::string& _regions);
 
                     /**
                      * 判断参数 Regions 是否已赋值
                      * @return Regions 是否已赋值
+                     * 
                      */
                     bool RegionsHasBeenSet() const;
 
                     /**
                      * 获取服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL。
                      * @return Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL。
+                     * 
                      */
                     std::string GetProduct() const;
 
                     /**
                      * 设置服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL。
-                     * @param Product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL。
+                     * @param _product 服务产品类型，支持值包括： "mysql" - 云数据库 MySQL， "cynosdb" - 云数据库 CynosDB  for MySQL。
+                     * 
                      */
                     void SetProduct(const std::string& _product);
 
                     /**
                      * 判断参数 Product 是否已赋值
                      * @return Product 是否已赋值
+                     * 
                      */
                     bool ProductHasBeenSet() const;
 
                     /**
                      * 获取指定更改巡检状态的实例ID。
+可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
                      * @return InstanceIds 指定更改巡检状态的实例ID。
+可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
+                     * 
                      */
                     std::vector<std::string> GetInstanceIds() const;
 
                     /**
                      * 设置指定更改巡检状态的实例ID。
-                     * @param InstanceIds 指定更改巡检状态的实例ID。
+可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
+                     * @param _instanceIds 指定更改巡检状态的实例ID。
+可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
+                     * 
                      */
                     void SetInstanceIds(const std::vector<std::string>& _instanceIds);
 
                     /**
                      * 判断参数 InstanceIds 是否已赋值
                      * @return InstanceIds 是否已赋值
+                     * 
                      */
                     bool InstanceIdsHasBeenSet() const;
 
@@ -124,7 +140,7 @@ namespace TencentCloud
                     bool m_instanceConfsHasBeenSet;
 
                     /**
-                     * 生效实例地域，取值为"All"，代表全地域。
+                     * 生效实例地域，固定为"All"，代表全地域。
                      */
                     std::string m_regions;
                     bool m_regionsHasBeenSet;
@@ -137,6 +153,7 @@ namespace TencentCloud
 
                     /**
                      * 指定更改巡检状态的实例ID。
+可通过 [DescribeDiagDBInstances](https://cloud.tencent.com/document/api/1130/57798) 接口获取。
                      */
                     std::vector<std::string> m_instanceIds;
                     bool m_instanceIdsHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,33 +45,37 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取策略总数
-                     * @return TotalNum 策略总数
+                     * 获取策略总数。取值范围大于等于0。
+                     * @return TotalNum 策略总数。取值范围大于等于0。
+                     * 
                      */
                     uint64_t GetTotalNum() const;
 
                     /**
                      * 判断参数 TotalNum 是否已赋值
                      * @return TotalNum 是否已赋值
+                     * 
                      */
                     bool TotalNumHasBeenSet() const;
 
                     /**
                      * 获取策略列表
                      * @return List 策略列表
+                     * 
                      */
                     std::vector<AttachPolicyInfo> GetList() const;
 
                     /**
                      * 判断参数 List 是否已赋值
                      * @return List 是否已赋值
+                     * 
                      */
                     bool ListHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 策略总数
+                     * 策略总数。取值范围大于等于0。
                      */
                     uint64_t m_totalNum;
                     bool m_totalNumHasBeenSet;

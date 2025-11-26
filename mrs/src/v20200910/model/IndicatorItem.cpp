@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,12 @@ IndicatorItem::IndicatorItem() :
     m_rangeHasBeenSet(false),
     m_arrowHasBeenSet(false),
     m_normalHasBeenSet(false),
-    m_itemStringHasBeenSet(false)
+    m_itemStringHasBeenSet(false),
+    m_idHasBeenSet(false),
+    m_coordsHasBeenSet(false),
+    m_inferNormalHasBeenSet(false),
+    m_sampleHasBeenSet(false),
+    m_methodHasBeenSet(false)
 {
 }
 
@@ -139,6 +144,63 @@ CoreInternalOutcome IndicatorItem::Deserialize(const rapidjson::Value &value)
         m_itemStringHasBeenSet = true;
     }
 
+    if (value.HasMember("Id") && !value["Id"].IsNull())
+    {
+        if (!value["Id"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `IndicatorItem.Id` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_id = value["Id"].GetInt64();
+        m_idHasBeenSet = true;
+    }
+
+    if (value.HasMember("Coords") && !value["Coords"].IsNull())
+    {
+        if (!value["Coords"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `IndicatorItem.Coords` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_coords.Deserialize(value["Coords"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_coordsHasBeenSet = true;
+    }
+
+    if (value.HasMember("InferNormal") && !value["InferNormal"].IsNull())
+    {
+        if (!value["InferNormal"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IndicatorItem.InferNormal` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_inferNormal = string(value["InferNormal"].GetString());
+        m_inferNormalHasBeenSet = true;
+    }
+
+    if (value.HasMember("Sample") && !value["Sample"].IsNull())
+    {
+        if (!value["Sample"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IndicatorItem.Sample` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sample = string(value["Sample"].GetString());
+        m_sampleHasBeenSet = true;
+    }
+
+    if (value.HasMember("Method") && !value["Method"].IsNull())
+    {
+        if (!value["Method"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IndicatorItem.Method` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_method = string(value["Method"].GetString());
+        m_methodHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -224,6 +286,47 @@ void IndicatorItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "ItemString";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_itemString.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_idHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Id";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_id, allocator);
+    }
+
+    if (m_coordsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Coords";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_coords.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_inferNormalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InferNormal";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_inferNormal.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sampleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Sample";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sample.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_methodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Method";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_method.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -387,5 +490,85 @@ void IndicatorItem::SetItemString(const string& _itemString)
 bool IndicatorItem::ItemStringHasBeenSet() const
 {
     return m_itemStringHasBeenSet;
+}
+
+int64_t IndicatorItem::GetId() const
+{
+    return m_id;
+}
+
+void IndicatorItem::SetId(const int64_t& _id)
+{
+    m_id = _id;
+    m_idHasBeenSet = true;
+}
+
+bool IndicatorItem::IdHasBeenSet() const
+{
+    return m_idHasBeenSet;
+}
+
+Coordinate IndicatorItem::GetCoords() const
+{
+    return m_coords;
+}
+
+void IndicatorItem::SetCoords(const Coordinate& _coords)
+{
+    m_coords = _coords;
+    m_coordsHasBeenSet = true;
+}
+
+bool IndicatorItem::CoordsHasBeenSet() const
+{
+    return m_coordsHasBeenSet;
+}
+
+string IndicatorItem::GetInferNormal() const
+{
+    return m_inferNormal;
+}
+
+void IndicatorItem::SetInferNormal(const string& _inferNormal)
+{
+    m_inferNormal = _inferNormal;
+    m_inferNormalHasBeenSet = true;
+}
+
+bool IndicatorItem::InferNormalHasBeenSet() const
+{
+    return m_inferNormalHasBeenSet;
+}
+
+string IndicatorItem::GetSample() const
+{
+    return m_sample;
+}
+
+void IndicatorItem::SetSample(const string& _sample)
+{
+    m_sample = _sample;
+    m_sampleHasBeenSet = true;
+}
+
+bool IndicatorItem::SampleHasBeenSet() const
+{
+    return m_sampleHasBeenSet;
+}
+
+string IndicatorItem::GetMethod() const
+{
+    return m_method;
+}
+
+void IndicatorItem::SetMethod(const string& _method)
+{
+    m_method = _method;
+    m_methodHasBeenSet = true;
+}
+
+bool IndicatorItem::MethodHasBeenSet() const
+{
+    return m_methodHasBeenSet;
 }
 

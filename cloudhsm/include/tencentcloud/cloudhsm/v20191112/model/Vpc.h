@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,89 +48,85 @@ namespace TencentCloud
 
                     /**
                      * 获取Vpc名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VpcName Vpc名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetVpcName() const;
 
                     /**
                      * 设置Vpc名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param VpcName Vpc名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _vpcName Vpc名称
+                     * 
                      */
                     void SetVpcName(const std::string& _vpcName);
 
                     /**
                      * 判断参数 VpcName 是否已赋值
                      * @return VpcName 是否已赋值
+                     * 
                      */
                     bool VpcNameHasBeenSet() const;
 
                     /**
                      * 获取VpcId
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VpcId VpcId
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置VpcId
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param VpcId VpcId
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _vpcId VpcId
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreatedTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCreatedTime() const;
 
                     /**
                      * 设置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CreatedTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _createdTime 创建时间
+                     * 
                      */
                     void SetCreatedTime(const std::string& _createdTime);
 
                     /**
                      * 判断参数 CreatedTime 是否已赋值
                      * @return CreatedTime 是否已赋值
+                     * 
                      */
                     bool CreatedTimeHasBeenSet() const;
 
                     /**
                      * 获取是否为默认VPC
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return IsDefault 是否为默认VPC
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     bool GetIsDefault() const;
 
                     /**
                      * 设置是否为默认VPC
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param IsDefault 是否为默认VPC
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _isDefault 是否为默认VPC
+                     * 
                      */
                     void SetIsDefault(const bool& _isDefault);
 
                     /**
                      * 判断参数 IsDefault 是否已赋值
                      * @return IsDefault 是否已赋值
+                     * 
                      */
                     bool IsDefaultHasBeenSet() const;
 
@@ -138,28 +134,24 @@ namespace TencentCloud
 
                     /**
                      * Vpc名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_vpcName;
                     bool m_vpcNameHasBeenSet;
 
                     /**
                      * VpcId
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
                      * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createdTime;
                     bool m_createdTimeHasBeenSet;
 
                     /**
                      * 是否为默认VPC
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_isDefault;
                     bool m_isDefaultHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,40 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取返回总数
                      * @return TotalCount 返回总数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 设置返回总数
-                     * @param TotalCount 返回总数
+                     * @param _totalCount 返回总数
+                     * 
                      */
                     void SetTotalCount(const int64_t& _totalCount);
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取触发日志列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LogInfo 触发日志列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<TriggerLogResp> GetLogInfo() const;
 
                     /**
                      * 设置触发日志列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param LogInfo 触发日志列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _logInfo 触发日志列表
+                     * 
                      */
                     void SetLogInfo(const std::vector<TriggerLogResp>& _logInfo);
 
                     /**
                      * 判断参数 LogInfo 是否已赋值
                      * @return LogInfo 是否已赋值
+                     * 
                      */
                     bool LogInfoHasBeenSet() const;
 
@@ -97,7 +99,6 @@ namespace TencentCloud
 
                     /**
                      * 触发日志列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<TriggerLogResp> m_logInfo;
                     bool m_logInfoHasBeenSet;

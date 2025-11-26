@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,9 @@ CreateConfigExtraRequest::CreateConfigExtraRequest() :
     m_excludePathsHasBeenSet(false),
     m_userDefineRuleHasBeenSet(false),
     m_groupIdHasBeenSet(false),
-    m_groupIdsHasBeenSet(false)
+    m_groupIdsHasBeenSet(false),
+    m_collectInfosHasBeenSet(false),
+    m_advancedConfigHasBeenSet(false)
 {
 }
 
@@ -200,6 +202,29 @@ string CreateConfigExtraRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_collectInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CollectInfos";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_collectInfos.begin(); itr != m_collectInfos.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_advancedConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdvancedConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_advancedConfig.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -480,6 +505,38 @@ void CreateConfigExtraRequest::SetGroupIds(const vector<string>& _groupIds)
 bool CreateConfigExtraRequest::GroupIdsHasBeenSet() const
 {
     return m_groupIdsHasBeenSet;
+}
+
+vector<CollectInfo> CreateConfigExtraRequest::GetCollectInfos() const
+{
+    return m_collectInfos;
+}
+
+void CreateConfigExtraRequest::SetCollectInfos(const vector<CollectInfo>& _collectInfos)
+{
+    m_collectInfos = _collectInfos;
+    m_collectInfosHasBeenSet = true;
+}
+
+bool CreateConfigExtraRequest::CollectInfosHasBeenSet() const
+{
+    return m_collectInfosHasBeenSet;
+}
+
+string CreateConfigExtraRequest::GetAdvancedConfig() const
+{
+    return m_advancedConfig;
+}
+
+void CreateConfigExtraRequest::SetAdvancedConfig(const string& _advancedConfig)
+{
+    m_advancedConfig = _advancedConfig;
+    m_advancedConfigHasBeenSet = true;
+}
+
+bool CreateConfigExtraRequest::AdvancedConfigHasBeenSet() const
+{
+    return m_advancedConfigHasBeenSet;
 }
 
 

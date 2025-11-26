@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取物理专线的ID。
                      * @return DirectConnectId 物理专线的ID。
+                     * 
                      */
                     std::string GetDirectConnectId() const;
 
                     /**
                      * 设置物理专线的ID。
-                     * @param DirectConnectId 物理专线的ID。
+                     * @param _directConnectId 物理专线的ID。
+                     * 
                      */
                     void SetDirectConnectId(const std::string& _directConnectId);
 
                     /**
                      * 判断参数 DirectConnectId 是否已赋值
                      * @return DirectConnectId 是否已赋值
+                     * 
                      */
                     bool DirectConnectIdHasBeenSet() const;
 

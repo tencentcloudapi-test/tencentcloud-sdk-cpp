@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeIMCdrsResponse::DescribeIMCdrsResponse() :
     m_totalCountHasBeenSet(false),
-    m_iMCdrsHasBeenSet(false)
+    m_iMCdrsHasBeenSet(false),
+    m_iMCdrListHasBeenSet(false)
 {
 }
 
@@ -93,6 +94,26 @@ CoreInternalOutcome DescribeIMCdrsResponse::Deserialize(const string &payload)
         m_iMCdrsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("IMCdrList") && !rsp["IMCdrList"].IsNull())
+    {
+        if (!rsp["IMCdrList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `IMCdrList` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["IMCdrList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            IMCdrInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_iMCdrList.push_back(item);
+        }
+        m_iMCdrListHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,11 +147,26 @@ string DescribeIMCdrsResponse::ToJsonString() const
         }
     }
 
+    if (m_iMCdrListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IMCdrList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_iMCdrList.begin(); itr != m_iMCdrList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -156,6 +192,16 @@ vector<IMCdrInfo> DescribeIMCdrsResponse::GetIMCdrs() const
 bool DescribeIMCdrsResponse::IMCdrsHasBeenSet() const
 {
     return m_iMCdrsHasBeenSet;
+}
+
+vector<IMCdrInfo> DescribeIMCdrsResponse::GetIMCdrList() const
+{
+    return m_iMCdrList;
+}
+
+bool DescribeIMCdrsResponse::IMCdrListHasBeenSet() const
+{
+    return m_iMCdrListHasBeenSet;
 }
 
 

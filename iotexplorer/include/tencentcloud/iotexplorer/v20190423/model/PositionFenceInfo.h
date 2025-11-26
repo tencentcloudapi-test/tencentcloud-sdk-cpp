@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取围栏信息
                      * @return GeoFence 围栏信息
+                     * 
                      */
                     PositionFenceItem GetGeoFence() const;
 
                     /**
                      * 设置围栏信息
-                     * @param GeoFence 围栏信息
+                     * @param _geoFence 围栏信息
+                     * 
                      */
                     void SetGeoFence(const PositionFenceItem& _geoFence);
 
                     /**
                      * 判断参数 GeoFence 是否已赋值
                      * @return GeoFence 是否已赋值
+                     * 
                      */
                     bool GeoFenceHasBeenSet() const;
 
                     /**
                      * 获取围栏创建时间
                      * @return CreateTime 围栏创建时间
+                     * 
                      */
                     int64_t GetCreateTime() const;
 
                     /**
                      * 设置围栏创建时间
-                     * @param CreateTime 围栏创建时间
+                     * @param _createTime 围栏创建时间
+                     * 
                      */
                     void SetCreateTime(const int64_t& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
                      * 获取围栏更新时间
                      * @return UpdateTime 围栏更新时间
+                     * 
                      */
                     int64_t GetUpdateTime() const;
 
                     /**
                      * 设置围栏更新时间
-                     * @param UpdateTime 围栏更新时间
+                     * @param _updateTime 围栏更新时间
+                     * 
                      */
                     void SetUpdateTime(const int64_t& _updateTime);
 
                     /**
                      * 判断参数 UpdateTime 是否已赋值
                      * @return UpdateTime 是否已赋值
+                     * 
                      */
                     bool UpdateTimeHasBeenSet() const;
 

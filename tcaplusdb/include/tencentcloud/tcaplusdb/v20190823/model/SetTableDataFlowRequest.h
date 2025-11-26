@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取表所属集群实例ID
                      * @return ClusterId 表所属集群实例ID
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置表所属集群实例ID
-                     * @param ClusterId 表所属集群实例ID
+                     * @param _clusterId 表所属集群实例ID
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取待创建分布式索引表格列表
                      * @return SelectedTables 待创建分布式索引表格列表
+                     * 
                      */
                     std::vector<SelectedTableWithField> GetSelectedTables() const;
 
                     /**
                      * 设置待创建分布式索引表格列表
-                     * @param SelectedTables 待创建分布式索引表格列表
+                     * @param _selectedTables 待创建分布式索引表格列表
+                     * 
                      */
                     void SetSelectedTables(const std::vector<SelectedTableWithField>& _selectedTables);
 
                     /**
                      * 判断参数 SelectedTables 是否已赋值
                      * @return SelectedTables 是否已赋值
+                     * 
                      */
                     bool SelectedTablesHasBeenSet() const;
 

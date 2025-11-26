@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cdn/v20180606/model/MaxAgeRule.h>
+#include <tencentcloud/cdn/v20180606/model/MaxAgeCodeRule.h>
 
 
 namespace TencentCloud
@@ -48,32 +49,35 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取浏览器缓存配置开关
+                     * 获取浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Switch 浏览器缓存配置开关
+                     * @return Switch 浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置浏览器缓存配置开关
+                     * 设置浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Switch 浏览器缓存配置开关
+                     * @param _switch 浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -82,27 +86,55 @@ off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return MaxAgeRules MaxAge 规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<MaxAgeRule> GetMaxAgeRules() const;
 
                     /**
                      * 设置MaxAge 规则
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MaxAgeRules MaxAge 规则
+                     * @param _maxAgeRules MaxAge 规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMaxAgeRules(const std::vector<MaxAgeRule>& _maxAgeRules);
 
                     /**
                      * 判断参数 MaxAgeRules 是否已赋值
                      * @return MaxAgeRules 是否已赋值
+                     * 
                      */
                     bool MaxAgeRulesHasBeenSet() const;
+
+                    /**
+                     * 获取MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return MaxAgeCodeRule MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    MaxAgeCodeRule GetMaxAgeCodeRule() const;
+
+                    /**
+                     * 设置MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _maxAgeCodeRule MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetMaxAgeCodeRule(const MaxAgeCodeRule& _maxAgeCodeRule);
+
+                    /**
+                     * 判断参数 MaxAgeCodeRule 是否已赋值
+                     * @return MaxAgeCodeRule 是否已赋值
+                     * 
+                     */
+                    bool MaxAgeCodeRuleHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 浏览器缓存配置开关
+                     * 浏览器缓存配置开关，取值有：
 on：开启
 off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
@@ -116,6 +148,13 @@ off：关闭
                      */
                     std::vector<MaxAgeRule> m_maxAgeRules;
                     bool m_maxAgeRulesHasBeenSet;
+
+                    /**
+                     * MaxAge 状态码相关规则
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    MaxAgeCodeRule m_maxAgeCodeRule;
+                    bool m_maxAgeCodeRuleHasBeenSet;
 
                 };
             }

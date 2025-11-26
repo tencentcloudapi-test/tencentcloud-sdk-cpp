@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取主任务ID数组，
                      * @return MainTaskIds 主任务ID数组，
+                     * 
                      */
                     std::vector<std::string> GetMainTaskIds() const;
 
                     /**
                      * 设置主任务ID数组，
-                     * @param MainTaskIds 主任务ID数组，
+                     * @param _mainTaskIds 主任务ID数组，
+                     * 
                      */
                     void SetMainTaskIds(const std::vector<std::string>& _mainTaskIds);
 
                     /**
                      * 判断参数 MainTaskIds 是否已赋值
                      * @return MainTaskIds 是否已赋值
+                     * 
                      */
                     bool MainTaskIdsHasBeenSet() const;
 
                     /**
                      * 获取回调地址，可不传（提供轮询机制）。
                      * @return CallbackUrl 回调地址，可不传（提供轮询机制）。
+                     * 
                      */
                     std::string GetCallbackUrl() const;
 
                     /**
                      * 设置回调地址，可不传（提供轮询机制）。
-                     * @param CallbackUrl 回调地址，可不传（提供轮询机制）。
+                     * @param _callbackUrl 回调地址，可不传（提供轮询机制）。
+                     * 
                      */
                     void SetCallbackUrl(const std::string& _callbackUrl);
 
                     /**
                      * 判断参数 CallbackUrl 是否已赋值
                      * @return CallbackUrl 是否已赋值
+                     * 
                      */
                     bool CallbackUrlHasBeenSet() const;
 

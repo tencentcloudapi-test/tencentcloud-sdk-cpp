@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,16 @@ ScaleOutInstanceRequest::ScaleOutInstanceRequest() :
     m_yarnNodeLabelHasBeenSet(false),
     m_podParameterHasBeenSet(false),
     m_masterCountHasBeenSet(false),
-    m_startServiceAfterScaleOutHasBeenSet(false)
+    m_startServiceAfterScaleOutHasBeenSet(false),
+    m_zoneIdHasBeenSet(false),
+    m_subnetIdHasBeenSet(false),
+    m_scaleOutServiceConfAssignHasBeenSet(false),
+    m_autoRenewHasBeenSet(false),
+    m_resourceBaseTypeHasBeenSet(false),
+    m_computeResourceIdHasBeenSet(false),
+    m_computeResourceAdvanceParamsHasBeenSet(false),
+    m_nodeMarksHasBeenSet(false),
+    m_warehouseNameHasBeenSet(false)
 {
 }
 
@@ -265,6 +274,80 @@ string ScaleOutInstanceRequest::ToJsonString() const
         string key = "StartServiceAfterScaleOut";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_startServiceAfterScaleOut.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_zoneIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ZoneId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_zoneId, allocator);
+    }
+
+    if (m_subnetIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubnetId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_subnetId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_scaleOutServiceConfAssignHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScaleOutServiceConfAssign";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_scaleOutServiceConfAssign.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoRenewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRenew";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoRenew, allocator);
+    }
+
+    if (m_resourceBaseTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceBaseType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_resourceBaseType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_computeResourceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ComputeResourceId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_computeResourceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_computeResourceAdvanceParamsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ComputeResourceAdvanceParams";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_computeResourceAdvanceParams.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_nodeMarksHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeMarks";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_nodeMarks.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_warehouseNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WarehouseName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_warehouseName.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -625,6 +708,150 @@ void ScaleOutInstanceRequest::SetStartServiceAfterScaleOut(const string& _startS
 bool ScaleOutInstanceRequest::StartServiceAfterScaleOutHasBeenSet() const
 {
     return m_startServiceAfterScaleOutHasBeenSet;
+}
+
+int64_t ScaleOutInstanceRequest::GetZoneId() const
+{
+    return m_zoneId;
+}
+
+void ScaleOutInstanceRequest::SetZoneId(const int64_t& _zoneId)
+{
+    m_zoneId = _zoneId;
+    m_zoneIdHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::ZoneIdHasBeenSet() const
+{
+    return m_zoneIdHasBeenSet;
+}
+
+string ScaleOutInstanceRequest::GetSubnetId() const
+{
+    return m_subnetId;
+}
+
+void ScaleOutInstanceRequest::SetSubnetId(const string& _subnetId)
+{
+    m_subnetId = _subnetId;
+    m_subnetIdHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::SubnetIdHasBeenSet() const
+{
+    return m_subnetIdHasBeenSet;
+}
+
+string ScaleOutInstanceRequest::GetScaleOutServiceConfAssign() const
+{
+    return m_scaleOutServiceConfAssign;
+}
+
+void ScaleOutInstanceRequest::SetScaleOutServiceConfAssign(const string& _scaleOutServiceConfAssign)
+{
+    m_scaleOutServiceConfAssign = _scaleOutServiceConfAssign;
+    m_scaleOutServiceConfAssignHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::ScaleOutServiceConfAssignHasBeenSet() const
+{
+    return m_scaleOutServiceConfAssignHasBeenSet;
+}
+
+int64_t ScaleOutInstanceRequest::GetAutoRenew() const
+{
+    return m_autoRenew;
+}
+
+void ScaleOutInstanceRequest::SetAutoRenew(const int64_t& _autoRenew)
+{
+    m_autoRenew = _autoRenew;
+    m_autoRenewHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::AutoRenewHasBeenSet() const
+{
+    return m_autoRenewHasBeenSet;
+}
+
+string ScaleOutInstanceRequest::GetResourceBaseType() const
+{
+    return m_resourceBaseType;
+}
+
+void ScaleOutInstanceRequest::SetResourceBaseType(const string& _resourceBaseType)
+{
+    m_resourceBaseType = _resourceBaseType;
+    m_resourceBaseTypeHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::ResourceBaseTypeHasBeenSet() const
+{
+    return m_resourceBaseTypeHasBeenSet;
+}
+
+string ScaleOutInstanceRequest::GetComputeResourceId() const
+{
+    return m_computeResourceId;
+}
+
+void ScaleOutInstanceRequest::SetComputeResourceId(const string& _computeResourceId)
+{
+    m_computeResourceId = _computeResourceId;
+    m_computeResourceIdHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::ComputeResourceIdHasBeenSet() const
+{
+    return m_computeResourceIdHasBeenSet;
+}
+
+ComputeResourceAdvanceParams ScaleOutInstanceRequest::GetComputeResourceAdvanceParams() const
+{
+    return m_computeResourceAdvanceParams;
+}
+
+void ScaleOutInstanceRequest::SetComputeResourceAdvanceParams(const ComputeResourceAdvanceParams& _computeResourceAdvanceParams)
+{
+    m_computeResourceAdvanceParams = _computeResourceAdvanceParams;
+    m_computeResourceAdvanceParamsHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::ComputeResourceAdvanceParamsHasBeenSet() const
+{
+    return m_computeResourceAdvanceParamsHasBeenSet;
+}
+
+NodeMark ScaleOutInstanceRequest::GetNodeMarks() const
+{
+    return m_nodeMarks;
+}
+
+void ScaleOutInstanceRequest::SetNodeMarks(const NodeMark& _nodeMarks)
+{
+    m_nodeMarks = _nodeMarks;
+    m_nodeMarksHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::NodeMarksHasBeenSet() const
+{
+    return m_nodeMarksHasBeenSet;
+}
+
+string ScaleOutInstanceRequest::GetWarehouseName() const
+{
+    return m_warehouseName;
+}
+
+void ScaleOutInstanceRequest::SetWarehouseName(const string& _warehouseName)
+{
+    m_warehouseName = _warehouseName;
+    m_warehouseNameHasBeenSet = true;
+}
+
+bool ScaleOutInstanceRequest::WarehouseNameHasBeenSet() const
+{
+    return m_warehouseNameHasBeenSet;
 }
 
 

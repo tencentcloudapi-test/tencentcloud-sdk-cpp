@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取实例ID，透传入参。
                      * @return InstanceId 实例ID，透传入参。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取实例用户列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Users 实例用户列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<DBAccount> GetUsers() const;
 
                     /**
                      * 判断参数 Users 是否已赋值
                      * @return Users 是否已赋值
+                     * 
                      */
                     bool UsersHasBeenSet() const;
 
@@ -80,7 +82,6 @@ namespace TencentCloud
 
                     /**
                      * 实例用户列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<DBAccount> m_users;
                     bool m_usersHasBeenSet;

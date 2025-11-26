@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/batch/v20170312/model/OutputMappingOption.h>
 
 
 namespace TencentCloud
@@ -49,38 +50,65 @@ namespace TencentCloud
                     /**
                      * 获取源端路径
                      * @return SourcePath 源端路径
+                     * 
                      */
                     std::string GetSourcePath() const;
 
                     /**
                      * 设置源端路径
-                     * @param SourcePath 源端路径
+                     * @param _sourcePath 源端路径
+                     * 
                      */
                     void SetSourcePath(const std::string& _sourcePath);
 
                     /**
                      * 判断参数 SourcePath 是否已赋值
                      * @return SourcePath 是否已赋值
+                     * 
                      */
                     bool SourcePathHasBeenSet() const;
 
                     /**
                      * 获取目的端路径
                      * @return DestinationPath 目的端路径
+                     * 
                      */
                     std::string GetDestinationPath() const;
 
                     /**
                      * 设置目的端路径
-                     * @param DestinationPath 目的端路径
+                     * @param _destinationPath 目的端路径
+                     * 
                      */
                     void SetDestinationPath(const std::string& _destinationPath);
 
                     /**
                      * 判断参数 DestinationPath 是否已赋值
                      * @return DestinationPath 是否已赋值
+                     * 
                      */
                     bool DestinationPathHasBeenSet() const;
+
+                    /**
+                     * 获取输出映射选项
+                     * @return OutputMappingOption 输出映射选项
+                     * 
+                     */
+                    OutputMappingOption GetOutputMappingOption() const;
+
+                    /**
+                     * 设置输出映射选项
+                     * @param _outputMappingOption 输出映射选项
+                     * 
+                     */
+                    void SetOutputMappingOption(const OutputMappingOption& _outputMappingOption);
+
+                    /**
+                     * 判断参数 OutputMappingOption 是否已赋值
+                     * @return OutputMappingOption 是否已赋值
+                     * 
+                     */
+                    bool OutputMappingOptionHasBeenSet() const;
 
                 private:
 
@@ -95,6 +123,12 @@ namespace TencentCloud
                      */
                     std::string m_destinationPath;
                     bool m_destinationPathHasBeenSet;
+
+                    /**
+                     * 输出映射选项
+                     */
+                    OutputMappingOption m_outputMappingOption;
+                    bool m_outputMappingOptionHasBeenSet;
 
                 };
             }

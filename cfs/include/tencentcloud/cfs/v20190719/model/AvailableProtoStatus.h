@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,6 @@ namespace TencentCloud
             {
                 /**
                 * 版本控制-协议详情
-
                 */
                 class AvailableProtoStatus : public AbstractModel
                 {
@@ -50,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取售卖状态。可选值有 sale_out 售罄、saling可售、no_saling不可销售
                      * @return SaleStatus 售卖状态。可选值有 sale_out 售罄、saling可售、no_saling不可销售
+                     * 
                      */
                     std::string GetSaleStatus() const;
 
                     /**
                      * 设置售卖状态。可选值有 sale_out 售罄、saling可售、no_saling不可销售
-                     * @param SaleStatus 售卖状态。可选值有 sale_out 售罄、saling可售、no_saling不可销售
+                     * @param _saleStatus 售卖状态。可选值有 sale_out 售罄、saling可售、no_saling不可销售
+                     * 
                      */
                     void SetSaleStatus(const std::string& _saleStatus);
 
                     /**
                      * 判断参数 SaleStatus 是否已赋值
                      * @return SaleStatus 是否已赋值
+                     * 
                      */
                     bool SaleStatusHasBeenSet() const;
 
                     /**
-                     * 获取协议类型。可选值有 NFS、CIFS
-                     * @return Protocol 协议类型。可选值有 NFS、CIFS
+                     * 获取协议类型。可选值有 NFS、CIFS、TURBO
+                     * @return Protocol 协议类型。可选值有 NFS、CIFS、TURBO
+                     * 
                      */
                     std::string GetProtocol() const;
 
                     /**
-                     * 设置协议类型。可选值有 NFS、CIFS
-                     * @param Protocol 协议类型。可选值有 NFS、CIFS
+                     * 设置协议类型。可选值有 NFS、CIFS、TURBO
+                     * @param _protocol 协议类型。可选值有 NFS、CIFS、TURBO
+                     * 
                      */
                     void SetProtocol(const std::string& _protocol);
 
                     /**
                      * 判断参数 Protocol 是否已赋值
                      * @return Protocol 是否已赋值
+                     * 
                      */
                     bool ProtocolHasBeenSet() const;
 
@@ -92,7 +97,7 @@ namespace TencentCloud
                     bool m_saleStatusHasBeenSet;
 
                     /**
-                     * 协议类型。可选值有 NFS、CIFS
+                     * 协议类型。可选值有 NFS、CIFS、TURBO
                      */
                     std::string m_protocol;
                     bool m_protocolHasBeenSet;

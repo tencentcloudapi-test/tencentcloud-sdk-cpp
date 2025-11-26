@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,44 +23,82 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
+#include <tencentcloud/gme/v20180711/model/ControlAIConversationRequest.h>
+#include <tencentcloud/gme/v20180711/model/ControlAIConversationResponse.h>
 #include <tencentcloud/gme/v20180711/model/CreateAgeDetectTaskRequest.h>
 #include <tencentcloud/gme/v20180711/model/CreateAgeDetectTaskResponse.h>
 #include <tencentcloud/gme/v20180711/model/CreateAppRequest.h>
 #include <tencentcloud/gme/v20180711/model/CreateAppResponse.h>
+#include <tencentcloud/gme/v20180711/model/CreateCustomizationRequest.h>
+#include <tencentcloud/gme/v20180711/model/CreateCustomizationResponse.h>
 #include <tencentcloud/gme/v20180711/model/CreateScanUserRequest.h>
 #include <tencentcloud/gme/v20180711/model/CreateScanUserResponse.h>
+#include <tencentcloud/gme/v20180711/model/DeleteCustomizationRequest.h>
+#include <tencentcloud/gme/v20180711/model/DeleteCustomizationResponse.h>
+#include <tencentcloud/gme/v20180711/model/DeleteRoomMemberRequest.h>
+#include <tencentcloud/gme/v20180711/model/DeleteRoomMemberResponse.h>
 #include <tencentcloud/gme/v20180711/model/DeleteScanUserRequest.h>
 #include <tencentcloud/gme/v20180711/model/DeleteScanUserResponse.h>
+#include <tencentcloud/gme/v20180711/model/DeleteVoicePrintRequest.h>
+#include <tencentcloud/gme/v20180711/model/DeleteVoicePrintResponse.h>
+#include <tencentcloud/gme/v20180711/model/DescribeAIConversationRequest.h>
+#include <tencentcloud/gme/v20180711/model/DescribeAIConversationResponse.h>
 #include <tencentcloud/gme/v20180711/model/DescribeAgeDetectTaskRequest.h>
 #include <tencentcloud/gme/v20180711/model/DescribeAgeDetectTaskResponse.h>
 #include <tencentcloud/gme/v20180711/model/DescribeAppStatisticsRequest.h>
 #include <tencentcloud/gme/v20180711/model/DescribeAppStatisticsResponse.h>
 #include <tencentcloud/gme/v20180711/model/DescribeApplicationDataRequest.h>
 #include <tencentcloud/gme/v20180711/model/DescribeApplicationDataResponse.h>
-#include <tencentcloud/gme/v20180711/model/DescribeFilterResultRequest.h>
-#include <tencentcloud/gme/v20180711/model/DescribeFilterResultResponse.h>
-#include <tencentcloud/gme/v20180711/model/DescribeFilterResultListRequest.h>
-#include <tencentcloud/gme/v20180711/model/DescribeFilterResultListResponse.h>
+#include <tencentcloud/gme/v20180711/model/DescribeApplicationListRequest.h>
+#include <tencentcloud/gme/v20180711/model/DescribeApplicationListResponse.h>
+#include <tencentcloud/gme/v20180711/model/DescribeAuditResultExternalRequest.h>
+#include <tencentcloud/gme/v20180711/model/DescribeAuditResultExternalResponse.h>
 #include <tencentcloud/gme/v20180711/model/DescribeRealtimeScanConfigRequest.h>
 #include <tencentcloud/gme/v20180711/model/DescribeRealtimeScanConfigResponse.h>
+#include <tencentcloud/gme/v20180711/model/DescribeRecordInfoRequest.h>
+#include <tencentcloud/gme/v20180711/model/DescribeRecordInfoResponse.h>
 #include <tencentcloud/gme/v20180711/model/DescribeRoomInfoRequest.h>
 #include <tencentcloud/gme/v20180711/model/DescribeRoomInfoResponse.h>
 #include <tencentcloud/gme/v20180711/model/DescribeScanResultListRequest.h>
 #include <tencentcloud/gme/v20180711/model/DescribeScanResultListResponse.h>
+#include <tencentcloud/gme/v20180711/model/DescribeTaskInfoRequest.h>
+#include <tencentcloud/gme/v20180711/model/DescribeTaskInfoResponse.h>
 #include <tencentcloud/gme/v20180711/model/DescribeUserInAndOutTimeRequest.h>
 #include <tencentcloud/gme/v20180711/model/DescribeUserInAndOutTimeResponse.h>
+#include <tencentcloud/gme/v20180711/model/DescribeVoicePrintRequest.h>
+#include <tencentcloud/gme/v20180711/model/DescribeVoicePrintResponse.h>
+#include <tencentcloud/gme/v20180711/model/GetCustomizationListRequest.h>
+#include <tencentcloud/gme/v20180711/model/GetCustomizationListResponse.h>
 #include <tencentcloud/gme/v20180711/model/ModifyAppStatusRequest.h>
 #include <tencentcloud/gme/v20180711/model/ModifyAppStatusResponse.h>
-#include <tencentcloud/gme/v20180711/model/ModifyRoomInfoRequest.h>
-#include <tencentcloud/gme/v20180711/model/ModifyRoomInfoResponse.h>
+#include <tencentcloud/gme/v20180711/model/ModifyCustomizationRequest.h>
+#include <tencentcloud/gme/v20180711/model/ModifyCustomizationResponse.h>
+#include <tencentcloud/gme/v20180711/model/ModifyCustomizationStateRequest.h>
+#include <tencentcloud/gme/v20180711/model/ModifyCustomizationStateResponse.h>
+#include <tencentcloud/gme/v20180711/model/ModifyRecordInfoRequest.h>
+#include <tencentcloud/gme/v20180711/model/ModifyRecordInfoResponse.h>
+#include <tencentcloud/gme/v20180711/model/ModifyUserMicStatusRequest.h>
+#include <tencentcloud/gme/v20180711/model/ModifyUserMicStatusResponse.h>
+#include <tencentcloud/gme/v20180711/model/RegisterVoicePrintRequest.h>
+#include <tencentcloud/gme/v20180711/model/RegisterVoicePrintResponse.h>
 #include <tencentcloud/gme/v20180711/model/ScanVoiceRequest.h>
 #include <tencentcloud/gme/v20180711/model/ScanVoiceResponse.h>
+#include <tencentcloud/gme/v20180711/model/StartAIConversationRequest.h>
+#include <tencentcloud/gme/v20180711/model/StartAIConversationResponse.h>
+#include <tencentcloud/gme/v20180711/model/StartRecordRequest.h>
+#include <tencentcloud/gme/v20180711/model/StartRecordResponse.h>
+#include <tencentcloud/gme/v20180711/model/StopAIConversationRequest.h>
+#include <tencentcloud/gme/v20180711/model/StopAIConversationResponse.h>
+#include <tencentcloud/gme/v20180711/model/StopRecordRequest.h>
+#include <tencentcloud/gme/v20180711/model/StopRecordResponse.h>
+#include <tencentcloud/gme/v20180711/model/UpdateAIConversationRequest.h>
+#include <tencentcloud/gme/v20180711/model/UpdateAIConversationResponse.h>
 #include <tencentcloud/gme/v20180711/model/UpdateScanRoomsRequest.h>
 #include <tencentcloud/gme/v20180711/model/UpdateScanRoomsResponse.h>
 #include <tencentcloud/gme/v20180711/model/UpdateScanUsersRequest.h>
 #include <tencentcloud/gme/v20180711/model/UpdateScanUsersResponse.h>
-#include <tencentcloud/gme/v20180711/model/VoiceFilterRequest.h>
-#include <tencentcloud/gme/v20180711/model/VoiceFilterResponse.h>
+#include <tencentcloud/gme/v20180711/model/UpdateVoicePrintRequest.h>
+#include <tencentcloud/gme/v20180711/model/UpdateVoicePrintResponse.h>
 
 
 namespace TencentCloud
@@ -75,18 +113,36 @@ namespace TencentCloud
                 GmeClient(const Credential &credential, const std::string &region);
                 GmeClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
+                typedef Outcome<Core::Error, Model::ControlAIConversationResponse> ControlAIConversationOutcome;
+                typedef std::future<ControlAIConversationOutcome> ControlAIConversationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::ControlAIConversationRequest&, ControlAIConversationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ControlAIConversationAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateAgeDetectTaskResponse> CreateAgeDetectTaskOutcome;
                 typedef std::future<CreateAgeDetectTaskOutcome> CreateAgeDetectTaskOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::CreateAgeDetectTaskRequest&, CreateAgeDetectTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAgeDetectTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateAppResponse> CreateAppOutcome;
                 typedef std::future<CreateAppOutcome> CreateAppOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::CreateAppRequest&, CreateAppOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAppAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateCustomizationResponse> CreateCustomizationOutcome;
+                typedef std::future<CreateCustomizationOutcome> CreateCustomizationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::CreateCustomizationRequest&, CreateCustomizationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCustomizationAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateScanUserResponse> CreateScanUserOutcome;
                 typedef std::future<CreateScanUserOutcome> CreateScanUserOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::CreateScanUserRequest&, CreateScanUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateScanUserAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteCustomizationResponse> DeleteCustomizationOutcome;
+                typedef std::future<DeleteCustomizationOutcome> DeleteCustomizationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DeleteCustomizationRequest&, DeleteCustomizationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCustomizationAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteRoomMemberResponse> DeleteRoomMemberOutcome;
+                typedef std::future<DeleteRoomMemberOutcome> DeleteRoomMemberOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DeleteRoomMemberRequest&, DeleteRoomMemberOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteRoomMemberAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteScanUserResponse> DeleteScanUserOutcome;
                 typedef std::future<DeleteScanUserOutcome> DeleteScanUserOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::DeleteScanUserRequest&, DeleteScanUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteScanUserAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteVoicePrintResponse> DeleteVoicePrintOutcome;
+                typedef std::future<DeleteVoicePrintOutcome> DeleteVoicePrintOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DeleteVoicePrintRequest&, DeleteVoicePrintOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteVoicePrintAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAIConversationResponse> DescribeAIConversationOutcome;
+                typedef std::future<DescribeAIConversationOutcome> DescribeAIConversationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DescribeAIConversationRequest&, DescribeAIConversationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAIConversationAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeAgeDetectTaskResponse> DescribeAgeDetectTaskOutcome;
                 typedef std::future<DescribeAgeDetectTaskOutcome> DescribeAgeDetectTaskOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::DescribeAgeDetectTaskRequest&, DescribeAgeDetectTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAgeDetectTaskAsyncHandler;
@@ -96,47 +152,97 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeApplicationDataResponse> DescribeApplicationDataOutcome;
                 typedef std::future<DescribeApplicationDataOutcome> DescribeApplicationDataOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::DescribeApplicationDataRequest&, DescribeApplicationDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApplicationDataAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFilterResultResponse> DescribeFilterResultOutcome;
-                typedef std::future<DescribeFilterResultOutcome> DescribeFilterResultOutcomeCallable;
-                typedef std::function<void(const GmeClient*, const Model::DescribeFilterResultRequest&, DescribeFilterResultOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFilterResultAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFilterResultListResponse> DescribeFilterResultListOutcome;
-                typedef std::future<DescribeFilterResultListOutcome> DescribeFilterResultListOutcomeCallable;
-                typedef std::function<void(const GmeClient*, const Model::DescribeFilterResultListRequest&, DescribeFilterResultListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFilterResultListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeApplicationListResponse> DescribeApplicationListOutcome;
+                typedef std::future<DescribeApplicationListOutcome> DescribeApplicationListOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DescribeApplicationListRequest&, DescribeApplicationListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApplicationListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAuditResultExternalResponse> DescribeAuditResultExternalOutcome;
+                typedef std::future<DescribeAuditResultExternalOutcome> DescribeAuditResultExternalOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DescribeAuditResultExternalRequest&, DescribeAuditResultExternalOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAuditResultExternalAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeRealtimeScanConfigResponse> DescribeRealtimeScanConfigOutcome;
                 typedef std::future<DescribeRealtimeScanConfigOutcome> DescribeRealtimeScanConfigOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::DescribeRealtimeScanConfigRequest&, DescribeRealtimeScanConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRealtimeScanConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeRecordInfoResponse> DescribeRecordInfoOutcome;
+                typedef std::future<DescribeRecordInfoOutcome> DescribeRecordInfoOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DescribeRecordInfoRequest&, DescribeRecordInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRecordInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeRoomInfoResponse> DescribeRoomInfoOutcome;
                 typedef std::future<DescribeRoomInfoOutcome> DescribeRoomInfoOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::DescribeRoomInfoRequest&, DescribeRoomInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRoomInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeScanResultListResponse> DescribeScanResultListOutcome;
                 typedef std::future<DescribeScanResultListOutcome> DescribeScanResultListOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::DescribeScanResultListRequest&, DescribeScanResultListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeScanResultListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeTaskInfoResponse> DescribeTaskInfoOutcome;
+                typedef std::future<DescribeTaskInfoOutcome> DescribeTaskInfoOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DescribeTaskInfoRequest&, DescribeTaskInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTaskInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUserInAndOutTimeResponse> DescribeUserInAndOutTimeOutcome;
                 typedef std::future<DescribeUserInAndOutTimeOutcome> DescribeUserInAndOutTimeOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::DescribeUserInAndOutTimeRequest&, DescribeUserInAndOutTimeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUserInAndOutTimeAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeVoicePrintResponse> DescribeVoicePrintOutcome;
+                typedef std::future<DescribeVoicePrintOutcome> DescribeVoicePrintOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::DescribeVoicePrintRequest&, DescribeVoicePrintOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeVoicePrintAsyncHandler;
+                typedef Outcome<Core::Error, Model::GetCustomizationListResponse> GetCustomizationListOutcome;
+                typedef std::future<GetCustomizationListOutcome> GetCustomizationListOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::GetCustomizationListRequest&, GetCustomizationListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetCustomizationListAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyAppStatusResponse> ModifyAppStatusOutcome;
                 typedef std::future<ModifyAppStatusOutcome> ModifyAppStatusOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::ModifyAppStatusRequest&, ModifyAppStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAppStatusAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyRoomInfoResponse> ModifyRoomInfoOutcome;
-                typedef std::future<ModifyRoomInfoOutcome> ModifyRoomInfoOutcomeCallable;
-                typedef std::function<void(const GmeClient*, const Model::ModifyRoomInfoRequest&, ModifyRoomInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRoomInfoAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyCustomizationResponse> ModifyCustomizationOutcome;
+                typedef std::future<ModifyCustomizationOutcome> ModifyCustomizationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::ModifyCustomizationRequest&, ModifyCustomizationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyCustomizationAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyCustomizationStateResponse> ModifyCustomizationStateOutcome;
+                typedef std::future<ModifyCustomizationStateOutcome> ModifyCustomizationStateOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::ModifyCustomizationStateRequest&, ModifyCustomizationStateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyCustomizationStateAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyRecordInfoResponse> ModifyRecordInfoOutcome;
+                typedef std::future<ModifyRecordInfoOutcome> ModifyRecordInfoOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::ModifyRecordInfoRequest&, ModifyRecordInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRecordInfoAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyUserMicStatusResponse> ModifyUserMicStatusOutcome;
+                typedef std::future<ModifyUserMicStatusOutcome> ModifyUserMicStatusOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::ModifyUserMicStatusRequest&, ModifyUserMicStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyUserMicStatusAsyncHandler;
+                typedef Outcome<Core::Error, Model::RegisterVoicePrintResponse> RegisterVoicePrintOutcome;
+                typedef std::future<RegisterVoicePrintOutcome> RegisterVoicePrintOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::RegisterVoicePrintRequest&, RegisterVoicePrintOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RegisterVoicePrintAsyncHandler;
                 typedef Outcome<Core::Error, Model::ScanVoiceResponse> ScanVoiceOutcome;
                 typedef std::future<ScanVoiceOutcome> ScanVoiceOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::ScanVoiceRequest&, ScanVoiceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ScanVoiceAsyncHandler;
+                typedef Outcome<Core::Error, Model::StartAIConversationResponse> StartAIConversationOutcome;
+                typedef std::future<StartAIConversationOutcome> StartAIConversationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::StartAIConversationRequest&, StartAIConversationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StartAIConversationAsyncHandler;
+                typedef Outcome<Core::Error, Model::StartRecordResponse> StartRecordOutcome;
+                typedef std::future<StartRecordOutcome> StartRecordOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::StartRecordRequest&, StartRecordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StartRecordAsyncHandler;
+                typedef Outcome<Core::Error, Model::StopAIConversationResponse> StopAIConversationOutcome;
+                typedef std::future<StopAIConversationOutcome> StopAIConversationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::StopAIConversationRequest&, StopAIConversationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopAIConversationAsyncHandler;
+                typedef Outcome<Core::Error, Model::StopRecordResponse> StopRecordOutcome;
+                typedef std::future<StopRecordOutcome> StopRecordOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::StopRecordRequest&, StopRecordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopRecordAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateAIConversationResponse> UpdateAIConversationOutcome;
+                typedef std::future<UpdateAIConversationOutcome> UpdateAIConversationOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::UpdateAIConversationRequest&, UpdateAIConversationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateAIConversationAsyncHandler;
                 typedef Outcome<Core::Error, Model::UpdateScanRoomsResponse> UpdateScanRoomsOutcome;
                 typedef std::future<UpdateScanRoomsOutcome> UpdateScanRoomsOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::UpdateScanRoomsRequest&, UpdateScanRoomsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateScanRoomsAsyncHandler;
                 typedef Outcome<Core::Error, Model::UpdateScanUsersResponse> UpdateScanUsersOutcome;
                 typedef std::future<UpdateScanUsersOutcome> UpdateScanUsersOutcomeCallable;
                 typedef std::function<void(const GmeClient*, const Model::UpdateScanUsersRequest&, UpdateScanUsersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateScanUsersAsyncHandler;
-                typedef Outcome<Core::Error, Model::VoiceFilterResponse> VoiceFilterOutcome;
-                typedef std::future<VoiceFilterOutcome> VoiceFilterOutcomeCallable;
-                typedef std::function<void(const GmeClient*, const Model::VoiceFilterRequest&, VoiceFilterOutcome, const std::shared_ptr<const AsyncCallerContext>&)> VoiceFilterAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateVoicePrintResponse> UpdateVoicePrintOutcome;
+                typedef std::future<UpdateVoicePrintOutcome> UpdateVoicePrintOutcomeCallable;
+                typedef std::function<void(const GmeClient*, const Model::UpdateVoicePrintRequest&, UpdateVoicePrintOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateVoicePrintAsyncHandler;
 
 
 
                 /**
-                 *用于创建年龄语音识别任务的接口，请求频率10次/秒。该接口目前通过白名单开放试用，如有需求，请提交工单申请。
+                 *提供服务端控制机器人的功能
+                 * @param req ControlAIConversationRequest
+                 * @return ControlAIConversationOutcome
+                 */
+                ControlAIConversationOutcome ControlAIConversation(const Model::ControlAIConversationRequest &request);
+                void ControlAIConversationAsync(const Model::ControlAIConversationRequest& request, const ControlAIConversationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ControlAIConversationOutcomeCallable ControlAIConversationCallable(const Model::ControlAIConversationRequest& request);
+
+                /**
+                 *目前该功能底层能力已不具备，不对外提供，目前需要下线，走预下线流程。
+
+用于创建年龄语音识别任务的接口，请求频率10次/秒。该接口目前通过白名单开放试用，如有需求，请提交工单申请。
 </br>
 <h4><b>接口功能说明：</b></h4>
 <li>支持对语音文件进行检测，判断是否为未成年人。</li>
@@ -164,7 +270,16 @@ namespace TencentCloud
                 CreateAppOutcomeCallable CreateAppCallable(const Model::CreateAppRequest& request);
 
                 /**
-                 *新增自定义送检用户
+                 *用户使用该接口可以创建语音消息转文本热句模型，以供识别调用
+                 * @param req CreateCustomizationRequest
+                 * @return CreateCustomizationOutcome
+                 */
+                CreateCustomizationOutcome CreateCustomization(const Model::CreateCustomizationRequest &request);
+                void CreateCustomizationAsync(const Model::CreateCustomizationRequest& request, const CreateCustomizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateCustomizationOutcomeCallable CreateCustomizationCallable(const Model::CreateCustomizationRequest& request);
+
+                /**
+                 *新增自定义送检用户。**接口使用前提**：目前 CreateScanUser 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
                  * @param req CreateScanUserRequest
                  * @return CreateScanUserOutcome
                  */
@@ -173,7 +288,25 @@ namespace TencentCloud
                 CreateScanUserOutcomeCallable CreateScanUserCallable(const Model::CreateScanUserRequest& request);
 
                 /**
-                 *删除自定义送检用户
+                 *用户通过该接口可以删除语音消息转文本热句模型
+                 * @param req DeleteCustomizationRequest
+                 * @return DeleteCustomizationOutcome
+                 */
+                DeleteCustomizationOutcome DeleteCustomization(const Model::DeleteCustomizationRequest &request);
+                void DeleteCustomizationAsync(const Model::DeleteCustomizationRequest& request, const DeleteCustomizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteCustomizationOutcomeCallable DeleteCustomizationCallable(const Model::DeleteCustomizationRequest& request);
+
+                /**
+                 *本接口(DeleteRoomMember)用户删除房间或者剔除房间内用户
+                 * @param req DeleteRoomMemberRequest
+                 * @return DeleteRoomMemberOutcome
+                 */
+                DeleteRoomMemberOutcome DeleteRoomMember(const Model::DeleteRoomMemberRequest &request);
+                void DeleteRoomMemberAsync(const Model::DeleteRoomMemberRequest& request, const DeleteRoomMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteRoomMemberOutcomeCallable DeleteRoomMemberCallable(const Model::DeleteRoomMemberRequest& request);
+
+                /**
+                 *删除自定义送检用户。**接口使用前提**：目前 DeleteScanUser 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
                  * @param req DeleteScanUserRequest
                  * @return DeleteScanUserOutcome
                  */
@@ -182,7 +315,27 @@ namespace TencentCloud
                 DeleteScanUserOutcomeCallable DeleteScanUserCallable(const Model::DeleteScanUserRequest& request);
 
                 /**
-                 *查询年龄语音识别任务结果，请求频率10次/秒。该接口目前通过白名单开放试用，如有需求，请提交工单申请。
+                 *传入声纹ID，删除之前注册的声纹信息
+                 * @param req DeleteVoicePrintRequest
+                 * @return DeleteVoicePrintOutcome
+                 */
+                DeleteVoicePrintOutcome DeleteVoicePrint(const Model::DeleteVoicePrintRequest &request);
+                void DeleteVoicePrintAsync(const Model::DeleteVoicePrintRequest& request, const DeleteVoicePrintAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteVoicePrintOutcomeCallable DeleteVoicePrintCallable(const Model::DeleteVoicePrintRequest& request);
+
+                /**
+                 *查询AI对话任务状态。
+                 * @param req DescribeAIConversationRequest
+                 * @return DescribeAIConversationOutcome
+                 */
+                DescribeAIConversationOutcome DescribeAIConversation(const Model::DescribeAIConversationRequest &request);
+                void DescribeAIConversationAsync(const Model::DescribeAIConversationRequest& request, const DescribeAIConversationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAIConversationOutcomeCallable DescribeAIConversationCallable(const Model::DescribeAIConversationRequest& request);
+
+                /**
+                 *目前该功能底层能力已不具备，不对外提供，目前需要下线，走预下线流程。
+
+查询年龄语音识别任务结果，请求频率10次/秒。该接口目前通过白名单开放试用，如有需求，请提交工单申请。
                  * @param req DescribeAgeDetectTaskRequest
                  * @return DescribeAgeDetectTaskOutcome
                  */
@@ -191,7 +344,7 @@ namespace TencentCloud
                 DescribeAgeDetectTaskOutcomeCallable DescribeAgeDetectTaskCallable(const Model::DescribeAgeDetectTaskRequest& request);
 
                 /**
-                 *本接口(DescribeAppStatistics)用于获取某个GME应用的用量数据。包括实时语音，语音消息及转文本，语音分析等。最长查询周期为最近30天。
+                 *本接口(DescribeAppStatistics)用于获取某个GME应用的用量数据。包括实时语音，语音消息及转文本，语音分析等。最长查询周期为最近60天。
                  * @param req DescribeAppStatisticsRequest
                  * @return DescribeAppStatisticsOutcome
                  */
@@ -209,31 +362,40 @@ namespace TencentCloud
                 DescribeApplicationDataOutcomeCallable DescribeApplicationDataCallable(const Model::DescribeApplicationDataRequest& request);
 
                 /**
-                 *根据应用ID和文件ID查询识别结果
-                 * @param req DescribeFilterResultRequest
-                 * @return DescribeFilterResultOutcome
+                 *本接口(DescribeApplicationList)用于查询自己账号下的应用列表
+                 * @param req DescribeApplicationListRequest
+                 * @return DescribeApplicationListOutcome
                  */
-                DescribeFilterResultOutcome DescribeFilterResult(const Model::DescribeFilterResultRequest &request);
-                void DescribeFilterResultAsync(const Model::DescribeFilterResultRequest& request, const DescribeFilterResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFilterResultOutcomeCallable DescribeFilterResultCallable(const Model::DescribeFilterResultRequest& request);
+                DescribeApplicationListOutcome DescribeApplicationList(const Model::DescribeApplicationListRequest &request);
+                void DescribeApplicationListAsync(const Model::DescribeApplicationListRequest& request, const DescribeApplicationListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeApplicationListOutcomeCallable DescribeApplicationListCallable(const Model::DescribeApplicationListRequest& request);
 
                 /**
-                 *根据日期查询识别结果列表
-                 * @param req DescribeFilterResultListRequest
-                 * @return DescribeFilterResultListOutcome
+                 *获审核结果明细（外部API）
+                 * @param req DescribeAuditResultExternalRequest
+                 * @return DescribeAuditResultExternalOutcome
                  */
-                DescribeFilterResultListOutcome DescribeFilterResultList(const Model::DescribeFilterResultListRequest &request);
-                void DescribeFilterResultListAsync(const Model::DescribeFilterResultListRequest& request, const DescribeFilterResultListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFilterResultListOutcomeCallable DescribeFilterResultListCallable(const Model::DescribeFilterResultListRequest& request);
+                DescribeAuditResultExternalOutcome DescribeAuditResultExternal(const Model::DescribeAuditResultExternalRequest &request);
+                void DescribeAuditResultExternalAsync(const Model::DescribeAuditResultExternalRequest& request, const DescribeAuditResultExternalAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAuditResultExternalOutcomeCallable DescribeAuditResultExternalCallable(const Model::DescribeAuditResultExternalRequest& request);
 
                 /**
-                 *获取用户自定义送检信息
+                 *获取用户自定义送检信息。**接口使用前提**：目前 DescribeRealtimeScanConfig 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
                  * @param req DescribeRealtimeScanConfigRequest
                  * @return DescribeRealtimeScanConfigOutcome
                  */
                 DescribeRealtimeScanConfigOutcome DescribeRealtimeScanConfig(const Model::DescribeRealtimeScanConfigRequest &request);
                 void DescribeRealtimeScanConfigAsync(const Model::DescribeRealtimeScanConfigRequest& request, const DescribeRealtimeScanConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeRealtimeScanConfigOutcomeCallable DescribeRealtimeScanConfigCallable(const Model::DescribeRealtimeScanConfigRequest& request);
+
+                /**
+                 *查询录制任务信息。
+                 * @param req DescribeRecordInfoRequest
+                 * @return DescribeRecordInfoOutcome
+                 */
+                DescribeRecordInfoOutcome DescribeRecordInfo(const Model::DescribeRecordInfoRequest &request);
+                void DescribeRecordInfoAsync(const Model::DescribeRecordInfoRequest& request, const DescribeRecordInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeRecordInfoOutcomeCallable DescribeRecordInfoCallable(const Model::DescribeRecordInfoRequest& request);
 
                 /**
                  *获取房间内用户信息
@@ -255,6 +417,15 @@ namespace TencentCloud
                 DescribeScanResultListOutcomeCallable DescribeScanResultListCallable(const Model::DescribeScanResultListRequest& request);
 
                 /**
+                 *查询房间录制的详细信息
+                 * @param req DescribeTaskInfoRequest
+                 * @return DescribeTaskInfoOutcome
+                 */
+                DescribeTaskInfoOutcome DescribeTaskInfo(const Model::DescribeTaskInfoRequest &request);
+                void DescribeTaskInfoAsync(const Model::DescribeTaskInfoRequest& request, const DescribeTaskInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeTaskInfoOutcomeCallable DescribeTaskInfoCallable(const Model::DescribeTaskInfoRequest& request);
+
+                /**
                  *拉取用户在房间得进出时间
                  * @param req DescribeUserInAndOutTimeRequest
                  * @return DescribeUserInAndOutTimeOutcome
@@ -262,6 +433,24 @@ namespace TencentCloud
                 DescribeUserInAndOutTimeOutcome DescribeUserInAndOutTime(const Model::DescribeUserInAndOutTimeRequest &request);
                 void DescribeUserInAndOutTimeAsync(const Model::DescribeUserInAndOutTimeRequest& request, const DescribeUserInAndOutTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeUserInAndOutTimeOutcomeCallable DescribeUserInAndOutTimeCallable(const Model::DescribeUserInAndOutTimeRequest& request);
+
+                /**
+                 *查询先前注册的声纹信息
+                 * @param req DescribeVoicePrintRequest
+                 * @return DescribeVoicePrintOutcome
+                 */
+                DescribeVoicePrintOutcome DescribeVoicePrint(const Model::DescribeVoicePrintRequest &request);
+                void DescribeVoicePrintAsync(const Model::DescribeVoicePrintRequest& request, const DescribeVoicePrintAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeVoicePrintOutcomeCallable DescribeVoicePrintCallable(const Model::DescribeVoicePrintRequest& request);
+
+                /**
+                 *查询语音消息转文本热句模型列表
+                 * @param req GetCustomizationListRequest
+                 * @return GetCustomizationListOutcome
+                 */
+                GetCustomizationListOutcome GetCustomizationList(const Model::GetCustomizationListRequest &request);
+                void GetCustomizationListAsync(const Model::GetCustomizationListRequest& request, const GetCustomizationListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                GetCustomizationListOutcomeCallable GetCustomizationListCallable(const Model::GetCustomizationListRequest& request);
 
                 /**
                  *本接口(ModifyAppStatus)用于修改应用总开关状态。
@@ -273,20 +462,58 @@ namespace TencentCloud
                 ModifyAppStatusOutcomeCallable ModifyAppStatusCallable(const Model::ModifyAppStatusRequest& request);
 
                 /**
-                 *修改房间信息
-                 * @param req ModifyRoomInfoRequest
-                 * @return ModifyRoomInfoOutcome
+                 *用户通过该接口可以更新语音消息转文本热句模型。
+                 * @param req ModifyCustomizationRequest
+                 * @return ModifyCustomizationOutcome
                  */
-                ModifyRoomInfoOutcome ModifyRoomInfo(const Model::ModifyRoomInfoRequest &request);
-                void ModifyRoomInfoAsync(const Model::ModifyRoomInfoRequest& request, const ModifyRoomInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyRoomInfoOutcomeCallable ModifyRoomInfoCallable(const Model::ModifyRoomInfoRequest& request);
+                ModifyCustomizationOutcome ModifyCustomization(const Model::ModifyCustomizationRequest &request);
+                void ModifyCustomizationAsync(const Model::ModifyCustomizationRequest& request, const ModifyCustomizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyCustomizationOutcomeCallable ModifyCustomizationCallable(const Model::ModifyCustomizationRequest& request);
 
                 /**
-                 *本接口(ScanVoice)用于提交语音检测任务，检测任务列表最多支持100个。使用前请您登录[控制台 - 服务配置](https://console.cloud.tencent.com/gamegme/conf)开启语音分析服务。
+                 *通过该接口，用户可以修改语音消息转文本热句模型状态，上下线热句模型
+                 * @param req ModifyCustomizationStateRequest
+                 * @return ModifyCustomizationStateOutcome
+                 */
+                ModifyCustomizationStateOutcome ModifyCustomizationState(const Model::ModifyCustomizationStateRequest &request);
+                void ModifyCustomizationStateAsync(const Model::ModifyCustomizationStateRequest& request, const ModifyCustomizationStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyCustomizationStateOutcomeCallable ModifyCustomizationStateCallable(const Model::ModifyCustomizationStateRequest& request);
+
+                /**
+                 *修改录制配置信息
+                 * @param req ModifyRecordInfoRequest
+                 * @return ModifyRecordInfoOutcome
+                 */
+                ModifyRecordInfoOutcome ModifyRecordInfo(const Model::ModifyRecordInfoRequest &request);
+                void ModifyRecordInfoAsync(const Model::ModifyRecordInfoRequest& request, const ModifyRecordInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyRecordInfoOutcomeCallable ModifyRecordInfoCallable(const Model::ModifyRecordInfoRequest& request);
+
+                /**
+                 ***接口作用**：此接口用于修改房间用户的麦克风状态，例如房间内用户麦克风为打开状态，可调用此接口将该用户麦克风进行关闭，关闭后即使该用户使用客户端接口 EnableMic 打开麦克风，依然无法与房间内成员通话，属于被禁言状态。该状态持续到此用户退房后失效，或者调用该接口重新打开此用户麦克风状态。
+**接口应用场景**：此接口多用于游戏业务中台或者风控后台，对一些发表不当言论的玩家进行禁言处理。
+**接口使用前提**：目前 ModifyUserMicStatus 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
+                 * @param req ModifyUserMicStatusRequest
+                 * @return ModifyUserMicStatusOutcome
+                 */
+                ModifyUserMicStatusOutcome ModifyUserMicStatus(const Model::ModifyUserMicStatusRequest &request);
+                void ModifyUserMicStatusAsync(const Model::ModifyUserMicStatusRequest& request, const ModifyUserMicStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyUserMicStatusOutcomeCallable ModifyUserMicStatusCallable(const Model::ModifyUserMicStatusRequest& request);
+
+                /**
+                 *传入音频base64串，注册声纹信息，返回声纹ID
+                 * @param req RegisterVoicePrintRequest
+                 * @return RegisterVoicePrintOutcome
+                 */
+                RegisterVoicePrintOutcome RegisterVoicePrint(const Model::RegisterVoicePrintRequest &request);
+                void RegisterVoicePrintAsync(const Model::RegisterVoicePrintRequest& request, const RegisterVoicePrintAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                RegisterVoicePrintOutcomeCallable RegisterVoicePrintCallable(const Model::RegisterVoicePrintRequest& request);
+
+                /**
+                 *本接口(ScanVoice)用于提交语音检测任务，检测任务列表最多支持100个。使用前请您登录[控制台 - 服务配置](https://console.cloud.tencent.com/gamegme/conf)开启语音内容安全服务。
 </br></br>
 
 <h4><b>功能试用说明：</b></h4>
-<li>打开前往<a href="https://console.cloud.tencent.com/gamegme/tryout">控制台 - 产品试用</a>免费试用语音分析服务。</li>
+<li>打开前往<a href="https://console.cloud.tencent.com/gamegme/tryout">控制台 - 产品试用</a>免费试用语音内容安全服务。</li>
 </br>
 
 <h4><b>接口功能说明：</b></h4>
@@ -325,8 +552,9 @@ namespace TencentCloud
 <p>porn:色情</p>
 <p>abuse:谩骂</p>
 <p>ad :广告</p>
-<p>contraband :违禁</p>
-<p>customized:自定义词库。目前白名单开放，如有需要请<a href="https://cloud.tencent.com/apply/p/8809fjcik56">联系我们</a>。</p>
+<p>illegal :违法</p>
+<p>moan :呻吟</p>
+<p>customized:自定义词库</p>
 </td>
 </tr>
 </tbody>
@@ -335,7 +563,7 @@ namespace TencentCloud
 <h4 id="Callback_Declare"><b>回调相关说明：</b></h4>
 <li>如果在请求参数中指定了回调地址参数 Callback，即一个 HTTP(S) 协议接口的 URL，则需要支持 POST 方法，传输数据编码采用 UTF-8。</li>
 <li>在推送回调数据后，接收到的 HTTP 状态码为 200 时，表示推送成功。</li>
-<li>HTTP 头参数说明：</li>
+<li>HTTP 请求参数（query）说明：</li>
 <table>
 <thread>
 <tr>
@@ -377,32 +605,32 @@ namespace TencentCloud
 		"HitFlag": true,
 		"MainType": "abuse",
 		"RoomId": "123",
-		"OpenId": "xxx",
+		"OpenId": "111",
 		"Info":"",
 		"Offset": 0,
 		"Duration": 3400,
 		"PieceStartTime":1574684231,
 		"ScanDetail": [{
 			"EndTime": 1110,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 1110
 		}, {
 			"EndTime": 1380,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 930
 		}, {
 			"EndTime": 1560,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 930
 		}, {
 			"EndTime": 2820,
-			"KeyWord": "xxx",
+			"KeyWord": "违规字",
 			"Label": "abuse",
 			"Rate": "90.00",
 			"StartTime": 2490
@@ -413,7 +641,7 @@ namespace TencentCloud
 		"default"
 	],
 	"Status": "Success",
-	"TaskId": "xxx",
+	"TaskId": "6330xxxx-9xx7-11ed-98e3-52xxxxe4ac3b",
 	"Url": "https://xxx/xxx.m4a"
 }
 </code></pre>
@@ -425,7 +653,55 @@ namespace TencentCloud
                 ScanVoiceOutcomeCallable ScanVoiceCallable(const Model::ScanVoiceRequest& request);
 
                 /**
-                 *更新自定义送检房间号
+                 *启动AI对话任务，AI通道机器人进入GME房间，与房间内指定的成员进行AI对话，适用于智能客服，AI口语教师等场景
+
+GME AI对话功能内置语音转文本能力，同时提供通道服务，即客户可灵活指定第三方AI模型（LLM）服务和文本转音频（TTS）服务，更多[功能说明](https://cloud.tencent.com/document/product/647/108901)。
+                 * @param req StartAIConversationRequest
+                 * @return StartAIConversationOutcome
+                 */
+                StartAIConversationOutcome StartAIConversation(const Model::StartAIConversationRequest &request);
+                void StartAIConversationAsync(const Model::StartAIConversationRequest& request, const StartAIConversationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                StartAIConversationOutcomeCallable StartAIConversationCallable(const Model::StartAIConversationRequest& request);
+
+                /**
+                 *开启录制
+                 * @param req StartRecordRequest
+                 * @return StartRecordOutcome
+                 */
+                StartRecordOutcome StartRecord(const Model::StartRecordRequest &request);
+                void StartRecordAsync(const Model::StartRecordRequest& request, const StartRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                StartRecordOutcomeCallable StartRecordCallable(const Model::StartRecordRequest& request);
+
+                /**
+                 *停止AI对话任务
+                 * @param req StopAIConversationRequest
+                 * @return StopAIConversationOutcome
+                 */
+                StopAIConversationOutcome StopAIConversation(const Model::StopAIConversationRequest &request);
+                void StopAIConversationAsync(const Model::StopAIConversationRequest& request, const StopAIConversationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                StopAIConversationOutcomeCallable StopAIConversationCallable(const Model::StopAIConversationRequest& request);
+
+                /**
+                 *停止录制
+
+                 * @param req StopRecordRequest
+                 * @return StopRecordOutcome
+                 */
+                StopRecordOutcome StopRecord(const Model::StopRecordRequest &request);
+                void StopRecordAsync(const Model::StopRecordRequest& request, const StopRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                StopRecordOutcomeCallable StopRecordCallable(const Model::StopRecordRequest& request);
+
+                /**
+                 *更新AIConversation参数
+                 * @param req UpdateAIConversationRequest
+                 * @return UpdateAIConversationOutcome
+                 */
+                UpdateAIConversationOutcome UpdateAIConversation(const Model::UpdateAIConversationRequest &request);
+                void UpdateAIConversationAsync(const Model::UpdateAIConversationRequest& request, const UpdateAIConversationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateAIConversationOutcomeCallable UpdateAIConversationCallable(const Model::UpdateAIConversationRequest& request);
+
+                /**
+                 *更新自定义送检房间号。**接口使用前提**：目前 UpdateScanRooms 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
                  * @param req UpdateScanRoomsRequest
                  * @return UpdateScanRoomsOutcome
                  */
@@ -434,7 +710,8 @@ namespace TencentCloud
                 UpdateScanRoomsOutcomeCallable UpdateScanRoomsCallable(const Model::UpdateScanRoomsRequest& request);
 
                 /**
-                 *更新自定义送检用户号
+                 *更新自定义送检用户号。
+**接口使用前提**：目前 UpdateScanUsers 接口通过白名单开放，如需使用，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1)。
                  * @param req UpdateScanUsersRequest
                  * @return UpdateScanUsersOutcome
                  */
@@ -443,15 +720,13 @@ namespace TencentCloud
                 UpdateScanUsersOutcomeCallable UpdateScanUsersCallable(const Model::UpdateScanUsersRequest& request);
 
                 /**
-                 *本接口用于识别涉黄等违规音频，成功会回调配置在应用的回调地址。回调示例如下：
-{"BizId":0,"FileId":"test_file_id","FileName":"test_file_name","FileUrl":"test_file_url","OpenId":"test_open_id","TimeStamp":"0000-00-00 00:00:00","Data":[{"Type":1,"Word":"xx"}]}
-Type表示过滤类型，1：色情，2：谩骂
-                 * @param req VoiceFilterRequest
-                 * @return VoiceFilterOutcome
+                 *传入声纹ID以及对应音频信息，更新对应声纹信息
+                 * @param req UpdateVoicePrintRequest
+                 * @return UpdateVoicePrintOutcome
                  */
-                VoiceFilterOutcome VoiceFilter(const Model::VoiceFilterRequest &request);
-                void VoiceFilterAsync(const Model::VoiceFilterRequest& request, const VoiceFilterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                VoiceFilterOutcomeCallable VoiceFilterCallable(const Model::VoiceFilterRequest& request);
+                UpdateVoicePrintOutcome UpdateVoicePrint(const Model::UpdateVoicePrintRequest &request);
+                void UpdateVoicePrintAsync(const Model::UpdateVoicePrintRequest& request, const UpdateVoicePrintAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateVoicePrintOutcomeCallable UpdateVoicePrintCallable(const Model::UpdateVoicePrintRequest& request);
 
             };
         }

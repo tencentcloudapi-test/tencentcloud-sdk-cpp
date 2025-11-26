@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取产品创建时间
                      * @return CreationDate 产品创建时间
+                     * 
                      */
                     uint64_t GetCreationDate() const;
 
                     /**
                      * 设置产品创建时间
-                     * @param CreationDate 产品创建时间
+                     * @param _creationDate 产品创建时间
+                     * 
                      */
                     void SetCreationDate(const uint64_t& _creationDate);
 
                     /**
                      * 判断参数 CreationDate 是否已赋值
                      * @return CreationDate 是否已赋值
+                     * 
                      */
                     bool CreationDateHasBeenSet() const;
 

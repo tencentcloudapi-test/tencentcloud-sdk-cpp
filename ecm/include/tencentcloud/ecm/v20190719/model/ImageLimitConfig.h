@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取支持的最大镜像大小，包括可导入的自定义镜像大小，中心云镜像大小，单位为GB。
                      * @return MaxImageSize 支持的最大镜像大小，包括可导入的自定义镜像大小，中心云镜像大小，单位为GB。
+                     * 
                      */
                     int64_t GetMaxImageSize() const;
 
                     /**
                      * 设置支持的最大镜像大小，包括可导入的自定义镜像大小，中心云镜像大小，单位为GB。
-                     * @param MaxImageSize 支持的最大镜像大小，包括可导入的自定义镜像大小，中心云镜像大小，单位为GB。
+                     * @param _maxImageSize 支持的最大镜像大小，包括可导入的自定义镜像大小，中心云镜像大小，单位为GB。
+                     * 
                      */
                     void SetMaxImageSize(const int64_t& _maxImageSize);
 
                     /**
                      * 判断参数 MaxImageSize 是否已赋值
                      * @return MaxImageSize 是否已赋值
+                     * 
                      */
                     bool MaxImageSizeHasBeenSet() const;
 

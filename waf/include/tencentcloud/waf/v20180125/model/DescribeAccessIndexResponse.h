@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,56 +45,59 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取是否生效
-                     * @return Status 是否生效
+                     * 获取是否生效，true表示生效，false表示未生效
+                     * @return Status 是否生效，true表示生效，false表示未生效
+                     * 
                      */
                     bool GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取索引配置信息
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Rule 索引配置信息
 注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AccessRuleInfo GetRule() const;
 
                     /**
                      * 判断参数 Rule 是否已赋值
                      * @return Rule 是否已赋值
+                     * 
                      */
                     bool RuleHasBeenSet() const;
 
                     /**
                      * 获取索引修改时间，初始值为索引创建时间。
                      * @return ModifyTime 索引修改时间，初始值为索引创建时间。
+                     * 
                      */
                     std::string GetModifyTime() const;
 
                     /**
                      * 判断参数 ModifyTime 是否已赋值
                      * @return ModifyTime 是否已赋值
+                     * 
                      */
                     bool ModifyTimeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 是否生效
+                     * 是否生效，true表示生效，false表示未生效
                      */
                     bool m_status;
                     bool m_statusHasBeenSet;
 
                     /**
                      * 索引配置信息
-注意：此字段可能返回 null，表示取不到有效值。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AccessRuleInfo m_rule;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,15 @@ CreateTopicRequest::CreateTopicRequest() :
     m_autoSplitHasBeenSet(false),
     m_maxSplitPartitionsHasBeenSet(false),
     m_storageTypeHasBeenSet(false),
-    m_periodHasBeenSet(false)
+    m_periodHasBeenSet(false),
+    m_describesHasBeenSet(false),
+    m_hotPeriodHasBeenSet(false),
+    m_encryptionHasBeenSet(false),
+    m_bizTypeHasBeenSet(false),
+    m_topicIdHasBeenSet(false),
+    m_isWebTrackingHasBeenSet(false),
+    m_extendsHasBeenSet(false),
+    m_isSourceFromHasBeenSet(false)
 {
 }
 
@@ -110,6 +118,71 @@ string CreateTopicRequest::ToJsonString() const
         string key = "Period";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_period, allocator);
+    }
+
+    if (m_describesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Describes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_describes.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hotPeriodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HotPeriod";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_hotPeriod, allocator);
+    }
+
+    if (m_encryptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Encryption";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_encryption, allocator);
+    }
+
+    if (m_bizTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BizType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_bizType, allocator);
+    }
+
+    if (m_topicIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TopicId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_topicId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isWebTrackingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsWebTracking";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isWebTracking, allocator);
+    }
+
+    if (m_extendsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Extends";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_extends.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_isSourceFromHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSourceFrom";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isSourceFrom, allocator);
     }
 
 
@@ -246,6 +319,134 @@ void CreateTopicRequest::SetPeriod(const int64_t& _period)
 bool CreateTopicRequest::PeriodHasBeenSet() const
 {
     return m_periodHasBeenSet;
+}
+
+string CreateTopicRequest::GetDescribes() const
+{
+    return m_describes;
+}
+
+void CreateTopicRequest::SetDescribes(const string& _describes)
+{
+    m_describes = _describes;
+    m_describesHasBeenSet = true;
+}
+
+bool CreateTopicRequest::DescribesHasBeenSet() const
+{
+    return m_describesHasBeenSet;
+}
+
+uint64_t CreateTopicRequest::GetHotPeriod() const
+{
+    return m_hotPeriod;
+}
+
+void CreateTopicRequest::SetHotPeriod(const uint64_t& _hotPeriod)
+{
+    m_hotPeriod = _hotPeriod;
+    m_hotPeriodHasBeenSet = true;
+}
+
+bool CreateTopicRequest::HotPeriodHasBeenSet() const
+{
+    return m_hotPeriodHasBeenSet;
+}
+
+uint64_t CreateTopicRequest::GetEncryption() const
+{
+    return m_encryption;
+}
+
+void CreateTopicRequest::SetEncryption(const uint64_t& _encryption)
+{
+    m_encryption = _encryption;
+    m_encryptionHasBeenSet = true;
+}
+
+bool CreateTopicRequest::EncryptionHasBeenSet() const
+{
+    return m_encryptionHasBeenSet;
+}
+
+uint64_t CreateTopicRequest::GetBizType() const
+{
+    return m_bizType;
+}
+
+void CreateTopicRequest::SetBizType(const uint64_t& _bizType)
+{
+    m_bizType = _bizType;
+    m_bizTypeHasBeenSet = true;
+}
+
+bool CreateTopicRequest::BizTypeHasBeenSet() const
+{
+    return m_bizTypeHasBeenSet;
+}
+
+string CreateTopicRequest::GetTopicId() const
+{
+    return m_topicId;
+}
+
+void CreateTopicRequest::SetTopicId(const string& _topicId)
+{
+    m_topicId = _topicId;
+    m_topicIdHasBeenSet = true;
+}
+
+bool CreateTopicRequest::TopicIdHasBeenSet() const
+{
+    return m_topicIdHasBeenSet;
+}
+
+bool CreateTopicRequest::GetIsWebTracking() const
+{
+    return m_isWebTracking;
+}
+
+void CreateTopicRequest::SetIsWebTracking(const bool& _isWebTracking)
+{
+    m_isWebTracking = _isWebTracking;
+    m_isWebTrackingHasBeenSet = true;
+}
+
+bool CreateTopicRequest::IsWebTrackingHasBeenSet() const
+{
+    return m_isWebTrackingHasBeenSet;
+}
+
+TopicExtendInfo CreateTopicRequest::GetExtends() const
+{
+    return m_extends;
+}
+
+void CreateTopicRequest::SetExtends(const TopicExtendInfo& _extends)
+{
+    m_extends = _extends;
+    m_extendsHasBeenSet = true;
+}
+
+bool CreateTopicRequest::ExtendsHasBeenSet() const
+{
+    return m_extendsHasBeenSet;
+}
+
+bool CreateTopicRequest::GetIsSourceFrom() const
+{
+    return m_isSourceFrom;
+}
+
+void CreateTopicRequest::SetIsSourceFrom(const bool& _isSourceFrom)
+{
+    m_isSourceFrom = _isSourceFrom;
+    m_isSourceFromHasBeenSet = true;
+}
+
+bool CreateTopicRequest::IsSourceFromHasBeenSet() const
+{
+    return m_isSourceFromHasBeenSet;
 }
 
 

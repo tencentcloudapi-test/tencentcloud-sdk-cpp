@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取检查结果，true为合法，false为非法
                      * @return IsValidated 检查结果，true为合法，false为非法
+                     * 
                      */
                     bool GetIsValidated() const;
 
                     /**
                      * 判断参数 IsValidated 是否已赋值
                      * @return IsValidated 是否已赋值
+                     * 
                      */
                     bool IsValidatedHasBeenSet() const;
 
                     /**
                      * 获取实例所在的RegionId
                      * @return RegionId 实例所在的RegionId
+                     * 
                      */
                     uint64_t GetRegionId() const;
 
                     /**
                      * 判断参数 RegionId 是否已赋值
                      * @return RegionId 是否已赋值
+                     * 
                      */
                     bool RegionIdHasBeenSet() const;
 

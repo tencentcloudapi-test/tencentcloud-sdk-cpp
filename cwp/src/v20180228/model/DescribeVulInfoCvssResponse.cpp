@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,11 @@ DescribeVulInfoCvssResponse::DescribeVulInfoCvssResponse() :
     m_cvssScoreHasBeenSet(false),
     m_cveInfoHasBeenSet(false),
     m_cvssScoreFloatHasBeenSet(false),
-    m_labelsHasBeenSet(false)
+    m_labelsHasBeenSet(false),
+    m_defenseAttackCountHasBeenSet(false),
+    m_successFixCountHasBeenSet(false),
+    m_fixSwitchHasBeenSet(false),
+    m_supportDefenceHasBeenSet(false)
 {
 }
 
@@ -215,6 +219,46 @@ CoreInternalOutcome DescribeVulInfoCvssResponse::Deserialize(const string &paylo
         m_labelsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("DefenseAttackCount") && !rsp["DefenseAttackCount"].IsNull())
+    {
+        if (!rsp["DefenseAttackCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DefenseAttackCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_defenseAttackCount = rsp["DefenseAttackCount"].GetUint64();
+        m_defenseAttackCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("SuccessFixCount") && !rsp["SuccessFixCount"].IsNull())
+    {
+        if (!rsp["SuccessFixCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SuccessFixCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_successFixCount = rsp["SuccessFixCount"].GetUint64();
+        m_successFixCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("FixSwitch") && !rsp["FixSwitch"].IsNull())
+    {
+        if (!rsp["FixSwitch"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `FixSwitch` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_fixSwitch = rsp["FixSwitch"].GetInt64();
+        m_fixSwitchHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("SupportDefence") && !rsp["SupportDefence"].IsNull())
+    {
+        if (!rsp["SupportDefence"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SupportDefence` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_supportDefence = rsp["SupportDefence"].GetInt64();
+        m_supportDefenceHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -337,11 +381,43 @@ string DescribeVulInfoCvssResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_labels.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_defenseAttackCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DefenseAttackCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_defenseAttackCount, allocator);
+    }
+
+    if (m_successFixCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SuccessFixCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_successFixCount, allocator);
+    }
+
+    if (m_fixSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FixSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_fixSwitch, allocator);
+    }
+
+    if (m_supportDefenceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SupportDefence";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_supportDefence, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -487,6 +563,46 @@ string DescribeVulInfoCvssResponse::GetLabels() const
 bool DescribeVulInfoCvssResponse::LabelsHasBeenSet() const
 {
     return m_labelsHasBeenSet;
+}
+
+uint64_t DescribeVulInfoCvssResponse::GetDefenseAttackCount() const
+{
+    return m_defenseAttackCount;
+}
+
+bool DescribeVulInfoCvssResponse::DefenseAttackCountHasBeenSet() const
+{
+    return m_defenseAttackCountHasBeenSet;
+}
+
+uint64_t DescribeVulInfoCvssResponse::GetSuccessFixCount() const
+{
+    return m_successFixCount;
+}
+
+bool DescribeVulInfoCvssResponse::SuccessFixCountHasBeenSet() const
+{
+    return m_successFixCountHasBeenSet;
+}
+
+int64_t DescribeVulInfoCvssResponse::GetFixSwitch() const
+{
+    return m_fixSwitch;
+}
+
+bool DescribeVulInfoCvssResponse::FixSwitchHasBeenSet() const
+{
+    return m_fixSwitchHasBeenSet;
+}
+
+int64_t DescribeVulInfoCvssResponse::GetSupportDefence() const
+{
+    return m_supportDefence;
+}
+
+bool DescribeVulInfoCvssResponse::SupportDefenceHasBeenSet() const
+{
+    return m_supportDefenceHasBeenSet;
 }
 
 

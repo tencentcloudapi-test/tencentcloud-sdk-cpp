@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,63 +44,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例 ID。
-                     * @return InstanceId 实例 ID。
+                     * 获取实例ID。可通过 [DescribeInstances](https://cloud.tencent.com/document/api/1207/47573) 接口返回值中的 InstanceId 获取。
+                     * @return InstanceId 实例ID。可通过 [DescribeInstances](https://cloud.tencent.com/document/api/1207/47573) 接口返回值中的 InstanceId 获取。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例 ID。
-                     * @param InstanceId 实例 ID。
+                     * 设置实例ID。可通过 [DescribeInstances](https://cloud.tencent.com/document/api/1207/47573) 接口返回值中的 InstanceId 获取。
+                     * @param _instanceId 实例ID。可通过 [DescribeInstances](https://cloud.tencent.com/document/api/1207/47573) 接口返回值中的 InstanceId 获取。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取防火墙规则。
                      * @return FirewallRule 防火墙规则。
+                     * 
                      */
                     FirewallRule GetFirewallRule() const;
 
                     /**
                      * 设置防火墙规则。
-                     * @param FirewallRule 防火墙规则。
+                     * @param _firewallRule 防火墙规则。
+                     * 
                      */
                     void SetFirewallRule(const FirewallRule& _firewallRule);
 
                     /**
                      * 判断参数 FirewallRule 是否已赋值
                      * @return FirewallRule 是否已赋值
+                     * 
                      */
                     bool FirewallRuleHasBeenSet() const;
 
                     /**
                      * 获取防火墙当前版本。用户每次更新防火墙规则时版本会自动加1，防止规则已过期，不填不考虑冲突。
                      * @return FirewallVersion 防火墙当前版本。用户每次更新防火墙规则时版本会自动加1，防止规则已过期，不填不考虑冲突。
+                     * 
                      */
                     uint64_t GetFirewallVersion() const;
 
                     /**
                      * 设置防火墙当前版本。用户每次更新防火墙规则时版本会自动加1，防止规则已过期，不填不考虑冲突。
-                     * @param FirewallVersion 防火墙当前版本。用户每次更新防火墙规则时版本会自动加1，防止规则已过期，不填不考虑冲突。
+                     * @param _firewallVersion 防火墙当前版本。用户每次更新防火墙规则时版本会自动加1，防止规则已过期，不填不考虑冲突。
+                     * 
                      */
                     void SetFirewallVersion(const uint64_t& _firewallVersion);
 
                     /**
                      * 判断参数 FirewallVersion 是否已赋值
                      * @return FirewallVersion 是否已赋值
+                     * 
                      */
                     bool FirewallVersionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例 ID。
+                     * 实例ID。可通过 [DescribeInstances](https://cloud.tencent.com/document/api/1207/47573) 接口返回值中的 InstanceId 获取。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;

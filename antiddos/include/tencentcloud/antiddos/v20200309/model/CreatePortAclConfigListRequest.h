@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取资源实例ID列表
                      * @return InstanceIdList 资源实例ID列表
+                     * 
                      */
                     std::vector<std::string> GetInstanceIdList() const;
 
                     /**
                      * 设置资源实例ID列表
-                     * @param InstanceIdList 资源实例ID列表
+                     * @param _instanceIdList 资源实例ID列表
+                     * 
                      */
                     void SetInstanceIdList(const std::vector<std::string>& _instanceIdList);
 
                     /**
                      * 判断参数 InstanceIdList 是否已赋值
                      * @return InstanceIdList 是否已赋值
+                     * 
                      */
                     bool InstanceIdListHasBeenSet() const;
 
                     /**
                      * 获取端口acl策略
                      * @return AclConfig 端口acl策略
+                     * 
                      */
                     AclConfig GetAclConfig() const;
 
                     /**
                      * 设置端口acl策略
-                     * @param AclConfig 端口acl策略
+                     * @param _aclConfig 端口acl策略
+                     * 
                      */
                     void SetAclConfig(const AclConfig& _aclConfig);
 
                     /**
                      * 判断参数 AclConfig 是否已赋值
                      * @return AclConfig 是否已赋值
+                     * 
                      */
                     bool AclConfigHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,25 +62,32 @@ StsClient::AssumeRoleOutcome StsClient::AssumeRole(const AssumeRoleRequest &requ
 
 void StsClient::AssumeRoleAsync(const AssumeRoleRequest& request, const AssumeRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AssumeRole(request), context);
-    };
+    using Req = const AssumeRoleRequest&;
+    using Resp = AssumeRoleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AssumeRole", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 StsClient::AssumeRoleOutcomeCallable StsClient::AssumeRoleCallable(const AssumeRoleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AssumeRoleOutcome()>>(
-        [this, request]()
-        {
-            return this->AssumeRole(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<AssumeRoleOutcome>>();
+    AssumeRoleAsync(
+    request,
+    [prom](
+        const StsClient*,
+        const AssumeRoleRequest&,
+        AssumeRoleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 StsClient::AssumeRoleWithSAMLOutcome StsClient::AssumeRoleWithSAML(const AssumeRoleWithSAMLRequest &request)
@@ -105,25 +112,82 @@ StsClient::AssumeRoleWithSAMLOutcome StsClient::AssumeRoleWithSAML(const AssumeR
 
 void StsClient::AssumeRoleWithSAMLAsync(const AssumeRoleWithSAMLRequest& request, const AssumeRoleWithSAMLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->AssumeRoleWithSAML(request), context);
-    };
+    using Req = const AssumeRoleWithSAMLRequest&;
+    using Resp = AssumeRoleWithSAMLResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "AssumeRoleWithSAML", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 StsClient::AssumeRoleWithSAMLOutcomeCallable StsClient::AssumeRoleWithSAMLCallable(const AssumeRoleWithSAMLRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<AssumeRoleWithSAMLOutcome()>>(
-        [this, request]()
-        {
-            return this->AssumeRoleWithSAML(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<AssumeRoleWithSAMLOutcome>>();
+    AssumeRoleWithSAMLAsync(
+    request,
+    [prom](
+        const StsClient*,
+        const AssumeRoleWithSAMLRequest&,
+        AssumeRoleWithSAMLOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+StsClient::AssumeRoleWithWebIdentityOutcome StsClient::AssumeRoleWithWebIdentity(const AssumeRoleWithWebIdentityRequest &request)
+{
+    auto outcome = MakeRequest(request, "AssumeRoleWithWebIdentity");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AssumeRoleWithWebIdentityResponse rsp = AssumeRoleWithWebIdentityResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AssumeRoleWithWebIdentityOutcome(rsp);
+        else
+            return AssumeRoleWithWebIdentityOutcome(o.GetError());
+    }
+    else
+    {
+        return AssumeRoleWithWebIdentityOutcome(outcome.GetError());
+    }
+}
+
+void StsClient::AssumeRoleWithWebIdentityAsync(const AssumeRoleWithWebIdentityRequest& request, const AssumeRoleWithWebIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AssumeRoleWithWebIdentityRequest&;
+    using Resp = AssumeRoleWithWebIdentityResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AssumeRoleWithWebIdentity", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+StsClient::AssumeRoleWithWebIdentityOutcomeCallable StsClient::AssumeRoleWithWebIdentityCallable(const AssumeRoleWithWebIdentityRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AssumeRoleWithWebIdentityOutcome>>();
+    AssumeRoleWithWebIdentityAsync(
+    request,
+    [prom](
+        const StsClient*,
+        const AssumeRoleWithWebIdentityRequest&,
+        AssumeRoleWithWebIdentityOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 StsClient::GetCallerIdentityOutcome StsClient::GetCallerIdentity(const GetCallerIdentityRequest &request)
@@ -148,25 +212,32 @@ StsClient::GetCallerIdentityOutcome StsClient::GetCallerIdentity(const GetCaller
 
 void StsClient::GetCallerIdentityAsync(const GetCallerIdentityRequest& request, const GetCallerIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetCallerIdentity(request), context);
-    };
+    using Req = const GetCallerIdentityRequest&;
+    using Resp = GetCallerIdentityResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetCallerIdentity", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 StsClient::GetCallerIdentityOutcomeCallable StsClient::GetCallerIdentityCallable(const GetCallerIdentityRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetCallerIdentityOutcome()>>(
-        [this, request]()
-        {
-            return this->GetCallerIdentity(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GetCallerIdentityOutcome>>();
+    GetCallerIdentityAsync(
+    request,
+    [prom](
+        const StsClient*,
+        const GetCallerIdentityRequest&,
+        GetCallerIdentityOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 StsClient::GetFederationTokenOutcome StsClient::GetFederationToken(const GetFederationTokenRequest &request)
@@ -191,25 +262,82 @@ StsClient::GetFederationTokenOutcome StsClient::GetFederationToken(const GetFede
 
 void StsClient::GetFederationTokenAsync(const GetFederationTokenRequest& request, const GetFederationTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetFederationToken(request), context);
-    };
+    using Req = const GetFederationTokenRequest&;
+    using Resp = GetFederationTokenResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetFederationToken", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 StsClient::GetFederationTokenOutcomeCallable StsClient::GetFederationTokenCallable(const GetFederationTokenRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetFederationTokenOutcome()>>(
-        [this, request]()
-        {
-            return this->GetFederationToken(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<GetFederationTokenOutcome>>();
+    GetFederationTokenAsync(
+    request,
+    [prom](
+        const StsClient*,
+        const GetFederationTokenRequest&,
+        GetFederationTokenOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+StsClient::GetSessionTokenOutcome StsClient::GetSessionToken(const GetSessionTokenRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetSessionToken");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetSessionTokenResponse rsp = GetSessionTokenResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetSessionTokenOutcome(rsp);
+        else
+            return GetSessionTokenOutcome(o.GetError());
+    }
+    else
+    {
+        return GetSessionTokenOutcome(outcome.GetError());
+    }
+}
+
+void StsClient::GetSessionTokenAsync(const GetSessionTokenRequest& request, const GetSessionTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetSessionTokenRequest&;
+    using Resp = GetSessionTokenResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetSessionToken", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+StsClient::GetSessionTokenOutcomeCallable StsClient::GetSessionTokenCallable(const GetSessionTokenRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetSessionTokenOutcome>>();
+    GetSessionTokenAsync(
+    request,
+    [prom](
+        const StsClient*,
+        const GetSessionTokenRequest&,
+        GetSessionTokenOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 StsClient::QueryApiKeyOutcome StsClient::QueryApiKey(const QueryApiKeyRequest &request)
@@ -234,24 +362,31 @@ StsClient::QueryApiKeyOutcome StsClient::QueryApiKey(const QueryApiKeyRequest &r
 
 void StsClient::QueryApiKeyAsync(const QueryApiKeyRequest& request, const QueryApiKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryApiKey(request), context);
-    };
+    using Req = const QueryApiKeyRequest&;
+    using Resp = QueryApiKeyResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryApiKey", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 StsClient::QueryApiKeyOutcomeCallable StsClient::QueryApiKeyCallable(const QueryApiKeyRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryApiKeyOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryApiKey(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryApiKeyOutcome>>();
+    QueryApiKeyAsync(
+    request,
+    [prom](
+        const StsClient*,
+        const QueryApiKeyRequest&,
+        QueryApiKeyOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

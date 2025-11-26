@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,10 @@ DeployGroupRequest::DeployGroupRequest() :
     m_stopScriptHasBeenSet(false),
     m_incrementalDeploymentHasBeenSet(false),
     m_jdkNameHasBeenSet(false),
-    m_jdkVersionHasBeenSet(false)
+    m_jdkVersionHasBeenSet(false),
+    m_agentProfileListHasBeenSet(false),
+    m_warmupSettingHasBeenSet(false),
+    m_enableBatchHealthCheckHasBeenSet(false)
 {
 }
 
@@ -190,6 +193,38 @@ string DeployGroupRequest::ToJsonString() const
         string key = "JdkVersion";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_jdkVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_agentProfileListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AgentProfileList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_agentProfileList.begin(); itr != m_agentProfileList.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_warmupSettingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WarmupSetting";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_warmupSetting.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_enableBatchHealthCheckHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableBatchHealthCheck";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableBatchHealthCheck, allocator);
     }
 
 
@@ -470,6 +505,54 @@ void DeployGroupRequest::SetJdkVersion(const string& _jdkVersion)
 bool DeployGroupRequest::JdkVersionHasBeenSet() const
 {
     return m_jdkVersionHasBeenSet;
+}
+
+vector<AgentProfile> DeployGroupRequest::GetAgentProfileList() const
+{
+    return m_agentProfileList;
+}
+
+void DeployGroupRequest::SetAgentProfileList(const vector<AgentProfile>& _agentProfileList)
+{
+    m_agentProfileList = _agentProfileList;
+    m_agentProfileListHasBeenSet = true;
+}
+
+bool DeployGroupRequest::AgentProfileListHasBeenSet() const
+{
+    return m_agentProfileListHasBeenSet;
+}
+
+WarmupSetting DeployGroupRequest::GetWarmupSetting() const
+{
+    return m_warmupSetting;
+}
+
+void DeployGroupRequest::SetWarmupSetting(const WarmupSetting& _warmupSetting)
+{
+    m_warmupSetting = _warmupSetting;
+    m_warmupSettingHasBeenSet = true;
+}
+
+bool DeployGroupRequest::WarmupSettingHasBeenSet() const
+{
+    return m_warmupSettingHasBeenSet;
+}
+
+bool DeployGroupRequest::GetEnableBatchHealthCheck() const
+{
+    return m_enableBatchHealthCheck;
+}
+
+void DeployGroupRequest::SetEnableBatchHealthCheck(const bool& _enableBatchHealthCheck)
+{
+    m_enableBatchHealthCheck = _enableBatchHealthCheck;
+    m_enableBatchHealthCheckHasBeenSet = true;
+}
+
+bool DeployGroupRequest::EnableBatchHealthCheckHasBeenSet() const
+{
+    return m_enableBatchHealthCheckHasBeenSet;
 }
 
 

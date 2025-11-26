@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,15 @@ Listener::Listener() :
     m_sessionTypeHasBeenSet(false),
     m_keepaliveEnableHasBeenSet(false),
     m_toaHasBeenSet(false),
-    m_deregisterTargetRstHasBeenSet(false)
+    m_deregisterTargetRstHasBeenSet(false),
+    m_attrFlagsHasBeenSet(false),
+    m_targetGroupListHasBeenSet(false),
+    m_maxConnHasBeenSet(false),
+    m_maxCpsHasBeenSet(false),
+    m_idleConnectTimeoutHasBeenSet(false),
+    m_rescheduleIntervalHasBeenSet(false),
+    m_dataCompressModeHasBeenSet(false),
+    m_rescheduleStartTimeHasBeenSet(false)
 {
 }
 
@@ -258,6 +266,99 @@ CoreInternalOutcome Listener::Deserialize(const rapidjson::Value &value)
         m_deregisterTargetRstHasBeenSet = true;
     }
 
+    if (value.HasMember("AttrFlags") && !value["AttrFlags"].IsNull())
+    {
+        if (!value["AttrFlags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Listener.AttrFlags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["AttrFlags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_attrFlags.push_back((*itr).GetString());
+        }
+        m_attrFlagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("TargetGroupList") && !value["TargetGroupList"].IsNull())
+    {
+        if (!value["TargetGroupList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Listener.TargetGroupList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TargetGroupList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            BasicTargetGroupInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_targetGroupList.push_back(item);
+        }
+        m_targetGroupListHasBeenSet = true;
+    }
+
+    if (value.HasMember("MaxConn") && !value["MaxConn"].IsNull())
+    {
+        if (!value["MaxConn"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Listener.MaxConn` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_maxConn = value["MaxConn"].GetInt64();
+        m_maxConnHasBeenSet = true;
+    }
+
+    if (value.HasMember("MaxCps") && !value["MaxCps"].IsNull())
+    {
+        if (!value["MaxCps"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Listener.MaxCps` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_maxCps = value["MaxCps"].GetInt64();
+        m_maxCpsHasBeenSet = true;
+    }
+
+    if (value.HasMember("IdleConnectTimeout") && !value["IdleConnectTimeout"].IsNull())
+    {
+        if (!value["IdleConnectTimeout"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Listener.IdleConnectTimeout` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_idleConnectTimeout = value["IdleConnectTimeout"].GetInt64();
+        m_idleConnectTimeoutHasBeenSet = true;
+    }
+
+    if (value.HasMember("RescheduleInterval") && !value["RescheduleInterval"].IsNull())
+    {
+        if (!value["RescheduleInterval"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Listener.RescheduleInterval` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_rescheduleInterval = value["RescheduleInterval"].GetUint64();
+        m_rescheduleIntervalHasBeenSet = true;
+    }
+
+    if (value.HasMember("DataCompressMode") && !value["DataCompressMode"].IsNull())
+    {
+        if (!value["DataCompressMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Listener.DataCompressMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dataCompressMode = string(value["DataCompressMode"].GetString());
+        m_dataCompressModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RescheduleStartTime") && !value["RescheduleStartTime"].IsNull())
+    {
+        if (!value["RescheduleStartTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Listener.RescheduleStartTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_rescheduleStartTime = value["RescheduleStartTime"].GetInt64();
+        m_rescheduleStartTimeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -417,6 +518,82 @@ void Listener::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "DeregisterTargetRst";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_deregisterTargetRst, allocator);
+    }
+
+    if (m_attrFlagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AttrFlags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_attrFlags.begin(); itr != m_attrFlags.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_targetGroupListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TargetGroupList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_targetGroupList.begin(); itr != m_targetGroupList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_maxConnHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxConn";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_maxConn, allocator);
+    }
+
+    if (m_maxCpsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxCps";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_maxCps, allocator);
+    }
+
+    if (m_idleConnectTimeoutHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdleConnectTimeout";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_idleConnectTimeout, allocator);
+    }
+
+    if (m_rescheduleIntervalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RescheduleInterval";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_rescheduleInterval, allocator);
+    }
+
+    if (m_dataCompressModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DataCompressMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dataCompressMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_rescheduleStartTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RescheduleStartTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_rescheduleStartTime, allocator);
     }
 
 }
@@ -708,5 +885,133 @@ void Listener::SetDeregisterTargetRst(const bool& _deregisterTargetRst)
 bool Listener::DeregisterTargetRstHasBeenSet() const
 {
     return m_deregisterTargetRstHasBeenSet;
+}
+
+vector<string> Listener::GetAttrFlags() const
+{
+    return m_attrFlags;
+}
+
+void Listener::SetAttrFlags(const vector<string>& _attrFlags)
+{
+    m_attrFlags = _attrFlags;
+    m_attrFlagsHasBeenSet = true;
+}
+
+bool Listener::AttrFlagsHasBeenSet() const
+{
+    return m_attrFlagsHasBeenSet;
+}
+
+vector<BasicTargetGroupInfo> Listener::GetTargetGroupList() const
+{
+    return m_targetGroupList;
+}
+
+void Listener::SetTargetGroupList(const vector<BasicTargetGroupInfo>& _targetGroupList)
+{
+    m_targetGroupList = _targetGroupList;
+    m_targetGroupListHasBeenSet = true;
+}
+
+bool Listener::TargetGroupListHasBeenSet() const
+{
+    return m_targetGroupListHasBeenSet;
+}
+
+int64_t Listener::GetMaxConn() const
+{
+    return m_maxConn;
+}
+
+void Listener::SetMaxConn(const int64_t& _maxConn)
+{
+    m_maxConn = _maxConn;
+    m_maxConnHasBeenSet = true;
+}
+
+bool Listener::MaxConnHasBeenSet() const
+{
+    return m_maxConnHasBeenSet;
+}
+
+int64_t Listener::GetMaxCps() const
+{
+    return m_maxCps;
+}
+
+void Listener::SetMaxCps(const int64_t& _maxCps)
+{
+    m_maxCps = _maxCps;
+    m_maxCpsHasBeenSet = true;
+}
+
+bool Listener::MaxCpsHasBeenSet() const
+{
+    return m_maxCpsHasBeenSet;
+}
+
+int64_t Listener::GetIdleConnectTimeout() const
+{
+    return m_idleConnectTimeout;
+}
+
+void Listener::SetIdleConnectTimeout(const int64_t& _idleConnectTimeout)
+{
+    m_idleConnectTimeout = _idleConnectTimeout;
+    m_idleConnectTimeoutHasBeenSet = true;
+}
+
+bool Listener::IdleConnectTimeoutHasBeenSet() const
+{
+    return m_idleConnectTimeoutHasBeenSet;
+}
+
+uint64_t Listener::GetRescheduleInterval() const
+{
+    return m_rescheduleInterval;
+}
+
+void Listener::SetRescheduleInterval(const uint64_t& _rescheduleInterval)
+{
+    m_rescheduleInterval = _rescheduleInterval;
+    m_rescheduleIntervalHasBeenSet = true;
+}
+
+bool Listener::RescheduleIntervalHasBeenSet() const
+{
+    return m_rescheduleIntervalHasBeenSet;
+}
+
+string Listener::GetDataCompressMode() const
+{
+    return m_dataCompressMode;
+}
+
+void Listener::SetDataCompressMode(const string& _dataCompressMode)
+{
+    m_dataCompressMode = _dataCompressMode;
+    m_dataCompressModeHasBeenSet = true;
+}
+
+bool Listener::DataCompressModeHasBeenSet() const
+{
+    return m_dataCompressModeHasBeenSet;
+}
+
+int64_t Listener::GetRescheduleStartTime() const
+{
+    return m_rescheduleStartTime;
+}
+
+void Listener::SetRescheduleStartTime(const int64_t& _rescheduleStartTime)
+{
+    m_rescheduleStartTime = _rescheduleStartTime;
+    m_rescheduleStartTimeHasBeenSet = true;
+}
+
+bool Listener::RescheduleStartTimeHasBeenSet() const
+{
+    return m_rescheduleStartTimeHasBeenSet;
 }
 

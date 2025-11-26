@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,100 +47,112 @@ namespace TencentCloud
                     /**
                      * 获取镜像个数
                      * @return ImageTotal 镜像个数
+                     * 
                      */
                     uint64_t GetImageTotal() const;
 
                     /**
                      * 判断参数 ImageTotal 是否已赋值
                      * @return ImageTotal 是否已赋值
+                     * 
                      */
                     bool ImageTotalHasBeenSet() const;
 
                     /**
                      * 获取扫描镜像个数
                      * @return ImageScanCnt 扫描镜像个数
+                     * 
                      */
                     uint64_t GetImageScanCnt() const;
 
                     /**
                      * 判断参数 ImageScanCnt 是否已赋值
                      * @return ImageScanCnt 是否已赋值
+                     * 
                      */
                     bool ImageScanCntHasBeenSet() const;
 
                     /**
                      * 获取扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ImageStatus 扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ImageProgress> GetImageStatus() const;
 
                     /**
                      * 判断参数 ImageStatus 是否已赋值
                      * @return ImageStatus 是否已赋值
+                     * 
                      */
                     bool ImageStatusHasBeenSet() const;
 
                     /**
                      * 获取安全个数
                      * @return SuccessCount 安全个数
+                     * 
                      */
                     uint64_t GetSuccessCount() const;
 
                     /**
                      * 判断参数 SuccessCount 是否已赋值
                      * @return SuccessCount 是否已赋值
+                     * 
                      */
                     bool SuccessCountHasBeenSet() const;
 
                     /**
                      * 获取风险个数
                      * @return RiskCount 风险个数
+                     * 
                      */
                     uint64_t GetRiskCount() const;
 
                     /**
                      * 判断参数 RiskCount 是否已赋值
                      * @return RiskCount 是否已赋值
+                     * 
                      */
                     bool RiskCountHasBeenSet() const;
 
                     /**
                      * 获取总的扫描进度
                      * @return Schedule 总的扫描进度
+                     * 
                      */
                     uint64_t GetSchedule() const;
 
                     /**
                      * 判断参数 Schedule 是否已赋值
                      * @return Schedule 是否已赋值
+                     * 
                      */
                     bool ScheduleHasBeenSet() const;
 
                     /**
                      * 获取总的扫描状态
                      * @return Status 总的扫描状态
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScanRemainTime 扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetScanRemainTime() const;
 
                     /**
                      * 判断参数 ScanRemainTime 是否已赋值
                      * @return ScanRemainTime 是否已赋值
+                     * 
                      */
                     bool ScanRemainTimeHasBeenSet() const;
 
@@ -160,7 +172,6 @@ namespace TencentCloud
 
                     /**
                      * 扫描进度列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ImageProgress> m_imageStatus;
                     bool m_imageStatusHasBeenSet;
@@ -191,7 +202,6 @@ namespace TencentCloud
 
                     /**
                      * 扫描剩余时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_scanRemainTime;
                     bool m_scanRemainTimeHasBeenSet;

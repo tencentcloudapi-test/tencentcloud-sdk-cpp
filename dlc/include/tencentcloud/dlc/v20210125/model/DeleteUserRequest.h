@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,20 +45,44 @@ namespace TencentCloud
                     /**
                      * 获取需要删除的用户的Id
                      * @return UserIds 需要删除的用户的Id
+                     * 
                      */
                     std::vector<std::string> GetUserIds() const;
 
                     /**
                      * 设置需要删除的用户的Id
-                     * @param UserIds 需要删除的用户的Id
+                     * @param _userIds 需要删除的用户的Id
+                     * 
                      */
                     void SetUserIds(const std::vector<std::string>& _userIds);
 
                     /**
                      * 判断参数 UserIds 是否已赋值
                      * @return UserIds 是否已赋值
+                     * 
                      */
                     bool UserIdsHasBeenSet() const;
+
+                    /**
+                     * 获取用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * @return AccountType 用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * 
+                     */
+                    std::string GetAccountType() const;
+
+                    /**
+                     * 设置用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * @param _accountType 用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     * 
+                     */
+                    void SetAccountType(const std::string& _accountType);
+
+                    /**
+                     * 判断参数 AccountType 是否已赋值
+                     * @return AccountType 是否已赋值
+                     * 
+                     */
+                    bool AccountTypeHasBeenSet() const;
 
                 private:
 
@@ -67,6 +91,12 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_userIds;
                     bool m_userIdsHasBeenSet;
+
+                    /**
+                     * 用户来源类型TencentAccount（普通腾讯云用户） / EntraAccount（微软用户）
+                     */
+                    std::string m_accountType;
+                    bool m_accountTypeHasBeenSet;
 
                 };
             }

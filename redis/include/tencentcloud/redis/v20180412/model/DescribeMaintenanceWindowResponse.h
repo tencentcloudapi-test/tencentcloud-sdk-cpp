@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,39 +44,52 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取维护时间窗起始时间，如：17:00
-                     * @return StartTime 维护时间窗起始时间，如：17:00
+                     * 获取维护时间窗开始时间。取值范围为"00:00-23:00"的任意时间点，如03:24。
+                     * @return StartTime 维护时间窗开始时间。取值范围为"00:00-23:00"的任意时间点，如03:24。
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取维护时间窗结束时间，如：19:00
-                     * @return EndTime 维护时间窗结束时间，如：19:00
+                     * 获取维护时间窗结束时间。
+- 取值范围为"00:00-23:00"的任意时间点，如：04:24。
+- 维护时间持续时长最小为30分钟，最大为3小时。
+- 结束时间务必是基于开始时间向后的时间。
+                     * @return EndTime 维护时间窗结束时间。
+- 取值范围为"00:00-23:00"的任意时间点，如：04:24。
+- 维护时间持续时长最小为30分钟，最大为3小时。
+- 结束时间务必是基于开始时间向后的时间。
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 维护时间窗起始时间，如：17:00
+                     * 维护时间窗开始时间。取值范围为"00:00-23:00"的任意时间点，如03:24。
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * 维护时间窗结束时间，如：19:00
+                     * 维护时间窗结束时间。
+- 取值范围为"00:00-23:00"的任意时间点，如：04:24。
+- 维护时间持续时长最小为30分钟，最大为3小时。
+- 结束时间务必是基于开始时间向后的时间。
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,14 @@ Backup::Backup() :
     m_statusHasBeenSet(false),
     m_dBsHasBeenSet(false),
     m_strategyHasBeenSet(false),
+    m_storageStrategyHasBeenSet(false),
     m_backupWayHasBeenSet(false),
     m_backupNameHasBeenSet(false),
-    m_groupIdHasBeenSet(false)
+    m_groupIdHasBeenSet(false),
+    m_backupFormatHasBeenSet(false),
+    m_regionHasBeenSet(false),
+    m_crossBackupAddrHasBeenSet(false),
+    m_crossBackupStatusHasBeenSet(false)
 {
 }
 
@@ -145,6 +150,16 @@ CoreInternalOutcome Backup::Deserialize(const rapidjson::Value &value)
         m_strategyHasBeenSet = true;
     }
 
+    if (value.HasMember("StorageStrategy") && !value["StorageStrategy"].IsNull())
+    {
+        if (!value["StorageStrategy"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Backup.StorageStrategy` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_storageStrategy = value["StorageStrategy"].GetInt64();
+        m_storageStrategyHasBeenSet = true;
+    }
+
     if (value.HasMember("BackupWay") && !value["BackupWay"].IsNull())
     {
         if (!value["BackupWay"].IsInt64())
@@ -173,6 +188,66 @@ CoreInternalOutcome Backup::Deserialize(const rapidjson::Value &value)
         }
         m_groupId = string(value["GroupId"].GetString());
         m_groupIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("BackupFormat") && !value["BackupFormat"].IsNull())
+    {
+        if (!value["BackupFormat"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Backup.BackupFormat` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_backupFormat = string(value["BackupFormat"].GetString());
+        m_backupFormatHasBeenSet = true;
+    }
+
+    if (value.HasMember("Region") && !value["Region"].IsNull())
+    {
+        if (!value["Region"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Backup.Region` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_region = string(value["Region"].GetString());
+        m_regionHasBeenSet = true;
+    }
+
+    if (value.HasMember("CrossBackupAddr") && !value["CrossBackupAddr"].IsNull())
+    {
+        if (!value["CrossBackupAddr"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Backup.CrossBackupAddr` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CrossBackupAddr"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            CrossBackupAddr item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_crossBackupAddr.push_back(item);
+        }
+        m_crossBackupAddrHasBeenSet = true;
+    }
+
+    if (value.HasMember("CrossBackupStatus") && !value["CrossBackupStatus"].IsNull())
+    {
+        if (!value["CrossBackupStatus"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Backup.CrossBackupStatus` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CrossBackupStatus"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            CrossRegionStatus item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_crossBackupStatus.push_back(item);
+        }
+        m_crossBackupStatusHasBeenSet = true;
     }
 
 
@@ -267,6 +342,14 @@ void Backup::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         value.AddMember(iKey, m_strategy, allocator);
     }
 
+    if (m_storageStrategyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageStrategy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_storageStrategy, allocator);
+    }
+
     if (m_backupWayHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -289,6 +372,52 @@ void Backup::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocato
         string key = "GroupId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_groupId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backupFormatHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupFormat";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_backupFormat.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Region";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_region.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_crossBackupAddrHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CrossBackupAddr";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_crossBackupAddr.begin(); itr != m_crossBackupAddr.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_crossBackupStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CrossBackupStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_crossBackupStatus.begin(); itr != m_crossBackupStatus.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -454,6 +583,22 @@ bool Backup::StrategyHasBeenSet() const
     return m_strategyHasBeenSet;
 }
 
+int64_t Backup::GetStorageStrategy() const
+{
+    return m_storageStrategy;
+}
+
+void Backup::SetStorageStrategy(const int64_t& _storageStrategy)
+{
+    m_storageStrategy = _storageStrategy;
+    m_storageStrategyHasBeenSet = true;
+}
+
+bool Backup::StorageStrategyHasBeenSet() const
+{
+    return m_storageStrategyHasBeenSet;
+}
+
 int64_t Backup::GetBackupWay() const
 {
     return m_backupWay;
@@ -500,5 +645,69 @@ void Backup::SetGroupId(const string& _groupId)
 bool Backup::GroupIdHasBeenSet() const
 {
     return m_groupIdHasBeenSet;
+}
+
+string Backup::GetBackupFormat() const
+{
+    return m_backupFormat;
+}
+
+void Backup::SetBackupFormat(const string& _backupFormat)
+{
+    m_backupFormat = _backupFormat;
+    m_backupFormatHasBeenSet = true;
+}
+
+bool Backup::BackupFormatHasBeenSet() const
+{
+    return m_backupFormatHasBeenSet;
+}
+
+string Backup::GetRegion() const
+{
+    return m_region;
+}
+
+void Backup::SetRegion(const string& _region)
+{
+    m_region = _region;
+    m_regionHasBeenSet = true;
+}
+
+bool Backup::RegionHasBeenSet() const
+{
+    return m_regionHasBeenSet;
+}
+
+vector<CrossBackupAddr> Backup::GetCrossBackupAddr() const
+{
+    return m_crossBackupAddr;
+}
+
+void Backup::SetCrossBackupAddr(const vector<CrossBackupAddr>& _crossBackupAddr)
+{
+    m_crossBackupAddr = _crossBackupAddr;
+    m_crossBackupAddrHasBeenSet = true;
+}
+
+bool Backup::CrossBackupAddrHasBeenSet() const
+{
+    return m_crossBackupAddrHasBeenSet;
+}
+
+vector<CrossRegionStatus> Backup::GetCrossBackupStatus() const
+{
+    return m_crossBackupStatus;
+}
+
+void Backup::SetCrossBackupStatus(const vector<CrossRegionStatus>& _crossBackupStatus)
+{
+    m_crossBackupStatus = _crossBackupStatus;
+    m_crossBackupStatusHasBeenSet = true;
+}
+
+bool Backup::CrossBackupStatusHasBeenSet() const
+{
+    return m_crossBackupStatusHasBeenSet;
 }
 

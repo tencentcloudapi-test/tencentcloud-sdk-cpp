@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,56 +46,80 @@ namespace TencentCloud
                     /**
                      * 获取是否开启实时监控
                      * @return EnableScan 是否开启实时监控
+                     * 
                      */
                     bool GetEnableScan() const;
 
                     /**
                      * 判断参数 EnableScan 是否已赋值
                      * @return EnableScan 是否已赋值
+                     * 
                      */
                     bool EnableScanHasBeenSet() const;
 
                     /**
                      * 获取扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScanPathAll 扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     bool GetScanPathAll() const;
 
                     /**
                      * 判断参数 ScanPathAll 是否已赋值
                      * @return ScanPathAll 是否已赋值
+                     * 
                      */
                     bool ScanPathAllHasBeenSet() const;
 
                     /**
                      * 获取当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScanPathType 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetScanPathType() const;
 
                     /**
                      * 判断参数 ScanPathType 是否已赋值
                      * @return ScanPathType 是否已赋值
+                     * 
                      */
                     bool ScanPathTypeHasBeenSet() const;
 
                     /**
                      * 获取自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScanPath 自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetScanPath() const;
 
                     /**
                      * 判断参数 ScanPath 是否已赋值
                      * @return ScanPath 是否已赋值
+                     * 
                      */
                     bool ScanPathHasBeenSet() const;
+
+                    /**
+                     * 获取扫描路径模式：
+SCAN_PATH_ALL：全部路径
+SCAN_PATH_DEFAULT：默认路径
+SCAN_PATH_USER_DEFINE：用户自定义路径
+
+                     * @return ScanPathMode 扫描路径模式：
+SCAN_PATH_ALL：全部路径
+SCAN_PATH_DEFAULT：默认路径
+SCAN_PATH_USER_DEFINE：用户自定义路径
+
+                     * 
+                     */
+                    std::string GetScanPathMode() const;
+
+                    /**
+                     * 判断参数 ScanPathMode 是否已赋值
+                     * @return ScanPathMode 是否已赋值
+                     * 
+                     */
+                    bool ScanPathModeHasBeenSet() const;
 
                 private:
 
@@ -107,24 +131,31 @@ namespace TencentCloud
 
                     /**
                      * 扫描全部路径
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_scanPathAll;
                     bool m_scanPathAllHasBeenSet;
 
                     /**
                      * 当ScanPathAll为true 生效 0扫描以下路径 1、扫描除以下路径
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_scanPathType;
                     bool m_scanPathTypeHasBeenSet;
 
                     /**
                      * 自选排除或扫描的地址
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_scanPath;
                     bool m_scanPathHasBeenSet;
+
+                    /**
+                     * 扫描路径模式：
+SCAN_PATH_ALL：全部路径
+SCAN_PATH_DEFAULT：默认路径
+SCAN_PATH_USER_DEFINE：用户自定义路径
+
+                     */
+                    std::string m_scanPathMode;
+                    bool m_scanPathModeHasBeenSet;
 
                 };
             }

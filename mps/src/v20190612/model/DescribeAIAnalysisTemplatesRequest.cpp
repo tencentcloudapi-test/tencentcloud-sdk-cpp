@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ using namespace std;
 DescribeAIAnalysisTemplatesRequest::DescribeAIAnalysisTemplatesRequest() :
     m_definitionsHasBeenSet(false),
     m_offsetHasBeenSet(false),
-    m_limitHasBeenSet(false)
+    m_limitHasBeenSet(false),
+    m_typeHasBeenSet(false),
+    m_nameHasBeenSet(false)
 {
 }
 
@@ -63,6 +65,22 @@ string DescribeAIAnalysisTemplatesRequest::ToJsonString() const
         string key = "Limit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_limit, allocator);
+    }
+
+    if (m_typeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Type";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Name";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_name.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -119,6 +137,38 @@ void DescribeAIAnalysisTemplatesRequest::SetLimit(const uint64_t& _limit)
 bool DescribeAIAnalysisTemplatesRequest::LimitHasBeenSet() const
 {
     return m_limitHasBeenSet;
+}
+
+string DescribeAIAnalysisTemplatesRequest::GetType() const
+{
+    return m_type;
+}
+
+void DescribeAIAnalysisTemplatesRequest::SetType(const string& _type)
+{
+    m_type = _type;
+    m_typeHasBeenSet = true;
+}
+
+bool DescribeAIAnalysisTemplatesRequest::TypeHasBeenSet() const
+{
+    return m_typeHasBeenSet;
+}
+
+string DescribeAIAnalysisTemplatesRequest::GetName() const
+{
+    return m_name;
+}
+
+void DescribeAIAnalysisTemplatesRequest::SetName(const string& _name)
+{
+    m_name = _name;
+    m_nameHasBeenSet = true;
+}
+
+bool DescribeAIAnalysisTemplatesRequest::NameHasBeenSet() const
+{
+    return m_nameHasBeenSet;
 }
 
 

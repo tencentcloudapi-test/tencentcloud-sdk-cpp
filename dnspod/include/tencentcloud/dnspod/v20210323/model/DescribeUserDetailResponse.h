@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取帐户信息
-                     * @return UserInfo 帐户信息
+                     * 获取账户信息
+                     * @return UserInfo 账户信息
+                     * 
                      */
                     UserInfo GetUserInfo() const;
 
                     /**
                      * 判断参数 UserInfo 是否已赋值
                      * @return UserInfo 是否已赋值
+                     * 
                      */
                     bool UserInfoHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 帐户信息
+                     * 账户信息
                      */
                     UserInfo m_userInfo;
                     bool m_userInfoHasBeenSet;

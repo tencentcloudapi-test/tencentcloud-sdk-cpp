@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取rtsp地址
                      * @return RtspAddr rtsp地址
+                     * 
                      */
                     std::string GetRtspAddr() const;
 
                     /**
                      * 设置rtsp地址
-                     * @param RtspAddr rtsp地址
+                     * @param _rtspAddr rtsp地址
+                     * 
                      */
                     void SetRtspAddr(const std::string& _rtspAddr);
 
                     /**
                      * 判断参数 RtspAddr 是否已赋值
                      * @return RtspAddr 是否已赋值
+                     * 
                      */
                     bool RtspAddrHasBeenSet() const;
 
                     /**
                      * 获取rtmp地址
                      * @return RtmpAddr rtmp地址
+                     * 
                      */
                     std::string GetRtmpAddr() const;
 
                     /**
                      * 设置rtmp地址
-                     * @param RtmpAddr rtmp地址
+                     * @param _rtmpAddr rtmp地址
+                     * 
                      */
                     void SetRtmpAddr(const std::string& _rtmpAddr);
 
                     /**
                      * 判断参数 RtmpAddr 是否已赋值
                      * @return RtmpAddr 是否已赋值
+                     * 
                      */
                     bool RtmpAddrHasBeenSet() const;
 
                     /**
                      * 获取hls地址
                      * @return HlsAddr hls地址
+                     * 
                      */
                     std::string GetHlsAddr() const;
 
                     /**
                      * 设置hls地址
-                     * @param HlsAddr hls地址
+                     * @param _hlsAddr hls地址
+                     * 
                      */
                     void SetHlsAddr(const std::string& _hlsAddr);
 
                     /**
                      * 判断参数 HlsAddr 是否已赋值
                      * @return HlsAddr 是否已赋值
+                     * 
                      */
                     bool HlsAddrHasBeenSet() const;
 
                     /**
                      * 获取flv地址
                      * @return FlvAddr flv地址
+                     * 
                      */
                     std::string GetFlvAddr() const;
 
                     /**
                      * 设置flv地址
-                     * @param FlvAddr flv地址
+                     * @param _flvAddr flv地址
+                     * 
                      */
                     void SetFlvAddr(const std::string& _flvAddr);
 
                     /**
                      * 判断参数 FlvAddr 是否已赋值
                      * @return FlvAddr 是否已赋值
+                     * 
                      */
                     bool FlvAddrHasBeenSet() const;
 

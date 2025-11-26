@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取总余额，单位分
                      * @return TotalBalance 总余额，单位分
+                     * 
                      */
                     std::string GetTotalBalance() const;
 
                     /**
                      * 设置总余额，单位分
-                     * @param TotalBalance 总余额，单位分
+                     * @param _totalBalance 总余额，单位分
+                     * 
                      */
                     void SetTotalBalance(const std::string& _totalBalance);
 
                     /**
                      * 判断参数 TotalBalance 是否已赋值
                      * @return TotalBalance 是否已赋值
+                     * 
                      */
                     bool TotalBalanceHasBeenSet() const;
 
                     /**
                      * 获取昨日余额，单位分
                      * @return YesterdayBalance 昨日余额，单位分
+                     * 
                      */
                     std::string GetYesterdayBalance() const;
 
                     /**
                      * 设置昨日余额，单位分
-                     * @param YesterdayBalance 昨日余额，单位分
+                     * @param _yesterdayBalance 昨日余额，单位分
+                     * 
                      */
                     void SetYesterdayBalance(const std::string& _yesterdayBalance);
 
                     /**
                      * 判断参数 YesterdayBalance 是否已赋值
                      * @return YesterdayBalance 是否已赋值
+                     * 
                      */
                     bool YesterdayBalanceHasBeenSet() const;
 

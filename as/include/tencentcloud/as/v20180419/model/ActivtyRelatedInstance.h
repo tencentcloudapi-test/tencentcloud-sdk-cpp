@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,52 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取实例ID。
                      * @return InstanceId 实例ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID。
-                     * @param InstanceId 实例ID。
+                     * @param _instanceId 实例ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取实例在伸缩活动中的状态。取值如下：
-<li>INIT：初始化中
-<li>RUNNING：实例操作中
-<li>SUCCESSFUL：活动成功
-<li>FAILED：活动失败
-                     * @return InstanceStatus 实例在伸缩活动中的状态。取值如下：
-<li>INIT：初始化中
-<li>RUNNING：实例操作中
-<li>SUCCESSFUL：活动成功
-<li>FAILED：活动失败
+                     * 获取实例在伸缩活动中的状态。取值如下：<br><li>INIT：初始化中</li><li>RUNNING：实例操作中</li><li>SUCCESSFUL：活动成功</li><li>FAILED：活动失败
+                     * @return InstanceStatus 实例在伸缩活动中的状态。取值如下：<br><li>INIT：初始化中</li><li>RUNNING：实例操作中</li><li>SUCCESSFUL：活动成功</li><li>FAILED：活动失败
+                     * 
                      */
                     std::string GetInstanceStatus() const;
 
                     /**
-                     * 设置实例在伸缩活动中的状态。取值如下：
-<li>INIT：初始化中
-<li>RUNNING：实例操作中
-<li>SUCCESSFUL：活动成功
-<li>FAILED：活动失败
-                     * @param InstanceStatus 实例在伸缩活动中的状态。取值如下：
-<li>INIT：初始化中
-<li>RUNNING：实例操作中
-<li>SUCCESSFUL：活动成功
-<li>FAILED：活动失败
+                     * 设置实例在伸缩活动中的状态。取值如下：<br><li>INIT：初始化中</li><li>RUNNING：实例操作中</li><li>SUCCESSFUL：活动成功</li><li>FAILED：活动失败
+                     * @param _instanceStatus 实例在伸缩活动中的状态。取值如下：<br><li>INIT：初始化中</li><li>RUNNING：实例操作中</li><li>SUCCESSFUL：活动成功</li><li>FAILED：活动失败
+                     * 
                      */
                     void SetInstanceStatus(const std::string& _instanceStatus);
 
                     /**
                      * 判断参数 InstanceStatus 是否已赋值
                      * @return InstanceStatus 是否已赋值
+                     * 
                      */
                     bool InstanceStatusHasBeenSet() const;
 
@@ -107,11 +97,7 @@ namespace TencentCloud
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 实例在伸缩活动中的状态。取值如下：
-<li>INIT：初始化中
-<li>RUNNING：实例操作中
-<li>SUCCESSFUL：活动成功
-<li>FAILED：活动失败
+                     * 实例在伸缩活动中的状态。取值如下：<br><li>INIT：初始化中</li><li>RUNNING：实例操作中</li><li>SUCCESSFUL：活动成功</li><li>FAILED：活动失败
                      */
                     std::string m_instanceStatus;
                     bool m_instanceStatusHasBeenSet;

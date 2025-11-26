@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取集群ID
                      * @return ClusterId 集群ID
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置集群ID
-                     * @param ClusterId 集群ID
+                     * @param _clusterId 集群ID
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取增加的ClusterCIDR
                      * @return ClusterCIDRs 增加的ClusterCIDR
+                     * 
                      */
                     std::vector<std::string> GetClusterCIDRs() const;
 
                     /**
                      * 设置增加的ClusterCIDR
-                     * @param ClusterCIDRs 增加的ClusterCIDR
+                     * @param _clusterCIDRs 增加的ClusterCIDR
+                     * 
                      */
                     void SetClusterCIDRs(const std::vector<std::string>& _clusterCIDRs);
 
                     /**
                      * 判断参数 ClusterCIDRs 是否已赋值
                      * @return ClusterCIDRs 是否已赋值
+                     * 
                      */
                     bool ClusterCIDRsHasBeenSet() const;
 
                     /**
-                     * 获取是否忽略ClusterCIDR与VPC路由表的冲突
-                     * @return IgnoreClusterCIDRConflict 是否忽略ClusterCIDR与VPC路由表的冲突
+                     * 获取是否忽略ClusterCIDR与VPC路由表的冲突，默认false，为true时忽略冲突
+                     * @return IgnoreClusterCIDRConflict 是否忽略ClusterCIDR与VPC路由表的冲突，默认false，为true时忽略冲突
+                     * 
                      */
                     bool GetIgnoreClusterCIDRConflict() const;
 
                     /**
-                     * 设置是否忽略ClusterCIDR与VPC路由表的冲突
-                     * @param IgnoreClusterCIDRConflict 是否忽略ClusterCIDR与VPC路由表的冲突
+                     * 设置是否忽略ClusterCIDR与VPC路由表的冲突，默认false，为true时忽略冲突
+                     * @param _ignoreClusterCIDRConflict 是否忽略ClusterCIDR与VPC路由表的冲突，默认false，为true时忽略冲突
+                     * 
                      */
                     void SetIgnoreClusterCIDRConflict(const bool& _ignoreClusterCIDRConflict);
 
                     /**
                      * 判断参数 IgnoreClusterCIDRConflict 是否已赋值
                      * @return IgnoreClusterCIDRConflict 是否已赋值
+                     * 
                      */
                     bool IgnoreClusterCIDRConflictHasBeenSet() const;
 
@@ -111,7 +120,7 @@ namespace TencentCloud
                     bool m_clusterCIDRsHasBeenSet;
 
                     /**
-                     * 是否忽略ClusterCIDR与VPC路由表的冲突
+                     * 是否忽略ClusterCIDR与VPC路由表的冲突，默认false，为true时忽略冲突
                      */
                     bool m_ignoreClusterCIDRConflict;
                     bool m_ignoreClusterCIDRConflictHasBeenSet;

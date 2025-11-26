@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,42 +44,66 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例价格，单位：分（人民币）。
-                     * @return Price 实例价格，单位：分（人民币）。
+                     * 获取实例价格，单位：分。
+                     * @return Price 实例价格，单位：分。
+                     * 
                      */
                     int64_t GetPrice() const;
 
                     /**
                      * 判断参数 Price 是否已赋值
                      * @return Price 是否已赋值
+                     * 
                      */
                     bool PriceHasBeenSet() const;
 
                     /**
-                     * 获取实例原价，单位：分（人民币）。
-                     * @return OriginalPrice 实例原价，单位：分（人民币）。
+                     * 获取实例原价，单位：分。
+                     * @return OriginalPrice 实例原价，单位：分。
+                     * 
                      */
                     int64_t GetOriginalPrice() const;
 
                     /**
                      * 判断参数 OriginalPrice 是否已赋值
                      * @return OriginalPrice 是否已赋值
+                     * 
                      */
                     bool OriginalPriceHasBeenSet() const;
+
+                    /**
+                     * 获取货币单位。CNY-人民币，USD-美元。
+                     * @return Currency 货币单位。CNY-人民币，USD-美元。
+                     * 
+                     */
+                    std::string GetCurrency() const;
+
+                    /**
+                     * 判断参数 Currency 是否已赋值
+                     * @return Currency 是否已赋值
+                     * 
+                     */
+                    bool CurrencyHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例价格，单位：分（人民币）。
+                     * 实例价格，单位：分。
                      */
                     int64_t m_price;
                     bool m_priceHasBeenSet;
 
                     /**
-                     * 实例原价，单位：分（人民币）。
+                     * 实例原价，单位：分。
                      */
                     int64_t m_originalPrice;
                     bool m_originalPriceHasBeenSet;
+
+                    /**
+                     * 货币单位。CNY-人民币，USD-美元。
+                     */
+                    std::string m_currency;
+                    bool m_currencyHasBeenSet;
 
                 };
             }

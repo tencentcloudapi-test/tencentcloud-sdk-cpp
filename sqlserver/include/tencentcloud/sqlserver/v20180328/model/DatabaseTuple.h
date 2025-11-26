@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取发布数据库名称
                      * @return PublishDatabase 发布数据库名称
+                     * 
                      */
                     std::string GetPublishDatabase() const;
 
                     /**
                      * 设置发布数据库名称
-                     * @param PublishDatabase 发布数据库名称
+                     * @param _publishDatabase 发布数据库名称
+                     * 
                      */
                     void SetPublishDatabase(const std::string& _publishDatabase);
 
                     /**
                      * 判断参数 PublishDatabase 是否已赋值
                      * @return PublishDatabase 是否已赋值
+                     * 
                      */
                     bool PublishDatabaseHasBeenSet() const;
 
                     /**
                      * 获取订阅数据库名称
                      * @return SubscribeDatabase 订阅数据库名称
+                     * 
                      */
                     std::string GetSubscribeDatabase() const;
 
                     /**
                      * 设置订阅数据库名称
-                     * @param SubscribeDatabase 订阅数据库名称
+                     * @param _subscribeDatabase 订阅数据库名称
+                     * 
                      */
                     void SetSubscribeDatabase(const std::string& _subscribeDatabase);
 
                     /**
                      * 判断参数 SubscribeDatabase 是否已赋值
                      * @return SubscribeDatabase 是否已赋值
+                     * 
                      */
                     bool SubscribeDatabaseHasBeenSet() const;
 

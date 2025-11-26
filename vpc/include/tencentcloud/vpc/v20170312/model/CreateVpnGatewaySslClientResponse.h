@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,30 @@ namespace TencentCloud
                     /**
                      * 获取异步任务ID。
                      * @return TaskId 异步任务ID。
+                     * 
                      */
                     uint64_t GetTaskId() const;
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
+
+                    /**
+                     * 获取SSL-VPN client 唯一ID
+                     * @return SslVpnClientId SSL-VPN client 唯一ID
+                     * 
+                     */
+                    std::string GetSslVpnClientId() const;
+
+                    /**
+                     * 判断参数 SslVpnClientId 是否已赋值
+                     * @return SslVpnClientId 是否已赋值
+                     * 
+                     */
+                    bool SslVpnClientIdHasBeenSet() const;
 
                 private:
 
@@ -62,6 +78,12 @@ namespace TencentCloud
                      */
                     uint64_t m_taskId;
                     bool m_taskIdHasBeenSet;
+
+                    /**
+                     * SSL-VPN client 唯一ID
+                     */
+                    std::string m_sslVpnClientId;
+                    bool m_sslVpnClientIdHasBeenSet;
 
                 };
             }

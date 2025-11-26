@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,147 +43,165 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取配置项ID，不传入时查询全量，高优先级
-                     * @return ConfigId 配置项ID，不传入时查询全量，高优先级
+                     * 获取配置ID。不传入时查询全量，高优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * @return ConfigId 配置ID。不传入时查询全量，高优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * 
                      */
                     std::string GetConfigId() const;
 
                     /**
-                     * 设置配置项ID，不传入时查询全量，高优先级
-                     * @param ConfigId 配置项ID，不传入时查询全量，高优先级
+                     * 设置配置ID。不传入时查询全量，高优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * @param _configId 配置ID。不传入时查询全量，高优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * 
                      */
                     void SetConfigId(const std::string& _configId);
 
                     /**
                      * 判断参数 ConfigId 是否已赋值
                      * @return ConfigId 是否已赋值
+                     * 
                      */
                     bool ConfigIdHasBeenSet() const;
 
                     /**
-                     * 获取偏移量，默认为0
-                     * @return Offset 偏移量，默认为0
+                     * 获取偏移量，默认为0。
+                     * @return Offset 偏移量，默认为0。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置偏移量，默认为0
-                     * @param Offset 偏移量，默认为0
+                     * 设置偏移量，默认为0。
+                     * @param _offset 偏移量，默认为0。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取每页条数，默认为20
-                     * @return Limit 每页条数，默认为20
+                     * 获取返回数量，默认为20，最大值为100。
+                     * @return Limit 返回数量，默认为20，最大值为100。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置每页条数，默认为20
-                     * @param Limit 每页条数，默认为20
+                     * 设置返回数量，默认为20，最大值为100。
+                     * @param _limit 返回数量，默认为20，最大值为100。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取配置项ID列表，不传入时查询全量，低优先级
-                     * @return ConfigIdList 配置项ID列表，不传入时查询全量，低优先级
+                     * 获取配置ID列表，不传入时查询全量，低优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * @return ConfigIdList 配置ID列表，不传入时查询全量，低优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * 
                      */
                     std::vector<std::string> GetConfigIdList() const;
 
                     /**
-                     * 设置配置项ID列表，不传入时查询全量，低优先级
-                     * @param ConfigIdList 配置项ID列表，不传入时查询全量，低优先级
+                     * 设置配置ID列表，不传入时查询全量，低优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * @param _configIdList 配置ID列表，不传入时查询全量，低优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
+                     * 
                      */
                     void SetConfigIdList(const std::vector<std::string>& _configIdList);
 
                     /**
                      * 判断参数 ConfigIdList 是否已赋值
                      * @return ConfigIdList 是否已赋值
+                     * 
                      */
                     bool ConfigIdListHasBeenSet() const;
 
                     /**
-                     * 获取配置项名称，精确查询，不传入时查询全量
-                     * @return ConfigName 配置项名称，精确查询，不传入时查询全量
+                     * 获取配置项名称，精确查询，不传入时查询全量。
+                     * @return ConfigName 配置项名称，精确查询，不传入时查询全量。
+                     * 
                      */
                     std::string GetConfigName() const;
 
                     /**
-                     * 设置配置项名称，精确查询，不传入时查询全量
-                     * @param ConfigName 配置项名称，精确查询，不传入时查询全量
+                     * 设置配置项名称，精确查询，不传入时查询全量。
+                     * @param _configName 配置项名称，精确查询，不传入时查询全量。
+                     * 
                      */
                     void SetConfigName(const std::string& _configName);
 
                     /**
                      * 判断参数 ConfigName 是否已赋值
                      * @return ConfigName 是否已赋值
+                     * 
                      */
                     bool ConfigNameHasBeenSet() const;
 
                     /**
-                     * 获取配置项版本，精确查询，不传入时查询全量
-                     * @return ConfigVersion 配置项版本，精确查询，不传入时查询全量
+                     * 获取配置项版本，精确查询，不传入时查询全量。
+                     * @return ConfigVersion 配置项版本，精确查询，不传入时查询全量。
+                     * 
                      */
                     std::string GetConfigVersion() const;
 
                     /**
-                     * 设置配置项版本，精确查询，不传入时查询全量
-                     * @param ConfigVersion 配置项版本，精确查询，不传入时查询全量
+                     * 设置配置项版本，精确查询，不传入时查询全量。
+                     * @param _configVersion 配置项版本，精确查询，不传入时查询全量。
+                     * 
                      */
                     void SetConfigVersion(const std::string& _configVersion);
 
                     /**
                      * 判断参数 ConfigVersion 是否已赋值
                      * @return ConfigVersion 是否已赋值
+                     * 
                      */
                     bool ConfigVersionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 配置项ID，不传入时查询全量，高优先级
+                     * 配置ID。不传入时查询全量，高优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
                      */
                     std::string m_configId;
                     bool m_configIdHasBeenSet;
 
                     /**
-                     * 偏移量，默认为0
+                     * 偏移量，默认为0。
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 每页条数，默认为20
+                     * 返回数量，默认为20，最大值为100。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 配置项ID列表，不传入时查询全量，低优先级
+                     * 配置ID列表，不传入时查询全量，低优先级。该参数可以通过调用 [DescribePublicConfigs](https://cloud.tencent.com/document/product/649/38335) 的返回值中的 ConfigId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?subTab=public)配置详情-配置版本页查看；也可以调用[CreatePublicConfig](https://cloud.tencent.com/document/product/649/38347)创建新的配置。
                      */
                     std::vector<std::string> m_configIdList;
                     bool m_configIdListHasBeenSet;
 
                     /**
-                     * 配置项名称，精确查询，不传入时查询全量
+                     * 配置项名称，精确查询，不传入时查询全量。
                      */
                     std::string m_configName;
                     bool m_configNameHasBeenSet;
 
                     /**
-                     * 配置项版本，精确查询，不传入时查询全量
+                     * 配置项版本，精确查询，不传入时查询全量。
                      */
                     std::string m_configVersion;
                     bool m_configVersionHasBeenSet;

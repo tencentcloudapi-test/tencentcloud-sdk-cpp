@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取录制暂停时间戳对应的视频播放时间(单位: 毫秒)
                      * @return VideoTime 录制暂停时间戳对应的视频播放时间(单位: 毫秒)
+                     * 
                      */
                     int64_t GetVideoTime() const;
 
                     /**
                      * 设置录制暂停时间戳对应的视频播放时间(单位: 毫秒)
-                     * @param VideoTime 录制暂停时间戳对应的视频播放时间(单位: 毫秒)
+                     * @param _videoTime 录制暂停时间戳对应的视频播放时间(单位: 毫秒)
+                     * 
                      */
                     void SetVideoTime(const int64_t& _videoTime);
 
                     /**
                      * 判断参数 VideoTime 是否已赋值
                      * @return VideoTime 是否已赋值
+                     * 
                      */
                     bool VideoTimeHasBeenSet() const;
 
                     /**
                      * 获取录制暂停时间戳(单位: 毫秒)
                      * @return PauseTime 录制暂停时间戳(单位: 毫秒)
+                     * 
                      */
                     int64_t GetPauseTime() const;
 
                     /**
                      * 设置录制暂停时间戳(单位: 毫秒)
-                     * @param PauseTime 录制暂停时间戳(单位: 毫秒)
+                     * @param _pauseTime 录制暂停时间戳(单位: 毫秒)
+                     * 
                      */
                     void SetPauseTime(const int64_t& _pauseTime);
 
                     /**
                      * 判断参数 PauseTime 是否已赋值
                      * @return PauseTime 是否已赋值
+                     * 
                      */
                     bool PauseTimeHasBeenSet() const;
 
                     /**
                      * 获取录制恢复时间戳(单位: 毫秒)
                      * @return ResumeTime 录制恢复时间戳(单位: 毫秒)
+                     * 
                      */
                     int64_t GetResumeTime() const;
 
                     /**
                      * 设置录制恢复时间戳(单位: 毫秒)
-                     * @param ResumeTime 录制恢复时间戳(单位: 毫秒)
+                     * @param _resumeTime 录制恢复时间戳(单位: 毫秒)
+                     * 
                      */
                     void SetResumeTime(const int64_t& _resumeTime);
 
                     /**
                      * 判断参数 ResumeTime 是否已赋值
                      * @return ResumeTime 是否已赋值
+                     * 
                      */
                     bool ResumeTimeHasBeenSet() const;
 

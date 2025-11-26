@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,51 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取标签key
-                     * @return TagKey 标签key
+                     * 获取标签Key。
+                     * @return TagKey 标签Key。
+                     * 
                      */
                     std::string GetTagKey() const;
 
                     /**
-                     * 设置标签key
-                     * @param TagKey 标签key
+                     * 设置标签Key。
+                     * @param _tagKey 标签Key。
+                     * 
                      */
                     void SetTagKey(const std::string& _tagKey);
 
                     /**
                      * 判断参数 TagKey 是否已赋值
                      * @return TagKey 是否已赋值
+                     * 
                      */
                     bool TagKeyHasBeenSet() const;
 
                     /**
-                     * 获取标签value
-                     * @return TagValue 标签value
+                     * 获取标签 Key 对应的 Value。
+                     * @return TagValue 标签 Key 对应的 Value。
+                     * 
                      */
                     std::string GetTagValue() const;
 
                     /**
-                     * 设置标签value
-                     * @param TagValue 标签value
+                     * 设置标签 Key 对应的 Value。
+                     * @param _tagValue 标签 Key 对应的 Value。
+                     * 
                      */
                     void SetTagValue(const std::string& _tagValue);
 
                     /**
                      * 判断参数 TagValue 是否已赋值
                      * @return TagValue 是否已赋值
+                     * 
                      */
                     bool TagValueHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 标签key
+                     * 标签Key。
                      */
                     std::string m_tagKey;
                     bool m_tagKeyHasBeenSet;
 
                     /**
-                     * 标签value
+                     * 标签 Key 对应的 Value。
                      */
                     std::string m_tagValue;
                     bool m_tagValueHasBeenSet;

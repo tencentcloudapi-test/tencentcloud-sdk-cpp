@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 PurgePathCacheRequest::PurgePathCacheRequest() :
     m_pathsHasBeenSet(false),
     m_flushTypeHasBeenSet(false),
-    m_urlEncodeHasBeenSet(false)
+    m_urlEncodeHasBeenSet(false),
+    m_areaHasBeenSet(false)
 {
 }
 
@@ -63,6 +64,14 @@ string PurgePathCacheRequest::ToJsonString() const
         string key = "UrlEncode";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_urlEncode, allocator);
+    }
+
+    if (m_areaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Area";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_area.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -119,6 +128,22 @@ void PurgePathCacheRequest::SetUrlEncode(const bool& _urlEncode)
 bool PurgePathCacheRequest::UrlEncodeHasBeenSet() const
 {
     return m_urlEncodeHasBeenSet;
+}
+
+string PurgePathCacheRequest::GetArea() const
+{
+    return m_area;
+}
+
+void PurgePathCacheRequest::SetArea(const string& _area)
+{
+    m_area = _area;
+    m_areaHasBeenSet = true;
+}
+
+bool PurgePathCacheRequest::AreaHasBeenSet() const
+{
+    return m_areaHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@
 #include <tencentcloud/core/AsyncCallerContext.h>
 #include <tencentcloud/gaap/v20180529/model/AddRealServersRequest.h>
 #include <tencentcloud/gaap/v20180529/model/AddRealServersResponse.h>
+#include <tencentcloud/gaap/v20180529/model/BanAndRecoverProxyRequest.h>
+#include <tencentcloud/gaap/v20180529/model/BanAndRecoverProxyResponse.h>
 #include <tencentcloud/gaap/v20180529/model/BindListenerRealServersRequest.h>
 #include <tencentcloud/gaap/v20180529/model/BindListenerRealServersResponse.h>
 #include <tencentcloud/gaap/v20180529/model/BindRuleRealServersRequest.h>
@@ -45,6 +47,10 @@
 #include <tencentcloud/gaap/v20180529/model/CreateDomainResponse.h>
 #include <tencentcloud/gaap/v20180529/model/CreateDomainErrorPageInfoRequest.h>
 #include <tencentcloud/gaap/v20180529/model/CreateDomainErrorPageInfoResponse.h>
+#include <tencentcloud/gaap/v20180529/model/CreateGlobalDomainRequest.h>
+#include <tencentcloud/gaap/v20180529/model/CreateGlobalDomainResponse.h>
+#include <tencentcloud/gaap/v20180529/model/CreateGlobalDomainDnsRequest.h>
+#include <tencentcloud/gaap/v20180529/model/CreateGlobalDomainDnsResponse.h>
 #include <tencentcloud/gaap/v20180529/model/CreateHTTPListenerRequest.h>
 #include <tencentcloud/gaap/v20180529/model/CreateHTTPListenerResponse.h>
 #include <tencentcloud/gaap/v20180529/model/CreateHTTPSListenerRequest.h>
@@ -71,6 +77,10 @@
 #include <tencentcloud/gaap/v20180529/model/DeleteDomainResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DeleteDomainErrorPageInfoRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DeleteDomainErrorPageInfoResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DeleteGlobalDomainRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DeleteGlobalDomainResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DeleteGlobalDomainDnsRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DeleteGlobalDomainDnsResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DeleteListenersRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DeleteListenersResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DeleteProxyGroupRequest.h>
@@ -85,6 +95,8 @@
 #include <tencentcloud/gaap/v20180529/model/DescribeAccessRegionsResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeAccessRegionsByDestRegionRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeAccessRegionsByDestRegionResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeAuthSignatureRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeAuthSignatureResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeBlackHeaderRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeBlackHeaderResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeCertificateDetailRequest.h>
@@ -93,6 +105,8 @@
 #include <tencentcloud/gaap/v20180529/model/DescribeCertificatesResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeCountryAreaMappingRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeCountryAreaMappingResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeCrossBorderProxiesRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeCrossBorderProxiesResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeCustomHeaderRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeCustomHeaderResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeDestRegionsRequest.h>
@@ -101,6 +115,10 @@
 #include <tencentcloud/gaap/v20180529/model/DescribeDomainErrorPageInfoResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeDomainErrorPageInfoByIdsRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeDomainErrorPageInfoByIdsResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeGlobalDomainDnsRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeGlobalDomainDnsResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeGlobalDomainsRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeGlobalDomainsResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeGroupAndStatisticsProxyRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeGroupAndStatisticsProxyResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeGroupDomainConfigRequest.h>
@@ -151,10 +169,16 @@
 #include <tencentcloud/gaap/v20180529/model/DescribeSecurityRulesResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeTCPListenersRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeTCPListenersResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeTaskStatusRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DescribeTaskStatusResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeUDPListenersRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DescribeUDPListenersResponse.h>
 #include <tencentcloud/gaap/v20180529/model/DestroyProxiesRequest.h>
 #include <tencentcloud/gaap/v20180529/model/DestroyProxiesResponse.h>
+#include <tencentcloud/gaap/v20180529/model/DisableGlobalDomainRequest.h>
+#include <tencentcloud/gaap/v20180529/model/DisableGlobalDomainResponse.h>
+#include <tencentcloud/gaap/v20180529/model/EnableGlobalDomainRequest.h>
+#include <tencentcloud/gaap/v20180529/model/EnableGlobalDomainResponse.h>
 #include <tencentcloud/gaap/v20180529/model/InquiryPriceCreateProxyRequest.h>
 #include <tencentcloud/gaap/v20180529/model/InquiryPriceCreateProxyResponse.h>
 #include <tencentcloud/gaap/v20180529/model/ModifyCertificateRequest.h>
@@ -163,6 +187,10 @@
 #include <tencentcloud/gaap/v20180529/model/ModifyCertificateAttributesResponse.h>
 #include <tencentcloud/gaap/v20180529/model/ModifyDomainRequest.h>
 #include <tencentcloud/gaap/v20180529/model/ModifyDomainResponse.h>
+#include <tencentcloud/gaap/v20180529/model/ModifyGlobalDomainAttributeRequest.h>
+#include <tencentcloud/gaap/v20180529/model/ModifyGlobalDomainAttributeResponse.h>
+#include <tencentcloud/gaap/v20180529/model/ModifyGlobalDomainDnsRequest.h>
+#include <tencentcloud/gaap/v20180529/model/ModifyGlobalDomainDnsResponse.h>
 #include <tencentcloud/gaap/v20180529/model/ModifyGroupDomainConfigRequest.h>
 #include <tencentcloud/gaap/v20180529/model/ModifyGroupDomainConfigResponse.h>
 #include <tencentcloud/gaap/v20180529/model/ModifyHTTPListenerAttributeRequest.h>
@@ -197,6 +225,8 @@
 #include <tencentcloud/gaap/v20180529/model/RemoveRealServersResponse.h>
 #include <tencentcloud/gaap/v20180529/model/SetAuthenticationRequest.h>
 #include <tencentcloud/gaap/v20180529/model/SetAuthenticationResponse.h>
+#include <tencentcloud/gaap/v20180529/model/SetTlsVersionRequest.h>
+#include <tencentcloud/gaap/v20180529/model/SetTlsVersionResponse.h>
 
 
 namespace TencentCloud
@@ -214,6 +244,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::AddRealServersResponse> AddRealServersOutcome;
                 typedef std::future<AddRealServersOutcome> AddRealServersOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::AddRealServersRequest&, AddRealServersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AddRealServersAsyncHandler;
+                typedef Outcome<Core::Error, Model::BanAndRecoverProxyResponse> BanAndRecoverProxyOutcome;
+                typedef std::future<BanAndRecoverProxyOutcome> BanAndRecoverProxyOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::BanAndRecoverProxyRequest&, BanAndRecoverProxyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BanAndRecoverProxyAsyncHandler;
                 typedef Outcome<Core::Error, Model::BindListenerRealServersResponse> BindListenerRealServersOutcome;
                 typedef std::future<BindListenerRealServersOutcome> BindListenerRealServersOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::BindListenerRealServersRequest&, BindListenerRealServersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BindListenerRealServersAsyncHandler;
@@ -244,6 +277,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateDomainErrorPageInfoResponse> CreateDomainErrorPageInfoOutcome;
                 typedef std::future<CreateDomainErrorPageInfoOutcome> CreateDomainErrorPageInfoOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::CreateDomainErrorPageInfoRequest&, CreateDomainErrorPageInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDomainErrorPageInfoAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateGlobalDomainResponse> CreateGlobalDomainOutcome;
+                typedef std::future<CreateGlobalDomainOutcome> CreateGlobalDomainOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::CreateGlobalDomainRequest&, CreateGlobalDomainOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateGlobalDomainAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateGlobalDomainDnsResponse> CreateGlobalDomainDnsOutcome;
+                typedef std::future<CreateGlobalDomainDnsOutcome> CreateGlobalDomainDnsOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::CreateGlobalDomainDnsRequest&, CreateGlobalDomainDnsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateGlobalDomainDnsAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateHTTPListenerResponse> CreateHTTPListenerOutcome;
                 typedef std::future<CreateHTTPListenerOutcome> CreateHTTPListenerOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::CreateHTTPListenerRequest&, CreateHTTPListenerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateHTTPListenerAsyncHandler;
@@ -283,6 +322,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteDomainErrorPageInfoResponse> DeleteDomainErrorPageInfoOutcome;
                 typedef std::future<DeleteDomainErrorPageInfoOutcome> DeleteDomainErrorPageInfoOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DeleteDomainErrorPageInfoRequest&, DeleteDomainErrorPageInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteDomainErrorPageInfoAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteGlobalDomainResponse> DeleteGlobalDomainOutcome;
+                typedef std::future<DeleteGlobalDomainOutcome> DeleteGlobalDomainOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DeleteGlobalDomainRequest&, DeleteGlobalDomainOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteGlobalDomainAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteGlobalDomainDnsResponse> DeleteGlobalDomainDnsOutcome;
+                typedef std::future<DeleteGlobalDomainDnsOutcome> DeleteGlobalDomainDnsOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DeleteGlobalDomainDnsRequest&, DeleteGlobalDomainDnsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteGlobalDomainDnsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteListenersResponse> DeleteListenersOutcome;
                 typedef std::future<DeleteListenersOutcome> DeleteListenersOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DeleteListenersRequest&, DeleteListenersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteListenersAsyncHandler;
@@ -304,6 +349,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAccessRegionsByDestRegionResponse> DescribeAccessRegionsByDestRegionOutcome;
                 typedef std::future<DescribeAccessRegionsByDestRegionOutcome> DescribeAccessRegionsByDestRegionOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeAccessRegionsByDestRegionRequest&, DescribeAccessRegionsByDestRegionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAccessRegionsByDestRegionAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAuthSignatureResponse> DescribeAuthSignatureOutcome;
+                typedef std::future<DescribeAuthSignatureOutcome> DescribeAuthSignatureOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DescribeAuthSignatureRequest&, DescribeAuthSignatureOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAuthSignatureAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeBlackHeaderResponse> DescribeBlackHeaderOutcome;
                 typedef std::future<DescribeBlackHeaderOutcome> DescribeBlackHeaderOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeBlackHeaderRequest&, DescribeBlackHeaderOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBlackHeaderAsyncHandler;
@@ -316,6 +364,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeCountryAreaMappingResponse> DescribeCountryAreaMappingOutcome;
                 typedef std::future<DescribeCountryAreaMappingOutcome> DescribeCountryAreaMappingOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeCountryAreaMappingRequest&, DescribeCountryAreaMappingOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCountryAreaMappingAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeCrossBorderProxiesResponse> DescribeCrossBorderProxiesOutcome;
+                typedef std::future<DescribeCrossBorderProxiesOutcome> DescribeCrossBorderProxiesOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DescribeCrossBorderProxiesRequest&, DescribeCrossBorderProxiesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCrossBorderProxiesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeCustomHeaderResponse> DescribeCustomHeaderOutcome;
                 typedef std::future<DescribeCustomHeaderOutcome> DescribeCustomHeaderOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeCustomHeaderRequest&, DescribeCustomHeaderOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCustomHeaderAsyncHandler;
@@ -328,6 +379,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDomainErrorPageInfoByIdsResponse> DescribeDomainErrorPageInfoByIdsOutcome;
                 typedef std::future<DescribeDomainErrorPageInfoByIdsOutcome> DescribeDomainErrorPageInfoByIdsOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeDomainErrorPageInfoByIdsRequest&, DescribeDomainErrorPageInfoByIdsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDomainErrorPageInfoByIdsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeGlobalDomainDnsResponse> DescribeGlobalDomainDnsOutcome;
+                typedef std::future<DescribeGlobalDomainDnsOutcome> DescribeGlobalDomainDnsOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DescribeGlobalDomainDnsRequest&, DescribeGlobalDomainDnsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeGlobalDomainDnsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeGlobalDomainsResponse> DescribeGlobalDomainsOutcome;
+                typedef std::future<DescribeGlobalDomainsOutcome> DescribeGlobalDomainsOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DescribeGlobalDomainsRequest&, DescribeGlobalDomainsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeGlobalDomainsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeGroupAndStatisticsProxyResponse> DescribeGroupAndStatisticsProxyOutcome;
                 typedef std::future<DescribeGroupAndStatisticsProxyOutcome> DescribeGroupAndStatisticsProxyOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeGroupAndStatisticsProxyRequest&, DescribeGroupAndStatisticsProxyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeGroupAndStatisticsProxyAsyncHandler;
@@ -403,12 +460,21 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeTCPListenersResponse> DescribeTCPListenersOutcome;
                 typedef std::future<DescribeTCPListenersOutcome> DescribeTCPListenersOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeTCPListenersRequest&, DescribeTCPListenersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTCPListenersAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeTaskStatusResponse> DescribeTaskStatusOutcome;
+                typedef std::future<DescribeTaskStatusOutcome> DescribeTaskStatusOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DescribeTaskStatusRequest&, DescribeTaskStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTaskStatusAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUDPListenersResponse> DescribeUDPListenersOutcome;
                 typedef std::future<DescribeUDPListenersOutcome> DescribeUDPListenersOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DescribeUDPListenersRequest&, DescribeUDPListenersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUDPListenersAsyncHandler;
                 typedef Outcome<Core::Error, Model::DestroyProxiesResponse> DestroyProxiesOutcome;
                 typedef std::future<DestroyProxiesOutcome> DestroyProxiesOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::DestroyProxiesRequest&, DestroyProxiesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DestroyProxiesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DisableGlobalDomainResponse> DisableGlobalDomainOutcome;
+                typedef std::future<DisableGlobalDomainOutcome> DisableGlobalDomainOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::DisableGlobalDomainRequest&, DisableGlobalDomainOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableGlobalDomainAsyncHandler;
+                typedef Outcome<Core::Error, Model::EnableGlobalDomainResponse> EnableGlobalDomainOutcome;
+                typedef std::future<EnableGlobalDomainOutcome> EnableGlobalDomainOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::EnableGlobalDomainRequest&, EnableGlobalDomainOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableGlobalDomainAsyncHandler;
                 typedef Outcome<Core::Error, Model::InquiryPriceCreateProxyResponse> InquiryPriceCreateProxyOutcome;
                 typedef std::future<InquiryPriceCreateProxyOutcome> InquiryPriceCreateProxyOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::InquiryPriceCreateProxyRequest&, InquiryPriceCreateProxyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InquiryPriceCreateProxyAsyncHandler;
@@ -421,6 +487,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyDomainResponse> ModifyDomainOutcome;
                 typedef std::future<ModifyDomainOutcome> ModifyDomainOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::ModifyDomainRequest&, ModifyDomainOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDomainAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyGlobalDomainAttributeResponse> ModifyGlobalDomainAttributeOutcome;
+                typedef std::future<ModifyGlobalDomainAttributeOutcome> ModifyGlobalDomainAttributeOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::ModifyGlobalDomainAttributeRequest&, ModifyGlobalDomainAttributeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyGlobalDomainAttributeAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyGlobalDomainDnsResponse> ModifyGlobalDomainDnsOutcome;
+                typedef std::future<ModifyGlobalDomainDnsOutcome> ModifyGlobalDomainDnsOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::ModifyGlobalDomainDnsRequest&, ModifyGlobalDomainDnsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyGlobalDomainDnsAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyGroupDomainConfigResponse> ModifyGroupDomainConfigOutcome;
                 typedef std::future<ModifyGroupDomainConfigOutcome> ModifyGroupDomainConfigOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::ModifyGroupDomainConfigRequest&, ModifyGroupDomainConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyGroupDomainConfigAsyncHandler;
@@ -472,6 +544,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::SetAuthenticationResponse> SetAuthenticationOutcome;
                 typedef std::future<SetAuthenticationOutcome> SetAuthenticationOutcomeCallable;
                 typedef std::function<void(const GaapClient*, const Model::SetAuthenticationRequest&, SetAuthenticationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SetAuthenticationAsyncHandler;
+                typedef Outcome<Core::Error, Model::SetTlsVersionResponse> SetTlsVersionOutcome;
+                typedef std::future<SetTlsVersionOutcome> SetTlsVersionOutcomeCallable;
+                typedef std::function<void(const GaapClient*, const Model::SetTlsVersionRequest&, SetTlsVersionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SetTlsVersionAsyncHandler;
 
 
 
@@ -483,6 +558,15 @@ namespace TencentCloud
                 AddRealServersOutcome AddRealServers(const Model::AddRealServersRequest &request);
                 void AddRealServersAsync(const Model::AddRealServersRequest& request, const AddRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 AddRealServersOutcomeCallable AddRealServersCallable(const Model::AddRealServersRequest& request);
+
+                /**
+                 *本接口（BanAndRecoverProxy）用于联通封禁解封GAAP跨境通道实例，支持按照客户UIN维度下发请求。被封禁的实例带宽上限将会被限制到0Mbps，无法正常处理客户端和源站之间的请求。
+                 * @param req BanAndRecoverProxyRequest
+                 * @return BanAndRecoverProxyOutcome
+                 */
+                BanAndRecoverProxyOutcome BanAndRecoverProxy(const Model::BanAndRecoverProxyRequest &request);
+                void BanAndRecoverProxyAsync(const Model::BanAndRecoverProxyRequest& request, const BanAndRecoverProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                BanAndRecoverProxyOutcomeCallable BanAndRecoverProxyCallable(const Model::BanAndRecoverProxyRequest& request);
 
                 /**
                  *本接口（BindListenerRealServers）用于TCP/UDP监听器绑定解绑源站。
@@ -575,6 +659,24 @@ namespace TencentCloud
                 CreateDomainErrorPageInfoOutcome CreateDomainErrorPageInfo(const Model::CreateDomainErrorPageInfoRequest &request);
                 void CreateDomainErrorPageInfoAsync(const Model::CreateDomainErrorPageInfoRequest& request, const CreateDomainErrorPageInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateDomainErrorPageInfoOutcomeCallable CreateDomainErrorPageInfoCallable(const Model::CreateDomainErrorPageInfoRequest& request);
+
+                /**
+                 *用来创建统一域名
+                 * @param req CreateGlobalDomainRequest
+                 * @return CreateGlobalDomainOutcome
+                 */
+                CreateGlobalDomainOutcome CreateGlobalDomain(const Model::CreateGlobalDomainRequest &request);
+                void CreateGlobalDomainAsync(const Model::CreateGlobalDomainRequest& request, const CreateGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateGlobalDomainOutcomeCallable CreateGlobalDomainCallable(const Model::CreateGlobalDomainRequest& request);
+
+                /**
+                 *创建域名解析记录
+                 * @param req CreateGlobalDomainDnsRequest
+                 * @return CreateGlobalDomainDnsOutcome
+                 */
+                CreateGlobalDomainDnsOutcome CreateGlobalDomainDns(const Model::CreateGlobalDomainDnsRequest &request);
+                void CreateGlobalDomainDnsAsync(const Model::CreateGlobalDomainDnsRequest& request, const CreateGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateGlobalDomainDnsOutcomeCallable CreateGlobalDomainDnsCallable(const Model::CreateGlobalDomainDnsRequest& request);
 
                 /**
                  *该接口（CreateHTTPListener）用于在通道实例下创建HTTP协议类型的监听器。
@@ -694,6 +796,24 @@ namespace TencentCloud
                 DeleteDomainErrorPageInfoOutcomeCallable DeleteDomainErrorPageInfoCallable(const Model::DeleteDomainErrorPageInfoRequest& request);
 
                 /**
+                 *删除统一域名
+                 * @param req DeleteGlobalDomainRequest
+                 * @return DeleteGlobalDomainOutcome
+                 */
+                DeleteGlobalDomainOutcome DeleteGlobalDomain(const Model::DeleteGlobalDomainRequest &request);
+                void DeleteGlobalDomainAsync(const Model::DeleteGlobalDomainRequest& request, const DeleteGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteGlobalDomainOutcomeCallable DeleteGlobalDomainCallable(const Model::DeleteGlobalDomainRequest& request);
+
+                /**
+                 *删除域名的某条解析记录
+                 * @param req DeleteGlobalDomainDnsRequest
+                 * @return DeleteGlobalDomainDnsOutcome
+                 */
+                DeleteGlobalDomainDnsOutcome DeleteGlobalDomainDns(const Model::DeleteGlobalDomainDnsRequest &request);
+                void DeleteGlobalDomainDnsAsync(const Model::DeleteGlobalDomainDnsRequest& request, const DeleteGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteGlobalDomainDnsOutcomeCallable DeleteGlobalDomainDnsCallable(const Model::DeleteGlobalDomainDnsRequest& request);
+
+                /**
                  *该接口（DeleteListeners）用于批量删除通道或通道组的监听器，包括4/7层监听器。
                  * @param req DeleteListenersRequest
                  * @return DeleteListenersOutcome
@@ -757,6 +877,15 @@ namespace TencentCloud
                 DescribeAccessRegionsByDestRegionOutcomeCallable DescribeAccessRegionsByDestRegionCallable(const Model::DescribeAccessRegionsByDestRegionRequest& request);
 
                 /**
+                 *为了防止在下单、询价、后付费开通等过程中确保来源合法以及订单参数没有被篡改过，各个业务方使用下单、询价等场景需调用计费签名接口获取签名，获取签名的请求需带上签名以验证身份，本接口可以获取计费签名。
+                 * @param req DescribeAuthSignatureRequest
+                 * @return DescribeAuthSignatureOutcome
+                 */
+                DescribeAuthSignatureOutcome DescribeAuthSignature(const Model::DescribeAuthSignatureRequest &request);
+                void DescribeAuthSignatureAsync(const Model::DescribeAuthSignatureRequest& request, const DescribeAuthSignatureAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAuthSignatureOutcomeCallable DescribeAuthSignatureCallable(const Model::DescribeAuthSignatureRequest& request);
+
+                /**
                  *本接口（DescribeBlackHeader）用于查询禁用的自定义header 名称
                  * @param req DescribeBlackHeaderRequest
                  * @return DescribeBlackHeaderOutcome
@@ -793,6 +922,15 @@ namespace TencentCloud
                 DescribeCountryAreaMappingOutcomeCallable DescribeCountryAreaMappingCallable(const Model::DescribeCountryAreaMappingRequest& request);
 
                 /**
+                 *本接口（DescribeCrossBorderProxies）用于查询跨境通道实例列表。
+                 * @param req DescribeCrossBorderProxiesRequest
+                 * @return DescribeCrossBorderProxiesOutcome
+                 */
+                DescribeCrossBorderProxiesOutcome DescribeCrossBorderProxies(const Model::DescribeCrossBorderProxiesRequest &request);
+                void DescribeCrossBorderProxiesAsync(const Model::DescribeCrossBorderProxiesRequest& request, const DescribeCrossBorderProxiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeCrossBorderProxiesOutcomeCallable DescribeCrossBorderProxiesCallable(const Model::DescribeCrossBorderProxiesRequest& request);
+
+                /**
                  *本接口（DescribeCustomHeader）用于自定义header列表
                  * @param req DescribeCustomHeaderRequest
                  * @return DescribeCustomHeaderOutcome
@@ -811,7 +949,7 @@ namespace TencentCloud
                 DescribeDestRegionsOutcomeCallable DescribeDestRegionsCallable(const Model::DescribeDestRegionsRequest& request);
 
                 /**
-                 *查询目前定制域名的错误响应
+                 *查询指定域名的错误响应
                  * @param req DescribeDomainErrorPageInfoRequest
                  * @return DescribeDomainErrorPageInfoOutcome
                  */
@@ -827,6 +965,24 @@ namespace TencentCloud
                 DescribeDomainErrorPageInfoByIdsOutcome DescribeDomainErrorPageInfoByIds(const Model::DescribeDomainErrorPageInfoByIdsRequest &request);
                 void DescribeDomainErrorPageInfoByIdsAsync(const Model::DescribeDomainErrorPageInfoByIdsRequest& request, const DescribeDomainErrorPageInfoByIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDomainErrorPageInfoByIdsOutcomeCallable DescribeDomainErrorPageInfoByIdsCallable(const Model::DescribeDomainErrorPageInfoByIdsRequest& request);
+
+                /**
+                 *查询域名解析列表
+                 * @param req DescribeGlobalDomainDnsRequest
+                 * @return DescribeGlobalDomainDnsOutcome
+                 */
+                DescribeGlobalDomainDnsOutcome DescribeGlobalDomainDns(const Model::DescribeGlobalDomainDnsRequest &request);
+                void DescribeGlobalDomainDnsAsync(const Model::DescribeGlobalDomainDnsRequest& request, const DescribeGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeGlobalDomainDnsOutcomeCallable DescribeGlobalDomainDnsCallable(const Model::DescribeGlobalDomainDnsRequest& request);
+
+                /**
+                 *查询域名列表
+                 * @param req DescribeGlobalDomainsRequest
+                 * @return DescribeGlobalDomainsOutcome
+                 */
+                DescribeGlobalDomainsOutcome DescribeGlobalDomains(const Model::DescribeGlobalDomainsRequest &request);
+                void DescribeGlobalDomainsAsync(const Model::DescribeGlobalDomainsRequest& request, const DescribeGlobalDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeGlobalDomainsOutcomeCallable DescribeGlobalDomainsCallable(const Model::DescribeGlobalDomainsRequest& request);
 
                 /**
                  *该接口为内部接口，用于查询可以获取统计数据的通道组和通道信息
@@ -1054,6 +1210,15 @@ namespace TencentCloud
                 DescribeTCPListenersOutcomeCallable DescribeTCPListenersCallable(const Model::DescribeTCPListenersRequest& request);
 
                 /**
+                 *查询异步任务执行状态
+                 * @param req DescribeTaskStatusRequest
+                 * @return DescribeTaskStatusOutcome
+                 */
+                DescribeTaskStatusOutcome DescribeTaskStatus(const Model::DescribeTaskStatusRequest &request);
+                void DescribeTaskStatusAsync(const Model::DescribeTaskStatusRequest& request, const DescribeTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeTaskStatusOutcomeCallable DescribeTaskStatusCallable(const Model::DescribeTaskStatusRequest& request);
+
+                /**
                  *该接口（DescribeUDPListeners）用于查询单通道或者通道组下的UDP监听器信息
                  * @param req DescribeUDPListenersRequest
                  * @return DescribeUDPListenersOutcome
@@ -1070,6 +1235,24 @@ namespace TencentCloud
                 DestroyProxiesOutcome DestroyProxies(const Model::DestroyProxiesRequest &request);
                 void DestroyProxiesAsync(const Model::DestroyProxiesRequest& request, const DestroyProxiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DestroyProxiesOutcomeCallable DestroyProxiesCallable(const Model::DestroyProxiesRequest& request);
+
+                /**
+                 *暂停域名解析
+                 * @param req DisableGlobalDomainRequest
+                 * @return DisableGlobalDomainOutcome
+                 */
+                DisableGlobalDomainOutcome DisableGlobalDomain(const Model::DisableGlobalDomainRequest &request);
+                void DisableGlobalDomainAsync(const Model::DisableGlobalDomainRequest& request, const DisableGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DisableGlobalDomainOutcomeCallable DisableGlobalDomainCallable(const Model::DisableGlobalDomainRequest& request);
+
+                /**
+                 *开启域名解析
+                 * @param req EnableGlobalDomainRequest
+                 * @return EnableGlobalDomainOutcome
+                 */
+                EnableGlobalDomainOutcome EnableGlobalDomain(const Model::EnableGlobalDomainRequest &request);
+                void EnableGlobalDomainAsync(const Model::EnableGlobalDomainRequest& request, const EnableGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                EnableGlobalDomainOutcomeCallable EnableGlobalDomainCallable(const Model::EnableGlobalDomainRequest& request);
 
                 /**
                  *本接口（InquiryPriceCreateProxy）用于创建加速通道询价。
@@ -1106,6 +1289,24 @@ namespace TencentCloud
                 ModifyDomainOutcome ModifyDomain(const Model::ModifyDomainRequest &request);
                 void ModifyDomainAsync(const Model::ModifyDomainRequest& request, const ModifyDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyDomainOutcomeCallable ModifyDomainCallable(const Model::ModifyDomainRequest& request);
+
+                /**
+                 *修改域名属性
+                 * @param req ModifyGlobalDomainAttributeRequest
+                 * @return ModifyGlobalDomainAttributeOutcome
+                 */
+                ModifyGlobalDomainAttributeOutcome ModifyGlobalDomainAttribute(const Model::ModifyGlobalDomainAttributeRequest &request);
+                void ModifyGlobalDomainAttributeAsync(const Model::ModifyGlobalDomainAttributeRequest& request, const ModifyGlobalDomainAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyGlobalDomainAttributeOutcomeCallable ModifyGlobalDomainAttributeCallable(const Model::ModifyGlobalDomainAttributeRequest& request);
+
+                /**
+                 *修改域名解析记录
+                 * @param req ModifyGlobalDomainDnsRequest
+                 * @return ModifyGlobalDomainDnsOutcome
+                 */
+                ModifyGlobalDomainDnsOutcome ModifyGlobalDomainDns(const Model::ModifyGlobalDomainDnsRequest &request);
+                void ModifyGlobalDomainDnsAsync(const Model::ModifyGlobalDomainDnsRequest& request, const ModifyGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyGlobalDomainDnsOutcomeCallable ModifyGlobalDomainDnsCallable(const Model::ModifyGlobalDomainDnsRequest& request);
 
                 /**
                  *本接口（ModifyGroupDomainConfig）用于配置通道组就近接入域名。
@@ -1163,7 +1364,7 @@ namespace TencentCloud
                 ModifyProxyConfigurationOutcomeCallable ModifyProxyConfigurationCallable(const Model::ModifyProxyConfigurationRequest& request);
 
                 /**
-                 *本接口（ModifyProxyGroupAttribute）用于修改通道组属性，目前仅支持修改通道组名称。
+                 *本接口（ModifyProxyGroupAttribute）用于修改通道组属性，目前仅支持修改通道组名称与项目ID。
                  * @param req ModifyProxyGroupAttributeRequest
                  * @return ModifyProxyGroupAttributeOutcome
                  */
@@ -1260,6 +1461,15 @@ namespace TencentCloud
                 SetAuthenticationOutcome SetAuthentication(const Model::SetAuthenticationRequest &request);
                 void SetAuthenticationAsync(const Model::SetAuthenticationRequest& request, const SetAuthenticationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 SetAuthenticationOutcomeCallable SetAuthenticationCallable(const Model::SetAuthenticationRequest& request);
+
+                /**
+                 *设置监听器TLS配置
+                 * @param req SetTlsVersionRequest
+                 * @return SetTlsVersionOutcome
+                 */
+                SetTlsVersionOutcome SetTlsVersion(const Model::SetTlsVersionRequest &request);
+                void SetTlsVersionAsync(const Model::SetTlsVersionRequest& request, const SetTlsVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                SetTlsVersionOutcomeCallable SetTlsVersionCallable(const Model::SetTlsVersionRequest& request);
 
             };
         }

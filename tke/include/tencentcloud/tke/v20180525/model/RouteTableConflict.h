@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,85 +48,89 @@ namespace TencentCloud
 
                     /**
                      * 获取路由表类型。
+枚举值：CcsCluster、Vpc、VpcRouteTable、CcsClusterRouteTable
                      * @return RouteTableType 路由表类型。
+枚举值：CcsCluster、Vpc、VpcRouteTable、CcsClusterRouteTable
+                     * 
                      */
                     std::string GetRouteTableType() const;
 
                     /**
                      * 设置路由表类型。
-                     * @param RouteTableType 路由表类型。
+枚举值：CcsCluster、Vpc、VpcRouteTable、CcsClusterRouteTable
+                     * @param _routeTableType 路由表类型。
+枚举值：CcsCluster、Vpc、VpcRouteTable、CcsClusterRouteTable
+                     * 
                      */
                     void SetRouteTableType(const std::string& _routeTableType);
 
                     /**
                      * 判断参数 RouteTableType 是否已赋值
                      * @return RouteTableType 是否已赋值
+                     * 
                      */
                     bool RouteTableTypeHasBeenSet() const;
 
                     /**
                      * 获取路由表CIDR。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RouteTableCidrBlock 路由表CIDR。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRouteTableCidrBlock() const;
 
                     /**
                      * 设置路由表CIDR。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RouteTableCidrBlock 路由表CIDR。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _routeTableCidrBlock 路由表CIDR。
+                     * 
                      */
                     void SetRouteTableCidrBlock(const std::string& _routeTableCidrBlock);
 
                     /**
                      * 判断参数 RouteTableCidrBlock 是否已赋值
                      * @return RouteTableCidrBlock 是否已赋值
+                     * 
                      */
                     bool RouteTableCidrBlockHasBeenSet() const;
 
                     /**
                      * 获取路由表名称。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RouteTableName 路由表名称。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRouteTableName() const;
 
                     /**
                      * 设置路由表名称。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RouteTableName 路由表名称。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _routeTableName 路由表名称。
+                     * 
                      */
                     void SetRouteTableName(const std::string& _routeTableName);
 
                     /**
                      * 判断参数 RouteTableName 是否已赋值
                      * @return RouteTableName 是否已赋值
+                     * 
                      */
                     bool RouteTableNameHasBeenSet() const;
 
                     /**
                      * 获取路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RouteTableId 路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRouteTableId() const;
 
                     /**
                      * 设置路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RouteTableId 路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _routeTableId 路由表ID。
+                     * 
                      */
                     void SetRouteTableId(const std::string& _routeTableId);
 
                     /**
                      * 判断参数 RouteTableId 是否已赋值
                      * @return RouteTableId 是否已赋值
+                     * 
                      */
                     bool RouteTableIdHasBeenSet() const;
 
@@ -134,27 +138,25 @@ namespace TencentCloud
 
                     /**
                      * 路由表类型。
+枚举值：CcsCluster、Vpc、VpcRouteTable、CcsClusterRouteTable
                      */
                     std::string m_routeTableType;
                     bool m_routeTableTypeHasBeenSet;
 
                     /**
                      * 路由表CIDR。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_routeTableCidrBlock;
                     bool m_routeTableCidrBlockHasBeenSet;
 
                     /**
                      * 路由表名称。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_routeTableName;
                     bool m_routeTableNameHasBeenSet;
 
                     /**
                      * 路由表ID。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_routeTableId;
                     bool m_routeTableIdHasBeenSet;

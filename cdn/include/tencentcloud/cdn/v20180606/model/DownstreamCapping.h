@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,28 +48,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取下行速度配置开关
+                     * 获取下行速度配置开关，取值有：
 on：开启
 off：关闭
-                     * @return Switch 下行速度配置开关
+                     * @return Switch 下行速度配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置下行速度配置开关
+                     * 设置下行速度配置开关，取值有：
 on：开启
 off：关闭
-                     * @param Switch 下行速度配置开关
+                     * @param _switch 下行速度配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -78,27 +81,30 @@ off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return CappingRules 下行限速规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<CappingRule> GetCappingRules() const;
 
                     /**
                      * 设置下行限速规则
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CappingRules 下行限速规则
+                     * @param _cappingRules 下行限速规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCappingRules(const std::vector<CappingRule>& _cappingRules);
 
                     /**
                      * 判断参数 CappingRules 是否已赋值
                      * @return CappingRules 是否已赋值
+                     * 
                      */
                     bool CappingRulesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 下行速度配置开关
+                     * 下行速度配置开关，取值有：
 on：开启
 off：关闭
                      */

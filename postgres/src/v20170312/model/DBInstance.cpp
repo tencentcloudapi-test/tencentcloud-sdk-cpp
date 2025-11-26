@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,6 @@ using namespace std;
 DBInstance::DBInstance() :
     m_regionHasBeenSet(false),
     m_zoneHasBeenSet(false),
-    m_projectIdHasBeenSet(false),
     m_vpcIdHasBeenSet(false),
     m_subnetIdHasBeenSet(false),
     m_dBInstanceIdHasBeenSet(false),
@@ -33,10 +32,12 @@ DBInstance::DBInstance() :
     m_dBInstanceStorageHasBeenSet(false),
     m_dBInstanceCpuHasBeenSet(false),
     m_dBInstanceClassHasBeenSet(false),
+    m_dBMajorVersionHasBeenSet(false),
+    m_dBVersionHasBeenSet(false),
+    m_dBKernelVersionHasBeenSet(false),
     m_dBInstanceTypeHasBeenSet(false),
     m_dBInstanceVersionHasBeenSet(false),
     m_dBCharsetHasBeenSet(false),
-    m_dBVersionHasBeenSet(false),
     m_createTimeHasBeenSet(false),
     m_updateTimeHasBeenSet(false),
     m_expireTimeHasBeenSet(false),
@@ -47,16 +48,20 @@ DBInstance::DBInstance() :
     m_typeHasBeenSet(false),
     m_appIdHasBeenSet(false),
     m_uidHasBeenSet(false),
-    m_supportIpv6HasBeenSet(false),
+    m_projectIdHasBeenSet(false),
     m_tagListHasBeenSet(false),
     m_masterDBInstanceIdHasBeenSet(false),
     m_readOnlyInstanceNumHasBeenSet(false),
     m_statusInReadonlyGroupHasBeenSet(false),
     m_offlineTimeHasBeenSet(false),
-    m_dBKernelVersionHasBeenSet(false),
+    m_dBNodeSetHasBeenSet(false),
+    m_isSupportTDEHasBeenSet(false),
+    m_dBEngineHasBeenSet(false),
+    m_dBEngineConfigHasBeenSet(false),
     m_networkAccessListHasBeenSet(false),
-    m_dBMajorVersionHasBeenSet(false),
-    m_dBNodeSetHasBeenSet(false)
+    m_supportIpv6HasBeenSet(false),
+    m_expandedCpuHasBeenSet(false),
+    m_deletionProtectionHasBeenSet(false)
 {
 }
 
@@ -83,16 +88,6 @@ CoreInternalOutcome DBInstance::Deserialize(const rapidjson::Value &value)
         }
         m_zone = string(value["Zone"].GetString());
         m_zoneHasBeenSet = true;
-    }
-
-    if (value.HasMember("ProjectId") && !value["ProjectId"].IsNull())
-    {
-        if (!value["ProjectId"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `DBInstance.ProjectId` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_projectId = value["ProjectId"].GetUint64();
-        m_projectIdHasBeenSet = true;
     }
 
     if (value.HasMember("VpcId") && !value["VpcId"].IsNull())
@@ -185,6 +180,36 @@ CoreInternalOutcome DBInstance::Deserialize(const rapidjson::Value &value)
         m_dBInstanceClassHasBeenSet = true;
     }
 
+    if (value.HasMember("DBMajorVersion") && !value["DBMajorVersion"].IsNull())
+    {
+        if (!value["DBMajorVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DBMajorVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dBMajorVersion = string(value["DBMajorVersion"].GetString());
+        m_dBMajorVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("DBVersion") && !value["DBVersion"].IsNull())
+    {
+        if (!value["DBVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DBVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dBVersion = string(value["DBVersion"].GetString());
+        m_dBVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("DBKernelVersion") && !value["DBKernelVersion"].IsNull())
+    {
+        if (!value["DBKernelVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DBKernelVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dBKernelVersion = string(value["DBKernelVersion"].GetString());
+        m_dBKernelVersionHasBeenSet = true;
+    }
+
     if (value.HasMember("DBInstanceType") && !value["DBInstanceType"].IsNull())
     {
         if (!value["DBInstanceType"].IsString())
@@ -213,16 +238,6 @@ CoreInternalOutcome DBInstance::Deserialize(const rapidjson::Value &value)
         }
         m_dBCharset = string(value["DBCharset"].GetString());
         m_dBCharsetHasBeenSet = true;
-    }
-
-    if (value.HasMember("DBVersion") && !value["DBVersion"].IsNull())
-    {
-        if (!value["DBVersion"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `DBInstance.DBVersion` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_dBVersion = string(value["DBVersion"].GetString());
-        m_dBVersionHasBeenSet = true;
     }
 
     if (value.HasMember("CreateTime") && !value["CreateTime"].IsNull())
@@ -335,14 +350,14 @@ CoreInternalOutcome DBInstance::Deserialize(const rapidjson::Value &value)
         m_uidHasBeenSet = true;
     }
 
-    if (value.HasMember("SupportIpv6") && !value["SupportIpv6"].IsNull())
+    if (value.HasMember("ProjectId") && !value["ProjectId"].IsNull())
     {
-        if (!value["SupportIpv6"].IsUint64())
+        if (!value["ProjectId"].IsUint64())
         {
-            return CoreInternalOutcome(Core::Error("response `DBInstance.SupportIpv6` IsUint64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `DBInstance.ProjectId` IsUint64=false incorrectly").SetRequestId(requestId));
         }
-        m_supportIpv6 = value["SupportIpv6"].GetUint64();
-        m_supportIpv6HasBeenSet = true;
+        m_projectId = value["ProjectId"].GetUint64();
+        m_projectIdHasBeenSet = true;
     }
 
     if (value.HasMember("TagList") && !value["TagList"].IsNull())
@@ -405,14 +420,54 @@ CoreInternalOutcome DBInstance::Deserialize(const rapidjson::Value &value)
         m_offlineTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("DBKernelVersion") && !value["DBKernelVersion"].IsNull())
+    if (value.HasMember("DBNodeSet") && !value["DBNodeSet"].IsNull())
     {
-        if (!value["DBKernelVersion"].IsString())
+        if (!value["DBNodeSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DBNodeSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["DBNodeSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            return CoreInternalOutcome(Core::Error("response `DBInstance.DBKernelVersion` IsString=false incorrectly").SetRequestId(requestId));
+            DBNode item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_dBNodeSet.push_back(item);
         }
-        m_dBKernelVersion = string(value["DBKernelVersion"].GetString());
-        m_dBKernelVersionHasBeenSet = true;
+        m_dBNodeSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsSupportTDE") && !value["IsSupportTDE"].IsNull())
+    {
+        if (!value["IsSupportTDE"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.IsSupportTDE` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSupportTDE = value["IsSupportTDE"].GetInt64();
+        m_isSupportTDEHasBeenSet = true;
+    }
+
+    if (value.HasMember("DBEngine") && !value["DBEngine"].IsNull())
+    {
+        if (!value["DBEngine"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DBEngine` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dBEngine = string(value["DBEngine"].GetString());
+        m_dBEngineHasBeenSet = true;
+    }
+
+    if (value.HasMember("DBEngineConfig") && !value["DBEngineConfig"].IsNull())
+    {
+        if (!value["DBEngineConfig"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DBEngineConfig` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dBEngineConfig = string(value["DBEngineConfig"].GetString());
+        m_dBEngineConfigHasBeenSet = true;
     }
 
     if (value.HasMember("NetworkAccessList") && !value["NetworkAccessList"].IsNull())
@@ -435,34 +490,34 @@ CoreInternalOutcome DBInstance::Deserialize(const rapidjson::Value &value)
         m_networkAccessListHasBeenSet = true;
     }
 
-    if (value.HasMember("DBMajorVersion") && !value["DBMajorVersion"].IsNull())
+    if (value.HasMember("SupportIpv6") && !value["SupportIpv6"].IsNull())
     {
-        if (!value["DBMajorVersion"].IsString())
+        if (!value["SupportIpv6"].IsUint64())
         {
-            return CoreInternalOutcome(Core::Error("response `DBInstance.DBMajorVersion` IsString=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `DBInstance.SupportIpv6` IsUint64=false incorrectly").SetRequestId(requestId));
         }
-        m_dBMajorVersion = string(value["DBMajorVersion"].GetString());
-        m_dBMajorVersionHasBeenSet = true;
+        m_supportIpv6 = value["SupportIpv6"].GetUint64();
+        m_supportIpv6HasBeenSet = true;
     }
 
-    if (value.HasMember("DBNodeSet") && !value["DBNodeSet"].IsNull())
+    if (value.HasMember("ExpandedCpu") && !value["ExpandedCpu"].IsNull())
     {
-        if (!value["DBNodeSet"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `DBInstance.DBNodeSet` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["DBNodeSet"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        if (!value["ExpandedCpu"].IsUint64())
         {
-            DBNode item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_dBNodeSet.push_back(item);
+            return CoreInternalOutcome(Core::Error("response `DBInstance.ExpandedCpu` IsUint64=false incorrectly").SetRequestId(requestId));
         }
-        m_dBNodeSetHasBeenSet = true;
+        m_expandedCpu = value["ExpandedCpu"].GetUint64();
+        m_expandedCpuHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeletionProtection") && !value["DeletionProtection"].IsNull())
+    {
+        if (!value["DeletionProtection"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `DBInstance.DeletionProtection` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_deletionProtection = value["DeletionProtection"].GetBool();
+        m_deletionProtectionHasBeenSet = true;
     }
 
 
@@ -486,14 +541,6 @@ void DBInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "Zone";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_projectIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ProjectId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_projectId, allocator);
     }
 
     if (m_vpcIdHasBeenSet)
@@ -568,6 +615,30 @@ void DBInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, rapidjson::Value(m_dBInstanceClass.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_dBMajorVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DBMajorVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dBMajorVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dBVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DBVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dBVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dBKernelVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DBKernelVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dBKernelVersion.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_dBInstanceTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -590,14 +661,6 @@ void DBInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "DBCharset";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_dBCharset.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_dBVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DBVersion";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_dBVersion.c_str(), allocator).Move(), allocator);
     }
 
     if (m_createTimeHasBeenSet)
@@ -687,12 +750,12 @@ void DBInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, m_uid, allocator);
     }
 
-    if (m_supportIpv6HasBeenSet)
+    if (m_projectIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SupportIpv6";
+        string key = "ProjectId";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_supportIpv6, allocator);
+        value.AddMember(iKey, m_projectId, allocator);
     }
 
     if (m_tagListHasBeenSet)
@@ -742,12 +805,43 @@ void DBInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, rapidjson::Value(m_offlineTime.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_dBKernelVersionHasBeenSet)
+    if (m_dBNodeSetHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DBKernelVersion";
+        string key = "DBNodeSet";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_dBKernelVersion.c_str(), allocator).Move(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_dBNodeSet.begin(); itr != m_dBNodeSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_isSupportTDEHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSupportTDE";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSupportTDE, allocator);
+    }
+
+    if (m_dBEngineHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DBEngine";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dBEngine.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dBEngineConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DBEngineConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dBEngineConfig.c_str(), allocator).Move(), allocator);
     }
 
     if (m_networkAccessListHasBeenSet)
@@ -765,27 +859,28 @@ void DBInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         }
     }
 
-    if (m_dBMajorVersionHasBeenSet)
+    if (m_supportIpv6HasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DBMajorVersion";
+        string key = "SupportIpv6";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_dBMajorVersion.c_str(), allocator).Move(), allocator);
+        value.AddMember(iKey, m_supportIpv6, allocator);
     }
 
-    if (m_dBNodeSetHasBeenSet)
+    if (m_expandedCpuHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DBNodeSet";
+        string key = "ExpandedCpu";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+        value.AddMember(iKey, m_expandedCpu, allocator);
+    }
 
-        int i=0;
-        for (auto itr = m_dBNodeSet.begin(); itr != m_dBNodeSet.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
+    if (m_deletionProtectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeletionProtection";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deletionProtection, allocator);
     }
 
 }
@@ -821,22 +916,6 @@ void DBInstance::SetZone(const string& _zone)
 bool DBInstance::ZoneHasBeenSet() const
 {
     return m_zoneHasBeenSet;
-}
-
-uint64_t DBInstance::GetProjectId() const
-{
-    return m_projectId;
-}
-
-void DBInstance::SetProjectId(const uint64_t& _projectId)
-{
-    m_projectId = _projectId;
-    m_projectIdHasBeenSet = true;
-}
-
-bool DBInstance::ProjectIdHasBeenSet() const
-{
-    return m_projectIdHasBeenSet;
 }
 
 string DBInstance::GetVpcId() const
@@ -983,6 +1062,54 @@ bool DBInstance::DBInstanceClassHasBeenSet() const
     return m_dBInstanceClassHasBeenSet;
 }
 
+string DBInstance::GetDBMajorVersion() const
+{
+    return m_dBMajorVersion;
+}
+
+void DBInstance::SetDBMajorVersion(const string& _dBMajorVersion)
+{
+    m_dBMajorVersion = _dBMajorVersion;
+    m_dBMajorVersionHasBeenSet = true;
+}
+
+bool DBInstance::DBMajorVersionHasBeenSet() const
+{
+    return m_dBMajorVersionHasBeenSet;
+}
+
+string DBInstance::GetDBVersion() const
+{
+    return m_dBVersion;
+}
+
+void DBInstance::SetDBVersion(const string& _dBVersion)
+{
+    m_dBVersion = _dBVersion;
+    m_dBVersionHasBeenSet = true;
+}
+
+bool DBInstance::DBVersionHasBeenSet() const
+{
+    return m_dBVersionHasBeenSet;
+}
+
+string DBInstance::GetDBKernelVersion() const
+{
+    return m_dBKernelVersion;
+}
+
+void DBInstance::SetDBKernelVersion(const string& _dBKernelVersion)
+{
+    m_dBKernelVersion = _dBKernelVersion;
+    m_dBKernelVersionHasBeenSet = true;
+}
+
+bool DBInstance::DBKernelVersionHasBeenSet() const
+{
+    return m_dBKernelVersionHasBeenSet;
+}
+
 string DBInstance::GetDBInstanceType() const
 {
     return m_dBInstanceType;
@@ -1029,22 +1156,6 @@ void DBInstance::SetDBCharset(const string& _dBCharset)
 bool DBInstance::DBCharsetHasBeenSet() const
 {
     return m_dBCharsetHasBeenSet;
-}
-
-string DBInstance::GetDBVersion() const
-{
-    return m_dBVersion;
-}
-
-void DBInstance::SetDBVersion(const string& _dBVersion)
-{
-    m_dBVersion = _dBVersion;
-    m_dBVersionHasBeenSet = true;
-}
-
-bool DBInstance::DBVersionHasBeenSet() const
-{
-    return m_dBVersionHasBeenSet;
 }
 
 string DBInstance::GetCreateTime() const
@@ -1207,20 +1318,20 @@ bool DBInstance::UidHasBeenSet() const
     return m_uidHasBeenSet;
 }
 
-uint64_t DBInstance::GetSupportIpv6() const
+uint64_t DBInstance::GetProjectId() const
 {
-    return m_supportIpv6;
+    return m_projectId;
 }
 
-void DBInstance::SetSupportIpv6(const uint64_t& _supportIpv6)
+void DBInstance::SetProjectId(const uint64_t& _projectId)
 {
-    m_supportIpv6 = _supportIpv6;
-    m_supportIpv6HasBeenSet = true;
+    m_projectId = _projectId;
+    m_projectIdHasBeenSet = true;
 }
 
-bool DBInstance::SupportIpv6HasBeenSet() const
+bool DBInstance::ProjectIdHasBeenSet() const
 {
-    return m_supportIpv6HasBeenSet;
+    return m_projectIdHasBeenSet;
 }
 
 vector<Tag> DBInstance::GetTagList() const
@@ -1303,20 +1414,68 @@ bool DBInstance::OfflineTimeHasBeenSet() const
     return m_offlineTimeHasBeenSet;
 }
 
-string DBInstance::GetDBKernelVersion() const
+vector<DBNode> DBInstance::GetDBNodeSet() const
 {
-    return m_dBKernelVersion;
+    return m_dBNodeSet;
 }
 
-void DBInstance::SetDBKernelVersion(const string& _dBKernelVersion)
+void DBInstance::SetDBNodeSet(const vector<DBNode>& _dBNodeSet)
 {
-    m_dBKernelVersion = _dBKernelVersion;
-    m_dBKernelVersionHasBeenSet = true;
+    m_dBNodeSet = _dBNodeSet;
+    m_dBNodeSetHasBeenSet = true;
 }
 
-bool DBInstance::DBKernelVersionHasBeenSet() const
+bool DBInstance::DBNodeSetHasBeenSet() const
 {
-    return m_dBKernelVersionHasBeenSet;
+    return m_dBNodeSetHasBeenSet;
+}
+
+int64_t DBInstance::GetIsSupportTDE() const
+{
+    return m_isSupportTDE;
+}
+
+void DBInstance::SetIsSupportTDE(const int64_t& _isSupportTDE)
+{
+    m_isSupportTDE = _isSupportTDE;
+    m_isSupportTDEHasBeenSet = true;
+}
+
+bool DBInstance::IsSupportTDEHasBeenSet() const
+{
+    return m_isSupportTDEHasBeenSet;
+}
+
+string DBInstance::GetDBEngine() const
+{
+    return m_dBEngine;
+}
+
+void DBInstance::SetDBEngine(const string& _dBEngine)
+{
+    m_dBEngine = _dBEngine;
+    m_dBEngineHasBeenSet = true;
+}
+
+bool DBInstance::DBEngineHasBeenSet() const
+{
+    return m_dBEngineHasBeenSet;
+}
+
+string DBInstance::GetDBEngineConfig() const
+{
+    return m_dBEngineConfig;
+}
+
+void DBInstance::SetDBEngineConfig(const string& _dBEngineConfig)
+{
+    m_dBEngineConfig = _dBEngineConfig;
+    m_dBEngineConfigHasBeenSet = true;
+}
+
+bool DBInstance::DBEngineConfigHasBeenSet() const
+{
+    return m_dBEngineConfigHasBeenSet;
 }
 
 vector<NetworkAccess> DBInstance::GetNetworkAccessList() const
@@ -1335,35 +1494,51 @@ bool DBInstance::NetworkAccessListHasBeenSet() const
     return m_networkAccessListHasBeenSet;
 }
 
-string DBInstance::GetDBMajorVersion() const
+uint64_t DBInstance::GetSupportIpv6() const
 {
-    return m_dBMajorVersion;
+    return m_supportIpv6;
 }
 
-void DBInstance::SetDBMajorVersion(const string& _dBMajorVersion)
+void DBInstance::SetSupportIpv6(const uint64_t& _supportIpv6)
 {
-    m_dBMajorVersion = _dBMajorVersion;
-    m_dBMajorVersionHasBeenSet = true;
+    m_supportIpv6 = _supportIpv6;
+    m_supportIpv6HasBeenSet = true;
 }
 
-bool DBInstance::DBMajorVersionHasBeenSet() const
+bool DBInstance::SupportIpv6HasBeenSet() const
 {
-    return m_dBMajorVersionHasBeenSet;
+    return m_supportIpv6HasBeenSet;
 }
 
-vector<DBNode> DBInstance::GetDBNodeSet() const
+uint64_t DBInstance::GetExpandedCpu() const
 {
-    return m_dBNodeSet;
+    return m_expandedCpu;
 }
 
-void DBInstance::SetDBNodeSet(const vector<DBNode>& _dBNodeSet)
+void DBInstance::SetExpandedCpu(const uint64_t& _expandedCpu)
 {
-    m_dBNodeSet = _dBNodeSet;
-    m_dBNodeSetHasBeenSet = true;
+    m_expandedCpu = _expandedCpu;
+    m_expandedCpuHasBeenSet = true;
 }
 
-bool DBInstance::DBNodeSetHasBeenSet() const
+bool DBInstance::ExpandedCpuHasBeenSet() const
 {
-    return m_dBNodeSetHasBeenSet;
+    return m_expandedCpuHasBeenSet;
+}
+
+bool DBInstance::GetDeletionProtection() const
+{
+    return m_deletionProtection;
+}
+
+void DBInstance::SetDeletionProtection(const bool& _deletionProtection)
+{
+    m_deletionProtection = _deletionProtection;
+    m_deletionProtectionHasBeenSet = true;
+}
+
+bool DBInstance::DeletionProtectionHasBeenSet() const
+{
+    return m_deletionProtectionHasBeenSet;
 }
 

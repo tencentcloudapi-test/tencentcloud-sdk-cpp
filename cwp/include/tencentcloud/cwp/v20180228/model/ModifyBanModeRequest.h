@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取阻断模式，STANDARD_MODE：标准阻断，DEEP_MODE：深度阻断
                      * @return Mode 阻断模式，STANDARD_MODE：标准阻断，DEEP_MODE：深度阻断
+                     * 
                      */
                     std::string GetMode() const;
 
                     /**
                      * 设置阻断模式，STANDARD_MODE：标准阻断，DEEP_MODE：深度阻断
-                     * @param Mode 阻断模式，STANDARD_MODE：标准阻断，DEEP_MODE：深度阻断
+                     * @param _mode 阻断模式，STANDARD_MODE：标准阻断，DEEP_MODE：深度阻断
+                     * 
                      */
                     void SetMode(const std::string& _mode);
 
                     /**
                      * 判断参数 Mode 是否已赋值
                      * @return Mode 是否已赋值
+                     * 
                      */
                     bool ModeHasBeenSet() const;
 
                     /**
                      * 获取阻断时间，用于标准阻断模式
                      * @return Ttl 阻断时间，用于标准阻断模式
+                     * 
                      */
                     uint64_t GetTtl() const;
 
                     /**
                      * 设置阻断时间，用于标准阻断模式
-                     * @param Ttl 阻断时间，用于标准阻断模式
+                     * @param _ttl 阻断时间，用于标准阻断模式
+                     * 
                      */
                     void SetTtl(const uint64_t& _ttl);
 
                     /**
                      * 判断参数 Ttl 是否已赋值
                      * @return Ttl 是否已赋值
+                     * 
                      */
                     bool TtlHasBeenSet() const;
 

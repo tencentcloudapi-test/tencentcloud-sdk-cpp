@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,90 +45,105 @@ namespace TencentCloud
                     /**
                      * 获取片区Id
                      * @return AreaIds 片区Id
+                     * 
                      */
                     std::vector<int64_t> GetAreaIds() const;
 
                     /**
                      * 设置片区Id
-                     * @param AreaIds 片区Id
+                     * @param _areaIds 片区Id
+                     * 
                      */
                     void SetAreaIds(const std::vector<int64_t>& _areaIds);
 
                     /**
                      * 判断参数 AreaIds 是否已赋值
                      * @return AreaIds 是否已赋值
+                     * 
                      */
                     bool AreaIdsHasBeenSet() const;
 
                     /**
                      * 获取片区Key
                      * @return AreaKeys 片区Key
+                     * 
                      */
                     std::vector<std::string> GetAreaKeys() const;
 
                     /**
                      * 设置片区Key
-                     * @param AreaKeys 片区Key
+                     * @param _areaKeys 片区Key
+                     * 
                      */
                     void SetAreaKeys(const std::vector<std::string>& _areaKeys);
 
                     /**
                      * 判断参数 AreaKeys 是否已赋值
                      * @return AreaKeys 是否已赋值
+                     * 
                      */
                     bool AreaKeysHasBeenSet() const;
 
                     /**
-                     * 获取分页Limit
-                     * @return Limit 分页Limit
+                     * 获取分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * @return Limit 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置分页Limit
-                     * @param Limit 分页Limit
+                     * 设置分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * @param _limit 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取片区状态(1=有效，2=无效)
                      * @return AreaStatuses 片区状态(1=有效，2=无效)
+                     * 
                      */
                     std::vector<int64_t> GetAreaStatuses() const;
 
                     /**
                      * 设置片区状态(1=有效，2=无效)
-                     * @param AreaStatuses 片区状态(1=有效，2=无效)
+                     * @param _areaStatuses 片区状态(1=有效，2=无效)
+                     * 
                      */
                     void SetAreaStatuses(const std::vector<int64_t>& _areaStatuses);
 
                     /**
                      * 判断参数 AreaStatuses 是否已赋值
                      * @return AreaStatuses 是否已赋值
+                     * 
                      */
                     bool AreaStatusesHasBeenSet() const;
 
                     /**
-                     * 获取分页Offset
-                     * @return Offset 分页Offset
+                     * 获取分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * @return Offset 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置分页Offset
-                     * @param Offset 分页Offset
+                     * 设置分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * @param _offset 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
@@ -147,7 +162,7 @@ namespace TencentCloud
                     bool m_areaKeysHasBeenSet;
 
                     /**
-                     * 分页Limit
+                     * 分页Limit，默认根据AreaKeys和AreaStatuses参数查询所有。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
@@ -159,7 +174,7 @@ namespace TencentCloud
                     bool m_areaStatusesHasBeenSet;
 
                     /**
-                     * 分页Offset
+                     * 分页Offset，默认根据AreaKeys和AreaStatuses参数查询所有。
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;

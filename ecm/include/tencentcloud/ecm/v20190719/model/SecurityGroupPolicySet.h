@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
                      * @return Version 安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
+                     * 
                      */
                     std::string GetVersion() const;
 
                     /**
                      * 设置安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
-                     * @param Version 安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
+                     * @param _version 安全组规则当前版本。用户每次更新安全规则版本会自动加1，防止更新的路由规则已过期，不填不考虑冲突。
+                     * 
                      */
                     void SetVersion(const std::string& _version);
 
                     /**
                      * 判断参数 Version 是否已赋值
                      * @return Version 是否已赋值
+                     * 
                      */
                     bool VersionHasBeenSet() const;
 
                     /**
                      * 获取出站规则。其中出站规则和入站规则必须选一个。
                      * @return Egress 出站规则。其中出站规则和入站规则必须选一个。
+                     * 
                      */
                     std::vector<SecurityGroupPolicy> GetEgress() const;
 
                     /**
                      * 设置出站规则。其中出站规则和入站规则必须选一个。
-                     * @param Egress 出站规则。其中出站规则和入站规则必须选一个。
+                     * @param _egress 出站规则。其中出站规则和入站规则必须选一个。
+                     * 
                      */
                     void SetEgress(const std::vector<SecurityGroupPolicy>& _egress);
 
                     /**
                      * 判断参数 Egress 是否已赋值
                      * @return Egress 是否已赋值
+                     * 
                      */
                     bool EgressHasBeenSet() const;
 
                     /**
                      * 获取入站规则。其中出站规则和入站规则必须选一个。
                      * @return Ingress 入站规则。其中出站规则和入站规则必须选一个。
+                     * 
                      */
                     std::vector<SecurityGroupPolicy> GetIngress() const;
 
                     /**
                      * 设置入站规则。其中出站规则和入站规则必须选一个。
-                     * @param Ingress 入站规则。其中出站规则和入站规则必须选一个。
+                     * @param _ingress 入站规则。其中出站规则和入站规则必须选一个。
+                     * 
                      */
                     void SetIngress(const std::vector<SecurityGroupPolicy>& _ingress);
 
                     /**
                      * 判断参数 Ingress 是否已赋值
                      * @return Ingress 是否已赋值
+                     * 
                      */
                     bool IngressHasBeenSet() const;
 

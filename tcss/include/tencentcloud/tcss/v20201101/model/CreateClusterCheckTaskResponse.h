@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,26 +46,44 @@ namespace TencentCloud
                     /**
                      * 获取返回创建的集群检查任务的ID，为0表示创建失败。
                      * @return TaskId 返回创建的集群检查任务的ID，为0表示创建失败。
+                     * 
                      */
                     uint64_t GetTaskId() const;
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                     /**
                      * 获取创建检查任务的结果，"Succ"为成功，其他的为失败原因
                      * @return CreateResult 创建检查任务的结果，"Succ"为成功，其他的为失败原因
+                     * 
                      */
                     std::string GetCreateResult() const;
 
                     /**
                      * 判断参数 CreateResult 是否已赋值
                      * @return CreateResult 是否已赋值
+                     * 
                      */
                     bool CreateResultHasBeenSet() const;
+
+                    /**
+                     * 获取返回创建的集群新任务ID
+                     * @return NewTaskID 返回创建的集群新任务ID
+                     * 
+                     */
+                    std::string GetNewTaskID() const;
+
+                    /**
+                     * 判断参数 NewTaskID 是否已赋值
+                     * @return NewTaskID 是否已赋值
+                     * 
+                     */
+                    bool NewTaskIDHasBeenSet() const;
 
                 private:
 
@@ -80,6 +98,12 @@ namespace TencentCloud
                      */
                     std::string m_createResult;
                     bool m_createResultHasBeenSet;
+
+                    /**
+                     * 返回创建的集群新任务ID
+                     */
+                    std::string m_newTaskID;
+                    bool m_newTaskIDHasBeenSet;
 
                 };
             }

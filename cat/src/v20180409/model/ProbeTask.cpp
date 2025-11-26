@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ ProbeTask::ProbeTask() :
     m_taskIdHasBeenSet(false),
     m_taskTypeHasBeenSet(false),
     m_nodesHasBeenSet(false),
+    m_nodeIpTypeHasBeenSet(false),
     m_intervalHasBeenSet(false),
     m_parametersHasBeenSet(false),
     m_statusHasBeenSet(false),
@@ -35,7 +36,8 @@ ProbeTask::ProbeTask() :
     m_createdAtHasBeenSet(false),
     m_cronHasBeenSet(false),
     m_cronStateHasBeenSet(false),
-    m_tagInfoListHasBeenSet(false)
+    m_tagInfoListHasBeenSet(false),
+    m_subSyncFlagHasBeenSet(false)
 {
 }
 
@@ -85,6 +87,16 @@ CoreInternalOutcome ProbeTask::Deserialize(const rapidjson::Value &value)
             m_nodes.push_back((*itr).GetString());
         }
         m_nodesHasBeenSet = true;
+    }
+
+    if (value.HasMember("NodeIpType") && !value["NodeIpType"].IsNull())
+    {
+        if (!value["NodeIpType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProbeTask.NodeIpType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeIpType = value["NodeIpType"].GetInt64();
+        m_nodeIpTypeHasBeenSet = true;
     }
 
     if (value.HasMember("Interval") && !value["Interval"].IsNull())
@@ -207,6 +219,16 @@ CoreInternalOutcome ProbeTask::Deserialize(const rapidjson::Value &value)
         m_tagInfoListHasBeenSet = true;
     }
 
+    if (value.HasMember("SubSyncFlag") && !value["SubSyncFlag"].IsNull())
+    {
+        if (!value["SubSyncFlag"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProbeTask.SubSyncFlag` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_subSyncFlag = value["SubSyncFlag"].GetInt64();
+        m_subSyncFlagHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -249,6 +271,14 @@ void ProbeTask::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_nodeIpTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeIpType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_nodeIpType, allocator);
     }
 
     if (m_intervalHasBeenSet)
@@ -346,6 +376,14 @@ void ProbeTask::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         }
     }
 
+    if (m_subSyncFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubSyncFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_subSyncFlag, allocator);
+    }
+
 }
 
 
@@ -411,6 +449,22 @@ void ProbeTask::SetNodes(const vector<string>& _nodes)
 bool ProbeTask::NodesHasBeenSet() const
 {
     return m_nodesHasBeenSet;
+}
+
+int64_t ProbeTask::GetNodeIpType() const
+{
+    return m_nodeIpType;
+}
+
+void ProbeTask::SetNodeIpType(const int64_t& _nodeIpType)
+{
+    m_nodeIpType = _nodeIpType;
+    m_nodeIpTypeHasBeenSet = true;
+}
+
+bool ProbeTask::NodeIpTypeHasBeenSet() const
+{
+    return m_nodeIpTypeHasBeenSet;
 }
 
 int64_t ProbeTask::GetInterval() const
@@ -587,5 +641,21 @@ void ProbeTask::SetTagInfoList(const vector<KeyValuePair>& _tagInfoList)
 bool ProbeTask::TagInfoListHasBeenSet() const
 {
     return m_tagInfoListHasBeenSet;
+}
+
+int64_t ProbeTask::GetSubSyncFlag() const
+{
+    return m_subSyncFlag;
+}
+
+void ProbeTask::SetSubSyncFlag(const int64_t& _subSyncFlag)
+{
+    m_subSyncFlag = _subSyncFlag;
+    m_subSyncFlagHasBeenSet = true;
+}
+
+bool ProbeTask::SubSyncFlagHasBeenSet() const
+{
+    return m_subSyncFlagHasBeenSet;
 }
 

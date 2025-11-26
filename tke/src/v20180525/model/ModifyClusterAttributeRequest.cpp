@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ ModifyClusterAttributeRequest::ModifyClusterAttributeRequest() :
     m_clusterNameHasBeenSet(false),
     m_clusterDescHasBeenSet(false),
     m_clusterLevelHasBeenSet(false),
-    m_autoUpgradeClusterLevelHasBeenSet(false)
+    m_autoUpgradeClusterLevelHasBeenSet(false),
+    m_qGPUShareEnableHasBeenSet(false),
+    m_clusterPropertyHasBeenSet(false)
 {
 }
 
@@ -86,6 +88,23 @@ string ModifyClusterAttributeRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_autoUpgradeClusterLevel.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_qGPUShareEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QGPUShareEnable";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_qGPUShareEnable, allocator);
+    }
+
+    if (m_clusterPropertyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterProperty";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_clusterProperty.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -190,6 +209,38 @@ void ModifyClusterAttributeRequest::SetAutoUpgradeClusterLevel(const AutoUpgrade
 bool ModifyClusterAttributeRequest::AutoUpgradeClusterLevelHasBeenSet() const
 {
     return m_autoUpgradeClusterLevelHasBeenSet;
+}
+
+bool ModifyClusterAttributeRequest::GetQGPUShareEnable() const
+{
+    return m_qGPUShareEnable;
+}
+
+void ModifyClusterAttributeRequest::SetQGPUShareEnable(const bool& _qGPUShareEnable)
+{
+    m_qGPUShareEnable = _qGPUShareEnable;
+    m_qGPUShareEnableHasBeenSet = true;
+}
+
+bool ModifyClusterAttributeRequest::QGPUShareEnableHasBeenSet() const
+{
+    return m_qGPUShareEnableHasBeenSet;
+}
+
+ClusterProperty ModifyClusterAttributeRequest::GetClusterProperty() const
+{
+    return m_clusterProperty;
+}
+
+void ModifyClusterAttributeRequest::SetClusterProperty(const ClusterProperty& _clusterProperty)
+{
+    m_clusterProperty = _clusterProperty;
+    m_clusterPropertyHasBeenSet = true;
+}
+
+bool ModifyClusterAttributeRequest::ClusterPropertyHasBeenSet() const
+{
+    return m_clusterPropertyHasBeenSet;
 }
 
 

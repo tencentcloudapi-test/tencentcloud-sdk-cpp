@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,48 +47,56 @@ namespace TencentCloud
                     /**
                      * 获取请求的图片宽度。
                      * @return ImageWidth 请求的图片宽度。
+                     * 
                      */
                     uint64_t GetImageWidth() const;
 
                     /**
                      * 判断参数 ImageWidth 是否已赋值
                      * @return ImageWidth 是否已赋值
+                     * 
                      */
                     bool ImageWidthHasBeenSet() const;
 
                     /**
                      * 获取请求的图片高度。
                      * @return ImageHeight 请求的图片高度。
+                     * 
                      */
                     uint64_t GetImageHeight() const;
 
                     /**
                      * 判断参数 ImageHeight 是否已赋值
                      * @return ImageHeight 是否已赋值
+                     * 
                      */
                     bool ImageHeightHasBeenSet() const;
 
                     /**
                      * 获取五官定位（人脸关键点）具体信息。
                      * @return FaceShapeSet 五官定位（人脸关键点）具体信息。
+                     * 
                      */
                     std::vector<FaceShape> GetFaceShapeSet() const;
 
                     /**
                      * 判断参数 FaceShapeSet 是否已赋值
                      * @return FaceShapeSet 是否已赋值
+                     * 
                      */
                     bool FaceShapeSetHasBeenSet() const;
 
                     /**
                      * 获取人脸识别所用的算法模型版本。
                      * @return FaceModelVersion 人脸识别所用的算法模型版本。
+                     * 
                      */
                     std::string GetFaceModelVersion() const;
 
                     /**
                      * 判断参数 FaceModelVersion 是否已赋值
                      * @return FaceModelVersion 是否已赋值
+                     * 
                      */
                     bool FaceModelVersionHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/vpc/v20170312/model/Tag.h>
 
 
 namespace TencentCloud
@@ -43,78 +44,114 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取本地网关名称
-                     * @return LocalGatewayName 本地网关名称
+                     * 获取本地网关名称。
+                     * @return LocalGatewayName 本地网关名称。
+                     * 
                      */
                     std::string GetLocalGatewayName() const;
 
                     /**
-                     * 设置本地网关名称
-                     * @param LocalGatewayName 本地网关名称
+                     * 设置本地网关名称。
+                     * @param _localGatewayName 本地网关名称。
+                     * 
                      */
                     void SetLocalGatewayName(const std::string& _localGatewayName);
 
                     /**
                      * 判断参数 LocalGatewayName 是否已赋值
                      * @return LocalGatewayName 是否已赋值
+                     * 
                      */
                     bool LocalGatewayNameHasBeenSet() const;
 
                     /**
-                     * 获取VPC实例ID
-                     * @return VpcId VPC实例ID
+                     * 获取VPC实例ID。
+                     * @return VpcId VPC实例ID。
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置VPC实例ID
-                     * @param VpcId VPC实例ID
+                     * 设置VPC实例ID。
+                     * @param _vpcId VPC实例ID。
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取CDC实例ID
-                     * @return CdcId CDC实例ID
+                     * 获取CDC实例ID。
+                     * @return CdcId CDC实例ID。
+                     * 
                      */
                     std::string GetCdcId() const;
 
                     /**
-                     * 设置CDC实例ID
-                     * @param CdcId CDC实例ID
+                     * 设置CDC实例ID。
+                     * @param _cdcId CDC实例ID。
+                     * 
                      */
                     void SetCdcId(const std::string& _cdcId);
 
                     /**
                      * 判断参数 CdcId 是否已赋值
                      * @return CdcId 是否已赋值
+                     * 
                      */
                     bool CdcIdHasBeenSet() const;
+
+                    /**
+                     * 获取指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * @param _tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 本地网关名称
+                     * 本地网关名称。
                      */
                     std::string m_localGatewayName;
                     bool m_localGatewayNameHasBeenSet;
 
                     /**
-                     * VPC实例ID
+                     * VPC实例ID。
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * CDC实例ID
+                     * CDC实例ID。
                      */
                     std::string m_cdcId;
                     bool m_cdcIdHasBeenSet;
+
+                    /**
+                     * 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

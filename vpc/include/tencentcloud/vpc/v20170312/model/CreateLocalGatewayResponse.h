@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取本地网关信息
-                     * @return LocalGateway 本地网关信息
+                     * 获取本地网关信息。
+                     * @return LocalGateway 本地网关信息。
+                     * 
                      */
                     LocalGateway GetLocalGateway() const;
 
                     /**
                      * 判断参数 LocalGateway 是否已赋值
                      * @return LocalGateway 是否已赋值
+                     * 
                      */
                     bool LocalGatewayHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 本地网关信息
+                     * 本地网关信息。
                      */
                     LocalGateway m_localGateway;
                     bool m_localGatewayHasBeenSet;

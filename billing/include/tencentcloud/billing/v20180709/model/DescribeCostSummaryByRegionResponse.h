@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,50 +48,56 @@ namespace TencentCloud
                     /**
                      * 获取数据是否准备好，0未准备好，1准备好
                      * @return Ready 数据是否准备好，0未准备好，1准备好
+                     * 
                      */
                     uint64_t GetReady() const;
 
                     /**
                      * 判断参数 Ready 是否已赋值
                      * @return Ready 是否已赋值
+                     * 
                      */
                     bool ReadyHasBeenSet() const;
 
                     /**
                      * 获取消耗详情
                      * @return Total 消耗详情
+                     * 
                      */
                     ConsumptionSummaryTotal GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
                     /**
                      * 获取消耗按地域汇总详情
                      * @return Data 消耗按地域汇总详情
+                     * 
                      */
                     std::vector<ConsumptionRegionSummaryDataItem> GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                     /**
-                     * 获取记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RecordNum 记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取记录数量，NeedRecordNum为0时返回null
+                     * @return RecordNum 记录数量，NeedRecordNum为0时返回null
+                     * 
                      */
                     uint64_t GetRecordNum() const;
 
                     /**
                      * 判断参数 RecordNum 是否已赋值
                      * @return RecordNum 是否已赋值
+                     * 
                      */
                     bool RecordNumHasBeenSet() const;
 
@@ -116,8 +122,7 @@ namespace TencentCloud
                     bool m_dataHasBeenSet;
 
                     /**
-                     * 记录数量，NeedRecordNum为0是返回null
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 记录数量，NeedRecordNum为0时返回null
                      */
                     uint64_t m_recordNum;
                     bool m_recordNumHasBeenSet;

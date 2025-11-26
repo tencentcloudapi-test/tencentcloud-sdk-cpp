@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取位置空间Id
                      * @return SpaceId 位置空间Id
+                     * 
                      */
                     std::string GetSpaceId() const;
 
                     /**
                      * 设置位置空间Id
-                     * @param SpaceId 位置空间Id
+                     * @param _spaceId 位置空间Id
+                     * 
                      */
                     void SetSpaceId(const std::string& _spaceId);
 
                     /**
                      * 判断参数 SpaceId 是否已赋值
                      * @return SpaceId 是否已赋值
+                     * 
                      */
                     bool SpaceIdHasBeenSet() const;
 

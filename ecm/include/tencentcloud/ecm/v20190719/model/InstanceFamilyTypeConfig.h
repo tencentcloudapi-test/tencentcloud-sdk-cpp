@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取实例机型系列类型Id
                      * @return InstanceFamilyType 实例机型系列类型Id
+                     * 
                      */
                     std::string GetInstanceFamilyType() const;
 
                     /**
                      * 设置实例机型系列类型Id
-                     * @param InstanceFamilyType 实例机型系列类型Id
+                     * @param _instanceFamilyType 实例机型系列类型Id
+                     * 
                      */
                     void SetInstanceFamilyType(const std::string& _instanceFamilyType);
 
                     /**
                      * 判断参数 InstanceFamilyType 是否已赋值
                      * @return InstanceFamilyType 是否已赋值
+                     * 
                      */
                     bool InstanceFamilyTypeHasBeenSet() const;
 
                     /**
                      * 获取实例机型系列类型名称
                      * @return InstanceFamilyTypeName 实例机型系列类型名称
+                     * 
                      */
                     std::string GetInstanceFamilyTypeName() const;
 
                     /**
                      * 设置实例机型系列类型名称
-                     * @param InstanceFamilyTypeName 实例机型系列类型名称
+                     * @param _instanceFamilyTypeName 实例机型系列类型名称
+                     * 
                      */
                     void SetInstanceFamilyTypeName(const std::string& _instanceFamilyTypeName);
 
                     /**
                      * 判断参数 InstanceFamilyTypeName 是否已赋值
                      * @return InstanceFamilyTypeName 是否已赋值
+                     * 
                      */
                     bool InstanceFamilyTypeNameHasBeenSet() const;
 

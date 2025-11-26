@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取素材列表数据
                      * @return MaterialInfos 素材列表数据
+                     * 
                      */
                     std::vector<PublicMaterialInfos> GetMaterialInfos() const;
 
                     /**
                      * 判断参数 MaterialInfos 是否已赋值
                      * @return MaterialInfos 是否已赋值
+                     * 
                      */
                     bool MaterialInfosHasBeenSet() const;
 
                     /**
                      * 获取素材条数
                      * @return Count 素材条数
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 

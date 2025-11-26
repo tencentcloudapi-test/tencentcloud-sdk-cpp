@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/ses/v20201002/model/TagList.h>
 
 
 namespace TencentCloud
@@ -49,56 +50,149 @@ namespace TencentCloud
                     /**
                      * 获取发信域名
                      * @return IdentityName 发信域名
+                     * 
                      */
                     std::string GetIdentityName() const;
 
                     /**
                      * 设置发信域名
-                     * @param IdentityName 发信域名
+                     * @param _identityName 发信域名
+                     * 
                      */
                     void SetIdentityName(const std::string& _identityName);
 
                     /**
                      * 判断参数 IdentityName 是否已赋值
                      * @return IdentityName 是否已赋值
+                     * 
                      */
                     bool IdentityNameHasBeenSet() const;
 
                     /**
                      * 获取验证类型，固定为DOMAIN
                      * @return IdentityType 验证类型，固定为DOMAIN
+                     * 
                      */
                     std::string GetIdentityType() const;
 
                     /**
                      * 设置验证类型，固定为DOMAIN
-                     * @param IdentityType 验证类型，固定为DOMAIN
+                     * @param _identityType 验证类型，固定为DOMAIN
+                     * 
                      */
                     void SetIdentityType(const std::string& _identityType);
 
                     /**
                      * 判断参数 IdentityType 是否已赋值
                      * @return IdentityType 是否已赋值
+                     * 
                      */
                     bool IdentityTypeHasBeenSet() const;
 
                     /**
                      * 获取是否已通过验证
                      * @return SendingEnabled 是否已通过验证
+                     * 
                      */
                     bool GetSendingEnabled() const;
 
                     /**
                      * 设置是否已通过验证
-                     * @param SendingEnabled 是否已通过验证
+                     * @param _sendingEnabled 是否已通过验证
+                     * 
                      */
                     void SetSendingEnabled(const bool& _sendingEnabled);
 
                     /**
                      * 判断参数 SendingEnabled 是否已赋值
                      * @return SendingEnabled 是否已赋值
+                     * 
                      */
                     bool SendingEnabledHasBeenSet() const;
+
+                    /**
+                     * 获取当前信誉等级
+                     * @return CurrentReputationLevel 当前信誉等级
+                     * 
+                     */
+                    uint64_t GetCurrentReputationLevel() const;
+
+                    /**
+                     * 设置当前信誉等级
+                     * @param _currentReputationLevel 当前信誉等级
+                     * 
+                     */
+                    void SetCurrentReputationLevel(const uint64_t& _currentReputationLevel);
+
+                    /**
+                     * 判断参数 CurrentReputationLevel 是否已赋值
+                     * @return CurrentReputationLevel 是否已赋值
+                     * 
+                     */
+                    bool CurrentReputationLevelHasBeenSet() const;
+
+                    /**
+                     * 获取当日最高发信量
+                     * @return DailyQuota 当日最高发信量
+                     * 
+                     */
+                    uint64_t GetDailyQuota() const;
+
+                    /**
+                     * 设置当日最高发信量
+                     * @param _dailyQuota 当日最高发信量
+                     * 
+                     */
+                    void SetDailyQuota(const uint64_t& _dailyQuota);
+
+                    /**
+                     * 判断参数 DailyQuota 是否已赋值
+                     * @return DailyQuota 是否已赋值
+                     * 
+                     */
+                    bool DailyQuotaHasBeenSet() const;
+
+                    /**
+                     * 获取域名配置的独立ip
+                     * @return SendIp 域名配置的独立ip
+                     * 
+                     */
+                    std::vector<std::string> GetSendIp() const;
+
+                    /**
+                     * 设置域名配置的独立ip
+                     * @param _sendIp 域名配置的独立ip
+                     * 
+                     */
+                    void SetSendIp(const std::vector<std::string>& _sendIp);
+
+                    /**
+                     * 判断参数 SendIp 是否已赋值
+                     * @return SendIp 是否已赋值
+                     * 
+                     */
+                    bool SendIpHasBeenSet() const;
+
+                    /**
+                     * 获取tag 标签
+                     * @return TagList tag 标签
+                     * 
+                     */
+                    std::vector<TagList> GetTagList() const;
+
+                    /**
+                     * 设置tag 标签
+                     * @param _tagList tag 标签
+                     * 
+                     */
+                    void SetTagList(const std::vector<TagList>& _tagList);
+
+                    /**
+                     * 判断参数 TagList 是否已赋值
+                     * @return TagList 是否已赋值
+                     * 
+                     */
+                    bool TagListHasBeenSet() const;
 
                 private:
 
@@ -119,6 +213,30 @@ namespace TencentCloud
                      */
                     bool m_sendingEnabled;
                     bool m_sendingEnabledHasBeenSet;
+
+                    /**
+                     * 当前信誉等级
+                     */
+                    uint64_t m_currentReputationLevel;
+                    bool m_currentReputationLevelHasBeenSet;
+
+                    /**
+                     * 当日最高发信量
+                     */
+                    uint64_t m_dailyQuota;
+                    bool m_dailyQuotaHasBeenSet;
+
+                    /**
+                     * 域名配置的独立ip
+                     */
+                    std::vector<std::string> m_sendIp;
+                    bool m_sendIpHasBeenSet;
+
+                    /**
+                     * tag 标签
+                     */
+                    std::vector<TagList> m_tagList;
+                    bool m_tagListHasBeenSet;
 
                 };
             }

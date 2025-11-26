@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mrs/v20200910/model/SurgeryHistory.h>
+#include <tencentcloud/mrs/v20200910/model/OtherInfo.h>
 
 
 namespace TencentCloud
@@ -49,34 +50,86 @@ namespace TencentCloud
 
                     /**
                      * 获取手术史
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SurgeryHistory 手术史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     SurgeryHistory GetSurgeryHistory() const;
 
                     /**
                      * 设置手术史
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SurgeryHistory 手术史
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _surgeryHistory 手术史
+                     * 
                      */
                     void SetSurgeryHistory(const SurgeryHistory& _surgeryHistory);
 
                     /**
                      * 判断参数 SurgeryHistory 是否已赋值
                      * @return SurgeryHistory 是否已赋值
+                     * 
                      */
                     bool SurgeryHistoryHasBeenSet() const;
+
+                    /**
+                     * 获取其他信息
+                     * @return OtherInfo 其他信息
+                     * 
+                     */
+                    OtherInfo GetOtherInfo() const;
+
+                    /**
+                     * 设置其他信息
+                     * @param _otherInfo 其他信息
+                     * 
+                     */
+                    void SetOtherInfo(const OtherInfo& _otherInfo);
+
+                    /**
+                     * 判断参数 OtherInfo 是否已赋值
+                     * @return OtherInfo 是否已赋值
+                     * 
+                     */
+                    bool OtherInfoHasBeenSet() const;
+
+                    /**
+                     * 获取数据在原PDF文件中的第几页
+                     * @return Page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    int64_t GetPage() const;
+
+                    /**
+                     * 设置数据在原PDF文件中的第几页
+                     * @param _page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    void SetPage(const int64_t& _page);
+
+                    /**
+                     * 判断参数 Page 是否已赋值
+                     * @return Page 是否已赋值
+                     * 
+                     */
+                    bool PageHasBeenSet() const;
 
                 private:
 
                     /**
                      * 手术史
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     SurgeryHistory m_surgeryHistory;
                     bool m_surgeryHistoryHasBeenSet;
+
+                    /**
+                     * 其他信息
+                     */
+                    OtherInfo m_otherInfo;
+                    bool m_otherInfoHasBeenSet;
+
+                    /**
+                     * 数据在原PDF文件中的第几页
+                     */
+                    int64_t m_page;
+                    bool m_pageHasBeenSet;
 
                 };
             }

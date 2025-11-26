@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace TencentCloud::Vod::V20180717::Model;
 using namespace std;
 
 ProcessMediaByProcedureResponse::ProcessMediaByProcedureResponse() :
-    m_taskIdHasBeenSet(false)
+    m_taskIdHasBeenSet(false),
+    m_reviewAudioVideoTaskIdHasBeenSet(false)
 {
 }
 
@@ -72,6 +73,16 @@ CoreInternalOutcome ProcessMediaByProcedureResponse::Deserialize(const string &p
         m_taskIdHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ReviewAudioVideoTaskId") && !rsp["ReviewAudioVideoTaskId"].IsNull())
+    {
+        if (!rsp["ReviewAudioVideoTaskId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReviewAudioVideoTaskId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_reviewAudioVideoTaskId = string(rsp["ReviewAudioVideoTaskId"].GetString());
+        m_reviewAudioVideoTaskIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -90,11 +101,19 @@ string ProcessMediaByProcedureResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_taskId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_reviewAudioVideoTaskIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReviewAudioVideoTaskId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_reviewAudioVideoTaskId.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -110,6 +129,16 @@ string ProcessMediaByProcedureResponse::GetTaskId() const
 bool ProcessMediaByProcedureResponse::TaskIdHasBeenSet() const
 {
     return m_taskIdHasBeenSet;
+}
+
+string ProcessMediaByProcedureResponse::GetReviewAudioVideoTaskId() const
+{
+    return m_reviewAudioVideoTaskId;
+}
+
+bool ProcessMediaByProcedureResponse::ReviewAudioVideoTaskIdHasBeenSet() const
+{
+    return m_reviewAudioVideoTaskIdHasBeenSet;
 }
 
 

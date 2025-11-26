@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取国家ID
                      * @return CountryId 国家ID
+                     * 
                      */
                     std::string GetCountryId() const;
 
                     /**
                      * 设置国家ID
-                     * @param CountryId 国家ID
+                     * @param _countryId 国家ID
+                     * 
                      */
                     void SetCountryId(const std::string& _countryId);
 
                     /**
                      * 判断参数 CountryId 是否已赋值
                      * @return CountryId 是否已赋值
+                     * 
                      */
                     bool CountryIdHasBeenSet() const;
 
                     /**
                      * 获取国家名称
                      * @return CountryName 国家名称
+                     * 
                      */
                     std::string GetCountryName() const;
 
                     /**
                      * 设置国家名称
-                     * @param CountryName 国家名称
+                     * @param _countryName 国家名称
+                     * 
                      */
                     void SetCountryName(const std::string& _countryName);
 
                     /**
                      * 判断参数 CountryName 是否已赋值
                      * @return CountryName 是否已赋值
+                     * 
                      */
                     bool CountryNameHasBeenSet() const;
 

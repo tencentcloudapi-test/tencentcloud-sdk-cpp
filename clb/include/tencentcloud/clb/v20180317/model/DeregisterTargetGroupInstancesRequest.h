@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,46 @@ namespace TencentCloud
                     /**
                      * 获取目标组ID。
                      * @return TargetGroupId 目标组ID。
+                     * 
                      */
                     std::string GetTargetGroupId() const;
 
                     /**
                      * 设置目标组ID。
-                     * @param TargetGroupId 目标组ID。
+                     * @param _targetGroupId 目标组ID。
+                     * 
                      */
                     void SetTargetGroupId(const std::string& _targetGroupId);
 
                     /**
                      * 判断参数 TargetGroupId 是否已赋值
                      * @return TargetGroupId 是否已赋值
+                     * 
                      */
                     bool TargetGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取待解绑的服务器信息。
-                     * @return TargetGroupInstances 待解绑的服务器信息。
+                     * 获取待解绑的服务器信息，支持批量解除绑定，单次批量解除数量最多为20个。
+在这个接口 Port 参数为必填项。
+                     * @return TargetGroupInstances 待解绑的服务器信息，支持批量解除绑定，单次批量解除数量最多为20个。
+在这个接口 Port 参数为必填项。
+                     * 
                      */
                     std::vector<TargetGroupInstance> GetTargetGroupInstances() const;
 
                     /**
-                     * 设置待解绑的服务器信息。
-                     * @param TargetGroupInstances 待解绑的服务器信息。
+                     * 设置待解绑的服务器信息，支持批量解除绑定，单次批量解除数量最多为20个。
+在这个接口 Port 参数为必填项。
+                     * @param _targetGroupInstances 待解绑的服务器信息，支持批量解除绑定，单次批量解除数量最多为20个。
+在这个接口 Port 参数为必填项。
+                     * 
                      */
                     void SetTargetGroupInstances(const std::vector<TargetGroupInstance>& _targetGroupInstances);
 
                     /**
                      * 判断参数 TargetGroupInstances 是否已赋值
                      * @return TargetGroupInstances 是否已赋值
+                     * 
                      */
                     bool TargetGroupInstancesHasBeenSet() const;
 
@@ -88,7 +98,8 @@ namespace TencentCloud
                     bool m_targetGroupIdHasBeenSet;
 
                     /**
-                     * 待解绑的服务器信息。
+                     * 待解绑的服务器信息，支持批量解除绑定，单次批量解除数量最多为20个。
+在这个接口 Port 参数为必填项。
                      */
                     std::vector<TargetGroupInstance> m_targetGroupInstances;
                     bool m_targetGroupInstancesHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,90 +49,105 @@ namespace TencentCloud
                     /**
                      * 获取是否开启邮件发送: 0, 否; 1, 是。
                      * @return SendMail 是否开启邮件发送: 0, 否; 1, 是。
+                     * 
                      */
                     int64_t GetSendMail() const;
 
                     /**
                      * 设置是否开启邮件发送: 0, 否; 1, 是。
-                     * @param SendMail 是否开启邮件发送: 0, 否; 1, 是。
+                     * @param _sendMail 是否开启邮件发送: 0, 否; 1, 是。
+                     * 
                      */
                     void SetSendMail(const int64_t& _sendMail);
 
                     /**
                      * 判断参数 SendMail 是否已赋值
                      * @return SendMail 是否已赋值
+                     * 
                      */
                     bool SendMailHasBeenSet() const;
 
                     /**
-                     * 获取地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模版，配置需要发送巡检邮件的地域；订阅的邮件发送模版，配置当前订阅实例的所属地域。
-                     * @return Region 地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模版，配置需要发送巡检邮件的地域；订阅的邮件发送模版，配置当前订阅实例的所属地域。
+                     * 获取地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模板，配置需要发送巡检邮件的地域；订阅的邮件发送模板，配置当前订阅实例的所属地域。
+                     * @return Region 地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模板，配置需要发送巡检邮件的地域；订阅的邮件发送模板，配置当前订阅实例的所属地域。
+                     * 
                      */
                     std::vector<std::string> GetRegion() const;
 
                     /**
-                     * 设置地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模版，配置需要发送巡检邮件的地域；订阅的邮件发送模版，配置当前订阅实例的所属地域。
-                     * @param Region 地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模版，配置需要发送巡检邮件的地域；订阅的邮件发送模版，配置当前订阅实例的所属地域。
+                     * 设置地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模板，配置需要发送巡检邮件的地域；订阅的邮件发送模板，配置当前订阅实例的所属地域。
+                     * @param _region 地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模板，配置需要发送巡检邮件的地域；订阅的邮件发送模板，配置当前订阅实例的所属地域。
+                     * 
                      */
                     void SetRegion(const std::vector<std::string>& _region);
 
                     /**
                      * 判断参数 Region 是否已赋值
                      * @return Region 是否已赋值
+                     * 
                      */
                     bool RegionHasBeenSet() const;
 
                     /**
-                     * 获取发送指定的健康等级的报告, 如["HEALTH", "SUB_HEALTH", "RISK", "HIGH_RISK"]。
-                     * @return HealthStatus 发送指定的健康等级的报告, 如["HEALTH", "SUB_HEALTH", "RISK", "HIGH_RISK"]。
+                     * 获取包含的健康等级，包括值：HEALTH-健康，SUB_HEALTH-亚健康，RISK-风险，HIGH_RISK-高危。
+                     * @return HealthStatus 包含的健康等级，包括值：HEALTH-健康，SUB_HEALTH-亚健康，RISK-风险，HIGH_RISK-高危。
+                     * 
                      */
                     std::vector<std::string> GetHealthStatus() const;
 
                     /**
-                     * 设置发送指定的健康等级的报告, 如["HEALTH", "SUB_HEALTH", "RISK", "HIGH_RISK"]。
-                     * @param HealthStatus 发送指定的健康等级的报告, 如["HEALTH", "SUB_HEALTH", "RISK", "HIGH_RISK"]。
+                     * 设置包含的健康等级，包括值：HEALTH-健康，SUB_HEALTH-亚健康，RISK-风险，HIGH_RISK-高危。
+                     * @param _healthStatus 包含的健康等级，包括值：HEALTH-健康，SUB_HEALTH-亚健康，RISK-风险，HIGH_RISK-高危。
+                     * 
                      */
                     void SetHealthStatus(const std::vector<std::string>& _healthStatus);
 
                     /**
                      * 判断参数 HealthStatus 是否已赋值
                      * @return HealthStatus 是否已赋值
+                     * 
                      */
                     bool HealthStatusHasBeenSet() const;
 
                     /**
                      * 获取联系人id, 联系人/联系组不能都为空。
                      * @return ContactPerson 联系人id, 联系人/联系组不能都为空。
+                     * 
                      */
                     std::vector<int64_t> GetContactPerson() const;
 
                     /**
                      * 设置联系人id, 联系人/联系组不能都为空。
-                     * @param ContactPerson 联系人id, 联系人/联系组不能都为空。
+                     * @param _contactPerson 联系人id, 联系人/联系组不能都为空。
+                     * 
                      */
                     void SetContactPerson(const std::vector<int64_t>& _contactPerson);
 
                     /**
                      * 判断参数 ContactPerson 是否已赋值
                      * @return ContactPerson 是否已赋值
+                     * 
                      */
                     bool ContactPersonHasBeenSet() const;
 
                     /**
                      * 获取联系组id, 联系人/联系组不能都为空。
                      * @return ContactGroup 联系组id, 联系人/联系组不能都为空。
+                     * 
                      */
                     std::vector<int64_t> GetContactGroup() const;
 
                     /**
                      * 设置联系组id, 联系人/联系组不能都为空。
-                     * @param ContactGroup 联系组id, 联系人/联系组不能都为空。
+                     * @param _contactGroup 联系组id, 联系人/联系组不能都为空。
+                     * 
                      */
                     void SetContactGroup(const std::vector<int64_t>& _contactGroup);
 
                     /**
                      * 判断参数 ContactGroup 是否已赋值
                      * @return ContactGroup 是否已赋值
+                     * 
                      */
                     bool ContactGroupHasBeenSet() const;
 
@@ -145,13 +160,13 @@ namespace TencentCloud
                     bool m_sendMailHasBeenSet;
 
                     /**
-                     * 地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模版，配置需要发送巡检邮件的地域；订阅的邮件发送模版，配置当前订阅实例的所属地域。
+                     * 地域配置, 如["ap-guangzhou", "ap-shanghai"]。巡检的邮件发送模板，配置需要发送巡检邮件的地域；订阅的邮件发送模板，配置当前订阅实例的所属地域。
                      */
                     std::vector<std::string> m_region;
                     bool m_regionHasBeenSet;
 
                     /**
-                     * 发送指定的健康等级的报告, 如["HEALTH", "SUB_HEALTH", "RISK", "HIGH_RISK"]。
+                     * 包含的健康等级，包括值：HEALTH-健康，SUB_HEALTH-亚健康，RISK-风险，HIGH_RISK-高危。
                      */
                     std::vector<std::string> m_healthStatus;
                     bool m_healthStatusHasBeenSet;

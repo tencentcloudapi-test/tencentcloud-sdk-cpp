@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,20 +47,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取分片回源配置开关
-                     * @return Switch 分片回源配置开关
+                     * 获取分片回源配置开关，取值有：
+on：开启
+off：关闭
+                     * @return Switch 分片回源配置开关，取值有：
+on：开启
+off：关闭
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置分片回源配置开关
-                     * @param Switch 分片回源配置开关
+                     * 设置分片回源配置开关，取值有：
+on：开启
+off：关闭
+                     * @param _switch 分片回源配置开关，取值有：
+on：开启
+off：关闭
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -75,6 +86,7 @@ file：指定文件后缀生效
 directory：指定路径生效
 path：指定绝对路径生效
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRuleType() const;
 
@@ -84,17 +96,19 @@ file：指定文件后缀生效
 directory：指定路径生效
 path：指定绝对路径生效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RuleType 规则类型：
+                     * @param _ruleType 规则类型：
 file：指定文件后缀生效
 directory：指定路径生效
 path：指定绝对路径生效
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRuleType(const std::string& _ruleType);
 
                     /**
                      * 判断参数 RuleType 是否已赋值
                      * @return RuleType 是否已赋值
+                     * 
                      */
                     bool RuleTypeHasBeenSet() const;
 
@@ -109,6 +123,7 @@ file 时填充后缀名，如 jpg、txt
 directory 时填充路径，如 /xxx/test
 path 时填充绝对路径，如 /xxx/test.html
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetRulePaths() const;
 
@@ -118,24 +133,28 @@ file 时填充后缀名，如 jpg、txt
 directory 时填充路径，如 /xxx/test
 path 时填充绝对路径，如 /xxx/test.html
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RulePaths RuleType 对应类型下的匹配内容：
+                     * @param _rulePaths RuleType 对应类型下的匹配内容：
 file 时填充后缀名，如 jpg、txt
 directory 时填充路径，如 /xxx/test
 path 时填充绝对路径，如 /xxx/test.html
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRulePaths(const std::vector<std::string>& _rulePaths);
 
                     /**
                      * 判断参数 RulePaths 是否已赋值
                      * @return RulePaths 是否已赋值
+                     * 
                      */
                     bool RulePathsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 分片回源配置开关
+                     * 分片回源配置开关，取值有：
+on：开启
+off：关闭
                      */
                     std::string m_switch;
                     bool m_switchHasBeenSet;

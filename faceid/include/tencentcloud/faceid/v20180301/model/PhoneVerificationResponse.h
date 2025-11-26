@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,74 +44,114 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取认证结果码:
-收费结果码
-0: 三要素信息一致
--4: 三要素信息不一致
-不收费结果码
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--11: 验证中心服务繁忙
-                     * @return Result 认证结果码:
-收费结果码
-0: 三要素信息一致
--4: 三要素信息不一致
-不收费结果码
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--11: 验证中心服务繁忙
+                     * 获取认证结果码。
+- 收费结果码
+0: 三要素信息一致。
+-4: 三要素信息不一致。
+
+- 不收费结果码
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+-12: 认证次数超过当日限制，请次日重试。
+                     * @return Result 认证结果码。
+- 收费结果码
+0: 三要素信息一致。
+-4: 三要素信息不一致。
+
+- 不收费结果码
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+-12: 认证次数超过当日限制，请次日重试。
+                     * 
                      */
                     std::string GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
                      * 获取业务结果描述。
                      * @return Description 业务结果描述。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取运营商名称。
-取值范围为["","移动","电信","联通"]
+- 取值范围为["","移动","电信","联通"]
                      * @return Isp 运营商名称。
-取值范围为["","移动","电信","联通"]
+- 取值范围为["","移动","电信","联通"]
+                     * 
                      */
                     std::string GetIsp() const;
 
                     /**
                      * 判断参数 Isp 是否已赋值
                      * @return Isp 是否已赋值
+                     * 
                      */
                     bool IspHasBeenSet() const;
+
+                    /**
+                     * 获取业务结果详细信息。
+- 当VerifyMode配置"详版"，且Result为"-4: 三要素信息不一致"时返回。
+- 枚举值：
+PhoneIdCardMismatch：手机号码与姓名一致，与身份证号不一致。
+PhoneNameMismatch：手机号码身份证号一致，与姓名不一致。
+PhoneNameIdCardMismatch：手机号码与姓名和身份证号均不一致。
+NameIdCardMismatch：姓名和身份证号不一致。
+OtherMismatch：其他不一致。
+                     * @return ResultDetail 业务结果详细信息。
+- 当VerifyMode配置"详版"，且Result为"-4: 三要素信息不一致"时返回。
+- 枚举值：
+PhoneIdCardMismatch：手机号码与姓名一致，与身份证号不一致。
+PhoneNameMismatch：手机号码身份证号一致，与姓名不一致。
+PhoneNameIdCardMismatch：手机号码与姓名和身份证号均不一致。
+NameIdCardMismatch：姓名和身份证号不一致。
+OtherMismatch：其他不一致。
+                     * 
+                     */
+                    std::string GetResultDetail() const;
+
+                    /**
+                     * 判断参数 ResultDetail 是否已赋值
+                     * @return ResultDetail 是否已赋值
+                     * 
+                     */
+                    bool ResultDetailHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 认证结果码:
-收费结果码
-0: 三要素信息一致
--4: 三要素信息不一致
-不收费结果码
--6: 手机号码不合法
--7: 身份证号码有误
--8: 姓名校验不通过
--9: 没有记录
--11: 验证中心服务繁忙
+                     * 认证结果码。
+- 收费结果码
+0: 三要素信息一致。
+-4: 三要素信息不一致。
+
+- 不收费结果码
+-6: 手机号码不合法。
+-7: 身份证号码有误。
+-8: 姓名校验不通过。
+-9: 没有记录。
+-11: 验证中心服务繁忙。
+-12: 认证次数超过当日限制，请次日重试。
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
@@ -124,10 +164,23 @@ namespace TencentCloud
 
                     /**
                      * 运营商名称。
-取值范围为["","移动","电信","联通"]
+- 取值范围为["","移动","电信","联通"]
                      */
                     std::string m_isp;
                     bool m_ispHasBeenSet;
+
+                    /**
+                     * 业务结果详细信息。
+- 当VerifyMode配置"详版"，且Result为"-4: 三要素信息不一致"时返回。
+- 枚举值：
+PhoneIdCardMismatch：手机号码与姓名一致，与身份证号不一致。
+PhoneNameMismatch：手机号码身份证号一致，与姓名不一致。
+PhoneNameIdCardMismatch：手机号码与姓名和身份证号均不一致。
+NameIdCardMismatch：姓名和身份证号不一致。
+OtherMismatch：其他不一致。
+                     */
+                    std::string m_resultDetail;
+                    bool m_resultDetailHasBeenSet;
 
                 };
             }

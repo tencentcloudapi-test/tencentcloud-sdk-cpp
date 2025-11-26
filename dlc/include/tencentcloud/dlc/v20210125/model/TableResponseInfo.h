@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,18 +53,21 @@ namespace TencentCloud
                     /**
                      * 获取数据表基本信息。
                      * @return TableBaseInfo 数据表基本信息。
+                     * 
                      */
                     TableBaseInfo GetTableBaseInfo() const;
 
                     /**
                      * 设置数据表基本信息。
-                     * @param TableBaseInfo 数据表基本信息。
+                     * @param _tableBaseInfo 数据表基本信息。
+                     * 
                      */
                     void SetTableBaseInfo(const TableBaseInfo& _tableBaseInfo);
 
                     /**
                      * 判断参数 TableBaseInfo 是否已赋值
                      * @return TableBaseInfo 是否已赋值
+                     * 
                      */
                     bool TableBaseInfoHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Columns 数据表列信息。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Column> GetColumns() const;
 
                     /**
                      * 设置数据表列信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Columns 数据表列信息。
+                     * @param _columns 数据表列信息。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetColumns(const std::vector<Column>& _columns);
 
                     /**
                      * 判断参数 Columns 是否已赋值
                      * @return Columns 是否已赋值
+                     * 
                      */
                     bool ColumnsHasBeenSet() const;
 
@@ -95,42 +101,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Partitions 数据表分块信息。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Partition> GetPartitions() const;
 
                     /**
                      * 设置数据表分块信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Partitions 数据表分块信息。
+                     * @param _partitions 数据表分块信息。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPartitions(const std::vector<Partition>& _partitions);
 
                     /**
                      * 判断参数 Partitions 是否已赋值
                      * @return Partitions 是否已赋值
+                     * 
                      */
                     bool PartitionsHasBeenSet() const;
 
                     /**
                      * 获取数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Location 数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLocation() const;
 
                     /**
                      * 设置数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Location 数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _location 数据存储路径。
+                     * 
                      */
                     void SetLocation(const std::string& _location);
 
                     /**
                      * 判断参数 Location 是否已赋值
                      * @return Location 是否已赋值
+                     * 
                      */
                     bool LocationHasBeenSet() const;
 
@@ -139,132 +147,193 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Properties 数据表属性信息。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Property> GetProperties() const;
 
                     /**
                      * 设置数据表属性信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Properties 数据表属性信息。
+                     * @param _properties 数据表属性信息。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetProperties(const std::vector<Property>& _properties);
 
                     /**
                      * 判断参数 Properties 是否已赋值
                      * @return Properties 是否已赋值
+                     * 
                      */
                     bool PropertiesHasBeenSet() const;
 
                     /**
                      * 获取数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ModifiedTime 数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetModifiedTime() const;
 
                     /**
                      * 设置数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ModifiedTime 数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _modifiedTime 数据表更新时间, 单位: ms。
+                     * 
                      */
                     void SetModifiedTime(const std::string& _modifiedTime);
 
                     /**
                      * 判断参数 ModifiedTime 是否已赋值
                      * @return ModifiedTime 是否已赋值
+                     * 
                      */
                     bool ModifiedTimeHasBeenSet() const;
 
                     /**
                      * 获取数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreateTime 数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CreateTime 数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _createTime 数据表创建时间,单位: ms。
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
                      * 获取数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return InputFormat 数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInputFormat() const;
 
                     /**
                      * 设置数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InputFormat 数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _inputFormat 数据格式。
+                     * 
                      */
                     void SetInputFormat(const std::string& _inputFormat);
 
                     /**
                      * 判断参数 InputFormat 是否已赋值
                      * @return InputFormat 是否已赋值
+                     * 
                      */
                     bool InputFormatHasBeenSet() const;
 
                     /**
                      * 获取数据表存储大小（单位：Byte）
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return StorageSize 数据表存储大小（单位：Byte）
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetStorageSize() const;
 
                     /**
                      * 设置数据表存储大小（单位：Byte）
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param StorageSize 数据表存储大小（单位：Byte）
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _storageSize 数据表存储大小（单位：Byte）
+                     * 
                      */
                     void SetStorageSize(const int64_t& _storageSize);
 
                     /**
                      * 判断参数 StorageSize 是否已赋值
                      * @return StorageSize 是否已赋值
+                     * 
                      */
                     bool StorageSizeHasBeenSet() const;
 
                     /**
                      * 获取数据表行数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RecordCount 数据表行数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetRecordCount() const;
 
                     /**
                      * 设置数据表行数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RecordCount 数据表行数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _recordCount 数据表行数
+                     * 
                      */
                     void SetRecordCount(const int64_t& _recordCount);
 
                     /**
                      * 判断参数 RecordCount 是否已赋值
                      * @return RecordCount 是否已赋值
+                     * 
                      */
                     bool RecordCountHasBeenSet() const;
+
+                    /**
+                     * 获取xxxx
+                     * @return MapMaterializedViewName xxxx
+                     * 
+                     */
+                    std::string GetMapMaterializedViewName() const;
+
+                    /**
+                     * 设置xxxx
+                     * @param _mapMaterializedViewName xxxx
+                     * 
+                     */
+                    void SetMapMaterializedViewName(const std::string& _mapMaterializedViewName);
+
+                    /**
+                     * 判断参数 MapMaterializedViewName 是否已赋值
+                     * @return MapMaterializedViewName 是否已赋值
+                     * 
+                     */
+                    bool MapMaterializedViewNameHasBeenSet() const;
+
+                    /**
+                     * 获取访问热点
+                     * @return HeatValue 访问热点
+                     * 
+                     */
+                    int64_t GetHeatValue() const;
+
+                    /**
+                     * 设置访问热点
+                     * @param _heatValue 访问热点
+                     * 
+                     */
+                    void SetHeatValue(const int64_t& _heatValue);
+
+                    /**
+                     * 判断参数 HeatValue 是否已赋值
+                     * @return HeatValue 是否已赋值
+                     * 
+                     */
+                    bool HeatValueHasBeenSet() const;
+
+                    /**
+                     * 获取InputFormat的缩写
+                     * @return InputFormatShort InputFormat的缩写
+                     * 
+                     */
+                    std::string GetInputFormatShort() const;
+
+                    /**
+                     * 设置InputFormat的缩写
+                     * @param _inputFormatShort InputFormat的缩写
+                     * 
+                     */
+                    void SetInputFormatShort(const std::string& _inputFormatShort);
+
+                    /**
+                     * 判断参数 InputFormatShort 是否已赋值
+                     * @return InputFormatShort 是否已赋值
+                     * 
+                     */
+                    bool InputFormatShortHasBeenSet() const;
 
                 private:
 
@@ -290,7 +359,6 @@ namespace TencentCloud
 
                     /**
                      * 数据存储路径。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_location;
                     bool m_locationHasBeenSet;
@@ -304,38 +372,51 @@ namespace TencentCloud
 
                     /**
                      * 数据表更新时间, 单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_modifiedTime;
                     bool m_modifiedTimeHasBeenSet;
 
                     /**
                      * 数据表创建时间,单位: ms。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
                      * 数据格式。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_inputFormat;
                     bool m_inputFormatHasBeenSet;
 
                     /**
                      * 数据表存储大小（单位：Byte）
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_storageSize;
                     bool m_storageSizeHasBeenSet;
 
                     /**
                      * 数据表行数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_recordCount;
                     bool m_recordCountHasBeenSet;
+
+                    /**
+                     * xxxx
+                     */
+                    std::string m_mapMaterializedViewName;
+                    bool m_mapMaterializedViewNameHasBeenSet;
+
+                    /**
+                     * 访问热点
+                     */
+                    int64_t m_heatValue;
+                    bool m_heatValueHasBeenSet;
+
+                    /**
+                     * InputFormat的缩写
+                     */
+                    std::string m_inputFormatShort;
+                    bool m_inputFormatShortHasBeenSet;
 
                 };
             }

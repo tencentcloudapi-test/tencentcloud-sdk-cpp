@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ DescribeVirusMonitorSettingResponse::DescribeVirusMonitorSettingResponse() :
     m_enableScanHasBeenSet(false),
     m_scanPathAllHasBeenSet(false),
     m_scanPathTypeHasBeenSet(false),
-    m_scanPathHasBeenSet(false)
+    m_scanPathHasBeenSet(false),
+    m_scanPathModeHasBeenSet(false)
 {
 }
 
@@ -108,6 +109,16 @@ CoreInternalOutcome DescribeVirusMonitorSettingResponse::Deserialize(const strin
         m_scanPathHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ScanPathMode") && !rsp["ScanPathMode"].IsNull())
+    {
+        if (!rsp["ScanPathMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScanPathMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_scanPathMode = string(rsp["ScanPathMode"].GetString());
+        m_scanPathModeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -155,11 +166,19 @@ string DescribeVirusMonitorSettingResponse::ToJsonString() const
         }
     }
 
+    if (m_scanPathModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanPathMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_scanPathMode.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -205,6 +224,16 @@ vector<string> DescribeVirusMonitorSettingResponse::GetScanPath() const
 bool DescribeVirusMonitorSettingResponse::ScanPathHasBeenSet() const
 {
     return m_scanPathHasBeenSet;
+}
+
+string DescribeVirusMonitorSettingResponse::GetScanPathMode() const
+{
+    return m_scanPathMode;
+}
+
+bool DescribeVirusMonitorSettingResponse::ScanPathModeHasBeenSet() const
+{
+    return m_scanPathModeHasBeenSet;
 }
 
 

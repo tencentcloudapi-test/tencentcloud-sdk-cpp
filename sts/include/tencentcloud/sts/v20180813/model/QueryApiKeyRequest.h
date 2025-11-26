@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取待查询的账号(不填默认查当前账号)
-                     * @return TargetUin 待查询的账号(不填默认查当前账号)
+                     * 获取待查询的账号uin(不填默认查当前账号uin)
+                     * @return TargetUin 待查询的账号uin(不填默认查当前账号uin)
+                     * 
                      */
                     uint64_t GetTargetUin() const;
 
                     /**
-                     * 设置待查询的账号(不填默认查当前账号)
-                     * @param TargetUin 待查询的账号(不填默认查当前账号)
+                     * 设置待查询的账号uin(不填默认查当前账号uin)
+                     * @param _targetUin 待查询的账号uin(不填默认查当前账号uin)
+                     * 
                      */
                     void SetTargetUin(const uint64_t& _targetUin);
 
                     /**
                      * 判断参数 TargetUin 是否已赋值
                      * @return TargetUin 是否已赋值
+                     * 
                      */
                     bool TargetUinHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 待查询的账号(不填默认查当前账号)
+                     * 待查询的账号uin(不填默认查当前账号uin)
                      */
                     uint64_t m_targetUin;
                     bool m_targetUinHasBeenSet;

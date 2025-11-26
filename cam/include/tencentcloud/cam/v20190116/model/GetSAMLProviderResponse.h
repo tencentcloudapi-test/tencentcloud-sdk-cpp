@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,60 +46,70 @@ namespace TencentCloud
                     /**
                      * 获取SAML身份提供商名称
                      * @return Name SAML身份提供商名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取SAML身份提供商描述
                      * @return Description SAML身份提供商描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取SAML身份提供商创建时间
                      * @return CreateTime SAML身份提供商创建时间
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
                      * 获取SAML身份提供商上次修改时间
                      * @return ModifyTime SAML身份提供商上次修改时间
+                     * 
                      */
                     std::string GetModifyTime() const;
 
                     /**
                      * 判断参数 ModifyTime 是否已赋值
                      * @return ModifyTime 是否已赋值
+                     * 
                      */
                     bool ModifyTimeHasBeenSet() const;
 
                     /**
                      * 获取SAML身份提供商元数据文档
                      * @return SAMLMetadata SAML身份提供商元数据文档
+                     * 
                      */
                     std::string GetSAMLMetadata() const;
 
                     /**
                      * 判断参数 SAMLMetadata 是否已赋值
                      * @return SAMLMetadata 是否已赋值
+                     * 
                      */
                     bool SAMLMetadataHasBeenSet() const;
 

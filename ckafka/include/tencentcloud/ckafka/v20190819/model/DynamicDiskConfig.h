@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Enable 动态硬盘扩容配置开关（0: 关闭，1: 开启）
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetEnable() const;
 
                     /**
                      * 设置动态硬盘扩容配置开关（0: 关闭，1: 开启）
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Enable 动态硬盘扩容配置开关（0: 关闭，1: 开启）
+                     * @param _enable 动态硬盘扩容配置开关（0: 关闭，1: 开启）
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetEnable(const int64_t& _enable);
 
                     /**
                      * 判断参数 Enable 是否已赋值
                      * @return Enable 是否已赋值
+                     * 
                      */
                     bool EnableHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return StepForwardPercentage 每次磁盘动态扩容大小百分比
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetStepForwardPercentage() const;
 
                     /**
                      * 设置每次磁盘动态扩容大小百分比
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param StepForwardPercentage 每次磁盘动态扩容大小百分比
+                     * @param _stepForwardPercentage 每次磁盘动态扩容大小百分比
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetStepForwardPercentage(const int64_t& _stepForwardPercentage);
 
                     /**
                      * 判断参数 StepForwardPercentage 是否已赋值
                      * @return StepForwardPercentage 是否已赋值
+                     * 
                      */
                     bool StepForwardPercentageHasBeenSet() const;
 
@@ -95,20 +101,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return DiskQuotaPercentage 磁盘配额百分比触发条件，即消息达到此值触发硬盘自动扩容事件
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetDiskQuotaPercentage() const;
 
                     /**
                      * 设置磁盘配额百分比触发条件，即消息达到此值触发硬盘自动扩容事件
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param DiskQuotaPercentage 磁盘配额百分比触发条件，即消息达到此值触发硬盘自动扩容事件
+                     * @param _diskQuotaPercentage 磁盘配额百分比触发条件，即消息达到此值触发硬盘自动扩容事件
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetDiskQuotaPercentage(const int64_t& _diskQuotaPercentage);
 
                     /**
                      * 判断参数 DiskQuotaPercentage 是否已赋值
                      * @return DiskQuotaPercentage 是否已赋值
+                     * 
                      */
                     bool DiskQuotaPercentageHasBeenSet() const;
 
@@ -117,20 +126,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return MaxDiskSpace 最大扩容硬盘大小，以 GB 为单位
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetMaxDiskSpace() const;
 
                     /**
                      * 设置最大扩容硬盘大小，以 GB 为单位
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MaxDiskSpace 最大扩容硬盘大小，以 GB 为单位
+                     * @param _maxDiskSpace 最大扩容硬盘大小，以 GB 为单位
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMaxDiskSpace(const int64_t& _maxDiskSpace);
 
                     /**
                      * 判断参数 MaxDiskSpace 是否已赋值
                      * @return MaxDiskSpace 是否已赋值
+                     * 
                      */
                     bool MaxDiskSpaceHasBeenSet() const;
 

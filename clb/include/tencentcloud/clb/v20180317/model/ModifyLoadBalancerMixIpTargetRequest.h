@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,45 +43,56 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取负载均衡实例ID数组。
-                     * @return LoadBalancerIds 负载均衡实例ID数组。
+                     * 获取负载均衡实例ID数组，默认支持20个负载均衡实例ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * @return LoadBalancerIds 负载均衡实例ID数组，默认支持20个负载均衡实例ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * 
                      */
                     std::vector<std::string> GetLoadBalancerIds() const;
 
                     /**
-                     * 设置负载均衡实例ID数组。
-                     * @param LoadBalancerIds 负载均衡实例ID数组。
+                     * 设置负载均衡实例ID数组，默认支持20个负载均衡实例ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * @param _loadBalancerIds 负载均衡实例ID数组，默认支持20个负载均衡实例ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * 
                      */
                     void SetLoadBalancerIds(const std::vector<std::string>& _loadBalancerIds);
 
                     /**
                      * 判断参数 LoadBalancerIds 是否已赋值
                      * @return LoadBalancerIds 是否已赋值
+                     * 
                      */
                     bool LoadBalancerIdsHasBeenSet() const;
 
                     /**
                      * 获取开启/关闭IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标特性。
                      * @return MixIpTarget 开启/关闭IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标特性。
+                     * 
                      */
                     bool GetMixIpTarget() const;
 
                     /**
                      * 设置开启/关闭IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标特性。
-                     * @param MixIpTarget 开启/关闭IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标特性。
+                     * @param _mixIpTarget 开启/关闭IPv6FullChain负载均衡7层监听器支持混绑IPv4/IPv6目标特性。
+                     * 
                      */
                     void SetMixIpTarget(const bool& _mixIpTarget);
 
                     /**
                      * 判断参数 MixIpTarget 是否已赋值
                      * @return MixIpTarget 是否已赋值
+                     * 
                      */
                     bool MixIpTargetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 负载均衡实例ID数组。
+                     * 负载均衡实例ID数组，默认支持20个负载均衡实例ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
                      */
                     std::vector<std::string> m_loadBalancerIds;
                     bool m_loadBalancerIdsHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,67 +48,64 @@ namespace TencentCloud
 
                     /**
                      * 获取终端用户从属平台
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Platform 终端用户从属平台
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPlatform() const;
 
                     /**
                      * 设置终端用户从属平台
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Platform 终端用户从属平台
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _platform 终端用户从属平台
+                     * 
                      */
                     void SetPlatform(const std::string& _platform);
 
                     /**
                      * 判断参数 Platform 是否已赋值
                      * @return Platform 是否已赋值
+                     * 
                      */
                     bool PlatformHasBeenSet() const;
 
                     /**
                      * 获取平台终端用户数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Count 平台终端用户数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetCount() const;
 
                     /**
                      * 设置平台终端用户数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Count 平台终端用户数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _count 平台终端用户数
+                     * 
                      */
                     void SetCount(const uint64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
                     /**
                      * 获取更新时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
                      * 设置更新时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param UpdateTime 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _updateTime 更新时间
+                     * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
 
                     /**
                      * 判断参数 UpdateTime 是否已赋值
                      * @return UpdateTime 是否已赋值
+                     * 
                      */
                     bool UpdateTimeHasBeenSet() const;
 
@@ -116,21 +113,18 @@ namespace TencentCloud
 
                     /**
                      * 终端用户从属平台
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_platform;
                     bool m_platformHasBeenSet;
 
                     /**
                      * 平台终端用户数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_count;
                     bool m_countHasBeenSet;
 
                     /**
                      * 更新时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;

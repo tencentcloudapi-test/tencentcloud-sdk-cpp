@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,11 +21,11 @@ set(advisor_public_header
 set(advisor_public_header_model
   include/tencentcloud/advisor/v20200721/model/DescribeStrategiesResponse.h
   include/tencentcloud/advisor/v20200721/model/DescribeTaskStrategyRisksRequest.h
-  include/tencentcloud/advisor/v20200721/model/DescribeStrategie.h
   include/tencentcloud/advisor/v20200721/model/DescribeTaskStrategyRisksResponse.h
   include/tencentcloud/advisor/v20200721/model/KeyValue.h
   include/tencentcloud/advisor/v20200721/model/RiskFieldsDesc.h
-  include/tencentcloud/advisor/v20200721/model/DescribeStrategiesCondition.h
+  include/tencentcloud/advisor/v20200721/model/Strategies.h
+  include/tencentcloud/advisor/v20200721/model/Conditions.h
   include/tencentcloud/advisor/v20200721/model/DescribeStrategiesRequest.h
   )
 
@@ -33,11 +33,11 @@ set(advisor_src
   src/v20200721/AdvisorClient.cpp
   src/v20200721/model/DescribeStrategiesResponse.cpp
   src/v20200721/model/DescribeTaskStrategyRisksRequest.cpp
-  src/v20200721/model/DescribeStrategie.cpp
   src/v20200721/model/DescribeTaskStrategyRisksResponse.cpp
   src/v20200721/model/KeyValue.cpp
   src/v20200721/model/RiskFieldsDesc.cpp
-  src/v20200721/model/DescribeStrategiesCondition.cpp
+  src/v20200721/model/Strategies.cpp
+  src/v20200721/model/Conditions.cpp
   src/v20200721/model/DescribeStrategiesRequest.cpp
   )
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,56 +49,65 @@ namespace TencentCloud
                     /**
                      * 获取指标名
                      * @return MetricName 指标名
+                     * 
                      */
                     std::string GetMetricName() const;
 
                     /**
                      * 设置指标名
-                     * @param MetricName 指标名
+                     * @param _metricName 指标名
+                     * 
                      */
                     void SetMetricName(const std::string& _metricName);
 
                     /**
                      * 判断参数 MetricName 是否已赋值
                      * @return MetricName 是否已赋值
+                     * 
                      */
                     bool MetricNameHasBeenSet() const;
 
                     /**
-                     * 获取同比，已弃用，不建议使用
-                     * @return Compare 同比，已弃用，不建议使用
-                     */
-                    std::string GetCompare() const;
-
-                    /**
-                     * 设置同比，已弃用，不建议使用
-                     * @param Compare 同比，已弃用，不建议使用
-                     */
-                    void SetCompare(const std::string& _compare);
-
-                    /**
-                     * 判断参数 Compare 是否已赋值
-                     * @return Compare 是否已赋值
-                     */
-                    bool CompareHasBeenSet() const;
-
-                    /**
-                     * 获取同比，支持多种同比方式
-                     * @return Compares 同比，支持多种同比方式
+                     * 获取同比，现支持 CompareByYesterday (与昨天相比)和CompareByLastWeek (与上周相比) 
+                     * @return Compares 同比，现支持 CompareByYesterday (与昨天相比)和CompareByLastWeek (与上周相比) 
+                     * 
                      */
                     std::vector<std::string> GetCompares() const;
 
                     /**
-                     * 设置同比，支持多种同比方式
-                     * @param Compares 同比，支持多种同比方式
+                     * 设置同比，现支持 CompareByYesterday (与昨天相比)和CompareByLastWeek (与上周相比) 
+                     * @param _compares 同比，现支持 CompareByYesterday (与昨天相比)和CompareByLastWeek (与上周相比) 
+                     * 
                      */
                     void SetCompares(const std::vector<std::string>& _compares);
 
                     /**
                      * 判断参数 Compares 是否已赋值
                      * @return Compares 是否已赋值
+                     * 
                      */
                     bool ComparesHasBeenSet() const;
+
+                    /**
+                     * 获取同比，已弃用，不建议使用
+                     * @return Compare 同比，已弃用，不建议使用
+                     * 
+                     */
+                    std::string GetCompare() const;
+
+                    /**
+                     * 设置同比，已弃用，不建议使用
+                     * @param _compare 同比，已弃用，不建议使用
+                     * 
+                     */
+                    void SetCompare(const std::string& _compare);
+
+                    /**
+                     * 判断参数 Compare 是否已赋值
+                     * @return Compare 是否已赋值
+                     * 
+                     */
+                    bool CompareHasBeenSet() const;
 
                 private:
 
@@ -109,16 +118,16 @@ namespace TencentCloud
                     bool m_metricNameHasBeenSet;
 
                     /**
+                     * 同比，现支持 CompareByYesterday (与昨天相比)和CompareByLastWeek (与上周相比) 
+                     */
+                    std::vector<std::string> m_compares;
+                    bool m_comparesHasBeenSet;
+
+                    /**
                      * 同比，已弃用，不建议使用
                      */
                     std::string m_compare;
                     bool m_compareHasBeenSet;
-
-                    /**
-                     * 同比，支持多种同比方式
-                     */
-                    std::vector<std::string> m_compares;
-                    bool m_comparesHasBeenSet;
 
                 };
             }

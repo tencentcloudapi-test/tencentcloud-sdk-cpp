@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,262 +40,204 @@ CmsClient::CmsClient(const Credential &credential, const string &region, const C
 }
 
 
-CmsClient::CreateFileSampleOutcome CmsClient::CreateFileSample(const CreateFileSampleRequest &request)
+CmsClient::CreateKeywordsSamplesOutcome CmsClient::CreateKeywordsSamples(const CreateKeywordsSamplesRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateFileSample");
+    auto outcome = MakeRequest(request, "CreateKeywordsSamples");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateFileSampleResponse rsp = CreateFileSampleResponse();
+        CreateKeywordsSamplesResponse rsp = CreateKeywordsSamplesResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateFileSampleOutcome(rsp);
+            return CreateKeywordsSamplesOutcome(rsp);
         else
-            return CreateFileSampleOutcome(o.GetError());
+            return CreateKeywordsSamplesOutcome(o.GetError());
     }
     else
     {
-        return CreateFileSampleOutcome(outcome.GetError());
+        return CreateKeywordsSamplesOutcome(outcome.GetError());
     }
 }
 
-void CmsClient::CreateFileSampleAsync(const CreateFileSampleRequest& request, const CreateFileSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CmsClient::CreateKeywordsSamplesAsync(const CreateKeywordsSamplesRequest& request, const CreateKeywordsSamplesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateFileSample(request), context);
-    };
+    using Req = const CreateKeywordsSamplesRequest&;
+    using Resp = CreateKeywordsSamplesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CmsClient::CreateFileSampleOutcomeCallable CmsClient::CreateFileSampleCallable(const CreateFileSampleRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateFileSampleOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "CreateKeywordsSamples", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->CreateFileSample(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CmsClient::CreateTextSampleOutcome CmsClient::CreateTextSample(const CreateTextSampleRequest &request)
+CmsClient::CreateKeywordsSamplesOutcomeCallable CmsClient::CreateKeywordsSamplesCallable(const CreateKeywordsSamplesRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateTextSample");
+    const auto prom = std::make_shared<std::promise<CreateKeywordsSamplesOutcome>>();
+    CreateKeywordsSamplesAsync(
+    request,
+    [prom](
+        const CmsClient*,
+        const CreateKeywordsSamplesRequest&,
+        CreateKeywordsSamplesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CmsClient::DeleteLibSamplesOutcome CmsClient::DeleteLibSamples(const DeleteLibSamplesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteLibSamples");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateTextSampleResponse rsp = CreateTextSampleResponse();
+        DeleteLibSamplesResponse rsp = DeleteLibSamplesResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateTextSampleOutcome(rsp);
+            return DeleteLibSamplesOutcome(rsp);
         else
-            return CreateTextSampleOutcome(o.GetError());
+            return DeleteLibSamplesOutcome(o.GetError());
     }
     else
     {
-        return CreateTextSampleOutcome(outcome.GetError());
+        return DeleteLibSamplesOutcome(outcome.GetError());
     }
 }
 
-void CmsClient::CreateTextSampleAsync(const CreateTextSampleRequest& request, const CreateTextSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CmsClient::DeleteLibSamplesAsync(const DeleteLibSamplesRequest& request, const DeleteLibSamplesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTextSample(request), context);
-    };
+    using Req = const DeleteLibSamplesRequest&;
+    using Resp = DeleteLibSamplesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CmsClient::CreateTextSampleOutcomeCallable CmsClient::CreateTextSampleCallable(const CreateTextSampleRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateTextSampleOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DeleteLibSamples", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->CreateTextSample(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CmsClient::DeleteFileSampleOutcome CmsClient::DeleteFileSample(const DeleteFileSampleRequest &request)
+CmsClient::DeleteLibSamplesOutcomeCallable CmsClient::DeleteLibSamplesCallable(const DeleteLibSamplesRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteFileSample");
+    const auto prom = std::make_shared<std::promise<DeleteLibSamplesOutcome>>();
+    DeleteLibSamplesAsync(
+    request,
+    [prom](
+        const CmsClient*,
+        const DeleteLibSamplesRequest&,
+        DeleteLibSamplesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CmsClient::DescribeKeywordsLibsOutcome CmsClient::DescribeKeywordsLibs(const DescribeKeywordsLibsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeKeywordsLibs");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteFileSampleResponse rsp = DeleteFileSampleResponse();
+        DescribeKeywordsLibsResponse rsp = DescribeKeywordsLibsResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteFileSampleOutcome(rsp);
+            return DescribeKeywordsLibsOutcome(rsp);
         else
-            return DeleteFileSampleOutcome(o.GetError());
+            return DescribeKeywordsLibsOutcome(o.GetError());
     }
     else
     {
-        return DeleteFileSampleOutcome(outcome.GetError());
+        return DescribeKeywordsLibsOutcome(outcome.GetError());
     }
 }
 
-void CmsClient::DeleteFileSampleAsync(const DeleteFileSampleRequest& request, const DeleteFileSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CmsClient::DescribeKeywordsLibsAsync(const DescribeKeywordsLibsRequest& request, const DescribeKeywordsLibsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteFileSample(request), context);
-    };
+    using Req = const DescribeKeywordsLibsRequest&;
+    using Resp = DescribeKeywordsLibsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CmsClient::DeleteFileSampleOutcomeCallable CmsClient::DeleteFileSampleCallable(const DeleteFileSampleRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeleteFileSampleOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DescribeKeywordsLibs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->DeleteFileSample(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CmsClient::DeleteTextSampleOutcome CmsClient::DeleteTextSample(const DeleteTextSampleRequest &request)
+CmsClient::DescribeKeywordsLibsOutcomeCallable CmsClient::DescribeKeywordsLibsCallable(const DescribeKeywordsLibsRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteTextSample");
+    const auto prom = std::make_shared<std::promise<DescribeKeywordsLibsOutcome>>();
+    DescribeKeywordsLibsAsync(
+    request,
+    [prom](
+        const CmsClient*,
+        const DescribeKeywordsLibsRequest&,
+        DescribeKeywordsLibsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CmsClient::DescribeLibSamplesOutcome CmsClient::DescribeLibSamples(const DescribeLibSamplesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLibSamples");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteTextSampleResponse rsp = DeleteTextSampleResponse();
+        DescribeLibSamplesResponse rsp = DescribeLibSamplesResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteTextSampleOutcome(rsp);
+            return DescribeLibSamplesOutcome(rsp);
         else
-            return DeleteTextSampleOutcome(o.GetError());
+            return DescribeLibSamplesOutcome(o.GetError());
     }
     else
     {
-        return DeleteTextSampleOutcome(outcome.GetError());
+        return DescribeLibSamplesOutcome(outcome.GetError());
     }
 }
 
-void CmsClient::DeleteTextSampleAsync(const DeleteTextSampleRequest& request, const DeleteTextSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void CmsClient::DescribeLibSamplesAsync(const DescribeLibSamplesRequest& request, const DescribeLibSamplesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteTextSample(request), context);
-    };
+    using Req = const DescribeLibSamplesRequest&;
+    using Resp = DescribeLibSamplesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CmsClient::DeleteTextSampleOutcomeCallable CmsClient::DeleteTextSampleCallable(const DeleteTextSampleRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeleteTextSampleOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DescribeLibSamples", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->DeleteTextSample(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-CmsClient::DescribeFileSampleOutcome CmsClient::DescribeFileSample(const DescribeFileSampleRequest &request)
+CmsClient::DescribeLibSamplesOutcomeCallable CmsClient::DescribeLibSamplesCallable(const DescribeLibSamplesRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeFileSample");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeLibSamplesOutcome>>();
+    DescribeLibSamplesAsync(
+    request,
+    [prom](
+        const CmsClient*,
+        const DescribeLibSamplesRequest&,
+        DescribeLibSamplesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeFileSampleResponse rsp = DescribeFileSampleResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeFileSampleOutcome(rsp);
-        else
-            return DescribeFileSampleOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeFileSampleOutcome(outcome.GetError());
-    }
-}
-
-void CmsClient::DescribeFileSampleAsync(const DescribeFileSampleRequest& request, const DescribeFileSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeFileSample(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CmsClient::DescribeFileSampleOutcomeCallable CmsClient::DescribeFileSampleCallable(const DescribeFileSampleRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeFileSampleOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeFileSample(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CmsClient::DescribeTextSampleOutcome CmsClient::DescribeTextSample(const DescribeTextSampleRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTextSample");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTextSampleResponse rsp = DescribeTextSampleResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTextSampleOutcome(rsp);
-        else
-            return DescribeTextSampleOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTextSampleOutcome(outcome.GetError());
-    }
-}
-
-void CmsClient::DescribeTextSampleAsync(const DescribeTextSampleRequest& request, const DescribeTextSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeTextSample(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CmsClient::DescribeTextSampleOutcomeCallable CmsClient::DescribeTextSampleCallable(const DescribeTextSampleRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DescribeTextSampleOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeTextSample(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CmsClient::ImageModerationOutcome CmsClient::ImageModeration(const ImageModerationRequest &request)
@@ -320,68 +262,32 @@ CmsClient::ImageModerationOutcome CmsClient::ImageModeration(const ImageModerati
 
 void CmsClient::ImageModerationAsync(const ImageModerationRequest& request, const ImageModerationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ImageModeration(request), context);
-    };
+    using Req = const ImageModerationRequest&;
+    using Resp = ImageModerationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ImageModeration", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CmsClient::ImageModerationOutcomeCallable CmsClient::ImageModerationCallable(const ImageModerationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ImageModerationOutcome()>>(
-        [this, request]()
-        {
-            return this->ImageModeration(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-CmsClient::ManualReviewOutcome CmsClient::ManualReview(const ManualReviewRequest &request)
-{
-    auto outcome = MakeRequest(request, "ManualReview");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<ImageModerationOutcome>>();
+    ImageModerationAsync(
+    request,
+    [prom](
+        const CmsClient*,
+        const ImageModerationRequest&,
+        ImageModerationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ManualReviewResponse rsp = ManualReviewResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ManualReviewOutcome(rsp);
-        else
-            return ManualReviewOutcome(o.GetError());
-    }
-    else
-    {
-        return ManualReviewOutcome(outcome.GetError());
-    }
-}
-
-void CmsClient::ManualReviewAsync(const ManualReviewRequest& request, const ManualReviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ManualReview(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-CmsClient::ManualReviewOutcomeCallable CmsClient::ManualReviewCallable(const ManualReviewRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<ManualReviewOutcome()>>(
-        [this, request]()
-        {
-            return this->ManualReview(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CmsClient::TextModerationOutcome CmsClient::TextModeration(const TextModerationRequest &request)
@@ -406,24 +312,31 @@ CmsClient::TextModerationOutcome CmsClient::TextModeration(const TextModerationR
 
 void CmsClient::TextModerationAsync(const TextModerationRequest& request, const TextModerationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TextModeration(request), context);
-    };
+    using Req = const TextModerationRequest&;
+    using Resp = TextModerationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TextModeration", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CmsClient::TextModerationOutcomeCallable CmsClient::TextModerationCallable(const TextModerationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TextModerationOutcome()>>(
-        [this, request]()
-        {
-            return this->TextModeration(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TextModerationOutcome>>();
+    TextModerationAsync(
+    request,
+    [prom](
+        const CmsClient*,
+        const TextModerationRequest&,
+        TextModerationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

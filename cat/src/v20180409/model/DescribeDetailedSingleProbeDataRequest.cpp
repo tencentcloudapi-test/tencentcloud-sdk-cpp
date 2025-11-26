@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,9 @@ DescribeDetailedSingleProbeDataRequest::DescribeDetailedSingleProbeDataRequest()
     m_operatorsHasBeenSet(false),
     m_districtsHasBeenSet(false),
     m_errorTypesHasBeenSet(false),
-    m_cityHasBeenSet(false)
+    m_cityHasBeenSet(false),
+    m_scrollIDHasBeenSet(false),
+    m_queryFlagHasBeenSet(false)
 {
 }
 
@@ -178,6 +180,22 @@ string DescribeDetailedSingleProbeDataRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_scrollIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScrollID";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_scrollID.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_queryFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QueryFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_queryFlag.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -394,6 +412,38 @@ void DescribeDetailedSingleProbeDataRequest::SetCity(const vector<string>& _city
 bool DescribeDetailedSingleProbeDataRequest::CityHasBeenSet() const
 {
     return m_cityHasBeenSet;
+}
+
+string DescribeDetailedSingleProbeDataRequest::GetScrollID() const
+{
+    return m_scrollID;
+}
+
+void DescribeDetailedSingleProbeDataRequest::SetScrollID(const string& _scrollID)
+{
+    m_scrollID = _scrollID;
+    m_scrollIDHasBeenSet = true;
+}
+
+bool DescribeDetailedSingleProbeDataRequest::ScrollIDHasBeenSet() const
+{
+    return m_scrollIDHasBeenSet;
+}
+
+string DescribeDetailedSingleProbeDataRequest::GetQueryFlag() const
+{
+    return m_queryFlag;
+}
+
+void DescribeDetailedSingleProbeDataRequest::SetQueryFlag(const string& _queryFlag)
+{
+    m_queryFlag = _queryFlag;
+    m_queryFlagHasBeenSet = true;
+}
+
+bool DescribeDetailedSingleProbeDataRequest::QueryFlagHasBeenSet() const
+{
+    return m_queryFlagHasBeenSet;
 }
 
 

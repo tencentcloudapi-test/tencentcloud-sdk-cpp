@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,51 +43,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取集群 Id
-                     * @return ClusterId 集群 Id
+                     * 获取集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
+                     * @return ClusterId 集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
-                     * 设置集群 Id
-                     * @param ClusterId 集群 Id
+                     * 设置集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
+                     * @param _clusterId 集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取集群 Id 列表
-                     * @return ClusterIds 集群 Id 列表
+                     * 获取集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
+                     * @return ClusterIds 集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
+                     * 
                      */
                     std::vector<std::string> GetClusterIds() const;
 
                     /**
-                     * 设置集群 Id 列表
-                     * @param ClusterIds 集群 Id 列表
+                     * 设置集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
+                     * @param _clusterIds 集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
+                     * 
                      */
                     void SetClusterIds(const std::vector<std::string>& _clusterIds);
 
                     /**
                      * 判断参数 ClusterIds 是否已赋值
                      * @return ClusterIds 是否已赋值
+                     * 
                      */
                     bool ClusterIdsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 集群 Id
+                     * 集群 Id。若只查询某个集群可升级的版本，需填写此项，与ClusterIds 参数二选一。
                      */
                     std::string m_clusterId;
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * 集群 Id 列表
+                     * 集群 Id 列表。若查询多个集群可升级的版本，需填写此项，与ClusterId 参数二选一。
                      */
                     std::vector<std::string> m_clusterIds;
                     bool m_clusterIdsHasBeenSet;

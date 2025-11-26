@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,108 +46,126 @@ namespace TencentCloud
                     /**
                      * 获取连接器描述
                      * @return ConnectionDescription 连接器描述
+                     * 
                      */
                     ConnectionDescription GetConnectionDescription() const;
 
                     /**
                      * 设置连接器描述
-                     * @param ConnectionDescription 连接器描述
+                     * @param _connectionDescription 连接器描述
+                     * 
                      */
                     void SetConnectionDescription(const ConnectionDescription& _connectionDescription);
 
                     /**
                      * 判断参数 ConnectionDescription 是否已赋值
                      * @return ConnectionDescription 是否已赋值
+                     * 
                      */
                     bool ConnectionDescriptionHasBeenSet() const;
 
                     /**
                      * 获取事件集ID
                      * @return EventBusId 事件集ID
+                     * 
                      */
                     std::string GetEventBusId() const;
 
                     /**
                      * 设置事件集ID
-                     * @param EventBusId 事件集ID
+                     * @param _eventBusId 事件集ID
+                     * 
                      */
                     void SetEventBusId(const std::string& _eventBusId);
 
                     /**
                      * 判断参数 EventBusId 是否已赋值
                      * @return EventBusId 是否已赋值
+                     * 
                      */
                     bool EventBusIdHasBeenSet() const;
 
                     /**
                      * 获取连接器名称
                      * @return ConnectionName 连接器名称
+                     * 
                      */
                     std::string GetConnectionName() const;
 
                     /**
                      * 设置连接器名称
-                     * @param ConnectionName 连接器名称
+                     * @param _connectionName 连接器名称
+                     * 
                      */
                     void SetConnectionName(const std::string& _connectionName);
 
                     /**
                      * 判断参数 ConnectionName 是否已赋值
                      * @return ConnectionName 是否已赋值
+                     * 
                      */
                     bool ConnectionNameHasBeenSet() const;
 
                     /**
                      * 获取描述
                      * @return Description 描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置描述
-                     * @param Description 描述
+                     * @param _description 描述
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取使能开关
                      * @return Enable 使能开关
+                     * 
                      */
                     bool GetEnable() const;
 
                     /**
                      * 设置使能开关
-                     * @param Enable 使能开关
+                     * @param _enable 使能开关
+                     * 
                      */
                     void SetEnable(const bool& _enable);
 
                     /**
                      * 判断参数 Enable 是否已赋值
                      * @return Enable 是否已赋值
+                     * 
                      */
                     bool EnableHasBeenSet() const;
 
                     /**
-                     * 获取类型
-                     * @return Type 类型
+                     * 获取连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
+                     * @return Type 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置类型
-                     * @param Type 类型
+                     * 设置连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
+                     * @param _type 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
@@ -184,7 +202,7 @@ namespace TencentCloud
                     bool m_enableHasBeenSet;
 
                     /**
-                     * 类型
+                     * 连接器类型，目前支持以下类型:apigw/ckafka/dts/tdmq
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;

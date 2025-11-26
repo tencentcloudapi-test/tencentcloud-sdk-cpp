@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取base64加密后的SQL语句
                      * @return SQL base64加密后的SQL语句
+                     * 
                      */
                     std::string GetSQL() const;
 
                     /**
                      * 设置base64加密后的SQL语句
-                     * @param SQL base64加密后的SQL语句
+                     * @param _sQL base64加密后的SQL语句
+                     * 
                      */
                     void SetSQL(const std::string& _sQL);
 
                     /**
                      * 判断参数 SQL 是否已赋值
                      * @return SQL 是否已赋值
+                     * 
                      */
                     bool SQLHasBeenSet() const;
 
                     /**
                      * 获取任务的配置信息
                      * @return Config 任务的配置信息
+                     * 
                      */
                     std::vector<KVPair> GetConfig() const;
 
                     /**
                      * 设置任务的配置信息
-                     * @param Config 任务的配置信息
+                     * @param _config 任务的配置信息
+                     * 
                      */
                     void SetConfig(const std::vector<KVPair>& _config);
 
                     /**
                      * 判断参数 Config 是否已赋值
                      * @return Config 是否已赋值
+                     * 
                      */
                     bool ConfigHasBeenSet() const;
 

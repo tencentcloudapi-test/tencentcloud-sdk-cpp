@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,10 @@ RuleOutput::RuleOutput() :
     m_trpcCalleeHasBeenSet(false),
     m_trpcFuncHasBeenSet(false),
     m_quicStatusHasBeenSet(false),
-    m_domainsHasBeenSet(false)
+    m_domainsHasBeenSet(false),
+    m_targetGroupListHasBeenSet(false),
+    m_oAuthHasBeenSet(false),
+    m_cookieNameHasBeenSet(false)
 {
 }
 
@@ -302,6 +305,53 @@ CoreInternalOutcome RuleOutput::Deserialize(const rapidjson::Value &value)
         m_domainsHasBeenSet = true;
     }
 
+    if (value.HasMember("TargetGroupList") && !value["TargetGroupList"].IsNull())
+    {
+        if (!value["TargetGroupList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `RuleOutput.TargetGroupList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TargetGroupList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            BasicTargetGroupInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_targetGroupList.push_back(item);
+        }
+        m_targetGroupListHasBeenSet = true;
+    }
+
+    if (value.HasMember("OAuth") && !value["OAuth"].IsNull())
+    {
+        if (!value["OAuth"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuleOutput.OAuth` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_oAuth.Deserialize(value["OAuth"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_oAuthHasBeenSet = true;
+    }
+
+    if (value.HasMember("CookieName") && !value["CookieName"].IsNull())
+    {
+        if (!value["CookieName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuleOutput.CookieName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cookieName = string(value["CookieName"].GetString());
+        m_cookieNameHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -492,6 +542,38 @@ void RuleOutput::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_targetGroupListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TargetGroupList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_targetGroupList.begin(); itr != m_targetGroupList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_oAuthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OAuth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_oAuth.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_cookieNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CookieName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cookieName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -847,5 +929,53 @@ void RuleOutput::SetDomains(const vector<string>& _domains)
 bool RuleOutput::DomainsHasBeenSet() const
 {
     return m_domainsHasBeenSet;
+}
+
+vector<BasicTargetGroupInfo> RuleOutput::GetTargetGroupList() const
+{
+    return m_targetGroupList;
+}
+
+void RuleOutput::SetTargetGroupList(const vector<BasicTargetGroupInfo>& _targetGroupList)
+{
+    m_targetGroupList = _targetGroupList;
+    m_targetGroupListHasBeenSet = true;
+}
+
+bool RuleOutput::TargetGroupListHasBeenSet() const
+{
+    return m_targetGroupListHasBeenSet;
+}
+
+OAuth RuleOutput::GetOAuth() const
+{
+    return m_oAuth;
+}
+
+void RuleOutput::SetOAuth(const OAuth& _oAuth)
+{
+    m_oAuth = _oAuth;
+    m_oAuthHasBeenSet = true;
+}
+
+bool RuleOutput::OAuthHasBeenSet() const
+{
+    return m_oAuthHasBeenSet;
+}
+
+string RuleOutput::GetCookieName() const
+{
+    return m_cookieName;
+}
+
+void RuleOutput::SetCookieName(const string& _cookieName)
+{
+    m_cookieName = _cookieName;
+    m_cookieNameHasBeenSet = true;
+}
+
+bool RuleOutput::CookieNameHasBeenSet() const
+{
+    return m_cookieNameHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,9 @@ DescribeDataPvUrlStatisticsRequest::DescribeDataPvUrlStatisticsRequest() :
     m_isAbroadHasBeenSet(false),
     m_osHasBeenSet(false),
     m_browserHasBeenSet(false),
-    m_envHasBeenSet(false)
+    m_envHasBeenSet(false),
+    m_groupByTypeHasBeenSet(false),
+    m_isNewDataHasBeenSet(false)
 {
 }
 
@@ -220,6 +222,22 @@ string DescribeDataPvUrlStatisticsRequest::ToJsonString() const
         string key = "Env";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_env.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_groupByTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupByType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_groupByType, allocator);
+    }
+
+    if (m_isNewDataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsNewData";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isNewData, allocator);
     }
 
 
@@ -564,6 +582,38 @@ void DescribeDataPvUrlStatisticsRequest::SetEnv(const string& _env)
 bool DescribeDataPvUrlStatisticsRequest::EnvHasBeenSet() const
 {
     return m_envHasBeenSet;
+}
+
+int64_t DescribeDataPvUrlStatisticsRequest::GetGroupByType() const
+{
+    return m_groupByType;
+}
+
+void DescribeDataPvUrlStatisticsRequest::SetGroupByType(const int64_t& _groupByType)
+{
+    m_groupByType = _groupByType;
+    m_groupByTypeHasBeenSet = true;
+}
+
+bool DescribeDataPvUrlStatisticsRequest::GroupByTypeHasBeenSet() const
+{
+    return m_groupByTypeHasBeenSet;
+}
+
+int64_t DescribeDataPvUrlStatisticsRequest::GetIsNewData() const
+{
+    return m_isNewData;
+}
+
+void DescribeDataPvUrlStatisticsRequest::SetIsNewData(const int64_t& _isNewData)
+{
+    m_isNewData = _isNewData;
+    m_isNewDataHasBeenSet = true;
+}
+
+bool DescribeDataPvUrlStatisticsRequest::IsNewDataHasBeenSet() const
+{
+    return m_isNewDataHasBeenSet;
 }
 
 

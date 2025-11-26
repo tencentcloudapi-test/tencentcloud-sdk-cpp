@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取配置 ID 列表。
                      * @return ConfigIds 配置 ID 列表。
+                     * 
                      */
                     std::vector<std::string> GetConfigIds() const;
 
                     /**
                      * 设置配置 ID 列表。
-                     * @param ConfigIds 配置 ID 列表。
+                     * @param _configIds 配置 ID 列表。
+                     * 
                      */
                     void SetConfigIds(const std::vector<std::string>& _configIds);
 
                     /**
                      * 判断参数 ConfigIds 是否已赋值
                      * @return ConfigIds 是否已赋值
+                     * 
                      */
                     bool ConfigIdsHasBeenSet() const;
 
                     /**
                      * 获取目标状态。0无效，2正在运行，4暂停。
                      * @return Status 目标状态。0无效，2正在运行，4暂停。
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置目标状态。0无效，2正在运行，4暂停。
-                     * @param Status 目标状态。0无效，2正在运行，4暂停。
+                     * @param _status 目标状态。0无效，2正在运行，4暂停。
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 

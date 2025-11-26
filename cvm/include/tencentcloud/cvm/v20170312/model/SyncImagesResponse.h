@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/cvm/v20170312/model/SyncImage.h>
 
 
 namespace TencentCloud
@@ -43,7 +44,27 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取目的地域的镜像ID信息。
+                     * @return ImageSet 目的地域的镜像ID信息。
+                     * 
+                     */
+                    std::vector<SyncImage> GetImageSet() const;
+
+                    /**
+                     * 判断参数 ImageSet 是否已赋值
+                     * @return ImageSet 是否已赋值
+                     * 
+                     */
+                    bool ImageSetHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 目的地域的镜像ID信息。
+                     */
+                    std::vector<SyncImage> m_imageSet;
+                    bool m_imageSetHasBeenSet;
 
                 };
             }

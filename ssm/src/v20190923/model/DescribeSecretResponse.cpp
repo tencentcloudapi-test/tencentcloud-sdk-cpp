@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,8 @@ DescribeSecretResponse::DescribeSecretResponse() :
     m_resourceNameHasBeenSet(false),
     m_projectIDHasBeenSet(false),
     m_associatedInstanceIDsHasBeenSet(false),
-    m_targetUinHasBeenSet(false)
+    m_targetUinHasBeenSet(false),
+    m_additionalConfigHasBeenSet(false)
 {
 }
 
@@ -240,6 +241,16 @@ CoreInternalOutcome DescribeSecretResponse::Deserialize(const string &payload)
         m_targetUinHasBeenSet = true;
     }
 
+    if (rsp.HasMember("AdditionalConfig") && !rsp["AdditionalConfig"].IsNull())
+    {
+        if (!rsp["AdditionalConfig"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AdditionalConfig` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_additionalConfig = string(rsp["AdditionalConfig"].GetString());
+        m_additionalConfigHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -383,11 +394,19 @@ string DescribeSecretResponse::ToJsonString() const
         value.AddMember(iKey, m_targetUin, allocator);
     }
 
+    if (m_additionalConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdditionalConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_additionalConfig.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -553,6 +572,16 @@ uint64_t DescribeSecretResponse::GetTargetUin() const
 bool DescribeSecretResponse::TargetUinHasBeenSet() const
 {
     return m_targetUinHasBeenSet;
+}
+
+string DescribeSecretResponse::GetAdditionalConfig() const
+{
+    return m_additionalConfig;
+}
+
+bool DescribeSecretResponse::AdditionalConfigHasBeenSet() const
+{
+    return m_additionalConfigHasBeenSet;
 }
 
 

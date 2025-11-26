@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ GetFaceIdTokenRequest::GetFaceIdTokenRequest() :
     m_imageBase64HasBeenSet(false),
     m_metaHasBeenSet(false),
     m_extraHasBeenSet(false),
-    m_useCosHasBeenSet(false)
+    m_useCosHasBeenSet(false),
+    m_encryptionHasBeenSet(false),
+    m_ruleIdHasBeenSet(false)
 {
 }
 
@@ -94,6 +96,23 @@ string GetFaceIdTokenRequest::ToJsonString() const
         string key = "UseCos";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_useCos, allocator);
+    }
+
+    if (m_encryptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Encryption";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_encryption.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_ruleIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuleId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ruleId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -214,6 +233,38 @@ void GetFaceIdTokenRequest::SetUseCos(const bool& _useCos)
 bool GetFaceIdTokenRequest::UseCosHasBeenSet() const
 {
     return m_useCosHasBeenSet;
+}
+
+Encryption GetFaceIdTokenRequest::GetEncryption() const
+{
+    return m_encryption;
+}
+
+void GetFaceIdTokenRequest::SetEncryption(const Encryption& _encryption)
+{
+    m_encryption = _encryption;
+    m_encryptionHasBeenSet = true;
+}
+
+bool GetFaceIdTokenRequest::EncryptionHasBeenSet() const
+{
+    return m_encryptionHasBeenSet;
+}
+
+string GetFaceIdTokenRequest::GetRuleId() const
+{
+    return m_ruleId;
+}
+
+void GetFaceIdTokenRequest::SetRuleId(const string& _ruleId)
+{
+    m_ruleId = _ruleId;
+    m_ruleIdHasBeenSet = true;
+}
+
+bool GetFaceIdTokenRequest::RuleIdHasBeenSet() const
+{
+    return m_ruleIdHasBeenSet;
 }
 
 

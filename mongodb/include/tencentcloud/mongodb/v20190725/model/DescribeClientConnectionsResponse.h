@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,33 +45,37 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取客户端连接信息，包括客户端IP和对应IP的连接数量。
-                     * @return Clients 客户端连接信息，包括客户端IP和对应IP的连接数量。
+                     * 获取客户端连接信息，包括客户端 IP 和对应 IP 的连接数量。
+                     * @return Clients 客户端连接信息，包括客户端 IP 和对应 IP 的连接数量。
+                     * 
                      */
                     std::vector<ClientConnection> GetClients() const;
 
                     /**
                      * 判断参数 Clients 是否已赋值
                      * @return Clients 是否已赋值
+                     * 
                      */
                     bool ClientsHasBeenSet() const;
 
                     /**
                      * 获取满足条件的记录总条数，可用于分页查询。
                      * @return TotalCount 满足条件的记录总条数，可用于分页查询。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 客户端连接信息，包括客户端IP和对应IP的连接数量。
+                     * 客户端连接信息，包括客户端 IP 和对应 IP 的连接数量。
                      */
                     std::vector<ClientConnection> m_clients;
                     bool m_clientsHasBeenSet;

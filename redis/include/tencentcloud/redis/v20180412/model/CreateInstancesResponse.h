@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,42 +44,66 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取交易的ID
-                     * @return DealId 交易的ID
+                     * 获取交易的ID。
+                     * @return DealId 交易的ID。
+                     * @deprecated
                      */
                     std::string GetDealId() const;
 
                     /**
                      * 判断参数 DealId 是否已赋值
                      * @return DealId 是否已赋值
+                     * @deprecated
                      */
                     bool DealIdHasBeenSet() const;
 
                     /**
-                     * 获取实例ID
-                     * @return InstanceIds 实例ID
+                     * 获取实例ID。
+                     * @return InstanceIds 实例ID。
+                     * 
                      */
                     std::vector<std::string> GetInstanceIds() const;
 
                     /**
                      * 判断参数 InstanceIds 是否已赋值
                      * @return InstanceIds 是否已赋值
+                     * 
                      */
                     bool InstanceIdsHasBeenSet() const;
+
+                    /**
+                     * 获取订单号。
+                     * @return DealName 订单号。
+                     * 
+                     */
+                    std::string GetDealName() const;
+
+                    /**
+                     * 判断参数 DealName 是否已赋值
+                     * @return DealName 是否已赋值
+                     * 
+                     */
+                    bool DealNameHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 交易的ID
+                     * 交易的ID。
                      */
                     std::string m_dealId;
                     bool m_dealIdHasBeenSet;
 
                     /**
-                     * 实例ID
+                     * 实例ID。
                      */
                     std::vector<std::string> m_instanceIds;
                     bool m_instanceIdsHasBeenSet;
+
+                    /**
+                     * 订单号。
+                     */
+                    std::string m_dealName;
+                    bool m_dealNameHasBeenSet;
 
                 };
             }

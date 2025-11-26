@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 支持的操作系统类型，根据windows和Linux分类。
+                * 支持的操作系统类型，根据Windows和Linux分类。
                 */
                 class ImageOsList : public AbstractModel
                 {
@@ -47,61 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取支持的windows操作系统。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Windows 支持的windows操作系统。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取支持的Windows操作系统。
+                     * @return Windows 支持的Windows操作系统。
+                     * 
                      */
                     std::vector<std::string> GetWindows() const;
 
                     /**
-                     * 设置支持的windows操作系统。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Windows 支持的windows操作系统。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置支持的Windows操作系统。
+                     * @param _windows 支持的Windows操作系统。
+                     * 
                      */
                     void SetWindows(const std::vector<std::string>& _windows);
 
                     /**
                      * 判断参数 Windows 是否已赋值
                      * @return Windows 是否已赋值
+                     * 
                      */
                     bool WindowsHasBeenSet() const;
 
                     /**
-                     * 获取支持的linux操作系统
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Linux 支持的linux操作系统
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取支持的Linux操作系统
+                     * @return Linux 支持的Linux操作系统
+                     * 
                      */
                     std::vector<std::string> GetLinux() const;
 
                     /**
-                     * 设置支持的linux操作系统
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Linux 支持的linux操作系统
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置支持的Linux操作系统
+                     * @param _linux 支持的Linux操作系统
+                     * 
                      */
                     void SetLinux(const std::vector<std::string>& _linux);
 
                     /**
                      * 判断参数 Linux 是否已赋值
                      * @return Linux 是否已赋值
+                     * 
                      */
                     bool LinuxHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 支持的windows操作系统。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 支持的Windows操作系统。
                      */
                     std::vector<std::string> m_windows;
                     bool m_windowsHasBeenSet;
 
                     /**
-                     * 支持的linux操作系统
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 支持的Linux操作系统
                      */
                     std::vector<std::string> m_linux;
                     bool m_linuxHasBeenSet;

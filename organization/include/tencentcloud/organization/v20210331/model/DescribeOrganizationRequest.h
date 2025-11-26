@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,20 +45,44 @@ namespace TencentCloud
                     /**
                      * 获取国际站：en，国内站：zh
                      * @return Lang 国际站：en，国内站：zh
+                     * 
                      */
                     std::string GetLang() const;
 
                     /**
                      * 设置国际站：en，国内站：zh
-                     * @param Lang 国际站：en，国内站：zh
+                     * @param _lang 国际站：en，国内站：zh
+                     * 
                      */
                     void SetLang(const std::string& _lang);
 
                     /**
                      * 判断参数 Lang 是否已赋值
                      * @return Lang 是否已赋值
+                     * 
                      */
                     bool LangHasBeenSet() const;
+
+                    /**
+                     * 获取可信服务产品简称。查询是否该可信服务管理员时必须指定
+                     * @return Product 可信服务产品简称。查询是否该可信服务管理员时必须指定
+                     * 
+                     */
+                    std::string GetProduct() const;
+
+                    /**
+                     * 设置可信服务产品简称。查询是否该可信服务管理员时必须指定
+                     * @param _product 可信服务产品简称。查询是否该可信服务管理员时必须指定
+                     * 
+                     */
+                    void SetProduct(const std::string& _product);
+
+                    /**
+                     * 判断参数 Product 是否已赋值
+                     * @return Product 是否已赋值
+                     * 
+                     */
+                    bool ProductHasBeenSet() const;
 
                 private:
 
@@ -67,6 +91,12 @@ namespace TencentCloud
                      */
                     std::string m_lang;
                     bool m_langHasBeenSet;
+
+                    /**
+                     * 可信服务产品简称。查询是否该可信服务管理员时必须指定
+                     */
+                    std::string m_product;
+                    bool m_productHasBeenSet;
 
                 };
             }

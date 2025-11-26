@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,59 +45,65 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取临时证书
-                     * @return Credentials 临时证书
+                     * 获取临时访问凭证
+                     * @return Credentials 临时访问凭证
+                     * 
                      */
                     Credentials GetCredentials() const;
 
                     /**
                      * 判断参数 Credentials 是否已赋值
                      * @return Credentials 是否已赋值
+                     * 
                      */
                     bool CredentialsHasBeenSet() const;
 
                     /**
-                     * 获取临时证书有效的时间，返回 Unix 时间戳，精确到秒
-                     * @return ExpiredTime 临时证书有效的时间，返回 Unix 时间戳，精确到秒
+                     * 获取临时访问凭证有效的时间，返回 Unix 时间戳，精确到秒
+                     * @return ExpiredTime 临时访问凭证有效的时间，返回 Unix 时间戳，精确到秒
+                     * 
                      */
                     uint64_t GetExpiredTime() const;
 
                     /**
                      * 判断参数 ExpiredTime 是否已赋值
                      * @return ExpiredTime 是否已赋值
+                     * 
                      */
                     bool ExpiredTimeHasBeenSet() const;
 
                     /**
-                     * 获取证书有效的时间，以 iso8601 格式的 UTC 时间表示
+                     * 获取临时访问凭证有效的时间，以 iso8601 格式的 UTC 时间表示
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Expiration 证书有效的时间，以 iso8601 格式的 UTC 时间表示
+                     * @return Expiration 临时访问凭证有效的时间，以 iso8601 格式的 UTC 时间表示
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetExpiration() const;
 
                     /**
                      * 判断参数 Expiration 是否已赋值
                      * @return Expiration 是否已赋值
+                     * 
                      */
                     bool ExpirationHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 临时证书
+                     * 临时访问凭证
                      */
                     Credentials m_credentials;
                     bool m_credentialsHasBeenSet;
 
                     /**
-                     * 临时证书有效的时间，返回 Unix 时间戳，精确到秒
+                     * 临时访问凭证有效的时间，返回 Unix 时间戳，精确到秒
                      */
                     uint64_t m_expiredTime;
                     bool m_expiredTimeHasBeenSet;
 
                     /**
-                     * 证书有效的时间，以 iso8601 格式的 UTC 时间表示
+                     * 临时访问凭证有效的时间，以 iso8601 格式的 UTC 时间表示
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_expiration;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,14 +47,30 @@ namespace TencentCloud
                     /**
                      * 获取客户端列表
                      * @return ClientList 客户端列表
+                     * 
                      */
                     std::vector<FileSystemClient> GetClientList() const;
 
                     /**
                      * 判断参数 ClientList 是否已赋值
                      * @return ClientList 是否已赋值
+                     * 
                      */
                     bool ClientListHasBeenSet() const;
+
+                    /**
+                     * 获取文件系统总数
+                     * @return TotalCount 文件系统总数
+                     * 
+                     */
+                    uint64_t GetTotalCount() const;
+
+                    /**
+                     * 判断参数 TotalCount 是否已赋值
+                     * @return TotalCount 是否已赋值
+                     * 
+                     */
+                    bool TotalCountHasBeenSet() const;
 
                 private:
 
@@ -63,6 +79,12 @@ namespace TencentCloud
                      */
                     std::vector<FileSystemClient> m_clientList;
                     bool m_clientListHasBeenSet;
+
+                    /**
+                     * 文件系统总数
+                     */
+                    uint64_t m_totalCount;
+                    bool m_totalCountHasBeenSet;
 
                 };
             }

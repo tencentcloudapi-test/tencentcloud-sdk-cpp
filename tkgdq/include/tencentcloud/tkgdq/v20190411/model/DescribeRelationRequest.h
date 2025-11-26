@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取输入第一个实体
                      * @return LeftEntityName 输入第一个实体
+                     * 
                      */
                     std::string GetLeftEntityName() const;
 
                     /**
                      * 设置输入第一个实体
-                     * @param LeftEntityName 输入第一个实体
+                     * @param _leftEntityName 输入第一个实体
+                     * 
                      */
                     void SetLeftEntityName(const std::string& _leftEntityName);
 
                     /**
                      * 判断参数 LeftEntityName 是否已赋值
                      * @return LeftEntityName 是否已赋值
+                     * 
                      */
                     bool LeftEntityNameHasBeenSet() const;
 
                     /**
                      * 获取输入第二个实体
                      * @return RightEntityName 输入第二个实体
+                     * 
                      */
                     std::string GetRightEntityName() const;
 
                     /**
                      * 设置输入第二个实体
-                     * @param RightEntityName 输入第二个实体
+                     * @param _rightEntityName 输入第二个实体
+                     * 
                      */
                     void SetRightEntityName(const std::string& _rightEntityName);
 
                     /**
                      * 判断参数 RightEntityName 是否已赋值
                      * @return RightEntityName 是否已赋值
+                     * 
                      */
                     bool RightEntityNameHasBeenSet() const;
 

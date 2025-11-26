@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,8 +47,13 @@ CreateFunctionRequest::CreateFunctionRequest() :
     m_tagsHasBeenSet(false),
     m_asyncRunEnableHasBeenSet(false),
     m_traceEnableHasBeenSet(false),
+    m_autoDeployClsTopicIndexHasBeenSet(false),
+    m_autoCreateClsTopicHasBeenSet(false),
     m_protocolTypeHasBeenSet(false),
-    m_protocolParamsHasBeenSet(false)
+    m_protocolParamsHasBeenSet(false),
+    m_instanceConcurrencyConfigHasBeenSet(false),
+    m_dnsCacheHasBeenSet(false),
+    m_intranetConfigHasBeenSet(false)
 {
 }
 
@@ -271,6 +276,22 @@ string CreateFunctionRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_traceEnable.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_autoDeployClsTopicIndexHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoDeployClsTopicIndex";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_autoDeployClsTopicIndex.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoCreateClsTopicHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoCreateClsTopic";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_autoCreateClsTopic.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_protocolTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -286,6 +307,32 @@ string CreateFunctionRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_protocolParams.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_instanceConcurrencyConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceConcurrencyConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_instanceConcurrencyConfig.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_dnsCacheHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DnsCache";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dnsCache.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_intranetConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntranetConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_intranetConfig.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -680,6 +727,38 @@ bool CreateFunctionRequest::TraceEnableHasBeenSet() const
     return m_traceEnableHasBeenSet;
 }
 
+string CreateFunctionRequest::GetAutoDeployClsTopicIndex() const
+{
+    return m_autoDeployClsTopicIndex;
+}
+
+void CreateFunctionRequest::SetAutoDeployClsTopicIndex(const string& _autoDeployClsTopicIndex)
+{
+    m_autoDeployClsTopicIndex = _autoDeployClsTopicIndex;
+    m_autoDeployClsTopicIndexHasBeenSet = true;
+}
+
+bool CreateFunctionRequest::AutoDeployClsTopicIndexHasBeenSet() const
+{
+    return m_autoDeployClsTopicIndexHasBeenSet;
+}
+
+string CreateFunctionRequest::GetAutoCreateClsTopic() const
+{
+    return m_autoCreateClsTopic;
+}
+
+void CreateFunctionRequest::SetAutoCreateClsTopic(const string& _autoCreateClsTopic)
+{
+    m_autoCreateClsTopic = _autoCreateClsTopic;
+    m_autoCreateClsTopicHasBeenSet = true;
+}
+
+bool CreateFunctionRequest::AutoCreateClsTopicHasBeenSet() const
+{
+    return m_autoCreateClsTopicHasBeenSet;
+}
+
 string CreateFunctionRequest::GetProtocolType() const
 {
     return m_protocolType;
@@ -710,6 +789,54 @@ void CreateFunctionRequest::SetProtocolParams(const ProtocolParams& _protocolPar
 bool CreateFunctionRequest::ProtocolParamsHasBeenSet() const
 {
     return m_protocolParamsHasBeenSet;
+}
+
+InstanceConcurrencyConfig CreateFunctionRequest::GetInstanceConcurrencyConfig() const
+{
+    return m_instanceConcurrencyConfig;
+}
+
+void CreateFunctionRequest::SetInstanceConcurrencyConfig(const InstanceConcurrencyConfig& _instanceConcurrencyConfig)
+{
+    m_instanceConcurrencyConfig = _instanceConcurrencyConfig;
+    m_instanceConcurrencyConfigHasBeenSet = true;
+}
+
+bool CreateFunctionRequest::InstanceConcurrencyConfigHasBeenSet() const
+{
+    return m_instanceConcurrencyConfigHasBeenSet;
+}
+
+string CreateFunctionRequest::GetDnsCache() const
+{
+    return m_dnsCache;
+}
+
+void CreateFunctionRequest::SetDnsCache(const string& _dnsCache)
+{
+    m_dnsCache = _dnsCache;
+    m_dnsCacheHasBeenSet = true;
+}
+
+bool CreateFunctionRequest::DnsCacheHasBeenSet() const
+{
+    return m_dnsCacheHasBeenSet;
+}
+
+IntranetConfigIn CreateFunctionRequest::GetIntranetConfig() const
+{
+    return m_intranetConfig;
+}
+
+void CreateFunctionRequest::SetIntranetConfig(const IntranetConfigIn& _intranetConfig)
+{
+    m_intranetConfig = _intranetConfig;
+    m_intranetConfigHasBeenSet = true;
+}
+
+bool CreateFunctionRequest::IntranetConfigHasBeenSet() const
+{
+    return m_intranetConfigHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取模块名AccountMng
                      * @return Module 模块名AccountMng
+                     * 
                      */
                     std::string GetModule() const;
 
                     /**
                      * 设置模块名AccountMng
-                     * @param Module 模块名AccountMng
+                     * @param _module 模块名AccountMng
+                     * 
                      */
                     void SetModule(const std::string& _module);
 
                     /**
                      * 判断参数 Module 是否已赋值
                      * @return Module 是否已赋值
+                     * 
                      */
                     bool ModuleHasBeenSet() const;
 
                     /**
                      * 获取操作名DeleteAccount
                      * @return Operation 操作名DeleteAccount
+                     * 
                      */
                     std::string GetOperation() const;
 
                     /**
                      * 设置操作名DeleteAccount
-                     * @param Operation 操作名DeleteAccount
+                     * @param _operation 操作名DeleteAccount
+                     * 
                      */
                     void SetOperation(const std::string& _operation);
 
                     /**
                      * 判断参数 Operation 是否已赋值
                      * @return Operation 是否已赋值
+                     * 
                      */
                     bool OperationHasBeenSet() const;
 
                     /**
                      * 获取帐号ID列表
                      * @return AccountList 帐号ID列表
+                     * 
                      */
                     std::vector<std::string> GetAccountList() const;
 
                     /**
                      * 设置帐号ID列表
-                     * @param AccountList 帐号ID列表
+                     * @param _accountList 帐号ID列表
+                     * 
                      */
                     void SetAccountList(const std::vector<std::string>& _accountList);
 
                     /**
                      * 判断参数 AccountList 是否已赋值
                      * @return AccountList 是否已赋值
+                     * 
                      */
                     bool AccountListHasBeenSet() const;
 

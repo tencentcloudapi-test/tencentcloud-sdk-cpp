@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取流日志实例集合
-                     * @return FlowLog 流日志实例集合
+                     * 获取流日志实例集合。
+                     * @return FlowLog 流日志实例集合。
+                     * 
                      */
                     std::vector<FlowLog> GetFlowLog() const;
 
                     /**
                      * 判断参数 FlowLog 是否已赋值
                      * @return FlowLog 是否已赋值
+                     * 
                      */
                     bool FlowLogHasBeenSet() const;
 
                     /**
-                     * 获取流日志总数目
-                     * @return TotalNum 流日志总数目
+                     * 获取流日志总数目。
+                     * @return TotalNum 流日志总数目。
+                     * 
                      */
                     uint64_t GetTotalNum() const;
 
                     /**
                      * 判断参数 TotalNum 是否已赋值
                      * @return TotalNum 是否已赋值
+                     * 
                      */
                     bool TotalNumHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 流日志实例集合
+                     * 流日志实例集合。
                      */
                     std::vector<FlowLog> m_flowLog;
                     bool m_flowLogHasBeenSet;
 
                     /**
-                     * 流日志总数目
+                     * 流日志总数目。
                      */
                     uint64_t m_totalNum;
                     bool m_totalNumHasBeenSet;

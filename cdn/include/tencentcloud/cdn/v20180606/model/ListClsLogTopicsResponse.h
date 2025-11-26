@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,12 +49,14 @@ namespace TencentCloud
                     /**
                      * 获取上海区域日志集信息
                      * @return Logset 上海区域日志集信息
+                     * 
                      */
                     LogSetInfo GetLogset() const;
 
                     /**
                      * 判断参数 Logset 是否已赋值
                      * @return Logset 是否已赋值
+                     * 
                      */
                     bool LogsetHasBeenSet() const;
 
@@ -63,12 +65,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Topics 上海区域日志主题信息列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<TopicInfo> GetTopics() const;
 
                     /**
                      * 判断参数 Topics 是否已赋值
                      * @return Topics 是否已赋值
+                     * 
                      */
                     bool TopicsHasBeenSet() const;
 
@@ -77,12 +81,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ExtraLogset 其他区域日志集信息列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ExtraLogset> GetExtraLogset() const;
 
                     /**
                      * 判断参数 ExtraLogset 是否已赋值
                      * @return ExtraLogset 是否已赋值
+                     * 
                      */
                     bool ExtraLogsetHasBeenSet() const;
 

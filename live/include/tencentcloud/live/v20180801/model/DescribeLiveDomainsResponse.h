@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,40 +47,58 @@ namespace TencentCloud
                     /**
                      * 获取总记录数。
                      * @return AllCount 总记录数。
+                     * 
                      */
                     uint64_t GetAllCount() const;
 
                     /**
                      * 判断参数 AllCount 是否已赋值
                      * @return AllCount 是否已赋值
+                     * 
                      */
                     bool AllCountHasBeenSet() const;
 
                     /**
                      * 获取域名详细信息列表。
                      * @return DomainList 域名详细信息列表。
+                     * 
                      */
                     std::vector<DomainInfo> GetDomainList() const;
 
                     /**
                      * 判断参数 DomainList 是否已赋值
                      * @return DomainList 是否已赋值
+                     * 
                      */
                     bool DomainListHasBeenSet() const;
 
                     /**
                      * 获取可继续添加域名数量。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreateLimitCount 可继续添加域名数量。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetCreateLimitCount() const;
 
                     /**
                      * 判断参数 CreateLimitCount 是否已赋值
                      * @return CreateLimitCount 是否已赋值
+                     * 
                      */
                     bool CreateLimitCountHasBeenSet() const;
+
+                    /**
+                     * 获取启用的播放域名加速区域统计，数组元素分别为：中国大陆（境内），全球地区，国际/港澳台（境外）域名数量。
+                     * @return PlayTypeCount 启用的播放域名加速区域统计，数组元素分别为：中国大陆（境内），全球地区，国际/港澳台（境外）域名数量。
+                     * 
+                     */
+                    std::vector<int64_t> GetPlayTypeCount() const;
+
+                    /**
+                     * 判断参数 PlayTypeCount 是否已赋值
+                     * @return PlayTypeCount 是否已赋值
+                     * 
+                     */
+                    bool PlayTypeCountHasBeenSet() const;
 
                 private:
 
@@ -98,10 +116,15 @@ namespace TencentCloud
 
                     /**
                      * 可继续添加域名数量。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_createLimitCount;
                     bool m_createLimitCountHasBeenSet;
+
+                    /**
+                     * 启用的播放域名加速区域统计，数组元素分别为：中国大陆（境内），全球地区，国际/港澳台（境外）域名数量。
+                     */
+                    std::vector<int64_t> m_playTypeCount;
+                    bool m_playTypeCountHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取协议端口模板实例ID，例如：ppm-e6dy460g。
                      * @return ServiceTemplateId 协议端口模板实例ID，例如：ppm-e6dy460g。
+                     * 
                      */
                     std::string GetServiceTemplateId() const;
 
                     /**
                      * 设置协议端口模板实例ID，例如：ppm-e6dy460g。
-                     * @param ServiceTemplateId 协议端口模板实例ID，例如：ppm-e6dy460g。
+                     * @param _serviceTemplateId 协议端口模板实例ID，例如：ppm-e6dy460g。
+                     * 
                      */
                     void SetServiceTemplateId(const std::string& _serviceTemplateId);
 
                     /**
                      * 判断参数 ServiceTemplateId 是否已赋值
                      * @return ServiceTemplateId 是否已赋值
+                     * 
                      */
                     bool ServiceTemplateIdHasBeenSet() const;
 

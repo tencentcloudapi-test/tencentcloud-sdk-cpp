@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取隔离成功的实例id列表
                      * @return SuccessInstanceIds 隔离成功的实例id列表
+                     * 
                      */
                     std::vector<std::string> GetSuccessInstanceIds() const;
 
                     /**
                      * 判断参数 SuccessInstanceIds 是否已赋值
                      * @return SuccessInstanceIds 是否已赋值
+                     * 
                      */
                     bool SuccessInstanceIdsHasBeenSet() const;
 
                     /**
                      * 获取隔离失败的实例id列表
                      * @return FailedInstanceIds 隔离失败的实例id列表
+                     * 
                      */
                     std::vector<std::string> GetFailedInstanceIds() const;
 
                     /**
                      * 判断参数 FailedInstanceIds 是否已赋值
                      * @return FailedInstanceIds 是否已赋值
+                     * 
                      */
                     bool FailedInstanceIdsHasBeenSet() const;
 

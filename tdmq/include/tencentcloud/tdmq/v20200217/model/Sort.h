@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取排序字段
                      * @return Name 排序字段
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置排序字段
-                     * @param Name 排序字段
+                     * @param _name 排序字段
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取升序ASC，降序DESC
                      * @return Order 升序ASC，降序DESC
+                     * 
                      */
                     std::string GetOrder() const;
 
                     /**
                      * 设置升序ASC，降序DESC
-                     * @param Order 升序ASC，降序DESC
+                     * @param _order 升序ASC，降序DESC
+                     * 
                      */
                     void SetOrder(const std::string& _order);
 
                     /**
                      * 判断参数 Order 是否已赋值
                      * @return Order 是否已赋值
+                     * 
                      */
                     bool OrderHasBeenSet() const;
 

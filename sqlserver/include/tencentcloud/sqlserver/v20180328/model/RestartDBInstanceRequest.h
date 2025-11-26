@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,20 +45,44 @@ namespace TencentCloud
                     /**
                      * 获取数据库实例ID，形如mssql-njj2mtpl
                      * @return InstanceId 数据库实例ID，形如mssql-njj2mtpl
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置数据库实例ID，形如mssql-njj2mtpl
-                     * @param InstanceId 数据库实例ID，形如mssql-njj2mtpl
+                     * @param _instanceId 数据库实例ID，形如mssql-njj2mtpl
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
+
+                    /**
+                     * 获取重启设置，0-立刻重启，1-维护时间窗口内重启，默认0
+                     * @return WaitSwitch 重启设置，0-立刻重启，1-维护时间窗口内重启，默认0
+                     * 
+                     */
+                    uint64_t GetWaitSwitch() const;
+
+                    /**
+                     * 设置重启设置，0-立刻重启，1-维护时间窗口内重启，默认0
+                     * @param _waitSwitch 重启设置，0-立刻重启，1-维护时间窗口内重启，默认0
+                     * 
+                     */
+                    void SetWaitSwitch(const uint64_t& _waitSwitch);
+
+                    /**
+                     * 判断参数 WaitSwitch 是否已赋值
+                     * @return WaitSwitch 是否已赋值
+                     * 
+                     */
+                    bool WaitSwitchHasBeenSet() const;
 
                 private:
 
@@ -67,6 +91,12 @@ namespace TencentCloud
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
+
+                    /**
+                     * 重启设置，0-立刻重启，1-维护时间窗口内重启，默认0
+                     */
+                    uint64_t m_waitSwitch;
+                    bool m_waitSwitchHasBeenSet;
 
                 };
             }

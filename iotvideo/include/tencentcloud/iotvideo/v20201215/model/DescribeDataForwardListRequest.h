@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取产品ID列表
                      * @return ProductIds 产品ID列表
+                     * 
                      */
                     std::string GetProductIds() const;
 
                     /**
                      * 设置产品ID列表
-                     * @param ProductIds 产品ID列表
+                     * @param _productIds 产品ID列表
+                     * 
                      */
                     void SetProductIds(const std::string& _productIds);
 
                     /**
                      * 判断参数 ProductIds 是否已赋值
                      * @return ProductIds 是否已赋值
+                     * 
                      */
                     bool ProductIdsHasBeenSet() const;
 

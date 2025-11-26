@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,89 +47,98 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取0：光头，1：短发，2：中发，3：长发，4：绑发
+                     * 获取取值范围：0：光头，1：短发，2：中发，3：长发，4：绑发。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Length 0：光头，1：短发，2：中发，3：长发，4：绑发
+                     * @return Length 取值范围：0：光头，1：短发，2：中发，3：长发，4：绑发。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetLength() const;
 
                     /**
-                     * 设置0：光头，1：短发，2：中发，3：长发，4：绑发
+                     * 设置取值范围：0：光头，1：短发，2：中发，3：长发，4：绑发。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Length 0：光头，1：短发，2：中发，3：长发，4：绑发
+                     * @param _length 取值范围：0：光头，1：短发，2：中发，3：长发，4：绑发。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetLength(const int64_t& _length);
 
                     /**
                      * 判断参数 Length 是否已赋值
                      * @return Length 是否已赋值
+                     * 
                      */
                     bool LengthHasBeenSet() const;
 
                     /**
-                     * 获取0：有刘海，1：无刘海
+                     * 获取取值范围：0：有刘海，1：无刘海。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Bang 0：有刘海，1：无刘海
+                     * @return Bang 取值范围：0：有刘海，1：无刘海。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetBang() const;
 
                     /**
-                     * 设置0：有刘海，1：无刘海
+                     * 设置取值范围：0：有刘海，1：无刘海。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Bang 0：有刘海，1：无刘海
+                     * @param _bang 取值范围：0：有刘海，1：无刘海。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetBang(const int64_t& _bang);
 
                     /**
                      * 判断参数 Bang 是否已赋值
                      * @return Bang 是否已赋值
+                     * 
                      */
                     bool BangHasBeenSet() const;
 
                     /**
-                     * 获取0：黑色，1：金色，2：棕色，3：灰白色
+                     * 获取取值范围：0：黑色，1：金色，2：棕色，3：灰白色。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Color 0：黑色，1：金色，2：棕色，3：灰白色
+                     * @return Color 取值范围：0：黑色，1：金色，2：棕色，3：灰白色。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetColor() const;
 
                     /**
-                     * 设置0：黑色，1：金色，2：棕色，3：灰白色
+                     * 设置取值范围：0：黑色，1：金色，2：棕色，3：灰白色。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Color 0：黑色，1：金色，2：棕色，3：灰白色
+                     * @param _color 取值范围：0：黑色，1：金色，2：棕色，3：灰白色。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetColor(const int64_t& _color);
 
                     /**
                      * 判断参数 Color 是否已赋值
                      * @return Color 是否已赋值
+                     * 
                      */
                     bool ColorHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 0：光头，1：短发，2：中发，3：长发，4：绑发
+                     * 取值范围：0：光头，1：短发，2：中发，3：长发，4：绑发。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_length;
                     bool m_lengthHasBeenSet;
 
                     /**
-                     * 0：有刘海，1：无刘海
+                     * 取值范围：0：有刘海，1：无刘海。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_bang;
                     bool m_bangHasBeenSet;
 
                     /**
-                     * 0：黑色，1：金色，2：棕色，3：灰白色
+                     * 取值范围：0：黑色，1：金色，2：棕色，3：灰白色。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_color;

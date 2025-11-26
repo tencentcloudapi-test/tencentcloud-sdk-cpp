@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取函数名称
                      * @return Func 函数名称
+                     * 
                      */
                     std::string GetFunc() const;
 
                     /**
                      * 设置函数名称
-                     * @param Func 函数名称
+                     * @param _func 函数名称
+                     * 
                      */
                     void SetFunc(const std::string& _func);
 
                     /**
                      * 判断参数 Func 是否已赋值
                      * @return Func 是否已赋值
+                     * 
                      */
                     bool FuncHasBeenSet() const;
 

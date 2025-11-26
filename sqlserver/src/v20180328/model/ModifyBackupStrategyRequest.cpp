@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,14 @@ ModifyBackupStrategyRequest::ModifyBackupStrategyRequest() :
     m_backupTypeHasBeenSet(false),
     m_backupTimeHasBeenSet(false),
     m_backupDayHasBeenSet(false),
-    m_backupModelHasBeenSet(false)
+    m_backupModelHasBeenSet(false),
+    m_backupCycleHasBeenSet(false),
+    m_backupSaveDaysHasBeenSet(false),
+    m_regularBackupEnableHasBeenSet(false),
+    m_regularBackupSaveDaysHasBeenSet(false),
+    m_regularBackupStrategyHasBeenSet(false),
+    m_regularBackupCountsHasBeenSet(false),
+    m_regularBackupStartTimeHasBeenSet(false)
 {
 }
 
@@ -76,6 +83,67 @@ string ModifyBackupStrategyRequest::ToJsonString() const
         string key = "BackupModel";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_backupModel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_backupCycleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupCycle";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_backupCycle.begin(); itr != m_backupCycle.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetUint64(*itr), allocator);
+        }
+    }
+
+    if (m_backupSaveDaysHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupSaveDays";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_backupSaveDays, allocator);
+    }
+
+    if (m_regularBackupEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegularBackupEnable";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_regularBackupEnable.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regularBackupSaveDaysHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegularBackupSaveDays";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_regularBackupSaveDays, allocator);
+    }
+
+    if (m_regularBackupStrategyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegularBackupStrategy";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_regularBackupStrategy.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regularBackupCountsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegularBackupCounts";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_regularBackupCounts, allocator);
+    }
+
+    if (m_regularBackupStartTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegularBackupStartTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_regularBackupStartTime.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -164,6 +232,118 @@ void ModifyBackupStrategyRequest::SetBackupModel(const string& _backupModel)
 bool ModifyBackupStrategyRequest::BackupModelHasBeenSet() const
 {
     return m_backupModelHasBeenSet;
+}
+
+vector<uint64_t> ModifyBackupStrategyRequest::GetBackupCycle() const
+{
+    return m_backupCycle;
+}
+
+void ModifyBackupStrategyRequest::SetBackupCycle(const vector<uint64_t>& _backupCycle)
+{
+    m_backupCycle = _backupCycle;
+    m_backupCycleHasBeenSet = true;
+}
+
+bool ModifyBackupStrategyRequest::BackupCycleHasBeenSet() const
+{
+    return m_backupCycleHasBeenSet;
+}
+
+uint64_t ModifyBackupStrategyRequest::GetBackupSaveDays() const
+{
+    return m_backupSaveDays;
+}
+
+void ModifyBackupStrategyRequest::SetBackupSaveDays(const uint64_t& _backupSaveDays)
+{
+    m_backupSaveDays = _backupSaveDays;
+    m_backupSaveDaysHasBeenSet = true;
+}
+
+bool ModifyBackupStrategyRequest::BackupSaveDaysHasBeenSet() const
+{
+    return m_backupSaveDaysHasBeenSet;
+}
+
+string ModifyBackupStrategyRequest::GetRegularBackupEnable() const
+{
+    return m_regularBackupEnable;
+}
+
+void ModifyBackupStrategyRequest::SetRegularBackupEnable(const string& _regularBackupEnable)
+{
+    m_regularBackupEnable = _regularBackupEnable;
+    m_regularBackupEnableHasBeenSet = true;
+}
+
+bool ModifyBackupStrategyRequest::RegularBackupEnableHasBeenSet() const
+{
+    return m_regularBackupEnableHasBeenSet;
+}
+
+uint64_t ModifyBackupStrategyRequest::GetRegularBackupSaveDays() const
+{
+    return m_regularBackupSaveDays;
+}
+
+void ModifyBackupStrategyRequest::SetRegularBackupSaveDays(const uint64_t& _regularBackupSaveDays)
+{
+    m_regularBackupSaveDays = _regularBackupSaveDays;
+    m_regularBackupSaveDaysHasBeenSet = true;
+}
+
+bool ModifyBackupStrategyRequest::RegularBackupSaveDaysHasBeenSet() const
+{
+    return m_regularBackupSaveDaysHasBeenSet;
+}
+
+string ModifyBackupStrategyRequest::GetRegularBackupStrategy() const
+{
+    return m_regularBackupStrategy;
+}
+
+void ModifyBackupStrategyRequest::SetRegularBackupStrategy(const string& _regularBackupStrategy)
+{
+    m_regularBackupStrategy = _regularBackupStrategy;
+    m_regularBackupStrategyHasBeenSet = true;
+}
+
+bool ModifyBackupStrategyRequest::RegularBackupStrategyHasBeenSet() const
+{
+    return m_regularBackupStrategyHasBeenSet;
+}
+
+uint64_t ModifyBackupStrategyRequest::GetRegularBackupCounts() const
+{
+    return m_regularBackupCounts;
+}
+
+void ModifyBackupStrategyRequest::SetRegularBackupCounts(const uint64_t& _regularBackupCounts)
+{
+    m_regularBackupCounts = _regularBackupCounts;
+    m_regularBackupCountsHasBeenSet = true;
+}
+
+bool ModifyBackupStrategyRequest::RegularBackupCountsHasBeenSet() const
+{
+    return m_regularBackupCountsHasBeenSet;
+}
+
+string ModifyBackupStrategyRequest::GetRegularBackupStartTime() const
+{
+    return m_regularBackupStartTime;
+}
+
+void ModifyBackupStrategyRequest::SetRegularBackupStartTime(const string& _regularBackupStartTime)
+{
+    m_regularBackupStartTime = _regularBackupStartTime;
+    m_regularBackupStartTimeHasBeenSet = true;
+}
+
+bool ModifyBackupStrategyRequest::RegularBackupStartTimeHasBeenSet() const
+{
+    return m_regularBackupStartTimeHasBeenSet;
 }
 
 

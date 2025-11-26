@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,110 +46,149 @@ namespace TencentCloud
                     /**
                      * 获取仓库名，搜索关键字,不带命名空间的
                      * @return SearchWord 仓库名，搜索关键字,不带命名空间的
+                     * 
                      */
                     std::string GetSearchWord() const;
 
                     /**
                      * 设置仓库名，搜索关键字,不带命名空间的
-                     * @param SearchWord 仓库名，搜索关键字,不带命名空间的
+                     * @param _searchWord 仓库名，搜索关键字,不带命名空间的
+                     * 
                      */
                     void SetSearchWord(const std::string& _searchWord);
 
                     /**
                      * 判断参数 SearchWord 是否已赋值
                      * @return SearchWord 是否已赋值
+                     * 
                      */
                     bool SearchWordHasBeenSet() const;
 
                     /**
-                     * 获取偏移量，取值从0开始
-                     * @return Offset 偏移量，取值从0开始
+                     * 获取偏移量，默认为0。关于Offset详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * @return Offset 偏移量，默认为0。关于Offset详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置偏移量，取值从0开始
-                     * @param Offset 偏移量，取值从0开始
+                     * 设置偏移量，默认为0。关于Offset详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * @param _offset 偏移量，默认为0。关于Offset详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取分页个数，默认为20， 取值应为1~100
-                     * @return Limit 分页个数，默认为20， 取值应为1~100
+                     * 获取数量限制，默认为20，最大值为100。关于Limit详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * @return Limit 数量限制，默认为20，最大值为100。关于Limit详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置分页个数，默认为20， 取值应为1~100
-                     * @param Limit 分页个数，默认为20， 取值应为1~100
+                     * 设置数量限制，默认为20，最大值为100。关于Limit详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * @param _limit 数量限制，默认为20，最大值为100。关于Limit详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取企业: tcr ；个人: personal或者不填
                      * @return RepoType 企业: tcr ；个人: personal或者不填
+                     * 
                      */
                     std::string GetRepoType() const;
 
                     /**
                      * 设置企业: tcr ；个人: personal或者不填
-                     * @param RepoType 企业: tcr ；个人: personal或者不填
+                     * @param _repoType 企业: tcr ；个人: personal或者不填
+                     * 
                      */
                     void SetRepoType(const std::string& _repoType);
 
                     /**
                      * 判断参数 RepoType 是否已赋值
                      * @return RepoType 是否已赋值
+                     * 
                      */
                     bool RepoTypeHasBeenSet() const;
 
                     /**
-                     * 获取应用id
-                     * @return ApplicationId 应用id
+                     * 获取应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * @return ApplicationId 应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * 
                      */
                     std::string GetApplicationId() const;
 
                     /**
-                     * 设置应用id
-                     * @param ApplicationId 应用id
+                     * 设置应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * @param _applicationId 应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
+                     * 
                      */
                     void SetApplicationId(const std::string& _applicationId);
 
                     /**
                      * 判断参数 ApplicationId 是否已赋值
                      * @return ApplicationId 是否已赋值
+                     * 
                      */
                     bool ApplicationIdHasBeenSet() const;
 
                     /**
                      * 获取TcrRepoInfo值
                      * @return TcrRepoInfo TcrRepoInfo值
+                     * 
                      */
                     TcrRepoInfo GetTcrRepoInfo() const;
 
                     /**
                      * 设置TcrRepoInfo值
-                     * @param TcrRepoInfo TcrRepoInfo值
+                     * @param _tcrRepoInfo TcrRepoInfo值
+                     * 
                      */
                     void SetTcrRepoInfo(const TcrRepoInfo& _tcrRepoInfo);
 
                     /**
                      * 判断参数 TcrRepoInfo 是否已赋值
                      * @return TcrRepoInfo 是否已赋值
+                     * 
                      */
                     bool TcrRepoInfoHasBeenSet() const;
+
+                    /**
+                     * 获取镜像仓库名称
+                     * @return RepoName 镜像仓库名称
+                     * 
+                     */
+                    std::string GetRepoName() const;
+
+                    /**
+                     * 设置镜像仓库名称
+                     * @param _repoName 镜像仓库名称
+                     * 
+                     */
+                    void SetRepoName(const std::string& _repoName);
+
+                    /**
+                     * 判断参数 RepoName 是否已赋值
+                     * @return RepoName 是否已赋值
+                     * 
+                     */
+                    bool RepoNameHasBeenSet() const;
 
                 private:
 
@@ -160,13 +199,13 @@ namespace TencentCloud
                     bool m_searchWordHasBeenSet;
 
                     /**
-                     * 偏移量，取值从0开始
+                     * 偏移量，默认为0。关于Offset详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 分页个数，默认为20， 取值应为1~100
+                     * 数量限制，默认为20，最大值为100。关于Limit详见[API简介](https://cloud.tencent.com/document/api/213/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89)
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
@@ -178,7 +217,7 @@ namespace TencentCloud
                     bool m_repoTypeHasBeenSet;
 
                     /**
-                     * 应用id
+                     * 应用ID，可通过调用[DescribeApplications](https://cloud.tencent.com/document/api/649/36090)查询已创建的应用列表或登录控制台进行查看；也可以调用[CreateApplication](https://cloud.tencent.com/document/api/649/36094)创建新的应用。
                      */
                     std::string m_applicationId;
                     bool m_applicationIdHasBeenSet;
@@ -188,6 +227,12 @@ namespace TencentCloud
                      */
                     TcrRepoInfo m_tcrRepoInfo;
                     bool m_tcrRepoInfoHasBeenSet;
+
+                    /**
+                     * 镜像仓库名称
+                     */
+                    std::string m_repoName;
+                    bool m_repoNameHasBeenSet;
 
                 };
             }

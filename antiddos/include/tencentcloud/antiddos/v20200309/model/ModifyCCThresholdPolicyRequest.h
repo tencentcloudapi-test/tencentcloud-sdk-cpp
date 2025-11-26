@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,90 +45,105 @@ namespace TencentCloud
                     /**
                      * 获取实例Id
                      * @return InstanceId 实例Id
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例Id
-                     * @param InstanceId 实例Id
+                     * @param _instanceId 实例Id
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取Ip地址
-                     * @return Ip Ip地址
+                     * 获取IP地址
+                     * @return Ip IP地址
+                     * 
                      */
                     std::string GetIp() const;
 
                     /**
-                     * 设置Ip地址
-                     * @param Ip Ip地址
+                     * 设置IP地址
+                     * @param _ip IP地址
+                     * 
                      */
                     void SetIp(const std::string& _ip);
 
                     /**
                      * 判断参数 Ip 是否已赋值
                      * @return Ip 是否已赋值
+                     * 
                      */
                     bool IpHasBeenSet() const;
 
                     /**
                      * 获取域名
                      * @return Domain 域名
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置域名
-                     * @param Domain 域名
+                     * @param _domain 域名
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                     /**
-                     * 获取协议，可取值HTTP，HTTPS
-                     * @return Protocol 协议，可取值HTTP，HTTPS
+                     * 获取协议，可取值http，https，http/https
+                     * @return Protocol 协议，可取值http，https，http/https
+                     * 
                      */
                     std::string GetProtocol() const;
 
                     /**
-                     * 设置协议，可取值HTTP，HTTPS
-                     * @param Protocol 协议，可取值HTTP，HTTPS
+                     * 设置协议，可取值http，https，http/https
+                     * @param _protocol 协议，可取值http，https，http/https
+                     * 
                      */
                     void SetProtocol(const std::string& _protocol);
 
                     /**
                      * 判断参数 Protocol 是否已赋值
                      * @return Protocol 是否已赋值
+                     * 
                      */
                     bool ProtocolHasBeenSet() const;
 
                     /**
                      * 获取清洗阈值，-1表示开启“默认”模式
                      * @return Threshold 清洗阈值，-1表示开启“默认”模式
+                     * 
                      */
                     int64_t GetThreshold() const;
 
                     /**
                      * 设置清洗阈值，-1表示开启“默认”模式
-                     * @param Threshold 清洗阈值，-1表示开启“默认”模式
+                     * @param _threshold 清洗阈值，-1表示开启“默认”模式
+                     * 
                      */
                     void SetThreshold(const int64_t& _threshold);
 
                     /**
                      * 判断参数 Threshold 是否已赋值
                      * @return Threshold 是否已赋值
+                     * 
                      */
                     bool ThresholdHasBeenSet() const;
 
@@ -141,7 +156,7 @@ namespace TencentCloud
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * Ip地址
+                     * IP地址
                      */
                     std::string m_ip;
                     bool m_ipHasBeenSet;
@@ -153,7 +168,7 @@ namespace TencentCloud
                     bool m_domainHasBeenSet;
 
                     /**
-                     * 协议，可取值HTTP，HTTPS
+                     * 协议，可取值http，https，http/https
                      */
                     std::string m_protocol;
                     bool m_protocolHasBeenSet;

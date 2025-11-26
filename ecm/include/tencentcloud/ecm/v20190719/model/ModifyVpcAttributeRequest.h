@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,92 +46,149 @@ namespace TencentCloud
                     /**
                      * 获取VPC实例ID。形如：vpc-f49l6u0z。
                      * @return VpcId VPC实例ID。形如：vpc-f49l6u0z。
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
                      * 设置VPC实例ID。形如：vpc-f49l6u0z。
-                     * @param VpcId VPC实例ID。形如：vpc-f49l6u0z。
+                     * @param _vpcId VPC实例ID。形如：vpc-f49l6u0z。
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取ECM 地域
                      * @return EcmRegion ECM 地域
+                     * 
                      */
                     std::string GetEcmRegion() const;
 
                     /**
                      * 设置ECM 地域
-                     * @param EcmRegion ECM 地域
+                     * @param _ecmRegion ECM 地域
+                     * 
                      */
                     void SetEcmRegion(const std::string& _ecmRegion);
 
                     /**
                      * 判断参数 EcmRegion 是否已赋值
                      * @return EcmRegion 是否已赋值
+                     * 
                      */
                     bool EcmRegionHasBeenSet() const;
 
                     /**
                      * 获取私有网络名称，可任意命名，但不得超过60个字符。
                      * @return VpcName 私有网络名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     std::string GetVpcName() const;
 
                     /**
                      * 设置私有网络名称，可任意命名，但不得超过60个字符。
-                     * @param VpcName 私有网络名称，可任意命名，但不得超过60个字符。
+                     * @param _vpcName 私有网络名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     void SetVpcName(const std::string& _vpcName);
 
                     /**
                      * 判断参数 VpcName 是否已赋值
                      * @return VpcName 是否已赋值
+                     * 
                      */
                     bool VpcNameHasBeenSet() const;
 
                     /**
                      * 获取标签
                      * @return Tags 标签
+                     * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
                      * 设置标签
-                     * @param Tags 标签
+                     * @param _tags 标签
+                     * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 
                     /**
                      * 获取私有网络描述
                      * @return Description 私有网络描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置私有网络描述
-                     * @param Description 私有网络描述
+                     * @param _description 私有网络描述
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
+
+                    /**
+                     * 获取DNS地址，最多支持4个，第1个默认为主，其余为备。	
+                     * @return DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。	
+                     * 
+                     */
+                    std::vector<std::string> GetDnsServers() const;
+
+                    /**
+                     * 设置DNS地址，最多支持4个，第1个默认为主，其余为备。	
+                     * @param _dnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。	
+                     * 
+                     */
+                    void SetDnsServers(const std::vector<std::string>& _dnsServers);
+
+                    /**
+                     * 判断参数 DnsServers 是否已赋值
+                     * @return DnsServers 是否已赋值
+                     * 
+                     */
+                    bool DnsServersHasBeenSet() const;
+
+                    /**
+                     * 获取域名。
+                     * @return DomainName 域名。
+                     * 
+                     */
+                    std::string GetDomainName() const;
+
+                    /**
+                     * 设置域名。
+                     * @param _domainName 域名。
+                     * 
+                     */
+                    void SetDomainName(const std::string& _domainName);
+
+                    /**
+                     * 判断参数 DomainName 是否已赋值
+                     * @return DomainName 是否已赋值
+                     * 
+                     */
+                    bool DomainNameHasBeenSet() const;
 
                 private:
 
@@ -164,6 +221,18 @@ namespace TencentCloud
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
+
+                    /**
+                     * DNS地址，最多支持4个，第1个默认为主，其余为备。	
+                     */
+                    std::vector<std::string> m_dnsServers;
+                    bool m_dnsServersHasBeenSet;
+
+                    /**
+                     * 域名。
+                     */
+                    std::string m_domainName;
+                    bool m_domainNameHasBeenSet;
 
                 };
             }

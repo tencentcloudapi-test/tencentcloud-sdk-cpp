@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,38 +49,65 @@ namespace TencentCloud
                     /**
                      * 获取被叫号码
                      * @return Callee 被叫号码
+                     * 
                      */
                     std::string GetCallee() const;
 
                     /**
                      * 设置被叫号码
-                     * @param Callee 被叫号码
+                     * @param _callee 被叫号码
+                     * 
                      */
                     void SetCallee(const std::string& _callee);
 
                     /**
                      * 判断参数 Callee 是否已赋值
                      * @return Callee 是否已赋值
+                     * 
                      */
                     bool CalleeHasBeenSet() const;
 
                     /**
                      * 获取呼叫状态 0初始 1已接听 2未接听 3呼叫中 4待重试
                      * @return State 呼叫状态 0初始 1已接听 2未接听 3呼叫中 4待重试
+                     * 
                      */
                     uint64_t GetState() const;
 
                     /**
                      * 设置呼叫状态 0初始 1已接听 2未接听 3呼叫中 4待重试
-                     * @param State 呼叫状态 0初始 1已接听 2未接听 3呼叫中 4待重试
+                     * @param _state 呼叫状态 0初始 1已接听 2未接听 3呼叫中 4待重试
+                     * 
                      */
                     void SetState(const uint64_t& _state);
 
                     /**
                      * 判断参数 State 是否已赋值
                      * @return State 是否已赋值
+                     * 
                      */
                     bool StateHasBeenSet() const;
+
+                    /**
+                     * 获取会话ID列表
+                     * @return Sessions 会话ID列表
+                     * 
+                     */
+                    std::vector<std::string> GetSessions() const;
+
+                    /**
+                     * 设置会话ID列表
+                     * @param _sessions 会话ID列表
+                     * 
+                     */
+                    void SetSessions(const std::vector<std::string>& _sessions);
+
+                    /**
+                     * 判断参数 Sessions 是否已赋值
+                     * @return Sessions 是否已赋值
+                     * 
+                     */
+                    bool SessionsHasBeenSet() const;
 
                 private:
 
@@ -95,6 +122,12 @@ namespace TencentCloud
                      */
                     uint64_t m_state;
                     bool m_stateHasBeenSet;
+
+                    /**
+                     * 会话ID列表
+                     */
+                    std::vector<std::string> m_sessions;
+                    bool m_sessionsHasBeenSet;
 
                 };
             }

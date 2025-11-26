@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,27 +44,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取私有域解析账号
-                     * @return Account 私有域解析账号
+                     * 获取私有域解析账号，该账号不能与主账号一致且需要子账号授权
+                     * @return Account 私有域解析账号，该账号不能与主账号一致且需要子账号授权
+                     * 
                      */
                     PrivateDNSAccount GetAccount() const;
 
                     /**
-                     * 设置私有域解析账号
-                     * @param Account 私有域解析账号
+                     * 设置私有域解析账号，该账号不能与主账号一致且需要子账号授权
+                     * @param _account 私有域解析账号，该账号不能与主账号一致且需要子账号授权
+                     * 
                      */
                     void SetAccount(const PrivateDNSAccount& _account);
 
                     /**
                      * 判断参数 Account 是否已赋值
                      * @return Account 是否已赋值
+                     * 
                      */
                     bool AccountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 私有域解析账号
+                     * 私有域解析账号，该账号不能与主账号一致且需要子账号授权
                      */
                     PrivateDNSAccount m_account;
                     bool m_accountHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取定制错误响应页的唯一ID，请参考CreateDomainErrorPageInfo的响应
                      * @return ErrorPageId 定制错误响应页的唯一ID，请参考CreateDomainErrorPageInfo的响应
+                     * 
                      */
                     std::string GetErrorPageId() const;
 
                     /**
                      * 设置定制错误响应页的唯一ID，请参考CreateDomainErrorPageInfo的响应
-                     * @param ErrorPageId 定制错误响应页的唯一ID，请参考CreateDomainErrorPageInfo的响应
+                     * @param _errorPageId 定制错误响应页的唯一ID，请参考CreateDomainErrorPageInfo的响应
+                     * 
                      */
                     void SetErrorPageId(const std::string& _errorPageId);
 
                     /**
                      * 判断参数 ErrorPageId 是否已赋值
                      * @return ErrorPageId 是否已赋值
+                     * 
                      */
                     bool ErrorPageIdHasBeenSet() const;
 

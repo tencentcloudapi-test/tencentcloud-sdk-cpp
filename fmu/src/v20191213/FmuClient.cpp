@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,111 +62,32 @@ FmuClient::BeautifyPicOutcome FmuClient::BeautifyPic(const BeautifyPicRequest &r
 
 void FmuClient::BeautifyPicAsync(const BeautifyPicRequest& request, const BeautifyPicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BeautifyPic(request), context);
-    };
+    using Req = const BeautifyPicRequest&;
+    using Resp = BeautifyPicResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "BeautifyPic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FmuClient::BeautifyPicOutcomeCallable FmuClient::BeautifyPicCallable(const BeautifyPicRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<BeautifyPicOutcome()>>(
-        [this, request]()
-        {
-            return this->BeautifyPic(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-FmuClient::BeautifyVideoOutcome FmuClient::BeautifyVideo(const BeautifyVideoRequest &request)
-{
-    auto outcome = MakeRequest(request, "BeautifyVideo");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<BeautifyPicOutcome>>();
+    BeautifyPicAsync(
+    request,
+    [prom](
+        const FmuClient*,
+        const BeautifyPicRequest&,
+        BeautifyPicOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        BeautifyVideoResponse rsp = BeautifyVideoResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return BeautifyVideoOutcome(rsp);
-        else
-            return BeautifyVideoOutcome(o.GetError());
-    }
-    else
-    {
-        return BeautifyVideoOutcome(outcome.GetError());
-    }
-}
-
-void FmuClient::BeautifyVideoAsync(const BeautifyVideoRequest& request, const BeautifyVideoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BeautifyVideo(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-FmuClient::BeautifyVideoOutcomeCallable FmuClient::BeautifyVideoCallable(const BeautifyVideoRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<BeautifyVideoOutcome()>>(
-        [this, request]()
-        {
-            return this->BeautifyVideo(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-FmuClient::CancelBeautifyVideoJobOutcome FmuClient::CancelBeautifyVideoJob(const CancelBeautifyVideoJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "CancelBeautifyVideoJob");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CancelBeautifyVideoJobResponse rsp = CancelBeautifyVideoJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CancelBeautifyVideoJobOutcome(rsp);
-        else
-            return CancelBeautifyVideoJobOutcome(o.GetError());
-    }
-    else
-    {
-        return CancelBeautifyVideoJobOutcome(outcome.GetError());
-    }
-}
-
-void FmuClient::CancelBeautifyVideoJobAsync(const CancelBeautifyVideoJobRequest& request, const CancelBeautifyVideoJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CancelBeautifyVideoJob(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-FmuClient::CancelBeautifyVideoJobOutcomeCallable FmuClient::CancelBeautifyVideoJobCallable(const CancelBeautifyVideoJobRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CancelBeautifyVideoJobOutcome()>>(
-        [this, request]()
-        {
-            return this->CancelBeautifyVideoJob(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FmuClient::CreateModelOutcome FmuClient::CreateModel(const CreateModelRequest &request)
@@ -191,25 +112,32 @@ FmuClient::CreateModelOutcome FmuClient::CreateModel(const CreateModelRequest &r
 
 void FmuClient::CreateModelAsync(const CreateModelRequest& request, const CreateModelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateModel(request), context);
-    };
+    using Req = const CreateModelRequest&;
+    using Resp = CreateModelResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateModel", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FmuClient::CreateModelOutcomeCallable FmuClient::CreateModelCallable(const CreateModelRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateModelOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateModel(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateModelOutcome>>();
+    CreateModelAsync(
+    request,
+    [prom](
+        const FmuClient*,
+        const CreateModelRequest&,
+        CreateModelOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FmuClient::DeleteModelOutcome FmuClient::DeleteModel(const DeleteModelRequest &request)
@@ -234,25 +162,32 @@ FmuClient::DeleteModelOutcome FmuClient::DeleteModel(const DeleteModelRequest &r
 
 void FmuClient::DeleteModelAsync(const DeleteModelRequest& request, const DeleteModelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteModel(request), context);
-    };
+    using Req = const DeleteModelRequest&;
+    using Resp = DeleteModelResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteModel", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FmuClient::DeleteModelOutcomeCallable FmuClient::DeleteModelCallable(const DeleteModelRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteModelOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteModel(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteModelOutcome>>();
+    DeleteModelAsync(
+    request,
+    [prom](
+        const FmuClient*,
+        const DeleteModelRequest&,
+        DeleteModelOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FmuClient::GetModelListOutcome FmuClient::GetModelList(const GetModelListRequest &request)
@@ -277,68 +212,32 @@ FmuClient::GetModelListOutcome FmuClient::GetModelList(const GetModelListRequest
 
 void FmuClient::GetModelListAsync(const GetModelListRequest& request, const GetModelListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetModelList(request), context);
-    };
+    using Req = const GetModelListRequest&;
+    using Resp = GetModelListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetModelList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FmuClient::GetModelListOutcomeCallable FmuClient::GetModelListCallable(const GetModelListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetModelListOutcome()>>(
-        [this, request]()
-        {
-            return this->GetModelList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-FmuClient::QueryBeautifyVideoJobOutcome FmuClient::QueryBeautifyVideoJob(const QueryBeautifyVideoJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "QueryBeautifyVideoJob");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<GetModelListOutcome>>();
+    GetModelListAsync(
+    request,
+    [prom](
+        const FmuClient*,
+        const GetModelListRequest&,
+        GetModelListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        QueryBeautifyVideoJobResponse rsp = QueryBeautifyVideoJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return QueryBeautifyVideoJobOutcome(rsp);
-        else
-            return QueryBeautifyVideoJobOutcome(o.GetError());
-    }
-    else
-    {
-        return QueryBeautifyVideoJobOutcome(outcome.GetError());
-    }
-}
-
-void FmuClient::QueryBeautifyVideoJobAsync(const QueryBeautifyVideoJobRequest& request, const QueryBeautifyVideoJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryBeautifyVideoJob(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-FmuClient::QueryBeautifyVideoJobOutcomeCallable FmuClient::QueryBeautifyVideoJobCallable(const QueryBeautifyVideoJobRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<QueryBeautifyVideoJobOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryBeautifyVideoJob(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FmuClient::StyleImageOutcome FmuClient::StyleImage(const StyleImageRequest &request)
@@ -363,25 +262,32 @@ FmuClient::StyleImageOutcome FmuClient::StyleImage(const StyleImageRequest &requ
 
 void FmuClient::StyleImageAsync(const StyleImageRequest& request, const StyleImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StyleImage(request), context);
-    };
+    using Req = const StyleImageRequest&;
+    using Resp = StyleImageResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StyleImage", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FmuClient::StyleImageOutcomeCallable FmuClient::StyleImageCallable(const StyleImageRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StyleImageOutcome()>>(
-        [this, request]()
-        {
-            return this->StyleImage(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StyleImageOutcome>>();
+    StyleImageAsync(
+    request,
+    [prom](
+        const FmuClient*,
+        const StyleImageRequest&,
+        StyleImageOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FmuClient::StyleImageProOutcome FmuClient::StyleImagePro(const StyleImageProRequest &request)
@@ -406,25 +312,32 @@ FmuClient::StyleImageProOutcome FmuClient::StyleImagePro(const StyleImageProRequ
 
 void FmuClient::StyleImageProAsync(const StyleImageProRequest& request, const StyleImageProAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StyleImagePro(request), context);
-    };
+    using Req = const StyleImageProRequest&;
+    using Resp = StyleImageProResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StyleImagePro", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FmuClient::StyleImageProOutcomeCallable FmuClient::StyleImageProCallable(const StyleImageProRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StyleImageProOutcome()>>(
-        [this, request]()
-        {
-            return this->StyleImagePro(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StyleImageProOutcome>>();
+    StyleImageProAsync(
+    request,
+    [prom](
+        const FmuClient*,
+        const StyleImageProRequest&,
+        StyleImageProOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 FmuClient::TryLipstickPicOutcome FmuClient::TryLipstickPic(const TryLipstickPicRequest &request)
@@ -449,24 +362,31 @@ FmuClient::TryLipstickPicOutcome FmuClient::TryLipstickPic(const TryLipstickPicR
 
 void FmuClient::TryLipstickPicAsync(const TryLipstickPicRequest& request, const TryLipstickPicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TryLipstickPic(request), context);
-    };
+    using Req = const TryLipstickPicRequest&;
+    using Resp = TryLipstickPicResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "TryLipstickPic", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 FmuClient::TryLipstickPicOutcomeCallable FmuClient::TryLipstickPicCallable(const TryLipstickPicRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<TryLipstickPicOutcome()>>(
-        [this, request]()
-        {
-            return this->TryLipstickPic(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<TryLipstickPicOutcome>>();
+    TryLipstickPicAsync(
+    request,
+    [prom](
+        const FmuClient*,
+        const TryLipstickPicRequest&,
+        TryLipstickPicOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

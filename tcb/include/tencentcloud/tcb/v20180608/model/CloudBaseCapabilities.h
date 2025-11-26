@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,8 +36,6 @@ namespace TencentCloud
             {
                 /**
                 * cloudrun安全特性能力
-
-
                 */
                 class CloudBaseCapabilities : public AbstractModel
                 {
@@ -50,45 +48,43 @@ namespace TencentCloud
 
                     /**
                      * 获取启用安全能力项列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Add 启用安全能力项列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetAdd() const;
 
                     /**
                      * 设置启用安全能力项列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Add 启用安全能力项列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _add 启用安全能力项列表
+                     * 
                      */
                     void SetAdd(const std::vector<std::string>& _add);
 
                     /**
                      * 判断参数 Add 是否已赋值
                      * @return Add 是否已赋值
+                     * 
                      */
                     bool AddHasBeenSet() const;
 
                     /**
                      * 获取禁用安全能力向列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Drop 禁用安全能力向列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetDrop() const;
 
                     /**
                      * 设置禁用安全能力向列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Drop 禁用安全能力向列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _drop 禁用安全能力向列表
+                     * 
                      */
                     void SetDrop(const std::vector<std::string>& _drop);
 
                     /**
                      * 判断参数 Drop 是否已赋值
                      * @return Drop 是否已赋值
+                     * 
                      */
                     bool DropHasBeenSet() const;
 
@@ -96,14 +92,12 @@ namespace TencentCloud
 
                     /**
                      * 启用安全能力项列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_add;
                     bool m_addHasBeenSet;
 
                     /**
                      * 禁用安全能力向列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_drop;
                     bool m_dropHasBeenSet;

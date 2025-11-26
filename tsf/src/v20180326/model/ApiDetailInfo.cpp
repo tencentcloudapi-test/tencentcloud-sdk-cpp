@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,12 @@ ApiDetailInfo::ApiDetailInfo() :
     m_timeoutHasBeenSet(false),
     m_hostHasBeenSet(false),
     m_apiTypeHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_descriptionHasBeenSet(false),
+    m_apiMatchTypeHasBeenSet(false),
+    m_rpcExtHasBeenSet(false),
+    m_gatewayDeployGroupIdHasBeenSet(false),
+    m_md5HasBeenSet(false),
+    m_rpcTypeHasBeenSet(false)
 {
 }
 
@@ -260,6 +265,56 @@ CoreInternalOutcome ApiDetailInfo::Deserialize(const rapidjson::Value &value)
         m_descriptionHasBeenSet = true;
     }
 
+    if (value.HasMember("ApiMatchType") && !value["ApiMatchType"].IsNull())
+    {
+        if (!value["ApiMatchType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiDetailInfo.ApiMatchType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_apiMatchType = string(value["ApiMatchType"].GetString());
+        m_apiMatchTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RpcExt") && !value["RpcExt"].IsNull())
+    {
+        if (!value["RpcExt"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiDetailInfo.RpcExt` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_rpcExt = string(value["RpcExt"].GetString());
+        m_rpcExtHasBeenSet = true;
+    }
+
+    if (value.HasMember("GatewayDeployGroupId") && !value["GatewayDeployGroupId"].IsNull())
+    {
+        if (!value["GatewayDeployGroupId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiDetailInfo.GatewayDeployGroupId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_gatewayDeployGroupId = string(value["GatewayDeployGroupId"].GetString());
+        m_gatewayDeployGroupIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Md5") && !value["Md5"].IsNull())
+    {
+        if (!value["Md5"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiDetailInfo.Md5` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_md5 = string(value["Md5"].GetString());
+        m_md5HasBeenSet = true;
+    }
+
+    if (value.HasMember("RpcType") && !value["RpcType"].IsNull())
+    {
+        if (!value["RpcType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiDetailInfo.RpcType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_rpcType = string(value["RpcType"].GetString());
+        m_rpcTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -433,6 +488,46 @@ void ApiDetailInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "Description";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_apiMatchTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ApiMatchType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_apiMatchType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_rpcExtHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RpcExt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_rpcExt.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gatewayDeployGroupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GatewayDeployGroupId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_gatewayDeployGroupId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_md5HasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Md5";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_md5.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_rpcTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RpcType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_rpcType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -772,5 +867,85 @@ void ApiDetailInfo::SetDescription(const string& _description)
 bool ApiDetailInfo::DescriptionHasBeenSet() const
 {
     return m_descriptionHasBeenSet;
+}
+
+string ApiDetailInfo::GetApiMatchType() const
+{
+    return m_apiMatchType;
+}
+
+void ApiDetailInfo::SetApiMatchType(const string& _apiMatchType)
+{
+    m_apiMatchType = _apiMatchType;
+    m_apiMatchTypeHasBeenSet = true;
+}
+
+bool ApiDetailInfo::ApiMatchTypeHasBeenSet() const
+{
+    return m_apiMatchTypeHasBeenSet;
+}
+
+string ApiDetailInfo::GetRpcExt() const
+{
+    return m_rpcExt;
+}
+
+void ApiDetailInfo::SetRpcExt(const string& _rpcExt)
+{
+    m_rpcExt = _rpcExt;
+    m_rpcExtHasBeenSet = true;
+}
+
+bool ApiDetailInfo::RpcExtHasBeenSet() const
+{
+    return m_rpcExtHasBeenSet;
+}
+
+string ApiDetailInfo::GetGatewayDeployGroupId() const
+{
+    return m_gatewayDeployGroupId;
+}
+
+void ApiDetailInfo::SetGatewayDeployGroupId(const string& _gatewayDeployGroupId)
+{
+    m_gatewayDeployGroupId = _gatewayDeployGroupId;
+    m_gatewayDeployGroupIdHasBeenSet = true;
+}
+
+bool ApiDetailInfo::GatewayDeployGroupIdHasBeenSet() const
+{
+    return m_gatewayDeployGroupIdHasBeenSet;
+}
+
+string ApiDetailInfo::GetMd5() const
+{
+    return m_md5;
+}
+
+void ApiDetailInfo::SetMd5(const string& _md5)
+{
+    m_md5 = _md5;
+    m_md5HasBeenSet = true;
+}
+
+bool ApiDetailInfo::Md5HasBeenSet() const
+{
+    return m_md5HasBeenSet;
+}
+
+string ApiDetailInfo::GetRpcType() const
+{
+    return m_rpcType;
+}
+
+void ApiDetailInfo::SetRpcType(const string& _rpcType)
+{
+    m_rpcType = _rpcType;
+    m_rpcTypeHasBeenSet = true;
+}
+
+bool ApiDetailInfo::RpcTypeHasBeenSet() const
+{
+    return m_rpcTypeHasBeenSet;
 }
 

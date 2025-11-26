@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,61 +45,89 @@ namespace TencentCloud
 
                     /**
                      * 获取认证结果码，收费情况如下。
-收费结果码：
+- 收费结果码：
 0: 查询成功
 -1: 未查到信息
-不收费结果码
+-5: 卡号无效
+
+- 不收费结果码：
 -2：验证中心服务繁忙
 -3：银行卡不存在
+-4：认证次数超过当日限制，请次日重试
+-6:   暂不支持该银行卡种
+
                      * @return Result 认证结果码，收费情况如下。
-收费结果码：
+- 收费结果码：
 0: 查询成功
 -1: 未查到信息
-不收费结果码
+-5: 卡号无效
+
+- 不收费结果码：
 -2：验证中心服务繁忙
 -3：银行卡不存在
+-4：认证次数超过当日限制，请次日重试
+-6:   暂不支持该银行卡种
+
+                     * 
                      */
                     std::string GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
-                     * 获取业务结果描述
-                     * @return Description 业务结果描述
+                     * 获取业务结果描述。
+                     * @return Description 业务结果描述。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取开户行
-                     * @return AccountBank 开户行
+                     * 获取开户行。
+                     * @return AccountBank 开户行。
+                     * 
                      */
                     std::string GetAccountBank() const;
 
                     /**
                      * 判断参数 AccountBank 是否已赋值
                      * @return AccountBank 是否已赋值
+                     * 
                      */
                     bool AccountBankHasBeenSet() const;
 
                     /**
-                     * 获取卡性质：1. 借记卡；2. 贷记卡；3. 预付费卡；4. 准贷记卡
-                     * @return AccountType 卡性质：1. 借记卡；2. 贷记卡；3. 预付费卡；4. 准贷记卡
+                     * 获取卡性质。
+- 取值范围：
+1：借记卡。
+2：贷记卡。
+3：预付费卡。
+4：准贷记卡
+                     * @return AccountType 卡性质。
+- 取值范围：
+1：借记卡。
+2：贷记卡。
+3：预付费卡。
+4：准贷记卡
+                     * 
                      */
                     int64_t GetAccountType() const;
 
                     /**
                      * 判断参数 AccountType 是否已赋值
                      * @return AccountType 是否已赋值
+                     * 
                      */
                     bool AccountTypeHasBeenSet() const;
 
@@ -107,30 +135,40 @@ namespace TencentCloud
 
                     /**
                      * 认证结果码，收费情况如下。
-收费结果码：
+- 收费结果码：
 0: 查询成功
 -1: 未查到信息
-不收费结果码
+-5: 卡号无效
+
+- 不收费结果码：
 -2：验证中心服务繁忙
 -3：银行卡不存在
+-4：认证次数超过当日限制，请次日重试
+-6:   暂不支持该银行卡种
+
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
 
                     /**
-                     * 业务结果描述
+                     * 业务结果描述。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * 开户行
+                     * 开户行。
                      */
                     std::string m_accountBank;
                     bool m_accountBankHasBeenSet;
 
                     /**
-                     * 卡性质：1. 借记卡；2. 贷记卡；3. 预付费卡；4. 准贷记卡
+                     * 卡性质。
+- 取值范围：
+1：借记卡。
+2：贷记卡。
+3：预付费卡。
+4：准贷记卡
                      */
                     int64_t m_accountType;
                     bool m_accountTypeHasBeenSet;

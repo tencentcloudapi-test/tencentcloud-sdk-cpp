@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,7 @@ namespace TencentCloud
 
                     /**
                      * 获取认证结果码，收费情况如下。
-收费结果码：
+- 收费结果码：
 0: 姓名和身份证号一致
 -1: 姓名和身份证号不一致
 不收费结果码：
@@ -53,10 +53,10 @@ namespace TencentCloud
 -3: 非法姓名（长度、格式等不正确）
 -4: 证件库服务异常
 -5: 证件库中无此身份证记录
--6: 公安比对系统升级中，请稍后再试
+-6: 权威比对系统升级中，请稍后再试
 -7: 认证次数超过当日限制
                      * @return Result 认证结果码，收费情况如下。
-收费结果码：
+- 收费结果码：
 0: 姓名和身份证号一致
 -1: 姓名和身份证号不一致
 不收费结果码：
@@ -64,26 +64,30 @@ namespace TencentCloud
 -3: 非法姓名（长度、格式等不正确）
 -4: 证件库服务异常
 -5: 证件库中无此身份证记录
--6: 公安比对系统升级中，请稍后再试
+-6: 权威比对系统升级中，请稍后再试
 -7: 认证次数超过当日限制
+                     * 
                      */
                     std::string GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
                      * 获取业务结果描述。
                      * @return Description 业务结果描述。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
@@ -91,7 +95,7 @@ namespace TencentCloud
 
                     /**
                      * 认证结果码，收费情况如下。
-收费结果码：
+- 收费结果码：
 0: 姓名和身份证号一致
 -1: 姓名和身份证号不一致
 不收费结果码：
@@ -99,7 +103,7 @@ namespace TencentCloud
 -3: 非法姓名（长度、格式等不正确）
 -4: 证件库服务异常
 -5: 证件库中无此身份证记录
--6: 公安比对系统升级中，请稍后再试
+-6: 权威比对系统升级中，请稍后再试
 -7: 认证次数超过当日限制
                      */
                     std::string m_result;

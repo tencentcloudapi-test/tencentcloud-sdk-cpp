@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ using namespace TencentCloud::Mrs::V20200910::Model;
 using namespace std;
 
 Prescription::Prescription() :
-    m_medicineListHasBeenSet(false)
+    m_medicineListHasBeenSet(false),
+    m_pageHasBeenSet(false)
 {
 }
 
@@ -50,6 +51,16 @@ CoreInternalOutcome Prescription::Deserialize(const rapidjson::Value &value)
         m_medicineListHasBeenSet = true;
     }
 
+    if (value.HasMember("Page") && !value["Page"].IsNull())
+    {
+        if (!value["Page"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Prescription.Page` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_page = value["Page"].GetInt64();
+        m_pageHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +83,14 @@ void Prescription::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         }
     }
 
+    if (m_pageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Page";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_page, allocator);
+    }
+
 }
 
 
@@ -89,5 +108,21 @@ void Prescription::SetMedicineList(const vector<Medicine>& _medicineList)
 bool Prescription::MedicineListHasBeenSet() const
 {
     return m_medicineListHasBeenSet;
+}
+
+int64_t Prescription::GetPage() const
+{
+    return m_page;
+}
+
+void Prescription::SetPage(const int64_t& _page)
+{
+    m_page = _page;
+    m_pageHasBeenSet = true;
+}
+
+bool Prescription::PageHasBeenSet() const
+{
+    return m_pageHasBeenSet;
 }
 

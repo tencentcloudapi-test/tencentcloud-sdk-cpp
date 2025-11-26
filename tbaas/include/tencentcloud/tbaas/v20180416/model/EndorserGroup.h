@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取背书组织名称
                      * @return EndorserGroupName 背书组织名称
+                     * 
                      */
                     std::string GetEndorserGroupName() const;
 
                     /**
                      * 设置背书组织名称
-                     * @param EndorserGroupName 背书组织名称
+                     * @param _endorserGroupName 背书组织名称
+                     * 
                      */
                     void SetEndorserGroupName(const std::string& _endorserGroupName);
 
                     /**
                      * 判断参数 EndorserGroupName 是否已赋值
                      * @return EndorserGroupName 是否已赋值
+                     * 
                      */
                     bool EndorserGroupNameHasBeenSet() const;
 
                     /**
                      * 获取背书节点列表
                      * @return EndorserPeerList 背书节点列表
+                     * 
                      */
                     std::vector<std::string> GetEndorserPeerList() const;
 
                     /**
                      * 设置背书节点列表
-                     * @param EndorserPeerList 背书节点列表
+                     * @param _endorserPeerList 背书节点列表
+                     * 
                      */
                     void SetEndorserPeerList(const std::vector<std::string>& _endorserPeerList);
 
                     /**
                      * 判断参数 EndorserPeerList 是否已赋值
                      * @return EndorserPeerList 是否已赋值
+                     * 
                      */
                     bool EndorserPeerListHasBeenSet() const;
 

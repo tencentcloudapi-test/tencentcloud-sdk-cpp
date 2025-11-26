@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,8 +39,16 @@ FileSystemInfo::FileSystemInfo() :
     m_kmsKeyIdHasBeenSet(false),
     m_appIdHasBeenSet(false),
     m_bandwidthLimitHasBeenSet(false),
+    m_autoSnapshotPolicyIdHasBeenSet(false),
+    m_snapStatusHasBeenSet(false),
     m_capacityHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_tieringStateHasBeenSet(false),
+    m_tieringDetailHasBeenSet(false),
+    m_autoScaleUpRuleHasBeenSet(false),
+    m_versionHasBeenSet(false),
+    m_exstraPerformanceInfoHasBeenSet(false),
+    m_metaTypeHasBeenSet(false)
 {
 }
 
@@ -236,6 +244,26 @@ CoreInternalOutcome FileSystemInfo::Deserialize(const rapidjson::Value &value)
         m_bandwidthLimitHasBeenSet = true;
     }
 
+    if (value.HasMember("AutoSnapshotPolicyId") && !value["AutoSnapshotPolicyId"].IsNull())
+    {
+        if (!value["AutoSnapshotPolicyId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.AutoSnapshotPolicyId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoSnapshotPolicyId = string(value["AutoSnapshotPolicyId"].GetString());
+        m_autoSnapshotPolicyIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("SnapStatus") && !value["SnapStatus"].IsNull())
+    {
+        if (!value["SnapStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.SnapStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_snapStatus = string(value["SnapStatus"].GetString());
+        m_snapStatusHasBeenSet = true;
+    }
+
     if (value.HasMember("Capacity") && !value["Capacity"].IsNull())
     {
         if (!value["Capacity"].IsUint64())
@@ -264,6 +292,90 @@ CoreInternalOutcome FileSystemInfo::Deserialize(const rapidjson::Value &value)
             m_tags.push_back(item);
         }
         m_tagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("TieringState") && !value["TieringState"].IsNull())
+    {
+        if (!value["TieringState"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.TieringState` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_tieringState = string(value["TieringState"].GetString());
+        m_tieringStateHasBeenSet = true;
+    }
+
+    if (value.HasMember("TieringDetail") && !value["TieringDetail"].IsNull())
+    {
+        if (!value["TieringDetail"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.TieringDetail` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_tieringDetail.Deserialize(value["TieringDetail"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_tieringDetailHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoScaleUpRule") && !value["AutoScaleUpRule"].IsNull())
+    {
+        if (!value["AutoScaleUpRule"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.AutoScaleUpRule` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_autoScaleUpRule.Deserialize(value["AutoScaleUpRule"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_autoScaleUpRuleHasBeenSet = true;
+    }
+
+    if (value.HasMember("Version") && !value["Version"].IsNull())
+    {
+        if (!value["Version"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.Version` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_version = string(value["Version"].GetString());
+        m_versionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExstraPerformanceInfo") && !value["ExstraPerformanceInfo"].IsNull())
+    {
+        if (!value["ExstraPerformanceInfo"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.ExstraPerformanceInfo` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ExstraPerformanceInfo"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ExstraPerformanceInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_exstraPerformanceInfo.push_back(item);
+        }
+        m_exstraPerformanceInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("MetaType") && !value["MetaType"].IsNull())
+    {
+        if (!value["MetaType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FileSystemInfo.MetaType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_metaType = string(value["MetaType"].GetString());
+        m_metaTypeHasBeenSet = true;
     }
 
 
@@ -418,6 +530,22 @@ void FileSystemInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         value.AddMember(iKey, m_bandwidthLimit, allocator);
     }
 
+    if (m_autoSnapshotPolicyIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoSnapshotPolicyId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_autoSnapshotPolicyId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_snapStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SnapStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_snapStatus.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_capacityHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -439,6 +567,63 @@ void FileSystemInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_tieringStateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TieringState";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_tieringState.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tieringDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TieringDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_tieringDetail.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_autoScaleUpRuleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoScaleUpRule";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_autoScaleUpRule.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_versionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Version";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_version.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_exstraPerformanceInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExstraPerformanceInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_exstraPerformanceInfo.begin(); itr != m_exstraPerformanceInfo.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_metaTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MetaType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_metaType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -732,6 +917,38 @@ bool FileSystemInfo::BandwidthLimitHasBeenSet() const
     return m_bandwidthLimitHasBeenSet;
 }
 
+string FileSystemInfo::GetAutoSnapshotPolicyId() const
+{
+    return m_autoSnapshotPolicyId;
+}
+
+void FileSystemInfo::SetAutoSnapshotPolicyId(const string& _autoSnapshotPolicyId)
+{
+    m_autoSnapshotPolicyId = _autoSnapshotPolicyId;
+    m_autoSnapshotPolicyIdHasBeenSet = true;
+}
+
+bool FileSystemInfo::AutoSnapshotPolicyIdHasBeenSet() const
+{
+    return m_autoSnapshotPolicyIdHasBeenSet;
+}
+
+string FileSystemInfo::GetSnapStatus() const
+{
+    return m_snapStatus;
+}
+
+void FileSystemInfo::SetSnapStatus(const string& _snapStatus)
+{
+    m_snapStatus = _snapStatus;
+    m_snapStatusHasBeenSet = true;
+}
+
+bool FileSystemInfo::SnapStatusHasBeenSet() const
+{
+    return m_snapStatusHasBeenSet;
+}
+
 uint64_t FileSystemInfo::GetCapacity() const
 {
     return m_capacity;
@@ -762,5 +979,101 @@ void FileSystemInfo::SetTags(const vector<TagInfo>& _tags)
 bool FileSystemInfo::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+string FileSystemInfo::GetTieringState() const
+{
+    return m_tieringState;
+}
+
+void FileSystemInfo::SetTieringState(const string& _tieringState)
+{
+    m_tieringState = _tieringState;
+    m_tieringStateHasBeenSet = true;
+}
+
+bool FileSystemInfo::TieringStateHasBeenSet() const
+{
+    return m_tieringStateHasBeenSet;
+}
+
+TieringDetailInfo FileSystemInfo::GetTieringDetail() const
+{
+    return m_tieringDetail;
+}
+
+void FileSystemInfo::SetTieringDetail(const TieringDetailInfo& _tieringDetail)
+{
+    m_tieringDetail = _tieringDetail;
+    m_tieringDetailHasBeenSet = true;
+}
+
+bool FileSystemInfo::TieringDetailHasBeenSet() const
+{
+    return m_tieringDetailHasBeenSet;
+}
+
+AutoScaleUpRule FileSystemInfo::GetAutoScaleUpRule() const
+{
+    return m_autoScaleUpRule;
+}
+
+void FileSystemInfo::SetAutoScaleUpRule(const AutoScaleUpRule& _autoScaleUpRule)
+{
+    m_autoScaleUpRule = _autoScaleUpRule;
+    m_autoScaleUpRuleHasBeenSet = true;
+}
+
+bool FileSystemInfo::AutoScaleUpRuleHasBeenSet() const
+{
+    return m_autoScaleUpRuleHasBeenSet;
+}
+
+string FileSystemInfo::GetVersion() const
+{
+    return m_version;
+}
+
+void FileSystemInfo::SetVersion(const string& _version)
+{
+    m_version = _version;
+    m_versionHasBeenSet = true;
+}
+
+bool FileSystemInfo::VersionHasBeenSet() const
+{
+    return m_versionHasBeenSet;
+}
+
+vector<ExstraPerformanceInfo> FileSystemInfo::GetExstraPerformanceInfo() const
+{
+    return m_exstraPerformanceInfo;
+}
+
+void FileSystemInfo::SetExstraPerformanceInfo(const vector<ExstraPerformanceInfo>& _exstraPerformanceInfo)
+{
+    m_exstraPerformanceInfo = _exstraPerformanceInfo;
+    m_exstraPerformanceInfoHasBeenSet = true;
+}
+
+bool FileSystemInfo::ExstraPerformanceInfoHasBeenSet() const
+{
+    return m_exstraPerformanceInfoHasBeenSet;
+}
+
+string FileSystemInfo::GetMetaType() const
+{
+    return m_metaType;
+}
+
+void FileSystemInfo::SetMetaType(const string& _metaType)
+{
+    m_metaType = _metaType;
+    m_metaTypeHasBeenSet = true;
+}
+
+bool FileSystemInfo::MetaTypeHasBeenSet() const
+{
+    return m_metaTypeHasBeenSet;
 }
 

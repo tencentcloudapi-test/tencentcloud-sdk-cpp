@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取流程任务Id，RunJobFlow接口返回的值。
                      * @return JobFlowId 流程任务Id，RunJobFlow接口返回的值。
+                     * 
                      */
                     int64_t GetJobFlowId() const;
 
                     /**
                      * 设置流程任务Id，RunJobFlow接口返回的值。
-                     * @param JobFlowId 流程任务Id，RunJobFlow接口返回的值。
+                     * @param _jobFlowId 流程任务Id，RunJobFlow接口返回的值。
+                     * 
                      */
                     void SetJobFlowId(const int64_t& _jobFlowId);
 
                     /**
                      * 判断参数 JobFlowId 是否已赋值
                      * @return JobFlowId 是否已赋值
+                     * 
                      */
                     bool JobFlowIdHasBeenSet() const;
 

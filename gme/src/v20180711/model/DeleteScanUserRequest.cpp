@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 DeleteScanUserRequest::DeleteScanUserRequest() :
     m_bizIdHasBeenSet(false),
-    m_userIdHasBeenSet(false)
+    m_userIdHasBeenSet(false),
+    m_userIdStringHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string DeleteScanUserRequest::ToJsonString() const
         string key = "UserId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_userId, allocator);
+    }
+
+    if (m_userIdStringHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserIdString";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_userIdString.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +98,22 @@ void DeleteScanUserRequest::SetUserId(const uint64_t& _userId)
 bool DeleteScanUserRequest::UserIdHasBeenSet() const
 {
     return m_userIdHasBeenSet;
+}
+
+string DeleteScanUserRequest::GetUserIdString() const
+{
+    return m_userIdString;
+}
+
+void DeleteScanUserRequest::SetUserIdString(const string& _userIdString)
+{
+    m_userIdString = _userIdString;
+    m_userIdStringHasBeenSet = true;
+}
+
+bool DeleteScanUserRequest::UserIdStringHasBeenSet() const
+{
+    return m_userIdStringHasBeenSet;
 }
 
 

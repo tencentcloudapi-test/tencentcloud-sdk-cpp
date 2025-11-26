@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ HostResource::HostResource() :
     m_memAvailableHasBeenSet(false),
     m_diskTotalHasBeenSet(false),
     m_diskAvailableHasBeenSet(false),
-    m_diskTypeHasBeenSet(false)
+    m_diskTypeHasBeenSet(false),
+    m_gpuTotalHasBeenSet(false),
+    m_gpuAvailableHasBeenSet(false),
+    m_exclusiveOwnerHasBeenSet(false)
 {
 }
 
@@ -106,6 +109,36 @@ CoreInternalOutcome HostResource::Deserialize(const rapidjson::Value &value)
         m_diskTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("GpuTotal") && !value["GpuTotal"].IsNull())
+    {
+        if (!value["GpuTotal"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostResource.GpuTotal` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_gpuTotal = value["GpuTotal"].GetUint64();
+        m_gpuTotalHasBeenSet = true;
+    }
+
+    if (value.HasMember("GpuAvailable") && !value["GpuAvailable"].IsNull())
+    {
+        if (!value["GpuAvailable"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostResource.GpuAvailable` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_gpuAvailable = value["GpuAvailable"].GetUint64();
+        m_gpuAvailableHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExclusiveOwner") && !value["ExclusiveOwner"].IsNull())
+    {
+        if (!value["ExclusiveOwner"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `HostResource.ExclusiveOwner` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_exclusiveOwner = string(value["ExclusiveOwner"].GetString());
+        m_exclusiveOwnerHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -167,6 +200,30 @@ void HostResource::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "DiskType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_diskType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gpuTotalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GpuTotal";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_gpuTotal, allocator);
+    }
+
+    if (m_gpuAvailableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GpuAvailable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_gpuAvailable, allocator);
+    }
+
+    if (m_exclusiveOwnerHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExclusiveOwner";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_exclusiveOwner.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -282,5 +339,53 @@ void HostResource::SetDiskType(const string& _diskType)
 bool HostResource::DiskTypeHasBeenSet() const
 {
     return m_diskTypeHasBeenSet;
+}
+
+uint64_t HostResource::GetGpuTotal() const
+{
+    return m_gpuTotal;
+}
+
+void HostResource::SetGpuTotal(const uint64_t& _gpuTotal)
+{
+    m_gpuTotal = _gpuTotal;
+    m_gpuTotalHasBeenSet = true;
+}
+
+bool HostResource::GpuTotalHasBeenSet() const
+{
+    return m_gpuTotalHasBeenSet;
+}
+
+uint64_t HostResource::GetGpuAvailable() const
+{
+    return m_gpuAvailable;
+}
+
+void HostResource::SetGpuAvailable(const uint64_t& _gpuAvailable)
+{
+    m_gpuAvailable = _gpuAvailable;
+    m_gpuAvailableHasBeenSet = true;
+}
+
+bool HostResource::GpuAvailableHasBeenSet() const
+{
+    return m_gpuAvailableHasBeenSet;
+}
+
+string HostResource::GetExclusiveOwner() const
+{
+    return m_exclusiveOwner;
+}
+
+void HostResource::SetExclusiveOwner(const string& _exclusiveOwner)
+{
+    m_exclusiveOwner = _exclusiveOwner;
+    m_exclusiveOwnerHasBeenSet = true;
+}
+
+bool HostResource::ExclusiveOwnerHasBeenSet() const
+{
+    return m_exclusiveOwnerHasBeenSet;
 }
 

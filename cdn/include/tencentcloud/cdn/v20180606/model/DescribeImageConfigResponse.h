@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/cdn/v20180606/model/WebpAdapter.h>
 #include <tencentcloud/cdn/v20180606/model/TpgAdapter.h>
 #include <tencentcloud/cdn/v20180606/model/GuetzliAdapter.h>
+#include <tencentcloud/cdn/v20180606/model/AvifAdapter.h>
 
 
 namespace TencentCloud
@@ -48,68 +49,85 @@ namespace TencentCloud
 
                     /**
                      * 获取WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return WebpAdapter WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     WebpAdapter GetWebpAdapter() const;
 
                     /**
                      * 判断参数 WebpAdapter 是否已赋值
                      * @return WebpAdapter 是否已赋值
+                     * 
                      */
                     bool WebpAdapterHasBeenSet() const;
 
                     /**
                      * 获取TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TpgAdapter TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     TpgAdapter GetTpgAdapter() const;
 
                     /**
                      * 判断参数 TpgAdapter 是否已赋值
                      * @return TpgAdapter 是否已赋值
+                     * 
                      */
                     bool TpgAdapterHasBeenSet() const;
 
                     /**
                      * 获取GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return GuetzliAdapter GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     GuetzliAdapter GetGuetzliAdapter() const;
 
                     /**
                      * 判断参数 GuetzliAdapter 是否已赋值
                      * @return GuetzliAdapter 是否已赋值
+                     * 
                      */
                     bool GuetzliAdapterHasBeenSet() const;
+
+                    /**
+                     * 获取AvifAdapter配置项
+                     * @return AvifAdapter AvifAdapter配置项
+                     * 
+                     */
+                    AvifAdapter GetAvifAdapter() const;
+
+                    /**
+                     * 判断参数 AvifAdapter 是否已赋值
+                     * @return AvifAdapter 是否已赋值
+                     * 
+                     */
+                    bool AvifAdapterHasBeenSet() const;
 
                 private:
 
                     /**
                      * WebpAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     WebpAdapter m_webpAdapter;
                     bool m_webpAdapterHasBeenSet;
 
                     /**
                      * TpgAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     TpgAdapter m_tpgAdapter;
                     bool m_tpgAdapterHasBeenSet;
 
                     /**
                      * GuetzliAdapter配置
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     GuetzliAdapter m_guetzliAdapter;
                     bool m_guetzliAdapterHasBeenSet;
+
+                    /**
+                     * AvifAdapter配置项
+                     */
+                    AvifAdapter m_avifAdapter;
+                    bool m_avifAdapterHasBeenSet;
 
                 };
             }

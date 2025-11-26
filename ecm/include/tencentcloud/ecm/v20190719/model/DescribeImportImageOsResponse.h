@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,24 +48,28 @@ namespace TencentCloud
                     /**
                      * 获取支持的导入镜像的操作系统类型
                      * @return ImportImageOsListSupported 支持的导入镜像的操作系统类型
+                     * 
                      */
                     ImageOsList GetImportImageOsListSupported() const;
 
                     /**
                      * 判断参数 ImportImageOsListSupported 是否已赋值
                      * @return ImportImageOsListSupported 是否已赋值
+                     * 
                      */
                     bool ImportImageOsListSupportedHasBeenSet() const;
 
                     /**
                      * 获取支持的导入镜像的操作系统版本
                      * @return ImportImageOsVersionSet 支持的导入镜像的操作系统版本
+                     * 
                      */
                     std::vector<OsVersion> GetImportImageOsVersionSet() const;
 
                     /**
                      * 判断参数 ImportImageOsVersionSet 是否已赋值
                      * @return ImportImageOsVersionSet 是否已赋值
+                     * 
                      */
                     bool ImportImageOsVersionSetHasBeenSet() const;
 

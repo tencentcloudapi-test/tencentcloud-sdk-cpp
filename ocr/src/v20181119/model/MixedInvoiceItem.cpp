@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ MixedInvoiceItem::MixedInvoiceItem() :
     m_typeHasBeenSet(false),
     m_rectHasBeenSet(false),
     m_angleHasBeenSet(false),
-    m_singleInvoiceInfosHasBeenSet(false)
+    m_singleInvoiceInfosHasBeenSet(false),
+    m_pageHasBeenSet(false)
 {
 }
 
@@ -101,6 +102,16 @@ CoreInternalOutcome MixedInvoiceItem::Deserialize(const rapidjson::Value &value)
         m_singleInvoiceInfosHasBeenSet = true;
     }
 
+    if (value.HasMember("Page") && !value["Page"].IsNull())
+    {
+        if (!value["Page"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `MixedInvoiceItem.Page` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_page = value["Page"].GetInt64();
+        m_pageHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -154,6 +165,14 @@ void MixedInvoiceItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_pageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Page";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_page, allocator);
     }
 
 }
@@ -237,5 +256,21 @@ void MixedInvoiceItem::SetSingleInvoiceInfos(const vector<SingleInvoiceInfo>& _s
 bool MixedInvoiceItem::SingleInvoiceInfosHasBeenSet() const
 {
     return m_singleInvoiceInfosHasBeenSet;
+}
+
+int64_t MixedInvoiceItem::GetPage() const
+{
+    return m_page;
+}
+
+void MixedInvoiceItem::SetPage(const int64_t& _page)
+{
+    m_page = _page;
+    m_pageHasBeenSet = true;
+}
+
+bool MixedInvoiceItem::PageHasBeenSet() const
+{
+    return m_pageHasBeenSet;
 }
 

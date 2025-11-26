@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,12 @@ BGPInstanceSpecification::BGPInstanceSpecification() :
     m_protectIPNumberLimitHasBeenSet(false),
     m_autoRenewFlagHasBeenSet(false),
     m_unionPackFlagHasBeenSet(false),
-    m_serviceBandWidthHasBeenSet(false)
+    m_serviceBandWidthHasBeenSet(false),
+    m_battleEditionFlagHasBeenSet(false),
+    m_channelEditionFlagHasBeenSet(false),
+    m_enterpriseFlagHasBeenSet(false),
+    m_elasticLimitHasBeenSet(false),
+    m_downGradeProtectHasBeenSet(false)
 {
 }
 
@@ -95,6 +100,56 @@ CoreInternalOutcome BGPInstanceSpecification::Deserialize(const rapidjson::Value
         m_serviceBandWidthHasBeenSet = true;
     }
 
+    if (value.HasMember("BattleEditionFlag") && !value["BattleEditionFlag"].IsNull())
+    {
+        if (!value["BattleEditionFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstanceSpecification.BattleEditionFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_battleEditionFlag = value["BattleEditionFlag"].GetUint64();
+        m_battleEditionFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("ChannelEditionFlag") && !value["ChannelEditionFlag"].IsNull())
+    {
+        if (!value["ChannelEditionFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstanceSpecification.ChannelEditionFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_channelEditionFlag = value["ChannelEditionFlag"].GetUint64();
+        m_channelEditionFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnterpriseFlag") && !value["EnterpriseFlag"].IsNull())
+    {
+        if (!value["EnterpriseFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstanceSpecification.EnterpriseFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_enterpriseFlag = value["EnterpriseFlag"].GetUint64();
+        m_enterpriseFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("ElasticLimit") && !value["ElasticLimit"].IsNull())
+    {
+        if (!value["ElasticLimit"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstanceSpecification.ElasticLimit` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_elasticLimit = value["ElasticLimit"].GetUint64();
+        m_elasticLimitHasBeenSet = true;
+    }
+
+    if (value.HasMember("DownGradeProtect") && !value["DownGradeProtect"].IsNull())
+    {
+        if (!value["DownGradeProtect"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstanceSpecification.DownGradeProtect` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_downGradeProtect = value["DownGradeProtect"].GetUint64();
+        m_downGradeProtectHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -148,6 +203,46 @@ void BGPInstanceSpecification::ToJsonObject(rapidjson::Value &value, rapidjson::
         string key = "ServiceBandWidth";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_serviceBandWidth, allocator);
+    }
+
+    if (m_battleEditionFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BattleEditionFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_battleEditionFlag, allocator);
+    }
+
+    if (m_channelEditionFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChannelEditionFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_channelEditionFlag, allocator);
+    }
+
+    if (m_enterpriseFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnterpriseFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enterpriseFlag, allocator);
+    }
+
+    if (m_elasticLimitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ElasticLimit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_elasticLimit, allocator);
+    }
+
+    if (m_downGradeProtectHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DownGradeProtect";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_downGradeProtect, allocator);
     }
 
 }
@@ -247,5 +342,85 @@ void BGPInstanceSpecification::SetServiceBandWidth(const uint64_t& _serviceBandW
 bool BGPInstanceSpecification::ServiceBandWidthHasBeenSet() const
 {
     return m_serviceBandWidthHasBeenSet;
+}
+
+uint64_t BGPInstanceSpecification::GetBattleEditionFlag() const
+{
+    return m_battleEditionFlag;
+}
+
+void BGPInstanceSpecification::SetBattleEditionFlag(const uint64_t& _battleEditionFlag)
+{
+    m_battleEditionFlag = _battleEditionFlag;
+    m_battleEditionFlagHasBeenSet = true;
+}
+
+bool BGPInstanceSpecification::BattleEditionFlagHasBeenSet() const
+{
+    return m_battleEditionFlagHasBeenSet;
+}
+
+uint64_t BGPInstanceSpecification::GetChannelEditionFlag() const
+{
+    return m_channelEditionFlag;
+}
+
+void BGPInstanceSpecification::SetChannelEditionFlag(const uint64_t& _channelEditionFlag)
+{
+    m_channelEditionFlag = _channelEditionFlag;
+    m_channelEditionFlagHasBeenSet = true;
+}
+
+bool BGPInstanceSpecification::ChannelEditionFlagHasBeenSet() const
+{
+    return m_channelEditionFlagHasBeenSet;
+}
+
+uint64_t BGPInstanceSpecification::GetEnterpriseFlag() const
+{
+    return m_enterpriseFlag;
+}
+
+void BGPInstanceSpecification::SetEnterpriseFlag(const uint64_t& _enterpriseFlag)
+{
+    m_enterpriseFlag = _enterpriseFlag;
+    m_enterpriseFlagHasBeenSet = true;
+}
+
+bool BGPInstanceSpecification::EnterpriseFlagHasBeenSet() const
+{
+    return m_enterpriseFlagHasBeenSet;
+}
+
+uint64_t BGPInstanceSpecification::GetElasticLimit() const
+{
+    return m_elasticLimit;
+}
+
+void BGPInstanceSpecification::SetElasticLimit(const uint64_t& _elasticLimit)
+{
+    m_elasticLimit = _elasticLimit;
+    m_elasticLimitHasBeenSet = true;
+}
+
+bool BGPInstanceSpecification::ElasticLimitHasBeenSet() const
+{
+    return m_elasticLimitHasBeenSet;
+}
+
+uint64_t BGPInstanceSpecification::GetDownGradeProtect() const
+{
+    return m_downGradeProtect;
+}
+
+void BGPInstanceSpecification::SetDownGradeProtect(const uint64_t& _downGradeProtect)
+{
+    m_downGradeProtect = _downGradeProtect;
+    m_downGradeProtectHasBeenSet = true;
+}
+
+bool BGPInstanceSpecification::DownGradeProtectHasBeenSet() const
+{
+    return m_downGradeProtectHasBeenSet;
 }
 

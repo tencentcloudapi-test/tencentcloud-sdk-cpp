@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,11 @@ CreateShipperRequest::CreateShipperRequest() :
     m_filterRulesHasBeenSet(false),
     m_partitionHasBeenSet(false),
     m_compressHasBeenSet(false),
-    m_contentHasBeenSet(false)
+    m_contentHasBeenSet(false),
+    m_filenameModeHasBeenSet(false),
+    m_startTimeHasBeenSet(false),
+    m_endTimeHasBeenSet(false),
+    m_storageTypeHasBeenSet(false)
 {
 }
 
@@ -130,6 +134,38 @@ string CreateShipperRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_content.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_filenameModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilenameMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filenameMode, allocator);
+    }
+
+    if (m_startTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StartTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_startTime, allocator);
+    }
+
+    if (m_endTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EndTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_endTime, allocator);
+    }
+
+    if (m_storageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_storageType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -298,6 +334,70 @@ void CreateShipperRequest::SetContent(const ContentInfo& _content)
 bool CreateShipperRequest::ContentHasBeenSet() const
 {
     return m_contentHasBeenSet;
+}
+
+uint64_t CreateShipperRequest::GetFilenameMode() const
+{
+    return m_filenameMode;
+}
+
+void CreateShipperRequest::SetFilenameMode(const uint64_t& _filenameMode)
+{
+    m_filenameMode = _filenameMode;
+    m_filenameModeHasBeenSet = true;
+}
+
+bool CreateShipperRequest::FilenameModeHasBeenSet() const
+{
+    return m_filenameModeHasBeenSet;
+}
+
+int64_t CreateShipperRequest::GetStartTime() const
+{
+    return m_startTime;
+}
+
+void CreateShipperRequest::SetStartTime(const int64_t& _startTime)
+{
+    m_startTime = _startTime;
+    m_startTimeHasBeenSet = true;
+}
+
+bool CreateShipperRequest::StartTimeHasBeenSet() const
+{
+    return m_startTimeHasBeenSet;
+}
+
+int64_t CreateShipperRequest::GetEndTime() const
+{
+    return m_endTime;
+}
+
+void CreateShipperRequest::SetEndTime(const int64_t& _endTime)
+{
+    m_endTime = _endTime;
+    m_endTimeHasBeenSet = true;
+}
+
+bool CreateShipperRequest::EndTimeHasBeenSet() const
+{
+    return m_endTimeHasBeenSet;
+}
+
+string CreateShipperRequest::GetStorageType() const
+{
+    return m_storageType;
+}
+
+void CreateShipperRequest::SetStorageType(const string& _storageType)
+{
+    m_storageType = _storageType;
+    m_storageTypeHasBeenSet = true;
+}
+
+bool CreateShipperRequest::StorageTypeHasBeenSet() const
+{
+    return m_storageTypeHasBeenSet;
 }
 
 

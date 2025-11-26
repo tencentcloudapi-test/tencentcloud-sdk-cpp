@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,12 +46,14 @@ namespace TencentCloud
                     /**
                      * 获取"Succ"表示设置成功，"Failed"表示设置失败
                      * @return SetCheckResult "Succ"表示设置成功，"Failed"表示设置失败
+                     * 
                      */
                     std::string GetSetCheckResult() const;
 
                     /**
                      * 判断参数 SetCheckResult 是否已赋值
                      * @return SetCheckResult 是否已赋值
+                     * 
                      */
                     bool SetCheckResultHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,13 +52,12 @@ namespace TencentCloud
 <li>CDN</li>
 <li>FLEXDB</li>
 <li>SCF</li>
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ResourceType 资源类型
 <li>COS</li>
 <li>CDN</li>
 <li>FLEXDB</li>
 <li>SCF</li>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResourceType() const;
 
@@ -68,85 +67,82 @@ namespace TencentCloud
 <li>CDN</li>
 <li>FLEXDB</li>
 <li>SCF</li>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ResourceType 资源类型
+                     * @param _resourceType 资源类型
 <li>COS</li>
 <li>CDN</li>
 <li>FLEXDB</li>
 <li>SCF</li>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetResourceType(const std::string& _resourceType);
 
                     /**
                      * 判断参数 ResourceType 是否已赋值
                      * @return ResourceType 是否已赋值
+                     * 
                      */
                     bool ResourceTypeHasBeenSet() const;
 
                     /**
                      * 获取资源指标名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ResourceMetric 资源指标名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResourceMetric() const;
 
                     /**
                      * 设置资源指标名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ResourceMetric 资源指标名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _resourceMetric 资源指标名称
+                     * 
                      */
                     void SetResourceMetric(const std::string& _resourceMetric);
 
                     /**
                      * 判断参数 ResourceMetric 是否已赋值
                      * @return ResourceMetric 是否已赋值
+                     * 
                      */
                     bool ResourceMetricHasBeenSet() const;
 
                     /**
                      * 获取资源指标免费量
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FreeQuota 资源指标免费量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetFreeQuota() const;
 
                     /**
                      * 设置资源指标免费量
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FreeQuota 资源指标免费量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _freeQuota 资源指标免费量
+                     * 
                      */
                     void SetFreeQuota(const int64_t& _freeQuota);
 
                     /**
                      * 判断参数 FreeQuota 是否已赋值
                      * @return FreeQuota 是否已赋值
+                     * 
                      */
                     bool FreeQuotaHasBeenSet() const;
 
                     /**
                      * 获取指标单位
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return MetricUnit 指标单位
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMetricUnit() const;
 
                     /**
                      * 设置指标单位
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MetricUnit 指标单位
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _metricUnit 指标单位
+                     * 
                      */
                     void SetMetricUnit(const std::string& _metricUnit);
 
                     /**
                      * 判断参数 MetricUnit 是否已赋值
                      * @return MetricUnit 是否已赋值
+                     * 
                      */
                     bool MetricUnitHasBeenSet() const;
 
@@ -155,12 +151,11 @@ namespace TencentCloud
 <li>sum-month:以月为单位抵扣</li>
 <li>sum-day:以天为单位抵扣</li>
 <li>totalize:总容量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DeductType 免费量抵扣周期
 <li>sum-month:以月为单位抵扣</li>
 <li>sum-day:以天为单位抵扣</li>
 <li>totalize:总容量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDeductType() const;
 
@@ -169,44 +164,43 @@ namespace TencentCloud
 <li>sum-month:以月为单位抵扣</li>
 <li>sum-day:以天为单位抵扣</li>
 <li>totalize:总容量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param DeductType 免费量抵扣周期
+                     * @param _deductType 免费量抵扣周期
 <li>sum-month:以月为单位抵扣</li>
 <li>sum-day:以天为单位抵扣</li>
 <li>totalize:总容量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetDeductType(const std::string& _deductType);
 
                     /**
                      * 判断参数 DeductType 是否已赋值
                      * @return DeductType 是否已赋值
+                     * 
                      */
                     bool DeductTypeHasBeenSet() const;
 
                     /**
                      * 获取免费量类型
 <li>basic:通用量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FreeQuotaType 免费量类型
 <li>basic:通用量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFreeQuotaType() const;
 
                     /**
                      * 设置免费量类型
 <li>basic:通用量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FreeQuotaType 免费量类型
+                     * @param _freeQuotaType 免费量类型
 <li>basic:通用量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFreeQuotaType(const std::string& _freeQuotaType);
 
                     /**
                      * 判断参数 FreeQuotaType 是否已赋值
                      * @return FreeQuotaType 是否已赋值
+                     * 
                      */
                     bool FreeQuotaTypeHasBeenSet() const;
 
@@ -218,28 +212,24 @@ namespace TencentCloud
 <li>CDN</li>
 <li>FLEXDB</li>
 <li>SCF</li>
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourceType;
                     bool m_resourceTypeHasBeenSet;
 
                     /**
                      * 资源指标名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourceMetric;
                     bool m_resourceMetricHasBeenSet;
 
                     /**
                      * 资源指标免费量
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_freeQuota;
                     bool m_freeQuotaHasBeenSet;
 
                     /**
                      * 指标单位
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_metricUnit;
                     bool m_metricUnitHasBeenSet;
@@ -249,7 +239,6 @@ namespace TencentCloud
 <li>sum-month:以月为单位抵扣</li>
 <li>sum-day:以天为单位抵扣</li>
 <li>totalize:总容量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_deductType;
                     bool m_deductTypeHasBeenSet;
@@ -257,7 +246,6 @@ namespace TencentCloud
                     /**
                      * 免费量类型
 <li>basic:通用量抵扣</li>
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_freeQuotaType;
                     bool m_freeQuotaTypeHasBeenSet;

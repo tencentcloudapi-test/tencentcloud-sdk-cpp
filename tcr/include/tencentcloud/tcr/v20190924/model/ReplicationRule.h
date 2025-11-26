@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,74 +50,107 @@ namespace TencentCloud
                     /**
                      * 获取同步规则名称
                      * @return Name 同步规则名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置同步规则名称
-                     * @param Name 同步规则名称
+                     * @param _name 同步规则名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取目标命名空间
                      * @return DestNamespace 目标命名空间
+                     * 
                      */
                     std::string GetDestNamespace() const;
 
                     /**
                      * 设置目标命名空间
-                     * @param DestNamespace 目标命名空间
+                     * @param _destNamespace 目标命名空间
+                     * 
                      */
                     void SetDestNamespace(const std::string& _destNamespace);
 
                     /**
                      * 判断参数 DestNamespace 是否已赋值
                      * @return DestNamespace 是否已赋值
+                     * 
                      */
                     bool DestNamespaceHasBeenSet() const;
 
                     /**
                      * 获取是否覆盖
                      * @return Override 是否覆盖
+                     * 
                      */
                     bool GetOverride() const;
 
                     /**
                      * 设置是否覆盖
-                     * @param Override 是否覆盖
+                     * @param _override 是否覆盖
+                     * 
                      */
                     void SetOverride(const bool& _override);
 
                     /**
                      * 判断参数 Override 是否已赋值
                      * @return Override 是否已赋值
+                     * 
                      */
                     bool OverrideHasBeenSet() const;
 
                     /**
                      * 获取同步过滤条件
                      * @return Filters 同步过滤条件
+                     * 
                      */
                     std::vector<ReplicationFilter> GetFilters() const;
 
                     /**
                      * 设置同步过滤条件
-                     * @param Filters 同步过滤条件
+                     * @param _filters 同步过滤条件
+                     * 
                      */
                     void SetFilters(const std::vector<ReplicationFilter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
+
+                    /**
+                     * 获取是否同步删除事件
+                     * @return Deletion 是否同步删除事件
+                     * 
+                     */
+                    bool GetDeletion() const;
+
+                    /**
+                     * 设置是否同步删除事件
+                     * @param _deletion 是否同步删除事件
+                     * 
+                     */
+                    void SetDeletion(const bool& _deletion);
+
+                    /**
+                     * 判断参数 Deletion 是否已赋值
+                     * @return Deletion 是否已赋值
+                     * 
+                     */
+                    bool DeletionHasBeenSet() const;
 
                 private:
 
@@ -144,6 +177,12 @@ namespace TencentCloud
                      */
                     std::vector<ReplicationFilter> m_filters;
                     bool m_filtersHasBeenSet;
+
+                    /**
+                     * 是否同步删除事件
+                     */
+                    bool m_deletion;
+                    bool m_deletionHasBeenSet;
 
                 };
             }

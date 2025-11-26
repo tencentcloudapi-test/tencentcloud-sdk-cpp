@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取人脸图片 ID。
                      * @return FaceId 人脸图片 ID。
+                     * 
                      */
                     std::string GetFaceId() const;
 
                     /**
                      * 设置人脸图片 ID。
-                     * @param FaceId 人脸图片 ID。
+                     * @param _faceId 人脸图片 ID。
+                     * 
                      */
                     void SetFaceId(const std::string& _faceId);
 
                     /**
                      * 判断参数 FaceId 是否已赋值
                      * @return FaceId 是否已赋值
+                     * 
                      */
                     bool FaceIdHasBeenSet() const;
 
                     /**
                      * 获取人脸图片地址。
                      * @return Url 人脸图片地址。
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置人脸图片地址。
-                     * @param Url 人脸图片地址。
+                     * @param _url 人脸图片地址。
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 

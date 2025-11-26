@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/cfw/v20190904/model/AssetZone.h>
 #include <tencentcloud/cfw/v20190904/model/InstanceInfo.h>
+#include <tencentcloud/cfw/v20190904/model/AssetZone.h>
 
 
 namespace TencentCloud
@@ -46,48 +46,48 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取地域集合
-                     * @return ZoneList 地域集合
-                     */
-                    std::vector<AssetZone> GetZoneList() const;
-
-                    /**
-                     * 判断参数 ZoneList 是否已赋值
-                     * @return ZoneList 是否已赋值
-                     */
-                    bool ZoneListHasBeenSet() const;
-
-                    /**
                      * 获取数据
                      * @return Data 数据
+                     * 
                      */
                     std::vector<InstanceInfo> GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
                     /**
                      * 获取返回数据总数
                      * @return Total 返回数据总数
+                     * 
                      */
                     int64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
-                private:
+                    /**
+                     * 获取地域集合
+                     * @return ZoneList 地域集合
+                     * 
+                     */
+                    std::vector<AssetZone> GetZoneList() const;
 
                     /**
-                     * 地域集合
+                     * 判断参数 ZoneList 是否已赋值
+                     * @return ZoneList 是否已赋值
+                     * 
                      */
-                    std::vector<AssetZone> m_zoneList;
-                    bool m_zoneListHasBeenSet;
+                    bool ZoneListHasBeenSet() const;
+
+                private:
 
                     /**
                      * 数据
@@ -100,6 +100,12 @@ namespace TencentCloud
                      */
                     int64_t m_total;
                     bool m_totalHasBeenSet;
+
+                    /**
+                     * 地域集合
+                     */
+                    std::vector<AssetZone> m_zoneList;
+                    bool m_zoneListHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,24 +48,28 @@ namespace TencentCloud
                     /**
                      * 获取记录的数量统计信息
                      * @return RecordCountInfo 记录的数量统计信息
+                     * 
                      */
                     RecordCountInfo GetRecordCountInfo() const;
 
                     /**
                      * 判断参数 RecordCountInfo 是否已赋值
                      * @return RecordCountInfo 是否已赋值
+                     * 
                      */
                     bool RecordCountInfoHasBeenSet() const;
 
                     /**
                      * 获取获取的记录列表
                      * @return RecordList 获取的记录列表
+                     * 
                      */
                     std::vector<RecordListItem> GetRecordList() const;
 
                     /**
                      * 判断参数 RecordList 是否已赋值
                      * @return RecordList 是否已赋值
+                     * 
                      */
                     bool RecordListHasBeenSet() const;
 

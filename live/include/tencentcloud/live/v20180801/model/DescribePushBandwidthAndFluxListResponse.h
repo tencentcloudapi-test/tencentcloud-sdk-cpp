@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,81 +45,108 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取峰值带宽所在时间点，格式为 yyyy-mm-dd HH:MM:SS。
-                     * @return PeakBandwidthTime 峰值带宽所在时间点，格式为 yyyy-mm-dd HH:MM:SS。
+                     * 获取峰值带宽所在时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @return PeakBandwidthTime 峰值带宽所在时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     std::string GetPeakBandwidthTime() const;
 
                     /**
                      * 判断参数 PeakBandwidthTime 是否已赋值
                      * @return PeakBandwidthTime 是否已赋值
+                     * 
                      */
                     bool PeakBandwidthTimeHasBeenSet() const;
 
                     /**
                      * 获取峰值带宽，单位是 Mbps。
                      * @return PeakBandwidth 峰值带宽，单位是 Mbps。
+                     * 
                      */
                     double GetPeakBandwidth() const;
 
                     /**
                      * 判断参数 PeakBandwidth 是否已赋值
                      * @return PeakBandwidth 是否已赋值
+                     * 
                      */
                     bool PeakBandwidthHasBeenSet() const;
 
                     /**
-                     * 获取95峰值带宽所在时间点，格式为 yyyy-mm-dd HH:MM:SS。
-                     * @return P95PeakBandwidthTime 95峰值带宽所在时间点，格式为 yyyy-mm-dd HH:MM:SS。
+                     * 获取95峰值带宽所在时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @return P95PeakBandwidthTime 95峰值带宽所在时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     std::string GetP95PeakBandwidthTime() const;
 
                     /**
                      * 判断参数 P95PeakBandwidthTime 是否已赋值
                      * @return P95PeakBandwidthTime 是否已赋值
+                     * 
                      */
                     bool P95PeakBandwidthTimeHasBeenSet() const;
 
                     /**
                      * 获取95峰值带宽，单位是 Mbps。
                      * @return P95PeakBandwidth 95峰值带宽，单位是 Mbps。
+                     * 
                      */
                     double GetP95PeakBandwidth() const;
 
                     /**
                      * 判断参数 P95PeakBandwidth 是否已赋值
                      * @return P95PeakBandwidth 是否已赋值
+                     * 
                      */
                     bool P95PeakBandwidthHasBeenSet() const;
 
                     /**
                      * 获取总流量，单位是 MB。
                      * @return SumFlux 总流量，单位是 MB。
+                     * 
                      */
                     double GetSumFlux() const;
 
                     /**
                      * 判断参数 SumFlux 是否已赋值
                      * @return SumFlux 是否已赋值
+                     * 
                      */
                     bool SumFluxHasBeenSet() const;
 
                     /**
                      * 获取明细数据信息。
                      * @return DataInfoList 明细数据信息。
+                     * 
                      */
                     std::vector<BillDataInfo> GetDataInfoList() const;
 
                     /**
                      * 判断参数 DataInfoList 是否已赋值
                      * @return DataInfoList 是否已赋值
+                     * 
                      */
                     bool DataInfoListHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 峰值带宽所在时间点，格式为 yyyy-mm-dd HH:MM:SS。
+                     * 峰值带宽所在时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
                      */
                     std::string m_peakBandwidthTime;
                     bool m_peakBandwidthTimeHasBeenSet;
@@ -131,7 +158,10 @@ namespace TencentCloud
                     bool m_peakBandwidthHasBeenSet;
 
                     /**
-                     * 95峰值带宽所在时间点，格式为 yyyy-mm-dd HH:MM:SS。
+                     * 95峰值带宽所在时间点，
+使用UTC格式时间，
+例如：2019-01-08T10:00:00Z。
+注意：北京时间值为 UTC 时间值 + 8 小时，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#I)。
                      */
                     std::string m_p95PeakBandwidthTime;
                     bool m_p95PeakBandwidthTimeHasBeenSet;

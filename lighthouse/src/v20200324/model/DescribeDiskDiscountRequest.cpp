@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 DescribeDiskDiscountRequest::DescribeDiskDiscountRequest() :
     m_diskTypeHasBeenSet(false),
-    m_diskSizeHasBeenSet(false)
+    m_diskSizeHasBeenSet(false),
+    m_diskBackupQuotaHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string DescribeDiskDiscountRequest::ToJsonString() const
         string key = "DiskSize";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_diskSize, allocator);
+    }
+
+    if (m_diskBackupQuotaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskBackupQuota";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_diskBackupQuota, allocator);
     }
 
 
@@ -89,6 +98,22 @@ void DescribeDiskDiscountRequest::SetDiskSize(const int64_t& _diskSize)
 bool DescribeDiskDiscountRequest::DiskSizeHasBeenSet() const
 {
     return m_diskSizeHasBeenSet;
+}
+
+int64_t DescribeDiskDiscountRequest::GetDiskBackupQuota() const
+{
+    return m_diskBackupQuota;
+}
+
+void DescribeDiskDiscountRequest::SetDiskBackupQuota(const int64_t& _diskBackupQuota)
+{
+    m_diskBackupQuota = _diskBackupQuota;
+    m_diskBackupQuotaHasBeenSet = true;
+}
+
+bool DescribeDiskDiscountRequest::DiskBackupQuotaHasBeenSet() const
+{
+    return m_diskBackupQuotaHasBeenSet;
 }
 
 

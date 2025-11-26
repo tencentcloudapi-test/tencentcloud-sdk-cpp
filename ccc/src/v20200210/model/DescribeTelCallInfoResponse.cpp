@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@ using namespace std;
 DescribeTelCallInfoResponse::DescribeTelCallInfoResponse() :
     m_telCallOutCountHasBeenSet(false),
     m_telCallInCountHasBeenSet(false),
-    m_seatUsedCountHasBeenSet(false)
+    m_seatUsedCountHasBeenSet(false),
+    m_voipCallInCountHasBeenSet(false),
+    m_vOIPCallInCountHasBeenSet(false),
+    m_asrOfflineCountHasBeenSet(false),
+    m_asrRealtimeCountHasBeenSet(false)
 {
 }
 
@@ -94,6 +98,46 @@ CoreInternalOutcome DescribeTelCallInfoResponse::Deserialize(const string &paylo
         m_seatUsedCountHasBeenSet = true;
     }
 
+    if (rsp.HasMember("VoipCallInCount") && !rsp["VoipCallInCount"].IsNull())
+    {
+        if (!rsp["VoipCallInCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `VoipCallInCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_voipCallInCount = rsp["VoipCallInCount"].GetInt64();
+        m_voipCallInCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("VOIPCallInCount") && !rsp["VOIPCallInCount"].IsNull())
+    {
+        if (!rsp["VOIPCallInCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `VOIPCallInCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_vOIPCallInCount = rsp["VOIPCallInCount"].GetInt64();
+        m_vOIPCallInCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("AsrOfflineCount") && !rsp["AsrOfflineCount"].IsNull())
+    {
+        if (!rsp["AsrOfflineCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AsrOfflineCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_asrOfflineCount = rsp["AsrOfflineCount"].GetInt64();
+        m_asrOfflineCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("AsrRealtimeCount") && !rsp["AsrRealtimeCount"].IsNull())
+    {
+        if (!rsp["AsrRealtimeCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AsrRealtimeCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_asrRealtimeCount = rsp["AsrRealtimeCount"].GetInt64();
+        m_asrRealtimeCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -128,11 +172,43 @@ string DescribeTelCallInfoResponse::ToJsonString() const
         value.AddMember(iKey, m_seatUsedCount, allocator);
     }
 
+    if (m_voipCallInCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VoipCallInCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_voipCallInCount, allocator);
+    }
+
+    if (m_vOIPCallInCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VOIPCallInCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_vOIPCallInCount, allocator);
+    }
+
+    if (m_asrOfflineCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AsrOfflineCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_asrOfflineCount, allocator);
+    }
+
+    if (m_asrRealtimeCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AsrRealtimeCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_asrRealtimeCount, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -168,6 +244,46 @@ int64_t DescribeTelCallInfoResponse::GetSeatUsedCount() const
 bool DescribeTelCallInfoResponse::SeatUsedCountHasBeenSet() const
 {
     return m_seatUsedCountHasBeenSet;
+}
+
+int64_t DescribeTelCallInfoResponse::GetVoipCallInCount() const
+{
+    return m_voipCallInCount;
+}
+
+bool DescribeTelCallInfoResponse::VoipCallInCountHasBeenSet() const
+{
+    return m_voipCallInCountHasBeenSet;
+}
+
+int64_t DescribeTelCallInfoResponse::GetVOIPCallInCount() const
+{
+    return m_vOIPCallInCount;
+}
+
+bool DescribeTelCallInfoResponse::VOIPCallInCountHasBeenSet() const
+{
+    return m_vOIPCallInCountHasBeenSet;
+}
+
+int64_t DescribeTelCallInfoResponse::GetAsrOfflineCount() const
+{
+    return m_asrOfflineCount;
+}
+
+bool DescribeTelCallInfoResponse::AsrOfflineCountHasBeenSet() const
+{
+    return m_asrOfflineCountHasBeenSet;
+}
+
+int64_t DescribeTelCallInfoResponse::GetAsrRealtimeCount() const
+{
+    return m_asrRealtimeCount;
+}
+
+bool DescribeTelCallInfoResponse::AsrRealtimeCountHasBeenSet() const
+{
+    return m_asrRealtimeCountHasBeenSet;
 }
 
 

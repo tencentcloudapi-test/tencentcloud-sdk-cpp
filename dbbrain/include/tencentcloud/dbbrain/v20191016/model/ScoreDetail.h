@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,76 +50,84 @@ namespace TencentCloud
                     /**
                      * 获取扣分项分类，取值包括：可用性、可维护性、性能及可靠性。
                      * @return IssueType 扣分项分类，取值包括：可用性、可维护性、性能及可靠性。
+                     * 
                      */
                     std::string GetIssueType() const;
 
                     /**
                      * 设置扣分项分类，取值包括：可用性、可维护性、性能及可靠性。
-                     * @param IssueType 扣分项分类，取值包括：可用性、可维护性、性能及可靠性。
+                     * @param _issueType 扣分项分类，取值包括：可用性、可维护性、性能及可靠性。
+                     * 
                      */
                     void SetIssueType(const std::string& _issueType);
 
                     /**
                      * 判断参数 IssueType 是否已赋值
                      * @return IssueType 是否已赋值
+                     * 
                      */
                     bool IssueTypeHasBeenSet() const;
 
                     /**
                      * 获取扣分总分。
                      * @return ScoreLost 扣分总分。
+                     * 
                      */
                     int64_t GetScoreLost() const;
 
                     /**
                      * 设置扣分总分。
-                     * @param ScoreLost 扣分总分。
+                     * @param _scoreLost 扣分总分。
+                     * 
                      */
                     void SetScoreLost(const int64_t& _scoreLost);
 
                     /**
                      * 判断参数 ScoreLost 是否已赋值
                      * @return ScoreLost 是否已赋值
+                     * 
                      */
                     bool ScoreLostHasBeenSet() const;
 
                     /**
                      * 获取扣分总分上限。
                      * @return ScoreLostMax 扣分总分上限。
+                     * 
                      */
                     int64_t GetScoreLostMax() const;
 
                     /**
                      * 设置扣分总分上限。
-                     * @param ScoreLostMax 扣分总分上限。
+                     * @param _scoreLostMax 扣分总分上限。
+                     * 
                      */
                     void SetScoreLostMax(const int64_t& _scoreLostMax);
 
                     /**
                      * 判断参数 ScoreLostMax 是否已赋值
                      * @return ScoreLostMax 是否已赋值
+                     * 
                      */
                     bool ScoreLostMaxHasBeenSet() const;
 
                     /**
                      * 获取扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Items 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ScoreItem> GetItems() const;
 
                     /**
                      * 设置扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Items 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _items 扣分项列表。
+                     * 
                      */
                     void SetItems(const std::vector<ScoreItem>& _items);
 
                     /**
                      * 判断参数 Items 是否已赋值
                      * @return Items 是否已赋值
+                     * 
                      */
                     bool ItemsHasBeenSet() const;
 
@@ -145,7 +153,6 @@ namespace TencentCloud
 
                     /**
                      * 扣分项列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ScoreItem> m_items;
                     bool m_itemsHasBeenSet;

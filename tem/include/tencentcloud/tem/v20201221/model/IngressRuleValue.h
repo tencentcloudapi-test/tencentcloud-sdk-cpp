@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取rule 整体配置
                      * @return Paths rule 整体配置
+                     * 
                      */
                     std::vector<IngressRulePath> GetPaths() const;
 
                     /**
                      * 设置rule 整体配置
-                     * @param Paths rule 整体配置
+                     * @param _paths rule 整体配置
+                     * 
                      */
                     void SetPaths(const std::vector<IngressRulePath>& _paths);
 
                     /**
                      * 判断参数 Paths 是否已赋值
                      * @return Paths 是否已赋值
+                     * 
                      */
                     bool PathsHasBeenSet() const;
 

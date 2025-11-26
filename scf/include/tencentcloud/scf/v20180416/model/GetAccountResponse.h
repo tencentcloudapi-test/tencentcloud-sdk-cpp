@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,24 +48,28 @@ namespace TencentCloud
                     /**
                      * 获取命名空间已使用的信息
                      * @return AccountUsage 命名空间已使用的信息
+                     * 
                      */
                     UsageInfo GetAccountUsage() const;
 
                     /**
                      * 判断参数 AccountUsage 是否已赋值
                      * @return AccountUsage 是否已赋值
+                     * 
                      */
                     bool AccountUsageHasBeenSet() const;
 
                     /**
                      * 获取命名空间限制的信息
                      * @return AccountLimit 命名空间限制的信息
+                     * 
                      */
                     LimitsInfo GetAccountLimit() const;
 
                     /**
                      * 判断参数 AccountLimit 是否已赋值
                      * @return AccountLimit 是否已赋值
+                     * 
                      */
                     bool AccountLimitHasBeenSet() const;
 

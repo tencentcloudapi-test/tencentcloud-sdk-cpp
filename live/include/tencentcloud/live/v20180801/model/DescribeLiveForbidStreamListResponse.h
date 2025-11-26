@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,60 +47,70 @@ namespace TencentCloud
                     /**
                      * 获取符合条件的总个数。
                      * @return TotalNum 符合条件的总个数。
+                     * 
                      */
                     int64_t GetTotalNum() const;
 
                     /**
                      * 判断参数 TotalNum 是否已赋值
                      * @return TotalNum 是否已赋值
+                     * 
                      */
                     bool TotalNumHasBeenSet() const;
 
                     /**
                      * 获取总页数。
                      * @return TotalPage 总页数。
+                     * 
                      */
                     int64_t GetTotalPage() const;
 
                     /**
                      * 判断参数 TotalPage 是否已赋值
                      * @return TotalPage 是否已赋值
+                     * 
                      */
                     bool TotalPageHasBeenSet() const;
 
                     /**
                      * 获取分页的页码。
                      * @return PageNum 分页的页码。
+                     * 
                      */
                     int64_t GetPageNum() const;
 
                     /**
                      * 判断参数 PageNum 是否已赋值
                      * @return PageNum 是否已赋值
+                     * 
                      */
                     bool PageNumHasBeenSet() const;
 
                     /**
                      * 获取每页显示的条数。
                      * @return PageSize 每页显示的条数。
+                     * 
                      */
                     int64_t GetPageSize() const;
 
                     /**
                      * 判断参数 PageSize 是否已赋值
                      * @return PageSize 是否已赋值
+                     * 
                      */
                     bool PageSizeHasBeenSet() const;
 
                     /**
                      * 获取禁推流列表。
                      * @return ForbidStreamList 禁推流列表。
+                     * 
                      */
                     std::vector<ForbidStreamInfo> GetForbidStreamList() const;
 
                     /**
                      * 判断参数 ForbidStreamList 是否已赋值
                      * @return ForbidStreamList 是否已赋值
+                     * 
                      */
                     bool ForbidStreamListHasBeenSet() const;
 

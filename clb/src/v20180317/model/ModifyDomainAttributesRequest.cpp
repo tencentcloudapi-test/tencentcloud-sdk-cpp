@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,10 @@ ModifyDomainAttributesRequest::ModifyDomainAttributesRequest() :
     m_certificateHasBeenSet(false),
     m_http2HasBeenSet(false),
     m_defaultServerHasBeenSet(false),
+    m_quicHasBeenSet(false),
     m_newDefaultServerDomainHasBeenSet(false),
-    m_newDomainsHasBeenSet(false)
+    m_newDomainsHasBeenSet(false),
+    m_multiCertInfoHasBeenSet(false)
 {
 }
 
@@ -99,6 +101,14 @@ string ModifyDomainAttributesRequest::ToJsonString() const
         d.AddMember(iKey, m_defaultServer, allocator);
     }
 
+    if (m_quicHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Quic";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_quic, allocator);
+    }
+
     if (m_newDefaultServerDomainHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -118,6 +128,15 @@ string ModifyDomainAttributesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_multiCertInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MultiCertInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_multiCertInfo.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -240,6 +259,22 @@ bool ModifyDomainAttributesRequest::DefaultServerHasBeenSet() const
     return m_defaultServerHasBeenSet;
 }
 
+bool ModifyDomainAttributesRequest::GetQuic() const
+{
+    return m_quic;
+}
+
+void ModifyDomainAttributesRequest::SetQuic(const bool& _quic)
+{
+    m_quic = _quic;
+    m_quicHasBeenSet = true;
+}
+
+bool ModifyDomainAttributesRequest::QuicHasBeenSet() const
+{
+    return m_quicHasBeenSet;
+}
+
 string ModifyDomainAttributesRequest::GetNewDefaultServerDomain() const
 {
     return m_newDefaultServerDomain;
@@ -270,6 +305,22 @@ void ModifyDomainAttributesRequest::SetNewDomains(const vector<string>& _newDoma
 bool ModifyDomainAttributesRequest::NewDomainsHasBeenSet() const
 {
     return m_newDomainsHasBeenSet;
+}
+
+MultiCertInfo ModifyDomainAttributesRequest::GetMultiCertInfo() const
+{
+    return m_multiCertInfo;
+}
+
+void ModifyDomainAttributesRequest::SetMultiCertInfo(const MultiCertInfo& _multiCertInfo)
+{
+    m_multiCertInfo = _multiCertInfo;
+    m_multiCertInfoHasBeenSet = true;
+}
+
+bool ModifyDomainAttributesRequest::MultiCertInfoHasBeenSet() const
+{
+    return m_multiCertInfoHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,25 +62,32 @@ EbClient::CheckRuleOutcome EbClient::CheckRule(const CheckRuleRequest &request)
 
 void EbClient::CheckRuleAsync(const CheckRuleRequest& request, const CheckRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CheckRule(request), context);
-    };
+    using Req = const CheckRuleRequest&;
+    using Resp = CheckRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CheckRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::CheckRuleOutcomeCallable EbClient::CheckRuleCallable(const CheckRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CheckRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->CheckRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CheckRuleOutcome>>();
+    CheckRuleAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const CheckRuleRequest&,
+        CheckRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::CheckTransformationOutcome EbClient::CheckTransformation(const CheckTransformationRequest &request)
@@ -105,25 +112,32 @@ EbClient::CheckTransformationOutcome EbClient::CheckTransformation(const CheckTr
 
 void EbClient::CheckTransformationAsync(const CheckTransformationRequest& request, const CheckTransformationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CheckTransformation(request), context);
-    };
+    using Req = const CheckTransformationRequest&;
+    using Resp = CheckTransformationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CheckTransformation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::CheckTransformationOutcomeCallable EbClient::CheckTransformationCallable(const CheckTransformationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CheckTransformationOutcome()>>(
-        [this, request]()
-        {
-            return this->CheckTransformation(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CheckTransformationOutcome>>();
+    CheckTransformationAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const CheckTransformationRequest&,
+        CheckTransformationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::CreateConnectionOutcome EbClient::CreateConnection(const CreateConnectionRequest &request)
@@ -148,25 +162,32 @@ EbClient::CreateConnectionOutcome EbClient::CreateConnection(const CreateConnect
 
 void EbClient::CreateConnectionAsync(const CreateConnectionRequest& request, const CreateConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateConnection(request), context);
-    };
+    using Req = const CreateConnectionRequest&;
+    using Resp = CreateConnectionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateConnection", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::CreateConnectionOutcomeCallable EbClient::CreateConnectionCallable(const CreateConnectionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateConnectionOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateConnection(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateConnectionOutcome>>();
+    CreateConnectionAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const CreateConnectionRequest&,
+        CreateConnectionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::CreateEventBusOutcome EbClient::CreateEventBus(const CreateEventBusRequest &request)
@@ -191,25 +212,32 @@ EbClient::CreateEventBusOutcome EbClient::CreateEventBus(const CreateEventBusReq
 
 void EbClient::CreateEventBusAsync(const CreateEventBusRequest& request, const CreateEventBusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateEventBus(request), context);
-    };
+    using Req = const CreateEventBusRequest&;
+    using Resp = CreateEventBusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateEventBus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::CreateEventBusOutcomeCallable EbClient::CreateEventBusCallable(const CreateEventBusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateEventBusOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateEventBus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateEventBusOutcome>>();
+    CreateEventBusAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const CreateEventBusRequest&,
+        CreateEventBusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::CreateRuleOutcome EbClient::CreateRule(const CreateRuleRequest &request)
@@ -234,25 +262,32 @@ EbClient::CreateRuleOutcome EbClient::CreateRule(const CreateRuleRequest &reques
 
 void EbClient::CreateRuleAsync(const CreateRuleRequest& request, const CreateRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateRule(request), context);
-    };
+    using Req = const CreateRuleRequest&;
+    using Resp = CreateRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::CreateRuleOutcomeCallable EbClient::CreateRuleCallable(const CreateRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateRuleOutcome>>();
+    CreateRuleAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const CreateRuleRequest&,
+        CreateRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::CreateTargetOutcome EbClient::CreateTarget(const CreateTargetRequest &request)
@@ -277,25 +312,32 @@ EbClient::CreateTargetOutcome EbClient::CreateTarget(const CreateTargetRequest &
 
 void EbClient::CreateTargetAsync(const CreateTargetRequest& request, const CreateTargetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTarget(request), context);
-    };
+    using Req = const CreateTargetRequest&;
+    using Resp = CreateTargetResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateTarget", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::CreateTargetOutcomeCallable EbClient::CreateTargetCallable(const CreateTargetRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateTargetOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateTarget(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateTargetOutcome>>();
+    CreateTargetAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const CreateTargetRequest&,
+        CreateTargetOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::CreateTransformationOutcome EbClient::CreateTransformation(const CreateTransformationRequest &request)
@@ -320,25 +362,32 @@ EbClient::CreateTransformationOutcome EbClient::CreateTransformation(const Creat
 
 void EbClient::CreateTransformationAsync(const CreateTransformationRequest& request, const CreateTransformationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTransformation(request), context);
-    };
+    using Req = const CreateTransformationRequest&;
+    using Resp = CreateTransformationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateTransformation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::CreateTransformationOutcomeCallable EbClient::CreateTransformationCallable(const CreateTransformationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateTransformationOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateTransformation(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateTransformationOutcome>>();
+    CreateTransformationAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const CreateTransformationRequest&,
+        CreateTransformationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::DeleteConnectionOutcome EbClient::DeleteConnection(const DeleteConnectionRequest &request)
@@ -363,25 +412,32 @@ EbClient::DeleteConnectionOutcome EbClient::DeleteConnection(const DeleteConnect
 
 void EbClient::DeleteConnectionAsync(const DeleteConnectionRequest& request, const DeleteConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteConnection(request), context);
-    };
+    using Req = const DeleteConnectionRequest&;
+    using Resp = DeleteConnectionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteConnection", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::DeleteConnectionOutcomeCallable EbClient::DeleteConnectionCallable(const DeleteConnectionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteConnectionOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteConnection(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteConnectionOutcome>>();
+    DeleteConnectionAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const DeleteConnectionRequest&,
+        DeleteConnectionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::DeleteEventBusOutcome EbClient::DeleteEventBus(const DeleteEventBusRequest &request)
@@ -406,25 +462,32 @@ EbClient::DeleteEventBusOutcome EbClient::DeleteEventBus(const DeleteEventBusReq
 
 void EbClient::DeleteEventBusAsync(const DeleteEventBusRequest& request, const DeleteEventBusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteEventBus(request), context);
-    };
+    using Req = const DeleteEventBusRequest&;
+    using Resp = DeleteEventBusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteEventBus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::DeleteEventBusOutcomeCallable EbClient::DeleteEventBusCallable(const DeleteEventBusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteEventBusOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteEventBus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteEventBusOutcome>>();
+    DeleteEventBusAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const DeleteEventBusRequest&,
+        DeleteEventBusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::DeleteRuleOutcome EbClient::DeleteRule(const DeleteRuleRequest &request)
@@ -449,25 +512,32 @@ EbClient::DeleteRuleOutcome EbClient::DeleteRule(const DeleteRuleRequest &reques
 
 void EbClient::DeleteRuleAsync(const DeleteRuleRequest& request, const DeleteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteRule(request), context);
-    };
+    using Req = const DeleteRuleRequest&;
+    using Resp = DeleteRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::DeleteRuleOutcomeCallable EbClient::DeleteRuleCallable(const DeleteRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteRuleOutcome>>();
+    DeleteRuleAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const DeleteRuleRequest&,
+        DeleteRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::DeleteTargetOutcome EbClient::DeleteTarget(const DeleteTargetRequest &request)
@@ -492,25 +562,32 @@ EbClient::DeleteTargetOutcome EbClient::DeleteTarget(const DeleteTargetRequest &
 
 void EbClient::DeleteTargetAsync(const DeleteTargetRequest& request, const DeleteTargetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteTarget(request), context);
-    };
+    using Req = const DeleteTargetRequest&;
+    using Resp = DeleteTargetResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteTarget", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::DeleteTargetOutcomeCallable EbClient::DeleteTargetCallable(const DeleteTargetRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteTargetOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteTarget(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteTargetOutcome>>();
+    DeleteTargetAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const DeleteTargetRequest&,
+        DeleteTargetOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::DeleteTransformationOutcome EbClient::DeleteTransformation(const DeleteTransformationRequest &request)
@@ -535,25 +612,82 @@ EbClient::DeleteTransformationOutcome EbClient::DeleteTransformation(const Delet
 
 void EbClient::DeleteTransformationAsync(const DeleteTransformationRequest& request, const DeleteTransformationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteTransformation(request), context);
-    };
+    using Req = const DeleteTransformationRequest&;
+    using Resp = DeleteTransformationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteTransformation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::DeleteTransformationOutcomeCallable EbClient::DeleteTransformationCallable(const DeleteTransformationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteTransformationOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteTransformation(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<DeleteTransformationOutcome>>();
+    DeleteTransformationAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const DeleteTransformationRequest&,
+        DeleteTransformationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+EbClient::DescribeLogTagValueOutcome EbClient::DescribeLogTagValue(const DescribeLogTagValueRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLogTagValue");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLogTagValueResponse rsp = DescribeLogTagValueResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLogTagValueOutcome(rsp);
+        else
+            return DescribeLogTagValueOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLogTagValueOutcome(outcome.GetError());
+    }
+}
+
+void EbClient::DescribeLogTagValueAsync(const DescribeLogTagValueRequest& request, const DescribeLogTagValueAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLogTagValueRequest&;
+    using Resp = DescribeLogTagValueResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLogTagValue", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EbClient::DescribeLogTagValueOutcomeCallable EbClient::DescribeLogTagValueCallable(const DescribeLogTagValueRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLogTagValueOutcome>>();
+    DescribeLogTagValueAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const DescribeLogTagValueRequest&,
+        DescribeLogTagValueOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::GetEventBusOutcome EbClient::GetEventBus(const GetEventBusRequest &request)
@@ -578,25 +712,82 @@ EbClient::GetEventBusOutcome EbClient::GetEventBus(const GetEventBusRequest &req
 
 void EbClient::GetEventBusAsync(const GetEventBusRequest& request, const GetEventBusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetEventBus(request), context);
-    };
+    using Req = const GetEventBusRequest&;
+    using Resp = GetEventBusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetEventBus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::GetEventBusOutcomeCallable EbClient::GetEventBusCallable(const GetEventBusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetEventBusOutcome()>>(
-        [this, request]()
-        {
-            return this->GetEventBus(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<GetEventBusOutcome>>();
+    GetEventBusAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const GetEventBusRequest&,
+        GetEventBusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+EbClient::GetPlatformEventTemplateOutcome EbClient::GetPlatformEventTemplate(const GetPlatformEventTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetPlatformEventTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetPlatformEventTemplateResponse rsp = GetPlatformEventTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetPlatformEventTemplateOutcome(rsp);
+        else
+            return GetPlatformEventTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return GetPlatformEventTemplateOutcome(outcome.GetError());
+    }
+}
+
+void EbClient::GetPlatformEventTemplateAsync(const GetPlatformEventTemplateRequest& request, const GetPlatformEventTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetPlatformEventTemplateRequest&;
+    using Resp = GetPlatformEventTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetPlatformEventTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EbClient::GetPlatformEventTemplateOutcomeCallable EbClient::GetPlatformEventTemplateCallable(const GetPlatformEventTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetPlatformEventTemplateOutcome>>();
+    GetPlatformEventTemplateAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const GetPlatformEventTemplateRequest&,
+        GetPlatformEventTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::GetRuleOutcome EbClient::GetRule(const GetRuleRequest &request)
@@ -621,25 +812,32 @@ EbClient::GetRuleOutcome EbClient::GetRule(const GetRuleRequest &request)
 
 void EbClient::GetRuleAsync(const GetRuleRequest& request, const GetRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetRule(request), context);
-    };
+    using Req = const GetRuleRequest&;
+    using Resp = GetRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::GetRuleOutcomeCallable EbClient::GetRuleCallable(const GetRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->GetRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GetRuleOutcome>>();
+    GetRuleAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const GetRuleRequest&,
+        GetRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::GetTransformationOutcome EbClient::GetTransformation(const GetTransformationRequest &request)
@@ -664,25 +862,32 @@ EbClient::GetTransformationOutcome EbClient::GetTransformation(const GetTransfor
 
 void EbClient::GetTransformationAsync(const GetTransformationRequest& request, const GetTransformationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetTransformation(request), context);
-    };
+    using Req = const GetTransformationRequest&;
+    using Resp = GetTransformationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetTransformation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::GetTransformationOutcomeCallable EbClient::GetTransformationCallable(const GetTransformationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetTransformationOutcome()>>(
-        [this, request]()
-        {
-            return this->GetTransformation(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GetTransformationOutcome>>();
+    GetTransformationAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const GetTransformationRequest&,
+        GetTransformationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::ListConnectionsOutcome EbClient::ListConnections(const ListConnectionsRequest &request)
@@ -707,25 +912,32 @@ EbClient::ListConnectionsOutcome EbClient::ListConnections(const ListConnections
 
 void EbClient::ListConnectionsAsync(const ListConnectionsRequest& request, const ListConnectionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListConnections(request), context);
-    };
+    using Req = const ListConnectionsRequest&;
+    using Resp = ListConnectionsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListConnections", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::ListConnectionsOutcomeCallable EbClient::ListConnectionsCallable(const ListConnectionsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListConnectionsOutcome()>>(
-        [this, request]()
-        {
-            return this->ListConnections(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ListConnectionsOutcome>>();
+    ListConnectionsAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const ListConnectionsRequest&,
+        ListConnectionsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::ListEventBusesOutcome EbClient::ListEventBuses(const ListEventBusesRequest &request)
@@ -750,25 +962,182 @@ EbClient::ListEventBusesOutcome EbClient::ListEventBuses(const ListEventBusesReq
 
 void EbClient::ListEventBusesAsync(const ListEventBusesRequest& request, const ListEventBusesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListEventBuses(request), context);
-    };
+    using Req = const ListEventBusesRequest&;
+    using Resp = ListEventBusesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListEventBuses", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::ListEventBusesOutcomeCallable EbClient::ListEventBusesCallable(const ListEventBusesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListEventBusesOutcome()>>(
-        [this, request]()
-        {
-            return this->ListEventBuses(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<ListEventBusesOutcome>>();
+    ListEventBusesAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const ListEventBusesRequest&,
+        ListEventBusesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+EbClient::ListPlatformEventNamesOutcome EbClient::ListPlatformEventNames(const ListPlatformEventNamesRequest &request)
+{
+    auto outcome = MakeRequest(request, "ListPlatformEventNames");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ListPlatformEventNamesResponse rsp = ListPlatformEventNamesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ListPlatformEventNamesOutcome(rsp);
+        else
+            return ListPlatformEventNamesOutcome(o.GetError());
+    }
+    else
+    {
+        return ListPlatformEventNamesOutcome(outcome.GetError());
+    }
+}
+
+void EbClient::ListPlatformEventNamesAsync(const ListPlatformEventNamesRequest& request, const ListPlatformEventNamesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ListPlatformEventNamesRequest&;
+    using Resp = ListPlatformEventNamesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ListPlatformEventNames", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EbClient::ListPlatformEventNamesOutcomeCallable EbClient::ListPlatformEventNamesCallable(const ListPlatformEventNamesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ListPlatformEventNamesOutcome>>();
+    ListPlatformEventNamesAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const ListPlatformEventNamesRequest&,
+        ListPlatformEventNamesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EbClient::ListPlatformEventPatternsOutcome EbClient::ListPlatformEventPatterns(const ListPlatformEventPatternsRequest &request)
+{
+    auto outcome = MakeRequest(request, "ListPlatformEventPatterns");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ListPlatformEventPatternsResponse rsp = ListPlatformEventPatternsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ListPlatformEventPatternsOutcome(rsp);
+        else
+            return ListPlatformEventPatternsOutcome(o.GetError());
+    }
+    else
+    {
+        return ListPlatformEventPatternsOutcome(outcome.GetError());
+    }
+}
+
+void EbClient::ListPlatformEventPatternsAsync(const ListPlatformEventPatternsRequest& request, const ListPlatformEventPatternsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ListPlatformEventPatternsRequest&;
+    using Resp = ListPlatformEventPatternsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ListPlatformEventPatterns", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EbClient::ListPlatformEventPatternsOutcomeCallable EbClient::ListPlatformEventPatternsCallable(const ListPlatformEventPatternsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ListPlatformEventPatternsOutcome>>();
+    ListPlatformEventPatternsAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const ListPlatformEventPatternsRequest&,
+        ListPlatformEventPatternsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EbClient::ListPlatformProductsOutcome EbClient::ListPlatformProducts(const ListPlatformProductsRequest &request)
+{
+    auto outcome = MakeRequest(request, "ListPlatformProducts");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ListPlatformProductsResponse rsp = ListPlatformProductsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ListPlatformProductsOutcome(rsp);
+        else
+            return ListPlatformProductsOutcome(o.GetError());
+    }
+    else
+    {
+        return ListPlatformProductsOutcome(outcome.GetError());
+    }
+}
+
+void EbClient::ListPlatformProductsAsync(const ListPlatformProductsRequest& request, const ListPlatformProductsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ListPlatformProductsRequest&;
+    using Resp = ListPlatformProductsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ListPlatformProducts", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EbClient::ListPlatformProductsOutcomeCallable EbClient::ListPlatformProductsCallable(const ListPlatformProductsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ListPlatformProductsOutcome>>();
+    ListPlatformProductsAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const ListPlatformProductsRequest&,
+        ListPlatformProductsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::ListRulesOutcome EbClient::ListRules(const ListRulesRequest &request)
@@ -793,25 +1162,32 @@ EbClient::ListRulesOutcome EbClient::ListRules(const ListRulesRequest &request)
 
 void EbClient::ListRulesAsync(const ListRulesRequest& request, const ListRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListRules(request), context);
-    };
+    using Req = const ListRulesRequest&;
+    using Resp = ListRulesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListRules", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::ListRulesOutcomeCallable EbClient::ListRulesCallable(const ListRulesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListRulesOutcome()>>(
-        [this, request]()
-        {
-            return this->ListRules(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ListRulesOutcome>>();
+    ListRulesAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const ListRulesRequest&,
+        ListRulesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::ListTargetsOutcome EbClient::ListTargets(const ListTargetsRequest &request)
@@ -836,25 +1212,32 @@ EbClient::ListTargetsOutcome EbClient::ListTargets(const ListTargetsRequest &req
 
 void EbClient::ListTargetsAsync(const ListTargetsRequest& request, const ListTargetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ListTargets(request), context);
-    };
+    using Req = const ListTargetsRequest&;
+    using Resp = ListTargetsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ListTargets", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::ListTargetsOutcomeCallable EbClient::ListTargetsCallable(const ListTargetsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ListTargetsOutcome()>>(
-        [this, request]()
-        {
-            return this->ListTargets(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ListTargetsOutcome>>();
+    ListTargetsAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const ListTargetsRequest&,
+        ListTargetsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::PublishEventOutcome EbClient::PublishEvent(const PublishEventRequest &request)
@@ -879,25 +1262,32 @@ EbClient::PublishEventOutcome EbClient::PublishEvent(const PublishEventRequest &
 
 void EbClient::PublishEventAsync(const PublishEventRequest& request, const PublishEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PublishEvent(request), context);
-    };
+    using Req = const PublishEventRequest&;
+    using Resp = PublishEventResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "PublishEvent", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::PublishEventOutcomeCallable EbClient::PublishEventCallable(const PublishEventRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<PublishEventOutcome()>>(
-        [this, request]()
-        {
-            return this->PublishEvent(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<PublishEventOutcome>>();
+    PublishEventAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const PublishEventRequest&,
+        PublishEventOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::PutEventsOutcome EbClient::PutEvents(const PutEventsRequest &request)
@@ -922,25 +1312,82 @@ EbClient::PutEventsOutcome EbClient::PutEvents(const PutEventsRequest &request)
 
 void EbClient::PutEventsAsync(const PutEventsRequest& request, const PutEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->PutEvents(request), context);
-    };
+    using Req = const PutEventsRequest&;
+    using Resp = PutEventsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "PutEvents", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::PutEventsOutcomeCallable EbClient::PutEventsCallable(const PutEventsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<PutEventsOutcome()>>(
-        [this, request]()
-        {
-            return this->PutEvents(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<PutEventsOutcome>>();
+    PutEventsAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const PutEventsRequest&,
+        PutEventsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+EbClient::SearchLogOutcome EbClient::SearchLog(const SearchLogRequest &request)
+{
+    auto outcome = MakeRequest(request, "SearchLog");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        SearchLogResponse rsp = SearchLogResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return SearchLogOutcome(rsp);
+        else
+            return SearchLogOutcome(o.GetError());
+    }
+    else
+    {
+        return SearchLogOutcome(outcome.GetError());
+    }
+}
+
+void EbClient::SearchLogAsync(const SearchLogRequest& request, const SearchLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const SearchLogRequest&;
+    using Resp = SearchLogResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "SearchLog", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EbClient::SearchLogOutcomeCallable EbClient::SearchLogCallable(const SearchLogRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<SearchLogOutcome>>();
+    SearchLogAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const SearchLogRequest&,
+        SearchLogOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::UpdateConnectionOutcome EbClient::UpdateConnection(const UpdateConnectionRequest &request)
@@ -965,25 +1412,32 @@ EbClient::UpdateConnectionOutcome EbClient::UpdateConnection(const UpdateConnect
 
 void EbClient::UpdateConnectionAsync(const UpdateConnectionRequest& request, const UpdateConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateConnection(request), context);
-    };
+    using Req = const UpdateConnectionRequest&;
+    using Resp = UpdateConnectionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateConnection", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::UpdateConnectionOutcomeCallable EbClient::UpdateConnectionCallable(const UpdateConnectionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateConnectionOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateConnection(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateConnectionOutcome>>();
+    UpdateConnectionAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const UpdateConnectionRequest&,
+        UpdateConnectionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::UpdateEventBusOutcome EbClient::UpdateEventBus(const UpdateEventBusRequest &request)
@@ -1008,25 +1462,32 @@ EbClient::UpdateEventBusOutcome EbClient::UpdateEventBus(const UpdateEventBusReq
 
 void EbClient::UpdateEventBusAsync(const UpdateEventBusRequest& request, const UpdateEventBusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateEventBus(request), context);
-    };
+    using Req = const UpdateEventBusRequest&;
+    using Resp = UpdateEventBusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateEventBus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::UpdateEventBusOutcomeCallable EbClient::UpdateEventBusCallable(const UpdateEventBusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateEventBusOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateEventBus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateEventBusOutcome>>();
+    UpdateEventBusAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const UpdateEventBusRequest&,
+        UpdateEventBusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::UpdateRuleOutcome EbClient::UpdateRule(const UpdateRuleRequest &request)
@@ -1051,25 +1512,32 @@ EbClient::UpdateRuleOutcome EbClient::UpdateRule(const UpdateRuleRequest &reques
 
 void EbClient::UpdateRuleAsync(const UpdateRuleRequest& request, const UpdateRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateRule(request), context);
-    };
+    using Req = const UpdateRuleRequest&;
+    using Resp = UpdateRuleResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::UpdateRuleOutcomeCallable EbClient::UpdateRuleCallable(const UpdateRuleRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateRuleOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateRule(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateRuleOutcome>>();
+    UpdateRuleAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const UpdateRuleRequest&,
+        UpdateRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::UpdateTargetOutcome EbClient::UpdateTarget(const UpdateTargetRequest &request)
@@ -1094,25 +1562,32 @@ EbClient::UpdateTargetOutcome EbClient::UpdateTarget(const UpdateTargetRequest &
 
 void EbClient::UpdateTargetAsync(const UpdateTargetRequest& request, const UpdateTargetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateTarget(request), context);
-    };
+    using Req = const UpdateTargetRequest&;
+    using Resp = UpdateTargetResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateTarget", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::UpdateTargetOutcomeCallable EbClient::UpdateTargetCallable(const UpdateTargetRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateTargetOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateTarget(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateTargetOutcome>>();
+    UpdateTargetAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const UpdateTargetRequest&,
+        UpdateTargetOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 EbClient::UpdateTransformationOutcome EbClient::UpdateTransformation(const UpdateTransformationRequest &request)
@@ -1137,24 +1612,31 @@ EbClient::UpdateTransformationOutcome EbClient::UpdateTransformation(const Updat
 
 void EbClient::UpdateTransformationAsync(const UpdateTransformationRequest& request, const UpdateTransformationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->UpdateTransformation(request), context);
-    };
+    using Req = const UpdateTransformationRequest&;
+    using Resp = UpdateTransformationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "UpdateTransformation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 EbClient::UpdateTransformationOutcomeCallable EbClient::UpdateTransformationCallable(const UpdateTransformationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<UpdateTransformationOutcome()>>(
-        [this, request]()
-        {
-            return this->UpdateTransformation(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<UpdateTransformationOutcome>>();
+    UpdateTransformationAsync(
+    request,
+    [prom](
+        const EbClient*,
+        const UpdateTransformationRequest&,
+        UpdateTransformationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

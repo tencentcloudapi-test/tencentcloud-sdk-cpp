@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取镜像ID列表。
                      * @return ImageIDSet 镜像ID列表。
+                     * 
                      */
                     std::vector<std::string> GetImageIDSet() const;
 
                     /**
                      * 设置镜像ID列表。
-                     * @param ImageIDSet 镜像ID列表。
+                     * @param _imageIDSet 镜像ID列表。
+                     * 
                      */
                     void SetImageIDSet(const std::vector<std::string>& _imageIDSet);
 
                     /**
                      * 判断参数 ImageIDSet 是否已赋值
                      * @return ImageIDSet 是否已赋值
+                     * 
                      */
                     bool ImageIDSetHasBeenSet() const;
 

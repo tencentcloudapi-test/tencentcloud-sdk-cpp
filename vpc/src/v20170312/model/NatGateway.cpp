@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,12 @@ NatGateway::NatGateway() :
     m_securityGroupSetHasBeenSet(false),
     m_sourceIpTranslationNatRuleSetHasBeenSet(false),
     m_isExclusiveHasBeenSet(false),
-    m_exclusiveGatewayBandwidthHasBeenSet(false)
+    m_exclusiveGatewayBandwidthHasBeenSet(false),
+    m_restrictStateHasBeenSet(false),
+    m_natProductVersionHasBeenSet(false),
+    m_smartScheduleModeHasBeenSet(false),
+    m_dedicatedClusterIdHasBeenSet(false),
+    m_deletionProtectionEnabledHasBeenSet(false)
 {
 }
 
@@ -273,6 +278,56 @@ CoreInternalOutcome NatGateway::Deserialize(const rapidjson::Value &value)
         m_exclusiveGatewayBandwidthHasBeenSet = true;
     }
 
+    if (value.HasMember("RestrictState") && !value["RestrictState"].IsNull())
+    {
+        if (!value["RestrictState"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.RestrictState` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_restrictState = string(value["RestrictState"].GetString());
+        m_restrictStateHasBeenSet = true;
+    }
+
+    if (value.HasMember("NatProductVersion") && !value["NatProductVersion"].IsNull())
+    {
+        if (!value["NatProductVersion"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.NatProductVersion` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_natProductVersion = value["NatProductVersion"].GetUint64();
+        m_natProductVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("SmartScheduleMode") && !value["SmartScheduleMode"].IsNull())
+    {
+        if (!value["SmartScheduleMode"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.SmartScheduleMode` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_smartScheduleMode = value["SmartScheduleMode"].GetBool();
+        m_smartScheduleModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("DedicatedClusterId") && !value["DedicatedClusterId"].IsNull())
+    {
+        if (!value["DedicatedClusterId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.DedicatedClusterId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dedicatedClusterId = string(value["DedicatedClusterId"].GetString());
+        m_dedicatedClusterIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeletionProtectionEnabled") && !value["DeletionProtectionEnabled"].IsNull())
+    {
+        if (!value["DeletionProtectionEnabled"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.DeletionProtectionEnabled` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_deletionProtectionEnabled = value["DeletionProtectionEnabled"].GetBool();
+        m_deletionProtectionEnabledHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -460,6 +515,46 @@ void NatGateway::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "ExclusiveGatewayBandwidth";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_exclusiveGatewayBandwidth, allocator);
+    }
+
+    if (m_restrictStateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RestrictState";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_restrictState.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_natProductVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NatProductVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_natProductVersion, allocator);
+    }
+
+    if (m_smartScheduleModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SmartScheduleMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_smartScheduleMode, allocator);
+    }
+
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deletionProtectionEnabledHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeletionProtectionEnabled";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deletionProtectionEnabled, allocator);
     }
 
 }
@@ -751,5 +846,85 @@ void NatGateway::SetExclusiveGatewayBandwidth(const uint64_t& _exclusiveGatewayB
 bool NatGateway::ExclusiveGatewayBandwidthHasBeenSet() const
 {
     return m_exclusiveGatewayBandwidthHasBeenSet;
+}
+
+string NatGateway::GetRestrictState() const
+{
+    return m_restrictState;
+}
+
+void NatGateway::SetRestrictState(const string& _restrictState)
+{
+    m_restrictState = _restrictState;
+    m_restrictStateHasBeenSet = true;
+}
+
+bool NatGateway::RestrictStateHasBeenSet() const
+{
+    return m_restrictStateHasBeenSet;
+}
+
+uint64_t NatGateway::GetNatProductVersion() const
+{
+    return m_natProductVersion;
+}
+
+void NatGateway::SetNatProductVersion(const uint64_t& _natProductVersion)
+{
+    m_natProductVersion = _natProductVersion;
+    m_natProductVersionHasBeenSet = true;
+}
+
+bool NatGateway::NatProductVersionHasBeenSet() const
+{
+    return m_natProductVersionHasBeenSet;
+}
+
+bool NatGateway::GetSmartScheduleMode() const
+{
+    return m_smartScheduleMode;
+}
+
+void NatGateway::SetSmartScheduleMode(const bool& _smartScheduleMode)
+{
+    m_smartScheduleMode = _smartScheduleMode;
+    m_smartScheduleModeHasBeenSet = true;
+}
+
+bool NatGateway::SmartScheduleModeHasBeenSet() const
+{
+    return m_smartScheduleModeHasBeenSet;
+}
+
+string NatGateway::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void NatGateway::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool NatGateway::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
+}
+
+bool NatGateway::GetDeletionProtectionEnabled() const
+{
+    return m_deletionProtectionEnabled;
+}
+
+void NatGateway::SetDeletionProtectionEnabled(const bool& _deletionProtectionEnabled)
+{
+    m_deletionProtectionEnabled = _deletionProtectionEnabled;
+    m_deletionProtectionEnabledHasBeenSet = true;
+}
+
+bool NatGateway::DeletionProtectionEnabledHasBeenSet() const
+{
+    return m_deletionProtectionEnabledHasBeenSet;
 }
 

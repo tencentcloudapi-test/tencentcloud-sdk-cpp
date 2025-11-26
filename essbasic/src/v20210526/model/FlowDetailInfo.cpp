@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,11 @@ FlowDetailInfo::FlowDetailInfo() :
     m_createOnHasBeenSet(false),
     m_deadLineHasBeenSet(false),
     m_customDataHasBeenSet(false),
-    m_flowApproverInfosHasBeenSet(false)
+    m_flowApproverInfosHasBeenSet(false),
+    m_ccInfosHasBeenSet(false),
+    m_needCreateReviewHasBeenSet(false),
+    m_userFlowTypeHasBeenSet(false),
+    m_templateIdHasBeenSet(false)
 {
 }
 
@@ -138,6 +142,63 @@ CoreInternalOutcome FlowDetailInfo::Deserialize(const rapidjson::Value &value)
         m_flowApproverInfosHasBeenSet = true;
     }
 
+    if (value.HasMember("CcInfos") && !value["CcInfos"].IsNull())
+    {
+        if (!value["CcInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `FlowDetailInfo.CcInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CcInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            FlowApproverDetail item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_ccInfos.push_back(item);
+        }
+        m_ccInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("NeedCreateReview") && !value["NeedCreateReview"].IsNull())
+    {
+        if (!value["NeedCreateReview"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowDetailInfo.NeedCreateReview` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_needCreateReview = value["NeedCreateReview"].GetBool();
+        m_needCreateReviewHasBeenSet = true;
+    }
+
+    if (value.HasMember("UserFlowType") && !value["UserFlowType"].IsNull())
+    {
+        if (!value["UserFlowType"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowDetailInfo.UserFlowType` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_userFlowType.Deserialize(value["UserFlowType"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_userFlowTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("TemplateId") && !value["TemplateId"].IsNull())
+    {
+        if (!value["TemplateId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowDetailInfo.TemplateId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_templateId = string(value["TemplateId"].GetString());
+        m_templateIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -222,6 +283,46 @@ void FlowDetailInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_ccInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CcInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_ccInfos.begin(); itr != m_ccInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_needCreateReviewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NeedCreateReview";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_needCreateReview, allocator);
+    }
+
+    if (m_userFlowTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserFlowType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_userFlowType.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_templateIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TemplateId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_templateId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -369,5 +470,69 @@ void FlowDetailInfo::SetFlowApproverInfos(const vector<FlowApproverDetail>& _flo
 bool FlowDetailInfo::FlowApproverInfosHasBeenSet() const
 {
     return m_flowApproverInfosHasBeenSet;
+}
+
+vector<FlowApproverDetail> FlowDetailInfo::GetCcInfos() const
+{
+    return m_ccInfos;
+}
+
+void FlowDetailInfo::SetCcInfos(const vector<FlowApproverDetail>& _ccInfos)
+{
+    m_ccInfos = _ccInfos;
+    m_ccInfosHasBeenSet = true;
+}
+
+bool FlowDetailInfo::CcInfosHasBeenSet() const
+{
+    return m_ccInfosHasBeenSet;
+}
+
+bool FlowDetailInfo::GetNeedCreateReview() const
+{
+    return m_needCreateReview;
+}
+
+void FlowDetailInfo::SetNeedCreateReview(const bool& _needCreateReview)
+{
+    m_needCreateReview = _needCreateReview;
+    m_needCreateReviewHasBeenSet = true;
+}
+
+bool FlowDetailInfo::NeedCreateReviewHasBeenSet() const
+{
+    return m_needCreateReviewHasBeenSet;
+}
+
+UserFlowType FlowDetailInfo::GetUserFlowType() const
+{
+    return m_userFlowType;
+}
+
+void FlowDetailInfo::SetUserFlowType(const UserFlowType& _userFlowType)
+{
+    m_userFlowType = _userFlowType;
+    m_userFlowTypeHasBeenSet = true;
+}
+
+bool FlowDetailInfo::UserFlowTypeHasBeenSet() const
+{
+    return m_userFlowTypeHasBeenSet;
+}
+
+string FlowDetailInfo::GetTemplateId() const
+{
+    return m_templateId;
+}
+
+void FlowDetailInfo::SetTemplateId(const string& _templateId)
+{
+    m_templateId = _templateId;
+    m_templateIdHasBeenSet = true;
+}
+
+bool FlowDetailInfo::TemplateIdHasBeenSet() const
+{
+    return m_templateIdHasBeenSet;
 }
 

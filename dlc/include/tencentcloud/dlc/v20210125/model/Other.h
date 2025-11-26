@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取枚举类型，默认值为Json，可选值为[Json, Parquet, ORC, AVRD]之一。
                      * @return Format 枚举类型，默认值为Json，可选值为[Json, Parquet, ORC, AVRD]之一。
+                     * 
                      */
                     std::string GetFormat() const;
 
                     /**
                      * 设置枚举类型，默认值为Json，可选值为[Json, Parquet, ORC, AVRD]之一。
-                     * @param Format 枚举类型，默认值为Json，可选值为[Json, Parquet, ORC, AVRD]之一。
+                     * @param _format 枚举类型，默认值为Json，可选值为[Json, Parquet, ORC, AVRD]之一。
+                     * 
                      */
                     void SetFormat(const std::string& _format);
 
                     /**
                      * 判断参数 Format 是否已赋值
                      * @return Format 是否已赋值
+                     * 
                      */
                     bool FormatHasBeenSet() const;
 

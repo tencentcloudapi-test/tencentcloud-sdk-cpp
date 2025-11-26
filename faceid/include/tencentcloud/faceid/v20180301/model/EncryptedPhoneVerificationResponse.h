@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,8 +46,8 @@ namespace TencentCloud
                     /**
                      * 获取认证结果码:
 【收费结果码】
-0: 认证通过
--4: 信息不一致
+0:   三要素信息一致
+-4:  三要素信息不一致
 
 【不收费结果码】
 -7: 身份证号码有误
@@ -56,42 +56,62 @@ namespace TencentCloud
 -11: 验证中心服务繁忙
                      * @return Result 认证结果码:
 【收费结果码】
-0: 认证通过
--4: 信息不一致
+0:   三要素信息一致
+-4:  三要素信息不一致
 
 【不收费结果码】
 -7: 身份证号码有误
 -8: 参数错误
 -9: 没有记录
 -11: 验证中心服务繁忙
+                     * 
                      */
                     std::string GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
                      * 获取业务结果描述。
                      * @return Description 业务结果描述。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
+
+                    /**
+                     * 获取运营商名称。
+取值范围为["移动","联通","电信",""]
+                     * @return ISP 运营商名称。
+取值范围为["移动","联通","电信",""]
+                     * 
+                     */
+                    std::string GetISP() const;
+
+                    /**
+                     * 判断参数 ISP 是否已赋值
+                     * @return ISP 是否已赋值
+                     * 
+                     */
+                    bool ISPHasBeenSet() const;
 
                 private:
 
                     /**
                      * 认证结果码:
 【收费结果码】
-0: 认证通过
--4: 信息不一致
+0:   三要素信息一致
+-4:  三要素信息不一致
 
 【不收费结果码】
 -7: 身份证号码有误
@@ -107,6 +127,13 @@ namespace TencentCloud
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
+
+                    /**
+                     * 运营商名称。
+取值范围为["移动","联通","电信",""]
+                     */
+                    std::string m_iSP;
+                    bool m_iSPHasBeenSet;
 
                 };
             }

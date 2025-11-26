@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,13 @@ CreateClusterNodePoolRequest::CreateClusterNodePoolRequest() :
     m_nameHasBeenSet(false),
     m_labelsHasBeenSet(false),
     m_taintsHasBeenSet(false),
+    m_annotationsHasBeenSet(false),
+    m_containerRuntimeHasBeenSet(false),
+    m_runtimeVersionHasBeenSet(false),
     m_nodePoolOsHasBeenSet(false),
     m_osCustomizeTypeHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_deletionProtectionHasBeenSet(false)
 {
 }
 
@@ -123,6 +127,37 @@ string CreateClusterNodePoolRequest::ToJsonString() const
         }
     }
 
+    if (m_annotationsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Annotations";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_annotations.begin(); itr != m_annotations.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_containerRuntimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerRuntime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_containerRuntime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_runtimeVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuntimeVersion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_runtimeVersion.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_nodePoolOsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -152,6 +187,14 @@ string CreateClusterNodePoolRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_deletionProtectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeletionProtection";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_deletionProtection, allocator);
     }
 
 
@@ -290,6 +333,54 @@ bool CreateClusterNodePoolRequest::TaintsHasBeenSet() const
     return m_taintsHasBeenSet;
 }
 
+vector<AnnotationValue> CreateClusterNodePoolRequest::GetAnnotations() const
+{
+    return m_annotations;
+}
+
+void CreateClusterNodePoolRequest::SetAnnotations(const vector<AnnotationValue>& _annotations)
+{
+    m_annotations = _annotations;
+    m_annotationsHasBeenSet = true;
+}
+
+bool CreateClusterNodePoolRequest::AnnotationsHasBeenSet() const
+{
+    return m_annotationsHasBeenSet;
+}
+
+string CreateClusterNodePoolRequest::GetContainerRuntime() const
+{
+    return m_containerRuntime;
+}
+
+void CreateClusterNodePoolRequest::SetContainerRuntime(const string& _containerRuntime)
+{
+    m_containerRuntime = _containerRuntime;
+    m_containerRuntimeHasBeenSet = true;
+}
+
+bool CreateClusterNodePoolRequest::ContainerRuntimeHasBeenSet() const
+{
+    return m_containerRuntimeHasBeenSet;
+}
+
+string CreateClusterNodePoolRequest::GetRuntimeVersion() const
+{
+    return m_runtimeVersion;
+}
+
+void CreateClusterNodePoolRequest::SetRuntimeVersion(const string& _runtimeVersion)
+{
+    m_runtimeVersion = _runtimeVersion;
+    m_runtimeVersionHasBeenSet = true;
+}
+
+bool CreateClusterNodePoolRequest::RuntimeVersionHasBeenSet() const
+{
+    return m_runtimeVersionHasBeenSet;
+}
+
 string CreateClusterNodePoolRequest::GetNodePoolOs() const
 {
     return m_nodePoolOs;
@@ -336,6 +427,22 @@ void CreateClusterNodePoolRequest::SetTags(const vector<Tag>& _tags)
 bool CreateClusterNodePoolRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+bool CreateClusterNodePoolRequest::GetDeletionProtection() const
+{
+    return m_deletionProtection;
+}
+
+void CreateClusterNodePoolRequest::SetDeletionProtection(const bool& _deletionProtection)
+{
+    m_deletionProtection = _deletionProtection;
+    m_deletionProtectionHasBeenSet = true;
+}
+
+bool CreateClusterNodePoolRequest::DeletionProtectionHasBeenSet() const
+{
+    return m_deletionProtectionHasBeenSet;
 }
 
 

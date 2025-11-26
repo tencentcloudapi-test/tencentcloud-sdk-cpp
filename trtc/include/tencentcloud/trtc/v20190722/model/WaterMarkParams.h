@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,108 +49,126 @@ namespace TencentCloud
                     /**
                      * 获取混流-水印图片ID。取值为实时音视频控制台上传的图片ID。
                      * @return WaterMarkId 混流-水印图片ID。取值为实时音视频控制台上传的图片ID。
+                     * 
                      */
                     uint64_t GetWaterMarkId() const;
 
                     /**
                      * 设置混流-水印图片ID。取值为实时音视频控制台上传的图片ID。
-                     * @param WaterMarkId 混流-水印图片ID。取值为实时音视频控制台上传的图片ID。
+                     * @param _waterMarkId 混流-水印图片ID。取值为实时音视频控制台上传的图片ID。
+                     * 
                      */
                     void SetWaterMarkId(const uint64_t& _waterMarkId);
 
                     /**
                      * 判断参数 WaterMarkId 是否已赋值
                      * @return WaterMarkId 是否已赋值
+                     * 
                      */
                     bool WaterMarkIdHasBeenSet() const;
 
                     /**
-                     * 获取混流-水印宽。单位为像素值。
-                     * @return WaterMarkWidth 混流-水印宽。单位为像素值。
+                     * 获取混流-水印宽。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * @return WaterMarkWidth 混流-水印宽。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * 
                      */
                     uint64_t GetWaterMarkWidth() const;
 
                     /**
-                     * 设置混流-水印宽。单位为像素值。
-                     * @param WaterMarkWidth 混流-水印宽。单位为像素值。
+                     * 设置混流-水印宽。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * @param _waterMarkWidth 混流-水印宽。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * 
                      */
                     void SetWaterMarkWidth(const uint64_t& _waterMarkWidth);
 
                     /**
                      * 判断参数 WaterMarkWidth 是否已赋值
                      * @return WaterMarkWidth 是否已赋值
+                     * 
                      */
                     bool WaterMarkWidthHasBeenSet() const;
 
                     /**
-                     * 获取混流-水印高。单位为像素值。
-                     * @return WaterMarkHeight 混流-水印高。单位为像素值。
+                     * 获取混流-水印高。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * @return WaterMarkHeight 混流-水印高。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * 
                      */
                     uint64_t GetWaterMarkHeight() const;
 
                     /**
-                     * 设置混流-水印高。单位为像素值。
-                     * @param WaterMarkHeight 混流-水印高。单位为像素值。
+                     * 设置混流-水印高。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * @param _waterMarkHeight 混流-水印高。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * 
                      */
                     void SetWaterMarkHeight(const uint64_t& _waterMarkHeight);
 
                     /**
                      * 判断参数 WaterMarkHeight 是否已赋值
                      * @return WaterMarkHeight 是否已赋值
+                     * 
                      */
                     bool WaterMarkHeightHasBeenSet() const;
 
                     /**
-                     * 获取水印在输出时的X偏移。单位为像素值。
-                     * @return LocationX 水印在输出时的X偏移。单位为像素值。
+                     * 获取水印在输出时的X偏移。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * @return LocationX 水印在输出时的X偏移。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * 
                      */
                     uint64_t GetLocationX() const;
 
                     /**
-                     * 设置水印在输出时的X偏移。单位为像素值。
-                     * @param LocationX 水印在输出时的X偏移。单位为像素值。
+                     * 设置水印在输出时的X偏移。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * @param _locationX 水印在输出时的X偏移。单位为像素值。水印宽+X偏移不能超过整个画布宽。
+                     * 
                      */
                     void SetLocationX(const uint64_t& _locationX);
 
                     /**
                      * 判断参数 LocationX 是否已赋值
                      * @return LocationX 是否已赋值
+                     * 
                      */
                     bool LocationXHasBeenSet() const;
 
                     /**
-                     * 获取水印在输出时的Y偏移。单位为像素值。
-                     * @return LocationY 水印在输出时的Y偏移。单位为像素值。
+                     * 获取水印在输出时的Y偏移。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * @return LocationY 水印在输出时的Y偏移。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * 
                      */
                     uint64_t GetLocationY() const;
 
                     /**
-                     * 设置水印在输出时的Y偏移。单位为像素值。
-                     * @param LocationY 水印在输出时的Y偏移。单位为像素值。
+                     * 设置水印在输出时的Y偏移。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * @param _locationY 水印在输出时的Y偏移。单位为像素值。水印高+Y偏移不能超过整个画布高。
+                     * 
                      */
                     void SetLocationY(const uint64_t& _locationY);
 
                     /**
                      * 判断参数 LocationY 是否已赋值
                      * @return LocationY 是否已赋值
+                     * 
                      */
                     bool LocationYHasBeenSet() const;
 
                     /**
-                     * 获取混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过10MB。
-                     * @return WaterMarkUrl 混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过10MB。
+                     * 获取混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过2MB。
+                     * @return WaterMarkUrl 混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过2MB。
+                     * 
                      */
                     std::string GetWaterMarkUrl() const;
 
                     /**
-                     * 设置混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过10MB。
-                     * @param WaterMarkUrl 混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过10MB。
+                     * 设置混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过2MB。
+                     * @param _waterMarkUrl 混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过2MB。
+                     * 
                      */
                     void SetWaterMarkUrl(const std::string& _waterMarkUrl);
 
                     /**
                      * 判断参数 WaterMarkUrl 是否已赋值
                      * @return WaterMarkUrl 是否已赋值
+                     * 
                      */
                     bool WaterMarkUrlHasBeenSet() const;
 
@@ -163,31 +181,31 @@ namespace TencentCloud
                     bool m_waterMarkIdHasBeenSet;
 
                     /**
-                     * 混流-水印宽。单位为像素值。
+                     * 混流-水印宽。单位为像素值。水印宽+X偏移不能超过整个画布宽。
                      */
                     uint64_t m_waterMarkWidth;
                     bool m_waterMarkWidthHasBeenSet;
 
                     /**
-                     * 混流-水印高。单位为像素值。
+                     * 混流-水印高。单位为像素值。水印高+Y偏移不能超过整个画布高。
                      */
                     uint64_t m_waterMarkHeight;
                     bool m_waterMarkHeightHasBeenSet;
 
                     /**
-                     * 水印在输出时的X偏移。单位为像素值。
+                     * 水印在输出时的X偏移。单位为像素值。水印宽+X偏移不能超过整个画布宽。
                      */
                     uint64_t m_locationX;
                     bool m_locationXHasBeenSet;
 
                     /**
-                     * 水印在输出时的Y偏移。单位为像素值。
+                     * 水印在输出时的Y偏移。单位为像素值。水印高+Y偏移不能超过整个画布高。
                      */
                     uint64_t m_locationY;
                     bool m_locationYHasBeenSet;
 
                     /**
-                     * 混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过10MB。
+                     * 混流-水印图片URL地址，支持png、jpg、jpeg、bmp格式，暂不支持透明通道。URL链接长度限制为512字节。WaterMarkUrl和WaterMarkId参数都填时，以WaterMarkUrl为准。图片大小限制不超过2MB。
                      */
                     std::string m_waterMarkUrl;
                     bool m_waterMarkUrlHasBeenSet;

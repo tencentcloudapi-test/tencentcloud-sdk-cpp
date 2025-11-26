@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取计费区域，mainland或overseas。
                      * @return Area 计费区域，mainland或overseas。
+                     * 
                      */
                     std::string GetArea() const;
 
                     /**
                      * 设置计费区域，mainland或overseas。
-                     * @param Area 计费区域，mainland或overseas。
+                     * @param _area 计费区域，mainland或overseas。
+                     * 
                      */
                     void SetArea(const std::string& _area);
 
                     /**
                      * 判断参数 Area 是否已赋值
                      * @return Area 是否已赋值
+                     * 
                      */
                     bool AreaHasBeenSet() const;
 
                     /**
                      * 获取计费类型，flux或bandwidth。
                      * @return PayType 计费类型，flux或bandwidth。
+                     * 
                      */
                     std::string GetPayType() const;
 
                     /**
                      * 设置计费类型，flux或bandwidth。
-                     * @param PayType 计费类型，flux或bandwidth。
+                     * @param _payType 计费类型，flux或bandwidth。
+                     * 
                      */
                     void SetPayType(const std::string& _payType);
 
                     /**
                      * 判断参数 PayType 是否已赋值
                      * @return PayType 是否已赋值
+                     * 
                      */
                     bool PayTypeHasBeenSet() const;
 

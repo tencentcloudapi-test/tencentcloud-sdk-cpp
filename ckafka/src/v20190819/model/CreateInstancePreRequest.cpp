@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,11 @@ CreateInstancePreRequest::CreateInstancePreRequest() :
     m_tagsHasBeenSet(false),
     m_diskTypeHasBeenSet(false),
     m_multiZoneFlagHasBeenSet(false),
-    m_zoneIdsHasBeenSet(false)
+    m_zoneIdsHasBeenSet(false),
+    m_publicNetworkMonthlyHasBeenSet(false),
+    m_instanceNumHasBeenSet(false),
+    m_autoVoucherHasBeenSet(false),
+    m_elasticBandwidthSwitchHasBeenSet(false)
 {
 }
 
@@ -205,6 +209,38 @@ string CreateInstancePreRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
         }
+    }
+
+    if (m_publicNetworkMonthlyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PublicNetworkMonthly";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_publicNetworkMonthly, allocator);
+    }
+
+    if (m_instanceNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceNum";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_instanceNum, allocator);
+    }
+
+    if (m_autoVoucherHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoVoucher";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoVoucher, allocator);
+    }
+
+    if (m_elasticBandwidthSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ElasticBandwidthSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_elasticBandwidthSwitch, allocator);
     }
 
 
@@ -501,6 +537,70 @@ void CreateInstancePreRequest::SetZoneIds(const vector<int64_t>& _zoneIds)
 bool CreateInstancePreRequest::ZoneIdsHasBeenSet() const
 {
     return m_zoneIdsHasBeenSet;
+}
+
+int64_t CreateInstancePreRequest::GetPublicNetworkMonthly() const
+{
+    return m_publicNetworkMonthly;
+}
+
+void CreateInstancePreRequest::SetPublicNetworkMonthly(const int64_t& _publicNetworkMonthly)
+{
+    m_publicNetworkMonthly = _publicNetworkMonthly;
+    m_publicNetworkMonthlyHasBeenSet = true;
+}
+
+bool CreateInstancePreRequest::PublicNetworkMonthlyHasBeenSet() const
+{
+    return m_publicNetworkMonthlyHasBeenSet;
+}
+
+int64_t CreateInstancePreRequest::GetInstanceNum() const
+{
+    return m_instanceNum;
+}
+
+void CreateInstancePreRequest::SetInstanceNum(const int64_t& _instanceNum)
+{
+    m_instanceNum = _instanceNum;
+    m_instanceNumHasBeenSet = true;
+}
+
+bool CreateInstancePreRequest::InstanceNumHasBeenSet() const
+{
+    return m_instanceNumHasBeenSet;
+}
+
+int64_t CreateInstancePreRequest::GetAutoVoucher() const
+{
+    return m_autoVoucher;
+}
+
+void CreateInstancePreRequest::SetAutoVoucher(const int64_t& _autoVoucher)
+{
+    m_autoVoucher = _autoVoucher;
+    m_autoVoucherHasBeenSet = true;
+}
+
+bool CreateInstancePreRequest::AutoVoucherHasBeenSet() const
+{
+    return m_autoVoucherHasBeenSet;
+}
+
+int64_t CreateInstancePreRequest::GetElasticBandwidthSwitch() const
+{
+    return m_elasticBandwidthSwitch;
+}
+
+void CreateInstancePreRequest::SetElasticBandwidthSwitch(const int64_t& _elasticBandwidthSwitch)
+{
+    m_elasticBandwidthSwitch = _elasticBandwidthSwitch;
+    m_elasticBandwidthSwitchHasBeenSet = true;
+}
+
+bool CreateInstancePreRequest::ElasticBandwidthSwitchHasBeenSet() const
+{
+    return m_elasticBandwidthSwitchHasBeenSet;
 }
 
 

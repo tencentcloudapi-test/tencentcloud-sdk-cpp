@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return InstanceGroupId 实例组ID
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetInstanceGroupId() const;
 
                     /**
                      * 设置实例组ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstanceGroupId 实例组ID
+                     * @param _instanceGroupId 实例组ID
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetInstanceGroupId(const int64_t& _instanceGroupId);
 
                     /**
                      * 判断参数 InstanceGroupId 是否已赋值
                      * @return InstanceGroupId 是否已赋值
+                     * 
                      */
                     bool InstanceGroupIdHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return InstanceGroupName 实例组名
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInstanceGroupName() const;
 
                     /**
                      * 设置实例组名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstanceGroupName 实例组名
+                     * @param _instanceGroupName 实例组名
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetInstanceGroupName(const std::string& _instanceGroupName);
 
                     /**
                      * 判断参数 InstanceGroupName 是否已赋值
                      * @return InstanceGroupName 是否已赋值
+                     * 
                      */
                     bool InstanceGroupNameHasBeenSet() const;
 

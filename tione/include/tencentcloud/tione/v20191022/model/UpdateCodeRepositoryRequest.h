@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取查询存储库名称
                      * @return CodeRepositoryName 查询存储库名称
+                     * 
                      */
                     std::string GetCodeRepositoryName() const;
 
                     /**
                      * 设置查询存储库名称
-                     * @param CodeRepositoryName 查询存储库名称
+                     * @param _codeRepositoryName 查询存储库名称
+                     * 
                      */
                     void SetCodeRepositoryName(const std::string& _codeRepositoryName);
 
                     /**
                      * 判断参数 CodeRepositoryName 是否已赋值
                      * @return CodeRepositoryName 是否已赋值
+                     * 
                      */
                     bool CodeRepositoryNameHasBeenSet() const;
 
                     /**
                      * 获取Git凭证
                      * @return GitSecret Git凭证
+                     * 
                      */
                     GitSecret GetGitSecret() const;
 
                     /**
                      * 设置Git凭证
-                     * @param GitSecret Git凭证
+                     * @param _gitSecret Git凭证
+                     * 
                      */
                     void SetGitSecret(const GitSecret& _gitSecret);
 
                     /**
                      * 判断参数 GitSecret 是否已赋值
                      * @return GitSecret 是否已赋值
+                     * 
                      */
                     bool GitSecretHasBeenSet() const;
 

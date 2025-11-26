@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取标签键
                      * @return TagKey 标签键
+                     * 
                      */
                     std::string GetTagKey() const;
 
                     /**
                      * 设置标签键
-                     * @param TagKey 标签键
+                     * @param _tagKey 标签键
+                     * 
                      */
                     void SetTagKey(const std::string& _tagKey);
 
                     /**
                      * 判断参数 TagKey 是否已赋值
                      * @return TagKey 是否已赋值
+                     * 
                      */
                     bool TagKeyHasBeenSet() const;
 
                     /**
                      * 获取标签键对应的值
                      * @return TagValues 标签键对应的值
+                     * 
                      */
                     std::vector<std::string> GetTagValues() const;
 
                     /**
                      * 设置标签键对应的值
-                     * @param TagValues 标签键对应的值
+                     * @param _tagValues 标签键对应的值
+                     * 
                      */
                     void SetTagValues(const std::vector<std::string>& _tagValues);
 
                     /**
                      * 判断参数 TagValues 是否已赋值
                      * @return TagValues 是否已赋值
+                     * 
                      */
                     bool TagValuesHasBeenSet() const;
 

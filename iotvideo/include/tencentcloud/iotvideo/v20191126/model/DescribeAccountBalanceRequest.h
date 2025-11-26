@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取账户类型 1:设备接入 2:云存
                      * @return AccountType 账户类型 1:设备接入 2:云存
+                     * 
                      */
                     int64_t GetAccountType() const;
 
                     /**
                      * 设置账户类型 1:设备接入 2:云存
-                     * @param AccountType 账户类型 1:设备接入 2:云存
+                     * @param _accountType 账户类型 1:设备接入 2:云存
+                     * 
                      */
                     void SetAccountType(const int64_t& _accountType);
 
                     /**
                      * 判断参数 AccountType 是否已赋值
                      * @return AccountType 是否已赋值
+                     * 
                      */
                     bool AccountTypeHasBeenSet() const;
 

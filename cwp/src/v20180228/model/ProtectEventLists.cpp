@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ ProtectEventLists::ProtectEventLists() :
     m_createTimeHasBeenSet(false),
     m_restoreTimeHasBeenSet(false),
     m_idHasBeenSet(false),
-    m_fileTypeHasBeenSet(false)
+    m_fileTypeHasBeenSet(false),
+    m_machineExtraInfoHasBeenSet(false),
+    m_quuidHasBeenSet(false)
 {
 }
 
@@ -128,6 +130,33 @@ CoreInternalOutcome ProtectEventLists::Deserialize(const rapidjson::Value &value
         m_fileTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("MachineExtraInfo") && !value["MachineExtraInfo"].IsNull())
+    {
+        if (!value["MachineExtraInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProtectEventLists.MachineExtraInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_machineExtraInfo.Deserialize(value["MachineExtraInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_machineExtraInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("Quuid") && !value["Quuid"].IsNull())
+    {
+        if (!value["Quuid"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProtectEventLists.Quuid` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_quuid = string(value["Quuid"].GetString());
+        m_quuidHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -205,6 +234,23 @@ void ProtectEventLists::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "FileType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_fileType, allocator);
+    }
+
+    if (m_machineExtraInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MachineExtraInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_machineExtraInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_quuidHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Quuid";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_quuid.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -352,5 +398,37 @@ void ProtectEventLists::SetFileType(const uint64_t& _fileType)
 bool ProtectEventLists::FileTypeHasBeenSet() const
 {
     return m_fileTypeHasBeenSet;
+}
+
+MachineExtraInfo ProtectEventLists::GetMachineExtraInfo() const
+{
+    return m_machineExtraInfo;
+}
+
+void ProtectEventLists::SetMachineExtraInfo(const MachineExtraInfo& _machineExtraInfo)
+{
+    m_machineExtraInfo = _machineExtraInfo;
+    m_machineExtraInfoHasBeenSet = true;
+}
+
+bool ProtectEventLists::MachineExtraInfoHasBeenSet() const
+{
+    return m_machineExtraInfoHasBeenSet;
+}
+
+string ProtectEventLists::GetQuuid() const
+{
+    return m_quuid;
+}
+
+void ProtectEventLists::SetQuuid(const string& _quuid)
+{
+    m_quuid = _quuid;
+    m_quuidHasBeenSet = true;
+}
+
+bool ProtectEventLists::QuuidHasBeenSet() const
+{
+    return m_quuidHasBeenSet;
 }
 

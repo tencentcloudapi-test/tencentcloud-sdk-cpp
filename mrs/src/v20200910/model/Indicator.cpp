@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,9 @@ using namespace TencentCloud::Mrs::V20200910::Model;
 using namespace std;
 
 Indicator::Indicator() :
-    m_indicatorsHasBeenSet(false)
+    m_indicatorsHasBeenSet(false),
+    m_blockTitleHasBeenSet(false),
+    m_pageHasBeenSet(false)
 {
 }
 
@@ -50,6 +52,36 @@ CoreInternalOutcome Indicator::Deserialize(const rapidjson::Value &value)
         m_indicatorsHasBeenSet = true;
     }
 
+    if (value.HasMember("BlockTitle") && !value["BlockTitle"].IsNull())
+    {
+        if (!value["BlockTitle"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Indicator.BlockTitle` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["BlockTitle"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            BlockTitle item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_blockTitle.push_back(item);
+        }
+        m_blockTitleHasBeenSet = true;
+    }
+
+    if (value.HasMember("Page") && !value["Page"].IsNull())
+    {
+        if (!value["Page"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Indicator.Page` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_page = value["Page"].GetInt64();
+        m_pageHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +104,29 @@ void Indicator::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         }
     }
 
+    if (m_blockTitleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BlockTitle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_blockTitle.begin(); itr != m_blockTitle.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_pageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Page";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_page, allocator);
+    }
+
 }
 
 
@@ -89,5 +144,37 @@ void Indicator::SetIndicators(const vector<IndicatorItem>& _indicators)
 bool Indicator::IndicatorsHasBeenSet() const
 {
     return m_indicatorsHasBeenSet;
+}
+
+vector<BlockTitle> Indicator::GetBlockTitle() const
+{
+    return m_blockTitle;
+}
+
+void Indicator::SetBlockTitle(const vector<BlockTitle>& _blockTitle)
+{
+    m_blockTitle = _blockTitle;
+    m_blockTitleHasBeenSet = true;
+}
+
+bool Indicator::BlockTitleHasBeenSet() const
+{
+    return m_blockTitleHasBeenSet;
+}
+
+int64_t Indicator::GetPage() const
+{
+    return m_page;
+}
+
+void Indicator::SetPage(const int64_t& _page)
+{
+    m_page = _page;
+    m_pageHasBeenSet = true;
+}
+
+bool Indicator::PageHasBeenSet() const
+{
+    return m_pageHasBeenSet;
 }
 

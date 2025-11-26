@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,11 @@ AssignIpv6AddressesRequest::AssignIpv6AddressesRequest() :
     m_ecmRegionHasBeenSet(false),
     m_networkInterfaceIdHasBeenSet(false),
     m_ipv6AddressesHasBeenSet(false),
-    m_ipv6AddressCountHasBeenSet(false)
+    m_ipv6AddressCountHasBeenSet(false),
+    m_iSPTypeHasBeenSet(false),
+    m_skipCheckIPv6AddressHasBeenSet(false),
+    m_skipAllocateBandwidthHasBeenSet(false),
+    m_ipv6ISPHasBeenSet(false)
 {
 }
 
@@ -74,6 +78,38 @@ string AssignIpv6AddressesRequest::ToJsonString() const
         string key = "Ipv6AddressCount";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_ipv6AddressCount, allocator);
+    }
+
+    if (m_iSPTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ISPType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_iSPType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_skipCheckIPv6AddressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SkipCheckIPv6Address";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_skipCheckIPv6Address, allocator);
+    }
+
+    if (m_skipAllocateBandwidthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SkipAllocateBandwidth";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_skipAllocateBandwidth, allocator);
+    }
+
+    if (m_ipv6ISPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ipv6ISP";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ipv6ISP.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -146,6 +182,70 @@ void AssignIpv6AddressesRequest::SetIpv6AddressCount(const int64_t& _ipv6Address
 bool AssignIpv6AddressesRequest::Ipv6AddressCountHasBeenSet() const
 {
     return m_ipv6AddressCountHasBeenSet;
+}
+
+string AssignIpv6AddressesRequest::GetISPType() const
+{
+    return m_iSPType;
+}
+
+void AssignIpv6AddressesRequest::SetISPType(const string& _iSPType)
+{
+    m_iSPType = _iSPType;
+    m_iSPTypeHasBeenSet = true;
+}
+
+bool AssignIpv6AddressesRequest::ISPTypeHasBeenSet() const
+{
+    return m_iSPTypeHasBeenSet;
+}
+
+bool AssignIpv6AddressesRequest::GetSkipCheckIPv6Address() const
+{
+    return m_skipCheckIPv6Address;
+}
+
+void AssignIpv6AddressesRequest::SetSkipCheckIPv6Address(const bool& _skipCheckIPv6Address)
+{
+    m_skipCheckIPv6Address = _skipCheckIPv6Address;
+    m_skipCheckIPv6AddressHasBeenSet = true;
+}
+
+bool AssignIpv6AddressesRequest::SkipCheckIPv6AddressHasBeenSet() const
+{
+    return m_skipCheckIPv6AddressHasBeenSet;
+}
+
+bool AssignIpv6AddressesRequest::GetSkipAllocateBandwidth() const
+{
+    return m_skipAllocateBandwidth;
+}
+
+void AssignIpv6AddressesRequest::SetSkipAllocateBandwidth(const bool& _skipAllocateBandwidth)
+{
+    m_skipAllocateBandwidth = _skipAllocateBandwidth;
+    m_skipAllocateBandwidthHasBeenSet = true;
+}
+
+bool AssignIpv6AddressesRequest::SkipAllocateBandwidthHasBeenSet() const
+{
+    return m_skipAllocateBandwidthHasBeenSet;
+}
+
+string AssignIpv6AddressesRequest::GetIpv6ISP() const
+{
+    return m_ipv6ISP;
+}
+
+void AssignIpv6AddressesRequest::SetIpv6ISP(const string& _ipv6ISP)
+{
+    m_ipv6ISP = _ipv6ISP;
+    m_ipv6ISPHasBeenSet = true;
+}
+
+bool AssignIpv6AddressesRequest::Ipv6ISPHasBeenSet() const
+{
+    return m_ipv6ISPHasBeenSet;
 }
 
 

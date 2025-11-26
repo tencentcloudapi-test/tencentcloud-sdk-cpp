@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取频点唯一ID
                      * @return FreqId 频点唯一ID
+                     * 
                      */
                     std::string GetFreqId() const;
 
                     /**
                      * 设置频点唯一ID
-                     * @param FreqId 频点唯一ID
+                     * @param _freqId 频点唯一ID
+                     * 
                      */
                     void SetFreqId(const std::string& _freqId);
 
                     /**
                      * 判断参数 FreqId 是否已赋值
                      * @return FreqId 是否已赋值
+                     * 
                      */
                     bool FreqIdHasBeenSet() const;
 

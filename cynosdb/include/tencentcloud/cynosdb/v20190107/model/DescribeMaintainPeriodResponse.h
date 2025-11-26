@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取维护week days
                      * @return MaintainWeekDays 维护week days
+                     * 
                      */
                     std::vector<std::string> GetMaintainWeekDays() const;
 
                     /**
                      * 判断参数 MaintainWeekDays 是否已赋值
                      * @return MaintainWeekDays 是否已赋值
+                     * 
                      */
                     bool MaintainWeekDaysHasBeenSet() const;
 
                     /**
                      * 获取维护开始时间，单位秒
                      * @return MaintainStartTime 维护开始时间，单位秒
+                     * 
                      */
                     int64_t GetMaintainStartTime() const;
 
                     /**
                      * 判断参数 MaintainStartTime 是否已赋值
                      * @return MaintainStartTime 是否已赋值
+                     * 
                      */
                     bool MaintainStartTimeHasBeenSet() const;
 
                     /**
                      * 获取维护时长，单位秒
                      * @return MaintainDuration 维护时长，单位秒
+                     * 
                      */
                     int64_t GetMaintainDuration() const;
 
                     /**
                      * 判断参数 MaintainDuration 是否已赋值
                      * @return MaintainDuration 是否已赋值
+                     * 
                      */
                     bool MaintainDurationHasBeenSet() const;
 

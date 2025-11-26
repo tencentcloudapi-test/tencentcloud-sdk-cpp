@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取本地网关信息集合
-                     * @return LocalGatewaySet 本地网关信息集合
+                     * 获取本地网关信息集合。
+                     * @return LocalGatewaySet 本地网关信息集合。
+                     * 
                      */
                     std::vector<LocalGateway> GetLocalGatewaySet() const;
 
                     /**
                      * 判断参数 LocalGatewaySet 是否已赋值
                      * @return LocalGatewaySet 是否已赋值
+                     * 
                      */
                     bool LocalGatewaySetHasBeenSet() const;
 
                     /**
-                     * 获取本地网关总数
-                     * @return TotalCount 本地网关总数
+                     * 获取本地网关总数。
+                     * @return TotalCount 本地网关总数。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 本地网关信息集合
+                     * 本地网关信息集合。
                      */
                     std::vector<LocalGateway> m_localGatewaySet;
                     bool m_localGatewaySetHasBeenSet;
 
                     /**
-                     * 本地网关总数
+                     * 本地网关总数。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

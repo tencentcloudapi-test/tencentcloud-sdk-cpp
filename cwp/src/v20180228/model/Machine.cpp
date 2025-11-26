@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@ Machine::Machine() :
     m_machineNameHasBeenSet(false),
     m_machineOsHasBeenSet(false),
     m_machineStatusHasBeenSet(false),
+    m_agentStatusHasBeenSet(false),
+    m_instanceStatusHasBeenSet(false),
     m_uuidHasBeenSet(false),
     m_quuidHasBeenSet(false),
     m_vulNumHasBeenSet(false),
@@ -44,7 +46,15 @@ Machine::Machine() :
     m_hasAssetScanHasBeenSet(false),
     m_machineTypeHasBeenSet(false),
     m_kernelVersionHasBeenSet(false),
-    m_protectTypeHasBeenSet(false)
+    m_protectTypeHasBeenSet(false),
+    m_cloudTagsHasBeenSet(false),
+    m_isAddedOnTheFifteenHasBeenSet(false),
+    m_ipListHasBeenSet(false),
+    m_vpcIdHasBeenSet(false),
+    m_machineExtraInfoHasBeenSet(false),
+    m_instanceIdHasBeenSet(false),
+    m_remarkHasBeenSet(false),
+    m_agentVersionHasBeenSet(false)
 {
 }
 
@@ -81,6 +91,26 @@ CoreInternalOutcome Machine::Deserialize(const rapidjson::Value &value)
         }
         m_machineStatus = string(value["MachineStatus"].GetString());
         m_machineStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("AgentStatus") && !value["AgentStatus"].IsNull())
+    {
+        if (!value["AgentStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.AgentStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_agentStatus = string(value["AgentStatus"].GetString());
+        m_agentStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceStatus") && !value["InstanceStatus"].IsNull())
+    {
+        if (!value["InstanceStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.InstanceStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceStatus = string(value["InstanceStatus"].GetString());
+        m_instanceStatusHasBeenSet = true;
     }
 
     if (value.HasMember("Uuid") && !value["Uuid"].IsNull())
@@ -310,6 +340,103 @@ CoreInternalOutcome Machine::Deserialize(const rapidjson::Value &value)
         m_protectTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("CloudTags") && !value["CloudTags"].IsNull())
+    {
+        if (!value["CloudTags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Machine.CloudTags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CloudTags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tags item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_cloudTags.push_back(item);
+        }
+        m_cloudTagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsAddedOnTheFifteen") && !value["IsAddedOnTheFifteen"].IsNull())
+    {
+        if (!value["IsAddedOnTheFifteen"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.IsAddedOnTheFifteen` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isAddedOnTheFifteen = value["IsAddedOnTheFifteen"].GetUint64();
+        m_isAddedOnTheFifteenHasBeenSet = true;
+    }
+
+    if (value.HasMember("IpList") && !value["IpList"].IsNull())
+    {
+        if (!value["IpList"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.IpList` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_ipList = string(value["IpList"].GetString());
+        m_ipListHasBeenSet = true;
+    }
+
+    if (value.HasMember("VpcId") && !value["VpcId"].IsNull())
+    {
+        if (!value["VpcId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.VpcId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vpcId = string(value["VpcId"].GetString());
+        m_vpcIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("MachineExtraInfo") && !value["MachineExtraInfo"].IsNull())
+    {
+        if (!value["MachineExtraInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.MachineExtraInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_machineExtraInfo.Deserialize(value["MachineExtraInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_machineExtraInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceId") && !value["InstanceId"].IsNull())
+    {
+        if (!value["InstanceId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.InstanceId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceId = string(value["InstanceId"].GetString());
+        m_instanceIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Remark") && !value["Remark"].IsNull())
+    {
+        if (!value["Remark"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.Remark` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_remark = string(value["Remark"].GetString());
+        m_remarkHasBeenSet = true;
+    }
+
+    if (value.HasMember("AgentVersion") && !value["AgentVersion"].IsNull())
+    {
+        if (!value["AgentVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Machine.AgentVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_agentVersion = string(value["AgentVersion"].GetString());
+        m_agentVersionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -339,6 +466,22 @@ void Machine::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "MachineStatus";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_machineStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_agentStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AgentStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_agentStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceStatus.c_str(), allocator).Move(), allocator);
     }
 
     if (m_uuidHasBeenSet)
@@ -517,6 +660,78 @@ void Machine::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         value.AddMember(iKey, rapidjson::Value(m_protectType.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_cloudTagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CloudTags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_cloudTags.begin(); itr != m_cloudTags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_isAddedOnTheFifteenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsAddedOnTheFifteen";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isAddedOnTheFifteen, allocator);
+    }
+
+    if (m_ipListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IpList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_ipList.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vpcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VpcId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vpcId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_machineExtraInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MachineExtraInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_machineExtraInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_instanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_agentVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AgentVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_agentVersion.c_str(), allocator).Move(), allocator);
+    }
+
 }
 
 
@@ -566,6 +781,38 @@ void Machine::SetMachineStatus(const string& _machineStatus)
 bool Machine::MachineStatusHasBeenSet() const
 {
     return m_machineStatusHasBeenSet;
+}
+
+string Machine::GetAgentStatus() const
+{
+    return m_agentStatus;
+}
+
+void Machine::SetAgentStatus(const string& _agentStatus)
+{
+    m_agentStatus = _agentStatus;
+    m_agentStatusHasBeenSet = true;
+}
+
+bool Machine::AgentStatusHasBeenSet() const
+{
+    return m_agentStatusHasBeenSet;
+}
+
+string Machine::GetInstanceStatus() const
+{
+    return m_instanceStatus;
+}
+
+void Machine::SetInstanceStatus(const string& _instanceStatus)
+{
+    m_instanceStatus = _instanceStatus;
+    m_instanceStatusHasBeenSet = true;
+}
+
+bool Machine::InstanceStatusHasBeenSet() const
+{
+    return m_instanceStatusHasBeenSet;
 }
 
 string Machine::GetUuid() const
@@ -902,5 +1149,133 @@ void Machine::SetProtectType(const string& _protectType)
 bool Machine::ProtectTypeHasBeenSet() const
 {
     return m_protectTypeHasBeenSet;
+}
+
+vector<Tags> Machine::GetCloudTags() const
+{
+    return m_cloudTags;
+}
+
+void Machine::SetCloudTags(const vector<Tags>& _cloudTags)
+{
+    m_cloudTags = _cloudTags;
+    m_cloudTagsHasBeenSet = true;
+}
+
+bool Machine::CloudTagsHasBeenSet() const
+{
+    return m_cloudTagsHasBeenSet;
+}
+
+uint64_t Machine::GetIsAddedOnTheFifteen() const
+{
+    return m_isAddedOnTheFifteen;
+}
+
+void Machine::SetIsAddedOnTheFifteen(const uint64_t& _isAddedOnTheFifteen)
+{
+    m_isAddedOnTheFifteen = _isAddedOnTheFifteen;
+    m_isAddedOnTheFifteenHasBeenSet = true;
+}
+
+bool Machine::IsAddedOnTheFifteenHasBeenSet() const
+{
+    return m_isAddedOnTheFifteenHasBeenSet;
+}
+
+string Machine::GetIpList() const
+{
+    return m_ipList;
+}
+
+void Machine::SetIpList(const string& _ipList)
+{
+    m_ipList = _ipList;
+    m_ipListHasBeenSet = true;
+}
+
+bool Machine::IpListHasBeenSet() const
+{
+    return m_ipListHasBeenSet;
+}
+
+string Machine::GetVpcId() const
+{
+    return m_vpcId;
+}
+
+void Machine::SetVpcId(const string& _vpcId)
+{
+    m_vpcId = _vpcId;
+    m_vpcIdHasBeenSet = true;
+}
+
+bool Machine::VpcIdHasBeenSet() const
+{
+    return m_vpcIdHasBeenSet;
+}
+
+MachineExtraInfo Machine::GetMachineExtraInfo() const
+{
+    return m_machineExtraInfo;
+}
+
+void Machine::SetMachineExtraInfo(const MachineExtraInfo& _machineExtraInfo)
+{
+    m_machineExtraInfo = _machineExtraInfo;
+    m_machineExtraInfoHasBeenSet = true;
+}
+
+bool Machine::MachineExtraInfoHasBeenSet() const
+{
+    return m_machineExtraInfoHasBeenSet;
+}
+
+string Machine::GetInstanceId() const
+{
+    return m_instanceId;
+}
+
+void Machine::SetInstanceId(const string& _instanceId)
+{
+    m_instanceId = _instanceId;
+    m_instanceIdHasBeenSet = true;
+}
+
+bool Machine::InstanceIdHasBeenSet() const
+{
+    return m_instanceIdHasBeenSet;
+}
+
+string Machine::GetRemark() const
+{
+    return m_remark;
+}
+
+void Machine::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool Machine::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
+}
+
+string Machine::GetAgentVersion() const
+{
+    return m_agentVersion;
+}
+
+void Machine::SetAgentVersion(const string& _agentVersion)
+{
+    m_agentVersion = _agentVersion;
+    m_agentVersionHasBeenSet = true;
+}
+
+bool Machine::AgentVersionHasBeenSet() const
+{
+    return m_agentVersionHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@ DescribeMediaPlayStatDetailsRequest::DescribeMediaPlayStatDetailsRequest() :
     m_fileIdHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
-    m_intervalHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_subAppIdHasBeenSet(false),
+    m_intervalHasBeenSet(false)
 {
 }
 
@@ -62,20 +62,20 @@ string DescribeMediaPlayStatDetailsRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_endTime.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_intervalHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Interval";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_interval.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_subAppIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "SubAppId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_subAppId, allocator);
+    }
+
+    if (m_intervalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Interval";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_interval.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -134,22 +134,6 @@ bool DescribeMediaPlayStatDetailsRequest::EndTimeHasBeenSet() const
     return m_endTimeHasBeenSet;
 }
 
-string DescribeMediaPlayStatDetailsRequest::GetInterval() const
-{
-    return m_interval;
-}
-
-void DescribeMediaPlayStatDetailsRequest::SetInterval(const string& _interval)
-{
-    m_interval = _interval;
-    m_intervalHasBeenSet = true;
-}
-
-bool DescribeMediaPlayStatDetailsRequest::IntervalHasBeenSet() const
-{
-    return m_intervalHasBeenSet;
-}
-
 uint64_t DescribeMediaPlayStatDetailsRequest::GetSubAppId() const
 {
     return m_subAppId;
@@ -164,6 +148,22 @@ void DescribeMediaPlayStatDetailsRequest::SetSubAppId(const uint64_t& _subAppId)
 bool DescribeMediaPlayStatDetailsRequest::SubAppIdHasBeenSet() const
 {
     return m_subAppIdHasBeenSet;
+}
+
+string DescribeMediaPlayStatDetailsRequest::GetInterval() const
+{
+    return m_interval;
+}
+
+void DescribeMediaPlayStatDetailsRequest::SetInterval(const string& _interval)
+{
+    m_interval = _interval;
+    m_intervalHasBeenSet = true;
+}
+
+bool DescribeMediaPlayStatDetailsRequest::IntervalHasBeenSet() const
+{
+    return m_intervalHasBeenSet;
 }
 
 

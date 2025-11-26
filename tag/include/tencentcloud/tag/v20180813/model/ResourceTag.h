@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,111 +49,106 @@ namespace TencentCloud
 
                     /**
                      * 获取资源所在地域
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ResourceRegion 资源所在地域
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResourceRegion() const;
 
                     /**
                      * 设置资源所在地域
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ResourceRegion 资源所在地域
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _resourceRegion 资源所在地域
+                     * 
                      */
                     void SetResourceRegion(const std::string& _resourceRegion);
 
                     /**
                      * 判断参数 ResourceRegion 是否已赋值
                      * @return ResourceRegion 是否已赋值
+                     * 
                      */
                     bool ResourceRegionHasBeenSet() const;
 
                     /**
                      * 获取业务类型
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ServiceType 业务类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetServiceType() const;
 
                     /**
                      * 设置业务类型
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ServiceType 业务类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _serviceType 业务类型
+                     * 
                      */
                     void SetServiceType(const std::string& _serviceType);
 
                     /**
                      * 判断参数 ServiceType 是否已赋值
                      * @return ServiceType 是否已赋值
+                     * 
                      */
                     bool ServiceTypeHasBeenSet() const;
 
                     /**
                      * 获取资源前缀
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ResourcePrefix 资源前缀
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResourcePrefix() const;
 
                     /**
                      * 设置资源前缀
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ResourcePrefix 资源前缀
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _resourcePrefix 资源前缀
+                     * 
                      */
                     void SetResourcePrefix(const std::string& _resourcePrefix);
 
                     /**
                      * 判断参数 ResourcePrefix 是否已赋值
                      * @return ResourcePrefix 是否已赋值
+                     * 
                      */
                     bool ResourcePrefixHasBeenSet() const;
 
                     /**
                      * 获取资源唯一标记
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ResourceId 资源唯一标记
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetResourceId() const;
 
                     /**
                      * 设置资源唯一标记
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ResourceId 资源唯一标记
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _resourceId 资源唯一标记
+                     * 
                      */
                     void SetResourceId(const std::string& _resourceId);
 
                     /**
                      * 判断参数 ResourceId 是否已赋值
                      * @return ResourceId 是否已赋值
+                     * 
                      */
                     bool ResourceIdHasBeenSet() const;
 
                     /**
                      * 获取资源标签
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Tags 资源标签
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
                      * 设置资源标签
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Tags 资源标签
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tags 资源标签
+                     * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 
@@ -161,35 +156,30 @@ namespace TencentCloud
 
                     /**
                      * 资源所在地域
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourceRegion;
                     bool m_resourceRegionHasBeenSet;
 
                     /**
                      * 业务类型
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_serviceType;
                     bool m_serviceTypeHasBeenSet;
 
                     /**
                      * 资源前缀
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourcePrefix;
                     bool m_resourcePrefixHasBeenSet;
 
                     /**
                      * 资源唯一标记
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourceId;
                     bool m_resourceIdHasBeenSet;
 
                     /**
                      * 资源标签
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;

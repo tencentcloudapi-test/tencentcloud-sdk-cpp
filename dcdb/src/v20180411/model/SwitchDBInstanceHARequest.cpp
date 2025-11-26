@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ using namespace std;
 
 SwitchDBInstanceHARequest::SwitchDBInstanceHARequest() :
     m_instanceIdHasBeenSet(false),
-    m_zoneHasBeenSet(false)
+    m_zoneHasBeenSet(false),
+    m_shardInstanceIdsHasBeenSet(false),
+    m_zoneModeHasBeenSet(false)
 {
 }
 
@@ -49,6 +51,27 @@ string SwitchDBInstanceHARequest::ToJsonString() const
         string key = "Zone";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_shardInstanceIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ShardInstanceIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_shardInstanceIds.begin(); itr != m_shardInstanceIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_zoneModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ZoneMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_zoneMode.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +112,38 @@ void SwitchDBInstanceHARequest::SetZone(const string& _zone)
 bool SwitchDBInstanceHARequest::ZoneHasBeenSet() const
 {
     return m_zoneHasBeenSet;
+}
+
+vector<string> SwitchDBInstanceHARequest::GetShardInstanceIds() const
+{
+    return m_shardInstanceIds;
+}
+
+void SwitchDBInstanceHARequest::SetShardInstanceIds(const vector<string>& _shardInstanceIds)
+{
+    m_shardInstanceIds = _shardInstanceIds;
+    m_shardInstanceIdsHasBeenSet = true;
+}
+
+bool SwitchDBInstanceHARequest::ShardInstanceIdsHasBeenSet() const
+{
+    return m_shardInstanceIdsHasBeenSet;
+}
+
+string SwitchDBInstanceHARequest::GetZoneMode() const
+{
+    return m_zoneMode;
+}
+
+void SwitchDBInstanceHARequest::SetZoneMode(const string& _zoneMode)
+{
+    m_zoneMode = _zoneMode;
+    m_zoneModeHasBeenSet = true;
+}
+
+bool SwitchDBInstanceHARequest::ZoneModeHasBeenSet() const
+{
+    return m_zoneModeHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@ namespace TencentCloud
                      * @return WatermarkId 水印 ID。
 在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
 或DescribeLiveWatermarks接口返回的水印ID。
+                     * 
                      */
                     int64_t GetWatermarkId() const;
 
@@ -56,15 +57,17 @@ namespace TencentCloud
                      * 设置水印 ID。
 在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
 或DescribeLiveWatermarks接口返回的水印ID。
-                     * @param WatermarkId 水印 ID。
+                     * @param _watermarkId 水印 ID。
 在添加水印接口 [AddLiveWatermark](/document/product/267/30154) 调用返回值中获取水印 ID。
 或DescribeLiveWatermarks接口返回的水印ID。
+                     * 
                      */
                     void SetWatermarkId(const int64_t& _watermarkId);
 
                     /**
                      * 判断参数 WatermarkId 是否已赋值
                      * @return WatermarkId 是否已赋值
+                     * 
                      */
                     bool WatermarkIdHasBeenSet() const;
 

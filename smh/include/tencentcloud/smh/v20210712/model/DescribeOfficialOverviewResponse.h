@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,48 +46,56 @@ namespace TencentCloud
                     /**
                      * 获取云盘实例数量
                      * @return Quantity 云盘实例数量
+                     * 
                      */
                     uint64_t GetQuantity() const;
 
                     /**
                      * 判断参数 Quantity 是否已赋值
                      * @return Quantity 是否已赋值
+                     * 
                      */
                     bool QuantityHasBeenSet() const;
 
                     /**
                      * 获取已经使用的总存储量，单位为 Bytes，由于数字类型精度限制，该字段为 String 类型。
                      * @return Storage 已经使用的总存储量，单位为 Bytes，由于数字类型精度限制，该字段为 String 类型。
+                     * 
                      */
                     std::string GetStorage() const;
 
                     /**
                      * 判断参数 Storage 是否已赋值
                      * @return Storage 是否已赋值
+                     * 
                      */
                     bool StorageHasBeenSet() const;
 
                     /**
                      * 获取已经分配和使用的总用户数
                      * @return UserCount 已经分配和使用的总用户数
+                     * 
                      */
                     uint64_t GetUserCount() const;
 
                     /**
                      * 判断参数 UserCount 是否已赋值
                      * @return UserCount 是否已赋值
+                     * 
                      */
                     bool UserCountHasBeenSet() const;
 
                     /**
                      * 获取本月外网下行流量，单位为 Bytes，由于数字类型精度限制，该字段为 String 类型。
                      * @return InternetTraffic 本月外网下行流量，单位为 Bytes，由于数字类型精度限制，该字段为 String 类型。
+                     * 
                      */
                     std::string GetInternetTraffic() const;
 
                     /**
                      * 判断参数 InternetTraffic 是否已赋值
                      * @return InternetTraffic 是否已赋值
+                     * 
                      */
                     bool InternetTrafficHasBeenSet() const;
 

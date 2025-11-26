@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,10 @@ CreateJobRequest::CreateJobRequest() :
     m_remarkHasBeenSet(false),
     m_folderIdHasBeenSet(false),
     m_flinkVersionHasBeenSet(false),
-    m_workSpaceIdHasBeenSet(false)
+    m_workSpaceIdHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_descriptionHasBeenSet(false),
+    m_openJobDefaultAlarmHasBeenSet(false)
 {
 }
 
@@ -112,6 +115,37 @@ string CreateJobRequest::ToJsonString() const
         string key = "WorkSpaceId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_workSpaceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_descriptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Description";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_openJobDefaultAlarmHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OpenJobDefaultAlarm";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_openJobDefaultAlarm, allocator);
     }
 
 
@@ -264,6 +298,54 @@ void CreateJobRequest::SetWorkSpaceId(const string& _workSpaceId)
 bool CreateJobRequest::WorkSpaceIdHasBeenSet() const
 {
     return m_workSpaceIdHasBeenSet;
+}
+
+vector<Tag> CreateJobRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateJobRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateJobRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+string CreateJobRequest::GetDescription() const
+{
+    return m_description;
+}
+
+void CreateJobRequest::SetDescription(const string& _description)
+{
+    m_description = _description;
+    m_descriptionHasBeenSet = true;
+}
+
+bool CreateJobRequest::DescriptionHasBeenSet() const
+{
+    return m_descriptionHasBeenSet;
+}
+
+int64_t CreateJobRequest::GetOpenJobDefaultAlarm() const
+{
+    return m_openJobDefaultAlarm;
+}
+
+void CreateJobRequest::SetOpenJobDefaultAlarm(const int64_t& _openJobDefaultAlarm)
+{
+    m_openJobDefaultAlarm = _openJobDefaultAlarm;
+    m_openJobDefaultAlarmHasBeenSet = true;
+}
+
+bool CreateJobRequest::OpenJobDefaultAlarmHasBeenSet() const
+{
+    return m_openJobDefaultAlarmHasBeenSet;
 }
 
 

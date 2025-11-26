@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,42 +47,44 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取触发规则类型, Cron/Repeat
-                     * @return RuleType 触发规则类型, Cron/Repeat
+                     * 获取触发规则类型，枚举值。一共3个值，Cron：定时触发，Repeat：周期触发，WorkFlow：工作流触发
+                     * @return RuleType 触发规则类型，枚举值。一共3个值，Cron：定时触发，Repeat：周期触发，WorkFlow：工作流触发
+                     * 
                      */
                     std::string GetRuleType() const;
 
                     /**
-                     * 设置触发规则类型, Cron/Repeat
-                     * @param RuleType 触发规则类型, Cron/Repeat
+                     * 设置触发规则类型，枚举值。一共3个值，Cron：定时触发，Repeat：周期触发，WorkFlow：工作流触发
+                     * @param _ruleType 触发规则类型，枚举值。一共3个值，Cron：定时触发，Repeat：周期触发，WorkFlow：工作流触发
+                     * 
                      */
                     void SetRuleType(const std::string& _ruleType);
 
                     /**
                      * 判断参数 RuleType 是否已赋值
                      * @return RuleType 是否已赋值
+                     * 
                      */
                     bool RuleTypeHasBeenSet() const;
 
                     /**
                      * 获取Cron类型规则，cron表达式。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Expression Cron类型规则，cron表达式。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetExpression() const;
 
                     /**
                      * 设置Cron类型规则，cron表达式。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Expression Cron类型规则，cron表达式。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _expression Cron类型规则，cron表达式。
+                     * 
                      */
                     void SetExpression(const std::string& _expression);
 
                     /**
                      * 判断参数 Expression 是否已赋值
                      * @return Expression 是否已赋值
+                     * 
                      */
                     bool ExpressionHasBeenSet() const;
 
@@ -91,34 +93,36 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RepeatInterval 时间间隔， 单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetRepeatInterval() const;
 
                     /**
                      * 设置时间间隔， 单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RepeatInterval 时间间隔， 单位毫秒
+                     * @param _repeatInterval 时间间隔， 单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRepeatInterval(const uint64_t& _repeatInterval);
 
                     /**
                      * 判断参数 RepeatInterval 是否已赋值
                      * @return RepeatInterval 是否已赋值
+                     * 
                      */
                     bool RepeatIntervalHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 触发规则类型, Cron/Repeat
+                     * 触发规则类型，枚举值。一共3个值，Cron：定时触发，Repeat：周期触发，WorkFlow：工作流触发
                      */
                     std::string m_ruleType;
                     bool m_ruleTypeHasBeenSet;
 
                     /**
                      * Cron类型规则，cron表达式。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_expression;
                     bool m_expressionHasBeenSet;

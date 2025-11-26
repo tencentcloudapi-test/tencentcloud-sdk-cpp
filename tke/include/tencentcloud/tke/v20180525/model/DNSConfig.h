@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,92 +49,86 @@ namespace TencentCloud
 
                     /**
                      * 获取DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Nameservers DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetNameservers() const;
 
                     /**
                      * 设置DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Nameservers DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _nameservers DNS 服务器IP地址列表
+                     * 
                      */
                     void SetNameservers(const std::vector<std::string>& _nameservers);
 
                     /**
                      * 判断参数 Nameservers 是否已赋值
                      * @return Nameservers 是否已赋值
+                     * 
                      */
                     bool NameserversHasBeenSet() const;
 
                     /**
-                     * 获取DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Searches DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::vector<std::string> GetSearches() const;
-
-                    /**
-                     * 设置DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Searches DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    void SetSearches(const std::vector<std::string>& _searches);
-
-                    /**
-                     * 判断参数 Searches 是否已赋值
-                     * @return Searches 是否已赋值
-                     */
-                    bool SearchesHasBeenSet() const;
-
-                    /**
                      * 获取对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Options 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<DNSConfigOption> GetOptions() const;
 
                     /**
                      * 设置对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Options 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _options 对象选项列表，每个对象由name和value（可选）构成
+                     * 
                      */
                     void SetOptions(const std::vector<DNSConfigOption>& _options);
 
                     /**
                      * 判断参数 Options 是否已赋值
                      * @return Options 是否已赋值
+                     * 
                      */
                     bool OptionsHasBeenSet() const;
+
+                    /**
+                     * 获取DNS搜索域列表
+                     * @return Searches DNS搜索域列表
+                     * 
+                     */
+                    std::vector<std::string> GetSearches() const;
+
+                    /**
+                     * 设置DNS搜索域列表
+                     * @param _searches DNS搜索域列表
+                     * 
+                     */
+                    void SetSearches(const std::vector<std::string>& _searches);
+
+                    /**
+                     * 判断参数 Searches 是否已赋值
+                     * @return Searches 是否已赋值
+                     * 
+                     */
+                    bool SearchesHasBeenSet() const;
 
                 private:
 
                     /**
                      * DNS 服务器IP地址列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_nameservers;
                     bool m_nameserversHasBeenSet;
 
                     /**
-                     * DNS搜索域列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::vector<std::string> m_searches;
-                    bool m_searchesHasBeenSet;
-
-                    /**
                      * 对象选项列表，每个对象由name和value（可选）构成
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<DNSConfigOption> m_options;
                     bool m_optionsHasBeenSet;
+
+                    /**
+                     * DNS搜索域列表
+                     */
+                    std::vector<std::string> m_searches;
+                    bool m_searchesHasBeenSet;
 
                 };
             }

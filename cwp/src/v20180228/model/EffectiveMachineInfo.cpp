@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,11 @@ EffectiveMachineInfo::EffectiveMachineInfo() :
     m_quuidHasBeenSet(false),
     m_uuidHasBeenSet(false),
     m_kernelVersionHasBeenSet(false),
-    m_machineStatusHasBeenSet(false)
+    m_machineStatusHasBeenSet(false),
+    m_licenseOrderHasBeenSet(false),
+    m_vulNumHasBeenSet(false),
+    m_cloudTagsHasBeenSet(false),
+    m_instanceIDHasBeenSet(false)
 {
 }
 
@@ -127,6 +131,63 @@ CoreInternalOutcome EffectiveMachineInfo::Deserialize(const rapidjson::Value &va
         m_machineStatusHasBeenSet = true;
     }
 
+    if (value.HasMember("LicenseOrder") && !value["LicenseOrder"].IsNull())
+    {
+        if (!value["LicenseOrder"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `EffectiveMachineInfo.LicenseOrder` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_licenseOrder.Deserialize(value["LicenseOrder"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_licenseOrderHasBeenSet = true;
+    }
+
+    if (value.HasMember("VulNum") && !value["VulNum"].IsNull())
+    {
+        if (!value["VulNum"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `EffectiveMachineInfo.VulNum` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_vulNum = value["VulNum"].GetUint64();
+        m_vulNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("CloudTags") && !value["CloudTags"].IsNull())
+    {
+        if (!value["CloudTags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `EffectiveMachineInfo.CloudTags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CloudTags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tags item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_cloudTags.push_back(item);
+        }
+        m_cloudTagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("InstanceID") && !value["InstanceID"].IsNull())
+    {
+        if (!value["InstanceID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EffectiveMachineInfo.InstanceID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_instanceID = string(value["InstanceID"].GetString());
+        m_instanceIDHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -203,6 +264,46 @@ void EffectiveMachineInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         string key = "MachineStatus";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_machineStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_licenseOrderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LicenseOrder";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_licenseOrder.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_vulNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VulNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_vulNum, allocator);
+    }
+
+    if (m_cloudTagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CloudTags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_cloudTags.begin(); itr != m_cloudTags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_instanceIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_instanceID.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -334,5 +435,69 @@ void EffectiveMachineInfo::SetMachineStatus(const string& _machineStatus)
 bool EffectiveMachineInfo::MachineStatusHasBeenSet() const
 {
     return m_machineStatusHasBeenSet;
+}
+
+LicenseOrder EffectiveMachineInfo::GetLicenseOrder() const
+{
+    return m_licenseOrder;
+}
+
+void EffectiveMachineInfo::SetLicenseOrder(const LicenseOrder& _licenseOrder)
+{
+    m_licenseOrder = _licenseOrder;
+    m_licenseOrderHasBeenSet = true;
+}
+
+bool EffectiveMachineInfo::LicenseOrderHasBeenSet() const
+{
+    return m_licenseOrderHasBeenSet;
+}
+
+uint64_t EffectiveMachineInfo::GetVulNum() const
+{
+    return m_vulNum;
+}
+
+void EffectiveMachineInfo::SetVulNum(const uint64_t& _vulNum)
+{
+    m_vulNum = _vulNum;
+    m_vulNumHasBeenSet = true;
+}
+
+bool EffectiveMachineInfo::VulNumHasBeenSet() const
+{
+    return m_vulNumHasBeenSet;
+}
+
+vector<Tags> EffectiveMachineInfo::GetCloudTags() const
+{
+    return m_cloudTags;
+}
+
+void EffectiveMachineInfo::SetCloudTags(const vector<Tags>& _cloudTags)
+{
+    m_cloudTags = _cloudTags;
+    m_cloudTagsHasBeenSet = true;
+}
+
+bool EffectiveMachineInfo::CloudTagsHasBeenSet() const
+{
+    return m_cloudTagsHasBeenSet;
+}
+
+string EffectiveMachineInfo::GetInstanceID() const
+{
+    return m_instanceID;
+}
+
+void EffectiveMachineInfo::SetInstanceID(const string& _instanceID)
+{
+    m_instanceID = _instanceID;
+    m_instanceIDHasBeenSet = true;
+}
+
+bool EffectiveMachineInfo::InstanceIDHasBeenSet() const
+{
+    return m_instanceIDHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace TencentCloud::Postgres::V20170312::Model;
 using namespace std;
 
 DescribeProductConfigRequest::DescribeProductConfigRequest() :
-    m_zoneHasBeenSet(false)
+    m_zoneHasBeenSet(false),
+    m_dBEngineHasBeenSet(false)
 {
 }
 
@@ -40,6 +41,14 @@ string DescribeProductConfigRequest::ToJsonString() const
         string key = "Zone";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dBEngineHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DBEngine";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dBEngine.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -64,6 +73,22 @@ void DescribeProductConfigRequest::SetZone(const string& _zone)
 bool DescribeProductConfigRequest::ZoneHasBeenSet() const
 {
     return m_zoneHasBeenSet;
+}
+
+string DescribeProductConfigRequest::GetDBEngine() const
+{
+    return m_dBEngine;
+}
+
+void DescribeProductConfigRequest::SetDBEngine(const string& _dBEngine)
+{
+    m_dBEngine = _dBEngine;
+    m_dBEngineHasBeenSet = true;
+}
+
+bool DescribeProductConfigRequest::DBEngineHasBeenSet() const
+{
+    return m_dBEngineHasBeenSet;
 }
 
 

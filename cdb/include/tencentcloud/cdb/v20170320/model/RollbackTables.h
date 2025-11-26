@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,45 +49,43 @@ namespace TencentCloud
 
                     /**
                      * 获取数据库名
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Database 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDatabase() const;
 
                     /**
                      * 设置数据库名
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Database 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _database 数据库名
+                     * 
                      */
                     void SetDatabase(const std::string& _database);
 
                     /**
                      * 判断参数 Database 是否已赋值
                      * @return Database 是否已赋值
+                     * 
                      */
                     bool DatabaseHasBeenSet() const;
 
                     /**
                      * 获取数据库表详情
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Table 数据库表详情
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<RollbackTableName> GetTable() const;
 
                     /**
                      * 设置数据库表详情
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Table 数据库表详情
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _table 数据库表详情
+                     * 
                      */
                     void SetTable(const std::vector<RollbackTableName>& _table);
 
                     /**
                      * 判断参数 Table 是否已赋值
                      * @return Table 是否已赋值
+                     * 
                      */
                     bool TableHasBeenSet() const;
 
@@ -95,14 +93,12 @@ namespace TencentCloud
 
                     /**
                      * 数据库名
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_database;
                     bool m_databaseHasBeenSet;
 
                     /**
                      * 数据库表详情
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<RollbackTableName> m_table;
                     bool m_tableHasBeenSet;

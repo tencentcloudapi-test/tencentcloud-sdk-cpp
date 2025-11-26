@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取应用ID，创建应用后由后台生成并返回。
                      * @return BizId 应用ID，创建应用后由后台生成并返回。
+                     * 
                      */
                     uint64_t GetBizId() const;
 
                     /**
                      * 设置应用ID，创建应用后由后台生成并返回。
-                     * @param BizId 应用ID，创建应用后由后台生成并返回。
+                     * @param _bizId 应用ID，创建应用后由后台生成并返回。
+                     * 
                      */
                     void SetBizId(const uint64_t& _bizId);
 
                     /**
                      * 判断参数 BizId 是否已赋值
                      * @return BizId 是否已赋值
+                     * 
                      */
                     bool BizIdHasBeenSet() const;
 
                     /**
                      * 获取应用状态，取值：open/close
                      * @return Status 应用状态，取值：open/close
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置应用状态，取值：open/close
-                     * @param Status 应用状态，取值：open/close
+                     * @param _status 应用状态，取值：open/close
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 

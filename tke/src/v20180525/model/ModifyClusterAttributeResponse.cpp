@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ ModifyClusterAttributeResponse::ModifyClusterAttributeResponse() :
     m_clusterNameHasBeenSet(false),
     m_clusterDescHasBeenSet(false),
     m_clusterLevelHasBeenSet(false),
-    m_autoUpgradeClusterLevelHasBeenSet(false)
+    m_autoUpgradeClusterLevelHasBeenSet(false),
+    m_qGPUShareEnableHasBeenSet(false),
+    m_clusterPropertyHasBeenSet(false)
 {
 }
 
@@ -123,6 +125,33 @@ CoreInternalOutcome ModifyClusterAttributeResponse::Deserialize(const string &pa
         m_autoUpgradeClusterLevelHasBeenSet = true;
     }
 
+    if (rsp.HasMember("QGPUShareEnable") && !rsp["QGPUShareEnable"].IsNull())
+    {
+        if (!rsp["QGPUShareEnable"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `QGPUShareEnable` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_qGPUShareEnable = rsp["QGPUShareEnable"].GetBool();
+        m_qGPUShareEnableHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ClusterProperty") && !rsp["ClusterProperty"].IsNull())
+    {
+        if (!rsp["ClusterProperty"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterProperty` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_clusterProperty.Deserialize(rsp["ClusterProperty"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_clusterPropertyHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -174,11 +203,28 @@ string ModifyClusterAttributeResponse::ToJsonString() const
         m_autoUpgradeClusterLevel.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_qGPUShareEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QGPUShareEnable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_qGPUShareEnable, allocator);
+    }
+
+    if (m_clusterPropertyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterProperty";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_clusterProperty.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -234,6 +280,26 @@ AutoUpgradeClusterLevel ModifyClusterAttributeResponse::GetAutoUpgradeClusterLev
 bool ModifyClusterAttributeResponse::AutoUpgradeClusterLevelHasBeenSet() const
 {
     return m_autoUpgradeClusterLevelHasBeenSet;
+}
+
+bool ModifyClusterAttributeResponse::GetQGPUShareEnable() const
+{
+    return m_qGPUShareEnable;
+}
+
+bool ModifyClusterAttributeResponse::QGPUShareEnableHasBeenSet() const
+{
+    return m_qGPUShareEnableHasBeenSet;
+}
+
+ClusterProperty ModifyClusterAttributeResponse::GetClusterProperty() const
+{
+    return m_clusterProperty;
+}
+
+bool ModifyClusterAttributeResponse::ClusterPropertyHasBeenSet() const
+{
+    return m_clusterPropertyHasBeenSet;
 }
 
 

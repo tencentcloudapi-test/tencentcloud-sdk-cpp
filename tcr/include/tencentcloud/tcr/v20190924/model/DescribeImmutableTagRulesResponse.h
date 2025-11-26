@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,41 +46,43 @@ namespace TencentCloud
 
                     /**
                      * 获取规则列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Rules 规则列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ImmutableTagRule> GetRules() const;
 
                     /**
                      * 判断参数 Rules 是否已赋值
                      * @return Rules 是否已赋值
+                     * 
                      */
                     bool RulesHasBeenSet() const;
 
                     /**
                      * 获取未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EmptyNs 未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetEmptyNs() const;
 
                     /**
                      * 判断参数 EmptyNs 是否已赋值
                      * @return EmptyNs 是否已赋值
+                     * 
                      */
                     bool EmptyNsHasBeenSet() const;
 
                     /**
                      * 获取规则总量
                      * @return Total 规则总量
+                     * 
                      */
                     int64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
@@ -88,14 +90,12 @@ namespace TencentCloud
 
                     /**
                      * 规则列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ImmutableTagRule> m_rules;
                     bool m_rulesHasBeenSet;
 
                     /**
                      * 未创建规则的命名空间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_emptyNs;
                     bool m_emptyNsHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取存储过程名称
                      * @return Proc 存储过程名称
+                     * 
                      */
                     std::string GetProc() const;
 
                     /**
                      * 设置存储过程名称
-                     * @param Proc 存储过程名称
+                     * @param _proc 存储过程名称
+                     * 
                      */
                     void SetProc(const std::string& _proc);
 
                     /**
                      * 判断参数 Proc 是否已赋值
                      * @return Proc 是否已赋值
+                     * 
                      */
                     bool ProcHasBeenSet() const;
 

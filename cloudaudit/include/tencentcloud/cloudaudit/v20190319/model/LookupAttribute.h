@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,45 +48,43 @@ namespace TencentCloud
 
                     /**
                      * 获取AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return AttributeKey AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetAttributeKey() const;
 
                     /**
                      * 设置AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AttributeKey AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _attributeKey AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+                     * 
                      */
                     void SetAttributeKey(const std::string& _attributeKey);
 
                     /**
                      * 判断参数 AttributeKey 是否已赋值
                      * @return AttributeKey 是否已赋值
+                     * 
                      */
                     bool AttributeKeyHasBeenSet() const;
 
                     /**
                      * 获取AttributeValue的值
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return AttributeValue AttributeValue的值
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetAttributeValue() const;
 
                     /**
                      * 设置AttributeValue的值
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AttributeValue AttributeValue的值
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _attributeValue AttributeValue的值
+                     * 
                      */
                     void SetAttributeValue(const std::string& _attributeValue);
 
                     /**
                      * 判断参数 AttributeValue 是否已赋值
                      * @return AttributeValue 是否已赋值
+                     * 
                      */
                     bool AttributeValueHasBeenSet() const;
 
@@ -94,14 +92,12 @@ namespace TencentCloud
 
                     /**
                      * AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_attributeKey;
                     bool m_attributeKeyHasBeenSet;
 
                     /**
                      * AttributeValue的值
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_attributeValue;
                     bool m_attributeValueHasBeenSet;

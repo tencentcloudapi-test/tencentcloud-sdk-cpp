@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取域名状态，可取bindable, binded, opened, closed, all，all表示全部状态
                      * @return Status 域名状态，可取bindable, binded, opened, closed, all，all表示全部状态
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置域名状态，可取bindable, binded, opened, closed, all，all表示全部状态
-                     * @param Status 域名状态，可取bindable, binded, opened, closed, all，all表示全部状态
+                     * @param _status 域名状态，可取bindable, binded, opened, closed, all，all表示全部状态
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取证书ID列表
                      * @return CertIds 证书ID列表
+                     * 
                      */
                     std::vector<std::string> GetCertIds() const;
 
                     /**
                      * 设置证书ID列表
-                     * @param CertIds 证书ID列表
+                     * @param _certIds 证书ID列表
+                     * 
                      */
                     void SetCertIds(const std::vector<std::string>& _certIds);
 
                     /**
                      * 判断参数 CertIds 是否已赋值
                      * @return CertIds 是否已赋值
+                     * 
                      */
                     bool CertIdsHasBeenSet() const;
 

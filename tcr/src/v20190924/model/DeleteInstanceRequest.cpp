@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 DeleteInstanceRequest::DeleteInstanceRequest() :
     m_registryIdHasBeenSet(false),
-    m_deleteBucketHasBeenSet(false)
+    m_deleteBucketHasBeenSet(false),
+    m_dryRunHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string DeleteInstanceRequest::ToJsonString() const
         string key = "DeleteBucket";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_deleteBucket, allocator);
+    }
+
+    if (m_dryRunHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DryRun";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_dryRun, allocator);
     }
 
 
@@ -89,6 +98,22 @@ void DeleteInstanceRequest::SetDeleteBucket(const bool& _deleteBucket)
 bool DeleteInstanceRequest::DeleteBucketHasBeenSet() const
 {
     return m_deleteBucketHasBeenSet;
+}
+
+bool DeleteInstanceRequest::GetDryRun() const
+{
+    return m_dryRun;
+}
+
+void DeleteInstanceRequest::SetDryRun(const bool& _dryRun)
+{
+    m_dryRun = _dryRun;
+    m_dryRunHasBeenSet = true;
+}
+
+bool DeleteInstanceRequest::DryRunHasBeenSet() const
+{
+    return m_dryRunHasBeenSet;
 }
 
 

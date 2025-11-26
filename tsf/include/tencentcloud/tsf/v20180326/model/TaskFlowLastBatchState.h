@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,67 +48,64 @@ namespace TencentCloud
 
                     /**
                      * 获取批次ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FlowBatchId 批次ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFlowBatchId() const;
 
                     /**
                      * 设置批次ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FlowBatchId 批次ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _flowBatchId 批次ID
+                     * 
                      */
                     void SetFlowBatchId(const std::string& _flowBatchId);
 
                     /**
                      * 判断参数 FlowBatchId 是否已赋值
                      * @return FlowBatchId 是否已赋值
+                     * 
                      */
                     bool FlowBatchIdHasBeenSet() const;
 
                     /**
                      * 获取批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FlowBatchLogId 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFlowBatchLogId() const;
 
                     /**
                      * 设置批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FlowBatchLogId 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _flowBatchLogId 批次历史ID
+                     * 
                      */
                     void SetFlowBatchLogId(const std::string& _flowBatchLogId);
 
                     /**
                      * 判断参数 FlowBatchLogId 是否已赋值
                      * @return FlowBatchLogId 是否已赋值
+                     * 
                      */
                     bool FlowBatchLogIdHasBeenSet() const;
 
                     /**
                      * 获取状态,WAITING/SUCCESS/FAILED/RUNNING/TERMINATING
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return State 状态,WAITING/SUCCESS/FAILED/RUNNING/TERMINATING
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetState() const;
 
                     /**
                      * 设置状态,WAITING/SUCCESS/FAILED/RUNNING/TERMINATING
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param State 状态,WAITING/SUCCESS/FAILED/RUNNING/TERMINATING
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _state 状态,WAITING/SUCCESS/FAILED/RUNNING/TERMINATING
+                     * 
                      */
                     void SetState(const std::string& _state);
 
                     /**
                      * 判断参数 State 是否已赋值
                      * @return State 是否已赋值
+                     * 
                      */
                     bool StateHasBeenSet() const;
 
@@ -116,21 +113,18 @@ namespace TencentCloud
 
                     /**
                      * 批次ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_flowBatchId;
                     bool m_flowBatchIdHasBeenSet;
 
                     /**
                      * 批次历史ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_flowBatchLogId;
                     bool m_flowBatchLogIdHasBeenSet;
 
                     /**
                      * 状态,WAITING/SUCCESS/FAILED/RUNNING/TERMINATING
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_state;
                     bool m_stateHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,20 @@ BGPInstance::BGPInstance() :
     m_eipProductInfosHasBeenSet(false),
     m_boundStatusHasBeenSet(false),
     m_dDoSLevelHasBeenSet(false),
-    m_cCEnableHasBeenSet(false)
+    m_cCEnableHasBeenSet(false),
+    m_tagInfoListHasBeenSet(false),
+    m_ipCountNewFlagHasBeenSet(false),
+    m_vitalityVersionHasBeenSet(false),
+    m_lineHasBeenSet(false),
+    m_freeServiceBandwidthHasBeenSet(false),
+    m_elasticServiceBandwidthHasBeenSet(false),
+    m_giftServiceBandWidthHasBeenSet(false),
+    m_modifyTimeHasBeenSet(false),
+    m_basicPlusFlagHasBeenSet(false),
+    m_planCntFlagHasBeenSet(false),
+    m_transRegionFlagHasBeenSet(false),
+    m_superPackFlagHasBeenSet(false),
+    m_zoneIdHasBeenSet(false)
 {
 }
 
@@ -217,6 +230,146 @@ CoreInternalOutcome BGPInstance::Deserialize(const rapidjson::Value &value)
         m_cCEnableHasBeenSet = true;
     }
 
+    if (value.HasMember("TagInfoList") && !value["TagInfoList"].IsNull())
+    {
+        if (!value["TagInfoList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.TagInfoList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TagInfoList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            TagInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tagInfoList.push_back(item);
+        }
+        m_tagInfoListHasBeenSet = true;
+    }
+
+    if (value.HasMember("IpCountNewFlag") && !value["IpCountNewFlag"].IsNull())
+    {
+        if (!value["IpCountNewFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.IpCountNewFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_ipCountNewFlag = value["IpCountNewFlag"].GetUint64();
+        m_ipCountNewFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("VitalityVersion") && !value["VitalityVersion"].IsNull())
+    {
+        if (!value["VitalityVersion"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.VitalityVersion` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_vitalityVersion = value["VitalityVersion"].GetUint64();
+        m_vitalityVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("Line") && !value["Line"].IsNull())
+    {
+        if (!value["Line"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.Line` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_line = value["Line"].GetUint64();
+        m_lineHasBeenSet = true;
+    }
+
+    if (value.HasMember("FreeServiceBandwidth") && !value["FreeServiceBandwidth"].IsNull())
+    {
+        if (!value["FreeServiceBandwidth"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.FreeServiceBandwidth` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_freeServiceBandwidth = value["FreeServiceBandwidth"].GetUint64();
+        m_freeServiceBandwidthHasBeenSet = true;
+    }
+
+    if (value.HasMember("ElasticServiceBandwidth") && !value["ElasticServiceBandwidth"].IsNull())
+    {
+        if (!value["ElasticServiceBandwidth"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.ElasticServiceBandwidth` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_elasticServiceBandwidth = value["ElasticServiceBandwidth"].GetUint64();
+        m_elasticServiceBandwidthHasBeenSet = true;
+    }
+
+    if (value.HasMember("GiftServiceBandWidth") && !value["GiftServiceBandWidth"].IsNull())
+    {
+        if (!value["GiftServiceBandWidth"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.GiftServiceBandWidth` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_giftServiceBandWidth = value["GiftServiceBandWidth"].GetInt64();
+        m_giftServiceBandWidthHasBeenSet = true;
+    }
+
+    if (value.HasMember("ModifyTime") && !value["ModifyTime"].IsNull())
+    {
+        if (!value["ModifyTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.ModifyTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_modifyTime = string(value["ModifyTime"].GetString());
+        m_modifyTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("BasicPlusFlag") && !value["BasicPlusFlag"].IsNull())
+    {
+        if (!value["BasicPlusFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.BasicPlusFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_basicPlusFlag = value["BasicPlusFlag"].GetUint64();
+        m_basicPlusFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("PlanCntFlag") && !value["PlanCntFlag"].IsNull())
+    {
+        if (!value["PlanCntFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.PlanCntFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_planCntFlag = value["PlanCntFlag"].GetUint64();
+        m_planCntFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("TransRegionFlag") && !value["TransRegionFlag"].IsNull())
+    {
+        if (!value["TransRegionFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.TransRegionFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_transRegionFlag = value["TransRegionFlag"].GetUint64();
+        m_transRegionFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("SuperPackFlag") && !value["SuperPackFlag"].IsNull())
+    {
+        if (!value["SuperPackFlag"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.SuperPackFlag` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_superPackFlag = value["SuperPackFlag"].GetUint64();
+        m_superPackFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("ZoneId") && !value["ZoneId"].IsNull())
+    {
+        if (!value["ZoneId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BGPInstance.ZoneId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_zoneId = value["ZoneId"].GetInt64();
+        m_zoneIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -338,6 +491,117 @@ void BGPInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "CCEnable";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_cCEnable, allocator);
+    }
+
+    if (m_tagInfoListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagInfoList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagInfoList.begin(); itr != m_tagInfoList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_ipCountNewFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IpCountNewFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_ipCountNewFlag, allocator);
+    }
+
+    if (m_vitalityVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VitalityVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_vitalityVersion, allocator);
+    }
+
+    if (m_lineHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Line";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_line, allocator);
+    }
+
+    if (m_freeServiceBandwidthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FreeServiceBandwidth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_freeServiceBandwidth, allocator);
+    }
+
+    if (m_elasticServiceBandwidthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ElasticServiceBandwidth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_elasticServiceBandwidth, allocator);
+    }
+
+    if (m_giftServiceBandWidthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GiftServiceBandWidth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_giftServiceBandWidth, allocator);
+    }
+
+    if (m_modifyTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ModifyTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_modifyTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_basicPlusFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BasicPlusFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_basicPlusFlag, allocator);
+    }
+
+    if (m_planCntFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PlanCntFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_planCntFlag, allocator);
+    }
+
+    if (m_transRegionFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TransRegionFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_transRegionFlag, allocator);
+    }
+
+    if (m_superPackFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SuperPackFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_superPackFlag, allocator);
+    }
+
+    if (m_zoneIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ZoneId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_zoneId, allocator);
     }
 
 }
@@ -549,5 +813,213 @@ void BGPInstance::SetCCEnable(const int64_t& _cCEnable)
 bool BGPInstance::CCEnableHasBeenSet() const
 {
     return m_cCEnableHasBeenSet;
+}
+
+vector<TagInfo> BGPInstance::GetTagInfoList() const
+{
+    return m_tagInfoList;
+}
+
+void BGPInstance::SetTagInfoList(const vector<TagInfo>& _tagInfoList)
+{
+    m_tagInfoList = _tagInfoList;
+    m_tagInfoListHasBeenSet = true;
+}
+
+bool BGPInstance::TagInfoListHasBeenSet() const
+{
+    return m_tagInfoListHasBeenSet;
+}
+
+uint64_t BGPInstance::GetIpCountNewFlag() const
+{
+    return m_ipCountNewFlag;
+}
+
+void BGPInstance::SetIpCountNewFlag(const uint64_t& _ipCountNewFlag)
+{
+    m_ipCountNewFlag = _ipCountNewFlag;
+    m_ipCountNewFlagHasBeenSet = true;
+}
+
+bool BGPInstance::IpCountNewFlagHasBeenSet() const
+{
+    return m_ipCountNewFlagHasBeenSet;
+}
+
+uint64_t BGPInstance::GetVitalityVersion() const
+{
+    return m_vitalityVersion;
+}
+
+void BGPInstance::SetVitalityVersion(const uint64_t& _vitalityVersion)
+{
+    m_vitalityVersion = _vitalityVersion;
+    m_vitalityVersionHasBeenSet = true;
+}
+
+bool BGPInstance::VitalityVersionHasBeenSet() const
+{
+    return m_vitalityVersionHasBeenSet;
+}
+
+uint64_t BGPInstance::GetLine() const
+{
+    return m_line;
+}
+
+void BGPInstance::SetLine(const uint64_t& _line)
+{
+    m_line = _line;
+    m_lineHasBeenSet = true;
+}
+
+bool BGPInstance::LineHasBeenSet() const
+{
+    return m_lineHasBeenSet;
+}
+
+uint64_t BGPInstance::GetFreeServiceBandwidth() const
+{
+    return m_freeServiceBandwidth;
+}
+
+void BGPInstance::SetFreeServiceBandwidth(const uint64_t& _freeServiceBandwidth)
+{
+    m_freeServiceBandwidth = _freeServiceBandwidth;
+    m_freeServiceBandwidthHasBeenSet = true;
+}
+
+bool BGPInstance::FreeServiceBandwidthHasBeenSet() const
+{
+    return m_freeServiceBandwidthHasBeenSet;
+}
+
+uint64_t BGPInstance::GetElasticServiceBandwidth() const
+{
+    return m_elasticServiceBandwidth;
+}
+
+void BGPInstance::SetElasticServiceBandwidth(const uint64_t& _elasticServiceBandwidth)
+{
+    m_elasticServiceBandwidth = _elasticServiceBandwidth;
+    m_elasticServiceBandwidthHasBeenSet = true;
+}
+
+bool BGPInstance::ElasticServiceBandwidthHasBeenSet() const
+{
+    return m_elasticServiceBandwidthHasBeenSet;
+}
+
+int64_t BGPInstance::GetGiftServiceBandWidth() const
+{
+    return m_giftServiceBandWidth;
+}
+
+void BGPInstance::SetGiftServiceBandWidth(const int64_t& _giftServiceBandWidth)
+{
+    m_giftServiceBandWidth = _giftServiceBandWidth;
+    m_giftServiceBandWidthHasBeenSet = true;
+}
+
+bool BGPInstance::GiftServiceBandWidthHasBeenSet() const
+{
+    return m_giftServiceBandWidthHasBeenSet;
+}
+
+string BGPInstance::GetModifyTime() const
+{
+    return m_modifyTime;
+}
+
+void BGPInstance::SetModifyTime(const string& _modifyTime)
+{
+    m_modifyTime = _modifyTime;
+    m_modifyTimeHasBeenSet = true;
+}
+
+bool BGPInstance::ModifyTimeHasBeenSet() const
+{
+    return m_modifyTimeHasBeenSet;
+}
+
+uint64_t BGPInstance::GetBasicPlusFlag() const
+{
+    return m_basicPlusFlag;
+}
+
+void BGPInstance::SetBasicPlusFlag(const uint64_t& _basicPlusFlag)
+{
+    m_basicPlusFlag = _basicPlusFlag;
+    m_basicPlusFlagHasBeenSet = true;
+}
+
+bool BGPInstance::BasicPlusFlagHasBeenSet() const
+{
+    return m_basicPlusFlagHasBeenSet;
+}
+
+uint64_t BGPInstance::GetPlanCntFlag() const
+{
+    return m_planCntFlag;
+}
+
+void BGPInstance::SetPlanCntFlag(const uint64_t& _planCntFlag)
+{
+    m_planCntFlag = _planCntFlag;
+    m_planCntFlagHasBeenSet = true;
+}
+
+bool BGPInstance::PlanCntFlagHasBeenSet() const
+{
+    return m_planCntFlagHasBeenSet;
+}
+
+uint64_t BGPInstance::GetTransRegionFlag() const
+{
+    return m_transRegionFlag;
+}
+
+void BGPInstance::SetTransRegionFlag(const uint64_t& _transRegionFlag)
+{
+    m_transRegionFlag = _transRegionFlag;
+    m_transRegionFlagHasBeenSet = true;
+}
+
+bool BGPInstance::TransRegionFlagHasBeenSet() const
+{
+    return m_transRegionFlagHasBeenSet;
+}
+
+uint64_t BGPInstance::GetSuperPackFlag() const
+{
+    return m_superPackFlag;
+}
+
+void BGPInstance::SetSuperPackFlag(const uint64_t& _superPackFlag)
+{
+    m_superPackFlag = _superPackFlag;
+    m_superPackFlagHasBeenSet = true;
+}
+
+bool BGPInstance::SuperPackFlagHasBeenSet() const
+{
+    return m_superPackFlagHasBeenSet;
+}
+
+int64_t BGPInstance::GetZoneId() const
+{
+    return m_zoneId;
+}
+
+void BGPInstance::SetZoneId(const int64_t& _zoneId)
+{
+    m_zoneId = _zoneId;
+    m_zoneIdHasBeenSet = true;
+}
+
+bool BGPInstance::ZoneIdHasBeenSet() const
+{
+    return m_zoneIdHasBeenSet;
 }
 

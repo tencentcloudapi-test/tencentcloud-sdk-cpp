@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,11 @@ DescribeSREInstanceAccessAddressResponse::DescribeSREInstanceAccessAddressRespon
     m_internetAddressHasBeenSet(false),
     m_envAddressInfosHasBeenSet(false),
     m_consoleInternetAddressHasBeenSet(false),
-    m_consoleIntranetAddressHasBeenSet(false)
+    m_consoleIntranetAddressHasBeenSet(false),
+    m_internetBandWidthHasBeenSet(false),
+    m_consoleInternetBandWidthHasBeenSet(false),
+    m_limiterAddressInfosHasBeenSet(false),
+    m_cLBMultiRegionHasBeenSet(false)
 {
 }
 
@@ -126,6 +130,63 @@ CoreInternalOutcome DescribeSREInstanceAccessAddressResponse::Deserialize(const 
         m_consoleIntranetAddressHasBeenSet = true;
     }
 
+    if (rsp.HasMember("InternetBandWidth") && !rsp["InternetBandWidth"].IsNull())
+    {
+        if (!rsp["InternetBandWidth"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `InternetBandWidth` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_internetBandWidth = rsp["InternetBandWidth"].GetInt64();
+        m_internetBandWidthHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ConsoleInternetBandWidth") && !rsp["ConsoleInternetBandWidth"].IsNull())
+    {
+        if (!rsp["ConsoleInternetBandWidth"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ConsoleInternetBandWidth` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_consoleInternetBandWidth = rsp["ConsoleInternetBandWidth"].GetInt64();
+        m_consoleInternetBandWidthHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("LimiterAddressInfos") && !rsp["LimiterAddressInfos"].IsNull())
+    {
+        if (!rsp["LimiterAddressInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `LimiterAddressInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["LimiterAddressInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            PolarisLimiterAddress item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_limiterAddressInfos.push_back(item);
+        }
+        m_limiterAddressInfosHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CLBMultiRegion") && !rsp["CLBMultiRegion"].IsNull())
+    {
+        if (!rsp["CLBMultiRegion"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `CLBMultiRegion` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_cLBMultiRegion.Deserialize(rsp["CLBMultiRegion"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_cLBMultiRegionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -183,11 +244,51 @@ string DescribeSREInstanceAccessAddressResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_consoleIntranetAddress.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_internetBandWidthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InternetBandWidth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_internetBandWidth, allocator);
+    }
+
+    if (m_consoleInternetBandWidthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConsoleInternetBandWidth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_consoleInternetBandWidth, allocator);
+    }
+
+    if (m_limiterAddressInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LimiterAddressInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_limiterAddressInfos.begin(); itr != m_limiterAddressInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_cLBMultiRegionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CLBMultiRegion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_cLBMultiRegion.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -243,6 +344,46 @@ string DescribeSREInstanceAccessAddressResponse::GetConsoleIntranetAddress() con
 bool DescribeSREInstanceAccessAddressResponse::ConsoleIntranetAddressHasBeenSet() const
 {
     return m_consoleIntranetAddressHasBeenSet;
+}
+
+int64_t DescribeSREInstanceAccessAddressResponse::GetInternetBandWidth() const
+{
+    return m_internetBandWidth;
+}
+
+bool DescribeSREInstanceAccessAddressResponse::InternetBandWidthHasBeenSet() const
+{
+    return m_internetBandWidthHasBeenSet;
+}
+
+int64_t DescribeSREInstanceAccessAddressResponse::GetConsoleInternetBandWidth() const
+{
+    return m_consoleInternetBandWidth;
+}
+
+bool DescribeSREInstanceAccessAddressResponse::ConsoleInternetBandWidthHasBeenSet() const
+{
+    return m_consoleInternetBandWidthHasBeenSet;
+}
+
+vector<PolarisLimiterAddress> DescribeSREInstanceAccessAddressResponse::GetLimiterAddressInfos() const
+{
+    return m_limiterAddressInfos;
+}
+
+bool DescribeSREInstanceAccessAddressResponse::LimiterAddressInfosHasBeenSet() const
+{
+    return m_limiterAddressInfosHasBeenSet;
+}
+
+CLBMultiRegion DescribeSREInstanceAccessAddressResponse::GetCLBMultiRegion() const
+{
+    return m_cLBMultiRegion;
+}
+
+bool DescribeSREInstanceAccessAddressResponse::CLBMultiRegionHasBeenSet() const
+{
+    return m_cLBMultiRegionHasBeenSet;
 }
 
 

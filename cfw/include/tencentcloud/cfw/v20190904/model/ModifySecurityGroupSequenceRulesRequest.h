@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取方向，0：出站，1：入站，默认1
                      * @return Direction 方向，0：出站，1：入站，默认1
+                     * 
                      */
                     uint64_t GetDirection() const;
 
                     /**
                      * 设置方向，0：出站，1：入站，默认1
-                     * @param Direction 方向，0：出站，1：入站，默认1
+                     * @param _direction 方向，0：出站，1：入站，默认1
+                     * 
                      */
                     void SetDirection(const uint64_t& _direction);
 
                     /**
                      * 判断参数 Direction 是否已赋值
                      * @return Direction 是否已赋值
+                     * 
                      */
                     bool DirectionHasBeenSet() const;
 
                     /**
                      * 获取企业安全组规则快速排序数据
                      * @return Data 企业安全组规则快速排序数据
+                     * 
                      */
                     std::vector<SecurityGroupOrderIndexData> GetData() const;
 
                     /**
                      * 设置企业安全组规则快速排序数据
-                     * @param Data 企业安全组规则快速排序数据
+                     * @param _data 企业安全组规则快速排序数据
+                     * 
                      */
                     void SetData(const std::vector<SecurityGroupOrderIndexData>& _data);
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取仓库名称
                      * @return RepoName 仓库名称
+                     * 
                      */
                     std::string GetRepoName() const;
 
                     /**
                      * 设置仓库名称
-                     * @param RepoName 仓库名称
+                     * @param _repoName 仓库名称
+                     * 
                      */
                     void SetRepoName(const std::string& _repoName);
 
                     /**
                      * 判断参数 RepoName 是否已赋值
                      * @return RepoName 是否已赋值
+                     * 
                      */
                     bool RepoNameHasBeenSet() const;
 
                     /**
                      * 获取默认值为0, 1公共，0私有
                      * @return Public 默认值为0, 1公共，0私有
+                     * 
                      */
                     int64_t GetPublic() const;
 
                     /**
                      * 设置默认值为0, 1公共，0私有
-                     * @param Public 默认值为0, 1公共，0私有
+                     * @param _public 默认值为0, 1公共，0私有
+                     * 
                      */
                     void SetPublic(const int64_t& _public);
 
                     /**
                      * 判断参数 Public 是否已赋值
                      * @return Public 是否已赋值
+                     * 
                      */
                     bool PublicHasBeenSet() const;
 

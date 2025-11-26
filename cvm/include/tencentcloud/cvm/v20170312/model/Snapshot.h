@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取快照Id。
                      * @return SnapshotId 快照Id。
+                     * 
                      */
                     std::string GetSnapshotId() const;
 
                     /**
                      * 设置快照Id。
-                     * @param SnapshotId 快照Id。
+                     * @param _snapshotId 快照Id。
+                     * 
                      */
                     void SetSnapshotId(const std::string& _snapshotId);
 
                     /**
                      * 判断参数 SnapshotId 是否已赋值
                      * @return SnapshotId 是否已赋值
+                     * 
                      */
                     bool SnapshotIdHasBeenSet() const;
 
@@ -71,6 +74,7 @@ DATA_DISK：数据盘。
                      * @return DiskUsage 创建此快照的云硬盘类型。取值范围：
 SYSTEM_DISK：系统盘
 DATA_DISK：数据盘。
+                     * 
                      */
                     std::string GetDiskUsage() const;
 
@@ -78,33 +82,38 @@ DATA_DISK：数据盘。
                      * 设置创建此快照的云硬盘类型。取值范围：
 SYSTEM_DISK：系统盘
 DATA_DISK：数据盘。
-                     * @param DiskUsage 创建此快照的云硬盘类型。取值范围：
+                     * @param _diskUsage 创建此快照的云硬盘类型。取值范围：
 SYSTEM_DISK：系统盘
 DATA_DISK：数据盘。
+                     * 
                      */
                     void SetDiskUsage(const std::string& _diskUsage);
 
                     /**
                      * 判断参数 DiskUsage 是否已赋值
                      * @return DiskUsage 是否已赋值
+                     * 
                      */
                     bool DiskUsageHasBeenSet() const;
 
                     /**
-                     * 获取创建此快照的云硬盘大小，单位GB。
-                     * @return DiskSize 创建此快照的云硬盘大小，单位GB。
+                     * 获取创建此快照的云硬盘大小，单位 GiB。
+                     * @return DiskSize 创建此快照的云硬盘大小，单位 GiB。
+                     * 
                      */
                     int64_t GetDiskSize() const;
 
                     /**
-                     * 设置创建此快照的云硬盘大小，单位GB。
-                     * @param DiskSize 创建此快照的云硬盘大小，单位GB。
+                     * 设置创建此快照的云硬盘大小，单位 GiB。
+                     * @param _diskSize 创建此快照的云硬盘大小，单位 GiB。
+                     * 
                      */
                     void SetDiskSize(const int64_t& _diskSize);
 
                     /**
                      * 判断参数 DiskSize 是否已赋值
                      * @return DiskSize 是否已赋值
+                     * 
                      */
                     bool DiskSizeHasBeenSet() const;
 
@@ -125,7 +134,7 @@ DATA_DISK：数据盘。
                     bool m_diskUsageHasBeenSet;
 
                     /**
-                     * 创建此快照的云硬盘大小，单位GB。
+                     * 创建此快照的云硬盘大小，单位 GiB。
                      */
                     int64_t m_diskSize;
                     bool m_diskSizeHasBeenSet;

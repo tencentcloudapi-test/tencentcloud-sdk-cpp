@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,81 +43,93 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取配置ID
-                     * @return UconfigId 配置ID
+                     * 获取配置ID，可以通过 [DescribeCustomizedConfigList](https://cloud.tencent.com/document/product/214/60009) 接口获取。
+                     * @return UconfigId 配置ID，可以通过 [DescribeCustomizedConfigList](https://cloud.tencent.com/document/product/214/60009) 接口获取。
+                     * 
                      */
                     std::string GetUconfigId() const;
 
                     /**
-                     * 设置配置ID
-                     * @param UconfigId 配置ID
+                     * 设置配置ID，可以通过 [DescribeCustomizedConfigList](https://cloud.tencent.com/document/product/214/60009) 接口获取。
+                     * @param _uconfigId 配置ID，可以通过 [DescribeCustomizedConfigList](https://cloud.tencent.com/document/product/214/60009) 接口获取。
+                     * 
                      */
                     void SetUconfigId(const std::string& _uconfigId);
 
                     /**
                      * 判断参数 UconfigId 是否已赋值
                      * @return UconfigId 是否已赋值
+                     * 
                      */
                     bool UconfigIdHasBeenSet() const;
 
                     /**
                      * 获取拉取绑定关系列表开始位置，默认值 0
                      * @return Offset 拉取绑定关系列表开始位置，默认值 0
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置拉取绑定关系列表开始位置，默认值 0
-                     * @param Offset 拉取绑定关系列表开始位置，默认值 0
+                     * @param _offset 拉取绑定关系列表开始位置，默认值 0
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取拉取绑定关系列表数目，默认值 20
                      * @return Limit 拉取绑定关系列表数目，默认值 20
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
                      * 设置拉取绑定关系列表数目，默认值 20
-                     * @param Limit 拉取绑定关系列表数目，默认值 20
+                     * @param _limit 拉取绑定关系列表数目，默认值 20
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取搜索域名
-                     * @return Domain 搜索域名
+                     * 获取搜索域名，可以通过 [DescribeLoadBalancersDetail](https://cloud.tencent.com/document/product/214/46916) 接口返回值的 `Domain` 字段查询。
+                     * @return Domain 搜索域名，可以通过 [DescribeLoadBalancersDetail](https://cloud.tencent.com/document/product/214/46916) 接口返回值的 `Domain` 字段查询。
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
-                     * 设置搜索域名
-                     * @param Domain 搜索域名
+                     * 设置搜索域名，可以通过 [DescribeLoadBalancersDetail](https://cloud.tencent.com/document/product/214/46916) 接口返回值的 `Domain` 字段查询。
+                     * @param _domain 搜索域名，可以通过 [DescribeLoadBalancersDetail](https://cloud.tencent.com/document/product/214/46916) 接口返回值的 `Domain` 字段查询。
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 配置ID
+                     * 配置ID，可以通过 [DescribeCustomizedConfigList](https://cloud.tencent.com/document/product/214/60009) 接口获取。
                      */
                     std::string m_uconfigId;
                     bool m_uconfigIdHasBeenSet;
@@ -135,7 +147,7 @@ namespace TencentCloud
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 搜索域名
+                     * 搜索域名，可以通过 [DescribeLoadBalancersDetail](https://cloud.tencent.com/document/product/214/46916) 接口返回值的 `Domain` 字段查询。
                      */
                     std::string m_domain;
                     bool m_domainHasBeenSet;

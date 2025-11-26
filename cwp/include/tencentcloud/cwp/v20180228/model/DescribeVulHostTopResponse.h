@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,15 +46,15 @@ namespace TencentCloud
 
                     /**
                      * 获取服务器风险top列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VulHostTopList 服务器风险top列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<VulHostTopInfo> GetVulHostTopList() const;
 
                     /**
                      * 判断参数 VulHostTopList 是否已赋值
                      * @return VulHostTopList 是否已赋值
+                     * 
                      */
                     bool VulHostTopListHasBeenSet() const;
 
@@ -62,7 +62,6 @@ namespace TencentCloud
 
                     /**
                      * 服务器风险top列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<VulHostTopInfo> m_vulHostTopList;
                     bool m_vulHostTopListHasBeenSet;

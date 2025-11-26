@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@
 using namespace TencentCloud::Ckafka::V20190819::Model;
 using namespace std;
 
-DescribeCkafkaZoneRequest::DescribeCkafkaZoneRequest()
+DescribeCkafkaZoneRequest::DescribeCkafkaZoneRequest() :
+    m_cdcIdHasBeenSet(false)
 {
 }
 
@@ -33,6 +34,14 @@ string DescribeCkafkaZoneRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
+    if (m_cdcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CdcId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cdcId.c_str(), allocator).Move(), allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -40,5 +49,21 @@ string DescribeCkafkaZoneRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+string DescribeCkafkaZoneRequest::GetCdcId() const
+{
+    return m_cdcId;
+}
+
+void DescribeCkafkaZoneRequest::SetCdcId(const string& _cdcId)
+{
+    m_cdcId = _cdcId;
+    m_cdcIdHasBeenSet = true;
+}
+
+bool DescribeCkafkaZoneRequest::CdcIdHasBeenSet() const
+{
+    return m_cdcIdHasBeenSet;
+}
 
 

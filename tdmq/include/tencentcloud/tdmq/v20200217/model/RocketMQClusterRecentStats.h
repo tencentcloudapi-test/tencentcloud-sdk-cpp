@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取Topic数量
                      * @return TopicNum Topic数量
+                     * 
                      */
                     uint64_t GetTopicNum() const;
 
                     /**
                      * 设置Topic数量
-                     * @param TopicNum Topic数量
+                     * @param _topicNum Topic数量
+                     * 
                      */
                     void SetTopicNum(const uint64_t& _topicNum);
 
                     /**
                      * 判断参数 TopicNum 是否已赋值
                      * @return TopicNum 是否已赋值
+                     * 
                      */
                     bool TopicNumHasBeenSet() const;
 
                     /**
                      * 获取消息生产数
                      * @return ProducedMsgNum 消息生产数
+                     * 
                      */
                     uint64_t GetProducedMsgNum() const;
 
                     /**
                      * 设置消息生产数
-                     * @param ProducedMsgNum 消息生产数
+                     * @param _producedMsgNum 消息生产数
+                     * 
                      */
                     void SetProducedMsgNum(const uint64_t& _producedMsgNum);
 
                     /**
                      * 判断参数 ProducedMsgNum 是否已赋值
                      * @return ProducedMsgNum 是否已赋值
+                     * 
                      */
                     bool ProducedMsgNumHasBeenSet() const;
 
                     /**
                      * 获取消息消费数
                      * @return ConsumedMsgNum 消息消费数
+                     * 
                      */
                     uint64_t GetConsumedMsgNum() const;
 
                     /**
                      * 设置消息消费数
-                     * @param ConsumedMsgNum 消息消费数
+                     * @param _consumedMsgNum 消息消费数
+                     * 
                      */
                     void SetConsumedMsgNum(const uint64_t& _consumedMsgNum);
 
                     /**
                      * 判断参数 ConsumedMsgNum 是否已赋值
                      * @return ConsumedMsgNum 是否已赋值
+                     * 
                      */
                     bool ConsumedMsgNumHasBeenSet() const;
 
                     /**
                      * 获取消息堆积数
                      * @return AccumulativeMsgNum 消息堆积数
+                     * 
                      */
                     uint64_t GetAccumulativeMsgNum() const;
 
                     /**
                      * 设置消息堆积数
-                     * @param AccumulativeMsgNum 消息堆积数
+                     * @param _accumulativeMsgNum 消息堆积数
+                     * 
                      */
                     void SetAccumulativeMsgNum(const uint64_t& _accumulativeMsgNum);
 
                     /**
                      * 判断参数 AccumulativeMsgNum 是否已赋值
                      * @return AccumulativeMsgNum 是否已赋值
+                     * 
                      */
                     bool AccumulativeMsgNumHasBeenSet() const;
 

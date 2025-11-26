@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取语音流异步识别任务的唯一标识，在创建任务时会返回
                      * @return TaskId 语音流异步识别任务的唯一标识，在创建任务时会返回
+                     * 
                      */
                     int64_t GetTaskId() const;
 
                     /**
                      * 设置语音流异步识别任务的唯一标识，在创建任务时会返回
-                     * @param TaskId 语音流异步识别任务的唯一标识，在创建任务时会返回
+                     * @param _taskId 语音流异步识别任务的唯一标识，在创建任务时会返回
+                     * 
                      */
                     void SetTaskId(const int64_t& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 

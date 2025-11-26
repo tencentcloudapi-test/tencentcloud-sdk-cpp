@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取固定值，为"monitor"
                      * @return Module 固定值，为"monitor"
+                     * 
                      */
                     std::string GetModule() const;
 
                     /**
                      * 设置固定值，为"monitor"
-                     * @param Module 固定值，为"monitor"
+                     * @param _module 固定值，为"monitor"
+                     * 
                      */
                     void SetModule(const std::string& _module);
 
                     /**
                      * 判断参数 Module 是否已赋值
                      * @return Module 是否已赋值
+                     * 
                      */
                     bool ModuleHasBeenSet() const;
 
                     /**
-                     * 获取策略组id
-                     * @return GroupId 策略组id
+                     * 获取策略组id,即1.0的告警策略id,可以从策略详情获取
+                     * @return GroupId 策略组id,即1.0的告警策略id,可以从策略详情获取
+                     * 
                      */
                     std::vector<int64_t> GetGroupId() const;
 
                     /**
-                     * 设置策略组id
-                     * @param GroupId 策略组id
+                     * 设置策略组id,即1.0的告警策略id,可以从策略详情获取
+                     * @param _groupId 策略组id,即1.0的告警策略id,可以从策略详情获取
+                     * 
                      */
                     void SetGroupId(const std::vector<int64_t>& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
@@ -87,7 +93,7 @@ namespace TencentCloud
                     bool m_moduleHasBeenSet;
 
                     /**
-                     * 策略组id
+                     * 策略组id,即1.0的告警策略id,可以从策略详情获取
                      */
                     std::vector<int64_t> m_groupId;
                     bool m_groupIdHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/ckafka/v20190819/model/DealInstanceDTO.h>
 
 
 namespace TencentCloud
@@ -48,92 +49,113 @@ namespace TencentCloud
 
                     /**
                      * 获取CreateInstancePre返回固定为0，不能作为CheckTaskStatus的查询条件。只是为了保证和后台数据结构对齐。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FlowId CreateInstancePre返回固定为0，不能作为CheckTaskStatus的查询条件。只是为了保证和后台数据结构对齐。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetFlowId() const;
 
                     /**
                      * 设置CreateInstancePre返回固定为0，不能作为CheckTaskStatus的查询条件。只是为了保证和后台数据结构对齐。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FlowId CreateInstancePre返回固定为0，不能作为CheckTaskStatus的查询条件。只是为了保证和后台数据结构对齐。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _flowId CreateInstancePre返回固定为0，不能作为CheckTaskStatus的查询条件。只是为了保证和后台数据结构对齐。
+                     * 
                      */
                     void SetFlowId(const int64_t& _flowId);
 
                     /**
                      * 判断参数 FlowId 是否已赋值
                      * @return FlowId 是否已赋值
+                     * 
                      */
                     bool FlowIdHasBeenSet() const;
 
                     /**
                      * 获取订单号列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DealNames 订单号列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetDealNames() const;
 
                     /**
                      * 设置订单号列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param DealNames 订单号列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _dealNames 订单号列表
+                     * 
                      */
                     void SetDealNames(const std::vector<std::string>& _dealNames);
 
                     /**
                      * 判断参数 DealNames 是否已赋值
                      * @return DealNames 是否已赋值
+                     * 
                      */
                     bool DealNamesHasBeenSet() const;
 
                     /**
-                     * 获取实例Id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return InstanceId 实例Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取ckafka集群实例Id，当购买多个实例时，默认返回购买的第一个实例 id
+                     * @return InstanceId ckafka集群实例Id，当购买多个实例时，默认返回购买的第一个实例 id
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例Id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstanceId 实例Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置ckafka集群实例Id，当购买多个实例时，默认返回购买的第一个实例 id
+                     * @param _instanceId ckafka集群实例Id，当购买多个实例时，默认返回购买的第一个实例 id
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
+
+                    /**
+                     * 获取订单和购买实例对应映射列表
+                     * @return DealNameInstanceIdMapping 订单和购买实例对应映射列表
+                     * 
+                     */
+                    std::vector<DealInstanceDTO> GetDealNameInstanceIdMapping() const;
+
+                    /**
+                     * 设置订单和购买实例对应映射列表
+                     * @param _dealNameInstanceIdMapping 订单和购买实例对应映射列表
+                     * 
+                     */
+                    void SetDealNameInstanceIdMapping(const std::vector<DealInstanceDTO>& _dealNameInstanceIdMapping);
+
+                    /**
+                     * 判断参数 DealNameInstanceIdMapping 是否已赋值
+                     * @return DealNameInstanceIdMapping 是否已赋值
+                     * 
+                     */
+                    bool DealNameInstanceIdMappingHasBeenSet() const;
 
                 private:
 
                     /**
                      * CreateInstancePre返回固定为0，不能作为CheckTaskStatus的查询条件。只是为了保证和后台数据结构对齐。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_flowId;
                     bool m_flowIdHasBeenSet;
 
                     /**
                      * 订单号列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_dealNames;
                     bool m_dealNamesHasBeenSet;
 
                     /**
-                     * 实例Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * ckafka集群实例Id，当购买多个实例时，默认返回购买的第一个实例 id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
+
+                    /**
+                     * 订单和购买实例对应映射列表
+                     */
+                    std::vector<DealInstanceDTO> m_dealNameInstanceIdMapping;
+                    bool m_dealNameInstanceIdMappingHasBeenSet;
 
                 };
             }

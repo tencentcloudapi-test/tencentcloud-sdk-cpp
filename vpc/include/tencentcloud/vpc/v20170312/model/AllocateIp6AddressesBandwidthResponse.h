@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,33 +44,37 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取弹性公网 IPV6 的唯一 ID 列表。
-                     * @return AddressSet 弹性公网 IPV6 的唯一 ID 列表。
+                     * 获取传统弹性公网 IPv6 的唯一 ID 列表。
+                     * @return AddressSet 传统弹性公网 IPv6 的唯一 ID 列表。
+                     * 
                      */
                     std::vector<std::string> GetAddressSet() const;
 
                     /**
                      * 判断参数 AddressSet 是否已赋值
                      * @return AddressSet 是否已赋值
+                     * 
                      */
                     bool AddressSetHasBeenSet() const;
 
                     /**
                      * 获取异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
                      * @return TaskId 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 弹性公网 IPV6 的唯一 ID 列表。
+                     * 传统弹性公网 IPv6 的唯一 ID 列表。
                      */
                     std::vector<std::string> m_addressSet;
                     bool m_addressSetHasBeenSet;

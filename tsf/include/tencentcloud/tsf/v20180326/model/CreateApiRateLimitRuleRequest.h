@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取Api Id
                      * @return ApiId Api Id
+                     * 
                      */
                     std::string GetApiId() const;
 
                     /**
                      * 设置Api Id
-                     * @param ApiId Api Id
+                     * @param _apiId Api Id
+                     * 
                      */
                     void SetApiId(const std::string& _apiId);
 
                     /**
                      * 判断参数 ApiId 是否已赋值
                      * @return ApiId 是否已赋值
+                     * 
                      */
                     bool ApiIdHasBeenSet() const;
 
                     /**
                      * 获取qps值
                      * @return MaxQps qps值
+                     * 
                      */
                     uint64_t GetMaxQps() const;
 
                     /**
                      * 设置qps值
-                     * @param MaxQps qps值
+                     * @param _maxQps qps值
+                     * 
                      */
                     void SetMaxQps(const uint64_t& _maxQps);
 
                     /**
                      * 判断参数 MaxQps 是否已赋值
                      * @return MaxQps 是否已赋值
+                     * 
                      */
                     bool MaxQpsHasBeenSet() const;
 
                     /**
                      * 获取开启/禁用，enabled/disabled, 不传默认开启
                      * @return UsableStatus 开启/禁用，enabled/disabled, 不传默认开启
+                     * 
                      */
                     std::string GetUsableStatus() const;
 
                     /**
                      * 设置开启/禁用，enabled/disabled, 不传默认开启
-                     * @param UsableStatus 开启/禁用，enabled/disabled, 不传默认开启
+                     * @param _usableStatus 开启/禁用，enabled/disabled, 不传默认开启
+                     * 
                      */
                     void SetUsableStatus(const std::string& _usableStatus);
 
                     /**
                      * 判断参数 UsableStatus 是否已赋值
                      * @return UsableStatus 是否已赋值
+                     * 
                      */
                     bool UsableStatusHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ namespace TencentCloud
                      * @return Type 下载类型，可选值： 
 0：UrlInfo； 
 1：CosInfo。
+                     * 
                      */
                     int64_t GetType() const;
 
@@ -62,51 +63,59 @@ namespace TencentCloud
                      * 设置下载类型，可选值： 
 0：UrlInfo； 
 1：CosInfo。
-                     * @param Type 下载类型，可选值： 
+                     * @param _type 下载类型，可选值： 
 0：UrlInfo； 
 1：CosInfo。
+                     * 
                      */
                     void SetType(const int64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取Url形式下载信息，当Type等于0时必选。
                      * @return UrlInfo Url形式下载信息，当Type等于0时必选。
+                     * 
                      */
                     UrlInfo GetUrlInfo() const;
 
                     /**
                      * 设置Url形式下载信息，当Type等于0时必选。
-                     * @param UrlInfo Url形式下载信息，当Type等于0时必选。
+                     * @param _urlInfo Url形式下载信息，当Type等于0时必选。
+                     * 
                      */
                     void SetUrlInfo(const UrlInfo& _urlInfo);
 
                     /**
                      * 判断参数 UrlInfo 是否已赋值
                      * @return UrlInfo 是否已赋值
+                     * 
                      */
                     bool UrlInfoHasBeenSet() const;
 
                     /**
                      * 获取Cos形式下载信息，当Type等于1时必选。
                      * @return CosInfo Cos形式下载信息，当Type等于1时必选。
+                     * 
                      */
                     CosInfo GetCosInfo() const;
 
                     /**
                      * 设置Cos形式下载信息，当Type等于1时必选。
-                     * @param CosInfo Cos形式下载信息，当Type等于1时必选。
+                     * @param _cosInfo Cos形式下载信息，当Type等于1时必选。
+                     * 
                      */
                     void SetCosInfo(const CosInfo& _cosInfo);
 
                     /**
                      * 判断参数 CosInfo 是否已赋值
                      * @return CosInfo 是否已赋值
+                     * 
                      */
                     bool CosInfoHasBeenSet() const;
 

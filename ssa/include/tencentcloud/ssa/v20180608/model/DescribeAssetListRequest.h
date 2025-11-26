@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取查询过滤参数
                      * @return Params 查询过滤参数
+                     * 
                      */
                     std::string GetParams() const;
 
                     /**
                      * 设置查询过滤参数
-                     * @param Params 查询过滤参数
+                     * @param _params 查询过滤参数
+                     * 
                      */
                     void SetParams(const std::string& _params);
 
                     /**
                      * 判断参数 Params 是否已赋值
                      * @return Params 是否已赋值
+                     * 
                      */
                     bool ParamsHasBeenSet() const;
 

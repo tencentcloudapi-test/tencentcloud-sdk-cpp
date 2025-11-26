@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,40 +49,46 @@ namespace TencentCloud
                     /**
                      * 获取收件人邮箱
                      * @return Email 收件人邮箱
+                     * 
                      */
                     std::string GetEmail() const;
 
                     /**
                      * 设置收件人邮箱
-                     * @param Email 收件人邮箱
+                     * @param _email 收件人邮箱
+                     * 
                      */
                     void SetEmail(const std::string& _email);
 
                     /**
                      * 判断参数 Email 是否已赋值
                      * @return Email 是否已赋值
+                     * 
                      */
                     bool EmailHasBeenSet() const;
 
                     /**
                      * 获取模板中的变量参数，请使用json.dump将json对象格式化为string类型。该对象是一组键值对，每个Key代表模板中的一个变量，模板中的变量使用{{键}}表示，相应的值在发送时会被替换为{{值}}。
-注意：参数值不能是html等复杂类型的数据。
+注意：参数值不能是html等复杂类型的数据。TemplateData (整个 JSON 结构) 总长度限制为 800 bytes。
                      * @return TemplateData 模板中的变量参数，请使用json.dump将json对象格式化为string类型。该对象是一组键值对，每个Key代表模板中的一个变量，模板中的变量使用{{键}}表示，相应的值在发送时会被替换为{{值}}。
-注意：参数值不能是html等复杂类型的数据。
+注意：参数值不能是html等复杂类型的数据。TemplateData (整个 JSON 结构) 总长度限制为 800 bytes。
+                     * 
                      */
                     std::string GetTemplateData() const;
 
                     /**
                      * 设置模板中的变量参数，请使用json.dump将json对象格式化为string类型。该对象是一组键值对，每个Key代表模板中的一个变量，模板中的变量使用{{键}}表示，相应的值在发送时会被替换为{{值}}。
-注意：参数值不能是html等复杂类型的数据。
-                     * @param TemplateData 模板中的变量参数，请使用json.dump将json对象格式化为string类型。该对象是一组键值对，每个Key代表模板中的一个变量，模板中的变量使用{{键}}表示，相应的值在发送时会被替换为{{值}}。
-注意：参数值不能是html等复杂类型的数据。
+注意：参数值不能是html等复杂类型的数据。TemplateData (整个 JSON 结构) 总长度限制为 800 bytes。
+                     * @param _templateData 模板中的变量参数，请使用json.dump将json对象格式化为string类型。该对象是一组键值对，每个Key代表模板中的一个变量，模板中的变量使用{{键}}表示，相应的值在发送时会被替换为{{值}}。
+注意：参数值不能是html等复杂类型的数据。TemplateData (整个 JSON 结构) 总长度限制为 800 bytes。
+                     * 
                      */
                     void SetTemplateData(const std::string& _templateData);
 
                     /**
                      * 判断参数 TemplateData 是否已赋值
                      * @return TemplateData 是否已赋值
+                     * 
                      */
                     bool TemplateDataHasBeenSet() const;
 
@@ -96,7 +102,7 @@ namespace TencentCloud
 
                     /**
                      * 模板中的变量参数，请使用json.dump将json对象格式化为string类型。该对象是一组键值对，每个Key代表模板中的一个变量，模板中的变量使用{{键}}表示，相应的值在发送时会被替换为{{值}}。
-注意：参数值不能是html等复杂类型的数据。
+注意：参数值不能是html等复杂类型的数据。TemplateData (整个 JSON 结构) 总长度限制为 800 bytes。
                      */
                     std::string m_templateData;
                     bool m_templateDataHasBeenSet;

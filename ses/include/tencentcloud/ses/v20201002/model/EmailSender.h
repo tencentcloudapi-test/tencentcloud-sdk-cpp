@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,64 +49,86 @@ namespace TencentCloud
                     /**
                      * 获取发信地址
                      * @return EmailAddress 发信地址
+                     * 
                      */
                     std::string GetEmailAddress() const;
 
                     /**
                      * 设置发信地址
-                     * @param EmailAddress 发信地址
+                     * @param _emailAddress 发信地址
+                     * 
                      */
                     void SetEmailAddress(const std::string& _emailAddress);
 
                     /**
                      * 判断参数 EmailAddress 是否已赋值
                      * @return EmailAddress 是否已赋值
+                     * 
                      */
                     bool EmailAddressHasBeenSet() const;
 
                     /**
                      * 获取发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EmailSenderName 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetEmailSenderName() const;
 
                     /**
                      * 设置发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param EmailSenderName 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _emailSenderName 发信人别名
+                     * 
                      */
                     void SetEmailSenderName(const std::string& _emailSenderName);
 
                     /**
                      * 判断参数 EmailSenderName 是否已赋值
                      * @return EmailSenderName 是否已赋值
+                     * 
                      */
                     bool EmailSenderNameHasBeenSet() const;
 
                     /**
                      * 获取创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreatedTimestamp 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetCreatedTimestamp() const;
 
                     /**
                      * 设置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CreatedTimestamp 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _createdTimestamp 创建时间
+                     * 
                      */
                     void SetCreatedTimestamp(const uint64_t& _createdTimestamp);
 
                     /**
                      * 判断参数 CreatedTimestamp 是否已赋值
                      * @return CreatedTimestamp 是否已赋值
+                     * 
                      */
                     bool CreatedTimestampHasBeenSet() const;
+
+                    /**
+                     * 获取smtp密码类型,0=没有设置密码,1=已经设置了密码
+                     * @return SmtpPwdType smtp密码类型,0=没有设置密码,1=已经设置了密码
+                     * 
+                     */
+                    uint64_t GetSmtpPwdType() const;
+
+                    /**
+                     * 设置smtp密码类型,0=没有设置密码,1=已经设置了密码
+                     * @param _smtpPwdType smtp密码类型,0=没有设置密码,1=已经设置了密码
+                     * 
+                     */
+                    void SetSmtpPwdType(const uint64_t& _smtpPwdType);
+
+                    /**
+                     * 判断参数 SmtpPwdType 是否已赋值
+                     * @return SmtpPwdType 是否已赋值
+                     * 
+                     */
+                    bool SmtpPwdTypeHasBeenSet() const;
 
                 private:
 
@@ -118,17 +140,21 @@ namespace TencentCloud
 
                     /**
                      * 发信人别名
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_emailSenderName;
                     bool m_emailSenderNameHasBeenSet;
 
                     /**
                      * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_createdTimestamp;
                     bool m_createdTimestampHasBeenSet;
+
+                    /**
+                     * smtp密码类型,0=没有设置密码,1=已经设置了密码
+                     */
+                    uint64_t m_smtpPwdType;
+                    bool m_smtpPwdTypeHasBeenSet;
 
                 };
             }

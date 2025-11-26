@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,69 +44,78 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取日志集ID
-                     * @return LogsetId 日志集ID
+                     * 获取日志集Id。通过 [获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
+                     * @return LogsetId 日志集Id。通过 [获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
+                     * 
                      */
                     std::string GetLogsetId() const;
 
                     /**
-                     * 设置日志集ID
-                     * @param LogsetId 日志集ID
+                     * 设置日志集Id。通过 [获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
+                     * @param _logsetId 日志集Id。通过 [获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
+                     * 
                      */
                     void SetLogsetId(const std::string& _logsetId);
 
                     /**
                      * 判断参数 LogsetId 是否已赋值
                      * @return LogsetId 是否已赋值
+                     * 
                      */
                     bool LogsetIdHasBeenSet() const;
 
                     /**
-                     * 获取日志集名称
-                     * @return LogsetName 日志集名称
+                     * 获取日志集名字。- 最大支持255个字符。不支持`|`字符。
+                     * @return LogsetName 日志集名字。- 最大支持255个字符。不支持`|`字符。
+                     * 
                      */
                     std::string GetLogsetName() const;
 
                     /**
-                     * 设置日志集名称
-                     * @param LogsetName 日志集名称
+                     * 设置日志集名字。- 最大支持255个字符。不支持`|`字符。
+                     * @param _logsetName 日志集名字。- 最大支持255个字符。不支持`|`字符。
+                     * 
                      */
                     void SetLogsetName(const std::string& _logsetName);
 
                     /**
                      * 判断参数 LogsetName 是否已赋值
                      * @return LogsetName 是否已赋值
+                     * 
                      */
                     bool LogsetNameHasBeenSet() const;
 
                     /**
                      * 获取日志集的绑定的标签键值对。最大支持10个标签键值对，同一个资源只能同时绑定一个标签键。
                      * @return Tags 日志集的绑定的标签键值对。最大支持10个标签键值对，同一个资源只能同时绑定一个标签键。
+                     * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
                      * 设置日志集的绑定的标签键值对。最大支持10个标签键值对，同一个资源只能同时绑定一个标签键。
-                     * @param Tags 日志集的绑定的标签键值对。最大支持10个标签键值对，同一个资源只能同时绑定一个标签键。
+                     * @param _tags 日志集的绑定的标签键值对。最大支持10个标签键值对，同一个资源只能同时绑定一个标签键。
+                     * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 日志集ID
+                     * 日志集Id。通过 [获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
                      */
                     std::string m_logsetId;
                     bool m_logsetIdHasBeenSet;
 
                     /**
-                     * 日志集名称
+                     * 日志集名字。- 最大支持255个字符。不支持`|`字符。
                      */
                     std::string m_logsetName;
                     bool m_logsetNameHasBeenSet;

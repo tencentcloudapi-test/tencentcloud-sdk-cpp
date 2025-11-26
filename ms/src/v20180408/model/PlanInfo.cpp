@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,22 +21,25 @@ using namespace TencentCloud::Ms::V20180408::Model;
 using namespace std;
 
 PlanInfo::PlanInfo() :
+    m_setFileHasBeenSet(false),
     m_apkSizeOptHasBeenSet(false),
     m_dexHasBeenSet(false),
     m_soHasBeenSet(false),
     m_buglyHasBeenSet(false),
     m_antiRepackHasBeenSet(false),
-    m_seperateDexHasBeenSet(false),
     m_dbHasBeenSet(false),
-    m_dexSigHasBeenSet(false),
     m_soInfoHasBeenSet(false),
     m_antiVMPHasBeenSet(false),
     m_soTypeHasBeenSet(false),
     m_antiLogLeakHasBeenSet(false),
-    m_antiQemuRootHasBeenSet(false),
     m_antiAssetsHasBeenSet(false),
     m_antiScreenshotHasBeenSet(false),
-    m_antiSSLHasBeenSet(false)
+    m_antiSSLHasBeenSet(false),
+    m_fileSignHasBeenSet(false),
+    m_antiRootHasBeenSet(false),
+    m_seperateDexHasBeenSet(false),
+    m_dexSigHasBeenSet(false),
+    m_antiQemuRootHasBeenSet(false)
 {
 }
 
@@ -44,6 +47,16 @@ CoreInternalOutcome PlanInfo::Deserialize(const rapidjson::Value &value)
 {
     string requestId = "";
 
+
+    if (value.HasMember("SetFile") && !value["SetFile"].IsNull())
+    {
+        if (!value["SetFile"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `PlanInfo.SetFile` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_setFile = string(value["SetFile"].GetString());
+        m_setFileHasBeenSet = true;
+    }
 
     if (value.HasMember("ApkSizeOpt") && !value["ApkSizeOpt"].IsNull())
     {
@@ -95,16 +108,6 @@ CoreInternalOutcome PlanInfo::Deserialize(const rapidjson::Value &value)
         m_antiRepackHasBeenSet = true;
     }
 
-    if (value.HasMember("SeperateDex") && !value["SeperateDex"].IsNull())
-    {
-        if (!value["SeperateDex"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `PlanInfo.SeperateDex` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_seperateDex = value["SeperateDex"].GetUint64();
-        m_seperateDexHasBeenSet = true;
-    }
-
     if (value.HasMember("Db") && !value["Db"].IsNull())
     {
         if (!value["Db"].IsUint64())
@@ -113,16 +116,6 @@ CoreInternalOutcome PlanInfo::Deserialize(const rapidjson::Value &value)
         }
         m_db = value["Db"].GetUint64();
         m_dbHasBeenSet = true;
-    }
-
-    if (value.HasMember("DexSig") && !value["DexSig"].IsNull())
-    {
-        if (!value["DexSig"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `PlanInfo.DexSig` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_dexSig = value["DexSig"].GetUint64();
-        m_dexSigHasBeenSet = true;
     }
 
     if (value.HasMember("SoInfo") && !value["SoInfo"].IsNull())
@@ -175,16 +168,6 @@ CoreInternalOutcome PlanInfo::Deserialize(const rapidjson::Value &value)
         m_antiLogLeakHasBeenSet = true;
     }
 
-    if (value.HasMember("AntiQemuRoot") && !value["AntiQemuRoot"].IsNull())
-    {
-        if (!value["AntiQemuRoot"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `PlanInfo.AntiQemuRoot` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_antiQemuRoot = value["AntiQemuRoot"].GetUint64();
-        m_antiQemuRootHasBeenSet = true;
-    }
-
     if (value.HasMember("AntiAssets") && !value["AntiAssets"].IsNull())
     {
         if (!value["AntiAssets"].IsUint64())
@@ -215,12 +198,70 @@ CoreInternalOutcome PlanInfo::Deserialize(const rapidjson::Value &value)
         m_antiSSLHasBeenSet = true;
     }
 
+    if (value.HasMember("FileSign") && !value["FileSign"].IsNull())
+    {
+        if (!value["FileSign"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `PlanInfo.FileSign` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_fileSign = string(value["FileSign"].GetString());
+        m_fileSignHasBeenSet = true;
+    }
+
+    if (value.HasMember("AntiRoot") && !value["AntiRoot"].IsNull())
+    {
+        if (!value["AntiRoot"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `PlanInfo.AntiRoot` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_antiRoot = string(value["AntiRoot"].GetString());
+        m_antiRootHasBeenSet = true;
+    }
+
+    if (value.HasMember("SeperateDex") && !value["SeperateDex"].IsNull())
+    {
+        if (!value["SeperateDex"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PlanInfo.SeperateDex` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_seperateDex = value["SeperateDex"].GetUint64();
+        m_seperateDexHasBeenSet = true;
+    }
+
+    if (value.HasMember("DexSig") && !value["DexSig"].IsNull())
+    {
+        if (!value["DexSig"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PlanInfo.DexSig` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_dexSig = value["DexSig"].GetUint64();
+        m_dexSigHasBeenSet = true;
+    }
+
+    if (value.HasMember("AntiQemuRoot") && !value["AntiQemuRoot"].IsNull())
+    {
+        if (!value["AntiQemuRoot"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PlanInfo.AntiQemuRoot` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_antiQemuRoot = value["AntiQemuRoot"].GetUint64();
+        m_antiQemuRootHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
 
 void PlanInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const
 {
+
+    if (m_setFileHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SetFile";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_setFile.c_str(), allocator).Move(), allocator);
+    }
 
     if (m_apkSizeOptHasBeenSet)
     {
@@ -262,28 +303,12 @@ void PlanInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         value.AddMember(iKey, m_antiRepack, allocator);
     }
 
-    if (m_seperateDexHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SeperateDex";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_seperateDex, allocator);
-    }
-
     if (m_dbHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "Db";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_db, allocator);
-    }
-
-    if (m_dexSigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DexSig";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_dexSig, allocator);
     }
 
     if (m_soInfoHasBeenSet)
@@ -324,14 +349,6 @@ void PlanInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         value.AddMember(iKey, m_antiLogLeak, allocator);
     }
 
-    if (m_antiQemuRootHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AntiQemuRoot";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_antiQemuRoot, allocator);
-    }
-
     if (m_antiAssetsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -356,8 +373,64 @@ void PlanInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         value.AddMember(iKey, m_antiSSL, allocator);
     }
 
+    if (m_fileSignHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FileSign";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_fileSign.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_antiRootHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AntiRoot";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_antiRoot.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_seperateDexHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SeperateDex";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_seperateDex, allocator);
+    }
+
+    if (m_dexSigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DexSig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_dexSig, allocator);
+    }
+
+    if (m_antiQemuRootHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AntiQemuRoot";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_antiQemuRoot, allocator);
+    }
+
 }
 
+
+string PlanInfo::GetSetFile() const
+{
+    return m_setFile;
+}
+
+void PlanInfo::SetSetFile(const string& _setFile)
+{
+    m_setFile = _setFile;
+    m_setFileHasBeenSet = true;
+}
+
+bool PlanInfo::SetFileHasBeenSet() const
+{
+    return m_setFileHasBeenSet;
+}
 
 uint64_t PlanInfo::GetApkSizeOpt() const
 {
@@ -439,22 +512,6 @@ bool PlanInfo::AntiRepackHasBeenSet() const
     return m_antiRepackHasBeenSet;
 }
 
-uint64_t PlanInfo::GetSeperateDex() const
-{
-    return m_seperateDex;
-}
-
-void PlanInfo::SetSeperateDex(const uint64_t& _seperateDex)
-{
-    m_seperateDex = _seperateDex;
-    m_seperateDexHasBeenSet = true;
-}
-
-bool PlanInfo::SeperateDexHasBeenSet() const
-{
-    return m_seperateDexHasBeenSet;
-}
-
 uint64_t PlanInfo::GetDb() const
 {
     return m_db;
@@ -469,22 +526,6 @@ void PlanInfo::SetDb(const uint64_t& _db)
 bool PlanInfo::DbHasBeenSet() const
 {
     return m_dbHasBeenSet;
-}
-
-uint64_t PlanInfo::GetDexSig() const
-{
-    return m_dexSig;
-}
-
-void PlanInfo::SetDexSig(const uint64_t& _dexSig)
-{
-    m_dexSig = _dexSig;
-    m_dexSigHasBeenSet = true;
-}
-
-bool PlanInfo::DexSigHasBeenSet() const
-{
-    return m_dexSigHasBeenSet;
 }
 
 SoInfo PlanInfo::GetSoInfo() const
@@ -551,22 +592,6 @@ bool PlanInfo::AntiLogLeakHasBeenSet() const
     return m_antiLogLeakHasBeenSet;
 }
 
-uint64_t PlanInfo::GetAntiQemuRoot() const
-{
-    return m_antiQemuRoot;
-}
-
-void PlanInfo::SetAntiQemuRoot(const uint64_t& _antiQemuRoot)
-{
-    m_antiQemuRoot = _antiQemuRoot;
-    m_antiQemuRootHasBeenSet = true;
-}
-
-bool PlanInfo::AntiQemuRootHasBeenSet() const
-{
-    return m_antiQemuRootHasBeenSet;
-}
-
 uint64_t PlanInfo::GetAntiAssets() const
 {
     return m_antiAssets;
@@ -613,5 +638,85 @@ void PlanInfo::SetAntiSSL(const uint64_t& _antiSSL)
 bool PlanInfo::AntiSSLHasBeenSet() const
 {
     return m_antiSSLHasBeenSet;
+}
+
+string PlanInfo::GetFileSign() const
+{
+    return m_fileSign;
+}
+
+void PlanInfo::SetFileSign(const string& _fileSign)
+{
+    m_fileSign = _fileSign;
+    m_fileSignHasBeenSet = true;
+}
+
+bool PlanInfo::FileSignHasBeenSet() const
+{
+    return m_fileSignHasBeenSet;
+}
+
+string PlanInfo::GetAntiRoot() const
+{
+    return m_antiRoot;
+}
+
+void PlanInfo::SetAntiRoot(const string& _antiRoot)
+{
+    m_antiRoot = _antiRoot;
+    m_antiRootHasBeenSet = true;
+}
+
+bool PlanInfo::AntiRootHasBeenSet() const
+{
+    return m_antiRootHasBeenSet;
+}
+
+uint64_t PlanInfo::GetSeperateDex() const
+{
+    return m_seperateDex;
+}
+
+void PlanInfo::SetSeperateDex(const uint64_t& _seperateDex)
+{
+    m_seperateDex = _seperateDex;
+    m_seperateDexHasBeenSet = true;
+}
+
+bool PlanInfo::SeperateDexHasBeenSet() const
+{
+    return m_seperateDexHasBeenSet;
+}
+
+uint64_t PlanInfo::GetDexSig() const
+{
+    return m_dexSig;
+}
+
+void PlanInfo::SetDexSig(const uint64_t& _dexSig)
+{
+    m_dexSig = _dexSig;
+    m_dexSigHasBeenSet = true;
+}
+
+bool PlanInfo::DexSigHasBeenSet() const
+{
+    return m_dexSigHasBeenSet;
+}
+
+uint64_t PlanInfo::GetAntiQemuRoot() const
+{
+    return m_antiQemuRoot;
+}
+
+void PlanInfo::SetAntiQemuRoot(const uint64_t& _antiQemuRoot)
+{
+    m_antiQemuRoot = _antiQemuRoot;
+    m_antiQemuRootHasBeenSet = true;
+}
+
+bool PlanInfo::AntiQemuRootHasBeenSet() const
+{
+    return m_antiQemuRootHasBeenSet;
 }
 

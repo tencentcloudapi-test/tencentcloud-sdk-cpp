@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取镜像缓存Id数组
-                     * @return ImageCacheIds 镜像缓存Id数组
+                     * 获取镜像缓存ID数组
+                     * @return ImageCacheIds 镜像缓存ID数组
+                     * 
                      */
                     std::vector<std::string> GetImageCacheIds() const;
 
                     /**
-                     * 设置镜像缓存Id数组
-                     * @param ImageCacheIds 镜像缓存Id数组
+                     * 设置镜像缓存ID数组
+                     * @param _imageCacheIds 镜像缓存ID数组
+                     * 
                      */
                     void SetImageCacheIds(const std::vector<std::string>& _imageCacheIds);
 
                     /**
                      * 判断参数 ImageCacheIds 是否已赋值
                      * @return ImageCacheIds 是否已赋值
+                     * 
                      */
                     bool ImageCacheIdsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 镜像缓存Id数组
+                     * 镜像缓存ID数组
                      */
                     std::vector<std::string> m_imageCacheIds;
                     bool m_imageCacheIdsHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,58 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取实例创建过程类型
                      * @return Type 实例创建过程类型
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置实例创建过程类型
-                     * @param Type 实例创建过程类型
+                     * @param _type 实例创建过程类型
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取实例创建过程状态
                      * @return Status 实例创建过程状态
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置实例创建过程状态
-                     * @param Status 实例创建过程状态
+                     * @param _status 实例创建过程状态
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Reason 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetReason() const;
 
                     /**
                      * 设置转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Reason 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _reason 转换到该过程的简明原因
+                     * 
                      */
                     void SetReason(const std::string& _reason);
 
                     /**
                      * 判断参数 Reason 是否已赋值
                      * @return Reason 是否已赋值
+                     * 
                      */
                     bool ReasonHasBeenSet() const;
 
@@ -120,7 +125,6 @@ namespace TencentCloud
 
                     /**
                      * 转换到该过程的简明原因
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_reason;
                     bool m_reasonHasBeenSet;

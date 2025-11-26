@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,42 +45,65 @@ namespace TencentCloud
                     /**
                      * 获取OFD文件的 Url 地址。
                      * @return OfdFileUrl OFD文件的 Url 地址。
+                     * 
                      */
                     std::string GetOfdFileUrl() const;
 
                     /**
                      * 设置OFD文件的 Url 地址。
-                     * @param OfdFileUrl OFD文件的 Url 地址。
+                     * @param _ofdFileUrl OFD文件的 Url 地址。
+                     * 
                      */
                     void SetOfdFileUrl(const std::string& _ofdFileUrl);
 
                     /**
                      * 判断参数 OfdFileUrl 是否已赋值
                      * @return OfdFileUrl 是否已赋值
+                     * 
                      */
                     bool OfdFileUrlHasBeenSet() const;
 
                     /**
-                     * 获取OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
-                     * @return OfdFileBase64 OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
+                     * 获取OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
+                     * @return OfdFileBase64 OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
+                     * 
                      */
                     std::string GetOfdFileBase64() const;
 
                     /**
-                     * 设置OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
-                     * @param OfdFileBase64 OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
+                     * 设置OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
+                     * @param _ofdFileBase64 OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
+                     * 
                      */
                     void SetOfdFileBase64(const std::string& _ofdFileBase64);
 
                     /**
                      * 判断参数 OfdFileBase64 是否已赋值
                      * @return OfdFileBase64 是否已赋值
+                     * 
                      */
                     bool OfdFileBase64HasBeenSet() const;
+
+                    /**
+                     * 获取需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+                     * @return OfdPageNumber 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+                     * 
+                     */
+                    int64_t GetOfdPageNumber() const;
+
+                    /**
+                     * 设置需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+                     * @param _ofdPageNumber 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+                     * 
+                     */
+                    void SetOfdPageNumber(const int64_t& _ofdPageNumber);
+
+                    /**
+                     * 判断参数 OfdPageNumber 是否已赋值
+                     * @return OfdPageNumber 是否已赋值
+                     * 
+                     */
+                    bool OfdPageNumberHasBeenSet() const;
 
                 private:
 
@@ -91,11 +114,16 @@ OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBa
                     bool m_ofdFileUrlHasBeenSet;
 
                     /**
-                     * OFD文件的 Base64 值。
-OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只解析OfdFileBase64。
+                     * OFD文件的 Base64 值。OfdFileUrl 和 OfdFileBase64 必传其一，若两者都传，只使用OfdFileUrl。
                      */
                     std::string m_ofdFileBase64;
                     bool m_ofdFileBase64HasBeenSet;
+
+                    /**
+                     * 需要识别的OFD发票页面的对应页码，默认值为1。 示例值：1
+                     */
+                    int64_t m_ofdPageNumber;
+                    bool m_ofdPageNumberHasBeenSet;
 
                 };
             }

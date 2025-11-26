@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取适用商品名称，值为“全产品通用”或商品名称组成的string，以","分割。
                      * @return GoodsName 适用商品名称，值为“全产品通用”或商品名称组成的string，以","分割。
+                     * 
                      */
                     std::string GetGoodsName() const;
 
                     /**
                      * 设置适用商品名称，值为“全产品通用”或商品名称组成的string，以","分割。
-                     * @param GoodsName 适用商品名称，值为“全产品通用”或商品名称组成的string，以","分割。
+                     * @param _goodsName 适用商品名称，值为“全产品通用”或商品名称组成的string，以","分割。
+                     * 
                      */
                     void SetGoodsName(const std::string& _goodsName);
 
                     /**
                      * 判断参数 GoodsName 是否已赋值
                      * @return GoodsName 是否已赋值
+                     * 
                      */
                     bool GoodsNameHasBeenSet() const;
 
                     /**
                      * 获取postPay后付费/prePay预付费/riPay预留实例/空字符串或者"*"表示全部模式。如GoodsName为多个商品名以","分割组成的string，而PayMode为"*"，表示每一件商品的模式都为"*"。
                      * @return PayMode postPay后付费/prePay预付费/riPay预留实例/空字符串或者"*"表示全部模式。如GoodsName为多个商品名以","分割组成的string，而PayMode为"*"，表示每一件商品的模式都为"*"。
+                     * 
                      */
                     std::string GetPayMode() const;
 
                     /**
                      * 设置postPay后付费/prePay预付费/riPay预留实例/空字符串或者"*"表示全部模式。如GoodsName为多个商品名以","分割组成的string，而PayMode为"*"，表示每一件商品的模式都为"*"。
-                     * @param PayMode postPay后付费/prePay预付费/riPay预留实例/空字符串或者"*"表示全部模式。如GoodsName为多个商品名以","分割组成的string，而PayMode为"*"，表示每一件商品的模式都为"*"。
+                     * @param _payMode postPay后付费/prePay预付费/riPay预留实例/空字符串或者"*"表示全部模式。如GoodsName为多个商品名以","分割组成的string，而PayMode为"*"，表示每一件商品的模式都为"*"。
+                     * 
                      */
                     void SetPayMode(const std::string& _payMode);
 
                     /**
                      * 判断参数 PayMode 是否已赋值
                      * @return PayMode 是否已赋值
+                     * 
                      */
                     bool PayModeHasBeenSet() const;
 

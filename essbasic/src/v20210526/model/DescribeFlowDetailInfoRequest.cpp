@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ using namespace std;
 DescribeFlowDetailInfoRequest::DescribeFlowDetailInfoRequest() :
     m_agentHasBeenSet(false),
     m_flowIdsHasBeenSet(false),
+    m_flowGroupIdHasBeenSet(false),
     m_operatorHasBeenSet(false)
 {
 }
@@ -56,6 +57,14 @@ string DescribeFlowDetailInfoRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_flowGroupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlowGroupId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_flowGroupId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_operatorHasBeenSet)
@@ -105,6 +114,22 @@ void DescribeFlowDetailInfoRequest::SetFlowIds(const vector<string>& _flowIds)
 bool DescribeFlowDetailInfoRequest::FlowIdsHasBeenSet() const
 {
     return m_flowIdsHasBeenSet;
+}
+
+string DescribeFlowDetailInfoRequest::GetFlowGroupId() const
+{
+    return m_flowGroupId;
+}
+
+void DescribeFlowDetailInfoRequest::SetFlowGroupId(const string& _flowGroupId)
+{
+    m_flowGroupId = _flowGroupId;
+    m_flowGroupIdHasBeenSet = true;
+}
+
+bool DescribeFlowDetailInfoRequest::FlowGroupIdHasBeenSet() const
+{
+    return m_flowGroupIdHasBeenSet;
 }
 
 UserInfo DescribeFlowDetailInfoRequest::GetOperator() const

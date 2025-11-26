@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 CreateSDKLoginTokenRequest::CreateSDKLoginTokenRequest() :
     m_sdkAppIdHasBeenSet(false),
-    m_seatUserIdHasBeenSet(false)
+    m_seatUserIdHasBeenSet(false),
+    m_onlyOnceHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string CreateSDKLoginTokenRequest::ToJsonString() const
         string key = "SeatUserId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_seatUserId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_onlyOnceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OnlyOnce";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_onlyOnce, allocator);
     }
 
 
@@ -89,6 +98,22 @@ void CreateSDKLoginTokenRequest::SetSeatUserId(const string& _seatUserId)
 bool CreateSDKLoginTokenRequest::SeatUserIdHasBeenSet() const
 {
     return m_seatUserIdHasBeenSet;
+}
+
+bool CreateSDKLoginTokenRequest::GetOnlyOnce() const
+{
+    return m_onlyOnce;
+}
+
+void CreateSDKLoginTokenRequest::SetOnlyOnce(const bool& _onlyOnce)
+{
+    m_onlyOnce = _onlyOnce;
+    m_onlyOnceHasBeenSet = true;
+}
+
+bool CreateSDKLoginTokenRequest::OnlyOnceHasBeenSet() const
+{
+    return m_onlyOnceHasBeenSet;
 }
 
 

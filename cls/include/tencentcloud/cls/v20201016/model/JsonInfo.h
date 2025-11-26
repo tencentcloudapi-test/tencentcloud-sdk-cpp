@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,42 +49,89 @@ namespace TencentCloud
                     /**
                      * 获取启用标志
                      * @return EnableTag 启用标志
+                     * 
                      */
                     bool GetEnableTag() const;
 
                     /**
                      * 设置启用标志
-                     * @param EnableTag 启用标志
+                     * @param _enableTag 启用标志
+                     * 
                      */
                     void SetEnableTag(const bool& _enableTag);
 
                     /**
                      * 判断参数 EnableTag 是否已赋值
                      * @return EnableTag 是否已赋值
+                     * 
                      */
                     bool EnableTagHasBeenSet() const;
 
                     /**
-                     * 获取元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__。
+                     * 获取元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__、__HOSTNAME__。
+
+- __SOURCE__：日志采集的源 IP，示例：10.0.1.2
+- __FILENAME__：日志采集的文件名，示例：/data/log/nginx/access.log
+- __TIMESTAMP__：日志时间戳（毫秒级别 Unix 时间戳），按时间范围检索日志时，将自动使用该时间对日志进行检索，在控制台显示为“日志时间”，示例：1640005601188
+- __HOSTNAME__：日志来源机器名称，需使用2.7.4及以上版本的 Loglistener 才会采集该字段，示例：localhost
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return MetaFields 元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__。
+                     * @return MetaFields 元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__、__HOSTNAME__。
+
+- __SOURCE__：日志采集的源 IP，示例：10.0.1.2
+- __FILENAME__：日志采集的文件名，示例：/data/log/nginx/access.log
+- __TIMESTAMP__：日志时间戳（毫秒级别 Unix 时间戳），按时间范围检索日志时，将自动使用该时间对日志进行检索，在控制台显示为“日志时间”，示例：1640005601188
+- __HOSTNAME__：日志来源机器名称，需使用2.7.4及以上版本的 Loglistener 才会采集该字段，示例：localhost
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetMetaFields() const;
 
                     /**
-                     * 设置元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__。
+                     * 设置元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__、__HOSTNAME__。
+
+- __SOURCE__：日志采集的源 IP，示例：10.0.1.2
+- __FILENAME__：日志采集的文件名，示例：/data/log/nginx/access.log
+- __TIMESTAMP__：日志时间戳（毫秒级别 Unix 时间戳），按时间范围检索日志时，将自动使用该时间对日志进行检索，在控制台显示为“日志时间”，示例：1640005601188
+- __HOSTNAME__：日志来源机器名称，需使用2.7.4及以上版本的 Loglistener 才会采集该字段，示例：localhost
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MetaFields 元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__。
+                     * @param _metaFields 元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__、__HOSTNAME__。
+
+- __SOURCE__：日志采集的源 IP，示例：10.0.1.2
+- __FILENAME__：日志采集的文件名，示例：/data/log/nginx/access.log
+- __TIMESTAMP__：日志时间戳（毫秒级别 Unix 时间戳），按时间范围检索日志时，将自动使用该时间对日志进行检索，在控制台显示为“日志时间”，示例：1640005601188
+- __HOSTNAME__：日志来源机器名称，需使用2.7.4及以上版本的 Loglistener 才会采集该字段，示例：localhost
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetMetaFields(const std::vector<std::string>& _metaFields);
 
                     /**
                      * 判断参数 MetaFields 是否已赋值
                      * @return MetaFields 是否已赋值
+                     * 
                      */
                     bool MetaFieldsHasBeenSet() const;
+
+                    /**
+                     * 获取投递Json格式，0：字符串方式投递；1:以结构化方式投递
+                     * @return JsonType 投递Json格式，0：字符串方式投递；1:以结构化方式投递
+                     * 
+                     */
+                    int64_t GetJsonType() const;
+
+                    /**
+                     * 设置投递Json格式，0：字符串方式投递；1:以结构化方式投递
+                     * @param _jsonType 投递Json格式，0：字符串方式投递；1:以结构化方式投递
+                     * 
+                     */
+                    void SetJsonType(const int64_t& _jsonType);
+
+                    /**
+                     * 判断参数 JsonType 是否已赋值
+                     * @return JsonType 是否已赋值
+                     * 
+                     */
+                    bool JsonTypeHasBeenSet() const;
 
                 private:
 
@@ -95,11 +142,22 @@ namespace TencentCloud
                     bool m_enableTagHasBeenSet;
 
                     /**
-                     * 元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__。
+                     * 元数据信息列表, 可选值为 __SOURCE__、__FILENAME__、__TIMESTAMP__、__HOSTNAME__。
+
+- __SOURCE__：日志采集的源 IP，示例：10.0.1.2
+- __FILENAME__：日志采集的文件名，示例：/data/log/nginx/access.log
+- __TIMESTAMP__：日志时间戳（毫秒级别 Unix 时间戳），按时间范围检索日志时，将自动使用该时间对日志进行检索，在控制台显示为“日志时间”，示例：1640005601188
+- __HOSTNAME__：日志来源机器名称，需使用2.7.4及以上版本的 Loglistener 才会采集该字段，示例：localhost
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_metaFields;
                     bool m_metaFieldsHasBeenSet;
+
+                    /**
+                     * 投递Json格式，0：字符串方式投递；1:以结构化方式投递
+                     */
+                    int64_t m_jsonType;
+                    bool m_jsonTypeHasBeenSet;
 
                 };
             }

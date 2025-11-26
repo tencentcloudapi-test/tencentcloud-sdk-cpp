@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,8 +51,18 @@
 #include <tencentcloud/mariadb/v20170312/model/DescribeAccountPrivilegesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeAccountsRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeAccountsResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeBackupConfigsRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeBackupConfigsResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeBackupFilesRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeBackupFilesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeBackupTimeRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeBackupTimeResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeBinlogTimeRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeBinlogTimeResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBEncryptAttributesRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBEncryptAttributesResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBInstanceDetailRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBInstanceDetailResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBInstanceSpecsRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBInstanceSpecsResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBInstancesRequest.h>
@@ -61,18 +71,14 @@
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBLogFilesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBParametersRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBParametersResponse.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBPerformanceRequest.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBPerformanceResponse.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBPerformanceDetailsRequest.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBPerformanceDetailsResponse.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBResourceUsageRequest.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBResourceUsageResponse.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBResourceUsageDetailsRequest.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeDBResourceUsageDetailsResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBSecurityGroupsRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBSecurityGroupsResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBSlowLogsRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDBSlowLogsResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBSyncModeRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBSyncModeResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBTmpInstancesRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeDBTmpInstancesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDatabaseObjectsRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDatabaseObjectsResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeDatabaseTableRequest.h>
@@ -87,22 +93,26 @@
 #include <tencentcloud/mariadb/v20170312/model/DescribeFlowResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeInstanceNodeInfoRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeInstanceNodeInfoResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeInstanceSSLAttributesRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeInstanceSSLAttributesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeLogFileRetentionPeriodRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeLogFileRetentionPeriodResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeOrdersRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeOrdersResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribePriceRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribePriceResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeProcessListRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DescribeProcessListResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeProjectSecurityGroupsRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeProjectSecurityGroupsResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeRenewalPriceRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeRenewalPriceResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeSaleInfoRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeSaleInfoResponse.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeSqlLogsRequest.h>
-#include <tencentcloud/mariadb/v20170312/model/DescribeSqlLogsResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeUpgradePriceRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DescribeUpgradePriceResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/DestroyDBInstanceRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/DestroyDBInstanceResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DestroyHourDBInstanceRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/DestroyHourDBInstanceResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/DisassociateSecurityGroupsRequest.h>
@@ -113,6 +123,10 @@
 #include <tencentcloud/mariadb/v20170312/model/GrantAccountPrivilegesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/InitDBInstancesRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/InitDBInstancesResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/IsolateDBInstanceRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/IsolateDBInstanceResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/IsolateDedicatedDBInstanceRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/IsolateDedicatedDBInstanceResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/IsolateHourDBInstanceRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/IsolateHourDBInstanceResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/KillSessionRequest.h>
@@ -121,8 +135,12 @@
 #include <tencentcloud/mariadb/v20170312/model/ModifyAccountDescriptionResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyAccountPrivilegesRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyAccountPrivilegesResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyBackupConfigsRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyBackupConfigsResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyBackupTimeRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyBackupTimeResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyDBEncryptAttributesRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyDBEncryptAttributesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyDBInstanceNameRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyDBInstanceNameResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyDBInstanceSecurityGroupsRequest.h>
@@ -133,6 +151,16 @@
 #include <tencentcloud/mariadb/v20170312/model/ModifyDBParametersResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyDBSyncModeRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyDBSyncModeResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceNetworkRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceNetworkResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceProtectedPropertyRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceProtectedPropertyResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceSSLAttributesRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceSSLAttributesResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceVipRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceVipResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceVportRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/ModifyInstanceVportResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyLogFileRetentionPeriodRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyLogFileRetentionPeriodResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/ModifyRealServerAccessStrategyRequest.h>
@@ -149,8 +177,14 @@
 #include <tencentcloud/mariadb/v20170312/model/RestartDBInstancesResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/SwitchDBInstanceHARequest.h>
 #include <tencentcloud/mariadb/v20170312/model/SwitchDBInstanceHAResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/TerminateDedicatedDBInstanceRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/TerminateDedicatedDBInstanceResponse.h>
 #include <tencentcloud/mariadb/v20170312/model/UpgradeDBInstanceRequest.h>
 #include <tencentcloud/mariadb/v20170312/model/UpgradeDBInstanceResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/UpgradeDedicatedDBInstanceRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/UpgradeDedicatedDBInstanceResponse.h>
+#include <tencentcloud/mariadb/v20170312/model/UpgradeHourDBInstanceRequest.h>
+#include <tencentcloud/mariadb/v20170312/model/UpgradeHourDBInstanceResponse.h>
 
 
 namespace TencentCloud
@@ -207,9 +241,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAccountsResponse> DescribeAccountsOutcome;
                 typedef std::future<DescribeAccountsOutcome> DescribeAccountsOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeAccountsRequest&, DescribeAccountsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAccountsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBackupConfigsResponse> DescribeBackupConfigsOutcome;
+                typedef std::future<DescribeBackupConfigsOutcome> DescribeBackupConfigsOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeBackupConfigsRequest&, DescribeBackupConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBackupConfigsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBackupFilesResponse> DescribeBackupFilesOutcome;
+                typedef std::future<DescribeBackupFilesOutcome> DescribeBackupFilesOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeBackupFilesRequest&, DescribeBackupFilesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBackupFilesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeBackupTimeResponse> DescribeBackupTimeOutcome;
                 typedef std::future<DescribeBackupTimeOutcome> DescribeBackupTimeOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeBackupTimeRequest&, DescribeBackupTimeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBackupTimeAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBinlogTimeResponse> DescribeBinlogTimeOutcome;
+                typedef std::future<DescribeBinlogTimeOutcome> DescribeBinlogTimeOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeBinlogTimeRequest&, DescribeBinlogTimeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBinlogTimeAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDBEncryptAttributesResponse> DescribeDBEncryptAttributesOutcome;
+                typedef std::future<DescribeDBEncryptAttributesOutcome> DescribeDBEncryptAttributesOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeDBEncryptAttributesRequest&, DescribeDBEncryptAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBEncryptAttributesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDBInstanceDetailResponse> DescribeDBInstanceDetailOutcome;
+                typedef std::future<DescribeDBInstanceDetailOutcome> DescribeDBInstanceDetailOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeDBInstanceDetailRequest&, DescribeDBInstanceDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBInstanceDetailAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDBInstanceSpecsResponse> DescribeDBInstanceSpecsOutcome;
                 typedef std::future<DescribeDBInstanceSpecsOutcome> DescribeDBInstanceSpecsOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeDBInstanceSpecsRequest&, DescribeDBInstanceSpecsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBInstanceSpecsAsyncHandler;
@@ -222,24 +271,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDBParametersResponse> DescribeDBParametersOutcome;
                 typedef std::future<DescribeDBParametersOutcome> DescribeDBParametersOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeDBParametersRequest&, DescribeDBParametersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBParametersAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDBPerformanceResponse> DescribeDBPerformanceOutcome;
-                typedef std::future<DescribeDBPerformanceOutcome> DescribeDBPerformanceOutcomeCallable;
-                typedef std::function<void(const MariadbClient*, const Model::DescribeDBPerformanceRequest&, DescribeDBPerformanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBPerformanceAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDBPerformanceDetailsResponse> DescribeDBPerformanceDetailsOutcome;
-                typedef std::future<DescribeDBPerformanceDetailsOutcome> DescribeDBPerformanceDetailsOutcomeCallable;
-                typedef std::function<void(const MariadbClient*, const Model::DescribeDBPerformanceDetailsRequest&, DescribeDBPerformanceDetailsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBPerformanceDetailsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDBResourceUsageResponse> DescribeDBResourceUsageOutcome;
-                typedef std::future<DescribeDBResourceUsageOutcome> DescribeDBResourceUsageOutcomeCallable;
-                typedef std::function<void(const MariadbClient*, const Model::DescribeDBResourceUsageRequest&, DescribeDBResourceUsageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBResourceUsageAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDBResourceUsageDetailsResponse> DescribeDBResourceUsageDetailsOutcome;
-                typedef std::future<DescribeDBResourceUsageDetailsOutcome> DescribeDBResourceUsageDetailsOutcomeCallable;
-                typedef std::function<void(const MariadbClient*, const Model::DescribeDBResourceUsageDetailsRequest&, DescribeDBResourceUsageDetailsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBResourceUsageDetailsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDBSecurityGroupsResponse> DescribeDBSecurityGroupsOutcome;
                 typedef std::future<DescribeDBSecurityGroupsOutcome> DescribeDBSecurityGroupsOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeDBSecurityGroupsRequest&, DescribeDBSecurityGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBSecurityGroupsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDBSlowLogsResponse> DescribeDBSlowLogsOutcome;
                 typedef std::future<DescribeDBSlowLogsOutcome> DescribeDBSlowLogsOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeDBSlowLogsRequest&, DescribeDBSlowLogsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBSlowLogsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDBSyncModeResponse> DescribeDBSyncModeOutcome;
+                typedef std::future<DescribeDBSyncModeOutcome> DescribeDBSyncModeOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeDBSyncModeRequest&, DescribeDBSyncModeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBSyncModeAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDBTmpInstancesResponse> DescribeDBTmpInstancesOutcome;
+                typedef std::future<DescribeDBTmpInstancesOutcome> DescribeDBTmpInstancesOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeDBTmpInstancesRequest&, DescribeDBTmpInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDBTmpInstancesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDatabaseObjectsResponse> DescribeDatabaseObjectsOutcome;
                 typedef std::future<DescribeDatabaseObjectsOutcome> DescribeDatabaseObjectsOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeDatabaseObjectsRequest&, DescribeDatabaseObjectsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDatabaseObjectsAsyncHandler;
@@ -261,6 +304,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeInstanceNodeInfoResponse> DescribeInstanceNodeInfoOutcome;
                 typedef std::future<DescribeInstanceNodeInfoOutcome> DescribeInstanceNodeInfoOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeInstanceNodeInfoRequest&, DescribeInstanceNodeInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInstanceNodeInfoAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeInstanceSSLAttributesResponse> DescribeInstanceSSLAttributesOutcome;
+                typedef std::future<DescribeInstanceSSLAttributesOutcome> DescribeInstanceSSLAttributesOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeInstanceSSLAttributesRequest&, DescribeInstanceSSLAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInstanceSSLAttributesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeLogFileRetentionPeriodResponse> DescribeLogFileRetentionPeriodOutcome;
                 typedef std::future<DescribeLogFileRetentionPeriodOutcome> DescribeLogFileRetentionPeriodOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeLogFileRetentionPeriodRequest&, DescribeLogFileRetentionPeriodOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLogFileRetentionPeriodAsyncHandler;
@@ -270,6 +316,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribePriceResponse> DescribePriceOutcome;
                 typedef std::future<DescribePriceOutcome> DescribePriceOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribePriceRequest&, DescribePriceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePriceAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeProcessListResponse> DescribeProcessListOutcome;
+                typedef std::future<DescribeProcessListOutcome> DescribeProcessListOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DescribeProcessListRequest&, DescribeProcessListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProcessListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeProjectSecurityGroupsResponse> DescribeProjectSecurityGroupsOutcome;
                 typedef std::future<DescribeProjectSecurityGroupsOutcome> DescribeProjectSecurityGroupsOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeProjectSecurityGroupsRequest&, DescribeProjectSecurityGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProjectSecurityGroupsAsyncHandler;
@@ -279,12 +328,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeSaleInfoResponse> DescribeSaleInfoOutcome;
                 typedef std::future<DescribeSaleInfoOutcome> DescribeSaleInfoOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeSaleInfoRequest&, DescribeSaleInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSaleInfoAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeSqlLogsResponse> DescribeSqlLogsOutcome;
-                typedef std::future<DescribeSqlLogsOutcome> DescribeSqlLogsOutcomeCallable;
-                typedef std::function<void(const MariadbClient*, const Model::DescribeSqlLogsRequest&, DescribeSqlLogsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSqlLogsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUpgradePriceResponse> DescribeUpgradePriceOutcome;
                 typedef std::future<DescribeUpgradePriceOutcome> DescribeUpgradePriceOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DescribeUpgradePriceRequest&, DescribeUpgradePriceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUpgradePriceAsyncHandler;
+                typedef Outcome<Core::Error, Model::DestroyDBInstanceResponse> DestroyDBInstanceOutcome;
+                typedef std::future<DestroyDBInstanceOutcome> DestroyDBInstanceOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::DestroyDBInstanceRequest&, DestroyDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DestroyDBInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::DestroyHourDBInstanceResponse> DestroyHourDBInstanceOutcome;
                 typedef std::future<DestroyHourDBInstanceOutcome> DestroyHourDBInstanceOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::DestroyHourDBInstanceRequest&, DestroyHourDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DestroyHourDBInstanceAsyncHandler;
@@ -300,6 +349,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::InitDBInstancesResponse> InitDBInstancesOutcome;
                 typedef std::future<InitDBInstancesOutcome> InitDBInstancesOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::InitDBInstancesRequest&, InitDBInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InitDBInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::IsolateDBInstanceResponse> IsolateDBInstanceOutcome;
+                typedef std::future<IsolateDBInstanceOutcome> IsolateDBInstanceOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::IsolateDBInstanceRequest&, IsolateDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> IsolateDBInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::IsolateDedicatedDBInstanceResponse> IsolateDedicatedDBInstanceOutcome;
+                typedef std::future<IsolateDedicatedDBInstanceOutcome> IsolateDedicatedDBInstanceOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::IsolateDedicatedDBInstanceRequest&, IsolateDedicatedDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> IsolateDedicatedDBInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::IsolateHourDBInstanceResponse> IsolateHourDBInstanceOutcome;
                 typedef std::future<IsolateHourDBInstanceOutcome> IsolateHourDBInstanceOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::IsolateHourDBInstanceRequest&, IsolateHourDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> IsolateHourDBInstanceAsyncHandler;
@@ -312,9 +367,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyAccountPrivilegesResponse> ModifyAccountPrivilegesOutcome;
                 typedef std::future<ModifyAccountPrivilegesOutcome> ModifyAccountPrivilegesOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::ModifyAccountPrivilegesRequest&, ModifyAccountPrivilegesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAccountPrivilegesAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyBackupConfigsResponse> ModifyBackupConfigsOutcome;
+                typedef std::future<ModifyBackupConfigsOutcome> ModifyBackupConfigsOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::ModifyBackupConfigsRequest&, ModifyBackupConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyBackupConfigsAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyBackupTimeResponse> ModifyBackupTimeOutcome;
                 typedef std::future<ModifyBackupTimeOutcome> ModifyBackupTimeOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::ModifyBackupTimeRequest&, ModifyBackupTimeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyBackupTimeAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyDBEncryptAttributesResponse> ModifyDBEncryptAttributesOutcome;
+                typedef std::future<ModifyDBEncryptAttributesOutcome> ModifyDBEncryptAttributesOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::ModifyDBEncryptAttributesRequest&, ModifyDBEncryptAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDBEncryptAttributesAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyDBInstanceNameResponse> ModifyDBInstanceNameOutcome;
                 typedef std::future<ModifyDBInstanceNameOutcome> ModifyDBInstanceNameOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::ModifyDBInstanceNameRequest&, ModifyDBInstanceNameOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDBInstanceNameAsyncHandler;
@@ -330,6 +391,21 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyDBSyncModeResponse> ModifyDBSyncModeOutcome;
                 typedef std::future<ModifyDBSyncModeOutcome> ModifyDBSyncModeOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::ModifyDBSyncModeRequest&, ModifyDBSyncModeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDBSyncModeAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceNetworkResponse> ModifyInstanceNetworkOutcome;
+                typedef std::future<ModifyInstanceNetworkOutcome> ModifyInstanceNetworkOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::ModifyInstanceNetworkRequest&, ModifyInstanceNetworkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceNetworkAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceProtectedPropertyResponse> ModifyInstanceProtectedPropertyOutcome;
+                typedef std::future<ModifyInstanceProtectedPropertyOutcome> ModifyInstanceProtectedPropertyOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::ModifyInstanceProtectedPropertyRequest&, ModifyInstanceProtectedPropertyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceProtectedPropertyAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceSSLAttributesResponse> ModifyInstanceSSLAttributesOutcome;
+                typedef std::future<ModifyInstanceSSLAttributesOutcome> ModifyInstanceSSLAttributesOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::ModifyInstanceSSLAttributesRequest&, ModifyInstanceSSLAttributesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceSSLAttributesAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceVipResponse> ModifyInstanceVipOutcome;
+                typedef std::future<ModifyInstanceVipOutcome> ModifyInstanceVipOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::ModifyInstanceVipRequest&, ModifyInstanceVipOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceVipAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyInstanceVportResponse> ModifyInstanceVportOutcome;
+                typedef std::future<ModifyInstanceVportOutcome> ModifyInstanceVportOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::ModifyInstanceVportRequest&, ModifyInstanceVportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceVportAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyLogFileRetentionPeriodResponse> ModifyLogFileRetentionPeriodOutcome;
                 typedef std::future<ModifyLogFileRetentionPeriodOutcome> ModifyLogFileRetentionPeriodOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::ModifyLogFileRetentionPeriodRequest&, ModifyLogFileRetentionPeriodOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyLogFileRetentionPeriodAsyncHandler;
@@ -354,14 +430,23 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::SwitchDBInstanceHAResponse> SwitchDBInstanceHAOutcome;
                 typedef std::future<SwitchDBInstanceHAOutcome> SwitchDBInstanceHAOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::SwitchDBInstanceHARequest&, SwitchDBInstanceHAOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SwitchDBInstanceHAAsyncHandler;
+                typedef Outcome<Core::Error, Model::TerminateDedicatedDBInstanceResponse> TerminateDedicatedDBInstanceOutcome;
+                typedef std::future<TerminateDedicatedDBInstanceOutcome> TerminateDedicatedDBInstanceOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::TerminateDedicatedDBInstanceRequest&, TerminateDedicatedDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateDedicatedDBInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::UpgradeDBInstanceResponse> UpgradeDBInstanceOutcome;
                 typedef std::future<UpgradeDBInstanceOutcome> UpgradeDBInstanceOutcomeCallable;
                 typedef std::function<void(const MariadbClient*, const Model::UpgradeDBInstanceRequest&, UpgradeDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpgradeDBInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpgradeDedicatedDBInstanceResponse> UpgradeDedicatedDBInstanceOutcome;
+                typedef std::future<UpgradeDedicatedDBInstanceOutcome> UpgradeDedicatedDBInstanceOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::UpgradeDedicatedDBInstanceRequest&, UpgradeDedicatedDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpgradeDedicatedDBInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpgradeHourDBInstanceResponse> UpgradeHourDBInstanceOutcome;
+                typedef std::future<UpgradeHourDBInstanceOutcome> UpgradeHourDBInstanceOutcomeCallable;
+                typedef std::function<void(const MariadbClient*, const Model::UpgradeHourDBInstanceRequest&, UpgradeHourDBInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpgradeHourDBInstanceAsyncHandler;
 
 
 
                 /**
-                 *解隔离后付费实例
+                 *解隔离MariaDB按量计费实例
                  * @param req ActivateHourDBInstanceRequest
                  * @return ActivateHourDBInstanceOutcome
                  */
@@ -379,7 +464,7 @@ namespace TencentCloud
                 AssociateSecurityGroupsOutcomeCallable AssociateSecurityGroupsCallable(const Model::AssociateSecurityGroupsRequest& request);
 
                 /**
-                 *取消DCN同步
+                 *本接口（CancelDcnJob）用于取消DCN同步
                  * @param req CancelDcnJobRequest
                  * @return CancelDcnJobOutcome
                  */
@@ -425,7 +510,7 @@ namespace TencentCloud
                 CreateAccountOutcomeCallable CreateAccountCallable(const Model::CreateAccountRequest& request);
 
                 /**
-                 *本接口（CreateDBInstance）用于创建包年包月的云数据库实例，可通过传入实例规格、数据库版本号、购买时长和数量等信息创建云数据库实例。
+                 *本接口（CreateDBInstance）用于创建包年包月的MariaDB云数据库实例，可通过传入实例规格、数据库版本号、购买时长和数量等信息创建云数据库实例。
                  * @param req CreateDBInstanceRequest
                  * @return CreateDBInstanceOutcome
                  */
@@ -434,7 +519,7 @@ namespace TencentCloud
                 CreateDBInstanceOutcomeCallable CreateDBInstanceCallable(const Model::CreateDBInstanceRequest& request);
 
                 /**
-                 *创建独享集群Mariadb实例
+                 *创建Mariadb独享集群实例
                  * @param req CreateDedicatedClusterDBInstanceRequest
                  * @return CreateDedicatedClusterDBInstanceOutcome
                  */
@@ -443,7 +528,7 @@ namespace TencentCloud
                 CreateDedicatedClusterDBInstanceOutcomeCallable CreateDedicatedClusterDBInstanceCallable(const Model::CreateDedicatedClusterDBInstanceRequest& request);
 
                 /**
-                 *创建后付费实例
+                 *创建MariaDB按量计费实例
                  * @param req CreateHourDBInstanceRequest
                  * @return CreateHourDBInstanceOutcome
                  */
@@ -489,6 +574,24 @@ namespace TencentCloud
                 DescribeAccountsOutcomeCallable DescribeAccountsCallable(const Model::DescribeAccountsRequest& request);
 
                 /**
+                 *本接口(DescribeBackupConfigs)用于查询数据库备份配置信息。
+                 * @param req DescribeBackupConfigsRequest
+                 * @return DescribeBackupConfigsOutcome
+                 */
+                DescribeBackupConfigsOutcome DescribeBackupConfigs(const Model::DescribeBackupConfigsRequest &request);
+                void DescribeBackupConfigsAsync(const Model::DescribeBackupConfigsRequest& request, const DescribeBackupConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBackupConfigsOutcomeCallable DescribeBackupConfigsCallable(const Model::DescribeBackupConfigsRequest& request);
+
+                /**
+                 *本接口(DescribeBackupFiles)用于查看备份文件列表。
+                 * @param req DescribeBackupFilesRequest
+                 * @return DescribeBackupFilesOutcome
+                 */
+                DescribeBackupFilesOutcome DescribeBackupFiles(const Model::DescribeBackupFilesRequest &request);
+                void DescribeBackupFilesAsync(const Model::DescribeBackupFilesRequest& request, const DescribeBackupFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBackupFilesOutcomeCallable DescribeBackupFilesCallable(const Model::DescribeBackupFilesRequest& request);
+
+                /**
                  *本接口（DescribeBackupTime）用于获取云数据库的备份时间。后台系统将根据此配置定期进行实例备份。
                  * @param req DescribeBackupTimeRequest
                  * @return DescribeBackupTimeOutcome
@@ -496,6 +599,33 @@ namespace TencentCloud
                 DescribeBackupTimeOutcome DescribeBackupTime(const Model::DescribeBackupTimeRequest &request);
                 void DescribeBackupTimeAsync(const Model::DescribeBackupTimeRequest& request, const DescribeBackupTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeBackupTimeOutcomeCallable DescribeBackupTimeCallable(const Model::DescribeBackupTimeRequest& request);
+
+                /**
+                 *本接口（DescribeBinlogTime）用于查询可回档时间范围。
+                 * @param req DescribeBinlogTimeRequest
+                 * @return DescribeBinlogTimeOutcome
+                 */
+                DescribeBinlogTimeOutcome DescribeBinlogTime(const Model::DescribeBinlogTimeRequest &request);
+                void DescribeBinlogTimeAsync(const Model::DescribeBinlogTimeRequest& request, const DescribeBinlogTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBinlogTimeOutcomeCallable DescribeBinlogTimeCallable(const Model::DescribeBinlogTimeRequest& request);
+
+                /**
+                 *本接口(DescribeDBEncryptAttributes)用于查询实例数据加密状态。
+                 * @param req DescribeDBEncryptAttributesRequest
+                 * @return DescribeDBEncryptAttributesOutcome
+                 */
+                DescribeDBEncryptAttributesOutcome DescribeDBEncryptAttributes(const Model::DescribeDBEncryptAttributesRequest &request);
+                void DescribeDBEncryptAttributesAsync(const Model::DescribeDBEncryptAttributesRequest& request, const DescribeDBEncryptAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDBEncryptAttributesOutcomeCallable DescribeDBEncryptAttributesCallable(const Model::DescribeDBEncryptAttributesRequest& request);
+
+                /**
+                 *本接口(DescribeDBInstanceDetail)用于查询指定实例的详细信息。
+                 * @param req DescribeDBInstanceDetailRequest
+                 * @return DescribeDBInstanceDetailOutcome
+                 */
+                DescribeDBInstanceDetailOutcome DescribeDBInstanceDetail(const Model::DescribeDBInstanceDetailRequest &request);
+                void DescribeDBInstanceDetailAsync(const Model::DescribeDBInstanceDetailRequest& request, const DescribeDBInstanceDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDBInstanceDetailOutcomeCallable DescribeDBInstanceDetailCallable(const Model::DescribeDBInstanceDetailRequest& request);
 
                 /**
                  *本接口(DescribeDBInstanceSpecs)用于查询可创建的云数据库可售卖的规格配置。
@@ -535,42 +665,6 @@ namespace TencentCloud
                 DescribeDBParametersOutcomeCallable DescribeDBParametersCallable(const Model::DescribeDBParametersRequest& request);
 
                 /**
-                 *本接口(DescribeDBPerformance)用于查看数据库实例当前性能数据。
-                 * @param req DescribeDBPerformanceRequest
-                 * @return DescribeDBPerformanceOutcome
-                 */
-                DescribeDBPerformanceOutcome DescribeDBPerformance(const Model::DescribeDBPerformanceRequest &request);
-                void DescribeDBPerformanceAsync(const Model::DescribeDBPerformanceRequest& request, const DescribeDBPerformanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDBPerformanceOutcomeCallable DescribeDBPerformanceCallable(const Model::DescribeDBPerformanceRequest& request);
-
-                /**
-                 *本接口(DescribeDBPerformanceDetails)用于查看实例性能数据详情。
-                 * @param req DescribeDBPerformanceDetailsRequest
-                 * @return DescribeDBPerformanceDetailsOutcome
-                 */
-                DescribeDBPerformanceDetailsOutcome DescribeDBPerformanceDetails(const Model::DescribeDBPerformanceDetailsRequest &request);
-                void DescribeDBPerformanceDetailsAsync(const Model::DescribeDBPerformanceDetailsRequest& request, const DescribeDBPerformanceDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDBPerformanceDetailsOutcomeCallable DescribeDBPerformanceDetailsCallable(const Model::DescribeDBPerformanceDetailsRequest& request);
-
-                /**
-                 *本接口(DescribeDBResourceUsage)用于查看数据库实例资源的使用情况。
-                 * @param req DescribeDBResourceUsageRequest
-                 * @return DescribeDBResourceUsageOutcome
-                 */
-                DescribeDBResourceUsageOutcome DescribeDBResourceUsage(const Model::DescribeDBResourceUsageRequest &request);
-                void DescribeDBResourceUsageAsync(const Model::DescribeDBResourceUsageRequest& request, const DescribeDBResourceUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDBResourceUsageOutcomeCallable DescribeDBResourceUsageCallable(const Model::DescribeDBResourceUsageRequest& request);
-
-                /**
-                 *本接口(DescribeDBResourceUsageDetails)用于查看数据库实例当前性能数据。
-                 * @param req DescribeDBResourceUsageDetailsRequest
-                 * @return DescribeDBResourceUsageDetailsOutcome
-                 */
-                DescribeDBResourceUsageDetailsOutcome DescribeDBResourceUsageDetails(const Model::DescribeDBResourceUsageDetailsRequest &request);
-                void DescribeDBResourceUsageDetailsAsync(const Model::DescribeDBResourceUsageDetailsRequest& request, const DescribeDBResourceUsageDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDBResourceUsageDetailsOutcomeCallable DescribeDBResourceUsageDetailsCallable(const Model::DescribeDBResourceUsageDetailsRequest& request);
-
-                /**
                  *本接口（DescribeDBSecurityGroups）用于查询实例安全组信息
                  * @param req DescribeDBSecurityGroupsRequest
                  * @return DescribeDBSecurityGroupsOutcome
@@ -587,6 +681,24 @@ namespace TencentCloud
                 DescribeDBSlowLogsOutcome DescribeDBSlowLogs(const Model::DescribeDBSlowLogsRequest &request);
                 void DescribeDBSlowLogsAsync(const Model::DescribeDBSlowLogsRequest& request, const DescribeDBSlowLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDBSlowLogsOutcomeCallable DescribeDBSlowLogsCallable(const Model::DescribeDBSlowLogsRequest& request);
+
+                /**
+                 *本接口（DescribeDBSyncMode）用于查询云数据库实例的同步模式。
+                 * @param req DescribeDBSyncModeRequest
+                 * @return DescribeDBSyncModeOutcome
+                 */
+                DescribeDBSyncModeOutcome DescribeDBSyncMode(const Model::DescribeDBSyncModeRequest &request);
+                void DescribeDBSyncModeAsync(const Model::DescribeDBSyncModeRequest& request, const DescribeDBSyncModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDBSyncModeOutcomeCallable DescribeDBSyncModeCallable(const Model::DescribeDBSyncModeRequest& request);
+
+                /**
+                 *本接口（DescribeDBTmpInstances）用于获取实例回档生成的临时实例
+                 * @param req DescribeDBTmpInstancesRequest
+                 * @return DescribeDBTmpInstancesOutcome
+                 */
+                DescribeDBTmpInstancesOutcome DescribeDBTmpInstances(const Model::DescribeDBTmpInstancesRequest &request);
+                void DescribeDBTmpInstancesAsync(const Model::DescribeDBTmpInstancesRequest& request, const DescribeDBTmpInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDBTmpInstancesOutcomeCallable DescribeDBTmpInstancesCallable(const Model::DescribeDBTmpInstancesRequest& request);
 
                 /**
                  *本接口（DescribeDatabaseObjects）用于查询云数据库实例的数据库中的对象列表，包含表、存储过程、视图和函数。
@@ -652,6 +764,15 @@ namespace TencentCloud
                 DescribeInstanceNodeInfoOutcomeCallable DescribeInstanceNodeInfoCallable(const Model::DescribeInstanceNodeInfoRequest& request);
 
                 /**
+                 *本接口（DescribeInstanceSSLAttributes）用于拉取实例SSL认证属性
+                 * @param req DescribeInstanceSSLAttributesRequest
+                 * @return DescribeInstanceSSLAttributesOutcome
+                 */
+                DescribeInstanceSSLAttributesOutcome DescribeInstanceSSLAttributes(const Model::DescribeInstanceSSLAttributesRequest &request);
+                void DescribeInstanceSSLAttributesAsync(const Model::DescribeInstanceSSLAttributesRequest& request, const DescribeInstanceSSLAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeInstanceSSLAttributesOutcomeCallable DescribeInstanceSSLAttributesCallable(const Model::DescribeInstanceSSLAttributesRequest& request);
+
+                /**
                  *本接口(DescribeLogFileRetentionPeriod)用于查看数据库备份日志的备份天数的设置情况。
                  * @param req DescribeLogFileRetentionPeriodRequest
                  * @return DescribeLogFileRetentionPeriodOutcome
@@ -677,6 +798,18 @@ namespace TencentCloud
                 DescribePriceOutcome DescribePrice(const Model::DescribePriceRequest &request);
                 void DescribePriceAsync(const Model::DescribePriceRequest& request, const DescribePriceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribePriceOutcomeCallable DescribePriceCallable(const Model::DescribePriceRequest& request);
+
+                /**
+                 *本接口 (DescribeProcessList) 用于查询当前正在运行的线程（连接/查询）信息。
+
+- 可以根据客户端IP，DB，执行时间等信息来查询实例正在运行的线程信息。过滤信息详细请见过滤器Filter。
+- 如果参数为空，返回当前用户一定数量（Limit所指定的数量，默认为20）的线程信息。
+                 * @param req DescribeProcessListRequest
+                 * @return DescribeProcessListOutcome
+                 */
+                DescribeProcessListOutcome DescribeProcessList(const Model::DescribeProcessListRequest &request);
+                void DescribeProcessListAsync(const Model::DescribeProcessListRequest& request, const DescribeProcessListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeProcessListOutcomeCallable DescribeProcessListCallable(const Model::DescribeProcessListRequest& request);
 
                 /**
                  *本接口（DescribeProjectSecurityGroups）用于查询项目安全组信息
@@ -706,15 +839,6 @@ namespace TencentCloud
                 DescribeSaleInfoOutcomeCallable DescribeSaleInfoCallable(const Model::DescribeSaleInfoRequest& request);
 
                 /**
-                 *本接口（DescribeSqlLogs）用于获取实例SQL日志。
-                 * @param req DescribeSqlLogsRequest
-                 * @return DescribeSqlLogsOutcome
-                 */
-                DescribeSqlLogsOutcome DescribeSqlLogs(const Model::DescribeSqlLogsRequest &request);
-                void DescribeSqlLogsAsync(const Model::DescribeSqlLogsRequest& request, const DescribeSqlLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeSqlLogsOutcomeCallable DescribeSqlLogsCallable(const Model::DescribeSqlLogsRequest& request);
-
-                /**
                  *本接口（DescribeUpgradePrice）用于在扩容云数据库实例时，查询变配的价格。
                  * @param req DescribeUpgradePriceRequest
                  * @return DescribeUpgradePriceOutcome
@@ -724,7 +848,16 @@ namespace TencentCloud
                 DescribeUpgradePriceOutcomeCallable DescribeUpgradePriceCallable(const Model::DescribeUpgradePriceRequest& request);
 
                 /**
-                 *本接口（DestroyHourDBInstance）用于销毁按量计费实例。
+                 *本接口(DestroyDBInstance)用于销毁已隔离的包年包月实例。
+                 * @param req DestroyDBInstanceRequest
+                 * @return DestroyDBInstanceOutcome
+                 */
+                DestroyDBInstanceOutcome DestroyDBInstance(const Model::DestroyDBInstanceRequest &request);
+                void DestroyDBInstanceAsync(const Model::DestroyDBInstanceRequest& request, const DestroyDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DestroyDBInstanceOutcomeCallable DestroyDBInstanceCallable(const Model::DestroyDBInstanceRequest& request);
+
+                /**
+                 *本接口（DestroyHourDBInstance）用于销毁MariaDB按量计费实例。
                  * @param req DestroyHourDBInstanceRequest
                  * @return DestroyHourDBInstanceOutcome
                  */
@@ -770,7 +903,25 @@ namespace TencentCloud
                 InitDBInstancesOutcomeCallable InitDBInstancesCallable(const Model::InitDBInstancesRequest& request);
 
                 /**
-                 *隔离后付费实例
+                 *本接口(IsolateDBInstance)用于隔离云数据库MariaDB实例（包年包月），隔离后不能通过IP和端口访问数据库。隔离的实例可在回收站中进行开机。若为欠费隔离，请尽快进行充值。
+                 * @param req IsolateDBInstanceRequest
+                 * @return IsolateDBInstanceOutcome
+                 */
+                IsolateDBInstanceOutcome IsolateDBInstance(const Model::IsolateDBInstanceRequest &request);
+                void IsolateDBInstanceAsync(const Model::IsolateDBInstanceRequest& request, const IsolateDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                IsolateDBInstanceOutcomeCallable IsolateDBInstanceCallable(const Model::IsolateDBInstanceRequest& request);
+
+                /**
+                 *本接口（IsolateDedicatedDBInstance）用于隔离独享云数据库实例。
+                 * @param req IsolateDedicatedDBInstanceRequest
+                 * @return IsolateDedicatedDBInstanceOutcome
+                 */
+                IsolateDedicatedDBInstanceOutcome IsolateDedicatedDBInstance(const Model::IsolateDedicatedDBInstanceRequest &request);
+                void IsolateDedicatedDBInstanceAsync(const Model::IsolateDedicatedDBInstanceRequest& request, const IsolateDedicatedDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                IsolateDedicatedDBInstanceOutcomeCallable IsolateDedicatedDBInstanceCallable(const Model::IsolateDedicatedDBInstanceRequest& request);
+
+                /**
+                 *隔离MariaDB按量计费实例
                  * @param req IsolateHourDBInstanceRequest
                  * @return IsolateHourDBInstanceOutcome
                  */
@@ -803,13 +954,24 @@ namespace TencentCloud
 **注意**
 - 系统保留库："mysql"，只开放["SELECT"]权限
 - 只读账号授予读写权限会报错
-- 不传该参数表示保留现有权限，如需清除，请在复杂类型Privileges字段传空数组
+- 不传权限参数表示保留现有权限，如需清除，请在复杂类型Privileges字段传空数组
                  * @param req ModifyAccountPrivilegesRequest
                  * @return ModifyAccountPrivilegesOutcome
                  */
                 ModifyAccountPrivilegesOutcome ModifyAccountPrivileges(const Model::ModifyAccountPrivilegesRequest &request);
                 void ModifyAccountPrivilegesAsync(const Model::ModifyAccountPrivilegesRequest& request, const ModifyAccountPrivilegesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyAccountPrivilegesOutcomeCallable ModifyAccountPrivilegesCallable(const Model::ModifyAccountPrivilegesRequest& request);
+
+                /**
+                 *本接口(ModifyBackupConfigs)用于修改数据库备份配置信息。
+
+1. 修改数据库超期备份配置，目前按年、按月、按日只支持一种，存在互斥关系，如当前策略按年备份，如果传入按月备份策略将会覆盖当前的按年备份策略，务必注意。
+                 * @param req ModifyBackupConfigsRequest
+                 * @return ModifyBackupConfigsOutcome
+                 */
+                ModifyBackupConfigsOutcome ModifyBackupConfigs(const Model::ModifyBackupConfigsRequest &request);
+                void ModifyBackupConfigsAsync(const Model::ModifyBackupConfigsRequest& request, const ModifyBackupConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyBackupConfigsOutcomeCallable ModifyBackupConfigsCallable(const Model::ModifyBackupConfigsRequest& request);
 
                 /**
                  *本接口（ModifyBackupTime）用于设置云数据库实例的备份时间。后台系统将根据此配置定期进行实例备份。
@@ -819,6 +981,15 @@ namespace TencentCloud
                 ModifyBackupTimeOutcome ModifyBackupTime(const Model::ModifyBackupTimeRequest &request);
                 void ModifyBackupTimeAsync(const Model::ModifyBackupTimeRequest& request, const ModifyBackupTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyBackupTimeOutcomeCallable ModifyBackupTimeCallable(const Model::ModifyBackupTimeRequest& request);
+
+                /**
+                 *本接口(ModifyDBEncryptAttributes)用于修改实例数据加密。
+                 * @param req ModifyDBEncryptAttributesRequest
+                 * @return ModifyDBEncryptAttributesOutcome
+                 */
+                ModifyDBEncryptAttributesOutcome ModifyDBEncryptAttributes(const Model::ModifyDBEncryptAttributesRequest &request);
+                void ModifyDBEncryptAttributesAsync(const Model::ModifyDBEncryptAttributesRequest& request, const ModifyDBEncryptAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyDBEncryptAttributesOutcomeCallable ModifyDBEncryptAttributesCallable(const Model::ModifyDBEncryptAttributesRequest& request);
 
                 /**
                  *本接口（ModifyDBInstanceName）用于修改云数据库实例的名称。
@@ -864,6 +1035,51 @@ namespace TencentCloud
                 ModifyDBSyncModeOutcome ModifyDBSyncMode(const Model::ModifyDBSyncModeRequest &request);
                 void ModifyDBSyncModeAsync(const Model::ModifyDBSyncModeRequest& request, const ModifyDBSyncModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyDBSyncModeOutcomeCallable ModifyDBSyncModeCallable(const Model::ModifyDBSyncModeRequest& request);
+
+                /**
+                 *本接口（ModifyInstanceNetwork）用于修改实例所属网络
+                 * @param req ModifyInstanceNetworkRequest
+                 * @return ModifyInstanceNetworkOutcome
+                 */
+                ModifyInstanceNetworkOutcome ModifyInstanceNetwork(const Model::ModifyInstanceNetworkRequest &request);
+                void ModifyInstanceNetworkAsync(const Model::ModifyInstanceNetworkRequest& request, const ModifyInstanceNetworkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceNetworkOutcomeCallable ModifyInstanceNetworkCallable(const Model::ModifyInstanceNetworkRequest& request);
+
+                /**
+                 *该接口用于对实例修改删除保护属性
+                 * @param req ModifyInstanceProtectedPropertyRequest
+                 * @return ModifyInstanceProtectedPropertyOutcome
+                 */
+                ModifyInstanceProtectedPropertyOutcome ModifyInstanceProtectedProperty(const Model::ModifyInstanceProtectedPropertyRequest &request);
+                void ModifyInstanceProtectedPropertyAsync(const Model::ModifyInstanceProtectedPropertyRequest& request, const ModifyInstanceProtectedPropertyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceProtectedPropertyOutcomeCallable ModifyInstanceProtectedPropertyCallable(const Model::ModifyInstanceProtectedPropertyRequest& request);
+
+                /**
+                 *本接口  （ModifyInstanceSSLAttributes）用于修改实例SSL认证功能属性
+                 * @param req ModifyInstanceSSLAttributesRequest
+                 * @return ModifyInstanceSSLAttributesOutcome
+                 */
+                ModifyInstanceSSLAttributesOutcome ModifyInstanceSSLAttributes(const Model::ModifyInstanceSSLAttributesRequest &request);
+                void ModifyInstanceSSLAttributesAsync(const Model::ModifyInstanceSSLAttributesRequest& request, const ModifyInstanceSSLAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceSSLAttributesOutcomeCallable ModifyInstanceSSLAttributesCallable(const Model::ModifyInstanceSSLAttributesRequest& request);
+
+                /**
+                 *本接口（ModifyInstanceVip）用于修改实例VIP
+                 * @param req ModifyInstanceVipRequest
+                 * @return ModifyInstanceVipOutcome
+                 */
+                ModifyInstanceVipOutcome ModifyInstanceVip(const Model::ModifyInstanceVipRequest &request);
+                void ModifyInstanceVipAsync(const Model::ModifyInstanceVipRequest& request, const ModifyInstanceVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceVipOutcomeCallable ModifyInstanceVipCallable(const Model::ModifyInstanceVipRequest& request);
+
+                /**
+                 *本接口（ModifyInstanceVport）用于修改实例VPORT
+                 * @param req ModifyInstanceVportRequest
+                 * @return ModifyInstanceVportOutcome
+                 */
+                ModifyInstanceVportOutcome ModifyInstanceVport(const Model::ModifyInstanceVportRequest &request);
+                void ModifyInstanceVportAsync(const Model::ModifyInstanceVportRequest& request, const ModifyInstanceVportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyInstanceVportOutcomeCallable ModifyInstanceVportCallable(const Model::ModifyInstanceVportRequest& request);
 
                 /**
                  *本接口(ModifyLogFileRetentionPeriod)用于修改数据库备份日志保存天数。
@@ -944,6 +1160,15 @@ namespace TencentCloud
                 SwitchDBInstanceHAOutcomeCallable SwitchDBInstanceHACallable(const Model::SwitchDBInstanceHARequest& request);
 
                 /**
+                 *本接口（TerminateDedicatedDBInstance）用于销毁已隔离的独享云数据库实例。
+                 * @param req TerminateDedicatedDBInstanceRequest
+                 * @return TerminateDedicatedDBInstanceOutcome
+                 */
+                TerminateDedicatedDBInstanceOutcome TerminateDedicatedDBInstance(const Model::TerminateDedicatedDBInstanceRequest &request);
+                void TerminateDedicatedDBInstanceAsync(const Model::TerminateDedicatedDBInstanceRequest& request, const TerminateDedicatedDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                TerminateDedicatedDBInstanceOutcomeCallable TerminateDedicatedDBInstanceCallable(const Model::TerminateDedicatedDBInstanceRequest& request);
+
+                /**
                  *本接口(UpgradeDBInstance)用于扩容云数据库实例。本接口完成下单和支付两个动作，如果发生支付失败的错误，调用用户账户相关接口中的支付订单接口（PayDeals）重新支付即可。
                  * @param req UpgradeDBInstanceRequest
                  * @return UpgradeDBInstanceOutcome
@@ -951,6 +1176,24 @@ namespace TencentCloud
                 UpgradeDBInstanceOutcome UpgradeDBInstance(const Model::UpgradeDBInstanceRequest &request);
                 void UpgradeDBInstanceAsync(const Model::UpgradeDBInstanceRequest& request, const UpgradeDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 UpgradeDBInstanceOutcomeCallable UpgradeDBInstanceCallable(const Model::UpgradeDBInstanceRequest& request);
+
+                /**
+                 *本接口(UpgradeDedicatedDBInstance)用于扩容独享云数据库实例。
+                 * @param req UpgradeDedicatedDBInstanceRequest
+                 * @return UpgradeDedicatedDBInstanceOutcome
+                 */
+                UpgradeDedicatedDBInstanceOutcome UpgradeDedicatedDBInstance(const Model::UpgradeDedicatedDBInstanceRequest &request);
+                void UpgradeDedicatedDBInstanceAsync(const Model::UpgradeDedicatedDBInstanceRequest& request, const UpgradeDedicatedDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpgradeDedicatedDBInstanceOutcomeCallable UpgradeDedicatedDBInstanceCallable(const Model::UpgradeDedicatedDBInstanceRequest& request);
+
+                /**
+                 *升级MariaDB按量计费实例
+                 * @param req UpgradeHourDBInstanceRequest
+                 * @return UpgradeHourDBInstanceOutcome
+                 */
+                UpgradeHourDBInstanceOutcome UpgradeHourDBInstance(const Model::UpgradeHourDBInstanceRequest &request);
+                void UpgradeHourDBInstanceAsync(const Model::UpgradeHourDBInstanceRequest& request, const UpgradeHourDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpgradeHourDBInstanceOutcomeCallable UpgradeHourDBInstanceCallable(const Model::UpgradeHourDBInstanceRequest& request);
 
             };
         }

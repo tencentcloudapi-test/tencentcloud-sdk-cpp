@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ NetworkInterface::NetworkInterface() :
     m_primaryHasBeenSet(false),
     m_macAddressHasBeenSet(false),
     m_stateHasBeenSet(false),
+    m_networkInterfaceStateHasBeenSet(false),
     m_privateIpAddressSetHasBeenSet(false),
     m_attachmentHasBeenSet(false),
     m_zoneHasBeenSet(false),
@@ -39,7 +40,9 @@ NetworkInterface::NetworkInterface() :
     m_eniTypeHasBeenSet(false),
     m_businessHasBeenSet(false),
     m_cdcIdHasBeenSet(false),
-    m_attachTypeHasBeenSet(false)
+    m_attachTypeHasBeenSet(false),
+    m_resourceIdHasBeenSet(false),
+    m_qosLevelHasBeenSet(false)
 {
 }
 
@@ -139,6 +142,16 @@ CoreInternalOutcome NetworkInterface::Deserialize(const rapidjson::Value &value)
         }
         m_state = string(value["State"].GetString());
         m_stateHasBeenSet = true;
+    }
+
+    if (value.HasMember("NetworkInterfaceState") && !value["NetworkInterfaceState"].IsNull())
+    {
+        if (!value["NetworkInterfaceState"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NetworkInterface.NetworkInterfaceState` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_networkInterfaceState = string(value["NetworkInterfaceState"].GetString());
+        m_networkInterfaceStateHasBeenSet = true;
     }
 
     if (value.HasMember("PrivateIpAddressSet") && !value["PrivateIpAddressSet"].IsNull())
@@ -278,6 +291,26 @@ CoreInternalOutcome NetworkInterface::Deserialize(const rapidjson::Value &value)
         m_attachTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("ResourceId") && !value["ResourceId"].IsNull())
+    {
+        if (!value["ResourceId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NetworkInterface.ResourceId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_resourceId = string(value["ResourceId"].GetString());
+        m_resourceIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("QosLevel") && !value["QosLevel"].IsNull())
+    {
+        if (!value["QosLevel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NetworkInterface.QosLevel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_qosLevel = string(value["QosLevel"].GetString());
+        m_qosLevelHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -360,6 +393,14 @@ void NetworkInterface::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "State";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_state.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_networkInterfaceStateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NetworkInterfaceState";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_networkInterfaceState.c_str(), allocator).Move(), allocator);
     }
 
     if (m_privateIpAddressSetHasBeenSet)
@@ -462,6 +503,22 @@ void NetworkInterface::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "AttachType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_attachType, allocator);
+    }
+
+    if (m_resourceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_resourceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_qosLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QosLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_qosLevel.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -609,6 +666,22 @@ void NetworkInterface::SetState(const string& _state)
 bool NetworkInterface::StateHasBeenSet() const
 {
     return m_stateHasBeenSet;
+}
+
+string NetworkInterface::GetNetworkInterfaceState() const
+{
+    return m_networkInterfaceState;
+}
+
+void NetworkInterface::SetNetworkInterfaceState(const string& _networkInterfaceState)
+{
+    m_networkInterfaceState = _networkInterfaceState;
+    m_networkInterfaceStateHasBeenSet = true;
+}
+
+bool NetworkInterface::NetworkInterfaceStateHasBeenSet() const
+{
+    return m_networkInterfaceStateHasBeenSet;
 }
 
 vector<PrivateIpAddressSpecification> NetworkInterface::GetPrivateIpAddressSet() const
@@ -769,5 +842,37 @@ void NetworkInterface::SetAttachType(const uint64_t& _attachType)
 bool NetworkInterface::AttachTypeHasBeenSet() const
 {
     return m_attachTypeHasBeenSet;
+}
+
+string NetworkInterface::GetResourceId() const
+{
+    return m_resourceId;
+}
+
+void NetworkInterface::SetResourceId(const string& _resourceId)
+{
+    m_resourceId = _resourceId;
+    m_resourceIdHasBeenSet = true;
+}
+
+bool NetworkInterface::ResourceIdHasBeenSet() const
+{
+    return m_resourceIdHasBeenSet;
+}
+
+string NetworkInterface::GetQosLevel() const
+{
+    return m_qosLevel;
+}
+
+void NetworkInterface::SetQosLevel(const string& _qosLevel)
+{
+    m_qosLevel = _qosLevel;
+    m_qosLevelHasBeenSet = true;
+}
+
+bool NetworkInterface::QosLevelHasBeenSet() const
+{
+    return m_qosLevelHasBeenSet;
 }
 

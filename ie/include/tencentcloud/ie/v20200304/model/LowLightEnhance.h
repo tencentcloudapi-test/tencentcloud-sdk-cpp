@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取低光照增强类型，可选项：normal。
                      * @return Type 低光照增强类型，可选项：normal。
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置低光照增强类型，可选项：normal。
-                     * @param Type 低光照增强类型，可选项：normal。
+                     * @param _type 低光照增强类型，可选项：normal。
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 

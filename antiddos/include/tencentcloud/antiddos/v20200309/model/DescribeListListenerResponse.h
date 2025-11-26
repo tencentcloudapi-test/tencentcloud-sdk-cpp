@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,24 +48,28 @@ namespace TencentCloud
                     /**
                      * 获取4层转发监听器列表
                      * @return Layer4Listeners 4层转发监听器列表
+                     * 
                      */
                     std::vector<Layer4Rule> GetLayer4Listeners() const;
 
                     /**
                      * 判断参数 Layer4Listeners 是否已赋值
                      * @return Layer4Listeners 是否已赋值
+                     * 
                      */
                     bool Layer4ListenersHasBeenSet() const;
 
                     /**
                      * 获取7层转发监听器列表
                      * @return Layer7Listeners 7层转发监听器列表
+                     * 
                      */
                     std::vector<Layer7Rule> GetLayer7Listeners() const;
 
                     /**
                      * 判断参数 Layer7Listeners 是否已赋值
                      * @return Layer7Listeners 是否已赋值
+                     * 
                      */
                     bool Layer7ListenersHasBeenSet() const;
 

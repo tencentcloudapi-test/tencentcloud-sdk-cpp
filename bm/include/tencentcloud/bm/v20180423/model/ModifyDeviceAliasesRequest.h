@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取需要改名的设备与别名列表
                      * @return DeviceAliases 需要改名的设备与别名列表
+                     * 
                      */
                     std::vector<DeviceAlias> GetDeviceAliases() const;
 
                     /**
                      * 设置需要改名的设备与别名列表
-                     * @param DeviceAliases 需要改名的设备与别名列表
+                     * @param _deviceAliases 需要改名的设备与别名列表
+                     * 
                      */
                     void SetDeviceAliases(const std::vector<DeviceAlias>& _deviceAliases);
 
                     /**
                      * 判断参数 DeviceAliases 是否已赋值
                      * @return DeviceAliases 是否已赋值
+                     * 
                      */
                     bool DeviceAliasesHasBeenSet() const;
 

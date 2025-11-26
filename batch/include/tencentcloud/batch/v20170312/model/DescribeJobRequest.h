@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取作业标识
-                     * @return JobId 作业标识
+                     * 获取作业ID；JobId详见[作业列表](https://cloud.tencent.com/document/product/599/15909)
+                     * @return JobId 作业ID；JobId详见[作业列表](https://cloud.tencent.com/document/product/599/15909)
+                     * 
                      */
                     std::string GetJobId() const;
 
                     /**
-                     * 设置作业标识
-                     * @param JobId 作业标识
+                     * 设置作业ID；JobId详见[作业列表](https://cloud.tencent.com/document/product/599/15909)
+                     * @param _jobId 作业ID；JobId详见[作业列表](https://cloud.tencent.com/document/product/599/15909)
+                     * 
                      */
                     void SetJobId(const std::string& _jobId);
 
                     /**
                      * 判断参数 JobId 是否已赋值
                      * @return JobId 是否已赋值
+                     * 
                      */
                     bool JobIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 作业标识
+                     * 作业ID；JobId详见[作业列表](https://cloud.tencent.com/document/product/599/15909)
                      */
                     std::string m_jobId;
                     bool m_jobIdHasBeenSet;

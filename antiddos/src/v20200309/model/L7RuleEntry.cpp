@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,8 @@ L7RuleEntry::L7RuleEntry() :
     m_cCStatusHasBeenSet(false),
     m_virtualPortHasBeenSet(false),
     m_sSLIdHasBeenSet(false),
-    m_idHasBeenSet(false)
+    m_idHasBeenSet(false),
+    m_cCAIEnableHasBeenSet(false)
 {
 }
 
@@ -270,6 +271,16 @@ CoreInternalOutcome L7RuleEntry::Deserialize(const rapidjson::Value &value)
         m_idHasBeenSet = true;
     }
 
+    if (value.HasMember("CCAIEnable") && !value["CCAIEnable"].IsNull())
+    {
+        if (!value["CCAIEnable"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `L7RuleEntry.CCAIEnable` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_cCAIEnable = value["CCAIEnable"].GetUint64();
+        m_cCAIEnableHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -450,6 +461,14 @@ void L7RuleEntry::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "Id";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_id.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cCAIEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CCAIEnable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_cCAIEnable, allocator);
     }
 
 }
@@ -789,5 +808,21 @@ void L7RuleEntry::SetId(const string& _id)
 bool L7RuleEntry::IdHasBeenSet() const
 {
     return m_idHasBeenSet;
+}
+
+uint64_t L7RuleEntry::GetCCAIEnable() const
+{
+    return m_cCAIEnable;
+}
+
+void L7RuleEntry::SetCCAIEnable(const uint64_t& _cCAIEnable)
+{
+    m_cCAIEnable = _cCAIEnable;
+    m_cCAIEnableHasBeenSet = true;
+}
+
+bool L7RuleEntry::CCAIEnableHasBeenSet() const
+{
+    return m_cCAIEnableHasBeenSet;
 }
 

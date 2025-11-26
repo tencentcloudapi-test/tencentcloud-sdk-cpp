@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ ModifyVpcAttributeRequest::ModifyVpcAttributeRequest() :
     m_vpcNameHasBeenSet(false),
     m_enableMulticastHasBeenSet(false),
     m_dnsServersHasBeenSet(false),
-    m_domainNameHasBeenSet(false)
+    m_domainNameHasBeenSet(false),
+    m_enableRouteVpcPublishHasBeenSet(false),
+    m_enableCdcPublishHasBeenSet(false)
 {
 }
 
@@ -81,6 +83,22 @@ string ModifyVpcAttributeRequest::ToJsonString() const
         string key = "DomainName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_domainName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enableRouteVpcPublishHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableRouteVpcPublish";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableRouteVpcPublish, allocator);
+    }
+
+    if (m_enableCdcPublishHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableCdcPublish";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableCdcPublish, allocator);
     }
 
 
@@ -169,6 +187,38 @@ void ModifyVpcAttributeRequest::SetDomainName(const string& _domainName)
 bool ModifyVpcAttributeRequest::DomainNameHasBeenSet() const
 {
     return m_domainNameHasBeenSet;
+}
+
+bool ModifyVpcAttributeRequest::GetEnableRouteVpcPublish() const
+{
+    return m_enableRouteVpcPublish;
+}
+
+void ModifyVpcAttributeRequest::SetEnableRouteVpcPublish(const bool& _enableRouteVpcPublish)
+{
+    m_enableRouteVpcPublish = _enableRouteVpcPublish;
+    m_enableRouteVpcPublishHasBeenSet = true;
+}
+
+bool ModifyVpcAttributeRequest::EnableRouteVpcPublishHasBeenSet() const
+{
+    return m_enableRouteVpcPublishHasBeenSet;
+}
+
+bool ModifyVpcAttributeRequest::GetEnableCdcPublish() const
+{
+    return m_enableCdcPublish;
+}
+
+void ModifyVpcAttributeRequest::SetEnableCdcPublish(const bool& _enableCdcPublish)
+{
+    m_enableCdcPublish = _enableCdcPublish;
+    m_enableCdcPublishHasBeenSet = true;
+}
+
+bool ModifyVpcAttributeRequest::EnableCdcPublishHasBeenSet() const
+{
+    return m_enableCdcPublishHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/apigateway/v20180808/model/UpstreamInfo.h>
+#include <tencentcloud/apigateway/v20180808/model/ModifyUpstreamResultInfo.h>
 
 
 namespace TencentCloud
@@ -45,26 +45,28 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取返回修改后的vpc通道信息
+                     * 获取返回修改后的后端通道信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Result 返回修改后的vpc通道信息
+                     * @return Result 返回修改后的后端通道信息
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    UpstreamInfo GetResult() const;
+                    ModifyUpstreamResultInfo GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 返回修改后的vpc通道信息
+                     * 返回修改后的后端通道信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    UpstreamInfo m_result;
+                    ModifyUpstreamResultInfo m_result;
                     bool m_resultHasBeenSet;
 
                 };

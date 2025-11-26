@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,14 +47,44 @@ namespace TencentCloud
                     /**
                      * 获取模板内容数据
                      * @return TemplateContent 模板内容数据
+                     * 
                      */
                     TemplateContent GetTemplateContent() const;
 
                     /**
                      * 判断参数 TemplateContent 是否已赋值
                      * @return TemplateContent 是否已赋值
+                     * 
                      */
                     bool TemplateContentHasBeenSet() const;
+
+                    /**
+                     * 获取模板状态 0-审核通过 1-待审核 2-审核拒绝
+                     * @return TemplateStatus 模板状态 0-审核通过 1-待审核 2-审核拒绝
+                     * 
+                     */
+                    uint64_t GetTemplateStatus() const;
+
+                    /**
+                     * 判断参数 TemplateStatus 是否已赋值
+                     * @return TemplateStatus 是否已赋值
+                     * 
+                     */
+                    bool TemplateStatusHasBeenSet() const;
+
+                    /**
+                     * 获取模板名称
+                     * @return TemplateName 模板名称
+                     * 
+                     */
+                    std::string GetTemplateName() const;
+
+                    /**
+                     * 判断参数 TemplateName 是否已赋值
+                     * @return TemplateName 是否已赋值
+                     * 
+                     */
+                    bool TemplateNameHasBeenSet() const;
 
                 private:
 
@@ -63,6 +93,18 @@ namespace TencentCloud
                      */
                     TemplateContent m_templateContent;
                     bool m_templateContentHasBeenSet;
+
+                    /**
+                     * 模板状态 0-审核通过 1-待审核 2-审核拒绝
+                     */
+                    uint64_t m_templateStatus;
+                    bool m_templateStatusHasBeenSet;
+
+                    /**
+                     * 模板名称
+                     */
+                    std::string m_templateName;
+                    bool m_templateNameHasBeenSet;
 
                 };
             }

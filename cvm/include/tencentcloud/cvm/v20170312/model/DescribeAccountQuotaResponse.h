@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取用户appid
                      * @return AppId 用户appid
+                     * 
                      */
-                    std::string GetAppId() const;
+                    uint64_t GetAppId() const;
 
                     /**
                      * 判断参数 AppId 是否已赋值
                      * @return AppId 是否已赋值
+                     * 
                      */
                     bool AppIdHasBeenSet() const;
 
                     /**
                      * 获取配额数据
                      * @return AccountQuotaOverview 配额数据
+                     * 
                      */
                     AccountQuotaOverview GetAccountQuotaOverview() const;
 
                     /**
                      * 判断参数 AccountQuotaOverview 是否已赋值
                      * @return AccountQuotaOverview 是否已赋值
+                     * 
                      */
                     bool AccountQuotaOverviewHasBeenSet() const;
 
@@ -73,7 +77,7 @@ namespace TencentCloud
                     /**
                      * 用户appid
                      */
-                    std::string m_appId;
+                    uint64_t m_appId;
                     bool m_appIdHasBeenSet;
 
                     /**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,8 @@ DetectDetail::DetectDetail() :
     m_livemsgHasBeenSet(false),
     m_comparestatusHasBeenSet(false),
     m_comparemsgHasBeenSet(false),
-    m_compareLibTypeHasBeenSet(false)
+    m_compareLibTypeHasBeenSet(false),
+    m_livenessModeHasBeenSet(false)
 {
 }
 
@@ -172,6 +173,16 @@ CoreInternalOutcome DetectDetail::Deserialize(const rapidjson::Value &value)
         m_compareLibTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("LivenessMode") && !value["LivenessMode"].IsNull())
+    {
+        if (!value["LivenessMode"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectDetail.LivenessMode` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_livenessMode = value["LivenessMode"].GetUint64();
+        m_livenessModeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -281,6 +292,14 @@ void DetectDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "CompareLibType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_compareLibType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_livenessModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LivenessMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_livenessMode, allocator);
     }
 
 }
@@ -492,5 +511,21 @@ void DetectDetail::SetCompareLibType(const string& _compareLibType)
 bool DetectDetail::CompareLibTypeHasBeenSet() const
 {
     return m_compareLibTypeHasBeenSet;
+}
+
+uint64_t DetectDetail::GetLivenessMode() const
+{
+    return m_livenessMode;
+}
+
+void DetectDetail::SetLivenessMode(const uint64_t& _livenessMode)
+{
+    m_livenessMode = _livenessMode;
+    m_livenessModeHasBeenSet = true;
+}
+
+bool DetectDetail::LivenessModeHasBeenSet() const
+{
+    return m_livenessModeHasBeenSet;
 }
 

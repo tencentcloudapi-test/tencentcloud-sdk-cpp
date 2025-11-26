@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,9 @@ using namespace std;
 
 TaskOutputStorage::TaskOutputStorage() :
     m_typeHasBeenSet(false),
-    m_cosOutputStorageHasBeenSet(false)
+    m_cosOutputStorageHasBeenSet(false),
+    m_s3OutputStorageHasBeenSet(false),
+    m_vODOutputStorageHasBeenSet(false)
 {
 }
 
@@ -58,6 +60,40 @@ CoreInternalOutcome TaskOutputStorage::Deserialize(const rapidjson::Value &value
         m_cosOutputStorageHasBeenSet = true;
     }
 
+    if (value.HasMember("S3OutputStorage") && !value["S3OutputStorage"].IsNull())
+    {
+        if (!value["S3OutputStorage"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskOutputStorage.S3OutputStorage` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_s3OutputStorage.Deserialize(value["S3OutputStorage"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_s3OutputStorageHasBeenSet = true;
+    }
+
+    if (value.HasMember("VODOutputStorage") && !value["VODOutputStorage"].IsNull())
+    {
+        if (!value["VODOutputStorage"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskOutputStorage.VODOutputStorage` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_vODOutputStorage.Deserialize(value["VODOutputStorage"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_vODOutputStorageHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -80,6 +116,24 @@ void TaskOutputStorage::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_cosOutputStorage.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_s3OutputStorageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "S3OutputStorage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_s3OutputStorage.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_vODOutputStorageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VODOutputStorage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_vODOutputStorage.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -115,5 +169,37 @@ void TaskOutputStorage::SetCosOutputStorage(const CosOutputStorage& _cosOutputSt
 bool TaskOutputStorage::CosOutputStorageHasBeenSet() const
 {
     return m_cosOutputStorageHasBeenSet;
+}
+
+S3OutputStorage TaskOutputStorage::GetS3OutputStorage() const
+{
+    return m_s3OutputStorage;
+}
+
+void TaskOutputStorage::SetS3OutputStorage(const S3OutputStorage& _s3OutputStorage)
+{
+    m_s3OutputStorage = _s3OutputStorage;
+    m_s3OutputStorageHasBeenSet = true;
+}
+
+bool TaskOutputStorage::S3OutputStorageHasBeenSet() const
+{
+    return m_s3OutputStorageHasBeenSet;
+}
+
+VODOutputStorage TaskOutputStorage::GetVODOutputStorage() const
+{
+    return m_vODOutputStorage;
+}
+
+void TaskOutputStorage::SetVODOutputStorage(const VODOutputStorage& _vODOutputStorage)
+{
+    m_vODOutputStorage = _vODOutputStorage;
+    m_vODOutputStorageHasBeenSet = true;
+}
+
+bool TaskOutputStorage::VODOutputStorageHasBeenSet() const
+{
+    return m_vODOutputStorageHasBeenSet;
 }
 

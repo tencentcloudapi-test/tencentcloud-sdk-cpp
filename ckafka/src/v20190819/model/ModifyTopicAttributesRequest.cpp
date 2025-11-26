@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,8 @@ ModifyTopicAttributesRequest::ModifyTopicAttributesRequest() :
     m_minInsyncReplicasHasBeenSet(false),
     m_uncleanLeaderElectionEnableHasBeenSet(false),
     m_retentionMsHasBeenSet(false),
-    m_segmentMsHasBeenSet(false),
     m_maxMessageBytesHasBeenSet(false),
+    m_segmentMsHasBeenSet(false),
     m_cleanUpPolicyHasBeenSet(false),
     m_ipWhiteListHasBeenSet(false),
     m_enableAclRuleHasBeenSet(false),
@@ -39,7 +39,9 @@ ModifyTopicAttributesRequest::ModifyTopicAttributesRequest() :
     m_retentionBytesHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_quotaProducerByteRateHasBeenSet(false),
-    m_quotaConsumerByteRateHasBeenSet(false)
+    m_quotaConsumerByteRateHasBeenSet(false),
+    m_replicaNumHasBeenSet(false),
+    m_logMsgTimestampTypeHasBeenSet(false)
 {
 }
 
@@ -106,20 +108,20 @@ string ModifyTopicAttributesRequest::ToJsonString() const
         d.AddMember(iKey, m_retentionMs, allocator);
     }
 
-    if (m_segmentMsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SegmentMs";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_segmentMs, allocator);
-    }
-
     if (m_maxMessageBytesHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "MaxMessageBytes";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_maxMessageBytes, allocator);
+    }
+
+    if (m_segmentMsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SegmentMs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_segmentMs, allocator);
     }
 
     if (m_cleanUpPolicyHasBeenSet)
@@ -196,6 +198,22 @@ string ModifyTopicAttributesRequest::ToJsonString() const
         string key = "QuotaConsumerByteRate";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_quotaConsumerByteRate, allocator);
+    }
+
+    if (m_replicaNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReplicaNum";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_replicaNum, allocator);
+    }
+
+    if (m_logMsgTimestampTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LogMsgTimestampType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_logMsgTimestampType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -318,22 +336,6 @@ bool ModifyTopicAttributesRequest::RetentionMsHasBeenSet() const
     return m_retentionMsHasBeenSet;
 }
 
-int64_t ModifyTopicAttributesRequest::GetSegmentMs() const
-{
-    return m_segmentMs;
-}
-
-void ModifyTopicAttributesRequest::SetSegmentMs(const int64_t& _segmentMs)
-{
-    m_segmentMs = _segmentMs;
-    m_segmentMsHasBeenSet = true;
-}
-
-bool ModifyTopicAttributesRequest::SegmentMsHasBeenSet() const
-{
-    return m_segmentMsHasBeenSet;
-}
-
 int64_t ModifyTopicAttributesRequest::GetMaxMessageBytes() const
 {
     return m_maxMessageBytes;
@@ -348,6 +350,22 @@ void ModifyTopicAttributesRequest::SetMaxMessageBytes(const int64_t& _maxMessage
 bool ModifyTopicAttributesRequest::MaxMessageBytesHasBeenSet() const
 {
     return m_maxMessageBytesHasBeenSet;
+}
+
+int64_t ModifyTopicAttributesRequest::GetSegmentMs() const
+{
+    return m_segmentMs;
+}
+
+void ModifyTopicAttributesRequest::SetSegmentMs(const int64_t& _segmentMs)
+{
+    m_segmentMs = _segmentMs;
+    m_segmentMsHasBeenSet = true;
+}
+
+bool ModifyTopicAttributesRequest::SegmentMsHasBeenSet() const
+{
+    return m_segmentMsHasBeenSet;
 }
 
 string ModifyTopicAttributesRequest::GetCleanUpPolicy() const
@@ -476,6 +494,38 @@ void ModifyTopicAttributesRequest::SetQuotaConsumerByteRate(const int64_t& _quot
 bool ModifyTopicAttributesRequest::QuotaConsumerByteRateHasBeenSet() const
 {
     return m_quotaConsumerByteRateHasBeenSet;
+}
+
+int64_t ModifyTopicAttributesRequest::GetReplicaNum() const
+{
+    return m_replicaNum;
+}
+
+void ModifyTopicAttributesRequest::SetReplicaNum(const int64_t& _replicaNum)
+{
+    m_replicaNum = _replicaNum;
+    m_replicaNumHasBeenSet = true;
+}
+
+bool ModifyTopicAttributesRequest::ReplicaNumHasBeenSet() const
+{
+    return m_replicaNumHasBeenSet;
+}
+
+string ModifyTopicAttributesRequest::GetLogMsgTimestampType() const
+{
+    return m_logMsgTimestampType;
+}
+
+void ModifyTopicAttributesRequest::SetLogMsgTimestampType(const string& _logMsgTimestampType)
+{
+    m_logMsgTimestampType = _logMsgTimestampType;
+    m_logMsgTimestampTypeHasBeenSet = true;
+}
+
+bool ModifyTopicAttributesRequest::LogMsgTimestampTypeHasBeenSet() const
+{
+    return m_logMsgTimestampTypeHasBeenSet;
 }
 
 

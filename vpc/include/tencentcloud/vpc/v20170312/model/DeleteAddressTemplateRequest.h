@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取IP地址模板实例ID，例如：ipm-09o5m8kc。
                      * @return AddressTemplateId IP地址模板实例ID，例如：ipm-09o5m8kc。
+                     * 
                      */
                     std::string GetAddressTemplateId() const;
 
                     /**
                      * 设置IP地址模板实例ID，例如：ipm-09o5m8kc。
-                     * @param AddressTemplateId IP地址模板实例ID，例如：ipm-09o5m8kc。
+                     * @param _addressTemplateId IP地址模板实例ID，例如：ipm-09o5m8kc。
+                     * 
                      */
                     void SetAddressTemplateId(const std::string& _addressTemplateId);
 
                     /**
                      * 判断参数 AddressTemplateId 是否已赋值
                      * @return AddressTemplateId 是否已赋值
+                     * 
                      */
                     bool AddressTemplateIdHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取候选字符集的单词信息（包括单词Character和单词置信度confidence）
                      * @return CandWords 候选字符集的单词信息（包括单词Character和单词置信度confidence）
+                     * 
                      */
                     std::vector<Words> GetCandWords() const;
 
                     /**
                      * 设置候选字符集的单词信息（包括单词Character和单词置信度confidence）
-                     * @param CandWords 候选字符集的单词信息（包括单词Character和单词置信度confidence）
+                     * @param _candWords 候选字符集的单词信息（包括单词Character和单词置信度confidence）
+                     * 
                      */
                     void SetCandWords(const std::vector<Words>& _candWords);
 
                     /**
                      * 判断参数 CandWords 是否已赋值
                      * @return CandWords 是否已赋值
+                     * 
                      */
                     bool CandWordsHasBeenSet() const;
 

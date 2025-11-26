@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ DescribeClusterDetailResponse::DescribeClusterDetailResponse() :
     m_containerRuntimeHasBeenSet(false),
     m_clusterNodeNumHasBeenSet(false),
     m_clusterStatusHasBeenSet(false),
+    m_clusterSubStatusHasBeenSet(false),
     m_clusterTypeHasBeenSet(false),
     m_regionHasBeenSet(false),
     m_seriousRiskCountHasBeenSet(false),
@@ -39,7 +40,18 @@ DescribeClusterDetailResponse::DescribeClusterDetailResponse() :
     m_hintRiskCountHasBeenSet(false),
     m_checkStatusHasBeenSet(false),
     m_defenderStatusHasBeenSet(false),
-    m_taskCreateTimeHasBeenSet(false)
+    m_taskCreateTimeHasBeenSet(false),
+    m_networkTypeHasBeenSet(false),
+    m_apiServerAddressHasBeenSet(false),
+    m_nodeCountHasBeenSet(false),
+    m_namespaceCountHasBeenSet(false),
+    m_workloadCountHasBeenSet(false),
+    m_podCountHasBeenSet(false),
+    m_serviceCountHasBeenSet(false),
+    m_ingressCountHasBeenSet(false),
+    m_masterIpsHasBeenSet(false),
+    m_ownerNameHasBeenSet(false),
+    m_checkFailReasonHasBeenSet(false)
 {
 }
 
@@ -147,6 +159,16 @@ CoreInternalOutcome DescribeClusterDetailResponse::Deserialize(const string &pay
         m_clusterStatusHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ClusterSubStatus") && !rsp["ClusterSubStatus"].IsNull())
+    {
+        if (!rsp["ClusterSubStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterSubStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterSubStatus = string(rsp["ClusterSubStatus"].GetString());
+        m_clusterSubStatusHasBeenSet = true;
+    }
+
     if (rsp.HasMember("ClusterType") && !rsp["ClusterType"].IsNull())
     {
         if (!rsp["ClusterType"].IsString())
@@ -237,6 +259,116 @@ CoreInternalOutcome DescribeClusterDetailResponse::Deserialize(const string &pay
         m_taskCreateTimeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("NetworkType") && !rsp["NetworkType"].IsNull())
+    {
+        if (!rsp["NetworkType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NetworkType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_networkType = string(rsp["NetworkType"].GetString());
+        m_networkTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ApiServerAddress") && !rsp["ApiServerAddress"].IsNull())
+    {
+        if (!rsp["ApiServerAddress"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ApiServerAddress` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_apiServerAddress = string(rsp["ApiServerAddress"].GetString());
+        m_apiServerAddressHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("NodeCount") && !rsp["NodeCount"].IsNull())
+    {
+        if (!rsp["NodeCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeCount = rsp["NodeCount"].GetUint64();
+        m_nodeCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("NamespaceCount") && !rsp["NamespaceCount"].IsNull())
+    {
+        if (!rsp["NamespaceCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NamespaceCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_namespaceCount = rsp["NamespaceCount"].GetUint64();
+        m_namespaceCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("WorkloadCount") && !rsp["WorkloadCount"].IsNull())
+    {
+        if (!rsp["WorkloadCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `WorkloadCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_workloadCount = rsp["WorkloadCount"].GetUint64();
+        m_workloadCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("PodCount") && !rsp["PodCount"].IsNull())
+    {
+        if (!rsp["PodCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PodCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_podCount = rsp["PodCount"].GetUint64();
+        m_podCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ServiceCount") && !rsp["ServiceCount"].IsNull())
+    {
+        if (!rsp["ServiceCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ServiceCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_serviceCount = rsp["ServiceCount"].GetUint64();
+        m_serviceCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("IngressCount") && !rsp["IngressCount"].IsNull())
+    {
+        if (!rsp["IngressCount"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `IngressCount` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_ingressCount = rsp["IngressCount"].GetUint64();
+        m_ingressCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("MasterIps") && !rsp["MasterIps"].IsNull())
+    {
+        if (!rsp["MasterIps"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `MasterIps` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_masterIps = string(rsp["MasterIps"].GetString());
+        m_masterIpsHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("OwnerName") && !rsp["OwnerName"].IsNull())
+    {
+        if (!rsp["OwnerName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `OwnerName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_ownerName = string(rsp["OwnerName"].GetString());
+        m_ownerNameHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CheckFailReason") && !rsp["CheckFailReason"].IsNull())
+    {
+        if (!rsp["CheckFailReason"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CheckFailReason` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_checkFailReason = string(rsp["CheckFailReason"].GetString());
+        m_checkFailReasonHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -301,6 +433,14 @@ string DescribeClusterDetailResponse::ToJsonString() const
         string key = "ClusterStatus";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_clusterStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterSubStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterSubStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterSubStatus.c_str(), allocator).Move(), allocator);
     }
 
     if (m_clusterTypeHasBeenSet)
@@ -375,11 +515,99 @@ string DescribeClusterDetailResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_taskCreateTime.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_networkTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NetworkType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_networkType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_apiServerAddressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ApiServerAddress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_apiServerAddress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_nodeCount, allocator);
+    }
+
+    if (m_namespaceCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NamespaceCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_namespaceCount, allocator);
+    }
+
+    if (m_workloadCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WorkloadCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_workloadCount, allocator);
+    }
+
+    if (m_podCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PodCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_podCount, allocator);
+    }
+
+    if (m_serviceCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_serviceCount, allocator);
+    }
+
+    if (m_ingressCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IngressCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_ingressCount, allocator);
+    }
+
+    if (m_masterIpsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MasterIps";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_masterIps.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ownerNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OwnerName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_ownerName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_checkFailReasonHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CheckFailReason";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_checkFailReason.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -455,6 +683,16 @@ string DescribeClusterDetailResponse::GetClusterStatus() const
 bool DescribeClusterDetailResponse::ClusterStatusHasBeenSet() const
 {
     return m_clusterStatusHasBeenSet;
+}
+
+string DescribeClusterDetailResponse::GetClusterSubStatus() const
+{
+    return m_clusterSubStatus;
+}
+
+bool DescribeClusterDetailResponse::ClusterSubStatusHasBeenSet() const
+{
+    return m_clusterSubStatusHasBeenSet;
 }
 
 string DescribeClusterDetailResponse::GetClusterType() const
@@ -545,6 +783,116 @@ string DescribeClusterDetailResponse::GetTaskCreateTime() const
 bool DescribeClusterDetailResponse::TaskCreateTimeHasBeenSet() const
 {
     return m_taskCreateTimeHasBeenSet;
+}
+
+string DescribeClusterDetailResponse::GetNetworkType() const
+{
+    return m_networkType;
+}
+
+bool DescribeClusterDetailResponse::NetworkTypeHasBeenSet() const
+{
+    return m_networkTypeHasBeenSet;
+}
+
+string DescribeClusterDetailResponse::GetApiServerAddress() const
+{
+    return m_apiServerAddress;
+}
+
+bool DescribeClusterDetailResponse::ApiServerAddressHasBeenSet() const
+{
+    return m_apiServerAddressHasBeenSet;
+}
+
+uint64_t DescribeClusterDetailResponse::GetNodeCount() const
+{
+    return m_nodeCount;
+}
+
+bool DescribeClusterDetailResponse::NodeCountHasBeenSet() const
+{
+    return m_nodeCountHasBeenSet;
+}
+
+uint64_t DescribeClusterDetailResponse::GetNamespaceCount() const
+{
+    return m_namespaceCount;
+}
+
+bool DescribeClusterDetailResponse::NamespaceCountHasBeenSet() const
+{
+    return m_namespaceCountHasBeenSet;
+}
+
+uint64_t DescribeClusterDetailResponse::GetWorkloadCount() const
+{
+    return m_workloadCount;
+}
+
+bool DescribeClusterDetailResponse::WorkloadCountHasBeenSet() const
+{
+    return m_workloadCountHasBeenSet;
+}
+
+uint64_t DescribeClusterDetailResponse::GetPodCount() const
+{
+    return m_podCount;
+}
+
+bool DescribeClusterDetailResponse::PodCountHasBeenSet() const
+{
+    return m_podCountHasBeenSet;
+}
+
+uint64_t DescribeClusterDetailResponse::GetServiceCount() const
+{
+    return m_serviceCount;
+}
+
+bool DescribeClusterDetailResponse::ServiceCountHasBeenSet() const
+{
+    return m_serviceCountHasBeenSet;
+}
+
+uint64_t DescribeClusterDetailResponse::GetIngressCount() const
+{
+    return m_ingressCount;
+}
+
+bool DescribeClusterDetailResponse::IngressCountHasBeenSet() const
+{
+    return m_ingressCountHasBeenSet;
+}
+
+string DescribeClusterDetailResponse::GetMasterIps() const
+{
+    return m_masterIps;
+}
+
+bool DescribeClusterDetailResponse::MasterIpsHasBeenSet() const
+{
+    return m_masterIpsHasBeenSet;
+}
+
+string DescribeClusterDetailResponse::GetOwnerName() const
+{
+    return m_ownerName;
+}
+
+bool DescribeClusterDetailResponse::OwnerNameHasBeenSet() const
+{
+    return m_ownerNameHasBeenSet;
+}
+
+string DescribeClusterDetailResponse::GetCheckFailReason() const
+{
+    return m_checkFailReason;
+}
+
+bool DescribeClusterDetailResponse::CheckFailReasonHasBeenSet() const
+{
+    return m_checkFailReasonHasBeenSet;
 }
 
 

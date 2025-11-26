@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ using namespace std;
 
 DescribeSlowLogUserHostStatsResponse::DescribeSlowLogUserHostStatsResponse() :
     m_totalCountHasBeenSet(false),
-    m_itemsHasBeenSet(false)
+    m_itemsHasBeenSet(false),
+    m_userNameItemsHasBeenSet(false),
+    m_userTotalCountHasBeenSet(false)
 {
 }
 
@@ -93,6 +95,36 @@ CoreInternalOutcome DescribeSlowLogUserHostStatsResponse::Deserialize(const stri
         m_itemsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("UserNameItems") && !rsp["UserNameItems"].IsNull())
+    {
+        if (!rsp["UserNameItems"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `UserNameItems` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["UserNameItems"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            SlowLogUser item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_userNameItems.push_back(item);
+        }
+        m_userNameItemsHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("UserTotalCount") && !rsp["UserTotalCount"].IsNull())
+    {
+        if (!rsp["UserTotalCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `UserTotalCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_userTotalCount = rsp["UserTotalCount"].GetInt64();
+        m_userTotalCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,11 +158,34 @@ string DescribeSlowLogUserHostStatsResponse::ToJsonString() const
         }
     }
 
+    if (m_userNameItemsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserNameItems";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_userNameItems.begin(); itr != m_userNameItems.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_userTotalCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserTotalCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_userTotalCount, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -156,6 +211,26 @@ vector<SlowLogHost> DescribeSlowLogUserHostStatsResponse::GetItems() const
 bool DescribeSlowLogUserHostStatsResponse::ItemsHasBeenSet() const
 {
     return m_itemsHasBeenSet;
+}
+
+vector<SlowLogUser> DescribeSlowLogUserHostStatsResponse::GetUserNameItems() const
+{
+    return m_userNameItems;
+}
+
+bool DescribeSlowLogUserHostStatsResponse::UserNameItemsHasBeenSet() const
+{
+    return m_userNameItemsHasBeenSet;
+}
+
+int64_t DescribeSlowLogUserHostStatsResponse::GetUserTotalCount() const
+{
+    return m_userTotalCount;
+}
+
+bool DescribeSlowLogUserHostStatsResponse::UserTotalCountHasBeenSet() const
+{
+    return m_userTotalCountHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ using namespace std;
 
 ConfigInfo::ConfigInfo() :
     m_configIdHasBeenSet(false),
+    m_nameHasBeenSet(false),
     m_logFormatHasBeenSet(false),
     m_pathHasBeenSet(false),
     m_logTypeHasBeenSet(false),
@@ -30,7 +31,9 @@ ConfigInfo::ConfigInfo() :
     m_outputHasBeenSet(false),
     m_updateTimeHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_userDefineRuleHasBeenSet(false)
+    m_userDefineRuleHasBeenSet(false),
+    m_advancedConfigHasBeenSet(false),
+    m_inputTypeHasBeenSet(false)
 {
 }
 
@@ -47,6 +50,16 @@ CoreInternalOutcome ConfigInfo::Deserialize(const rapidjson::Value &value)
         }
         m_configId = string(value["ConfigId"].GetString());
         m_configIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Name") && !value["Name"].IsNull())
+    {
+        if (!value["Name"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ConfigInfo.Name` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_name = string(value["Name"].GetString());
+        m_nameHasBeenSet = true;
     }
 
     if (value.HasMember("LogFormat") && !value["LogFormat"].IsNull())
@@ -156,6 +169,26 @@ CoreInternalOutcome ConfigInfo::Deserialize(const rapidjson::Value &value)
         m_userDefineRuleHasBeenSet = true;
     }
 
+    if (value.HasMember("AdvancedConfig") && !value["AdvancedConfig"].IsNull())
+    {
+        if (!value["AdvancedConfig"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ConfigInfo.AdvancedConfig` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_advancedConfig = string(value["AdvancedConfig"].GetString());
+        m_advancedConfigHasBeenSet = true;
+    }
+
+    if (value.HasMember("InputType") && !value["InputType"].IsNull())
+    {
+        if (!value["InputType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ConfigInfo.InputType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_inputType = string(value["InputType"].GetString());
+        m_inputTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -169,6 +202,14 @@ void ConfigInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "ConfigId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_configId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Name";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_name.c_str(), allocator).Move(), allocator);
     }
 
     if (m_logFormatHasBeenSet)
@@ -251,6 +292,22 @@ void ConfigInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, rapidjson::Value(m_userDefineRule.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_advancedConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdvancedConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_advancedConfig.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_inputTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InputType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_inputType.c_str(), allocator).Move(), allocator);
+    }
+
 }
 
 
@@ -268,6 +325,22 @@ void ConfigInfo::SetConfigId(const string& _configId)
 bool ConfigInfo::ConfigIdHasBeenSet() const
 {
     return m_configIdHasBeenSet;
+}
+
+string ConfigInfo::GetName() const
+{
+    return m_name;
+}
+
+void ConfigInfo::SetName(const string& _name)
+{
+    m_name = _name;
+    m_nameHasBeenSet = true;
+}
+
+bool ConfigInfo::NameHasBeenSet() const
+{
+    return m_nameHasBeenSet;
 }
 
 string ConfigInfo::GetLogFormat() const
@@ -412,5 +485,37 @@ void ConfigInfo::SetUserDefineRule(const string& _userDefineRule)
 bool ConfigInfo::UserDefineRuleHasBeenSet() const
 {
     return m_userDefineRuleHasBeenSet;
+}
+
+string ConfigInfo::GetAdvancedConfig() const
+{
+    return m_advancedConfig;
+}
+
+void ConfigInfo::SetAdvancedConfig(const string& _advancedConfig)
+{
+    m_advancedConfig = _advancedConfig;
+    m_advancedConfigHasBeenSet = true;
+}
+
+bool ConfigInfo::AdvancedConfigHasBeenSet() const
+{
+    return m_advancedConfigHasBeenSet;
+}
+
+string ConfigInfo::GetInputType() const
+{
+    return m_inputType;
+}
+
+void ConfigInfo::SetInputType(const string& _inputType)
+{
+    m_inputType = _inputType;
+    m_inputTypeHasBeenSet = true;
+}
+
+bool ConfigInfo::InputTypeHasBeenSet() const
+{
+    return m_inputTypeHasBeenSet;
 }
 

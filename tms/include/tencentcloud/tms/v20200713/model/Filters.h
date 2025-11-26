@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ namespace TencentCloud
 策略BizType
 子账号SubUin
 日期区间DateRange
+                     * 
                      */
                     std::string GetName() const;
 
@@ -63,34 +64,39 @@ namespace TencentCloud
 策略BizType
 子账号SubUin
 日期区间DateRange
-                     * @param Name 查询字段：
+                     * @param _name 查询字段：
 策略BizType
 子账号SubUin
 日期区间DateRange
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取查询值
                      * @return Values 查询值
+                     * 
                      */
                     std::vector<std::string> GetValues() const;
 
                     /**
                      * 设置查询值
-                     * @param Values 查询值
+                     * @param _values 查询值
+                     * 
                      */
                     void SetValues(const std::vector<std::string>& _values);
 
                     /**
                      * 判断参数 Values 是否已赋值
                      * @return Values 是否已赋值
+                     * 
                      */
                     bool ValuesHasBeenSet() const;
 

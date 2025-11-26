@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取动态top值
                      * @return Top 动态top值
+                     * 
                      */
                     uint64_t GetTop() const;
 
                     /**
                      * 设置动态top值
-                     * @param Top 动态top值
+                     * @param _top 动态top值
+                     * 
                      */
                     void SetTop(const uint64_t& _top);
 
                     /**
                      * 判断参数 Top 是否已赋值
                      * @return Top 是否已赋值
+                     * 
                      */
                     bool TopHasBeenSet() const;
 
                     /**
                      * 获取策略id
                      * @return StrategyId 策略id
+                     * 
                      */
                     uint64_t GetStrategyId() const;
 
                     /**
                      * 设置策略id
-                     * @param StrategyId 策略id
+                     * @param _strategyId 策略id
+                     * 
                      */
                     void SetStrategyId(const uint64_t& _strategyId);
 
                     /**
                      * 判断参数 StrategyId 是否已赋值
                      * @return StrategyId 是否已赋值
+                     * 
                      */
                     bool StrategyIdHasBeenSet() const;
 

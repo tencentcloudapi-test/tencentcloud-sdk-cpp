@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 智能识别涉及令人不适宜信息的任务输入参数类型
+                * 音视频审核涉及令人不适宜信息的任务输入参数类型
                 */
                 class AiReviewPoliticalTaskInput : public AbstractModel
                 {
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取鉴别涉及令人不适宜信息的模板 ID。
                      * @return Definition 鉴别涉及令人不适宜信息的模板 ID。
+                     * 
                      */
                     uint64_t GetDefinition() const;
 
                     /**
                      * 设置鉴别涉及令人不适宜信息的模板 ID。
-                     * @param Definition 鉴别涉及令人不适宜信息的模板 ID。
+                     * @param _definition 鉴别涉及令人不适宜信息的模板 ID。
+                     * 
                      */
                     void SetDefinition(const uint64_t& _definition);
 
                     /**
                      * 判断参数 Definition 是否已赋值
                      * @return Definition 是否已赋值
+                     * 
                      */
                     bool DefinitionHasBeenSet() const;
 

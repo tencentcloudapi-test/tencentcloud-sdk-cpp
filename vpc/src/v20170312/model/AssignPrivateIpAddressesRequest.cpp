@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ using namespace std;
 AssignPrivateIpAddressesRequest::AssignPrivateIpAddressesRequest() :
     m_networkInterfaceIdHasBeenSet(false),
     m_privateIpAddressesHasBeenSet(false),
-    m_secondaryPrivateIpAddressCountHasBeenSet(false)
+    m_secondaryPrivateIpAddressCountHasBeenSet(false),
+    m_qosLevelHasBeenSet(false),
+    m_clientTokenHasBeenSet(false)
 {
 }
 
@@ -65,6 +67,22 @@ string AssignPrivateIpAddressesRequest::ToJsonString() const
         string key = "SecondaryPrivateIpAddressCount";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_secondaryPrivateIpAddressCount, allocator);
+    }
+
+    if (m_qosLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QosLevel";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_qosLevel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clientTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -121,6 +139,38 @@ void AssignPrivateIpAddressesRequest::SetSecondaryPrivateIpAddressCount(const ui
 bool AssignPrivateIpAddressesRequest::SecondaryPrivateIpAddressCountHasBeenSet() const
 {
     return m_secondaryPrivateIpAddressCountHasBeenSet;
+}
+
+string AssignPrivateIpAddressesRequest::GetQosLevel() const
+{
+    return m_qosLevel;
+}
+
+void AssignPrivateIpAddressesRequest::SetQosLevel(const string& _qosLevel)
+{
+    m_qosLevel = _qosLevel;
+    m_qosLevelHasBeenSet = true;
+}
+
+bool AssignPrivateIpAddressesRequest::QosLevelHasBeenSet() const
+{
+    return m_qosLevelHasBeenSet;
+}
+
+string AssignPrivateIpAddressesRequest::GetClientToken() const
+{
+    return m_clientToken;
+}
+
+void AssignPrivateIpAddressesRequest::SetClientToken(const string& _clientToken)
+{
+    m_clientToken = _clientToken;
+    m_clientTokenHasBeenSet = true;
+}
+
+bool AssignPrivateIpAddressesRequest::ClientTokenHasBeenSet() const
+{
+    return m_clientTokenHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,110 +46,149 @@ namespace TencentCloud
                     /**
                      * 获取vpc名称，最大长度不能超过60个字节。
                      * @return VpcName vpc名称，最大长度不能超过60个字节。
+                     * 
                      */
                     std::string GetVpcName() const;
 
                     /**
                      * 设置vpc名称，最大长度不能超过60个字节。
-                     * @param VpcName vpc名称，最大长度不能超过60个字节。
+                     * @param _vpcName vpc名称，最大长度不能超过60个字节。
+                     * 
                      */
                     void SetVpcName(const std::string& _vpcName);
 
                     /**
                      * 判断参数 VpcName 是否已赋值
                      * @return VpcName 是否已赋值
+                     * 
                      */
                     bool VpcNameHasBeenSet() const;
 
                     /**
-                     * 获取vpc的cidr，仅能在10.0.0.0/16，172.16.0.0/16，192.168.0.0/16这三个内网网段内。
-                     * @return CidrBlock vpc的cidr，仅能在10.0.0.0/16，172.16.0.0/16，192.168.0.0/16这三个内网网段内。
+                     * 获取vpc的cidr，仅能在10.0.0.0/12，172.16.0.0/12，192.168.0.0/16这三个内网网段内。
+                     * @return CidrBlock vpc的cidr，仅能在10.0.0.0/12，172.16.0.0/12，192.168.0.0/16这三个内网网段内。
+                     * 
                      */
                     std::string GetCidrBlock() const;
 
                     /**
-                     * 设置vpc的cidr，仅能在10.0.0.0/16，172.16.0.0/16，192.168.0.0/16这三个内网网段内。
-                     * @param CidrBlock vpc的cidr，仅能在10.0.0.0/16，172.16.0.0/16，192.168.0.0/16这三个内网网段内。
+                     * 设置vpc的cidr，仅能在10.0.0.0/12，172.16.0.0/12，192.168.0.0/16这三个内网网段内。
+                     * @param _cidrBlock vpc的cidr，仅能在10.0.0.0/12，172.16.0.0/12，192.168.0.0/16这三个内网网段内。
+                     * 
                      */
                     void SetCidrBlock(const std::string& _cidrBlock);
 
                     /**
                      * 判断参数 CidrBlock 是否已赋值
                      * @return CidrBlock 是否已赋值
+                     * 
                      */
                     bool CidrBlockHasBeenSet() const;
 
                     /**
                      * 获取是否开启组播。true: 开启, false: 不开启。
                      * @return EnableMulticast 是否开启组播。true: 开启, false: 不开启。
+                     * 
                      */
                     std::string GetEnableMulticast() const;
 
                     /**
                      * 设置是否开启组播。true: 开启, false: 不开启。
-                     * @param EnableMulticast 是否开启组播。true: 开启, false: 不开启。
+                     * @param _enableMulticast 是否开启组播。true: 开启, false: 不开启。
+                     * 
                      */
                     void SetEnableMulticast(const std::string& _enableMulticast);
 
                     /**
                      * 判断参数 EnableMulticast 是否已赋值
                      * @return EnableMulticast 是否已赋值
+                     * 
                      */
                     bool EnableMulticastHasBeenSet() const;
 
                     /**
                      * 获取DNS地址，最多支持4个。
                      * @return DnsServers DNS地址，最多支持4个。
+                     * 
                      */
                     std::vector<std::string> GetDnsServers() const;
 
                     /**
                      * 设置DNS地址，最多支持4个。
-                     * @param DnsServers DNS地址，最多支持4个。
+                     * @param _dnsServers DNS地址，最多支持4个。
+                     * 
                      */
                     void SetDnsServers(const std::vector<std::string>& _dnsServers);
 
                     /**
                      * 判断参数 DnsServers 是否已赋值
                      * @return DnsServers 是否已赋值
+                     * 
                      */
                     bool DnsServersHasBeenSet() const;
 
                     /**
                      * 获取DHCP使用的域名。
                      * @return DomainName DHCP使用的域名。
+                     * 
                      */
                     std::string GetDomainName() const;
 
                     /**
                      * 设置DHCP使用的域名。
-                     * @param DomainName DHCP使用的域名。
+                     * @param _domainName DHCP使用的域名。
+                     * 
                      */
                     void SetDomainName(const std::string& _domainName);
 
                     /**
                      * 判断参数 DomainName 是否已赋值
                      * @return DomainName 是否已赋值
+                     * 
                      */
                     bool DomainNameHasBeenSet() const;
 
                     /**
                      * 获取指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
                      * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
                      * 设置指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
-                     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * @param _tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]。
+                     * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
+
+                    /**
+                     * 获取vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * @return EnableRouteVpcPublish vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * 
+                     */
+                    bool GetEnableRouteVpcPublish() const;
+
+                    /**
+                     * 设置vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * @param _enableRouteVpcPublish vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * 
+                     */
+                    void SetEnableRouteVpcPublish(const bool& _enableRouteVpcPublish);
+
+                    /**
+                     * 判断参数 EnableRouteVpcPublish 是否已赋值
+                     * @return EnableRouteVpcPublish 是否已赋值
+                     * 
+                     */
+                    bool EnableRouteVpcPublishHasBeenSet() const;
 
                 private:
 
@@ -160,7 +199,7 @@ namespace TencentCloud
                     bool m_vpcNameHasBeenSet;
 
                     /**
-                     * vpc的cidr，仅能在10.0.0.0/16，172.16.0.0/16，192.168.0.0/16这三个内网网段内。
+                     * vpc的cidr，仅能在10.0.0.0/12，172.16.0.0/12，192.168.0.0/16这三个内网网段内。
                      */
                     std::string m_cidrBlock;
                     bool m_cidrBlockHasBeenSet;
@@ -188,6 +227,12 @@ namespace TencentCloud
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
+
+                    /**
+                     * vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     */
+                    bool m_enableRouteVpcPublish;
+                    bool m_enableRouteVpcPublishHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取新增域名
                      * @return Domain 新增域名
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置新增域名
-                     * @param Domain 新增域名
+                     * @param _domain 新增域名
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                     /**
                      * 获取被拷贝配置的域名
                      * @return ReferenceDomain 被拷贝配置的域名
+                     * 
                      */
                     std::string GetReferenceDomain() const;
 
                     /**
                      * 设置被拷贝配置的域名
-                     * @param ReferenceDomain 被拷贝配置的域名
+                     * @param _referenceDomain 被拷贝配置的域名
+                     * 
                      */
                     void SetReferenceDomain(const std::string& _referenceDomain);
 
                     /**
                      * 判断参数 ReferenceDomain 是否已赋值
                      * @return ReferenceDomain 是否已赋值
+                     * 
                      */
                     bool ReferenceDomainHasBeenSet() const;
 

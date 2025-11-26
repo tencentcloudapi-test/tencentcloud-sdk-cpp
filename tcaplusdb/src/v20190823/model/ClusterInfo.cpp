@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,10 @@ ClusterInfo::ClusterInfo() :
     m_kafkaInfoHasBeenSet(false),
     m_txhBackupExpireDayHasBeenSet(false),
     m_ulogBackupExpireDayHasBeenSet(false),
-    m_isReadOnlyUlogBackupExpireDayHasBeenSet(false)
+    m_isReadOnlyUlogBackupExpireDayHasBeenSet(false),
+    m_restProxyStatusHasBeenSet(false),
+    m_shardTotalNumHasBeenSet(false),
+    m_shardUsedNumHasBeenSet(false)
 {
 }
 
@@ -378,6 +381,36 @@ CoreInternalOutcome ClusterInfo::Deserialize(const rapidjson::Value &value)
         m_isReadOnlyUlogBackupExpireDayHasBeenSet = true;
     }
 
+    if (value.HasMember("RestProxyStatus") && !value["RestProxyStatus"].IsNull())
+    {
+        if (!value["RestProxyStatus"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInfo.RestProxyStatus` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_restProxyStatus = value["RestProxyStatus"].GetInt64();
+        m_restProxyStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("ShardTotalNum") && !value["ShardTotalNum"].IsNull())
+    {
+        if (!value["ShardTotalNum"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInfo.ShardTotalNum` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_shardTotalNum = value["ShardTotalNum"].GetInt64();
+        m_shardTotalNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("ShardUsedNum") && !value["ShardUsedNum"].IsNull())
+    {
+        if (!value["ShardUsedNum"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterInfo.ShardUsedNum` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_shardUsedNum = value["ShardUsedNum"].GetInt64();
+        m_shardUsedNumHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -635,6 +668,30 @@ void ClusterInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "IsReadOnlyUlogBackupExpireDay";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_isReadOnlyUlogBackupExpireDay, allocator);
+    }
+
+    if (m_restProxyStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RestProxyStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_restProxyStatus, allocator);
+    }
+
+    if (m_shardTotalNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ShardTotalNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_shardTotalNum, allocator);
+    }
+
+    if (m_shardUsedNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ShardUsedNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_shardUsedNum, allocator);
     }
 
 }
@@ -1102,5 +1159,53 @@ void ClusterInfo::SetIsReadOnlyUlogBackupExpireDay(const uint64_t& _isReadOnlyUl
 bool ClusterInfo::IsReadOnlyUlogBackupExpireDayHasBeenSet() const
 {
     return m_isReadOnlyUlogBackupExpireDayHasBeenSet;
+}
+
+int64_t ClusterInfo::GetRestProxyStatus() const
+{
+    return m_restProxyStatus;
+}
+
+void ClusterInfo::SetRestProxyStatus(const int64_t& _restProxyStatus)
+{
+    m_restProxyStatus = _restProxyStatus;
+    m_restProxyStatusHasBeenSet = true;
+}
+
+bool ClusterInfo::RestProxyStatusHasBeenSet() const
+{
+    return m_restProxyStatusHasBeenSet;
+}
+
+int64_t ClusterInfo::GetShardTotalNum() const
+{
+    return m_shardTotalNum;
+}
+
+void ClusterInfo::SetShardTotalNum(const int64_t& _shardTotalNum)
+{
+    m_shardTotalNum = _shardTotalNum;
+    m_shardTotalNumHasBeenSet = true;
+}
+
+bool ClusterInfo::ShardTotalNumHasBeenSet() const
+{
+    return m_shardTotalNumHasBeenSet;
+}
+
+int64_t ClusterInfo::GetShardUsedNum() const
+{
+    return m_shardUsedNum;
+}
+
+void ClusterInfo::SetShardUsedNum(const int64_t& _shardUsedNum)
+{
+    m_shardUsedNum = _shardUsedNum;
+    m_shardUsedNumHasBeenSet = true;
+}
+
+bool ClusterInfo::ShardUsedNumHasBeenSet() const
+{
+    return m_shardUsedNumHasBeenSet;
 }
 

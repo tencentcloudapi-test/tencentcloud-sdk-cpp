@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ DockerContainerConfiguration::DockerContainerConfiguration() :
     m_envsHasBeenSet(false),
     m_publishPortsHasBeenSet(false),
     m_volumesHasBeenSet(false),
-    m_commandHasBeenSet(false)
+    m_commandHasBeenSet(false),
+    m_restartPolicyHasBeenSet(false)
 {
 }
 
@@ -125,6 +126,16 @@ CoreInternalOutcome DockerContainerConfiguration::Deserialize(const rapidjson::V
         m_commandHasBeenSet = true;
     }
 
+    if (value.HasMember("RestartPolicy") && !value["RestartPolicy"].IsNull())
+    {
+        if (!value["RestartPolicy"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DockerContainerConfiguration.RestartPolicy` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_restartPolicy = string(value["RestartPolicy"].GetString());
+        m_restartPolicyHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -199,6 +210,14 @@ void DockerContainerConfiguration::ToJsonObject(rapidjson::Value &value, rapidjs
         string key = "Command";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_command.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_restartPolicyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RestartPolicy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_restartPolicy.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -298,5 +317,21 @@ void DockerContainerConfiguration::SetCommand(const string& _command)
 bool DockerContainerConfiguration::CommandHasBeenSet() const
 {
     return m_commandHasBeenSet;
+}
+
+string DockerContainerConfiguration::GetRestartPolicy() const
+{
+    return m_restartPolicy;
+}
+
+void DockerContainerConfiguration::SetRestartPolicy(const string& _restartPolicy)
+{
+    m_restartPolicy = _restartPolicy;
+    m_restartPolicyHasBeenSet = true;
+}
+
+bool DockerContainerConfiguration::RestartPolicyHasBeenSet() const
+{
+    return m_restartPolicyHasBeenSet;
 }
 

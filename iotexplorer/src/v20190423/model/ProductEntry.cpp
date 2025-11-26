@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,12 @@ ProductEntry::ProductEntry() :
     m_moduleIdHasBeenSet(false),
     m_enableProductScriptHasBeenSet(false),
     m_createUserIdHasBeenSet(false),
-    m_creatorNickNameHasBeenSet(false)
+    m_creatorNickNameHasBeenSet(false),
+    m_bindStrategyHasBeenSet(false),
+    m_deviceCountHasBeenSet(false),
+    m_rateHasBeenSet(false),
+    m_periodHasBeenSet(false),
+    m_isInterconnectionHasBeenSet(false)
 {
 }
 
@@ -216,6 +221,56 @@ CoreInternalOutcome ProductEntry::Deserialize(const rapidjson::Value &value)
         m_creatorNickNameHasBeenSet = true;
     }
 
+    if (value.HasMember("BindStrategy") && !value["BindStrategy"].IsNull())
+    {
+        if (!value["BindStrategy"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductEntry.BindStrategy` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_bindStrategy = value["BindStrategy"].GetUint64();
+        m_bindStrategyHasBeenSet = true;
+    }
+
+    if (value.HasMember("DeviceCount") && !value["DeviceCount"].IsNull())
+    {
+        if (!value["DeviceCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductEntry.DeviceCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_deviceCount = value["DeviceCount"].GetInt64();
+        m_deviceCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("Rate") && !value["Rate"].IsNull())
+    {
+        if (!value["Rate"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductEntry.Rate` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_rate = string(value["Rate"].GetString());
+        m_rateHasBeenSet = true;
+    }
+
+    if (value.HasMember("Period") && !value["Period"].IsNull())
+    {
+        if (!value["Period"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductEntry.Period` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_period = string(value["Period"].GetString());
+        m_periodHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsInterconnection") && !value["IsInterconnection"].IsNull())
+    {
+        if (!value["IsInterconnection"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductEntry.IsInterconnection` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isInterconnection = value["IsInterconnection"].GetInt64();
+        m_isInterconnectionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -357,6 +412,46 @@ void ProductEntry::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "CreatorNickName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_creatorNickName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_bindStrategyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BindStrategy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_bindStrategy, allocator);
+    }
+
+    if (m_deviceCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeviceCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deviceCount, allocator);
+    }
+
+    if (m_rateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Rate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_rate.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_periodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Period";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_period.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isInterconnectionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsInterconnection";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isInterconnection, allocator);
     }
 
 }
@@ -632,5 +727,85 @@ void ProductEntry::SetCreatorNickName(const string& _creatorNickName)
 bool ProductEntry::CreatorNickNameHasBeenSet() const
 {
     return m_creatorNickNameHasBeenSet;
+}
+
+uint64_t ProductEntry::GetBindStrategy() const
+{
+    return m_bindStrategy;
+}
+
+void ProductEntry::SetBindStrategy(const uint64_t& _bindStrategy)
+{
+    m_bindStrategy = _bindStrategy;
+    m_bindStrategyHasBeenSet = true;
+}
+
+bool ProductEntry::BindStrategyHasBeenSet() const
+{
+    return m_bindStrategyHasBeenSet;
+}
+
+int64_t ProductEntry::GetDeviceCount() const
+{
+    return m_deviceCount;
+}
+
+void ProductEntry::SetDeviceCount(const int64_t& _deviceCount)
+{
+    m_deviceCount = _deviceCount;
+    m_deviceCountHasBeenSet = true;
+}
+
+bool ProductEntry::DeviceCountHasBeenSet() const
+{
+    return m_deviceCountHasBeenSet;
+}
+
+string ProductEntry::GetRate() const
+{
+    return m_rate;
+}
+
+void ProductEntry::SetRate(const string& _rate)
+{
+    m_rate = _rate;
+    m_rateHasBeenSet = true;
+}
+
+bool ProductEntry::RateHasBeenSet() const
+{
+    return m_rateHasBeenSet;
+}
+
+string ProductEntry::GetPeriod() const
+{
+    return m_period;
+}
+
+void ProductEntry::SetPeriod(const string& _period)
+{
+    m_period = _period;
+    m_periodHasBeenSet = true;
+}
+
+bool ProductEntry::PeriodHasBeenSet() const
+{
+    return m_periodHasBeenSet;
+}
+
+int64_t ProductEntry::GetIsInterconnection() const
+{
+    return m_isInterconnection;
+}
+
+void ProductEntry::SetIsInterconnection(const int64_t& _isInterconnection)
+{
+    m_isInterconnection = _isInterconnection;
+    m_isInterconnectionHasBeenSet = true;
+}
+
+bool ProductEntry::IsInterconnectionHasBeenSet() const
+{
+    return m_isInterconnectionHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取查询密钥ID列表。最多支持10个。
                      * @return SecretIdList 查询密钥ID列表。最多支持10个。
+                     * 
                      */
                     std::vector<std::string> GetSecretIdList() const;
 
                     /**
                      * 设置查询密钥ID列表。最多支持10个。
-                     * @param SecretIdList 查询密钥ID列表。最多支持10个。
+                     * @param _secretIdList 查询密钥ID列表。最多支持10个。
+                     * 
                      */
                     void SetSecretIdList(const std::vector<std::string>& _secretIdList);
 
                     /**
                      * 判断参数 SecretIdList 是否已赋值
                      * @return SecretIdList 是否已赋值
+                     * 
                      */
                     bool SecretIdListHasBeenSet() const;
 

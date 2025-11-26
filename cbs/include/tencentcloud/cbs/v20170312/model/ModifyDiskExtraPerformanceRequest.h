@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,54 +43,60 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
-                     * @return DiskId 需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
-                     */
-                    std::string GetDiskId() const;
-
-                    /**
-                     * 设置需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
-                     * @param DiskId 需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
-                     */
-                    void SetDiskId(const std::string& _diskId);
-
-                    /**
-                     * 判断参数 DiskId 是否已赋值
-                     * @return DiskId 是否已赋值
-                     */
-                    bool DiskIdHasBeenSet() const;
-
-                    /**
-                     * 获取额外购买的云硬盘性能值，单位MB/s。
-                     * @return ThroughputPerformance 额外购买的云硬盘性能值，单位MB/s。
+                     * 获取额外购买的云硬盘性能值，单位MiB/s。
+                     * @return ThroughputPerformance 额外购买的云硬盘性能值，单位MiB/s。
+                     * 
                      */
                     uint64_t GetThroughputPerformance() const;
 
                     /**
-                     * 设置额外购买的云硬盘性能值，单位MB/s。
-                     * @param ThroughputPerformance 额外购买的云硬盘性能值，单位MB/s。
+                     * 设置额外购买的云硬盘性能值，单位MiB/s。
+                     * @param _throughputPerformance 额外购买的云硬盘性能值，单位MiB/s。
+                     * 
                      */
                     void SetThroughputPerformance(const uint64_t& _throughputPerformance);
 
                     /**
                      * 判断参数 ThroughputPerformance 是否已赋值
                      * @return ThroughputPerformance 是否已赋值
+                     * 
                      */
                     bool ThroughputPerformanceHasBeenSet() const;
+
+                    /**
+                     * 获取需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
+                     * @return DiskId 需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
+                     * 
+                     */
+                    std::string GetDiskId() const;
+
+                    /**
+                     * 设置需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
+                     * @param _diskId 需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
+                     * 
+                     */
+                    void SetDiskId(const std::string& _diskId);
+
+                    /**
+                     * 判断参数 DiskId 是否已赋值
+                     * @return DiskId 是否已赋值
+                     * 
+                     */
+                    bool DiskIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 需要创建快照的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。
-                     */
-                    std::string m_diskId;
-                    bool m_diskIdHasBeenSet;
-
-                    /**
-                     * 额外购买的云硬盘性能值，单位MB/s。
+                     * 额外购买的云硬盘性能值，单位MiB/s。
                      */
                     uint64_t m_throughputPerformance;
                     bool m_throughputPerformanceHasBeenSet;
+
+                    /**
+                     * 需要购买额外性能值的云硬盘ID，可通过[DescribeDisks](/document/product/362/16315)接口查询。仅大小超过460GiB的增强型SSD（CLOUD_HSSD）和极速型SSD（CLOUD_TSSD）云硬盘才支持购买额外性能。
+                     */
+                    std::string m_diskId;
+                    bool m_diskIdHasBeenSet;
 
                 };
             }

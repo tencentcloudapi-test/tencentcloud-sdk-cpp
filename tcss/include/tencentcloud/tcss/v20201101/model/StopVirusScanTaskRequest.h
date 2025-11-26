@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取任务ID
                      * @return TaskId 任务ID
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 设置任务ID
-                     * @param TaskId 任务ID
+                     * @param _taskId 任务ID
+                     * 
                      */
                     void SetTaskId(const std::string& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                     /**
                      * 获取需要停止的容器id 为空默认停止整个任务
                      * @return ContainerIds 需要停止的容器id 为空默认停止整个任务
+                     * 
                      */
                     std::vector<std::string> GetContainerIds() const;
 
                     /**
                      * 设置需要停止的容器id 为空默认停止整个任务
-                     * @param ContainerIds 需要停止的容器id 为空默认停止整个任务
+                     * @param _containerIds 需要停止的容器id 为空默认停止整个任务
+                     * 
                      */
                     void SetContainerIds(const std::vector<std::string>& _containerIds);
 
                     /**
                      * 判断参数 ContainerIds 是否已赋值
                      * @return ContainerIds 是否已赋值
+                     * 
                      */
                     bool ContainerIdsHasBeenSet() const;
 

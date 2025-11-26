@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,8 @@ DescribeVulDetailResponse::DescribeVulDetailResponse() :
     m_isAssetDeletedHasBeenSet(false),
     m_sourceHasBeenSet(false),
     m_vulUrlHasBeenSet(false),
-    m_ssaAssetCategoryHasBeenSet(false)
+    m_ssaAssetCategoryHasBeenSet(false),
+    m_vulPathHasBeenSet(false)
 {
 }
 
@@ -292,6 +293,16 @@ CoreInternalOutcome DescribeVulDetailResponse::Deserialize(const string &payload
         m_ssaAssetCategoryHasBeenSet = true;
     }
 
+    if (rsp.HasMember("VulPath") && !rsp["VulPath"].IsNull())
+    {
+        if (!rsp["VulPath"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VulPath` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vulPath = string(rsp["VulPath"].GetString());
+        m_vulPathHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -470,11 +481,19 @@ string DescribeVulDetailResponse::ToJsonString() const
         value.AddMember(iKey, m_ssaAssetCategory, allocator);
     }
 
+    if (m_vulPathHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VulPath";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vulPath.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -690,6 +709,16 @@ int64_t DescribeVulDetailResponse::GetSsaAssetCategory() const
 bool DescribeVulDetailResponse::SsaAssetCategoryHasBeenSet() const
 {
     return m_ssaAssetCategoryHasBeenSet;
+}
+
+string DescribeVulDetailResponse::GetVulPath() const
+{
+    return m_vulPath;
+}
+
+bool DescribeVulDetailResponse::VulPathHasBeenSet() const
+{
+    return m_vulPathHasBeenSet;
 }
 
 

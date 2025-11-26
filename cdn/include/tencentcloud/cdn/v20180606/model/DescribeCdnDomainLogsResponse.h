@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,33 +45,40 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取日志包下载链接
-                     * @return DomainLogs 日志包下载链接
+                     * 获取日志包下载链接。
+下载内容是gz后缀的压缩包，解压后是无扩展名的文本文件。链接有效期1天。
+                     * @return DomainLogs 日志包下载链接。
+下载内容是gz后缀的压缩包，解压后是无扩展名的文本文件。链接有效期1天。
+                     * 
                      */
                     std::vector<DomainLog> GetDomainLogs() const;
 
                     /**
                      * 判断参数 DomainLogs 是否已赋值
                      * @return DomainLogs 是否已赋值
+                     * 
                      */
                     bool DomainLogsHasBeenSet() const;
 
                     /**
                      * 获取查询到的总条数
                      * @return TotalCount 查询到的总条数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 日志包下载链接
+                     * 日志包下载链接。
+下载内容是gz后缀的压缩包，解压后是无扩展名的文本文件。链接有效期1天。
                      */
                     std::vector<DomainLog> m_domainLogs;
                     bool m_domainLogsHasBeenSet;

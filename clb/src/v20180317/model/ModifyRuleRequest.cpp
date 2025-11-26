@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ ModifyRuleRequest::ModifyRuleRequest() :
     m_sessionExpireTimeHasBeenSet(false),
     m_forwardTypeHasBeenSet(false),
     m_trpcCalleeHasBeenSet(false),
-    m_trpcFuncHasBeenSet(false)
+    m_trpcFuncHasBeenSet(false),
+    m_oAuthHasBeenSet(false),
+    m_cookieNameHasBeenSet(false)
 {
 }
 
@@ -122,6 +124,23 @@ string ModifyRuleRequest::ToJsonString() const
         string key = "TrpcFunc";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_trpcFunc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_oAuthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OAuth";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_oAuth.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_cookieNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CookieName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cookieName.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -290,6 +309,38 @@ void ModifyRuleRequest::SetTrpcFunc(const string& _trpcFunc)
 bool ModifyRuleRequest::TrpcFuncHasBeenSet() const
 {
     return m_trpcFuncHasBeenSet;
+}
+
+OAuth ModifyRuleRequest::GetOAuth() const
+{
+    return m_oAuth;
+}
+
+void ModifyRuleRequest::SetOAuth(const OAuth& _oAuth)
+{
+    m_oAuth = _oAuth;
+    m_oAuthHasBeenSet = true;
+}
+
+bool ModifyRuleRequest::OAuthHasBeenSet() const
+{
+    return m_oAuthHasBeenSet;
+}
+
+string ModifyRuleRequest::GetCookieName() const
+{
+    return m_cookieName;
+}
+
+void ModifyRuleRequest::SetCookieName(const string& _cookieName)
+{
+    m_cookieName = _cookieName;
+    m_cookieNameHasBeenSet = true;
+}
+
+bool ModifyRuleRequest::CookieNameHasBeenSet() const
+{
+    return m_cookieNameHasBeenSet;
 }
 
 

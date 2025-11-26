@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace std;
 L4RuleSource::L4RuleSource() :
     m_sourceHasBeenSet(false),
     m_weightHasBeenSet(false),
-    m_portHasBeenSet(false)
+    m_portHasBeenSet(false),
+    m_backupHasBeenSet(false)
 {
 }
 
@@ -62,6 +63,16 @@ CoreInternalOutcome L4RuleSource::Deserialize(const rapidjson::Value &value)
         m_portHasBeenSet = true;
     }
 
+    if (value.HasMember("Backup") && !value["Backup"].IsNull())
+    {
+        if (!value["Backup"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `L4RuleSource.Backup` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_backup = value["Backup"].GetUint64();
+        m_backupHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +102,14 @@ void L4RuleSource::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "Port";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_port, allocator);
+    }
+
+    if (m_backupHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Backup";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_backup, allocator);
     }
 
 }
@@ -142,5 +161,21 @@ void L4RuleSource::SetPort(const uint64_t& _port)
 bool L4RuleSource::PortHasBeenSet() const
 {
     return m_portHasBeenSet;
+}
+
+uint64_t L4RuleSource::GetBackup() const
+{
+    return m_backup;
+}
+
+void L4RuleSource::SetBackup(const uint64_t& _backup)
+{
+    m_backup = _backup;
+    m_backupHasBeenSet = true;
+}
+
+bool L4RuleSource::BackupHasBeenSet() const
+{
+    return m_backupHasBeenSet;
 }
 

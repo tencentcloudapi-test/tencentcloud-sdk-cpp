@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ using namespace std;
 
 CreateVpnGatewaySslClientRequest::CreateVpnGatewaySslClientRequest() :
     m_sslVpnServerIdHasBeenSet(false),
-    m_sslVpnClientNameHasBeenSet(false)
+    m_sslVpnClientNameHasBeenSet(false),
+    m_sslVpnClientNamesHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -49,6 +51,34 @@ string CreateVpnGatewaySslClientRequest::ToJsonString() const
         string key = "SslVpnClientName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_sslVpnClientName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sslVpnClientNamesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SslVpnClientNames";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_sslVpnClientNames.begin(); itr != m_sslVpnClientNames.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -89,6 +119,38 @@ void CreateVpnGatewaySslClientRequest::SetSslVpnClientName(const string& _sslVpn
 bool CreateVpnGatewaySslClientRequest::SslVpnClientNameHasBeenSet() const
 {
     return m_sslVpnClientNameHasBeenSet;
+}
+
+vector<string> CreateVpnGatewaySslClientRequest::GetSslVpnClientNames() const
+{
+    return m_sslVpnClientNames;
+}
+
+void CreateVpnGatewaySslClientRequest::SetSslVpnClientNames(const vector<string>& _sslVpnClientNames)
+{
+    m_sslVpnClientNames = _sslVpnClientNames;
+    m_sslVpnClientNamesHasBeenSet = true;
+}
+
+bool CreateVpnGatewaySslClientRequest::SslVpnClientNamesHasBeenSet() const
+{
+    return m_sslVpnClientNamesHasBeenSet;
+}
+
+vector<Tag> CreateVpnGatewaySslClientRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateVpnGatewaySslClientRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateVpnGatewaySslClientRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 
 

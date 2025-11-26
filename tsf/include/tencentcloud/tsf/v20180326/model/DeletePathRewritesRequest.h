@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取路径重写规则IDs
                      * @return PathRewriteIds 路径重写规则IDs
+                     * 
                      */
                     std::vector<std::string> GetPathRewriteIds() const;
 
                     /**
                      * 设置路径重写规则IDs
-                     * @param PathRewriteIds 路径重写规则IDs
+                     * @param _pathRewriteIds 路径重写规则IDs
+                     * 
                      */
                     void SetPathRewriteIds(const std::vector<std::string>& _pathRewriteIds);
 
                     /**
                      * 判断参数 PathRewriteIds 是否已赋值
                      * @return PathRewriteIds 是否已赋值
+                     * 
                      */
                     bool PathRewriteIdsHasBeenSet() const;
 

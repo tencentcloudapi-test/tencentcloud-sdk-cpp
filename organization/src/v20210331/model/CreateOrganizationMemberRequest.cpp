@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,9 @@ CreateOrganizationMemberRequest::CreateOrganizationMemberRequest() :
     m_remarkHasBeenSet(false),
     m_recordIdHasBeenSet(false),
     m_payUinHasBeenSet(false),
-    m_identityRoleIDHasBeenSet(false)
+    m_identityRoleIDHasBeenSet(false),
+    m_authRelationIdHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -121,6 +123,29 @@ string CreateOrganizationMemberRequest::ToJsonString() const
         for (auto itr = m_identityRoleID.begin(); itr != m_identityRoleID.end(); ++itr)
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetUint64(*itr), allocator);
+        }
+    }
+
+    if (m_authRelationIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AuthRelationId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_authRelationId, allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
     }
 
@@ -274,6 +299,38 @@ void CreateOrganizationMemberRequest::SetIdentityRoleID(const vector<uint64_t>& 
 bool CreateOrganizationMemberRequest::IdentityRoleIDHasBeenSet() const
 {
     return m_identityRoleIDHasBeenSet;
+}
+
+int64_t CreateOrganizationMemberRequest::GetAuthRelationId() const
+{
+    return m_authRelationId;
+}
+
+void CreateOrganizationMemberRequest::SetAuthRelationId(const int64_t& _authRelationId)
+{
+    m_authRelationId = _authRelationId;
+    m_authRelationIdHasBeenSet = true;
+}
+
+bool CreateOrganizationMemberRequest::AuthRelationIdHasBeenSet() const
+{
+    return m_authRelationIdHasBeenSet;
+}
+
+vector<Tag> CreateOrganizationMemberRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateOrganizationMemberRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateOrganizationMemberRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,36 +48,42 @@ namespace TencentCloud
                     /**
                      * 获取柱间单位时间间隔，单位为秒。
                      * @return Period 柱间单位时间间隔，单位为秒。
+                     * 
                      */
                     int64_t GetPeriod() const;
 
                     /**
                      * 判断参数 Period 是否已赋值
                      * @return Period 是否已赋值
+                     * 
                      */
                     bool PeriodHasBeenSet() const;
 
                     /**
                      * 获取单位时间间隔内慢日志数量统计。
                      * @return TimeSeries 单位时间间隔内慢日志数量统计。
+                     * 
                      */
                     std::vector<TimeSlice> GetTimeSeries() const;
 
                     /**
                      * 判断参数 TimeSeries 是否已赋值
                      * @return TimeSeries 是否已赋值
+                     * 
                      */
                     bool TimeSeriesHasBeenSet() const;
 
                     /**
                      * 获取单位时间间隔内的实例 cpu 利用率监控数据。
                      * @return SeriesData 单位时间间隔内的实例 cpu 利用率监控数据。
+                     * 
                      */
                     MonitorMetricSeriesData GetSeriesData() const;
 
                     /**
                      * 判断参数 SeriesData 是否已赋值
                      * @return SeriesData 是否已赋值
+                     * 
                      */
                     bool SeriesDataHasBeenSet() const;
 

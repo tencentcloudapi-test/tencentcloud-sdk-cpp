@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,48 +46,56 @@ namespace TencentCloud
                     /**
                      * 获取云存开启状态，1为开启，0为未开启或已过期
                      * @return Status 云存开启状态，1为开启，0为未开启或已过期
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取云存类型，1为全时云存，2为事件云存
                      * @return Type 云存类型，1为全时云存，2为事件云存
+                     * 
                      */
                     uint64_t GetType() const;
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取云存套餐过期时间
                      * @return ExpireTime 云存套餐过期时间
+                     * 
                      */
                     uint64_t GetExpireTime() const;
 
                     /**
                      * 判断参数 ExpireTime 是否已赋值
                      * @return ExpireTime 是否已赋值
+                     * 
                      */
                     bool ExpireTimeHasBeenSet() const;
 
                     /**
                      * 获取云存回看时长
                      * @return ShiftDuration 云存回看时长
+                     * 
                      */
                     uint64_t GetShiftDuration() const;
 
                     /**
                      * 判断参数 ShiftDuration 是否已赋值
                      * @return ShiftDuration 是否已赋值
+                     * 
                      */
                     bool ShiftDurationHasBeenSet() const;
 
@@ -96,12 +104,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UserId 云存用户ID
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUserId() const;
 
                     /**
                      * 判断参数 UserId 是否已赋值
                      * @return UserId 是否已赋值
+                     * 
                      */
                     bool UserIdHasBeenSet() const;
 

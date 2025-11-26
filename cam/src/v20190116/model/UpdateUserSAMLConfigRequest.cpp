@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 UpdateUserSAMLConfigRequest::UpdateUserSAMLConfigRequest() :
     m_operateHasBeenSet(false),
-    m_sAMLMetadataDocumentHasBeenSet(false)
+    m_sAMLMetadataDocumentHasBeenSet(false),
+    m_auxiliaryDomainHasBeenSet(false)
 {
 }
 
@@ -49,6 +50,14 @@ string UpdateUserSAMLConfigRequest::ToJsonString() const
         string key = "SAMLMetadataDocument";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_sAMLMetadataDocument.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_auxiliaryDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AuxiliaryDomain";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_auxiliaryDomain.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -89,6 +98,22 @@ void UpdateUserSAMLConfigRequest::SetSAMLMetadataDocument(const string& _sAMLMet
 bool UpdateUserSAMLConfigRequest::SAMLMetadataDocumentHasBeenSet() const
 {
     return m_sAMLMetadataDocumentHasBeenSet;
+}
+
+string UpdateUserSAMLConfigRequest::GetAuxiliaryDomain() const
+{
+    return m_auxiliaryDomain;
+}
+
+void UpdateUserSAMLConfigRequest::SetAuxiliaryDomain(const string& _auxiliaryDomain)
+{
+    m_auxiliaryDomain = _auxiliaryDomain;
+    m_auxiliaryDomainHasBeenSet = true;
+}
+
+bool UpdateUserSAMLConfigRequest::AuxiliaryDomainHasBeenSet() const
+{
+    return m_auxiliaryDomainHasBeenSet;
 }
 
 

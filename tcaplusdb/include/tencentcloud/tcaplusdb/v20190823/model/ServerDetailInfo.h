@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,110 +49,149 @@ namespace TencentCloud
                     /**
                      * 获取svr唯一id
                      * @return ServerUid svr唯一id
+                     * 
                      */
                     std::string GetServerUid() const;
 
                     /**
                      * 设置svr唯一id
-                     * @param ServerUid svr唯一id
+                     * @param _serverUid svr唯一id
+                     * 
                      */
                     void SetServerUid(const std::string& _serverUid);
 
                     /**
                      * 判断参数 ServerUid 是否已赋值
                      * @return ServerUid 是否已赋值
+                     * 
                      */
                     bool ServerUidHasBeenSet() const;
 
                     /**
                      * 获取机器类型
                      * @return MachineType 机器类型
+                     * 
                      */
                     std::string GetMachineType() const;
 
                     /**
                      * 设置机器类型
-                     * @param MachineType 机器类型
+                     * @param _machineType 机器类型
+                     * 
                      */
                     void SetMachineType(const std::string& _machineType);
 
                     /**
                      * 判断参数 MachineType 是否已赋值
                      * @return MachineType 是否已赋值
+                     * 
                      */
                     bool MachineTypeHasBeenSet() const;
 
                     /**
                      * 获取内存占用量
                      * @return MemoryRate 内存占用量
+                     * 
                      */
                     int64_t GetMemoryRate() const;
 
                     /**
                      * 设置内存占用量
-                     * @param MemoryRate 内存占用量
+                     * @param _memoryRate 内存占用量
+                     * 
                      */
                     void SetMemoryRate(const int64_t& _memoryRate);
 
                     /**
                      * 判断参数 MemoryRate 是否已赋值
                      * @return MemoryRate 是否已赋值
+                     * 
                      */
                     bool MemoryRateHasBeenSet() const;
 
                     /**
                      * 获取磁盘占用量
                      * @return DiskRate 磁盘占用量
+                     * 
                      */
                     int64_t GetDiskRate() const;
 
                     /**
                      * 设置磁盘占用量
-                     * @param DiskRate 磁盘占用量
+                     * @param _diskRate 磁盘占用量
+                     * 
                      */
                     void SetDiskRate(const int64_t& _diskRate);
 
                     /**
                      * 判断参数 DiskRate 是否已赋值
                      * @return DiskRate 是否已赋值
+                     * 
                      */
                     bool DiskRateHasBeenSet() const;
 
                     /**
                      * 获取读次数
                      * @return ReadNum 读次数
+                     * 
                      */
                     int64_t GetReadNum() const;
 
                     /**
                      * 设置读次数
-                     * @param ReadNum 读次数
+                     * @param _readNum 读次数
+                     * 
                      */
                     void SetReadNum(const int64_t& _readNum);
 
                     /**
                      * 判断参数 ReadNum 是否已赋值
                      * @return ReadNum 是否已赋值
+                     * 
                      */
                     bool ReadNumHasBeenSet() const;
 
                     /**
                      * 获取写次数
                      * @return WriteNum 写次数
+                     * 
                      */
                     int64_t GetWriteNum() const;
 
                     /**
                      * 设置写次数
-                     * @param WriteNum 写次数
+                     * @param _writeNum 写次数
+                     * 
                      */
                     void SetWriteNum(const int64_t& _writeNum);
 
                     /**
                      * 判断参数 WriteNum 是否已赋值
                      * @return WriteNum 是否已赋值
+                     * 
                      */
                     bool WriteNumHasBeenSet() const;
+
+                    /**
+                     * 获取版本
+                     * @return Version 版本
+                     * 
+                     */
+                    std::string GetVersion() const;
+
+                    /**
+                     * 设置版本
+                     * @param _version 版本
+                     * 
+                     */
+                    void SetVersion(const std::string& _version);
+
+                    /**
+                     * 判断参数 Version 是否已赋值
+                     * @return Version 是否已赋值
+                     * 
+                     */
+                    bool VersionHasBeenSet() const;
 
                 private:
 
@@ -191,6 +230,12 @@ namespace TencentCloud
                      */
                     int64_t m_writeNum;
                     bool m_writeNumHasBeenSet;
+
+                    /**
+                     * 版本
+                     */
+                    std::string m_version;
+                    bool m_versionHasBeenSet;
 
                 };
             }

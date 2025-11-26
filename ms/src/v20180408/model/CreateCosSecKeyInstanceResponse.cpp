@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ CreateCosSecKeyInstanceResponse::CreateCosSecKeyInstanceResponse() :
     m_cosIdHasBeenSet(false),
     m_cosKeyHasBeenSet(false),
     m_cosTockenHasBeenSet(false),
-    m_cosPrefixHasBeenSet(false)
+    m_cosPrefixHasBeenSet(false),
+    m_cosTokenHasBeenSet(false)
 {
 }
 
@@ -149,6 +150,16 @@ CoreInternalOutcome CreateCosSecKeyInstanceResponse::Deserialize(const string &p
         m_cosPrefixHasBeenSet = true;
     }
 
+    if (rsp.HasMember("CosToken") && !rsp["CosToken"].IsNull())
+    {
+        if (!rsp["CosToken"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CosToken` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cosToken = string(rsp["CosToken"].GetString());
+        m_cosTokenHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -223,11 +234,19 @@ string CreateCosSecKeyInstanceResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_cosPrefix.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_cosTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CosToken";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cosToken.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -313,6 +332,16 @@ string CreateCosSecKeyInstanceResponse::GetCosPrefix() const
 bool CreateCosSecKeyInstanceResponse::CosPrefixHasBeenSet() const
 {
     return m_cosPrefixHasBeenSet;
+}
+
+string CreateCosSecKeyInstanceResponse::GetCosToken() const
+{
+    return m_cosToken;
+}
+
+bool CreateCosSecKeyInstanceResponse::CosTokenHasBeenSet() const
+{
+    return m_cosTokenHasBeenSet;
 }
 
 

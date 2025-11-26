@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取需要查询的 IP 列表
-                     * @return Ips 需要查询的 IP 列表
+                     * 获取需要查询的 IP 列表，单次可支持1-20个IP查询。
+                     * @return Ips 需要查询的 IP 列表，单次可支持1-20个IP查询。
+                     * 
                      */
                     std::vector<std::string> GetIps() const;
 
                     /**
-                     * 设置需要查询的 IP 列表
-                     * @param Ips 需要查询的 IP 列表
+                     * 设置需要查询的 IP 列表，单次可支持1-20个IP查询。
+                     * @param _ips 需要查询的 IP 列表，单次可支持1-20个IP查询。
+                     * 
                      */
                     void SetIps(const std::vector<std::string>& _ips);
 
                     /**
                      * 判断参数 Ips 是否已赋值
                      * @return Ips 是否已赋值
+                     * 
                      */
                     bool IpsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 需要查询的 IP 列表
+                     * 需要查询的 IP 列表，单次可支持1-20个IP查询。
                      */
                     std::vector<std::string> m_ips;
                     bool m_ipsHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取标签Id
                      * @return TagId 标签Id
+                     * 
                      */
                     std::string GetTagId() const;
 
                     /**
                      * 设置标签Id
-                     * @param TagId 标签Id
+                     * @param _tagId 标签Id
+                     * 
                      */
                     void SetTagId(const std::string& _tagId);
 
                     /**
                      * 判断参数 TagId 是否已赋值
                      * @return TagId 是否已赋值
+                     * 
                      */
                     bool TagIdHasBeenSet() const;
 
                     /**
                      * 获取标签
                      * @return TagName 标签
+                     * 
                      */
                     std::string GetTagName() const;
 
                     /**
                      * 设置标签
-                     * @param TagName 标签
+                     * @param _tagName 标签
+                     * 
                      */
                     void SetTagName(const std::string& _tagName);
 
                     /**
                      * 判断参数 TagName 是否已赋值
                      * @return TagName 是否已赋值
+                     * 
                      */
                     bool TagNameHasBeenSet() const;
 

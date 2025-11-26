@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,13 @@ CreateDBInstanceHourRequest::CreateDBInstanceHourRequest() :
     m_cageIdHasBeenSet(false),
     m_paramTemplateTypeHasBeenSet(false),
     m_alarmPolicyIdListHasBeenSet(false),
-    m_dryRunHasBeenSet(false)
+    m_dryRunHasBeenSet(false),
+    m_engineTypeHasBeenSet(false),
+    m_vipsHasBeenSet(false),
+    m_dataProtectVolumeHasBeenSet(false),
+    m_clusterTopologyHasBeenSet(false),
+    m_diskTypeHasBeenSet(false),
+    m_clusterTypeHasBeenSet(false)
 {
 }
 
@@ -376,6 +382,60 @@ string CreateDBInstanceHourRequest::ToJsonString() const
         string key = "DryRun";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_dryRun, allocator);
+    }
+
+    if (m_engineTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EngineType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_engineType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vipsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Vips";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_vips.begin(); itr != m_vips.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_dataProtectVolumeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DataProtectVolume";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_dataProtectVolume, allocator);
+    }
+
+    if (m_clusterTopologyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterTopology";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_clusterTopology.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_diskTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_diskType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clusterType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -944,6 +1004,102 @@ void CreateDBInstanceHourRequest::SetDryRun(const bool& _dryRun)
 bool CreateDBInstanceHourRequest::DryRunHasBeenSet() const
 {
     return m_dryRunHasBeenSet;
+}
+
+string CreateDBInstanceHourRequest::GetEngineType() const
+{
+    return m_engineType;
+}
+
+void CreateDBInstanceHourRequest::SetEngineType(const string& _engineType)
+{
+    m_engineType = _engineType;
+    m_engineTypeHasBeenSet = true;
+}
+
+bool CreateDBInstanceHourRequest::EngineTypeHasBeenSet() const
+{
+    return m_engineTypeHasBeenSet;
+}
+
+vector<string> CreateDBInstanceHourRequest::GetVips() const
+{
+    return m_vips;
+}
+
+void CreateDBInstanceHourRequest::SetVips(const vector<string>& _vips)
+{
+    m_vips = _vips;
+    m_vipsHasBeenSet = true;
+}
+
+bool CreateDBInstanceHourRequest::VipsHasBeenSet() const
+{
+    return m_vipsHasBeenSet;
+}
+
+int64_t CreateDBInstanceHourRequest::GetDataProtectVolume() const
+{
+    return m_dataProtectVolume;
+}
+
+void CreateDBInstanceHourRequest::SetDataProtectVolume(const int64_t& _dataProtectVolume)
+{
+    m_dataProtectVolume = _dataProtectVolume;
+    m_dataProtectVolumeHasBeenSet = true;
+}
+
+bool CreateDBInstanceHourRequest::DataProtectVolumeHasBeenSet() const
+{
+    return m_dataProtectVolumeHasBeenSet;
+}
+
+ClusterTopology CreateDBInstanceHourRequest::GetClusterTopology() const
+{
+    return m_clusterTopology;
+}
+
+void CreateDBInstanceHourRequest::SetClusterTopology(const ClusterTopology& _clusterTopology)
+{
+    m_clusterTopology = _clusterTopology;
+    m_clusterTopologyHasBeenSet = true;
+}
+
+bool CreateDBInstanceHourRequest::ClusterTopologyHasBeenSet() const
+{
+    return m_clusterTopologyHasBeenSet;
+}
+
+string CreateDBInstanceHourRequest::GetDiskType() const
+{
+    return m_diskType;
+}
+
+void CreateDBInstanceHourRequest::SetDiskType(const string& _diskType)
+{
+    m_diskType = _diskType;
+    m_diskTypeHasBeenSet = true;
+}
+
+bool CreateDBInstanceHourRequest::DiskTypeHasBeenSet() const
+{
+    return m_diskTypeHasBeenSet;
+}
+
+string CreateDBInstanceHourRequest::GetClusterType() const
+{
+    return m_clusterType;
+}
+
+void CreateDBInstanceHourRequest::SetClusterType(const string& _clusterType)
+{
+    m_clusterType = _clusterType;
+    m_clusterTypeHasBeenSet = true;
+}
+
+bool CreateDBInstanceHourRequest::ClusterTypeHasBeenSet() const
+{
+    return m_clusterTypeHasBeenSet;
 }
 
 

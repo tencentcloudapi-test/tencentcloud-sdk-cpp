@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,70 +45,75 @@ namespace TencentCloud
                     /**
                      * 获取您可以自定义调用方英文名称，由字母组成。
                      * @return Name 您可以自定义调用方英文名称，由字母组成。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置您可以自定义调用方英文名称，由字母组成。
-                     * @param Name 您可以自定义调用方英文名称，由字母组成。
+                     * @param _name 您可以自定义调用方英文名称，由字母组成。
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取授予该临时证书权限的CAM策略
-注意：
+                     * 获取注意：
 1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
 2、策略中不能包含 principal 元素。
-3、该参数需要做urlencode。
-                     * @return Policy 授予该临时证书权限的CAM策略
-注意：
+3、该参数需要做urlencode，服务端会对该字段做urldecode， 并按处理后Policy授予临时访问凭证权限，请按规范传入参数。
+                     * @return Policy 注意：
 1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
 2、策略中不能包含 principal 元素。
-3、该参数需要做urlencode。
+3、该参数需要做urlencode，服务端会对该字段做urldecode， 并按处理后Policy授予临时访问凭证权限，请按规范传入参数。
+                     * 
                      */
                     std::string GetPolicy() const;
 
                     /**
-                     * 设置授予该临时证书权限的CAM策略
-注意：
+                     * 设置注意：
 1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
 2、策略中不能包含 principal 元素。
-3、该参数需要做urlencode。
-                     * @param Policy 授予该临时证书权限的CAM策略
-注意：
+3、该参数需要做urlencode，服务端会对该字段做urldecode， 并按处理后Policy授予临时访问凭证权限，请按规范传入参数。
+                     * @param _policy 注意：
 1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
 2、策略中不能包含 principal 元素。
-3、该参数需要做urlencode。
+3、该参数需要做urlencode，服务端会对该字段做urldecode， 并按处理后Policy授予临时访问凭证权限，请按规范传入参数。
+                     * 
                      */
                     void SetPolicy(const std::string& _policy);
 
                     /**
                      * 判断参数 Policy 是否已赋值
                      * @return Policy 是否已赋值
+                     * 
                      */
                     bool PolicyHasBeenSet() const;
 
                     /**
                      * 获取指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
                      * @return DurationSeconds 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
+                     * 
                      */
                     uint64_t GetDurationSeconds() const;
 
                     /**
                      * 设置指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
-                     * @param DurationSeconds 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
+                     * @param _durationSeconds 指定临时证书的有效期，单位：秒，默认1800秒，主账号最长可设定有效期为7200秒，子账号最长可设定有效期为129600秒。
+                     * 
                      */
                     void SetDurationSeconds(const uint64_t& _durationSeconds);
 
                     /**
                      * 判断参数 DurationSeconds 是否已赋值
                      * @return DurationSeconds 是否已赋值
+                     * 
                      */
                     bool DurationSecondsHasBeenSet() const;
 
@@ -121,11 +126,10 @@ namespace TencentCloud
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 授予该临时证书权限的CAM策略
-注意：
+                     * 注意：
 1、策略语法参照[ CAM 策略语法](https://cloud.tencent.com/document/product/598/10603)。
 2、策略中不能包含 principal 元素。
-3、该参数需要做urlencode。
+3、该参数需要做urlencode，服务端会对该字段做urldecode， 并按处理后Policy授予临时访问凭证权限，请按规范传入参数。
                      */
                     std::string m_policy;
                     bool m_policyHasBeenSet;

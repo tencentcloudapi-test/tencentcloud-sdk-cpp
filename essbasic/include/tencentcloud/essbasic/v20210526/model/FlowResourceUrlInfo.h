@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,61 +48,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FlowId 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取合同流程的ID
+                     * @return FlowId 合同流程的ID
+                     * 
                      */
                     std::string GetFlowId() const;
 
                     /**
-                     * 设置流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FlowId 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置合同流程的ID
+                     * @param _flowId 合同流程的ID
+                     * 
                      */
                     void SetFlowId(const std::string& _flowId);
 
                     /**
                      * 判断参数 FlowId 是否已赋值
                      * @return FlowId 是否已赋值
+                     * 
                      */
                     bool FlowIdHasBeenSet() const;
 
                     /**
-                     * 获取流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ResourceUrlInfos 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取对应的合同流程的PDF下载链接
+                     * @return ResourceUrlInfos 对应的合同流程的PDF下载链接
+                     * 
                      */
                     std::vector<ResourceUrlInfo> GetResourceUrlInfos() const;
 
                     /**
-                     * 设置流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ResourceUrlInfos 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置对应的合同流程的PDF下载链接
+                     * @param _resourceUrlInfos 对应的合同流程的PDF下载链接
+                     * 
                      */
                     void SetResourceUrlInfos(const std::vector<ResourceUrlInfo>& _resourceUrlInfos);
 
                     /**
                      * 判断参数 ResourceUrlInfos 是否已赋值
                      * @return ResourceUrlInfos 是否已赋值
+                     * 
                      */
                     bool ResourceUrlInfosHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 流程对应Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 合同流程的ID
                      */
                     std::string m_flowId;
                     bool m_flowIdHasBeenSet;
 
                     /**
-                     * 流程对应资源链接信息数组
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 对应的合同流程的PDF下载链接
                      */
                     std::vector<ResourceUrlInfo> m_resourceUrlInfos;
                     bool m_resourceUrlInfosHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,34 +49,59 @@ namespace TencentCloud
 
                     /**
                      * 获取药品列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return MedicineList 药品列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Medicine> GetMedicineList() const;
 
                     /**
                      * 设置药品列表
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param MedicineList 药品列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _medicineList 药品列表
+                     * 
                      */
                     void SetMedicineList(const std::vector<Medicine>& _medicineList);
 
                     /**
                      * 判断参数 MedicineList 是否已赋值
                      * @return MedicineList 是否已赋值
+                     * 
                      */
                     bool MedicineListHasBeenSet() const;
+
+                    /**
+                     * 获取数据在原PDF文件中的第几页
+                     * @return Page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    int64_t GetPage() const;
+
+                    /**
+                     * 设置数据在原PDF文件中的第几页
+                     * @param _page 数据在原PDF文件中的第几页
+                     * 
+                     */
+                    void SetPage(const int64_t& _page);
+
+                    /**
+                     * 判断参数 Page 是否已赋值
+                     * @return Page 是否已赋值
+                     * 
+                     */
+                    bool PageHasBeenSet() const;
 
                 private:
 
                     /**
                      * 药品列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Medicine> m_medicineList;
                     bool m_medicineListHasBeenSet;
+
+                    /**
+                     * 数据在原PDF文件中的第几页
+                     */
+                    int64_t m_page;
+                    bool m_pageHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,10 @@ using namespace TencentCloud::Ses::V20201002::Model;
 using namespace std;
 
 ListEmailIdentitiesResponse::ListEmailIdentitiesResponse() :
-    m_emailIdentitiesHasBeenSet(false)
+    m_emailIdentitiesHasBeenSet(false),
+    m_maxReputationLevelHasBeenSet(false),
+    m_maxDailyQuotaHasBeenSet(false),
+    m_totalHasBeenSet(false)
 {
 }
 
@@ -82,6 +85,36 @@ CoreInternalOutcome ListEmailIdentitiesResponse::Deserialize(const string &paylo
         m_emailIdentitiesHasBeenSet = true;
     }
 
+    if (rsp.HasMember("MaxReputationLevel") && !rsp["MaxReputationLevel"].IsNull())
+    {
+        if (!rsp["MaxReputationLevel"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `MaxReputationLevel` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_maxReputationLevel = rsp["MaxReputationLevel"].GetUint64();
+        m_maxReputationLevelHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("MaxDailyQuota") && !rsp["MaxDailyQuota"].IsNull())
+    {
+        if (!rsp["MaxDailyQuota"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `MaxDailyQuota` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_maxDailyQuota = rsp["MaxDailyQuota"].GetUint64();
+        m_maxDailyQuotaHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Total") && !rsp["Total"].IsNull())
+    {
+        if (!rsp["Total"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Total` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_total = rsp["Total"].GetUint64();
+        m_totalHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -107,11 +140,35 @@ string ListEmailIdentitiesResponse::ToJsonString() const
         }
     }
 
+    if (m_maxReputationLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxReputationLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_maxReputationLevel, allocator);
+    }
+
+    if (m_maxDailyQuotaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxDailyQuota";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_maxDailyQuota, allocator);
+    }
+
+    if (m_totalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Total";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_total, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -127,6 +184,36 @@ vector<EmailIdentity> ListEmailIdentitiesResponse::GetEmailIdentities() const
 bool ListEmailIdentitiesResponse::EmailIdentitiesHasBeenSet() const
 {
     return m_emailIdentitiesHasBeenSet;
+}
+
+uint64_t ListEmailIdentitiesResponse::GetMaxReputationLevel() const
+{
+    return m_maxReputationLevel;
+}
+
+bool ListEmailIdentitiesResponse::MaxReputationLevelHasBeenSet() const
+{
+    return m_maxReputationLevelHasBeenSet;
+}
+
+uint64_t ListEmailIdentitiesResponse::GetMaxDailyQuota() const
+{
+    return m_maxDailyQuota;
+}
+
+bool ListEmailIdentitiesResponse::MaxDailyQuotaHasBeenSet() const
+{
+    return m_maxDailyQuotaHasBeenSet;
+}
+
+uint64_t ListEmailIdentitiesResponse::GetTotal() const
+{
+    return m_total;
+}
+
+bool ListEmailIdentitiesResponse::TotalHasBeenSet() const
+{
+    return m_totalHasBeenSet;
 }
 
 

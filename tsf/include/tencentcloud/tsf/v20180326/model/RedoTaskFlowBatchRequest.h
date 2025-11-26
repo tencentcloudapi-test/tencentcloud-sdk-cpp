@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取工作流批次 ID
-                     * @return FlowBatchId 工作流批次 ID
+                     * 获取工作流批次 ID。在[工作流管理](https://console.cloud.tencent.com/tsf/tct?rid=1&tab=workflowManage)页面，点击第一列的工作流ID进入工作流执行记录列表页面，第一列的内容即为工作流批次ID。
+                     * @return FlowBatchId 工作流批次 ID。在[工作流管理](https://console.cloud.tencent.com/tsf/tct?rid=1&tab=workflowManage)页面，点击第一列的工作流ID进入工作流执行记录列表页面，第一列的内容即为工作流批次ID。
+                     * 
                      */
                     std::string GetFlowBatchId() const;
 
                     /**
-                     * 设置工作流批次 ID
-                     * @param FlowBatchId 工作流批次 ID
+                     * 设置工作流批次 ID。在[工作流管理](https://console.cloud.tencent.com/tsf/tct?rid=1&tab=workflowManage)页面，点击第一列的工作流ID进入工作流执行记录列表页面，第一列的内容即为工作流批次ID。
+                     * @param _flowBatchId 工作流批次 ID。在[工作流管理](https://console.cloud.tencent.com/tsf/tct?rid=1&tab=workflowManage)页面，点击第一列的工作流ID进入工作流执行记录列表页面，第一列的内容即为工作流批次ID。
+                     * 
                      */
                     void SetFlowBatchId(const std::string& _flowBatchId);
 
                     /**
                      * 判断参数 FlowBatchId 是否已赋值
                      * @return FlowBatchId 是否已赋值
+                     * 
                      */
                     bool FlowBatchIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 工作流批次 ID
+                     * 工作流批次 ID。在[工作流管理](https://console.cloud.tencent.com/tsf/tct?rid=1&tab=workflowManage)页面，点击第一列的工作流ID进入工作流执行记录列表页面，第一列的内容即为工作流批次ID。
                      */
                     std::string m_flowBatchId;
                     bool m_flowBatchIdHasBeenSet;

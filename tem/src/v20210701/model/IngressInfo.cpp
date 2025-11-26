@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,17 +22,18 @@ using namespace std;
 
 IngressInfo::IngressInfo() :
     m_environmentIdHasBeenSet(false),
-    m_clusterNamespaceHasBeenSet(false),
     m_addressIPVersionHasBeenSet(false),
     m_ingressNameHasBeenSet(false),
     m_rulesHasBeenSet(false),
     m_clbIdHasBeenSet(false),
+    m_clusterNamespaceHasBeenSet(false),
     m_tlsHasBeenSet(false),
     m_clusterIdHasBeenSet(false),
     m_vipHasBeenSet(false),
     m_createTimeHasBeenSet(false),
     m_mixedHasBeenSet(false),
-    m_rewriteTypeHasBeenSet(false)
+    m_rewriteTypeHasBeenSet(false),
+    m_domainHasBeenSet(false)
 {
 }
 
@@ -49,16 +50,6 @@ CoreInternalOutcome IngressInfo::Deserialize(const rapidjson::Value &value)
         }
         m_environmentId = string(value["EnvironmentId"].GetString());
         m_environmentIdHasBeenSet = true;
-    }
-
-    if (value.HasMember("ClusterNamespace") && !value["ClusterNamespace"].IsNull())
-    {
-        if (!value["ClusterNamespace"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `IngressInfo.ClusterNamespace` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_clusterNamespace = string(value["ClusterNamespace"].GetString());
-        m_clusterNamespaceHasBeenSet = true;
     }
 
     if (value.HasMember("AddressIPVersion") && !value["AddressIPVersion"].IsNull())
@@ -109,6 +100,16 @@ CoreInternalOutcome IngressInfo::Deserialize(const rapidjson::Value &value)
         }
         m_clbId = string(value["ClbId"].GetString());
         m_clbIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClusterNamespace") && !value["ClusterNamespace"].IsNull())
+    {
+        if (!value["ClusterNamespace"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IngressInfo.ClusterNamespace` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_clusterNamespace = string(value["ClusterNamespace"].GetString());
+        m_clusterNamespaceHasBeenSet = true;
     }
 
     if (value.HasMember("Tls") && !value["Tls"].IsNull())
@@ -181,6 +182,16 @@ CoreInternalOutcome IngressInfo::Deserialize(const rapidjson::Value &value)
         m_rewriteTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("Domain") && !value["Domain"].IsNull())
+    {
+        if (!value["Domain"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IngressInfo.Domain` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_domain = string(value["Domain"].GetString());
+        m_domainHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -194,14 +205,6 @@ void IngressInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "EnvironmentId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_environmentId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_clusterNamespaceHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClusterNamespace";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_clusterNamespace.c_str(), allocator).Move(), allocator);
     }
 
     if (m_addressIPVersionHasBeenSet)
@@ -241,6 +244,14 @@ void IngressInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "ClbId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_clbId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterNamespaceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterNamespace";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_clusterNamespace.c_str(), allocator).Move(), allocator);
     }
 
     if (m_tlsHasBeenSet)
@@ -298,6 +309,14 @@ void IngressInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         value.AddMember(iKey, rapidjson::Value(m_rewriteType.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_domainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Domain";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_domain.c_str(), allocator).Move(), allocator);
+    }
+
 }
 
 
@@ -315,22 +334,6 @@ void IngressInfo::SetEnvironmentId(const string& _environmentId)
 bool IngressInfo::EnvironmentIdHasBeenSet() const
 {
     return m_environmentIdHasBeenSet;
-}
-
-string IngressInfo::GetClusterNamespace() const
-{
-    return m_clusterNamespace;
-}
-
-void IngressInfo::SetClusterNamespace(const string& _clusterNamespace)
-{
-    m_clusterNamespace = _clusterNamespace;
-    m_clusterNamespaceHasBeenSet = true;
-}
-
-bool IngressInfo::ClusterNamespaceHasBeenSet() const
-{
-    return m_clusterNamespaceHasBeenSet;
 }
 
 string IngressInfo::GetAddressIPVersion() const
@@ -395,6 +398,22 @@ void IngressInfo::SetClbId(const string& _clbId)
 bool IngressInfo::ClbIdHasBeenSet() const
 {
     return m_clbIdHasBeenSet;
+}
+
+string IngressInfo::GetClusterNamespace() const
+{
+    return m_clusterNamespace;
+}
+
+void IngressInfo::SetClusterNamespace(const string& _clusterNamespace)
+{
+    m_clusterNamespace = _clusterNamespace;
+    m_clusterNamespaceHasBeenSet = true;
+}
+
+bool IngressInfo::ClusterNamespaceHasBeenSet() const
+{
+    return m_clusterNamespaceHasBeenSet;
 }
 
 vector<IngressTls> IngressInfo::GetTls() const
@@ -491,5 +510,21 @@ void IngressInfo::SetRewriteType(const string& _rewriteType)
 bool IngressInfo::RewriteTypeHasBeenSet() const
 {
     return m_rewriteTypeHasBeenSet;
+}
+
+string IngressInfo::GetDomain() const
+{
+    return m_domain;
+}
+
+void IngressInfo::SetDomain(const string& _domain)
+{
+    m_domain = _domain;
+    m_domainHasBeenSet = true;
+}
+
+bool IngressInfo::DomainHasBeenSet() const
+{
+    return m_domainHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取安全规则ID列表。总数不能超过20个。
                      * @return SecurityRuleIds 安全规则ID列表。总数不能超过20个。
+                     * 
                      */
                     std::vector<std::string> GetSecurityRuleIds() const;
 
                     /**
                      * 设置安全规则ID列表。总数不能超过20个。
-                     * @param SecurityRuleIds 安全规则ID列表。总数不能超过20个。
+                     * @param _securityRuleIds 安全规则ID列表。总数不能超过20个。
+                     * 
                      */
                     void SetSecurityRuleIds(const std::vector<std::string>& _securityRuleIds);
 
                     /**
                      * 判断参数 SecurityRuleIds 是否已赋值
                      * @return SecurityRuleIds 是否已赋值
+                     * 
                      */
                     bool SecurityRuleIdsHasBeenSet() const;
 

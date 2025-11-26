@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取自定义MetaDB的JDBC连接，请以 jdbc:mysql:// 开头
                      * @return MetaDataJdbcUrl 自定义MetaDB的JDBC连接，请以 jdbc:mysql:// 开头
+                     * 
                      */
                     std::string GetMetaDataJdbcUrl() const;
 
                     /**
                      * 设置自定义MetaDB的JDBC连接，请以 jdbc:mysql:// 开头
-                     * @param MetaDataJdbcUrl 自定义MetaDB的JDBC连接，请以 jdbc:mysql:// 开头
+                     * @param _metaDataJdbcUrl 自定义MetaDB的JDBC连接，请以 jdbc:mysql:// 开头
+                     * 
                      */
                     void SetMetaDataJdbcUrl(const std::string& _metaDataJdbcUrl);
 
                     /**
                      * 判断参数 MetaDataJdbcUrl 是否已赋值
                      * @return MetaDataJdbcUrl 是否已赋值
+                     * 
                      */
                     bool MetaDataJdbcUrlHasBeenSet() const;
 
                     /**
                      * 获取自定义MetaDB用户名
                      * @return MetaDataUser 自定义MetaDB用户名
+                     * 
                      */
                     std::string GetMetaDataUser() const;
 
                     /**
                      * 设置自定义MetaDB用户名
-                     * @param MetaDataUser 自定义MetaDB用户名
+                     * @param _metaDataUser 自定义MetaDB用户名
+                     * 
                      */
                     void SetMetaDataUser(const std::string& _metaDataUser);
 
                     /**
                      * 判断参数 MetaDataUser 是否已赋值
                      * @return MetaDataUser 是否已赋值
+                     * 
                      */
                     bool MetaDataUserHasBeenSet() const;
 
                     /**
                      * 获取自定义MetaDB密码
                      * @return MetaDataPass 自定义MetaDB密码
+                     * 
                      */
                     std::string GetMetaDataPass() const;
 
                     /**
                      * 设置自定义MetaDB密码
-                     * @param MetaDataPass 自定义MetaDB密码
+                     * @param _metaDataPass 自定义MetaDB密码
+                     * 
                      */
                     void SetMetaDataPass(const std::string& _metaDataPass);
 
                     /**
                      * 判断参数 MetaDataPass 是否已赋值
                      * @return MetaDataPass 是否已赋值
+                     * 
                      */
                     bool MetaDataPassHasBeenSet() const;
 

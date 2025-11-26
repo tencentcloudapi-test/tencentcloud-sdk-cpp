@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@ namespace TencentCloud
                      * @return IsDelayLive 是否属于慢直播模板，默认：0。
 0： 标准直播。
 1：慢直播。
+                     * 
                      */
                     int64_t GetIsDelayLive() const;
 
@@ -56,15 +57,17 @@ namespace TencentCloud
                      * 设置是否属于慢直播模板，默认：0。
 0： 标准直播。
 1：慢直播。
-                     * @param IsDelayLive 是否属于慢直播模板，默认：0。
+                     * @param _isDelayLive 是否属于慢直播模板，默认：0。
 0： 标准直播。
 1：慢直播。
+                     * 
                      */
                     void SetIsDelayLive(const int64_t& _isDelayLive);
 
                     /**
                      * 判断参数 IsDelayLive 是否已赋值
                      * @return IsDelayLive 是否已赋值
+                     * 
                      */
                     bool IsDelayLiveHasBeenSet() const;
 

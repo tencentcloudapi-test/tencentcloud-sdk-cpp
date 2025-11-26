@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取绑定资源信息
                      * @return BindInfo 绑定资源信息
+                     * 
                      */
                     BindInfo GetBindInfo() const;
 
                     /**
                      * 判断参数 BindInfo 是否已赋值
                      * @return BindInfo 是否已赋值
+                     * 
                      */
                     bool BindInfoHasBeenSet() const;
 
                     /**
                      * 获取加固策略信息
                      * @return ShieldPlanInfo 加固策略信息
+                     * 
                      */
                     ShieldPlanInfo GetShieldPlanInfo() const;
 
                     /**
                      * 判断参数 ShieldPlanInfo 是否已赋值
                      * @return ShieldPlanInfo 是否已赋值
+                     * 
                      */
                     bool ShieldPlanInfoHasBeenSet() const;
 
                     /**
                      * 获取加固资源信息
                      * @return ResourceServiceInfo 加固资源信息
+                     * 
                      */
                     ResourceServiceInfo GetResourceServiceInfo() const;
 
                     /**
                      * 判断参数 ResourceServiceInfo 是否已赋值
                      * @return ResourceServiceInfo 是否已赋值
+                     * 
                      */
                     bool ResourceServiceInfoHasBeenSet() const;
 

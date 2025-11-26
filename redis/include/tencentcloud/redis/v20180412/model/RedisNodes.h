@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,99 +47,111 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取节点ID
-                     * @return NodeId 节点ID
+                     * 获取节点 ID。
+                     * @return NodeId 节点 ID。
+                     * 
                      */
                     std::string GetNodeId() const;
 
                     /**
-                     * 设置节点ID
-                     * @param NodeId 节点ID
+                     * 设置节点 ID。
+                     * @param _nodeId 节点 ID。
+                     * 
                      */
                     void SetNodeId(const std::string& _nodeId);
 
                     /**
                      * 判断参数 NodeId 是否已赋值
                      * @return NodeId 是否已赋值
+                     * 
                      */
                     bool NodeIdHasBeenSet() const;
 
                     /**
-                     * 获取节点角色
-                     * @return NodeRole 节点角色
+                     * 获取节点角色。
+                     * @return NodeRole 节点角色。
+                     * 
                      */
                     std::string GetNodeRole() const;
 
                     /**
-                     * 设置节点角色
-                     * @param NodeRole 节点角色
+                     * 设置节点角色。
+                     * @param _nodeRole 节点角色。
+                     * 
                      */
                     void SetNodeRole(const std::string& _nodeRole);
 
                     /**
                      * 判断参数 NodeRole 是否已赋值
                      * @return NodeRole 是否已赋值
+                     * 
                      */
                     bool NodeRoleHasBeenSet() const;
 
                     /**
-                     * 获取分片ID
-                     * @return ClusterId 分片ID
+                     * 获取分片 ID。
+                     * @return ClusterId 分片 ID。
+                     * 
                      */
                     int64_t GetClusterId() const;
 
                     /**
-                     * 设置分片ID
-                     * @param ClusterId 分片ID
+                     * 设置分片 ID。
+                     * @param _clusterId 分片 ID。
+                     * 
                      */
                     void SetClusterId(const int64_t& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取可用区ID
-                     * @return ZoneId 可用区ID
+                     * 获取可用区 ID。
+                     * @return ZoneId 可用区 ID。
+                     * 
                      */
                     int64_t GetZoneId() const;
 
                     /**
-                     * 设置可用区ID
-                     * @param ZoneId 可用区ID
+                     * 设置可用区 ID。
+                     * @param _zoneId 可用区 ID。
+                     * 
                      */
                     void SetZoneId(const int64_t& _zoneId);
 
                     /**
                      * 判断参数 ZoneId 是否已赋值
                      * @return ZoneId 是否已赋值
+                     * 
                      */
                     bool ZoneIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 节点ID
+                     * 节点 ID。
                      */
                     std::string m_nodeId;
                     bool m_nodeIdHasBeenSet;
 
                     /**
-                     * 节点角色
+                     * 节点角色。
                      */
                     std::string m_nodeRole;
                     bool m_nodeRoleHasBeenSet;
 
                     /**
-                     * 分片ID
+                     * 分片 ID。
                      */
                     int64_t m_clusterId;
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * 可用区ID
+                     * 可用区 ID。
                      */
                     int64_t m_zoneId;
                     bool m_zoneIdHasBeenSet;

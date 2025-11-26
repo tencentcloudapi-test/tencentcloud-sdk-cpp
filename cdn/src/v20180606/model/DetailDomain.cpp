@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -82,7 +82,12 @@ DetailDomain::DetailDomain() :
     m_remoteAuthenticationHasBeenSet(false),
     m_shareCnameHasBeenSet(false),
     m_ruleEngineHasBeenSet(false),
-    m_parentHostHasBeenSet(false)
+    m_parentHostHasBeenSet(false),
+    m_hwPrivateAccessHasBeenSet(false),
+    m_qnPrivateAccessHasBeenSet(false),
+    m_httpsBillingHasBeenSet(false),
+    m_othersPrivateAccessHasBeenSet(false),
+    m_paramFilterHasBeenSet(false)
 {
 }
 
@@ -1049,6 +1054,91 @@ CoreInternalOutcome DetailDomain::Deserialize(const rapidjson::Value &value)
         m_parentHostHasBeenSet = true;
     }
 
+    if (value.HasMember("HwPrivateAccess") && !value["HwPrivateAccess"].IsNull())
+    {
+        if (!value["HwPrivateAccess"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetailDomain.HwPrivateAccess` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_hwPrivateAccess.Deserialize(value["HwPrivateAccess"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_hwPrivateAccessHasBeenSet = true;
+    }
+
+    if (value.HasMember("QnPrivateAccess") && !value["QnPrivateAccess"].IsNull())
+    {
+        if (!value["QnPrivateAccess"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetailDomain.QnPrivateAccess` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_qnPrivateAccess.Deserialize(value["QnPrivateAccess"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_qnPrivateAccessHasBeenSet = true;
+    }
+
+    if (value.HasMember("HttpsBilling") && !value["HttpsBilling"].IsNull())
+    {
+        if (!value["HttpsBilling"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetailDomain.HttpsBilling` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_httpsBilling.Deserialize(value["HttpsBilling"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_httpsBillingHasBeenSet = true;
+    }
+
+    if (value.HasMember("OthersPrivateAccess") && !value["OthersPrivateAccess"].IsNull())
+    {
+        if (!value["OthersPrivateAccess"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetailDomain.OthersPrivateAccess` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_othersPrivateAccess.Deserialize(value["OthersPrivateAccess"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_othersPrivateAccessHasBeenSet = true;
+    }
+
+    if (value.HasMember("ParamFilter") && !value["ParamFilter"].IsNull())
+    {
+        if (!value["ParamFilter"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetailDomain.ParamFilter` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_paramFilter.Deserialize(value["ParamFilter"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_paramFilterHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -1614,6 +1704,51 @@ void DetailDomain::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "ParentHost";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_parentHost.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hwPrivateAccessHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HwPrivateAccess";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_hwPrivateAccess.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_qnPrivateAccessHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QnPrivateAccess";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_qnPrivateAccess.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_httpsBillingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HttpsBilling";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_httpsBilling.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_othersPrivateAccessHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OthersPrivateAccess";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_othersPrivateAccess.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_paramFilterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ParamFilter";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_paramFilter.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -2609,5 +2744,85 @@ void DetailDomain::SetParentHost(const string& _parentHost)
 bool DetailDomain::ParentHostHasBeenSet() const
 {
     return m_parentHostHasBeenSet;
+}
+
+HwPrivateAccess DetailDomain::GetHwPrivateAccess() const
+{
+    return m_hwPrivateAccess;
+}
+
+void DetailDomain::SetHwPrivateAccess(const HwPrivateAccess& _hwPrivateAccess)
+{
+    m_hwPrivateAccess = _hwPrivateAccess;
+    m_hwPrivateAccessHasBeenSet = true;
+}
+
+bool DetailDomain::HwPrivateAccessHasBeenSet() const
+{
+    return m_hwPrivateAccessHasBeenSet;
+}
+
+QnPrivateAccess DetailDomain::GetQnPrivateAccess() const
+{
+    return m_qnPrivateAccess;
+}
+
+void DetailDomain::SetQnPrivateAccess(const QnPrivateAccess& _qnPrivateAccess)
+{
+    m_qnPrivateAccess = _qnPrivateAccess;
+    m_qnPrivateAccessHasBeenSet = true;
+}
+
+bool DetailDomain::QnPrivateAccessHasBeenSet() const
+{
+    return m_qnPrivateAccessHasBeenSet;
+}
+
+HttpsBilling DetailDomain::GetHttpsBilling() const
+{
+    return m_httpsBilling;
+}
+
+void DetailDomain::SetHttpsBilling(const HttpsBilling& _httpsBilling)
+{
+    m_httpsBilling = _httpsBilling;
+    m_httpsBillingHasBeenSet = true;
+}
+
+bool DetailDomain::HttpsBillingHasBeenSet() const
+{
+    return m_httpsBillingHasBeenSet;
+}
+
+OthersPrivateAccess DetailDomain::GetOthersPrivateAccess() const
+{
+    return m_othersPrivateAccess;
+}
+
+void DetailDomain::SetOthersPrivateAccess(const OthersPrivateAccess& _othersPrivateAccess)
+{
+    m_othersPrivateAccess = _othersPrivateAccess;
+    m_othersPrivateAccessHasBeenSet = true;
+}
+
+bool DetailDomain::OthersPrivateAccessHasBeenSet() const
+{
+    return m_othersPrivateAccessHasBeenSet;
+}
+
+ParamFilter DetailDomain::GetParamFilter() const
+{
+    return m_paramFilter;
+}
+
+void DetailDomain::SetParamFilter(const ParamFilter& _paramFilter)
+{
+    m_paramFilter = _paramFilter;
+    m_paramFilterHasBeenSet = true;
+}
+
+bool DetailDomain::ParamFilterHasBeenSet() const
+{
+    return m_paramFilterHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 BlackEmailAddress::BlackEmailAddress() :
     m_bounceTimeHasBeenSet(false),
-    m_emailAddressHasBeenSet(false)
+    m_emailAddressHasBeenSet(false),
+    m_ispDescHasBeenSet(false)
 {
 }
 
@@ -51,6 +52,16 @@ CoreInternalOutcome BlackEmailAddress::Deserialize(const rapidjson::Value &value
         m_emailAddressHasBeenSet = true;
     }
 
+    if (value.HasMember("IspDesc") && !value["IspDesc"].IsNull())
+    {
+        if (!value["IspDesc"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BlackEmailAddress.IspDesc` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_ispDesc = string(value["IspDesc"].GetString());
+        m_ispDescHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -72,6 +83,14 @@ void BlackEmailAddress::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "EmailAddress";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_emailAddress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ispDescHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IspDesc";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_ispDesc.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -107,5 +126,21 @@ void BlackEmailAddress::SetEmailAddress(const string& _emailAddress)
 bool BlackEmailAddress::EmailAddressHasBeenSet() const
 {
     return m_emailAddressHasBeenSet;
+}
+
+string BlackEmailAddress::GetIspDesc() const
+{
+    return m_ispDesc;
+}
+
+void BlackEmailAddress::SetIspDesc(const string& _ispDesc)
+{
+    m_ispDesc = _ispDesc;
+    m_ispDescHasBeenSet = true;
+}
+
+bool BlackEmailAddress::IspDescHasBeenSet() const
+{
+    return m_ispDescHasBeenSet;
 }
 

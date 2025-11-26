@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ MediaVideoStreamItem::MediaVideoStreamItem() :
     m_heightHasBeenSet(false),
     m_widthHasBeenSet(false),
     m_codecHasBeenSet(false),
-    m_fpsHasBeenSet(false)
+    m_fpsHasBeenSet(false),
+    m_codecTagHasBeenSet(false),
+    m_dynamicRangeInfoHasBeenSet(false)
 {
 }
 
@@ -84,6 +86,33 @@ CoreInternalOutcome MediaVideoStreamItem::Deserialize(const rapidjson::Value &va
         m_fpsHasBeenSet = true;
     }
 
+    if (value.HasMember("CodecTag") && !value["CodecTag"].IsNull())
+    {
+        if (!value["CodecTag"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `MediaVideoStreamItem.CodecTag` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_codecTag = string(value["CodecTag"].GetString());
+        m_codecTagHasBeenSet = true;
+    }
+
+    if (value.HasMember("DynamicRangeInfo") && !value["DynamicRangeInfo"].IsNull())
+    {
+        if (!value["DynamicRangeInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `MediaVideoStreamItem.DynamicRangeInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_dynamicRangeInfo.Deserialize(value["DynamicRangeInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_dynamicRangeInfoHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +158,23 @@ void MediaVideoStreamItem::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         string key = "Fps";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_fps, allocator);
+    }
+
+    if (m_codecTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CodecTag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_codecTag.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dynamicRangeInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DynamicRangeInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_dynamicRangeInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -212,5 +258,37 @@ void MediaVideoStreamItem::SetFps(const int64_t& _fps)
 bool MediaVideoStreamItem::FpsHasBeenSet() const
 {
     return m_fpsHasBeenSet;
+}
+
+string MediaVideoStreamItem::GetCodecTag() const
+{
+    return m_codecTag;
+}
+
+void MediaVideoStreamItem::SetCodecTag(const string& _codecTag)
+{
+    m_codecTag = _codecTag;
+    m_codecTagHasBeenSet = true;
+}
+
+bool MediaVideoStreamItem::CodecTagHasBeenSet() const
+{
+    return m_codecTagHasBeenSet;
+}
+
+DynamicRangeInfo MediaVideoStreamItem::GetDynamicRangeInfo() const
+{
+    return m_dynamicRangeInfo;
+}
+
+void MediaVideoStreamItem::SetDynamicRangeInfo(const DynamicRangeInfo& _dynamicRangeInfo)
+{
+    m_dynamicRangeInfo = _dynamicRangeInfo;
+    m_dynamicRangeInfoHasBeenSet = true;
+}
+
+bool MediaVideoStreamItem::DynamicRangeInfoHasBeenSet() const
+{
+    return m_dynamicRangeInfoHasBeenSet;
 }
 

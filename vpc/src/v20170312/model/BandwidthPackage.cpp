@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ BandwidthPackage::BandwidthPackage() :
     m_createdTimeHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_resourceSetHasBeenSet(false),
-    m_bandwidthHasBeenSet(false)
+    m_bandwidthHasBeenSet(false),
+    m_egressHasBeenSet(false),
+    m_deadlineHasBeenSet(false)
 {
 }
 
@@ -127,6 +129,26 @@ CoreInternalOutcome BandwidthPackage::Deserialize(const rapidjson::Value &value)
         m_bandwidthHasBeenSet = true;
     }
 
+    if (value.HasMember("Egress") && !value["Egress"].IsNull())
+    {
+        if (!value["Egress"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BandwidthPackage.Egress` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_egress = string(value["Egress"].GetString());
+        m_egressHasBeenSet = true;
+    }
+
+    if (value.HasMember("Deadline") && !value["Deadline"].IsNull())
+    {
+        if (!value["Deadline"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BandwidthPackage.Deadline` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_deadline = string(value["Deadline"].GetString());
+        m_deadlineHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -203,6 +225,22 @@ void BandwidthPackage::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "Bandwidth";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_bandwidth, allocator);
+    }
+
+    if (m_egressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Egress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_egress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_deadlineHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Deadline";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_deadline.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -334,5 +372,37 @@ void BandwidthPackage::SetBandwidth(const int64_t& _bandwidth)
 bool BandwidthPackage::BandwidthHasBeenSet() const
 {
     return m_bandwidthHasBeenSet;
+}
+
+string BandwidthPackage::GetEgress() const
+{
+    return m_egress;
+}
+
+void BandwidthPackage::SetEgress(const string& _egress)
+{
+    m_egress = _egress;
+    m_egressHasBeenSet = true;
+}
+
+bool BandwidthPackage::EgressHasBeenSet() const
+{
+    return m_egressHasBeenSet;
+}
+
+string BandwidthPackage::GetDeadline() const
+{
+    return m_deadline;
+}
+
+void BandwidthPackage::SetDeadline(const string& _deadline)
+{
+    m_deadline = _deadline;
+    m_deadlineHasBeenSet = true;
+}
+
+bool BandwidthPackage::DeadlineHasBeenSet() const
+{
+    return m_deadlineHasBeenSet;
 }
 

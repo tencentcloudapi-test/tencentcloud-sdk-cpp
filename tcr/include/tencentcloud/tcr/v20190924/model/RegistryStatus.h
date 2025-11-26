@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,58 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取实例的Id
                      * @return RegistryId 实例的Id
+                     * 
                      */
                     std::string GetRegistryId() const;
 
                     /**
                      * 设置实例的Id
-                     * @param RegistryId 实例的Id
+                     * @param _registryId 实例的Id
+                     * 
                      */
                     void SetRegistryId(const std::string& _registryId);
 
                     /**
                      * 判断参数 RegistryId 是否已赋值
                      * @return RegistryId 是否已赋值
+                     * 
                      */
                     bool RegistryIdHasBeenSet() const;
 
                     /**
                      * 获取实例的状态
                      * @return Status 实例的状态
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置实例的状态
-                     * @param Status 实例的状态
+                     * @param _status 实例的状态
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取附加状态
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Conditions 附加状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<RegistryCondition> GetConditions() const;
 
                     /**
                      * 设置附加状态
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Conditions 附加状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _conditions 附加状态
+                     * 
                      */
                     void SetConditions(const std::vector<RegistryCondition>& _conditions);
 
                     /**
                      * 判断参数 Conditions 是否已赋值
                      * @return Conditions 是否已赋值
+                     * 
                      */
                     bool ConditionsHasBeenSet() const;
 
@@ -121,7 +126,6 @@ namespace TencentCloud
 
                     /**
                      * 附加状态
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<RegistryCondition> m_conditions;
                     bool m_conditionsHasBeenSet;

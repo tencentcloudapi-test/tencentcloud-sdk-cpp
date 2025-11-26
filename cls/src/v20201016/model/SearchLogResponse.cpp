@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,9 @@ SearchLogResponse::SearchLogResponse() :
     m_colNamesHasBeenSet(false),
     m_analysisResultsHasBeenSet(false),
     m_analysisRecordsHasBeenSet(false),
-    m_columnsHasBeenSet(false)
+    m_columnsHasBeenSet(false),
+    m_samplingRateHasBeenSet(false),
+    m_topicsHasBeenSet(false)
 {
 }
 
@@ -185,6 +187,33 @@ CoreInternalOutcome SearchLogResponse::Deserialize(const string &payload)
         m_columnsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("SamplingRate") && !rsp["SamplingRate"].IsNull())
+    {
+        if (!rsp["SamplingRate"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `SamplingRate` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_samplingRate = rsp["SamplingRate"].GetDouble();
+        m_samplingRateHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Topics") && !rsp["Topics"].IsNull())
+    {
+        if (!rsp["Topics"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Topics` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_topics.Deserialize(rsp["Topics"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_topicsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -290,11 +319,28 @@ string SearchLogResponse::ToJsonString() const
         }
     }
 
+    if (m_samplingRateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SamplingRate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_samplingRate, allocator);
+    }
+
+    if (m_topicsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Topics";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_topics.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -380,6 +426,26 @@ vector<Column> SearchLogResponse::GetColumns() const
 bool SearchLogResponse::ColumnsHasBeenSet() const
 {
     return m_columnsHasBeenSet;
+}
+
+double SearchLogResponse::GetSamplingRate() const
+{
+    return m_samplingRate;
+}
+
+bool SearchLogResponse::SamplingRateHasBeenSet() const
+{
+    return m_samplingRateHasBeenSet;
+}
+
+SearchLogTopics SearchLogResponse::GetTopics() const
+{
+    return m_topics;
+}
+
+bool SearchLogResponse::TopicsHasBeenSet() const
+{
+    return m_topicsHasBeenSet;
 }
 
 

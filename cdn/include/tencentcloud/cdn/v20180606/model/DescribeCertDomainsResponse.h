@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,29 +45,29 @@ namespace TencentCloud
 
                     /**
                      * 获取已接入CDN的域名列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Domains 已接入CDN的域名列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetDomains() const;
 
                     /**
                      * 判断参数 Domains 是否已赋值
                      * @return Domains 是否已赋值
+                     * 
                      */
                     bool DomainsHasBeenSet() const;
 
                     /**
                      * 获取已配置证书的CDN域名列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CertifiedDomains 已配置证书的CDN域名列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetCertifiedDomains() const;
 
                     /**
                      * 判断参数 CertifiedDomains 是否已赋值
                      * @return CertifiedDomains 是否已赋值
+                     * 
                      */
                     bool CertifiedDomainsHasBeenSet() const;
 
@@ -75,14 +75,12 @@ namespace TencentCloud
 
                     /**
                      * 已接入CDN的域名列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_domains;
                     bool m_domainsHasBeenSet;
 
                     /**
                      * 已配置证书的CDN域名列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_certifiedDomains;
                     bool m_certifiedDomainsHasBeenSet;

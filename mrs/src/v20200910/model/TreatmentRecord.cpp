@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +47,8 @@ TreatmentRecord::TreatmentRecord() :
     m_kPSHasBeenSet(false),
     m_deathDateHasBeenSet(false),
     m_relapseDateHasBeenSet(false),
-    m_observationDaysHasBeenSet(false)
+    m_observationDaysHasBeenSet(false),
+    m_admissionConditionHasBeenSet(false)
 {
 }
 
@@ -326,6 +327,16 @@ CoreInternalOutcome TreatmentRecord::Deserialize(const rapidjson::Value &value)
         m_observationDaysHasBeenSet = true;
     }
 
+    if (value.HasMember("AdmissionCondition") && !value["AdmissionCondition"].IsNull())
+    {
+        if (!value["AdmissionCondition"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TreatmentRecord.AdmissionCondition` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_admissionCondition = string(value["AdmissionCondition"].GetString());
+        m_admissionConditionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -547,6 +558,14 @@ void TreatmentRecord::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "ObservationDays";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_observationDays.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_admissionConditionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdmissionCondition";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_admissionCondition.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -982,5 +1001,21 @@ void TreatmentRecord::SetObservationDays(const string& _observationDays)
 bool TreatmentRecord::ObservationDaysHasBeenSet() const
 {
     return m_observationDaysHasBeenSet;
+}
+
+string TreatmentRecord::GetAdmissionCondition() const
+{
+    return m_admissionCondition;
+}
+
+void TreatmentRecord::SetAdmissionCondition(const string& _admissionCondition)
+{
+    m_admissionCondition = _admissionCondition;
+    m_admissionConditionHasBeenSet = true;
+}
+
+bool TreatmentRecord::AdmissionConditionHasBeenSet() const
+{
+    return m_admissionConditionHasBeenSet;
 }
 

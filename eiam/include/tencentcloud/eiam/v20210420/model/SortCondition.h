@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取排序属性。
                      * @return SortKey 排序属性。
+                     * 
                      */
                     std::string GetSortKey() const;
 
                     /**
                      * 设置排序属性。
-                     * @param SortKey 排序属性。
+                     * @param _sortKey 排序属性。
+                     * 
                      */
                     void SetSortKey(const std::string& _sortKey);
 
                     /**
                      * 判断参数 SortKey 是否已赋值
                      * @return SortKey 是否已赋值
+                     * 
                      */
                     bool SortKeyHasBeenSet() const;
 
                     /**
                      * 获取排序顺序，ASC为正向排序，DESC为反向排序。
                      * @return SortOrder 排序顺序，ASC为正向排序，DESC为反向排序。
+                     * 
                      */
                     std::string GetSortOrder() const;
 
                     /**
                      * 设置排序顺序，ASC为正向排序，DESC为反向排序。
-                     * @param SortOrder 排序顺序，ASC为正向排序，DESC为反向排序。
+                     * @param _sortOrder 排序顺序，ASC为正向排序，DESC为反向排序。
+                     * 
                      */
                     void SetSortOrder(const std::string& _sortOrder);
 
                     /**
                      * 判断参数 SortOrder 是否已赋值
                      * @return SortOrder 是否已赋值
+                     * 
                      */
                     bool SortOrderHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取文件系统名称
                      * @return FileSystemName 文件系统名称
+                     * 
                      */
                     std::string GetFileSystemName() const;
 
                     /**
                      * 设置文件系统名称
-                     * @param FileSystemName 文件系统名称
+                     * @param _fileSystemName 文件系统名称
+                     * 
                      */
                     void SetFileSystemName(const std::string& _fileSystemName);
 
                     /**
                      * 判断参数 FileSystemName 是否已赋值
                      * @return FileSystemName 是否已赋值
+                     * 
                      */
                     bool FileSystemNameHasBeenSet() const;
 
                     /**
                      * 获取文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
                      * @return CapacityQuota 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
+                     * 
                      */
                     uint64_t GetCapacityQuota() const;
 
                     /**
                      * 设置文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
-                     * @param CapacityQuota 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
+                     * @param _capacityQuota 文件系统容量（byte），下限为1G，上限为1P，且必须是1G的整数倍
+                     * 
                      */
                     void SetCapacityQuota(const uint64_t& _capacityQuota);
 
                     /**
                      * 判断参数 CapacityQuota 是否已赋值
                      * @return CapacityQuota 是否已赋值
+                     * 
                      */
                     bool CapacityQuotaHasBeenSet() const;
 
                     /**
                      * 获取文件系统描述
                      * @return Description 文件系统描述
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置文件系统描述
-                     * @param Description 文件系统描述
+                     * @param _description 文件系统描述
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 

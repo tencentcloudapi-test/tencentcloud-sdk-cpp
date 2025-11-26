@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,75 +43,89 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
-                     * @return InstanceId 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+                     * 获取指定待查询的实例ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+
+                     * @return InstanceId 指定待查询的实例ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
-                     * @param InstanceId 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+                     * 设置指定待查询的实例ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+
+                     * @param _instanceId 指定待查询的实例ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取单次请求返回的数量，最小值为1，最大值为1000，默认值为1000。
-                     * @return Limit 单次请求返回的数量，最小值为1，最大值为1000，默认值为1000。
+                     * 获取单次请求返回的数量。最小值为1，最大值为1000，默认值为1000。
+                     * @return Limit 单次请求返回的数量。最小值为1，最大值为1000，默认值为1000。
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置单次请求返回的数量，最小值为1，最大值为1000，默认值为1000。
-                     * @param Limit 单次请求返回的数量，最小值为1，最大值为1000，默认值为1000。
+                     * 设置单次请求返回的数量。最小值为1，最大值为1000，默认值为1000。
+                     * @param _limit 单次请求返回的数量。最小值为1，最大值为1000，默认值为1000。
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取偏移量，默认值为0。
-                     * @return Offset 偏移量，默认值为0。
+                     * 获取偏移量，默认值为0。Offset=Limit*(页码-1)。
+                     * @return Offset 偏移量，默认值为0。Offset=Limit*(页码-1)。
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置偏移量，默认值为0。
-                     * @param Offset 偏移量，默认值为0。
+                     * 设置偏移量，默认值为0。Offset=Limit*(页码-1)。
+                     * @param _offset 偏移量，默认值为0。Offset=Limit*(页码-1)。
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID，格式如：cmgo-p8vnipr5。与云数据库控制台页面中显示的实例ID相同
+                     * 指定待查询的实例ID，例如：cmgo-p8vn****。请登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)在实例列表复制实例 ID。
+
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 单次请求返回的数量，最小值为1，最大值为1000，默认值为1000。
+                     * 单次请求返回的数量。最小值为1，最大值为1000，默认值为1000。
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 偏移量，默认值为0。
+                     * 偏移量，默认值为0。Offset=Limit*(页码-1)。
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;

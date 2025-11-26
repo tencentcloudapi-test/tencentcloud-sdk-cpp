@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,10 @@ TaskResultInfo::TaskResultInfo() :
     m_nextTokenHasBeenSet(false),
     m_percentageHasBeenSet(false),
     m_progressDetailHasBeenSet(false),
-    m_displayFormatHasBeenSet(false)
+    m_displayFormatHasBeenSet(false),
+    m_totalTimeHasBeenSet(false),
+    m_queryResultTimeHasBeenSet(false),
+    m_resultSetEncodeHasBeenSet(false)
 {
 }
 
@@ -237,6 +240,36 @@ CoreInternalOutcome TaskResultInfo::Deserialize(const rapidjson::Value &value)
         m_displayFormatHasBeenSet = true;
     }
 
+    if (value.HasMember("TotalTime") && !value["TotalTime"].IsNull())
+    {
+        if (!value["TotalTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResultInfo.TotalTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_totalTime = value["TotalTime"].GetInt64();
+        m_totalTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("QueryResultTime") && !value["QueryResultTime"].IsNull())
+    {
+        if (!value["QueryResultTime"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResultInfo.QueryResultTime` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_queryResultTime = value["QueryResultTime"].GetDouble();
+        m_queryResultTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ResultSetEncode") && !value["ResultSetEncode"].IsNull())
+    {
+        if (!value["ResultSetEncode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResultInfo.ResultSetEncode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_resultSetEncode = string(value["ResultSetEncode"].GetString());
+        m_resultSetEncodeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -393,6 +426,30 @@ void TaskResultInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "DisplayFormat";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_displayFormat.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_totalTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TotalTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_totalTime, allocator);
+    }
+
+    if (m_queryResultTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QueryResultTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_queryResultTime, allocator);
+    }
+
+    if (m_resultSetEncodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResultSetEncode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_resultSetEncode.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -684,5 +741,53 @@ void TaskResultInfo::SetDisplayFormat(const string& _displayFormat)
 bool TaskResultInfo::DisplayFormatHasBeenSet() const
 {
     return m_displayFormatHasBeenSet;
+}
+
+int64_t TaskResultInfo::GetTotalTime() const
+{
+    return m_totalTime;
+}
+
+void TaskResultInfo::SetTotalTime(const int64_t& _totalTime)
+{
+    m_totalTime = _totalTime;
+    m_totalTimeHasBeenSet = true;
+}
+
+bool TaskResultInfo::TotalTimeHasBeenSet() const
+{
+    return m_totalTimeHasBeenSet;
+}
+
+double TaskResultInfo::GetQueryResultTime() const
+{
+    return m_queryResultTime;
+}
+
+void TaskResultInfo::SetQueryResultTime(const double& _queryResultTime)
+{
+    m_queryResultTime = _queryResultTime;
+    m_queryResultTimeHasBeenSet = true;
+}
+
+bool TaskResultInfo::QueryResultTimeHasBeenSet() const
+{
+    return m_queryResultTimeHasBeenSet;
+}
+
+string TaskResultInfo::GetResultSetEncode() const
+{
+    return m_resultSetEncode;
+}
+
+void TaskResultInfo::SetResultSetEncode(const string& _resultSetEncode)
+{
+    m_resultSetEncode = _resultSetEncode;
+    m_resultSetEncodeHasBeenSet = true;
+}
+
+bool TaskResultInfo::ResultSetEncodeHasBeenSet() const
+{
+    return m_resultSetEncodeHasBeenSet;
 }
 

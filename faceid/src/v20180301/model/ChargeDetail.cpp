@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ using namespace std;
 ChargeDetail::ChargeDetail() :
     m_reqTimeHasBeenSet(false),
     m_seqHasBeenSet(false),
+    m_idCardHasBeenSet(false),
     m_idcardHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_simHasBeenSet(false),
@@ -56,6 +57,16 @@ CoreInternalOutcome ChargeDetail::Deserialize(const rapidjson::Value &value)
         }
         m_seq = string(value["Seq"].GetString());
         m_seqHasBeenSet = true;
+    }
+
+    if (value.HasMember("IdCard") && !value["IdCard"].IsNull())
+    {
+        if (!value["IdCard"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ChargeDetail.IdCard` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_idCard = string(value["IdCard"].GetString());
+        m_idCardHasBeenSet = true;
     }
 
     if (value.HasMember("Idcard") && !value["Idcard"].IsNull())
@@ -151,6 +162,14 @@ void ChargeDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         value.AddMember(iKey, rapidjson::Value(m_seq.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_idCardHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdCard";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_idCard.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_idcardHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -240,6 +259,22 @@ void ChargeDetail::SetSeq(const string& _seq)
 bool ChargeDetail::SeqHasBeenSet() const
 {
     return m_seqHasBeenSet;
+}
+
+string ChargeDetail::GetIdCard() const
+{
+    return m_idCard;
+}
+
+void ChargeDetail::SetIdCard(const string& _idCard)
+{
+    m_idCard = _idCard;
+    m_idCardHasBeenSet = true;
+}
+
+bool ChargeDetail::IdCardHasBeenSet() const
+{
+    return m_idCardHasBeenSet;
 }
 
 string ChargeDetail::GetIdcard() const

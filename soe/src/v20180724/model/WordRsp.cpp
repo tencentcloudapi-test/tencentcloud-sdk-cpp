@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ WordRsp::WordRsp() :
     m_wordHasBeenSet(false),
     m_matchTagHasBeenSet(false),
     m_phoneInfosHasBeenSet(false),
-    m_referenceWordHasBeenSet(false)
+    m_referenceWordHasBeenSet(false),
+    m_keywordTagHasBeenSet(false),
+    m_toneHasBeenSet(false)
 {
 }
 
@@ -127,6 +129,33 @@ CoreInternalOutcome WordRsp::Deserialize(const rapidjson::Value &value)
         m_referenceWordHasBeenSet = true;
     }
 
+    if (value.HasMember("KeywordTag") && !value["KeywordTag"].IsNull())
+    {
+        if (!value["KeywordTag"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `WordRsp.KeywordTag` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_keywordTag = value["KeywordTag"].GetInt64();
+        m_keywordTagHasBeenSet = true;
+    }
+
+    if (value.HasMember("Tone") && !value["Tone"].IsNull())
+    {
+        if (!value["Tone"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `WordRsp.Tone` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_tone.Deserialize(value["Tone"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_toneHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -203,6 +232,23 @@ void WordRsp::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "ReferenceWord";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_referenceWord.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_keywordTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KeywordTag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_keywordTag, allocator);
+    }
+
+    if (m_toneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_tone.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -334,5 +380,37 @@ void WordRsp::SetReferenceWord(const string& _referenceWord)
 bool WordRsp::ReferenceWordHasBeenSet() const
 {
     return m_referenceWordHasBeenSet;
+}
+
+int64_t WordRsp::GetKeywordTag() const
+{
+    return m_keywordTag;
+}
+
+void WordRsp::SetKeywordTag(const int64_t& _keywordTag)
+{
+    m_keywordTag = _keywordTag;
+    m_keywordTagHasBeenSet = true;
+}
+
+bool WordRsp::KeywordTagHasBeenSet() const
+{
+    return m_keywordTagHasBeenSet;
+}
+
+Tone WordRsp::GetTone() const
+{
+    return m_tone;
+}
+
+void WordRsp::SetTone(const Tone& _tone)
+{
+    m_tone = _tone;
+    m_toneHasBeenSet = true;
+}
+
+bool WordRsp::ToneHasBeenSet() const
+{
+    return m_toneHasBeenSet;
 }
 

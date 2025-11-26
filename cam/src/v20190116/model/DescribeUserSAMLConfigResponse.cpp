@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeUserSAMLConfigResponse::DescribeUserSAMLConfigResponse() :
     m_sAMLMetadataHasBeenSet(false),
-    m_statusHasBeenSet(false)
+    m_statusHasBeenSet(false),
+    m_auxiliaryDomainHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome DescribeUserSAMLConfigResponse::Deserialize(const string &pa
         m_statusHasBeenSet = true;
     }
 
+    if (rsp.HasMember("AuxiliaryDomain") && !rsp["AuxiliaryDomain"].IsNull())
+    {
+        if (!rsp["AuxiliaryDomain"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AuxiliaryDomain` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_auxiliaryDomain = string(rsp["AuxiliaryDomain"].GetString());
+        m_auxiliaryDomainHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string DescribeUserSAMLConfigResponse::ToJsonString() const
         value.AddMember(iKey, m_status, allocator);
     }
 
+    if (m_auxiliaryDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AuxiliaryDomain";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_auxiliaryDomain.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ uint64_t DescribeUserSAMLConfigResponse::GetStatus() const
 bool DescribeUserSAMLConfigResponse::StatusHasBeenSet() const
 {
     return m_statusHasBeenSet;
+}
+
+string DescribeUserSAMLConfigResponse::GetAuxiliaryDomain() const
+{
+    return m_auxiliaryDomain;
+}
+
+bool DescribeUserSAMLConfigResponse::AuxiliaryDomainHasBeenSet() const
+{
+    return m_auxiliaryDomainHasBeenSet;
 }
 
 

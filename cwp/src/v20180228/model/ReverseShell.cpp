@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,11 @@ ReverseShell::ReverseShell() :
     m_createTimeHasBeenSet(false),
     m_machineNameHasBeenSet(false),
     m_procTreeHasBeenSet(false),
-    m_detectByHasBeenSet(false)
+    m_detectByHasBeenSet(false),
+    m_machineExtraInfoHasBeenSet(false),
+    m_pidHasBeenSet(false),
+    m_riskLevelHasBeenSet(false),
+    m_cmdLineQuoteHasBeenSet(false)
 {
 }
 
@@ -249,6 +253,53 @@ CoreInternalOutcome ReverseShell::Deserialize(const rapidjson::Value &value)
         m_detectByHasBeenSet = true;
     }
 
+    if (value.HasMember("MachineExtraInfo") && !value["MachineExtraInfo"].IsNull())
+    {
+        if (!value["MachineExtraInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReverseShell.MachineExtraInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_machineExtraInfo.Deserialize(value["MachineExtraInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_machineExtraInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("Pid") && !value["Pid"].IsNull())
+    {
+        if (!value["Pid"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReverseShell.Pid` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_pid = value["Pid"].GetInt64();
+        m_pidHasBeenSet = true;
+    }
+
+    if (value.HasMember("RiskLevel") && !value["RiskLevel"].IsNull())
+    {
+        if (!value["RiskLevel"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReverseShell.RiskLevel` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_riskLevel = value["RiskLevel"].GetUint64();
+        m_riskLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("CmdLineQuote") && !value["CmdLineQuote"].IsNull())
+    {
+        if (!value["CmdLineQuote"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReverseShell.CmdLineQuote` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cmdLineQuote = string(value["CmdLineQuote"].GetString());
+        m_cmdLineQuoteHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -414,6 +465,39 @@ void ReverseShell::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "DetectBy";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_detectBy, allocator);
+    }
+
+    if (m_machineExtraInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MachineExtraInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_machineExtraInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_pidHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Pid";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_pid, allocator);
+    }
+
+    if (m_riskLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RiskLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_riskLevel, allocator);
+    }
+
+    if (m_cmdLineQuoteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CmdLineQuote";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cmdLineQuote.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -737,5 +821,69 @@ void ReverseShell::SetDetectBy(const uint64_t& _detectBy)
 bool ReverseShell::DetectByHasBeenSet() const
 {
     return m_detectByHasBeenSet;
+}
+
+MachineExtraInfo ReverseShell::GetMachineExtraInfo() const
+{
+    return m_machineExtraInfo;
+}
+
+void ReverseShell::SetMachineExtraInfo(const MachineExtraInfo& _machineExtraInfo)
+{
+    m_machineExtraInfo = _machineExtraInfo;
+    m_machineExtraInfoHasBeenSet = true;
+}
+
+bool ReverseShell::MachineExtraInfoHasBeenSet() const
+{
+    return m_machineExtraInfoHasBeenSet;
+}
+
+int64_t ReverseShell::GetPid() const
+{
+    return m_pid;
+}
+
+void ReverseShell::SetPid(const int64_t& _pid)
+{
+    m_pid = _pid;
+    m_pidHasBeenSet = true;
+}
+
+bool ReverseShell::PidHasBeenSet() const
+{
+    return m_pidHasBeenSet;
+}
+
+uint64_t ReverseShell::GetRiskLevel() const
+{
+    return m_riskLevel;
+}
+
+void ReverseShell::SetRiskLevel(const uint64_t& _riskLevel)
+{
+    m_riskLevel = _riskLevel;
+    m_riskLevelHasBeenSet = true;
+}
+
+bool ReverseShell::RiskLevelHasBeenSet() const
+{
+    return m_riskLevelHasBeenSet;
+}
+
+string ReverseShell::GetCmdLineQuote() const
+{
+    return m_cmdLineQuote;
+}
+
+void ReverseShell::SetCmdLineQuote(const string& _cmdLineQuote)
+{
+    m_cmdLineQuote = _cmdLineQuote;
+    m_cmdLineQuoteHasBeenSet = true;
+}
+
+bool ReverseShell::CmdLineQuoteHasBeenSet() const
+{
+    return m_cmdLineQuoteHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,14 +46,58 @@ namespace TencentCloud
                     /**
                      * 获取任务id
                      * @return TaskID 任务id
+                     * 
                      */
                     std::string GetTaskID() const;
 
                     /**
                      * 判断参数 TaskID 是否已赋值
                      * @return TaskID 是否已赋值
+                     * 
                      */
                     bool TaskIDHasBeenSet() const;
+
+                    /**
+                     * 获取最近扫描时间
+                     * @return LastScanTime 最近扫描时间
+                     * 
+                     */
+                    std::string GetLastScanTime() const;
+
+                    /**
+                     * 判断参数 LastScanTime 是否已赋值
+                     * @return LastScanTime 是否已赋值
+                     * 
+                     */
+                    bool LastScanTimeHasBeenSet() const;
+
+                    /**
+                     * 获取扫描状态(READY:准备 SCANNING:扫描中 END:完成)
+                     * @return Status 扫描状态(READY:准备 SCANNING:扫描中 END:完成)
+                     * 
+                     */
+                    std::string GetStatus() const;
+
+                    /**
+                     * 判断参数 Status 是否已赋值
+                     * @return Status 是否已赋值
+                     * 
+                     */
+                    bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误)
+                     * @return SubStatus 扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误)
+                     * 
+                     */
+                    std::string GetSubStatus() const;
+
+                    /**
+                     * 判断参数 SubStatus 是否已赋值
+                     * @return SubStatus 是否已赋值
+                     * 
+                     */
+                    bool SubStatusHasBeenSet() const;
 
                 private:
 
@@ -62,6 +106,24 @@ namespace TencentCloud
                      */
                     std::string m_taskID;
                     bool m_taskIDHasBeenSet;
+
+                    /**
+                     * 最近扫描时间
+                     */
+                    std::string m_lastScanTime;
+                    bool m_lastScanTimeHasBeenSet;
+
+                    /**
+                     * 扫描状态(READY:准备 SCANNING:扫描中 END:完成)
+                     */
+                    std::string m_status;
+                    bool m_statusHasBeenSet;
+
+                    /**
+                     * 扫描子状态(Success:成功 Timeout:超时 Cancel:取消 Error:错误)
+                     */
+                    std::string m_subStatus;
+                    bool m_subStatusHasBeenSet;
 
                 };
             }

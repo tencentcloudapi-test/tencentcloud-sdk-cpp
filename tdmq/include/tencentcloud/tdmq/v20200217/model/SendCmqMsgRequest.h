@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取队列名
                      * @return QueueName 队列名
+                     * 
                      */
                     std::string GetQueueName() const;
 
                     /**
                      * 设置队列名
-                     * @param QueueName 队列名
+                     * @param _queueName 队列名
+                     * 
                      */
                     void SetQueueName(const std::string& _queueName);
 
                     /**
                      * 判断参数 QueueName 是否已赋值
                      * @return QueueName 是否已赋值
+                     * 
                      */
                     bool QueueNameHasBeenSet() const;
 
                     /**
                      * 获取消息内容
                      * @return MsgContent 消息内容
+                     * 
                      */
                     std::string GetMsgContent() const;
 
                     /**
                      * 设置消息内容
-                     * @param MsgContent 消息内容
+                     * @param _msgContent 消息内容
+                     * 
                      */
                     void SetMsgContent(const std::string& _msgContent);
 
                     /**
                      * 判断参数 MsgContent 是否已赋值
                      * @return MsgContent 是否已赋值
+                     * 
                      */
                     bool MsgContentHasBeenSet() const;
 
                     /**
-                     * 获取延迟时间
-                     * @return DelaySeconds 延迟时间
+                     * 获取延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
+                     * @return DelaySeconds 延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
+                     * 
                      */
                     int64_t GetDelaySeconds() const;
 
                     /**
-                     * 设置延迟时间
-                     * @param DelaySeconds 延迟时间
+                     * 设置延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
+                     * @param _delaySeconds 延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
+                     * 
                      */
                     void SetDelaySeconds(const int64_t& _delaySeconds);
 
                     /**
                      * 判断参数 DelaySeconds 是否已赋值
                      * @return DelaySeconds 是否已赋值
+                     * 
                      */
                     bool DelaySecondsHasBeenSet() const;
 
@@ -111,7 +120,7 @@ namespace TencentCloud
                     bool m_msgContentHasBeenSet;
 
                     /**
-                     * 延迟时间
+                     * 延迟时间。单位为秒，默认值为0秒，最大不能超过队列配置的消息最长未确认时间。
                      */
                     int64_t m_delaySeconds;
                     bool m_delaySecondsHasBeenSet;

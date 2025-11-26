@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,41 +50,43 @@ namespace TencentCloud
 
                     /**
                      * 获取媒资和分类资源。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Resource 媒资和分类资源。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     Resource GetResource() const;
 
                     /**
                      * 设置媒资和分类资源。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Resource 媒资和分类资源。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _resource 媒资和分类资源。
+                     * 
                      */
                     void SetResource(const Resource& _resource);
 
                     /**
                      * 判断参数 Resource 是否已赋值
                      * @return Resource 是否已赋值
+                     * 
                      */
                     bool ResourceHasBeenSet() const;
 
                     /**
                      * 获取资源归属，个人或团队。
                      * @return Owner 资源归属，个人或团队。
+                     * 
                      */
                     Entity GetOwner() const;
 
                     /**
                      * 设置资源归属，个人或团队。
-                     * @param Owner 资源归属，个人或团队。
+                     * @param _owner 资源归属，个人或团队。
+                     * 
                      */
                     void SetOwner(const Entity& _owner);
 
                     /**
                      * 判断参数 Owner 是否已赋值
                      * @return Owner 是否已赋值
+                     * 
                      */
                     bool OwnerHasBeenSet() const;
 
@@ -92,7 +94,6 @@ namespace TencentCloud
 
                     /**
                      * 媒资和分类资源。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     Resource m_resource;
                     bool m_resourceHasBeenSet;

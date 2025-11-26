@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,10 @@ DescribeBatchProductionResponse::DescribeBatchProductionResponse() :
     m_createTimeHasBeenSet(false),
     m_downloadUrlHasBeenSet(false),
     m_generationMethodHasBeenSet(false),
-    m_uploadUrlHasBeenSet(false)
+    m_uploadUrlHasBeenSet(false),
+    m_successCountHasBeenSet(false),
+    m_lastFailedReasonHasBeenSet(false),
+    m_statusHasBeenSet(false)
 {
 }
 
@@ -127,6 +130,36 @@ CoreInternalOutcome DescribeBatchProductionResponse::Deserialize(const string &p
         m_uploadUrlHasBeenSet = true;
     }
 
+    if (rsp.HasMember("SuccessCount") && !rsp["SuccessCount"].IsNull())
+    {
+        if (!rsp["SuccessCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SuccessCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_successCount = rsp["SuccessCount"].GetInt64();
+        m_successCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("LastFailedReason") && !rsp["LastFailedReason"].IsNull())
+    {
+        if (!rsp["LastFailedReason"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LastFailedReason` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_lastFailedReason = string(rsp["LastFailedReason"].GetString());
+        m_lastFailedReasonHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Status") && !rsp["Status"].IsNull())
+    {
+        if (!rsp["Status"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Status` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_status = rsp["Status"].GetInt64();
+        m_statusHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -185,11 +218,35 @@ string DescribeBatchProductionResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_uploadUrl.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_successCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SuccessCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_successCount, allocator);
+    }
+
+    if (m_lastFailedReasonHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LastFailedReason";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_lastFailedReason.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_statusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Status";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_status, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -255,6 +312,36 @@ string DescribeBatchProductionResponse::GetUploadUrl() const
 bool DescribeBatchProductionResponse::UploadUrlHasBeenSet() const
 {
     return m_uploadUrlHasBeenSet;
+}
+
+int64_t DescribeBatchProductionResponse::GetSuccessCount() const
+{
+    return m_successCount;
+}
+
+bool DescribeBatchProductionResponse::SuccessCountHasBeenSet() const
+{
+    return m_successCountHasBeenSet;
+}
+
+string DescribeBatchProductionResponse::GetLastFailedReason() const
+{
+    return m_lastFailedReason;
+}
+
+bool DescribeBatchProductionResponse::LastFailedReasonHasBeenSet() const
+{
+    return m_lastFailedReasonHasBeenSet;
+}
+
+int64_t DescribeBatchProductionResponse::GetStatus() const
+{
+    return m_status;
+}
+
+bool DescribeBatchProductionResponse::StatusHasBeenSet() const
+{
+    return m_statusHasBeenSet;
 }
 
 

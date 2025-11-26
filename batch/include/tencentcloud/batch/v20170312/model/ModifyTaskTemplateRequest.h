@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,93 +44,105 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取任务模板ID
-                     * @return TaskTemplateId 任务模板ID
+                     * 获取任务模板ID; 详见[任务模版](https://cloud.tencent.com/document/product/599/15902)。
+                     * @return TaskTemplateId 任务模板ID; 详见[任务模版](https://cloud.tencent.com/document/product/599/15902)。
+                     * 
                      */
                     std::string GetTaskTemplateId() const;
 
                     /**
-                     * 设置任务模板ID
-                     * @param TaskTemplateId 任务模板ID
+                     * 设置任务模板ID; 详见[任务模版](https://cloud.tencent.com/document/product/599/15902)。
+                     * @param _taskTemplateId 任务模板ID; 详见[任务模版](https://cloud.tencent.com/document/product/599/15902)。
+                     * 
                      */
                     void SetTaskTemplateId(const std::string& _taskTemplateId);
 
                     /**
                      * 判断参数 TaskTemplateId 是否已赋值
                      * @return TaskTemplateId 是否已赋值
+                     * 
                      */
                     bool TaskTemplateIdHasBeenSet() const;
 
                     /**
-                     * 获取任务模板名称
-                     * @return TaskTemplateName 任务模板名称
+                     * 获取任务模板名称；字节长度限制60。
+                     * @return TaskTemplateName 任务模板名称；字节长度限制60。
+                     * 
                      */
                     std::string GetTaskTemplateName() const;
 
                     /**
-                     * 设置任务模板名称
-                     * @param TaskTemplateName 任务模板名称
+                     * 设置任务模板名称；字节长度限制60。
+                     * @param _taskTemplateName 任务模板名称；字节长度限制60。
+                     * 
                      */
                     void SetTaskTemplateName(const std::string& _taskTemplateName);
 
                     /**
                      * 判断参数 TaskTemplateName 是否已赋值
                      * @return TaskTemplateName 是否已赋值
+                     * 
                      */
                     bool TaskTemplateNameHasBeenSet() const;
 
                     /**
-                     * 获取任务模板描述
-                     * @return TaskTemplateDescription 任务模板描述
+                     * 获取任务模板描述；字节长度限制200。
+                     * @return TaskTemplateDescription 任务模板描述；字节长度限制200。
+                     * 
                      */
                     std::string GetTaskTemplateDescription() const;
 
                     /**
-                     * 设置任务模板描述
-                     * @param TaskTemplateDescription 任务模板描述
+                     * 设置任务模板描述；字节长度限制200。
+                     * @param _taskTemplateDescription 任务模板描述；字节长度限制200。
+                     * 
                      */
                     void SetTaskTemplateDescription(const std::string& _taskTemplateDescription);
 
                     /**
                      * 判断参数 TaskTemplateDescription 是否已赋值
                      * @return TaskTemplateDescription 是否已赋值
+                     * 
                      */
                     bool TaskTemplateDescriptionHasBeenSet() const;
 
                     /**
                      * 获取任务模板信息
                      * @return TaskTemplateInfo 任务模板信息
+                     * 
                      */
                     Task GetTaskTemplateInfo() const;
 
                     /**
                      * 设置任务模板信息
-                     * @param TaskTemplateInfo 任务模板信息
+                     * @param _taskTemplateInfo 任务模板信息
+                     * 
                      */
                     void SetTaskTemplateInfo(const Task& _taskTemplateInfo);
 
                     /**
                      * 判断参数 TaskTemplateInfo 是否已赋值
                      * @return TaskTemplateInfo 是否已赋值
+                     * 
                      */
                     bool TaskTemplateInfoHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 任务模板ID
+                     * 任务模板ID; 详见[任务模版](https://cloud.tencent.com/document/product/599/15902)。
                      */
                     std::string m_taskTemplateId;
                     bool m_taskTemplateIdHasBeenSet;
 
                     /**
-                     * 任务模板名称
+                     * 任务模板名称；字节长度限制60。
                      */
                     std::string m_taskTemplateName;
                     bool m_taskTemplateNameHasBeenSet;
 
                     /**
-                     * 任务模板描述
+                     * 任务模板描述；字节长度限制200。
                      */
                     std::string m_taskTemplateDescription;
                     bool m_taskTemplateDescriptionHasBeenSet;

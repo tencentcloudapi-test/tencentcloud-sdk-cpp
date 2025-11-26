@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,9 @@ DescribeInstancesRequest::DescribeInstancesRequest() :
     m_tagListHasBeenSet(false),
     m_ipListHasBeenSet(false),
     m_zoneListHasBeenSet(false),
-    m_healthStatusHasBeenSet(false)
+    m_healthStatusHasBeenSet(false),
+    m_vpcIdsHasBeenSet(false),
+    m_cdcIdHasBeenSet(false)
 {
 }
 
@@ -162,6 +164,27 @@ string DescribeInstancesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
         }
+    }
+
+    if (m_vpcIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VpcIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_vpcIds.begin(); itr != m_vpcIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_cdcIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CdcId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cdcId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -346,6 +369,38 @@ void DescribeInstancesRequest::SetHealthStatus(const vector<int64_t>& _healthSta
 bool DescribeInstancesRequest::HealthStatusHasBeenSet() const
 {
     return m_healthStatusHasBeenSet;
+}
+
+vector<string> DescribeInstancesRequest::GetVpcIds() const
+{
+    return m_vpcIds;
+}
+
+void DescribeInstancesRequest::SetVpcIds(const vector<string>& _vpcIds)
+{
+    m_vpcIds = _vpcIds;
+    m_vpcIdsHasBeenSet = true;
+}
+
+bool DescribeInstancesRequest::VpcIdsHasBeenSet() const
+{
+    return m_vpcIdsHasBeenSet;
+}
+
+string DescribeInstancesRequest::GetCdcId() const
+{
+    return m_cdcId;
+}
+
+void DescribeInstancesRequest::SetCdcId(const string& _cdcId)
+{
+    m_cdcId = _cdcId;
+    m_cdcIdHasBeenSet = true;
+}
+
+bool DescribeInstancesRequest::CdcIdHasBeenSet() const
+{
+    return m_cdcIdHasBeenSet;
 }
 
 

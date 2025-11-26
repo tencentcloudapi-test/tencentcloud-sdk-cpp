@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeAssetImageRegistryAssetStatusResponse::DescribeAssetImageRegistryAssetStatusResponse() :
     m_statusHasBeenSet(false),
-    m_errHasBeenSet(false)
+    m_errHasBeenSet(false),
+    m_latestSyncSuccessTimeHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome DescribeAssetImageRegistryAssetStatusResponse::Deserialize(c
         m_errHasBeenSet = true;
     }
 
+    if (rsp.HasMember("LatestSyncSuccessTime") && !rsp["LatestSyncSuccessTime"].IsNull())
+    {
+        if (!rsp["LatestSyncSuccessTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `LatestSyncSuccessTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_latestSyncSuccessTime = string(rsp["LatestSyncSuccessTime"].GetString());
+        m_latestSyncSuccessTimeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string DescribeAssetImageRegistryAssetStatusResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_err.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_latestSyncSuccessTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LatestSyncSuccessTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_latestSyncSuccessTime.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ string DescribeAssetImageRegistryAssetStatusResponse::GetErr() const
 bool DescribeAssetImageRegistryAssetStatusResponse::ErrHasBeenSet() const
 {
     return m_errHasBeenSet;
+}
+
+string DescribeAssetImageRegistryAssetStatusResponse::GetLatestSyncSuccessTime() const
+{
+    return m_latestSyncSuccessTime;
+}
+
+bool DescribeAssetImageRegistryAssetStatusResponse::LatestSyncSuccessTimeHasBeenSet() const
+{
+    return m_latestSyncSuccessTimeHasBeenSet;
 }
 
 

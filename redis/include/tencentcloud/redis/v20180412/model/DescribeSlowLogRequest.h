@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,150 +43,210 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例Id
-                     * @return InstanceId 实例Id
+                     * 获取指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+                     * @return InstanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例Id
-                     * @param InstanceId 实例Id
+                     * 设置指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+                     * @param _instanceId 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取开始时间
-                     * @return BeginTime 开始时间
+                     * 获取预查询慢日志的起始时间，查询时间最大跨度30天。
+                     * @return BeginTime 预查询慢日志的起始时间，查询时间最大跨度30天。
+                     * 
                      */
                     std::string GetBeginTime() const;
 
                     /**
-                     * 设置开始时间
-                     * @param BeginTime 开始时间
+                     * 设置预查询慢日志的起始时间，查询时间最大跨度30天。
+                     * @param _beginTime 预查询慢日志的起始时间，查询时间最大跨度30天。
+                     * 
                      */
                     void SetBeginTime(const std::string& _beginTime);
 
                     /**
                      * 判断参数 BeginTime 是否已赋值
                      * @return BeginTime 是否已赋值
+                     * 
                      */
                     bool BeginTimeHasBeenSet() const;
 
                     /**
-                     * 获取结束时间
-                     * @return EndTime 结束时间
+                     * 获取预查询慢日志的结束时间，查询时间最大跨度30天
+                     * @return EndTime 预查询慢日志的结束时间，查询时间最大跨度30天
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置结束时间
-                     * @param EndTime 结束时间
+                     * 设置预查询慢日志的结束时间，查询时间最大跨度30天
+                     * @param _endTime 预查询慢日志的结束时间，查询时间最大跨度30天
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取慢查询阈值（单位：微秒）
-                     * @return MinQueryTime 慢查询阈值（单位：微秒）
+                     * 获取慢查询平均执行时间阈值。取值为大于0 的正整数。单位：毫秒。
+                     * @return MinQueryTime 慢查询平均执行时间阈值。取值为大于0 的正整数。单位：毫秒。
+                     * 
                      */
                     int64_t GetMinQueryTime() const;
 
                     /**
-                     * 设置慢查询阈值（单位：微秒）
-                     * @param MinQueryTime 慢查询阈值（单位：微秒）
+                     * 设置慢查询平均执行时间阈值。取值为大于0 的正整数。单位：毫秒。
+                     * @param _minQueryTime 慢查询平均执行时间阈值。取值为大于0 的正整数。单位：毫秒。
+                     * 
                      */
                     void SetMinQueryTime(const int64_t& _minQueryTime);
 
                     /**
                      * 判断参数 MinQueryTime 是否已赋值
                      * @return MinQueryTime 是否已赋值
+                     * 
                      */
                     bool MinQueryTimeHasBeenSet() const;
 
                     /**
-                     * 获取页面大小
-                     * @return Limit 页面大小
+                     * 获取每个页面展示的慢查询条数，默认值为20，最小值为1，最大值为100。
+                     * @return Limit 每个页面展示的慢查询条数，默认值为20，最小值为1，最大值为100。
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置页面大小
-                     * @param Limit 页面大小
+                     * 设置每个页面展示的慢查询条数，默认值为20，最小值为1，最大值为100。
+                     * @param _limit 每个页面展示的慢查询条数，默认值为20，最小值为1，最大值为100。
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取偏移量，取Limit整数倍
-                     * @return Offset 偏移量，取Limit整数倍
+                     * 获取慢查询条数的偏移量。默认为0。取Limit整数倍。计算公式：offset=limit*(页码-1)。
+                     * @return Offset 慢查询条数的偏移量。默认为0。取Limit整数倍。计算公式：offset=limit*(页码-1)。
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置偏移量，取Limit整数倍
-                     * @param Offset 偏移量，取Limit整数倍
+                     * 设置慢查询条数的偏移量。默认为0。取Limit整数倍。计算公式：offset=limit*(页码-1)。
+                     * @param _offset 慢查询条数的偏移量。默认为0。取Limit整数倍。计算公式：offset=limit*(页码-1)。
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
+
+                    /**
+                     * 获取节点所属角色。
+- master：主节点。
+- slave：从节点。
+                     * @return Role 节点所属角色。
+- master：主节点。
+- slave：从节点。
+                     * 
+                     */
+                    std::string GetRole() const;
+
+                    /**
+                     * 设置节点所属角色。
+- master：主节点。
+- slave：从节点。
+                     * @param _role 节点所属角色。
+- master：主节点。
+- slave：从节点。
+                     * 
+                     */
+                    void SetRole(const std::string& _role);
+
+                    /**
+                     * 判断参数 Role 是否已赋值
+                     * @return Role 是否已赋值
+                     * 
+                     */
+                    bool RoleHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例Id
+                     * 指定实例 ID。例如：crs-xjhsdj****。请登录[Redis控制台](https://console.cloud.tencent.com/redis)在实例列表复制实例 ID。
+
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 开始时间
+                     * 预查询慢日志的起始时间，查询时间最大跨度30天。
                      */
                     std::string m_beginTime;
                     bool m_beginTimeHasBeenSet;
 
                     /**
-                     * 结束时间
+                     * 预查询慢日志的结束时间，查询时间最大跨度30天
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * 慢查询阈值（单位：微秒）
+                     * 慢查询平均执行时间阈值。取值为大于0 的正整数。单位：毫秒。
                      */
                     int64_t m_minQueryTime;
                     bool m_minQueryTimeHasBeenSet;
 
                     /**
-                     * 页面大小
+                     * 每个页面展示的慢查询条数，默认值为20，最小值为1，最大值为100。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 偏移量，取Limit整数倍
+                     * 慢查询条数的偏移量。默认为0。取Limit整数倍。计算公式：offset=limit*(页码-1)。
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
+
+                    /**
+                     * 节点所属角色。
+- master：主节点。
+- slave：从节点。
+                     */
+                    std::string m_role;
+                    bool m_roleHasBeenSet;
 
                 };
             }

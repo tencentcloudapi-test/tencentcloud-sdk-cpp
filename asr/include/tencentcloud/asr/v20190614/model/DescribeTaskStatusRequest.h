@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,19 +44,26 @@ namespace TencentCloud
 
                     /**
                      * 获取从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+**注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。**
                      * @return TaskId 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+**注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。**
+                     * 
                      */
                     uint64_t GetTaskId() const;
 
                     /**
                      * 设置从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
-                     * @param TaskId 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+**注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。**
+                     * @param _taskId 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+**注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。**
+                     * 
                      */
                     void SetTaskId(const uint64_t& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
@@ -64,6 +71,7 @@ namespace TencentCloud
 
                     /**
                      * 从CreateRecTask接口获取的TaskId，用于获取任务状态与结果。
+**注意：TaskId有效期为24小时，超过24小时的TaskId请不要再查询。**
                      */
                     uint64_t m_taskId;
                     bool m_taskIdHasBeenSet;

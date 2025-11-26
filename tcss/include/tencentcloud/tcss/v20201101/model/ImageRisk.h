@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,111 +48,106 @@ namespace TencentCloud
 
                     /**
                      * 获取高危行为
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Behavior 高危行为
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetBehavior() const;
 
                     /**
                      * 设置高危行为
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Behavior 高危行为
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _behavior 高危行为
+                     * 
                      */
                     void SetBehavior(const uint64_t& _behavior);
 
                     /**
                      * 判断参数 Behavior 是否已赋值
                      * @return Behavior 是否已赋值
+                     * 
                      */
                     bool BehaviorHasBeenSet() const;
 
                     /**
                      * 获取种类
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Type 种类
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetType() const;
 
                     /**
                      * 设置种类
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Type 种类
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _type 种类
+                     * 
                      */
                     void SetType(const uint64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取风险等级
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Level 风险等级
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLevel() const;
 
                     /**
                      * 设置风险等级
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Level 风险等级
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _level 风险等级
+                     * 
                      */
                     void SetLevel(const std::string& _level);
 
                     /**
                      * 判断参数 Level 是否已赋值
                      * @return Level 是否已赋值
+                     * 
                      */
                     bool LevelHasBeenSet() const;
 
                     /**
                      * 获取描述
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Desc 描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDesc() const;
 
                     /**
                      * 设置描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Desc 描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _desc 描述
+                     * 
                      */
                     void SetDesc(const std::string& _desc);
 
                     /**
                      * 判断参数 Desc 是否已赋值
                      * @return Desc 是否已赋值
+                     * 
                      */
                     bool DescHasBeenSet() const;
 
                     /**
                      * 获取解决方案
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return InstructionContent 解决方案
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInstructionContent() const;
 
                     /**
                      * 设置解决方案
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstructionContent 解决方案
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _instructionContent 解决方案
+                     * 
                      */
                     void SetInstructionContent(const std::string& _instructionContent);
 
                     /**
                      * 判断参数 InstructionContent 是否已赋值
                      * @return InstructionContent 是否已赋值
+                     * 
                      */
                     bool InstructionContentHasBeenSet() const;
 
@@ -160,35 +155,30 @@ namespace TencentCloud
 
                     /**
                      * 高危行为
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_behavior;
                     bool m_behaviorHasBeenSet;
 
                     /**
                      * 种类
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_type;
                     bool m_typeHasBeenSet;
 
                     /**
                      * 风险等级
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_level;
                     bool m_levelHasBeenSet;
 
                     /**
                      * 描述
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_desc;
                     bool m_descHasBeenSet;
 
                     /**
                      * 解决方案
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_instructionContent;
                     bool m_instructionContentHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,12 +48,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return SuccessTotal 推送成功的设备总数
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetSuccessTotal() const;
 
                     /**
                      * 判断参数 SuccessTotal 是否已赋值
                      * @return SuccessTotal 是否已赋值
+                     * 
                      */
                     bool SuccessTotalHasBeenSet() const;
 
@@ -62,12 +64,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return FailureTotal 推送失败的设备总数
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetFailureTotal() const;
 
                     /**
                      * 判断参数 FailureTotal 是否已赋值
                      * @return FailureTotal 是否已赋值
+                     * 
                      */
                     bool FailureTotalHasBeenSet() const;
 
@@ -76,12 +80,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return UpgradingTotal 正在推送的设备总数
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetUpgradingTotal() const;
 
                     /**
                      * 判断参数 UpgradingTotal 是否已赋值
                      * @return UpgradingTotal 是否已赋值
+                     * 
                      */
                     bool UpgradingTotalHasBeenSet() const;
 

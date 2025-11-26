@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,11 @@ ListRuntimeDeployedInstancesMCRequest::ListRuntimeDeployedInstancesMCRequest() :
     m_offsetHasBeenSet(false),
     m_sortTypeHasBeenSet(false),
     m_sortHasBeenSet(false),
-    m_zoneHasBeenSet(false)
+    m_zoneHasBeenSet(false),
+    m_apiVersionHasBeenSet(false),
+    m_groupIdHasBeenSet(false),
+    m_statusHasBeenSet(false),
+    m_runtimeClassHasBeenSet(false)
 {
 }
 
@@ -85,6 +89,38 @@ string ListRuntimeDeployedInstancesMCRequest::ToJsonString() const
         string key = "Zone";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_apiVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ApiVersion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_apiVersion, allocator);
+    }
+
+    if (m_groupIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_groupId, allocator);
+    }
+
+    if (m_statusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Status";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_status, allocator);
+    }
+
+    if (m_runtimeClassHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RuntimeClass";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_runtimeClass, allocator);
     }
 
 
@@ -189,6 +225,70 @@ void ListRuntimeDeployedInstancesMCRequest::SetZone(const string& _zone)
 bool ListRuntimeDeployedInstancesMCRequest::ZoneHasBeenSet() const
 {
     return m_zoneHasBeenSet;
+}
+
+int64_t ListRuntimeDeployedInstancesMCRequest::GetApiVersion() const
+{
+    return m_apiVersion;
+}
+
+void ListRuntimeDeployedInstancesMCRequest::SetApiVersion(const int64_t& _apiVersion)
+{
+    m_apiVersion = _apiVersion;
+    m_apiVersionHasBeenSet = true;
+}
+
+bool ListRuntimeDeployedInstancesMCRequest::ApiVersionHasBeenSet() const
+{
+    return m_apiVersionHasBeenSet;
+}
+
+int64_t ListRuntimeDeployedInstancesMCRequest::GetGroupId() const
+{
+    return m_groupId;
+}
+
+void ListRuntimeDeployedInstancesMCRequest::SetGroupId(const int64_t& _groupId)
+{
+    m_groupId = _groupId;
+    m_groupIdHasBeenSet = true;
+}
+
+bool ListRuntimeDeployedInstancesMCRequest::GroupIdHasBeenSet() const
+{
+    return m_groupIdHasBeenSet;
+}
+
+int64_t ListRuntimeDeployedInstancesMCRequest::GetStatus() const
+{
+    return m_status;
+}
+
+void ListRuntimeDeployedInstancesMCRequest::SetStatus(const int64_t& _status)
+{
+    m_status = _status;
+    m_statusHasBeenSet = true;
+}
+
+bool ListRuntimeDeployedInstancesMCRequest::StatusHasBeenSet() const
+{
+    return m_statusHasBeenSet;
+}
+
+int64_t ListRuntimeDeployedInstancesMCRequest::GetRuntimeClass() const
+{
+    return m_runtimeClass;
+}
+
+void ListRuntimeDeployedInstancesMCRequest::SetRuntimeClass(const int64_t& _runtimeClass)
+{
+    m_runtimeClass = _runtimeClass;
+    m_runtimeClassHasBeenSet = true;
+}
+
+bool ListRuntimeDeployedInstancesMCRequest::RuntimeClassHasBeenSet() const
+{
+    return m_runtimeClassHasBeenSet;
 }
 
 

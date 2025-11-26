@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,17 @@ AlarmHistory::AlarmHistory() :
     m_regionHasBeenSet(false),
     m_policyExistsHasBeenSet(false),
     m_metricsInfoHasBeenSet(false),
-    m_dimensionsHasBeenSet(false)
+    m_dimensionsHasBeenSet(false),
+    m_alarmLevelHasBeenSet(false),
+    m_shieldFlagHasBeenSet(false),
+    m_alarmShieldingTypeHasBeenSet(false),
+    m_alarmShieldingTimeHasBeenSet(false),
+    m_alarmShieldingShowTypeHasBeenSet(false),
+    m_alarmShieldingShowTimeHasBeenSet(false),
+    m_alarmShieldReasonHasBeenSet(false),
+    m_internalDimensionsHasBeenSet(false),
+    m_metricNameHasBeenSet(false),
+    m_policyPermissionsHasBeenSet(false)
 {
 }
 
@@ -322,6 +332,106 @@ CoreInternalOutcome AlarmHistory::Deserialize(const rapidjson::Value &value)
         m_dimensionsHasBeenSet = true;
     }
 
+    if (value.HasMember("AlarmLevel") && !value["AlarmLevel"].IsNull())
+    {
+        if (!value["AlarmLevel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.AlarmLevel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_alarmLevel = string(value["AlarmLevel"].GetString());
+        m_alarmLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("ShieldFlag") && !value["ShieldFlag"].IsNull())
+    {
+        if (!value["ShieldFlag"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.ShieldFlag` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_shieldFlag = value["ShieldFlag"].GetInt64();
+        m_shieldFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("AlarmShieldingType") && !value["AlarmShieldingType"].IsNull())
+    {
+        if (!value["AlarmShieldingType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.AlarmShieldingType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_alarmShieldingType = string(value["AlarmShieldingType"].GetString());
+        m_alarmShieldingTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AlarmShieldingTime") && !value["AlarmShieldingTime"].IsNull())
+    {
+        if (!value["AlarmShieldingTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.AlarmShieldingTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_alarmShieldingTime = string(value["AlarmShieldingTime"].GetString());
+        m_alarmShieldingTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AlarmShieldingShowType") && !value["AlarmShieldingShowType"].IsNull())
+    {
+        if (!value["AlarmShieldingShowType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.AlarmShieldingShowType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_alarmShieldingShowType = string(value["AlarmShieldingShowType"].GetString());
+        m_alarmShieldingShowTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AlarmShieldingShowTime") && !value["AlarmShieldingShowTime"].IsNull())
+    {
+        if (!value["AlarmShieldingShowTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.AlarmShieldingShowTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_alarmShieldingShowTime = string(value["AlarmShieldingShowTime"].GetString());
+        m_alarmShieldingShowTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AlarmShieldReason") && !value["AlarmShieldReason"].IsNull())
+    {
+        if (!value["AlarmShieldReason"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.AlarmShieldReason` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_alarmShieldReason = string(value["AlarmShieldReason"].GetString());
+        m_alarmShieldReasonHasBeenSet = true;
+    }
+
+    if (value.HasMember("InternalDimensions") && !value["InternalDimensions"].IsNull())
+    {
+        if (!value["InternalDimensions"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.InternalDimensions` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_internalDimensions = string(value["InternalDimensions"].GetString());
+        m_internalDimensionsHasBeenSet = true;
+    }
+
+    if (value.HasMember("MetricName") && !value["MetricName"].IsNull())
+    {
+        if (!value["MetricName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.MetricName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_metricName = string(value["MetricName"].GetString());
+        m_metricNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("PolicyPermissions") && !value["PolicyPermissions"].IsNull())
+    {
+        if (!value["PolicyPermissions"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AlarmHistory.PolicyPermissions` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_policyPermissions = value["PolicyPermissions"].GetUint64();
+        m_policyPermissionsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -548,6 +658,86 @@ void AlarmHistory::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "Dimensions";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_dimensions.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_alarmLevel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_shieldFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ShieldFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_shieldFlag, allocator);
+    }
+
+    if (m_alarmShieldingTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmShieldingType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_alarmShieldingType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmShieldingTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmShieldingTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_alarmShieldingTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmShieldingShowTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmShieldingShowType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_alarmShieldingShowType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmShieldingShowTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmShieldingShowTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_alarmShieldingShowTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmShieldReasonHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmShieldReason";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_alarmShieldReason.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_internalDimensionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InternalDimensions";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_internalDimensions.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_metricNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MetricName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_metricName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_policyPermissionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PolicyPermissions";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_policyPermissions, allocator);
     }
 
 }
@@ -935,5 +1125,165 @@ void AlarmHistory::SetDimensions(const string& _dimensions)
 bool AlarmHistory::DimensionsHasBeenSet() const
 {
     return m_dimensionsHasBeenSet;
+}
+
+string AlarmHistory::GetAlarmLevel() const
+{
+    return m_alarmLevel;
+}
+
+void AlarmHistory::SetAlarmLevel(const string& _alarmLevel)
+{
+    m_alarmLevel = _alarmLevel;
+    m_alarmLevelHasBeenSet = true;
+}
+
+bool AlarmHistory::AlarmLevelHasBeenSet() const
+{
+    return m_alarmLevelHasBeenSet;
+}
+
+int64_t AlarmHistory::GetShieldFlag() const
+{
+    return m_shieldFlag;
+}
+
+void AlarmHistory::SetShieldFlag(const int64_t& _shieldFlag)
+{
+    m_shieldFlag = _shieldFlag;
+    m_shieldFlagHasBeenSet = true;
+}
+
+bool AlarmHistory::ShieldFlagHasBeenSet() const
+{
+    return m_shieldFlagHasBeenSet;
+}
+
+string AlarmHistory::GetAlarmShieldingType() const
+{
+    return m_alarmShieldingType;
+}
+
+void AlarmHistory::SetAlarmShieldingType(const string& _alarmShieldingType)
+{
+    m_alarmShieldingType = _alarmShieldingType;
+    m_alarmShieldingTypeHasBeenSet = true;
+}
+
+bool AlarmHistory::AlarmShieldingTypeHasBeenSet() const
+{
+    return m_alarmShieldingTypeHasBeenSet;
+}
+
+string AlarmHistory::GetAlarmShieldingTime() const
+{
+    return m_alarmShieldingTime;
+}
+
+void AlarmHistory::SetAlarmShieldingTime(const string& _alarmShieldingTime)
+{
+    m_alarmShieldingTime = _alarmShieldingTime;
+    m_alarmShieldingTimeHasBeenSet = true;
+}
+
+bool AlarmHistory::AlarmShieldingTimeHasBeenSet() const
+{
+    return m_alarmShieldingTimeHasBeenSet;
+}
+
+string AlarmHistory::GetAlarmShieldingShowType() const
+{
+    return m_alarmShieldingShowType;
+}
+
+void AlarmHistory::SetAlarmShieldingShowType(const string& _alarmShieldingShowType)
+{
+    m_alarmShieldingShowType = _alarmShieldingShowType;
+    m_alarmShieldingShowTypeHasBeenSet = true;
+}
+
+bool AlarmHistory::AlarmShieldingShowTypeHasBeenSet() const
+{
+    return m_alarmShieldingShowTypeHasBeenSet;
+}
+
+string AlarmHistory::GetAlarmShieldingShowTime() const
+{
+    return m_alarmShieldingShowTime;
+}
+
+void AlarmHistory::SetAlarmShieldingShowTime(const string& _alarmShieldingShowTime)
+{
+    m_alarmShieldingShowTime = _alarmShieldingShowTime;
+    m_alarmShieldingShowTimeHasBeenSet = true;
+}
+
+bool AlarmHistory::AlarmShieldingShowTimeHasBeenSet() const
+{
+    return m_alarmShieldingShowTimeHasBeenSet;
+}
+
+string AlarmHistory::GetAlarmShieldReason() const
+{
+    return m_alarmShieldReason;
+}
+
+void AlarmHistory::SetAlarmShieldReason(const string& _alarmShieldReason)
+{
+    m_alarmShieldReason = _alarmShieldReason;
+    m_alarmShieldReasonHasBeenSet = true;
+}
+
+bool AlarmHistory::AlarmShieldReasonHasBeenSet() const
+{
+    return m_alarmShieldReasonHasBeenSet;
+}
+
+string AlarmHistory::GetInternalDimensions() const
+{
+    return m_internalDimensions;
+}
+
+void AlarmHistory::SetInternalDimensions(const string& _internalDimensions)
+{
+    m_internalDimensions = _internalDimensions;
+    m_internalDimensionsHasBeenSet = true;
+}
+
+bool AlarmHistory::InternalDimensionsHasBeenSet() const
+{
+    return m_internalDimensionsHasBeenSet;
+}
+
+string AlarmHistory::GetMetricName() const
+{
+    return m_metricName;
+}
+
+void AlarmHistory::SetMetricName(const string& _metricName)
+{
+    m_metricName = _metricName;
+    m_metricNameHasBeenSet = true;
+}
+
+bool AlarmHistory::MetricNameHasBeenSet() const
+{
+    return m_metricNameHasBeenSet;
+}
+
+uint64_t AlarmHistory::GetPolicyPermissions() const
+{
+    return m_policyPermissions;
+}
+
+void AlarmHistory::SetPolicyPermissions(const uint64_t& _policyPermissions)
+{
+    m_policyPermissions = _policyPermissions;
+    m_policyPermissionsHasBeenSet = true;
+}
+
+bool AlarmHistory::PolicyPermissionsHasBeenSet() const
+{
+    return m_policyPermissionsHasBeenSet;
 }
 

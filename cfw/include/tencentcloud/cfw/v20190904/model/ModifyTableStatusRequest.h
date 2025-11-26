@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取EdgeId值两个vpc间的边id
                      * @return EdgeId EdgeId值两个vpc间的边id
+                     * 
                      */
                     std::string GetEdgeId() const;
 
                     /**
                      * 设置EdgeId值两个vpc间的边id
-                     * @param EdgeId EdgeId值两个vpc间的边id
+                     * @param _edgeId EdgeId值两个vpc间的边id
+                     * 
                      */
                     void SetEdgeId(const std::string& _edgeId);
 
                     /**
                      * 判断参数 EdgeId 是否已赋值
                      * @return EdgeId 是否已赋值
+                     * 
                      */
                     bool EdgeIdHasBeenSet() const;
 
                     /**
                      * 获取状态值，1：锁表，2：解锁表
                      * @return Status 状态值，1：锁表，2：解锁表
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 设置状态值，1：锁表，2：解锁表
-                     * @param Status 状态值，1：锁表，2：解锁表
+                     * @param _status 状态值，1：锁表，2：解锁表
+                     * 
                      */
                     void SetStatus(const uint64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取Nat所在地域
                      * @return Area Nat所在地域
+                     * 
                      */
                     std::string GetArea() const;
 
                     /**
                      * 设置Nat所在地域
-                     * @param Area Nat所在地域
+                     * @param _area Nat所在地域
+                     * 
                      */
                     void SetArea(const std::string& _area);
 
                     /**
                      * 判断参数 Area 是否已赋值
                      * @return Area 是否已赋值
+                     * 
                      */
                     bool AreaHasBeenSet() const;
 
                     /**
                      * 获取0： 出向，1：入向
                      * @return Direction 0： 出向，1：入向
+                     * 
                      */
                     uint64_t GetDirection() const;
 
                     /**
                      * 设置0： 出向，1：入向
-                     * @param Direction 0： 出向，1：入向
+                     * @param _direction 0： 出向，1：入向
+                     * 
                      */
                     void SetDirection(const uint64_t& _direction);
 
                     /**
                      * 判断参数 Direction 是否已赋值
                      * @return Direction 是否已赋值
+                     * 
                      */
                     bool DirectionHasBeenSet() const;
 

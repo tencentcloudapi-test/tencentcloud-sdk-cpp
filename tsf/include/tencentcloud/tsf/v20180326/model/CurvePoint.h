@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取当前坐标 X轴的值 当前是日期格式:"yyyy-MM-dd HH:mm:ss"
                      * @return Label 当前坐标 X轴的值 当前是日期格式:"yyyy-MM-dd HH:mm:ss"
+                     * 
                      */
                     std::string GetLabel() const;
 
                     /**
                      * 设置当前坐标 X轴的值 当前是日期格式:"yyyy-MM-dd HH:mm:ss"
-                     * @param Label 当前坐标 X轴的值 当前是日期格式:"yyyy-MM-dd HH:mm:ss"
+                     * @param _label 当前坐标 X轴的值 当前是日期格式:"yyyy-MM-dd HH:mm:ss"
+                     * 
                      */
                     void SetLabel(const std::string& _label);
 
                     /**
                      * 判断参数 Label 是否已赋值
                      * @return Label 是否已赋值
+                     * 
                      */
                     bool LabelHasBeenSet() const;
 
                     /**
                      * 获取当前坐标 Y轴的值
                      * @return Value 当前坐标 Y轴的值
+                     * 
                      */
                     std::string GetValue() const;
 
                     /**
                      * 设置当前坐标 Y轴的值
-                     * @param Value 当前坐标 Y轴的值
+                     * @param _value 当前坐标 Y轴的值
+                     * 
                      */
                     void SetValue(const std::string& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
                     /**
-                     * 获取该坐标点时间戳
-                     * @return Timestamp 该坐标点时间戳
+                     * 获取该坐标点时间戳，单位毫秒
+                     * @return Timestamp 该坐标点时间戳，单位毫秒
+                     * 
                      */
                     std::string GetTimestamp() const;
 
                     /**
-                     * 设置该坐标点时间戳
-                     * @param Timestamp 该坐标点时间戳
+                     * 设置该坐标点时间戳，单位毫秒
+                     * @param _timestamp 该坐标点时间戳，单位毫秒
+                     * 
                      */
                     void SetTimestamp(const std::string& _timestamp);
 
                     /**
                      * 判断参数 Timestamp 是否已赋值
                      * @return Timestamp 是否已赋值
+                     * 
                      */
                     bool TimestampHasBeenSet() const;
 
@@ -115,7 +124,7 @@ namespace TencentCloud
                     bool m_valueHasBeenSet;
 
                     /**
-                     * 该坐标点时间戳
+                     * 该坐标点时间戳，单位毫秒
                      */
                     std::string m_timestamp;
                     bool m_timestampHasBeenSet;

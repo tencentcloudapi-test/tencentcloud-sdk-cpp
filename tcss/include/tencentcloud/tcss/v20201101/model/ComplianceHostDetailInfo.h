@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,63 +48,86 @@ namespace TencentCloud
 
                     /**
                      * 获取主机上的Docker版本。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DockerVersion 主机上的Docker版本。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDockerVersion() const;
 
                     /**
                      * 设置主机上的Docker版本。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param DockerVersion 主机上的Docker版本。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _dockerVersion 主机上的Docker版本。
+                     * 
                      */
                     void SetDockerVersion(const std::string& _dockerVersion);
 
                     /**
                      * 判断参数 DockerVersion 是否已赋值
                      * @return DockerVersion 是否已赋值
+                     * 
                      */
                     bool DockerVersionHasBeenSet() const;
 
                     /**
                      * 获取主机上的K8S的版本。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return K8SVersion 主机上的K8S的版本。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetK8SVersion() const;
 
                     /**
                      * 设置主机上的K8S的版本。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param K8SVersion 主机上的K8S的版本。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _k8SVersion 主机上的K8S的版本。
+                     * 
                      */
                     void SetK8SVersion(const std::string& _k8SVersion);
 
                     /**
                      * 判断参数 K8SVersion 是否已赋值
                      * @return K8SVersion 是否已赋值
+                     * 
                      */
                     bool K8SVersionHasBeenSet() const;
+
+                    /**
+                     * 获取主机上Containerd版本
+                     * @return ContainerdVersion 主机上Containerd版本
+                     * 
+                     */
+                    std::string GetContainerdVersion() const;
+
+                    /**
+                     * 设置主机上Containerd版本
+                     * @param _containerdVersion 主机上Containerd版本
+                     * 
+                     */
+                    void SetContainerdVersion(const std::string& _containerdVersion);
+
+                    /**
+                     * 判断参数 ContainerdVersion 是否已赋值
+                     * @return ContainerdVersion 是否已赋值
+                     * 
+                     */
+                    bool ContainerdVersionHasBeenSet() const;
 
                 private:
 
                     /**
                      * 主机上的Docker版本。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_dockerVersion;
                     bool m_dockerVersionHasBeenSet;
 
                     /**
                      * 主机上的K8S的版本。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_k8SVersion;
                     bool m_k8SVersionHasBeenSet;
+
+                    /**
+                     * 主机上Containerd版本
+                     */
+                    std::string m_containerdVersion;
+                    bool m_containerdVersionHasBeenSet;
 
                 };
             }

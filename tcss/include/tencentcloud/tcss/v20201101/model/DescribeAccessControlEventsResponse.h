@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,58 @@ namespace TencentCloud
                     /**
                      * 获取事件总数量
                      * @return TotalCount 事件总数量
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取访问控制事件数组
                      * @return EventSet 访问控制事件数组
+                     * 
                      */
                     std::vector<AccessControlEventInfo> GetEventSet() const;
 
                     /**
                      * 判断参数 EventSet 是否已赋值
                      * @return EventSet 是否已赋值
+                     * 
                      */
                     bool EventSetHasBeenSet() const;
+
+                    /**
+                     * 获取支持的内核版本
+                     * @return SupportCoreVersion 支持的内核版本
+                     * 
+                     */
+                    std::string GetSupportCoreVersion() const;
+
+                    /**
+                     * 判断参数 SupportCoreVersion 是否已赋值
+                     * @return SupportCoreVersion 是否已赋值
+                     * 
+                     */
+                    bool SupportCoreVersionHasBeenSet() const;
+
+                    /**
+                     * 获取拦截失败可能的原因
+                     * @return InterceptionFailureTip 拦截失败可能的原因
+                     * 
+                     */
+                    std::string GetInterceptionFailureTip() const;
+
+                    /**
+                     * 判断参数 InterceptionFailureTip 是否已赋值
+                     * @return InterceptionFailureTip 是否已赋值
+                     * 
+                     */
+                    bool InterceptionFailureTipHasBeenSet() const;
 
                 private:
 
@@ -81,6 +113,18 @@ namespace TencentCloud
                      */
                     std::vector<AccessControlEventInfo> m_eventSet;
                     bool m_eventSetHasBeenSet;
+
+                    /**
+                     * 支持的内核版本
+                     */
+                    std::string m_supportCoreVersion;
+                    bool m_supportCoreVersionHasBeenSet;
+
+                    /**
+                     * 拦截失败可能的原因
+                     */
+                    std::string m_interceptionFailureTip;
+                    bool m_interceptionFailureTipHasBeenSet;
 
                 };
             }

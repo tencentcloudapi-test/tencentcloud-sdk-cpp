@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,11 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * type ProbeTaskBasicConfiguration struct {
-	TaskID        TaskID `json:"TaskId" gorm:"column:task_id"`
-	Name          string `json:"Name" binding:"required" gorm:"column:name"`
-	TargetAddress string `json:"TargetAddress" binding:"required" gorm:"column:target_address"`
-}
+                * 拨测任务基础配置
                 */
                 class ProbeTaskBasicConfiguration : public AbstractModel
                 {
@@ -53,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取拨测任务名称
                      * @return Name 拨测任务名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置拨测任务名称
-                     * @param Name 拨测任务名称
+                     * @param _name 拨测任务名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取拨测目标地址
                      * @return TargetAddress 拨测目标地址
+                     * 
                      */
                     std::string GetTargetAddress() const;
 
                     /**
                      * 设置拨测目标地址
-                     * @param TargetAddress 拨测目标地址
+                     * @param _targetAddress 拨测目标地址
+                     * 
                      */
                     void SetTargetAddress(const std::string& _targetAddress);
 
                     /**
                      * 判断参数 TargetAddress 是否已赋值
                      * @return TargetAddress 是否已赋值
+                     * 
                      */
                     bool TargetAddressHasBeenSet() const;
 

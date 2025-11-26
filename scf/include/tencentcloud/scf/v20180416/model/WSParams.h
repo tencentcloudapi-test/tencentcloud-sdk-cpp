@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return IdleTimeOut 空闲超时时间, 单位秒，默认15s。可配置范围1~1800s。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetIdleTimeOut() const;
 
                     /**
                      * 设置空闲超时时间, 单位秒，默认15s。可配置范围1~1800s。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param IdleTimeOut 空闲超时时间, 单位秒，默认15s。可配置范围1~1800s。
+                     * @param _idleTimeOut 空闲超时时间, 单位秒，默认15s。可配置范围1~1800s。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetIdleTimeOut(const uint64_t& _idleTimeOut);
 
                     /**
                      * 判断参数 IdleTimeOut 是否已赋值
                      * @return IdleTimeOut 是否已赋值
+                     * 
                      */
                     bool IdleTimeOutHasBeenSet() const;
 

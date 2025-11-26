@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取起始时间（包括在内），格式"%Y-%m-%d %H:%M:%S"
                      * @return Start 起始时间（包括在内），格式"%Y-%m-%d %H:%M:%S"
+                     * 
                      */
                     std::string GetStart() const;
 
                     /**
                      * 设置起始时间（包括在内），格式"%Y-%m-%d %H:%M:%S"
-                     * @param Start 起始时间（包括在内），格式"%Y-%m-%d %H:%M:%S"
+                     * @param _start 起始时间（包括在内），格式"%Y-%m-%d %H:%M:%S"
+                     * 
                      */
                     void SetStart(const std::string& _start);
 
                     /**
                      * 判断参数 Start 是否已赋值
                      * @return Start 是否已赋值
+                     * 
                      */
                     bool StartHasBeenSet() const;
 
                     /**
                      * 获取结束时间（不包括在内），格式"%Y-%m-%d %H:%M:%S"
                      * @return End 结束时间（不包括在内），格式"%Y-%m-%d %H:%M:%S"
+                     * 
                      */
                     std::string GetEnd() const;
 
                     /**
                      * 设置结束时间（不包括在内），格式"%Y-%m-%d %H:%M:%S"
-                     * @param End 结束时间（不包括在内），格式"%Y-%m-%d %H:%M:%S"
+                     * @param _end 结束时间（不包括在内），格式"%Y-%m-%d %H:%M:%S"
+                     * 
                      */
                     void SetEnd(const std::string& _end);
 
                     /**
                      * 判断参数 End 是否已赋值
                      * @return End 是否已赋值
+                     * 
                      */
                     bool EndHasBeenSet() const;
 

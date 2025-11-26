@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,29 +46,29 @@ namespace TencentCloud
 
                     /**
                      * 获取设备总数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCount 设备总数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取设备详细信息列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Devices 设备详细信息列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AllDeviceInfo> GetDevices() const;
 
                     /**
                      * 判断参数 Devices 是否已赋值
                      * @return Devices 是否已赋值
+                     * 
                      */
                     bool DevicesHasBeenSet() const;
 
@@ -76,14 +76,12 @@ namespace TencentCloud
 
                     /**
                      * 设备总数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
                      * 设备详细信息列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<AllDeviceInfo> m_devices;
                     bool m_devicesHasBeenSet;

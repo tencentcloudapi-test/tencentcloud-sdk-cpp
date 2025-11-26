@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,45 +47,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取IP
-                     * @return IP IP
+                     * 获取IP地址
+                     * @return IP IP地址
+                     * 
                      */
                     std::string GetIP() const;
 
                     /**
-                     * 设置IP
-                     * @param IP IP
+                     * 设置IP地址
+                     * @param _iP IP地址
+                     * 
                      */
                     void SetIP(const std::string& _iP);
 
                     /**
                      * 判断参数 IP 是否已赋值
                      * @return IP 是否已赋值
+                     * 
                      */
                     bool IPHasBeenSet() const;
 
                     /**
                      * 获取端口
                      * @return Port 端口
+                     * 
                      */
                     int64_t GetPort() const;
 
                     /**
                      * 设置端口
-                     * @param Port 端口
+                     * @param _port 端口
+                     * 
                      */
                     void SetPort(const int64_t& _port);
 
                     /**
                      * 判断参数 Port 是否已赋值
                      * @return Port 是否已赋值
+                     * 
                      */
                     bool PortHasBeenSet() const;
 
                 private:
 
                     /**
-                     * IP
+                     * IP地址
                      */
                     std::string m_iP;
                     bool m_iPHasBeenSet;

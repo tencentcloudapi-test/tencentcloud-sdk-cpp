@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 小程序智能识别信息
+                * 小程序音视频审核信息
                 */
                 class MediaMiniProgramReviewInfo : public AbstractModel
                 {
@@ -48,27 +48,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取智能识别信息列表。
-                     * @return MiniProgramReviewList 智能识别信息列表。
+                     * 获取音视频审核信息列表。
+                     * @return MiniProgramReviewList 音视频审核信息列表。
+                     * 
                      */
                     std::vector<MediaMiniProgramReviewInfoItem> GetMiniProgramReviewList() const;
 
                     /**
-                     * 设置智能识别信息列表。
-                     * @param MiniProgramReviewList 智能识别信息列表。
+                     * 设置音视频审核信息列表。
+                     * @param _miniProgramReviewList 音视频审核信息列表。
+                     * 
                      */
                     void SetMiniProgramReviewList(const std::vector<MediaMiniProgramReviewInfoItem>& _miniProgramReviewList);
 
                     /**
                      * 判断参数 MiniProgramReviewList 是否已赋值
                      * @return MiniProgramReviewList 是否已赋值
+                     * 
                      */
                     bool MiniProgramReviewListHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 智能识别信息列表。
+                     * 音视频审核信息列表。
                      */
                     std::vector<MediaMiniProgramReviewInfoItem> m_miniProgramReviewList;
                     bool m_miniProgramReviewListHasBeenSet;

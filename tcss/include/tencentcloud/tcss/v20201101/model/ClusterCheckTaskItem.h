@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取指定要扫描的集群ID
                      * @return ClusterId 指定要扫描的集群ID
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置指定要扫描的集群ID
-                     * @param ClusterId 指定要扫描的集群ID
+                     * @param _clusterId 指定要扫描的集群ID
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取集群所属地域
                      * @return ClusterRegion 集群所属地域
+                     * 
                      */
                     std::string GetClusterRegion() const;
 
                     /**
                      * 设置集群所属地域
-                     * @param ClusterRegion 集群所属地域
+                     * @param _clusterRegion 集群所属地域
+                     * 
                      */
                     void SetClusterRegion(const std::string& _clusterRegion);
 
                     /**
                      * 判断参数 ClusterRegion 是否已赋值
                      * @return ClusterRegion 是否已赋值
+                     * 
                      */
                     bool ClusterRegionHasBeenSet() const;
 
                     /**
                      * 获取指定要扫描的节点IP
                      * @return NodeIp 指定要扫描的节点IP
+                     * 
                      */
                     std::string GetNodeIp() const;
 
                     /**
                      * 设置指定要扫描的节点IP
-                     * @param NodeIp 指定要扫描的节点IP
+                     * @param _nodeIp 指定要扫描的节点IP
+                     * 
                      */
                     void SetNodeIp(const std::string& _nodeIp);
 
                     /**
                      * 判断参数 NodeIp 是否已赋值
                      * @return NodeIp 是否已赋值
+                     * 
                      */
                     bool NodeIpHasBeenSet() const;
 
                     /**
                      * 获取按照要扫描的workload名字
                      * @return WorkloadName 按照要扫描的workload名字
+                     * 
                      */
                     std::string GetWorkloadName() const;
 
                     /**
                      * 设置按照要扫描的workload名字
-                     * @param WorkloadName 按照要扫描的workload名字
+                     * @param _workloadName 按照要扫描的workload名字
+                     * 
                      */
                     void SetWorkloadName(const std::string& _workloadName);
 
                     /**
                      * 判断参数 WorkloadName 是否已赋值
                      * @return WorkloadName 是否已赋值
+                     * 
                      */
                     bool WorkloadNameHasBeenSet() const;
 

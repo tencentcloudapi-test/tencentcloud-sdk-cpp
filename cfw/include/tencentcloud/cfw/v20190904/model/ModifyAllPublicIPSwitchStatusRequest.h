@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取状态，0：关闭，1：开启
                      * @return Status 状态，0：关闭，1：开启
+                     * 
                      */
                     int64_t GetStatus() const;
 
                     /**
                      * 设置状态，0：关闭，1：开启
-                     * @param Status 状态，0：关闭，1：开启
+                     * @param _status 状态，0：关闭，1：开启
+                     * 
                      */
                     void SetStatus(const int64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取选中的防火墙开关Id
                      * @return FireWallPublicIPs 选中的防火墙开关Id
+                     * 
                      */
                     std::vector<std::string> GetFireWallPublicIPs() const;
 
                     /**
                      * 设置选中的防火墙开关Id
-                     * @param FireWallPublicIPs 选中的防火墙开关Id
+                     * @param _fireWallPublicIPs 选中的防火墙开关Id
+                     * 
                      */
                     void SetFireWallPublicIPs(const std::vector<std::string>& _fireWallPublicIPs);
 
                     /**
                      * 判断参数 FireWallPublicIPs 是否已赋值
                      * @return FireWallPublicIPs 是否已赋值
+                     * 
                      */
                     bool FireWallPublicIPsHasBeenSet() const;
 

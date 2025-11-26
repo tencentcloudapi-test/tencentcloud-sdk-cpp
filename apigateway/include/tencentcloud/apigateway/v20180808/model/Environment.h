@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,74 +49,111 @@ namespace TencentCloud
                     /**
                      * 获取环境名称。
                      * @return EnvironmentName 环境名称。
+                     * 
                      */
                     std::string GetEnvironmentName() const;
 
                     /**
                      * 设置环境名称。
-                     * @param EnvironmentName 环境名称。
+                     * @param _environmentName 环境名称。
+                     * 
                      */
                     void SetEnvironmentName(const std::string& _environmentName);
 
                     /**
                      * 判断参数 EnvironmentName 是否已赋值
                      * @return EnvironmentName 是否已赋值
+                     * 
                      */
                     bool EnvironmentNameHasBeenSet() const;
 
                     /**
                      * 获取访问路径。
                      * @return Url 访问路径。
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置访问路径。
-                     * @param Url 访问路径。
+                     * @param _url 访问路径。
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
                      * 获取发布状态，1 表示已发布，0 表示未发布。
                      * @return Status 发布状态，1 表示已发布，0 表示未发布。
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 设置发布状态，1 表示已发布，0 表示未发布。
-                     * @param Status 发布状态，1 表示已发布，0 表示未发布。
+                     * @param _status 发布状态，1 表示已发布，0 表示未发布。
+                     * 
                      */
                     void SetStatus(const uint64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取运行版本。
                      * @return VersionName 运行版本。
+                     * 
                      */
                     std::string GetVersionName() const;
 
                     /**
                      * 设置运行版本。
-                     * @param VersionName 运行版本。
+                     * @param _versionName 运行版本。
+                     * 
                      */
                     void SetVersionName(const std::string& _versionName);
 
                     /**
                      * 判断参数 VersionName 是否已赋值
                      * @return VersionName 是否已赋值
+                     * 
                      */
                     bool VersionNameHasBeenSet() const;
+
+                    /**
+                     * 获取创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CreateTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetCreateTime() const;
+
+                    /**
+                     * 设置创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _createTime 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetCreateTime(const std::string& _createTime);
+
+                    /**
+                     * 判断参数 CreateTime 是否已赋值
+                     * @return CreateTime 是否已赋值
+                     * 
+                     */
+                    bool CreateTimeHasBeenSet() const;
 
                 private:
 
@@ -143,6 +180,13 @@ namespace TencentCloud
                      */
                     std::string m_versionName;
                     bool m_versionNameHasBeenSet;
+
+                    /**
+                     * 创建时间
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_createTime;
+                    bool m_createTimeHasBeenSet;
 
                 };
             }

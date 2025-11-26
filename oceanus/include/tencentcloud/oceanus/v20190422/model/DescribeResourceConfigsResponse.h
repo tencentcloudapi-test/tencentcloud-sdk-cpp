@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取资源配置描述数组
                      * @return ResourceConfigSet 资源配置描述数组
+                     * 
                      */
                     std::vector<ResourceConfigItem> GetResourceConfigSet() const;
 
                     /**
                      * 判断参数 ResourceConfigSet 是否已赋值
                      * @return ResourceConfigSet 是否已赋值
+                     * 
                      */
                     bool ResourceConfigSetHasBeenSet() const;
 
                     /**
                      * 获取资源配置数量
                      * @return TotalCount 资源配置数量
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 

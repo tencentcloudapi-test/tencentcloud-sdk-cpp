@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,11 @@ using namespace std;
 MixedInvoiceOCRRequest::MixedInvoiceOCRRequest() :
     m_imageBase64HasBeenSet(false),
     m_imageUrlHasBeenSet(false),
-    m_typesHasBeenSet(false)
+    m_typesHasBeenSet(false),
+    m_returnOtherHasBeenSet(false),
+    m_isPdfHasBeenSet(false),
+    m_pdfPageNumberHasBeenSet(false),
+    m_returnMultiplePageHasBeenSet(false)
 {
 }
 
@@ -63,6 +67,38 @@ string MixedInvoiceOCRRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
         }
+    }
+
+    if (m_returnOtherHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReturnOther";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_returnOther.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isPdfHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsPdf";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isPdf, allocator);
+    }
+
+    if (m_pdfPageNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PdfPageNumber";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_pdfPageNumber, allocator);
+    }
+
+    if (m_returnMultiplePageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReturnMultiplePage";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_returnMultiplePage, allocator);
     }
 
 
@@ -119,6 +155,70 @@ void MixedInvoiceOCRRequest::SetTypes(const vector<int64_t>& _types)
 bool MixedInvoiceOCRRequest::TypesHasBeenSet() const
 {
     return m_typesHasBeenSet;
+}
+
+string MixedInvoiceOCRRequest::GetReturnOther() const
+{
+    return m_returnOther;
+}
+
+void MixedInvoiceOCRRequest::SetReturnOther(const string& _returnOther)
+{
+    m_returnOther = _returnOther;
+    m_returnOtherHasBeenSet = true;
+}
+
+bool MixedInvoiceOCRRequest::ReturnOtherHasBeenSet() const
+{
+    return m_returnOtherHasBeenSet;
+}
+
+bool MixedInvoiceOCRRequest::GetIsPdf() const
+{
+    return m_isPdf;
+}
+
+void MixedInvoiceOCRRequest::SetIsPdf(const bool& _isPdf)
+{
+    m_isPdf = _isPdf;
+    m_isPdfHasBeenSet = true;
+}
+
+bool MixedInvoiceOCRRequest::IsPdfHasBeenSet() const
+{
+    return m_isPdfHasBeenSet;
+}
+
+int64_t MixedInvoiceOCRRequest::GetPdfPageNumber() const
+{
+    return m_pdfPageNumber;
+}
+
+void MixedInvoiceOCRRequest::SetPdfPageNumber(const int64_t& _pdfPageNumber)
+{
+    m_pdfPageNumber = _pdfPageNumber;
+    m_pdfPageNumberHasBeenSet = true;
+}
+
+bool MixedInvoiceOCRRequest::PdfPageNumberHasBeenSet() const
+{
+    return m_pdfPageNumberHasBeenSet;
+}
+
+bool MixedInvoiceOCRRequest::GetReturnMultiplePage() const
+{
+    return m_returnMultiplePage;
+}
+
+void MixedInvoiceOCRRequest::SetReturnMultiplePage(const bool& _returnMultiplePage)
+{
+    m_returnMultiplePage = _returnMultiplePage;
+    m_returnMultiplePageHasBeenSet = true;
+}
+
+bool MixedInvoiceOCRRequest::ReturnMultiplePageHasBeenSet() const
+{
+    return m_returnMultiplePageHasBeenSet;
 }
 
 

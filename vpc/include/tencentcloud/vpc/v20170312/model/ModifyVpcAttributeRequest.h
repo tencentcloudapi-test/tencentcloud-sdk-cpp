@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,99 +43,156 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
-                     * @return VpcId VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
+                     * 获取VPC实例ID。形如：vpc-f49l6u0z。
+                     * @return VpcId VPC实例ID。形如：vpc-f49l6u0z。
+                     * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
-                     * @param VpcId VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
+                     * 设置VPC实例ID。形如：vpc-f49l6u0z。
+                     * @param _vpcId VPC实例ID。形如：vpc-f49l6u0z。
+                     * 
                      */
                     void SetVpcId(const std::string& _vpcId);
 
                     /**
                      * 判断参数 VpcId 是否已赋值
                      * @return VpcId 是否已赋值
+                     * 
                      */
                     bool VpcIdHasBeenSet() const;
 
                     /**
                      * 获取私有网络名称，可任意命名，但不得超过60个字符。
                      * @return VpcName 私有网络名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     std::string GetVpcName() const;
 
                     /**
                      * 设置私有网络名称，可任意命名，但不得超过60个字符。
-                     * @param VpcName 私有网络名称，可任意命名，但不得超过60个字符。
+                     * @param _vpcName 私有网络名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     void SetVpcName(const std::string& _vpcName);
 
                     /**
                      * 判断参数 VpcName 是否已赋值
                      * @return VpcName 是否已赋值
+                     * 
                      */
                     bool VpcNameHasBeenSet() const;
 
                     /**
                      * 获取是否开启组播。true: 开启, false: 关闭。
                      * @return EnableMulticast 是否开启组播。true: 开启, false: 关闭。
+                     * 
                      */
                     std::string GetEnableMulticast() const;
 
                     /**
                      * 设置是否开启组播。true: 开启, false: 关闭。
-                     * @param EnableMulticast 是否开启组播。true: 开启, false: 关闭。
+                     * @param _enableMulticast 是否开启组播。true: 开启, false: 关闭。
+                     * 
                      */
                     void SetEnableMulticast(const std::string& _enableMulticast);
 
                     /**
                      * 判断参数 EnableMulticast 是否已赋值
                      * @return EnableMulticast 是否已赋值
+                     * 
                      */
                     bool EnableMulticastHasBeenSet() const;
 
                     /**
-                     * 获取DNS地址，最多支持4个，第1个默认为主，其余为备
-                     * @return DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备
+                     * 获取DNS地址，最多支持4个，第1个默认为主，其余为备。
+                     * @return DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。
+                     * 
                      */
                     std::vector<std::string> GetDnsServers() const;
 
                     /**
-                     * 设置DNS地址，最多支持4个，第1个默认为主，其余为备
-                     * @param DnsServers DNS地址，最多支持4个，第1个默认为主，其余为备
+                     * 设置DNS地址，最多支持4个，第1个默认为主，其余为备。
+                     * @param _dnsServers DNS地址，最多支持4个，第1个默认为主，其余为备。
+                     * 
                      */
                     void SetDnsServers(const std::vector<std::string>& _dnsServers);
 
                     /**
                      * 判断参数 DnsServers 是否已赋值
                      * @return DnsServers 是否已赋值
+                     * 
                      */
                     bool DnsServersHasBeenSet() const;
 
                     /**
-                     * 获取域名
-                     * @return DomainName 域名
+                     * 获取域名。
+                     * @return DomainName 域名。
+                     * 
                      */
                     std::string GetDomainName() const;
 
                     /**
-                     * 设置域名
-                     * @param DomainName 域名
+                     * 设置域名。
+                     * @param _domainName 域名。
+                     * 
                      */
                     void SetDomainName(const std::string& _domainName);
 
                     /**
                      * 判断参数 DomainName 是否已赋值
                      * @return DomainName 是否已赋值
+                     * 
                      */
                     bool DomainNameHasBeenSet() const;
+
+                    /**
+                     * 获取vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * @return EnableRouteVpcPublish vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * 
+                     */
+                    bool GetEnableRouteVpcPublish() const;
+
+                    /**
+                     * 设置vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * @param _enableRouteVpcPublish vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     * 
+                     */
+                    void SetEnableRouteVpcPublish(const bool& _enableRouteVpcPublish);
+
+                    /**
+                     * 判断参数 EnableRouteVpcPublish 是否已赋值
+                     * @return EnableRouteVpcPublish 是否已赋值
+                     * 
+                     */
+                    bool EnableRouteVpcPublishHasBeenSet() const;
+
+                    /**
+                     * 获取发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+                     * @return EnableCdcPublish 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+                     * 
+                     */
+                    bool GetEnableCdcPublish() const;
+
+                    /**
+                     * 设置发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+                     * @param _enableCdcPublish 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+                     * 
+                     */
+                    void SetEnableCdcPublish(const bool& _enableCdcPublish);
+
+                    /**
+                     * 判断参数 EnableCdcPublish 是否已赋值
+                     * @return EnableCdcPublish 是否已赋值
+                     * 
+                     */
+                    bool EnableCdcPublishHasBeenSet() const;
 
                 private:
 
                     /**
-                     * VPC实例ID。形如：vpc-f49l6u0z。每次请求的实例的上限为100。参数不支持同时指定VpcIds和Filters。
+                     * VPC实例ID。形如：vpc-f49l6u0z。
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
@@ -153,16 +210,28 @@ namespace TencentCloud
                     bool m_enableMulticastHasBeenSet;
 
                     /**
-                     * DNS地址，最多支持4个，第1个默认为主，其余为备
+                     * DNS地址，最多支持4个，第1个默认为主，其余为备。
                      */
                     std::vector<std::string> m_dnsServers;
                     bool m_dnsServersHasBeenSet;
 
                     /**
-                     * 域名
+                     * 域名。
                      */
                     std::string m_domainName;
                     bool m_domainNameHasBeenSet;
+
+                    /**
+                     * vpc关联云联网时路由发布策略， true：开启cidr路由发布，false：开启subnet子网路由发布。创建vpc时默认为子网路由发布，当选择cidr路由发布时,请通过工单加入白名单
+                     */
+                    bool m_enableRouteVpcPublish;
+                    bool m_enableRouteVpcPublishHasBeenSet;
+
+                    /**
+                     * 发布cdc 子网到云联网的开关。true: 发布, false: 不发布。
+                     */
+                    bool m_enableCdcPublish;
+                    bool m_enableCdcPublishHasBeenSet;
 
                 };
             }

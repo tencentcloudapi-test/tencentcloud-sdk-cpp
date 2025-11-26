@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,7 +55,11 @@ DescribeCertificateResponse::DescribeCertificateResponse() :
     m_renewAbleHasBeenSet(false),
     m_submittedDataHasBeenSet(false),
     m_deployableHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_cAEncryptAlgorithmsHasBeenSet(false),
+    m_cACommonNamesHasBeenSet(false),
+    m_cAEndTimesHasBeenSet(false),
+    m_dvRevokeAuthDetailHasBeenSet(false)
 {
 }
 
@@ -447,6 +451,65 @@ CoreInternalOutcome DescribeCertificateResponse::Deserialize(const string &paylo
         m_tagsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("CAEncryptAlgorithms") && !rsp["CAEncryptAlgorithms"].IsNull())
+    {
+        if (!rsp["CAEncryptAlgorithms"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CAEncryptAlgorithms` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["CAEncryptAlgorithms"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_cAEncryptAlgorithms.push_back((*itr).GetString());
+        }
+        m_cAEncryptAlgorithmsHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CACommonNames") && !rsp["CACommonNames"].IsNull())
+    {
+        if (!rsp["CACommonNames"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CACommonNames` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["CACommonNames"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_cACommonNames.push_back((*itr).GetString());
+        }
+        m_cACommonNamesHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("CAEndTimes") && !rsp["CAEndTimes"].IsNull())
+    {
+        if (!rsp["CAEndTimes"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CAEndTimes` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["CAEndTimes"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_cAEndTimes.push_back((*itr).GetString());
+        }
+        m_cAEndTimesHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("DvRevokeAuthDetail") && !rsp["DvRevokeAuthDetail"].IsNull())
+    {
+        if (!rsp["DvRevokeAuthDetail"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DvRevokeAuthDetail` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["DvRevokeAuthDetail"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            DvAuths item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_dvRevokeAuthDetail.push_back(item);
+        }
+        m_dvRevokeAuthDetailHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -728,11 +791,65 @@ string DescribeCertificateResponse::ToJsonString() const
         }
     }
 
+    if (m_cAEncryptAlgorithmsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CAEncryptAlgorithms";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_cAEncryptAlgorithms.begin(); itr != m_cAEncryptAlgorithms.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_cACommonNamesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CACommonNames";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_cACommonNames.begin(); itr != m_cACommonNames.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_cAEndTimesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CAEndTimes";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_cAEndTimes.begin(); itr != m_cAEndTimes.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_dvRevokeAuthDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DvRevokeAuthDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_dvRevokeAuthDetail.begin(); itr != m_dvRevokeAuthDetail.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -1058,6 +1175,46 @@ vector<Tags> DescribeCertificateResponse::GetTags() const
 bool DescribeCertificateResponse::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+vector<string> DescribeCertificateResponse::GetCAEncryptAlgorithms() const
+{
+    return m_cAEncryptAlgorithms;
+}
+
+bool DescribeCertificateResponse::CAEncryptAlgorithmsHasBeenSet() const
+{
+    return m_cAEncryptAlgorithmsHasBeenSet;
+}
+
+vector<string> DescribeCertificateResponse::GetCACommonNames() const
+{
+    return m_cACommonNames;
+}
+
+bool DescribeCertificateResponse::CACommonNamesHasBeenSet() const
+{
+    return m_cACommonNamesHasBeenSet;
+}
+
+vector<string> DescribeCertificateResponse::GetCAEndTimes() const
+{
+    return m_cAEndTimes;
+}
+
+bool DescribeCertificateResponse::CAEndTimesHasBeenSet() const
+{
+    return m_cAEndTimesHasBeenSet;
+}
+
+vector<DvAuths> DescribeCertificateResponse::GetDvRevokeAuthDetail() const
+{
+    return m_dvRevokeAuthDetail;
+}
+
+bool DescribeCertificateResponse::DvRevokeAuthDetailHasBeenSet() const
+{
+    return m_dvRevokeAuthDetailHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,20 +52,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ClassifyName 人物分类名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetClassifyName() const;
 
                     /**
                      * 设置人物分类名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ClassifyName 人物分类名称
+                     * @param _classifyName 人物分类名称
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetClassifyName(const std::string& _classifyName);
 
                     /**
                      * 判断参数 ClassifyName 是否已赋值
                      * @return ClassifyName 是否已赋值
+                     * 
                      */
                     bool ClassifyNameHasBeenSet() const;
 
@@ -74,20 +77,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PersonInfoSet 符合特定分类的人物信息数组
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<PersonInfo> GetPersonInfoSet() const;
 
                     /**
                      * 设置符合特定分类的人物信息数组
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PersonInfoSet 符合特定分类的人物信息数组
+                     * @param _personInfoSet 符合特定分类的人物信息数组
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPersonInfoSet(const std::vector<PersonInfo>& _personInfoSet);
 
                     /**
                      * 判断参数 PersonInfoSet 是否已赋值
                      * @return PersonInfoSet 是否已赋值
+                     * 
                      */
                     bool PersonInfoSetHasBeenSet() const;
 

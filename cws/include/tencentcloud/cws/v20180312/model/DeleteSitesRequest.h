@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取站点ID列表
                      * @return SiteIds 站点ID列表
+                     * 
                      */
                     std::vector<uint64_t> GetSiteIds() const;
 
                     /**
                      * 设置站点ID列表
-                     * @param SiteIds 站点ID列表
+                     * @param _siteIds 站点ID列表
+                     * 
                      */
                     void SetSiteIds(const std::vector<uint64_t>& _siteIds);
 
                     /**
                      * 判断参数 SiteIds 是否已赋值
                      * @return SiteIds 是否已赋值
+                     * 
                      */
                     bool SiteIdsHasBeenSet() const;
 

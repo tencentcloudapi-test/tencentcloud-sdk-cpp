@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,10 @@ using namespace TencentCloud::Rum::V20210622::Model;
 using namespace std;
 
 DescribeReleaseFileSignRequest::DescribeReleaseFileSignRequest() :
-    m_timeoutHasBeenSet(false)
+    m_timeoutHasBeenSet(false),
+    m_fileTypeHasBeenSet(false),
+    m_siteHasBeenSet(false),
+    m_iDHasBeenSet(false)
 {
 }
 
@@ -40,6 +43,30 @@ string DescribeReleaseFileSignRequest::ToJsonString() const
         string key = "Timeout";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_timeout, allocator);
+    }
+
+    if (m_fileTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FileType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_fileType, allocator);
+    }
+
+    if (m_siteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Site";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_site, allocator);
+    }
+
+    if (m_iDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ID";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_iD, allocator);
     }
 
 
@@ -64,6 +91,54 @@ void DescribeReleaseFileSignRequest::SetTimeout(const int64_t& _timeout)
 bool DescribeReleaseFileSignRequest::TimeoutHasBeenSet() const
 {
     return m_timeoutHasBeenSet;
+}
+
+int64_t DescribeReleaseFileSignRequest::GetFileType() const
+{
+    return m_fileType;
+}
+
+void DescribeReleaseFileSignRequest::SetFileType(const int64_t& _fileType)
+{
+    m_fileType = _fileType;
+    m_fileTypeHasBeenSet = true;
+}
+
+bool DescribeReleaseFileSignRequest::FileTypeHasBeenSet() const
+{
+    return m_fileTypeHasBeenSet;
+}
+
+int64_t DescribeReleaseFileSignRequest::GetSite() const
+{
+    return m_site;
+}
+
+void DescribeReleaseFileSignRequest::SetSite(const int64_t& _site)
+{
+    m_site = _site;
+    m_siteHasBeenSet = true;
+}
+
+bool DescribeReleaseFileSignRequest::SiteHasBeenSet() const
+{
+    return m_siteHasBeenSet;
+}
+
+int64_t DescribeReleaseFileSignRequest::GetID() const
+{
+    return m_iD;
+}
+
+void DescribeReleaseFileSignRequest::SetID(const int64_t& _iD)
+{
+    m_iD = _iD;
+    m_iDHasBeenSet = true;
+}
+
+bool DescribeReleaseFileSignRequest::IDHasBeenSet() const
+{
+    return m_iDHasBeenSet;
 }
 
 

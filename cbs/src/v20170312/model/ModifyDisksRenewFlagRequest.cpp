@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 ModifyDisksRenewFlagRequest::ModifyDisksRenewFlagRequest() :
     m_diskIdsHasBeenSet(false),
-    m_renewFlagHasBeenSet(false)
+    m_renewFlagHasBeenSet(false),
+    m_autoRenewPeriodHasBeenSet(false)
 {
 }
 
@@ -54,6 +55,14 @@ string ModifyDisksRenewFlagRequest::ToJsonString() const
         string key = "RenewFlag";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_renewFlag.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoRenewPeriodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRenewPeriod";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoRenewPeriod, allocator);
     }
 
 
@@ -94,6 +103,22 @@ void ModifyDisksRenewFlagRequest::SetRenewFlag(const string& _renewFlag)
 bool ModifyDisksRenewFlagRequest::RenewFlagHasBeenSet() const
 {
     return m_renewFlagHasBeenSet;
+}
+
+uint64_t ModifyDisksRenewFlagRequest::GetAutoRenewPeriod() const
+{
+    return m_autoRenewPeriod;
+}
+
+void ModifyDisksRenewFlagRequest::SetAutoRenewPeriod(const uint64_t& _autoRenewPeriod)
+{
+    m_autoRenewPeriod = _autoRenewPeriod;
+    m_autoRenewPeriodHasBeenSet = true;
+}
+
+bool ModifyDisksRenewFlagRequest::AutoRenewPeriodHasBeenSet() const
+{
+    return m_autoRenewPeriodHasBeenSet;
 }
 
 

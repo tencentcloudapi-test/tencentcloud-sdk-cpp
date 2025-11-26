@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ set(ame_public_header_model
   include/tencentcloud/ame/v20190916/model/DescribeKTVSingerCategoriesRequest.h
   include/tencentcloud/ame/v20190916/model/KTVSingerBaseInfo.h
   include/tencentcloud/ame/v20190916/model/ModifyMusicOnShelvesRequest.h
+  include/tencentcloud/ame/v20190916/model/SetRealVolumeCommandInput.h
   include/tencentcloud/ame/v20190916/model/PlayCommandInput.h
   include/tencentcloud/ame/v20190916/model/DescribeMusicRequest.h
   include/tencentcloud/ame/v20190916/model/KTVMusicDetailInfo.h
@@ -58,6 +59,7 @@ set(ame_public_header_model
   include/tencentcloud/ame/v20190916/model/SearchKTVMusicsResponse.h
   include/tencentcloud/ame/v20190916/model/DescribeItemByIdRequest.h
   include/tencentcloud/ame/v20190916/model/PutMusicOnTheShelvesResponse.h
+  include/tencentcloud/ame/v20190916/model/SyncRobotCommand.h
   include/tencentcloud/ame/v20190916/model/DescribeKTVSingerMusicsResponse.h
   include/tencentcloud/ame/v20190916/model/DescribeItemsResponse.h
   include/tencentcloud/ame/v20190916/model/DescribePkgOfflineMusicResponse.h
@@ -138,6 +140,7 @@ set(ame_src
   src/v20190916/model/DescribeKTVSingerCategoriesRequest.cpp
   src/v20190916/model/KTVSingerBaseInfo.cpp
   src/v20190916/model/ModifyMusicOnShelvesRequest.cpp
+  src/v20190916/model/SetRealVolumeCommandInput.cpp
   src/v20190916/model/PlayCommandInput.cpp
   src/v20190916/model/DescribeMusicRequest.cpp
   src/v20190916/model/KTVMusicDetailInfo.cpp
@@ -167,6 +170,7 @@ set(ame_src
   src/v20190916/model/SearchKTVMusicsResponse.cpp
   src/v20190916/model/DescribeItemByIdRequest.cpp
   src/v20190916/model/PutMusicOnTheShelvesResponse.cpp
+  src/v20190916/model/SyncRobotCommand.cpp
   src/v20190916/model/DescribeKTVSingerMusicsResponse.cpp
   src/v20190916/model/DescribeItemsResponse.cpp
   src/v20190916/model/DescribePkgOfflineMusicResponse.cpp

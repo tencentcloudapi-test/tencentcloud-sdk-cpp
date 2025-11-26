@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ DescribePriceRequest::DescribePriceRequest() :
     m_storageHasBeenSet(false),
     m_periodHasBeenSet(false),
     m_countHasBeenSet(false),
-    m_paymodeHasBeenSet(false)
+    m_paymodeHasBeenSet(false),
+    m_amountUnitHasBeenSet(false),
+    m_cpuTypeHasBeenSet(false)
 {
 }
 
@@ -94,6 +96,22 @@ string DescribePriceRequest::ToJsonString() const
         string key = "Paymode";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_paymode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_amountUnitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AmountUnit";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_amountUnit.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cpuTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CpuType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cpuType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -214,6 +232,38 @@ void DescribePriceRequest::SetPaymode(const string& _paymode)
 bool DescribePriceRequest::PaymodeHasBeenSet() const
 {
     return m_paymodeHasBeenSet;
+}
+
+string DescribePriceRequest::GetAmountUnit() const
+{
+    return m_amountUnit;
+}
+
+void DescribePriceRequest::SetAmountUnit(const string& _amountUnit)
+{
+    m_amountUnit = _amountUnit;
+    m_amountUnitHasBeenSet = true;
+}
+
+bool DescribePriceRequest::AmountUnitHasBeenSet() const
+{
+    return m_amountUnitHasBeenSet;
+}
+
+string DescribePriceRequest::GetCpuType() const
+{
+    return m_cpuType;
+}
+
+void DescribePriceRequest::SetCpuType(const string& _cpuType)
+{
+    m_cpuType = _cpuType;
+    m_cpuTypeHasBeenSet = true;
+}
+
+bool DescribePriceRequest::CpuTypeHasBeenSet() const
+{
+    return m_cpuTypeHasBeenSet;
 }
 
 

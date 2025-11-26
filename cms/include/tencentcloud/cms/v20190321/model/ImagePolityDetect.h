@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,6 +54,7 @@ namespace TencentCloud
                      * @return EvilType 恶意类型
 100：正常 
 20001：政治
+                     * 
                      */
                     int64_t GetEvilType() const;
 
@@ -61,125 +62,153 @@ namespace TencentCloud
                      * 设置恶意类型
 100：正常 
 20001：政治
-                     * @param EvilType 恶意类型
+                     * @param _evilType 恶意类型
 100：正常 
 20001：政治
+                     * 
                      */
                     void SetEvilType(const int64_t& _evilType);
 
                     /**
                      * 判断参数 EvilType 是否已赋值
                      * @return EvilType 是否已赋值
+                     * 
                      */
                     bool EvilTypeHasBeenSet() const;
 
                     /**
                      * 获取处置判定  0：正常 1：可疑
                      * @return HitFlag 处置判定  0：正常 1：可疑
+                     * 
                      */
                     int64_t GetHitFlag() const;
 
                     /**
                      * 设置处置判定  0：正常 1：可疑
-                     * @param HitFlag 处置判定  0：正常 1：可疑
+                     * @param _hitFlag 处置判定  0：正常 1：可疑
+                     * 
                      */
                     void SetHitFlag(const int64_t& _hitFlag);
 
                     /**
                      * 判断参数 HitFlag 是否已赋值
                      * @return HitFlag 是否已赋值
+                     * 
                      */
                     bool HitFlagHasBeenSet() const;
 
                     /**
-                     * 获取命中的logo标签信息
-                     * @return PolityLogoDetail 命中的logo标签信息
-                     */
-                    std::vector<Logo> GetPolityLogoDetail() const;
-
-                    /**
-                     * 设置命中的logo标签信息
-                     * @param PolityLogoDetail 命中的logo标签信息
-                     */
-                    void SetPolityLogoDetail(const std::vector<Logo>& _polityLogoDetail);
-
-                    /**
-                     * 判断参数 PolityLogoDetail 是否已赋值
-                     * @return PolityLogoDetail 是否已赋值
-                     */
-                    bool PolityLogoDetailHasBeenSet() const;
-
-                    /**
                      * 获取命中的人脸名称
                      * @return FaceNames 命中的人脸名称
+                     * 
                      */
                     std::vector<std::string> GetFaceNames() const;
 
                     /**
                      * 设置命中的人脸名称
-                     * @param FaceNames 命中的人脸名称
+                     * @param _faceNames 命中的人脸名称
+                     * 
                      */
                     void SetFaceNames(const std::vector<std::string>& _faceNames);
 
                     /**
                      * 判断参数 FaceNames 是否已赋值
                      * @return FaceNames 是否已赋值
+                     * 
                      */
                     bool FaceNamesHasBeenSet() const;
 
                     /**
-                     * 获取关键词明细
-                     * @return Keywords 关键词明细
+                     * 获取命中的logo标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return PolityLogoDetail 命中的logo标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    std::vector<std::string> GetKeywords() const;
+                    std::vector<Logo> GetPolityLogoDetail() const;
 
                     /**
-                     * 设置关键词明细
-                     * @param Keywords 关键词明细
+                     * 设置命中的logo标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _polityLogoDetail 命中的logo标签信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    void SetKeywords(const std::vector<std::string>& _keywords);
+                    void SetPolityLogoDetail(const std::vector<Logo>& _polityLogoDetail);
 
                     /**
-                     * 判断参数 Keywords 是否已赋值
-                     * @return Keywords 是否已赋值
+                     * 判断参数 PolityLogoDetail 是否已赋值
+                     * @return PolityLogoDetail 是否已赋值
+                     * 
                      */
-                    bool KeywordsHasBeenSet() const;
+                    bool PolityLogoDetailHasBeenSet() const;
 
                     /**
                      * 获取命中的政治物品名称
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return PolityItems 命中的政治物品名称
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetPolityItems() const;
 
                     /**
                      * 设置命中的政治物品名称
-                     * @param PolityItems 命中的政治物品名称
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _polityItems 命中的政治物品名称
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPolityItems(const std::vector<std::string>& _polityItems);
 
                     /**
                      * 判断参数 PolityItems 是否已赋值
                      * @return PolityItems 是否已赋值
+                     * 
                      */
                     bool PolityItemsHasBeenSet() const;
 
                     /**
                      * 获取政治（人脸）分：分值范围 0-100，分数越高可疑程度越高
                      * @return Score 政治（人脸）分：分值范围 0-100，分数越高可疑程度越高
+                     * 
                      */
                     int64_t GetScore() const;
 
                     /**
                      * 设置政治（人脸）分：分值范围 0-100，分数越高可疑程度越高
-                     * @param Score 政治（人脸）分：分值范围 0-100，分数越高可疑程度越高
+                     * @param _score 政治（人脸）分：分值范围 0-100，分数越高可疑程度越高
+                     * 
                      */
                     void SetScore(const int64_t& _score);
 
                     /**
                      * 判断参数 Score 是否已赋值
                      * @return Score 是否已赋值
+                     * 
                      */
                     bool ScoreHasBeenSet() const;
+
+                    /**
+                     * 获取关键词明细
+                     * @return Keywords 关键词明细
+                     * 
+                     */
+                    std::vector<std::string> GetKeywords() const;
+
+                    /**
+                     * 设置关键词明细
+                     * @param _keywords 关键词明细
+                     * 
+                     */
+                    void SetKeywords(const std::vector<std::string>& _keywords);
+
+                    /**
+                     * 判断参数 Keywords 是否已赋值
+                     * @return Keywords 是否已赋值
+                     * 
+                     */
+                    bool KeywordsHasBeenSet() const;
 
                 private:
 
@@ -198,25 +227,21 @@ namespace TencentCloud
                     bool m_hitFlagHasBeenSet;
 
                     /**
-                     * 命中的logo标签信息
-                     */
-                    std::vector<Logo> m_polityLogoDetail;
-                    bool m_polityLogoDetailHasBeenSet;
-
-                    /**
                      * 命中的人脸名称
                      */
                     std::vector<std::string> m_faceNames;
                     bool m_faceNamesHasBeenSet;
 
                     /**
-                     * 关键词明细
+                     * 命中的logo标签信息
+注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::string> m_keywords;
-                    bool m_keywordsHasBeenSet;
+                    std::vector<Logo> m_polityLogoDetail;
+                    bool m_polityLogoDetailHasBeenSet;
 
                     /**
                      * 命中的政治物品名称
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_polityItems;
                     bool m_polityItemsHasBeenSet;
@@ -226,6 +251,12 @@ namespace TencentCloud
                      */
                     int64_t m_score;
                     bool m_scoreHasBeenSet;
+
+                    /**
+                     * 关键词明细
+                     */
+                    std::vector<std::string> m_keywords;
+                    bool m_keywordsHasBeenSet;
 
                 };
             }

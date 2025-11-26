@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取要筛选的模板ID数组。
                      * @return TemplateIds 要筛选的模板ID数组。
+                     * 
                      */
                     std::vector<int64_t> GetTemplateIds() const;
 
                     /**
                      * 设置要筛选的模板ID数组。
-                     * @param TemplateIds 要筛选的模板ID数组。
+                     * @param _templateIds 要筛选的模板ID数组。
+                     * 
                      */
                     void SetTemplateIds(const std::vector<int64_t>& _templateIds);
 
                     /**
                      * 判断参数 TemplateIds 是否已赋值
                      * @return TemplateIds 是否已赋值
+                     * 
                      */
                     bool TemplateIdsHasBeenSet() const;
 
                     /**
                      * 获取要筛选的域名数组。
                      * @return DomainNames 要筛选的域名数组。
+                     * 
                      */
                     std::vector<std::string> GetDomainNames() const;
 
                     /**
                      * 设置要筛选的域名数组。
-                     * @param DomainNames 要筛选的域名数组。
+                     * @param _domainNames 要筛选的域名数组。
+                     * 
                      */
                     void SetDomainNames(const std::vector<std::string>& _domainNames);
 
                     /**
                      * 判断参数 DomainNames 是否已赋值
                      * @return DomainNames 是否已赋值
+                     * 
                      */
                     bool DomainNamesHasBeenSet() const;
 

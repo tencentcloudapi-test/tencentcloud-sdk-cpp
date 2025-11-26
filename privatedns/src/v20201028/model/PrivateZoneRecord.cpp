@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ PrivateZoneRecord::PrivateZoneRecord() :
     m_weightHasBeenSet(false),
     m_createdOnHasBeenSet(false),
     m_updatedOnHasBeenSet(false),
-    m_extraHasBeenSet(false)
+    m_extraHasBeenSet(false),
+    m_enabledHasBeenSet(false),
+    m_remarkHasBeenSet(false)
 {
 }
 
@@ -161,6 +163,26 @@ CoreInternalOutcome PrivateZoneRecord::Deserialize(const rapidjson::Value &value
         m_extraHasBeenSet = true;
     }
 
+    if (value.HasMember("Enabled") && !value["Enabled"].IsNull())
+    {
+        if (!value["Enabled"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrivateZoneRecord.Enabled` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_enabled = value["Enabled"].GetUint64();
+        m_enabledHasBeenSet = true;
+    }
+
+    if (value.HasMember("Remark") && !value["Remark"].IsNull())
+    {
+        if (!value["Remark"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrivateZoneRecord.Remark` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_remark = string(value["Remark"].GetString());
+        m_remarkHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -262,6 +284,22 @@ void PrivateZoneRecord::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "Extra";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_extra.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_enabledHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Enabled";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enabled, allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -457,5 +495,37 @@ void PrivateZoneRecord::SetExtra(const string& _extra)
 bool PrivateZoneRecord::ExtraHasBeenSet() const
 {
     return m_extraHasBeenSet;
+}
+
+uint64_t PrivateZoneRecord::GetEnabled() const
+{
+    return m_enabled;
+}
+
+void PrivateZoneRecord::SetEnabled(const uint64_t& _enabled)
+{
+    m_enabled = _enabled;
+    m_enabledHasBeenSet = true;
+}
+
+bool PrivateZoneRecord::EnabledHasBeenSet() const
+{
+    return m_enabledHasBeenSet;
+}
+
+string PrivateZoneRecord::GetRemark() const
+{
+    return m_remark;
+}
+
+void PrivateZoneRecord::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool PrivateZoneRecord::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
 }
 

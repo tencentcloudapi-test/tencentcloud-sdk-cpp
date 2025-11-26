@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,54 +43,87 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取应用ID。
-                     * @return SdkAppId 应用ID。
+                     * 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
                      */
                     int64_t GetSdkAppId() const;
 
                     /**
-                     * 设置应用ID。
-                     * @param SdkAppId 应用ID。
+                     * 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @param _sdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
                      */
                     void SetSdkAppId(const int64_t& _sdkAppId);
 
                     /**
                      * 判断参数 SdkAppId 是否已赋值
                      * @return SdkAppId 是否已赋值
+                     * 
                      */
                     bool SdkAppIdHasBeenSet() const;
 
                     /**
-                     * 获取坐席账号。
-                     * @return SeatUserId 坐席账号。
+                     * 获取座席账号。
+                     * @return SeatUserId 座席账号。
+                     * 
                      */
                     std::string GetSeatUserId() const;
 
                     /**
-                     * 设置坐席账号。
-                     * @param SeatUserId 坐席账号。
+                     * 设置座席账号。
+                     * @param _seatUserId 座席账号。
+                     * 
                      */
                     void SetSeatUserId(const std::string& _seatUserId);
 
                     /**
                      * 判断参数 SeatUserId 是否已赋值
                      * @return SeatUserId 是否已赋值
+                     * 
                      */
                     bool SeatUserIdHasBeenSet() const;
+
+                    /**
+                     * 获取生成的token是否一次性校验
+                     * @return OnlyOnce 生成的token是否一次性校验
+                     * 
+                     */
+                    bool GetOnlyOnce() const;
+
+                    /**
+                     * 设置生成的token是否一次性校验
+                     * @param _onlyOnce 生成的token是否一次性校验
+                     * 
+                     */
+                    void SetOnlyOnce(const bool& _onlyOnce);
+
+                    /**
+                     * 判断参数 OnlyOnce 是否已赋值
+                     * @return OnlyOnce 是否已赋值
+                     * 
+                     */
+                    bool OnlyOnceHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 应用ID。
+                     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      */
                     int64_t m_sdkAppId;
                     bool m_sdkAppIdHasBeenSet;
 
                     /**
-                     * 坐席账号。
+                     * 座席账号。
                      */
                     std::string m_seatUserId;
                     bool m_seatUserIdHasBeenSet;
+
+                    /**
+                     * 生成的token是否一次性校验
+                     */
+                    bool m_onlyOnce;
+                    bool m_onlyOnceHasBeenSet;
 
                 };
             }

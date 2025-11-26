@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,63 +43,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取组id
-                     * @return GroupId 组id
+                     * 获取资产组id
+                     * @return GroupId 资产组id
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
-                     * 设置组id
-                     * @param GroupId 组id
+                     * 设置资产组id
+                     * @param _groupId 资产组id
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取组名称
                      * @return GroupName 组名称
+                     * 
                      */
                     std::string GetGroupName() const;
 
                     /**
                      * 设置组名称
-                     * @param GroupName 组名称
+                     * @param _groupName 组名称
+                     * 
                      */
                     void SetGroupName(const std::string& _groupName);
 
                     /**
                      * 判断参数 GroupName 是否已赋值
                      * @return GroupName 是否已赋值
+                     * 
                      */
                     bool GroupNameHasBeenSet() const;
 
                     /**
-                     * 获取上级组id
-                     * @return ParentId 上级组id
+                     * 获取上级组资产组id
+                     * @return ParentId 上级组资产组id
+                     * 
                      */
                     std::string GetParentId() const;
 
                     /**
-                     * 设置上级组id
-                     * @param ParentId 上级组id
+                     * 设置上级组资产组id
+                     * @param _parentId 上级组资产组id
+                     * 
                      */
                     void SetParentId(const std::string& _parentId);
 
                     /**
                      * 判断参数 ParentId 是否已赋值
                      * @return ParentId 是否已赋值
+                     * 
                      */
                     bool ParentIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 组id
+                     * 资产组id
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
@@ -111,7 +120,7 @@ namespace TencentCloud
                     bool m_groupNameHasBeenSet;
 
                     /**
-                     * 上级组id
+                     * 上级组资产组id
                      */
                     std::string m_parentId;
                     bool m_parentIdHasBeenSet;

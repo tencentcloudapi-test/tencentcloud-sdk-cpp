@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取基线id
                      * @return BaselineId 基线id
+                     * 
                      */
                     uint64_t GetBaselineId() const;
 
                     /**
                      * 设置基线id
-                     * @param BaselineId 基线id
+                     * @param _baselineId 基线id
+                     * 
                      */
                     void SetBaselineId(const uint64_t& _baselineId);
 
                     /**
                      * 判断参数 BaselineId 是否已赋值
                      * @return BaselineId 是否已赋值
+                     * 
                      */
                     bool BaselineIdHasBeenSet() const;
 

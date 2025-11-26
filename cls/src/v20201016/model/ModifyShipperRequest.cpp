@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,9 @@ ModifyShipperRequest::ModifyShipperRequest() :
     m_filterRulesHasBeenSet(false),
     m_partitionHasBeenSet(false),
     m_compressHasBeenSet(false),
-    m_contentHasBeenSet(false)
+    m_contentHasBeenSet(false),
+    m_filenameModeHasBeenSet(false),
+    m_storageTypeHasBeenSet(false)
 {
 }
 
@@ -139,6 +141,22 @@ string ModifyShipperRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_content.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_filenameModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilenameMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filenameMode, allocator);
+    }
+
+    if (m_storageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_storageType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -323,6 +341,38 @@ void ModifyShipperRequest::SetContent(const ContentInfo& _content)
 bool ModifyShipperRequest::ContentHasBeenSet() const
 {
     return m_contentHasBeenSet;
+}
+
+uint64_t ModifyShipperRequest::GetFilenameMode() const
+{
+    return m_filenameMode;
+}
+
+void ModifyShipperRequest::SetFilenameMode(const uint64_t& _filenameMode)
+{
+    m_filenameMode = _filenameMode;
+    m_filenameModeHasBeenSet = true;
+}
+
+bool ModifyShipperRequest::FilenameModeHasBeenSet() const
+{
+    return m_filenameModeHasBeenSet;
+}
+
+string ModifyShipperRequest::GetStorageType() const
+{
+    return m_storageType;
+}
+
+void ModifyShipperRequest::SetStorageType(const string& _storageType)
+{
+    m_storageType = _storageType;
+    m_storageTypeHasBeenSet = true;
+}
+
+bool ModifyShipperRequest::StorageTypeHasBeenSet() const
+{
+    return m_storageTypeHasBeenSet;
 }
 
 

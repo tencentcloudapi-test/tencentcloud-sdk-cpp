@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,56 +45,86 @@ namespace TencentCloud
                     /**
                      * 获取实例ID
                      * @return InstanceId 实例ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * @param _instanceId 实例ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取是否强制重启<li>true：强制重启</li><li>false：不强制重启</li>默认false
                      * @return ForceRestart 是否强制重启<li>true：强制重启</li><li>false：不强制重启</li>默认false
+                     * 
                      */
                     bool GetForceRestart() const;
 
                     /**
                      * 设置是否强制重启<li>true：强制重启</li><li>false：不强制重启</li>默认false
-                     * @param ForceRestart 是否强制重启<li>true：强制重启</li><li>false：不强制重启</li>默认false
+                     * @param _forceRestart 是否强制重启<li>true：强制重启</li><li>false：不强制重启</li>默认false
+                     * 
                      */
                     void SetForceRestart(const bool& _forceRestart);
 
                     /**
                      * 判断参数 ForceRestart 是否已赋值
                      * @return ForceRestart 是否已赋值
+                     * 
                      */
                     bool ForceRestartHasBeenSet() const;
 
                     /**
                      * 获取重启模式：0 滚动重启； 1 全量重启
                      * @return RestartMode 重启模式：0 滚动重启； 1 全量重启
+                     * 
                      */
                     int64_t GetRestartMode() const;
 
                     /**
                      * 设置重启模式：0 滚动重启； 1 全量重启
-                     * @param RestartMode 重启模式：0 滚动重启； 1 全量重启
+                     * @param _restartMode 重启模式：0 滚动重启； 1 全量重启
+                     * 
                      */
                     void SetRestartMode(const int64_t& _restartMode);
 
                     /**
                      * 判断参数 RestartMode 是否已赋值
                      * @return RestartMode 是否已赋值
+                     * 
                      */
                     bool RestartModeHasBeenSet() const;
+
+                    /**
+                     * 获取重启时选择是否升级内核patch版本
+                     * @return UpgradeKernel 重启时选择是否升级内核patch版本
+                     * 
+                     */
+                    bool GetUpgradeKernel() const;
+
+                    /**
+                     * 设置重启时选择是否升级内核patch版本
+                     * @param _upgradeKernel 重启时选择是否升级内核patch版本
+                     * 
+                     */
+                    void SetUpgradeKernel(const bool& _upgradeKernel);
+
+                    /**
+                     * 判断参数 UpgradeKernel 是否已赋值
+                     * @return UpgradeKernel 是否已赋值
+                     * 
+                     */
+                    bool UpgradeKernelHasBeenSet() const;
 
                 private:
 
@@ -115,6 +145,12 @@ namespace TencentCloud
                      */
                     int64_t m_restartMode;
                     bool m_restartModeHasBeenSet;
+
+                    /**
+                     * 重启时选择是否升级内核patch版本
+                     */
+                    bool m_upgradeKernel;
+                    bool m_upgradeKernelHasBeenSet;
 
                 };
             }

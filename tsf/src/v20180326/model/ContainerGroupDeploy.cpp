@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,15 @@ ContainerGroupDeploy::ContainerGroupDeploy() :
     m_headlessServiceHasBeenSet(false),
     m_tcrRepoInfoHasBeenSet(false),
     m_volumeInfosHasBeenSet(false),
-    m_volumeMountInfosHasBeenSet(false)
+    m_volumeMountInfosHasBeenSet(false),
+    m_kubeInjectEnableHasBeenSet(false),
+    m_repoTypeHasBeenSet(false),
+    m_warmupSettingHasBeenSet(false),
+    m_gatewayConfigHasBeenSet(false),
+    m_containerNameHasBeenSet(false),
+    m_additionalContainerListHasBeenSet(false),
+    m_internalContainerListHasBeenSet(false),
+    m_serviceSettingListHasBeenSet(false)
 {
 }
 
@@ -457,6 +465,130 @@ CoreInternalOutcome ContainerGroupDeploy::Deserialize(const rapidjson::Value &va
         m_volumeMountInfosHasBeenSet = true;
     }
 
+    if (value.HasMember("KubeInjectEnable") && !value["KubeInjectEnable"].IsNull())
+    {
+        if (!value["KubeInjectEnable"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.KubeInjectEnable` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_kubeInjectEnable = value["KubeInjectEnable"].GetBool();
+        m_kubeInjectEnableHasBeenSet = true;
+    }
+
+    if (value.HasMember("RepoType") && !value["RepoType"].IsNull())
+    {
+        if (!value["RepoType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.RepoType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_repoType = string(value["RepoType"].GetString());
+        m_repoTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("WarmupSetting") && !value["WarmupSetting"].IsNull())
+    {
+        if (!value["WarmupSetting"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.WarmupSetting` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_warmupSetting.Deserialize(value["WarmupSetting"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_warmupSettingHasBeenSet = true;
+    }
+
+    if (value.HasMember("GatewayConfig") && !value["GatewayConfig"].IsNull())
+    {
+        if (!value["GatewayConfig"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.GatewayConfig` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_gatewayConfig.Deserialize(value["GatewayConfig"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_gatewayConfigHasBeenSet = true;
+    }
+
+    if (value.HasMember("ContainerName") && !value["ContainerName"].IsNull())
+    {
+        if (!value["ContainerName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.ContainerName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_containerName = string(value["ContainerName"].GetString());
+        m_containerNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("AdditionalContainerList") && !value["AdditionalContainerList"].IsNull())
+    {
+        if (!value["AdditionalContainerList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.AdditionalContainerList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["AdditionalContainerList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            GroupContainerInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_additionalContainerList.push_back(item);
+        }
+        m_additionalContainerListHasBeenSet = true;
+    }
+
+    if (value.HasMember("InternalContainerList") && !value["InternalContainerList"].IsNull())
+    {
+        if (!value["InternalContainerList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.InternalContainerList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["InternalContainerList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            GroupContainerInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_internalContainerList.push_back(item);
+        }
+        m_internalContainerListHasBeenSet = true;
+    }
+
+    if (value.HasMember("ServiceSettingList") && !value["ServiceSettingList"].IsNull())
+    {
+        if (!value["ServiceSettingList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ContainerGroupDeploy.ServiceSettingList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ServiceSettingList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ServiceSetting item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_serviceSettingList.push_back(item);
+        }
+        m_serviceSettingListHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -760,6 +892,93 @@ void ContainerGroupDeploy::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
 
         int i=0;
         for (auto itr = m_volumeMountInfos.begin(); itr != m_volumeMountInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_kubeInjectEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KubeInjectEnable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_kubeInjectEnable, allocator);
+    }
+
+    if (m_repoTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RepoType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_repoType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_warmupSettingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WarmupSetting";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_warmupSetting.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_gatewayConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GatewayConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_gatewayConfig.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_containerNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContainerName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_containerName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_additionalContainerListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdditionalContainerList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_additionalContainerList.begin(); itr != m_additionalContainerList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_internalContainerListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InternalContainerList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_internalContainerList.begin(); itr != m_internalContainerList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_serviceSettingListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceSettingList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_serviceSettingList.begin(); itr != m_serviceSettingList.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
@@ -1311,5 +1530,133 @@ void ContainerGroupDeploy::SetVolumeMountInfos(const vector<VolumeMountInfo>& _v
 bool ContainerGroupDeploy::VolumeMountInfosHasBeenSet() const
 {
     return m_volumeMountInfosHasBeenSet;
+}
+
+bool ContainerGroupDeploy::GetKubeInjectEnable() const
+{
+    return m_kubeInjectEnable;
+}
+
+void ContainerGroupDeploy::SetKubeInjectEnable(const bool& _kubeInjectEnable)
+{
+    m_kubeInjectEnable = _kubeInjectEnable;
+    m_kubeInjectEnableHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::KubeInjectEnableHasBeenSet() const
+{
+    return m_kubeInjectEnableHasBeenSet;
+}
+
+string ContainerGroupDeploy::GetRepoType() const
+{
+    return m_repoType;
+}
+
+void ContainerGroupDeploy::SetRepoType(const string& _repoType)
+{
+    m_repoType = _repoType;
+    m_repoTypeHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::RepoTypeHasBeenSet() const
+{
+    return m_repoTypeHasBeenSet;
+}
+
+WarmupSetting ContainerGroupDeploy::GetWarmupSetting() const
+{
+    return m_warmupSetting;
+}
+
+void ContainerGroupDeploy::SetWarmupSetting(const WarmupSetting& _warmupSetting)
+{
+    m_warmupSetting = _warmupSetting;
+    m_warmupSettingHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::WarmupSettingHasBeenSet() const
+{
+    return m_warmupSettingHasBeenSet;
+}
+
+GatewayConfig ContainerGroupDeploy::GetGatewayConfig() const
+{
+    return m_gatewayConfig;
+}
+
+void ContainerGroupDeploy::SetGatewayConfig(const GatewayConfig& _gatewayConfig)
+{
+    m_gatewayConfig = _gatewayConfig;
+    m_gatewayConfigHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::GatewayConfigHasBeenSet() const
+{
+    return m_gatewayConfigHasBeenSet;
+}
+
+string ContainerGroupDeploy::GetContainerName() const
+{
+    return m_containerName;
+}
+
+void ContainerGroupDeploy::SetContainerName(const string& _containerName)
+{
+    m_containerName = _containerName;
+    m_containerNameHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::ContainerNameHasBeenSet() const
+{
+    return m_containerNameHasBeenSet;
+}
+
+vector<GroupContainerInfo> ContainerGroupDeploy::GetAdditionalContainerList() const
+{
+    return m_additionalContainerList;
+}
+
+void ContainerGroupDeploy::SetAdditionalContainerList(const vector<GroupContainerInfo>& _additionalContainerList)
+{
+    m_additionalContainerList = _additionalContainerList;
+    m_additionalContainerListHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::AdditionalContainerListHasBeenSet() const
+{
+    return m_additionalContainerListHasBeenSet;
+}
+
+vector<GroupContainerInfo> ContainerGroupDeploy::GetInternalContainerList() const
+{
+    return m_internalContainerList;
+}
+
+void ContainerGroupDeploy::SetInternalContainerList(const vector<GroupContainerInfo>& _internalContainerList)
+{
+    m_internalContainerList = _internalContainerList;
+    m_internalContainerListHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::InternalContainerListHasBeenSet() const
+{
+    return m_internalContainerListHasBeenSet;
+}
+
+vector<ServiceSetting> ContainerGroupDeploy::GetServiceSettingList() const
+{
+    return m_serviceSettingList;
+}
+
+void ContainerGroupDeploy::SetServiceSettingList(const vector<ServiceSetting>& _serviceSettingList)
+{
+    m_serviceSettingList = _serviceSettingList;
+    m_serviceSettingListHasBeenSet = true;
+}
+
+bool ContainerGroupDeploy::ServiceSettingListHasBeenSet() const
+{
+    return m_serviceSettingListHasBeenSet;
 }
 

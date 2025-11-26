@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取区块链交易 hash，在“存证基本信息查询（GetDepositInfo）”接口中可以获取。
                      * @return EvidenceTxHash 区块链交易 hash，在“存证基本信息查询（GetDepositInfo）”接口中可以获取。
+                     * 
                      */
                     std::string GetEvidenceTxHash() const;
 
                     /**
                      * 设置区块链交易 hash，在“存证基本信息查询（GetDepositInfo）”接口中可以获取。
-                     * @param EvidenceTxHash 区块链交易 hash，在“存证基本信息查询（GetDepositInfo）”接口中可以获取。
+                     * @param _evidenceTxHash 区块链交易 hash，在“存证基本信息查询（GetDepositInfo）”接口中可以获取。
+                     * 
                      */
                     void SetEvidenceTxHash(const std::string& _evidenceTxHash);
 
                     /**
                      * 判断参数 EvidenceTxHash 是否已赋值
                      * @return EvidenceTxHash 是否已赋值
+                     * 
                      */
                     bool EvidenceTxHashHasBeenSet() const;
 

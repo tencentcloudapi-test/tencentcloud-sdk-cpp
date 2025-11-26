@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,46 @@ namespace TencentCloud
                     /**
                      * 获取总记录数
                      * @return TotalCount 总记录数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取服务记录列表
                      * @return IMCdrs 服务记录列表
+                     * @deprecated
                      */
                     std::vector<IMCdrInfo> GetIMCdrs() const;
 
                     /**
                      * 判断参数 IMCdrs 是否已赋值
                      * @return IMCdrs 是否已赋值
+                     * @deprecated
                      */
                     bool IMCdrsHasBeenSet() const;
+
+                    /**
+                     * 获取服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return IMCdrList 服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<IMCdrInfo> GetIMCdrList() const;
+
+                    /**
+                     * 判断参数 IMCdrList 是否已赋值
+                     * @return IMCdrList 是否已赋值
+                     * 
+                     */
+                    bool IMCdrListHasBeenSet() const;
 
                 private:
 
@@ -81,6 +101,13 @@ namespace TencentCloud
                      */
                     std::vector<IMCdrInfo> m_iMCdrs;
                     bool m_iMCdrsHasBeenSet;
+
+                    /**
+                     * 服务记录列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<IMCdrInfo> m_iMCdrList;
+                    bool m_iMCdrListHasBeenSet;
 
                 };
             }

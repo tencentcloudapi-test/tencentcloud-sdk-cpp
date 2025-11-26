@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取报告ID
                      * @return ReportId 报告ID
+                     * 
                      */
                     std::string GetReportId() const;
 
                     /**
                      * 设置报告ID
-                     * @param ReportId 报告ID
+                     * @param _reportId 报告ID
+                     * 
                      */
                     void SetReportId(const std::string& _reportId);
 
                     /**
                      * 判断参数 ReportId 是否已赋值
                      * @return ReportId 是否已赋值
+                     * 
                      */
                     bool ReportIdHasBeenSet() const;
 

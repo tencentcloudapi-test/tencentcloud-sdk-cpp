@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/cls/v20201016/model/LogInfo.h>
 #include <tencentcloud/cls/v20201016/model/LogItems.h>
 #include <tencentcloud/cls/v20201016/model/Column.h>
+#include <tencentcloud/cls/v20201016/model/SearchLogTopics.h>
 
 
 namespace TencentCloud
@@ -47,14 +48,20 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
-                     * @return Context 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
+                     * 获取透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。
+注意：
+* 仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context
+                     * @return Context 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。
+注意：
+* 仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context
+                     * 
                      */
                     std::string GetContext() const;
 
                     /**
                      * 判断参数 Context 是否已赋值
                      * @return Context 是否已赋值
+                     * 
                      */
                     bool ContextHasBeenSet() const;
 
@@ -63,24 +70,28 @@ namespace TencentCloud
 注意：仅当检索分析语句(Query)不包含SQL时有效
                      * @return ListOver 符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志
 注意：仅当检索分析语句(Query)不包含SQL时有效
+                     * 
                      */
                     bool GetListOver() const;
 
                     /**
                      * 判断参数 ListOver 是否已赋值
                      * @return ListOver 是否已赋值
+                     * 
                      */
                     bool ListOverHasBeenSet() const;
 
                     /**
                      * 获取返回的是否为统计分析（即SQL）结果
                      * @return Analysis 返回的是否为统计分析（即SQL）结果
+                     * 
                      */
                     bool GetAnalysis() const;
 
                     /**
                      * 判断参数 Analysis 是否已赋值
                      * @return Analysis 是否已赋值
+                     * 
                      */
                     bool AnalysisHasBeenSet() const;
 
@@ -89,12 +100,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Results 匹配检索条件的原始日志
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<LogInfo> GetResults() const;
 
                     /**
                      * 判断参数 Results 是否已赋值
                      * @return Results 是否已赋值
+                     * 
                      */
                     bool ResultsHasBeenSet() const;
 
@@ -105,12 +118,14 @@ namespace TencentCloud
                      * @return ColNames 日志统计分析结果的列名
 当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetColNames() const;
 
                     /**
                      * 判断参数 ColNames 是否已赋值
                      * @return ColNames 是否已赋值
+                     * 
                      */
                     bool ColNamesHasBeenSet() const;
 
@@ -121,12 +136,14 @@ namespace TencentCloud
                      * @return AnalysisResults 日志统计分析结果
 当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<LogItems> GetAnalysisResults() const;
 
                     /**
                      * 判断参数 AnalysisResults 是否已赋值
                      * @return AnalysisResults 是否已赋值
+                     * 
                      */
                     bool AnalysisResultsHasBeenSet() const;
 
@@ -137,12 +154,14 @@ namespace TencentCloud
                      * @return AnalysisRecords 日志统计分析结果
 当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetAnalysisRecords() const;
 
                     /**
                      * 判断参数 AnalysisRecords 是否已赋值
                      * @return AnalysisRecords 是否已赋值
+                     * 
                      */
                     bool AnalysisRecordsHasBeenSet() const;
 
@@ -153,19 +172,53 @@ namespace TencentCloud
                      * @return Columns 日志统计分析结果的列属性
 当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Column> GetColumns() const;
 
                     /**
                      * 判断参数 Columns 是否已赋值
                      * @return Columns 是否已赋值
+                     * 
                      */
                     bool ColumnsHasBeenSet() const;
+
+                    /**
+                     * 获取本次统计分析使用的采样率
+                     * @return SamplingRate 本次统计分析使用的采样率
+                     * 
+                     */
+                    double GetSamplingRate() const;
+
+                    /**
+                     * 判断参数 SamplingRate 是否已赋值
+                     * @return SamplingRate 是否已赋值
+                     * 
+                     */
+                    bool SamplingRateHasBeenSet() const;
+
+                    /**
+                     * 获取使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Topics 使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    SearchLogTopics GetTopics() const;
+
+                    /**
+                     * 判断参数 Topics 是否已赋值
+                     * @return Topics 是否已赋值
+                     * 
+                     */
+                    bool TopicsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时
+                     * 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。
+注意：
+* 仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context
                      */
                     std::string m_context;
                     bool m_contextHasBeenSet;
@@ -221,6 +274,19 @@ namespace TencentCloud
                      */
                     std::vector<Column> m_columns;
                     bool m_columnsHasBeenSet;
+
+                    /**
+                     * 本次统计分析使用的采样率
+                     */
+                    double m_samplingRate;
+                    bool m_samplingRateHasBeenSet;
+
+                    /**
+                     * 使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    SearchLogTopics m_topics;
+                    bool m_topicsHasBeenSet;
 
                 };
             }

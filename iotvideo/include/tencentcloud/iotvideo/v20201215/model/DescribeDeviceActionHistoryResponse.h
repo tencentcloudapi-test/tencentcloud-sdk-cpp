@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取总条数
                      * @return TotalCounts 总条数
+                     * 
                      */
                     uint64_t GetTotalCounts() const;
 
                     /**
                      * 判断参数 TotalCounts 是否已赋值
                      * @return TotalCounts 是否已赋值
+                     * 
                      */
                     bool TotalCountsHasBeenSet() const;
 
@@ -61,12 +63,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ActionHistories 动作历史
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ActionHistory> GetActionHistories() const;
 
                     /**
                      * 判断参数 ActionHistories 是否已赋值
                      * @return ActionHistories 是否已赋值
+                     * 
                      */
                     bool ActionHistoriesHasBeenSet() const;
 
@@ -75,12 +79,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Context 用于标识查询结果的上下文，翻页用。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetContext() const;
 
                     /**
                      * 判断参数 Context 是否已赋值
                      * @return Context 是否已赋值
+                     * 
                      */
                     bool ContextHasBeenSet() const;
 
@@ -89,12 +95,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Listover 搜索结果是否已经结束。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     bool GetListover() const;
 
                     /**
                      * 判断参数 Listover 是否已赋值
                      * @return Listover 是否已赋值
+                     * 
                      */
                     bool ListoverHasBeenSet() const;
 

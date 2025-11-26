@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,10 @@ using namespace std;
 
 DescribeBashEventsRequest::DescribeBashEventsRequest() :
     m_limitHasBeenSet(false),
+    m_filtersHasBeenSet(false),
     m_offsetHasBeenSet(false),
-    m_filtersHasBeenSet(false)
+    m_orderHasBeenSet(false),
+    m_byHasBeenSet(false)
 {
 }
 
@@ -44,14 +46,6 @@ string DescribeBashEventsRequest::ToJsonString() const
         d.AddMember(iKey, m_limit, allocator);
     }
 
-    if (m_offsetHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Offset";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_offset, allocator);
-    }
-
     if (m_filtersHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -65,6 +59,30 @@ string DescribeBashEventsRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_offsetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Offset";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_offset, allocator);
+    }
+
+    if (m_orderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Order";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_order.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_byHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "By";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_by.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -91,6 +109,22 @@ bool DescribeBashEventsRequest::LimitHasBeenSet() const
     return m_limitHasBeenSet;
 }
 
+vector<Filter> DescribeBashEventsRequest::GetFilters() const
+{
+    return m_filters;
+}
+
+void DescribeBashEventsRequest::SetFilters(const vector<Filter>& _filters)
+{
+    m_filters = _filters;
+    m_filtersHasBeenSet = true;
+}
+
+bool DescribeBashEventsRequest::FiltersHasBeenSet() const
+{
+    return m_filtersHasBeenSet;
+}
+
 uint64_t DescribeBashEventsRequest::GetOffset() const
 {
     return m_offset;
@@ -107,20 +141,36 @@ bool DescribeBashEventsRequest::OffsetHasBeenSet() const
     return m_offsetHasBeenSet;
 }
 
-vector<Filter> DescribeBashEventsRequest::GetFilters() const
+string DescribeBashEventsRequest::GetOrder() const
 {
-    return m_filters;
+    return m_order;
 }
 
-void DescribeBashEventsRequest::SetFilters(const vector<Filter>& _filters)
+void DescribeBashEventsRequest::SetOrder(const string& _order)
 {
-    m_filters = _filters;
-    m_filtersHasBeenSet = true;
+    m_order = _order;
+    m_orderHasBeenSet = true;
 }
 
-bool DescribeBashEventsRequest::FiltersHasBeenSet() const
+bool DescribeBashEventsRequest::OrderHasBeenSet() const
 {
-    return m_filtersHasBeenSet;
+    return m_orderHasBeenSet;
+}
+
+string DescribeBashEventsRequest::GetBy() const
+{
+    return m_by;
+}
+
+void DescribeBashEventsRequest::SetBy(const string& _by)
+{
+    m_by = _by;
+    m_byHasBeenSet = true;
+}
+
+bool DescribeBashEventsRequest::ByHasBeenSet() const
+{
+    return m_byHasBeenSet;
 }
 
 

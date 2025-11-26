@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取应用ID
                      * @return Sdkappid 应用ID
+                     * 
                      */
                     std::string GetSdkappid() const;
 
                     /**
                      * 设置应用ID
-                     * @param Sdkappid 应用ID
+                     * @param _sdkappid 应用ID
+                     * 
                      */
                     void SetSdkappid(const std::string& _sdkappid);
 
                     /**
                      * 判断参数 Sdkappid 是否已赋值
                      * @return Sdkappid 是否已赋值
+                     * 
                      */
                     bool SdkappidHasBeenSet() const;
 
                     /**
                      * 获取卡片列表
                      * @return Iccids 卡片列表
+                     * 
                      */
                     std::vector<std::string> GetIccids() const;
 
                     /**
                      * 设置卡片列表
-                     * @param Iccids 卡片列表
+                     * @param _iccids 卡片列表
+                     * 
                      */
                     void SetIccids(const std::vector<std::string>& _iccids);
 
                     /**
                      * 判断参数 Iccids 是否已赋值
                      * @return Iccids 是否已赋值
+                     * 
                      */
                     bool IccidsHasBeenSet() const;
 
                     /**
                      * 获取短信内容 长度限制 70
                      * @return Content 短信内容 长度限制 70
+                     * 
                      */
                     std::string GetContent() const;
 
                     /**
                      * 设置短信内容 长度限制 70
-                     * @param Content 短信内容 长度限制 70
+                     * @param _content 短信内容 长度限制 70
+                     * 
                      */
                     void SetContent(const std::string& _content);
 
                     /**
                      * 判断参数 Content 是否已赋值
                      * @return Content 是否已赋值
+                     * 
                      */
                     bool ContentHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取ckafka topic name
                      * @return TopicName ckafka topic name
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置ckafka topic name
-                     * @param TopicName ckafka topic name
+                     * @param _topicName ckafka topic name
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
                      * 获取ckafka资源qcs六段式
                      * @return ResourceDescription ckafka资源qcs六段式
+                     * 
                      */
                     std::string GetResourceDescription() const;
 
                     /**
                      * 设置ckafka资源qcs六段式
-                     * @param ResourceDescription ckafka资源qcs六段式
+                     * @param _resourceDescription ckafka资源qcs六段式
+                     * 
                      */
                     void SetResourceDescription(const std::string& _resourceDescription);
 
                     /**
                      * 判断参数 ResourceDescription 是否已赋值
                      * @return ResourceDescription 是否已赋值
+                     * 
                      */
                     bool ResourceDescriptionHasBeenSet() const;
 

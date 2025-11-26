@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,9 @@ PushQualityData::PushQualityData() :
     m_mateFpsHasBeenSet(false),
     m_streamParamHasBeenSet(false),
     m_bandwidthHasBeenSet(false),
-    m_fluxHasBeenSet(false)
+    m_fluxHasBeenSet(false),
+    m_serverIpHasBeenSet(false),
+    m_gopSizeHasBeenSet(false)
 {
 }
 
@@ -271,6 +273,26 @@ CoreInternalOutcome PushQualityData::Deserialize(const rapidjson::Value &value)
         m_fluxHasBeenSet = true;
     }
 
+    if (value.HasMember("ServerIp") && !value["ServerIp"].IsNull())
+    {
+        if (!value["ServerIp"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `PushQualityData.ServerIp` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_serverIp = string(value["ServerIp"].GetString());
+        m_serverIpHasBeenSet = true;
+    }
+
+    if (value.HasMember("GopSize") && !value["GopSize"].IsNull())
+    {
+        if (!value["GopSize"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PushQualityData.GopSize` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_gopSize = value["GopSize"].GetInt64();
+        m_gopSizeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -452,6 +474,22 @@ void PushQualityData::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "Flux";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_flux, allocator);
+    }
+
+    if (m_serverIpHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServerIp";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_serverIp.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gopSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GopSize";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_gopSize, allocator);
     }
 
 }
@@ -807,5 +845,37 @@ void PushQualityData::SetFlux(const double& _flux)
 bool PushQualityData::FluxHasBeenSet() const
 {
     return m_fluxHasBeenSet;
+}
+
+string PushQualityData::GetServerIp() const
+{
+    return m_serverIp;
+}
+
+void PushQualityData::SetServerIp(const string& _serverIp)
+{
+    m_serverIp = _serverIp;
+    m_serverIpHasBeenSet = true;
+}
+
+bool PushQualityData::ServerIpHasBeenSet() const
+{
+    return m_serverIpHasBeenSet;
+}
+
+int64_t PushQualityData::GetGopSize() const
+{
+    return m_gopSize;
+}
+
+void PushQualityData::SetGopSize(const int64_t& _gopSize)
+{
+    m_gopSize = _gopSize;
+    m_gopSizeHasBeenSet = true;
+}
+
+bool PushQualityData::GopSizeHasBeenSet() const
+{
+    return m_gopSizeHasBeenSet;
 }
 

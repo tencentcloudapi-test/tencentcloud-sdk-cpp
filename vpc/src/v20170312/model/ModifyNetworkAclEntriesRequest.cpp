@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ using namespace std;
 
 ModifyNetworkAclEntriesRequest::ModifyNetworkAclEntriesRequest() :
     m_networkAclIdHasBeenSet(false),
-    m_networkAclEntrySetHasBeenSet(false)
+    m_networkAclEntrySetHasBeenSet(false),
+    m_networkAclQuintupleSetHasBeenSet(false),
+    m_enableUpdateAclEntriesHasBeenSet(false)
 {
 }
 
@@ -50,6 +52,23 @@ string ModifyNetworkAclEntriesRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_networkAclEntrySet.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_networkAclQuintupleSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NetworkAclQuintupleSet";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_networkAclQuintupleSet.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_enableUpdateAclEntriesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableUpdateAclEntries";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableUpdateAclEntries, allocator);
     }
 
 
@@ -90,6 +109,38 @@ void ModifyNetworkAclEntriesRequest::SetNetworkAclEntrySet(const NetworkAclEntry
 bool ModifyNetworkAclEntriesRequest::NetworkAclEntrySetHasBeenSet() const
 {
     return m_networkAclEntrySetHasBeenSet;
+}
+
+NetworkAclQuintupleEntries ModifyNetworkAclEntriesRequest::GetNetworkAclQuintupleSet() const
+{
+    return m_networkAclQuintupleSet;
+}
+
+void ModifyNetworkAclEntriesRequest::SetNetworkAclQuintupleSet(const NetworkAclQuintupleEntries& _networkAclQuintupleSet)
+{
+    m_networkAclQuintupleSet = _networkAclQuintupleSet;
+    m_networkAclQuintupleSetHasBeenSet = true;
+}
+
+bool ModifyNetworkAclEntriesRequest::NetworkAclQuintupleSetHasBeenSet() const
+{
+    return m_networkAclQuintupleSetHasBeenSet;
+}
+
+bool ModifyNetworkAclEntriesRequest::GetEnableUpdateAclEntries() const
+{
+    return m_enableUpdateAclEntries;
+}
+
+void ModifyNetworkAclEntriesRequest::SetEnableUpdateAclEntries(const bool& _enableUpdateAclEntries)
+{
+    m_enableUpdateAclEntries = _enableUpdateAclEntries;
+    m_enableUpdateAclEntriesHasBeenSet = true;
+}
+
+bool ModifyNetworkAclEntriesRequest::EnableUpdateAclEntriesHasBeenSet() const
+{
+    return m_enableUpdateAclEntriesHasBeenSet;
 }
 
 

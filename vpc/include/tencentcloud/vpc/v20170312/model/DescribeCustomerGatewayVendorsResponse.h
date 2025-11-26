@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取对端网关厂商信息对象。
                      * @return CustomerGatewayVendorSet 对端网关厂商信息对象。
+                     * 
                      */
                     std::vector<CustomerGatewayVendor> GetCustomerGatewayVendorSet() const;
 
                     /**
                      * 判断参数 CustomerGatewayVendorSet 是否已赋值
                      * @return CustomerGatewayVendorSet 是否已赋值
+                     * 
                      */
                     bool CustomerGatewayVendorSetHasBeenSet() const;
 

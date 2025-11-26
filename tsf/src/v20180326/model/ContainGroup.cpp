@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,9 @@ ContainGroup::ContainGroup() :
     m_cpuLimitHasBeenSet(false),
     m_memRequestHasBeenSet(false),
     m_memLimitHasBeenSet(false),
-    m_aliasHasBeenSet(false)
+    m_aliasHasBeenSet(false),
+    m_kubeInjectEnableHasBeenSet(false),
+    m_updatedTimeHasBeenSet(false)
 {
 }
 
@@ -194,6 +196,26 @@ CoreInternalOutcome ContainGroup::Deserialize(const rapidjson::Value &value)
         m_aliasHasBeenSet = true;
     }
 
+    if (value.HasMember("KubeInjectEnable") && !value["KubeInjectEnable"].IsNull())
+    {
+        if (!value["KubeInjectEnable"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainGroup.KubeInjectEnable` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_kubeInjectEnable = value["KubeInjectEnable"].GetBool();
+        m_kubeInjectEnableHasBeenSet = true;
+    }
+
+    if (value.HasMember("UpdatedTime") && !value["UpdatedTime"].IsNull())
+    {
+        if (!value["UpdatedTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContainGroup.UpdatedTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_updatedTime = string(value["UpdatedTime"].GetString());
+        m_updatedTimeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -319,6 +341,22 @@ void ContainGroup::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "Alias";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_alias.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_kubeInjectEnableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KubeInjectEnable";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_kubeInjectEnable, allocator);
+    }
+
+    if (m_updatedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpdatedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_updatedTime.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -562,5 +600,37 @@ void ContainGroup::SetAlias(const string& _alias)
 bool ContainGroup::AliasHasBeenSet() const
 {
     return m_aliasHasBeenSet;
+}
+
+bool ContainGroup::GetKubeInjectEnable() const
+{
+    return m_kubeInjectEnable;
+}
+
+void ContainGroup::SetKubeInjectEnable(const bool& _kubeInjectEnable)
+{
+    m_kubeInjectEnable = _kubeInjectEnable;
+    m_kubeInjectEnableHasBeenSet = true;
+}
+
+bool ContainGroup::KubeInjectEnableHasBeenSet() const
+{
+    return m_kubeInjectEnableHasBeenSet;
+}
+
+string ContainGroup::GetUpdatedTime() const
+{
+    return m_updatedTime;
+}
+
+void ContainGroup::SetUpdatedTime(const string& _updatedTime)
+{
+    m_updatedTime = _updatedTime;
+    m_updatedTimeHasBeenSet = true;
+}
+
+bool ContainGroup::UpdatedTimeHasBeenSet() const
+{
+    return m_updatedTimeHasBeenSet;
 }
 

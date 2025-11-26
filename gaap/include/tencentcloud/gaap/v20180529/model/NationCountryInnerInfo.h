@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取国家名
                      * @return NationCountryName 国家名
+                     * 
                      */
                     std::string GetNationCountryName() const;
 
                     /**
                      * 设置国家名
-                     * @param NationCountryName 国家名
+                     * @param _nationCountryName 国家名
+                     * 
                      */
                     void SetNationCountryName(const std::string& _nationCountryName);
 
                     /**
                      * 判断参数 NationCountryName 是否已赋值
                      * @return NationCountryName 是否已赋值
+                     * 
                      */
                     bool NationCountryNameHasBeenSet() const;
 
                     /**
                      * 获取国家内部编码
                      * @return NationCountryInnerCode 国家内部编码
+                     * 
                      */
                     std::string GetNationCountryInnerCode() const;
 
                     /**
                      * 设置国家内部编码
-                     * @param NationCountryInnerCode 国家内部编码
+                     * @param _nationCountryInnerCode 国家内部编码
+                     * 
                      */
                     void SetNationCountryInnerCode(const std::string& _nationCountryInnerCode);
 
                     /**
                      * 判断参数 NationCountryInnerCode 是否已赋值
                      * @return NationCountryInnerCode 是否已赋值
+                     * 
                      */
                     bool NationCountryInnerCodeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取码率，单位：bps。
                      * @return Bitrate 码率，单位：bps。
+                     * 
                      */
                     uint64_t GetBitrate() const;
 
                     /**
                      * 设置码率，单位：bps。
-                     * @param Bitrate 码率，单位：bps。
+                     * @param _bitrate 码率，单位：bps。
+                     * 
                      */
                     void SetBitrate(const uint64_t& _bitrate);
 
                     /**
                      * 判断参数 Bitrate 是否已赋值
                      * @return Bitrate 是否已赋值
+                     * 
                      */
                     bool BitrateHasBeenSet() const;
 
                     /**
                      * 获取采样率，单位：hz。
                      * @return SamplingRate 采样率，单位：hz。
+                     * 
                      */
                     uint64_t GetSamplingRate() const;
 
                     /**
                      * 设置采样率，单位：hz。
-                     * @param SamplingRate 采样率，单位：hz。
+                     * @param _samplingRate 采样率，单位：hz。
+                     * 
                      */
                     void SetSamplingRate(const uint64_t& _samplingRate);
 
                     /**
                      * 判断参数 SamplingRate 是否已赋值
                      * @return SamplingRate 是否已赋值
+                     * 
                      */
                     bool SamplingRateHasBeenSet() const;
 
                     /**
                      * 获取编码格式。
                      * @return Codec 编码格式。
+                     * 
                      */
                     std::string GetCodec() const;
 
                     /**
                      * 设置编码格式。
-                     * @param Codec 编码格式。
+                     * @param _codec 编码格式。
+                     * 
                      */
                     void SetCodec(const std::string& _codec);
 
                     /**
                      * 判断参数 Codec 是否已赋值
                      * @return Codec 是否已赋值
+                     * 
                      */
                     bool CodecHasBeenSet() const;
 

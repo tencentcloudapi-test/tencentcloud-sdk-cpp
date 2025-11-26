@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,60 +49,107 @@ namespace TencentCloud
                     /**
                      * 获取认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
                      * @return SSLMode 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
+                     * 
                      */
                     std::string GetSSLMode() const;
 
                     /**
                      * 设置认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
-                     * @param SSLMode 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
+                     * @param _sSLMode 认证类型，UNIDIRECTIONAL：单向认证，MUTUAL：双向认证
+                     * 
                      */
                     void SetSSLMode(const std::string& _sSLMode);
 
                     /**
                      * 判断参数 SSLMode 是否已赋值
                      * @return SSLMode 是否已赋值
+                     * 
                      */
                     bool SSLModeHasBeenSet() const;
 
                     /**
-                     * 获取服务端证书的 ID。
-                     * @return CertId 服务端证书的 ID。
+                     * 获取是否开启客户端证书验证，只在双向认证时生效。
+                     * @return SSLVerifyClient 是否开启客户端证书验证，只在双向认证时生效。
+                     * 
+                     */
+                    std::string GetSSLVerifyClient() const;
+
+                    /**
+                     * 设置是否开启客户端证书验证，只在双向认证时生效。
+                     * @param _sSLVerifyClient 是否开启客户端证书验证，只在双向认证时生效。
+                     * 
+                     */
+                    void SetSSLVerifyClient(const std::string& _sSLVerifyClient);
+
+                    /**
+                     * 判断参数 SSLVerifyClient 是否已赋值
+                     * @return SSLVerifyClient 是否已赋值
+                     * 
+                     */
+                    bool SSLVerifyClientHasBeenSet() const;
+
+                    /**
+                     * 获取服务端证书的ID。
+                     * @return CertId 服务端证书的ID。
+                     * 
                      */
                     std::string GetCertId() const;
 
                     /**
-                     * 设置服务端证书的 ID。
-                     * @param CertId 服务端证书的 ID。
+                     * 设置服务端证书的ID。
+                     * @param _certId 服务端证书的ID。
+                     * 
                      */
                     void SetCertId(const std::string& _certId);
 
                     /**
                      * 判断参数 CertId 是否已赋值
                      * @return CertId 是否已赋值
+                     * 
                      */
                     bool CertIdHasBeenSet() const;
 
                     /**
                      * 获取客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CertCaId 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCertCaId() const;
 
                     /**
                      * 设置客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CertCaId 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _certCaId 客户端证书的 ID。
+                     * 
                      */
                     void SetCertCaId(const std::string& _certCaId);
 
                     /**
                      * 判断参数 CertCaId 是否已赋值
                      * @return CertCaId 是否已赋值
+                     * 
                      */
                     bool CertCaIdHasBeenSet() const;
+
+                    /**
+                     * 获取多本服务器证书场景扩展的服务器证书ID。
+                     * @return ExtCertIds 多本服务器证书场景扩展的服务器证书ID。
+                     * 
+                     */
+                    std::vector<std::string> GetExtCertIds() const;
+
+                    /**
+                     * 设置多本服务器证书场景扩展的服务器证书ID。
+                     * @param _extCertIds 多本服务器证书场景扩展的服务器证书ID。
+                     * 
+                     */
+                    void SetExtCertIds(const std::vector<std::string>& _extCertIds);
+
+                    /**
+                     * 判断参数 ExtCertIds 是否已赋值
+                     * @return ExtCertIds 是否已赋值
+                     * 
+                     */
+                    bool ExtCertIdsHasBeenSet() const;
 
                 private:
 
@@ -113,17 +160,28 @@ namespace TencentCloud
                     bool m_sSLModeHasBeenSet;
 
                     /**
-                     * 服务端证书的 ID。
+                     * 是否开启客户端证书验证，只在双向认证时生效。
+                     */
+                    std::string m_sSLVerifyClient;
+                    bool m_sSLVerifyClientHasBeenSet;
+
+                    /**
+                     * 服务端证书的ID。
                      */
                     std::string m_certId;
                     bool m_certIdHasBeenSet;
 
                     /**
                      * 客户端证书的 ID。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_certCaId;
                     bool m_certCaIdHasBeenSet;
+
+                    /**
+                     * 多本服务器证书场景扩展的服务器证书ID。
+                     */
+                    std::vector<std::string> m_extCertIds;
+                    bool m_extCertIdsHasBeenSet;
 
                 };
             }

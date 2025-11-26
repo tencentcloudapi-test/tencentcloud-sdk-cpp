@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取视频发布标题，限30个字符。
                      * @return Title 视频发布标题，限30个字符。
+                     * 
                      */
                     std::string GetTitle() const;
 
                     /**
                      * 设置视频发布标题，限30个字符。
-                     * @param Title 视频发布标题，限30个字符。
+                     * @param _title 视频发布标题，限30个字符。
+                     * 
                      */
                     void SetTitle(const std::string& _title);
 
                     /**
                      * 判断参数 Title 是否已赋值
                      * @return Title 是否已赋值
+                     * 
                      */
                     bool TitleHasBeenSet() const;
 

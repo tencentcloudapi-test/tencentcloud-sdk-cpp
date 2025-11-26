@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace TencentCloud::Organization::V20210331::Model;
 using namespace std;
 
 DescribeOrganizationRequest::DescribeOrganizationRequest() :
-    m_langHasBeenSet(false)
+    m_langHasBeenSet(false),
+    m_productHasBeenSet(false)
 {
 }
 
@@ -40,6 +41,14 @@ string DescribeOrganizationRequest::ToJsonString() const
         string key = "Lang";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_lang.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_productHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Product";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_product.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -64,6 +73,22 @@ void DescribeOrganizationRequest::SetLang(const string& _lang)
 bool DescribeOrganizationRequest::LangHasBeenSet() const
 {
     return m_langHasBeenSet;
+}
+
+string DescribeOrganizationRequest::GetProduct() const
+{
+    return m_product;
+}
+
+void DescribeOrganizationRequest::SetProduct(const string& _product)
+{
+    m_product = _product;
+    m_productHasBeenSet = true;
+}
+
+bool DescribeOrganizationRequest::ProductHasBeenSet() const
+{
+    return m_productHasBeenSet;
 }
 
 

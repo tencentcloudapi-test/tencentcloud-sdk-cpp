@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,12 @@ ParseNotificationResponse::ParseNotificationResponse() :
     m_workflowTaskEventHasBeenSet(false),
     m_editMediaTaskEventHasBeenSet(false),
     m_sessionIdHasBeenSet(false),
-    m_sessionContextHasBeenSet(false)
+    m_sessionContextHasBeenSet(false),
+    m_scheduleTaskEventHasBeenSet(false),
+    m_timestampHasBeenSet(false),
+    m_signHasBeenSet(false),
+    m_batchTaskEventHasBeenSet(false),
+    m_extractBlindWatermarkTaskHasBeenSet(false)
 {
 }
 
@@ -130,6 +135,77 @@ CoreInternalOutcome ParseNotificationResponse::Deserialize(const string &payload
         m_sessionContextHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ScheduleTaskEvent") && !rsp["ScheduleTaskEvent"].IsNull())
+    {
+        if (!rsp["ScheduleTaskEvent"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ScheduleTaskEvent` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_scheduleTaskEvent.Deserialize(rsp["ScheduleTaskEvent"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_scheduleTaskEventHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Timestamp") && !rsp["Timestamp"].IsNull())
+    {
+        if (!rsp["Timestamp"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Timestamp` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_timestamp = rsp["Timestamp"].GetInt64();
+        m_timestampHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Sign") && !rsp["Sign"].IsNull())
+    {
+        if (!rsp["Sign"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Sign` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sign = string(rsp["Sign"].GetString());
+        m_signHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BatchTaskEvent") && !rsp["BatchTaskEvent"].IsNull())
+    {
+        if (!rsp["BatchTaskEvent"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `BatchTaskEvent` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_batchTaskEvent.Deserialize(rsp["BatchTaskEvent"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_batchTaskEventHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ExtractBlindWatermarkTask") && !rsp["ExtractBlindWatermarkTask"].IsNull())
+    {
+        if (!rsp["ExtractBlindWatermarkTask"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ExtractBlindWatermarkTask` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_extractBlindWatermarkTask.Deserialize(rsp["ExtractBlindWatermarkTask"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_extractBlindWatermarkTaskHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -182,11 +258,54 @@ string ParseNotificationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_sessionContext.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_scheduleTaskEventHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScheduleTaskEvent";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_scheduleTaskEvent.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_timestampHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Timestamp";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_timestamp, allocator);
+    }
+
+    if (m_signHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Sign";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sign.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_batchTaskEventHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BatchTaskEvent";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_batchTaskEvent.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_extractBlindWatermarkTaskHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExtractBlindWatermarkTask";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_extractBlindWatermarkTask.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -242,6 +361,56 @@ string ParseNotificationResponse::GetSessionContext() const
 bool ParseNotificationResponse::SessionContextHasBeenSet() const
 {
     return m_sessionContextHasBeenSet;
+}
+
+ScheduleTask ParseNotificationResponse::GetScheduleTaskEvent() const
+{
+    return m_scheduleTaskEvent;
+}
+
+bool ParseNotificationResponse::ScheduleTaskEventHasBeenSet() const
+{
+    return m_scheduleTaskEventHasBeenSet;
+}
+
+int64_t ParseNotificationResponse::GetTimestamp() const
+{
+    return m_timestamp;
+}
+
+bool ParseNotificationResponse::TimestampHasBeenSet() const
+{
+    return m_timestampHasBeenSet;
+}
+
+string ParseNotificationResponse::GetSign() const
+{
+    return m_sign;
+}
+
+bool ParseNotificationResponse::SignHasBeenSet() const
+{
+    return m_signHasBeenSet;
+}
+
+BatchSubTaskResult ParseNotificationResponse::GetBatchTaskEvent() const
+{
+    return m_batchTaskEvent;
+}
+
+bool ParseNotificationResponse::BatchTaskEventHasBeenSet() const
+{
+    return m_batchTaskEventHasBeenSet;
+}
+
+ExtractBlindWatermarkTask ParseNotificationResponse::GetExtractBlindWatermarkTask() const
+{
+    return m_extractBlindWatermarkTask;
+}
+
+bool ParseNotificationResponse::ExtractBlindWatermarkTaskHasBeenSet() const
+{
+    return m_extractBlindWatermarkTaskHasBeenSet;
 }
 
 

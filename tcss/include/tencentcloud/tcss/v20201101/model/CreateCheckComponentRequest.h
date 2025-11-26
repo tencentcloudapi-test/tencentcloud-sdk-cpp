@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取要安装的集群列表信息
                      * @return ClusterInfoList 要安装的集群列表信息
+                     * 
                      */
                     std::vector<ClusterCreateComponentItem> GetClusterInfoList() const;
 
                     /**
                      * 设置要安装的集群列表信息
-                     * @param ClusterInfoList 要安装的集群列表信息
+                     * @param _clusterInfoList 要安装的集群列表信息
+                     * 
                      */
                     void SetClusterInfoList(const std::vector<ClusterCreateComponentItem>& _clusterInfoList);
 
                     /**
                      * 判断参数 ClusterInfoList 是否已赋值
                      * @return ClusterInfoList 是否已赋值
+                     * 
                      */
                     bool ClusterInfoListHasBeenSet() const;
 

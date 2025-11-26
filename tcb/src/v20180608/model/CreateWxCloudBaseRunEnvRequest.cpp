@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ CreateWxCloudBaseRunEnvRequest::CreateWxCloudBaseRunEnvRequest() :
     m_flagHasBeenSet(false),
     m_vpcIdHasBeenSet(false),
     m_subNetIdsHasBeenSet(false),
-    m_isOpenCloudInvokeHasBeenSet(false)
+    m_isOpenCloudInvokeHasBeenSet(false),
+    m_sourceHasBeenSet(false),
+    m_channelHasBeenSet(false)
 {
 }
 
@@ -99,6 +101,22 @@ string CreateWxCloudBaseRunEnvRequest::ToJsonString() const
         string key = "IsOpenCloudInvoke";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_isOpenCloudInvoke, allocator);
+    }
+
+    if (m_sourceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Source";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_source.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_channelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Channel";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_channel.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -219,6 +237,38 @@ void CreateWxCloudBaseRunEnvRequest::SetIsOpenCloudInvoke(const bool& _isOpenClo
 bool CreateWxCloudBaseRunEnvRequest::IsOpenCloudInvokeHasBeenSet() const
 {
     return m_isOpenCloudInvokeHasBeenSet;
+}
+
+string CreateWxCloudBaseRunEnvRequest::GetSource() const
+{
+    return m_source;
+}
+
+void CreateWxCloudBaseRunEnvRequest::SetSource(const string& _source)
+{
+    m_source = _source;
+    m_sourceHasBeenSet = true;
+}
+
+bool CreateWxCloudBaseRunEnvRequest::SourceHasBeenSet() const
+{
+    return m_sourceHasBeenSet;
+}
+
+string CreateWxCloudBaseRunEnvRequest::GetChannel() const
+{
+    return m_channel;
+}
+
+void CreateWxCloudBaseRunEnvRequest::SetChannel(const string& _channel)
+{
+    m_channel = _channel;
+    m_channelHasBeenSet = true;
+}
+
+bool CreateWxCloudBaseRunEnvRequest::ChannelHasBeenSet() const
+{
+    return m_channelHasBeenSet;
 }
 
 

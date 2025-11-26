@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,28 @@ JobConfig::JobConfig() :
     m_taskManagerSpecHasBeenSet(false),
     m_clsLogsetIdHasBeenSet(false),
     m_clsTopicIdHasBeenSet(false),
-    m_pythonVersionHasBeenSet(false)
+    m_pythonVersionHasBeenSet(false),
+    m_autoRecoverHasBeenSet(false),
+    m_logLevelHasBeenSet(false),
+    m_clazzLevelsHasBeenSet(false),
+    m_expertModeOnHasBeenSet(false),
+    m_expertModeConfigurationHasBeenSet(false),
+    m_traceModeOnHasBeenSet(false),
+    m_traceModeConfigurationHasBeenSet(false),
+    m_checkpointRetainedNumHasBeenSet(false),
+    m_jobGraphHasBeenSet(false),
+    m_esServerlessIndexHasBeenSet(false),
+    m_esServerlessSpaceHasBeenSet(false),
+    m_indexNameHasBeenSet(false),
+    m_workspaceNameHasBeenSet(false),
+    m_flinkVersionHasBeenSet(false),
+    m_jobManagerCpuHasBeenSet(false),
+    m_jobManagerMemHasBeenSet(false),
+    m_taskManagerCpuHasBeenSet(false),
+    m_taskManagerMemHasBeenSet(false),
+    m_jobConfigItemHasBeenSet(false),
+    m_checkpointTimeoutSecondHasBeenSet(false),
+    m_checkpointIntervalSecondHasBeenSet(false)
 {
 }
 
@@ -258,6 +279,254 @@ CoreInternalOutcome JobConfig::Deserialize(const rapidjson::Value &value)
         m_pythonVersionHasBeenSet = true;
     }
 
+    if (value.HasMember("AutoRecover") && !value["AutoRecover"].IsNull())
+    {
+        if (!value["AutoRecover"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.AutoRecover` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoRecover = value["AutoRecover"].GetInt64();
+        m_autoRecoverHasBeenSet = true;
+    }
+
+    if (value.HasMember("LogLevel") && !value["LogLevel"].IsNull())
+    {
+        if (!value["LogLevel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.LogLevel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_logLevel = string(value["LogLevel"].GetString());
+        m_logLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClazzLevels") && !value["ClazzLevels"].IsNull())
+    {
+        if (!value["ClazzLevels"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `JobConfig.ClazzLevels` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ClazzLevels"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ClazzLevel item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_clazzLevels.push_back(item);
+        }
+        m_clazzLevelsHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExpertModeOn") && !value["ExpertModeOn"].IsNull())
+    {
+        if (!value["ExpertModeOn"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.ExpertModeOn` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_expertModeOn = value["ExpertModeOn"].GetBool();
+        m_expertModeOnHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExpertModeConfiguration") && !value["ExpertModeConfiguration"].IsNull())
+    {
+        if (!value["ExpertModeConfiguration"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.ExpertModeConfiguration` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_expertModeConfiguration.Deserialize(value["ExpertModeConfiguration"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_expertModeConfigurationHasBeenSet = true;
+    }
+
+    if (value.HasMember("TraceModeOn") && !value["TraceModeOn"].IsNull())
+    {
+        if (!value["TraceModeOn"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.TraceModeOn` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_traceModeOn = value["TraceModeOn"].GetBool();
+        m_traceModeOnHasBeenSet = true;
+    }
+
+    if (value.HasMember("TraceModeConfiguration") && !value["TraceModeConfiguration"].IsNull())
+    {
+        if (!value["TraceModeConfiguration"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.TraceModeConfiguration` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_traceModeConfiguration.Deserialize(value["TraceModeConfiguration"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_traceModeConfigurationHasBeenSet = true;
+    }
+
+    if (value.HasMember("CheckpointRetainedNum") && !value["CheckpointRetainedNum"].IsNull())
+    {
+        if (!value["CheckpointRetainedNum"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.CheckpointRetainedNum` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_checkpointRetainedNum = value["CheckpointRetainedNum"].GetInt64();
+        m_checkpointRetainedNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("JobGraph") && !value["JobGraph"].IsNull())
+    {
+        if (!value["JobGraph"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.JobGraph` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_jobGraph.Deserialize(value["JobGraph"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_jobGraphHasBeenSet = true;
+    }
+
+    if (value.HasMember("EsServerlessIndex") && !value["EsServerlessIndex"].IsNull())
+    {
+        if (!value["EsServerlessIndex"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.EsServerlessIndex` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_esServerlessIndex = string(value["EsServerlessIndex"].GetString());
+        m_esServerlessIndexHasBeenSet = true;
+    }
+
+    if (value.HasMember("EsServerlessSpace") && !value["EsServerlessSpace"].IsNull())
+    {
+        if (!value["EsServerlessSpace"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.EsServerlessSpace` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_esServerlessSpace = string(value["EsServerlessSpace"].GetString());
+        m_esServerlessSpaceHasBeenSet = true;
+    }
+
+    if (value.HasMember("IndexName") && !value["IndexName"].IsNull())
+    {
+        if (!value["IndexName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.IndexName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_indexName = string(value["IndexName"].GetString());
+        m_indexNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("WorkspaceName") && !value["WorkspaceName"].IsNull())
+    {
+        if (!value["WorkspaceName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.WorkspaceName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_workspaceName = string(value["WorkspaceName"].GetString());
+        m_workspaceNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("FlinkVersion") && !value["FlinkVersion"].IsNull())
+    {
+        if (!value["FlinkVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.FlinkVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_flinkVersion = string(value["FlinkVersion"].GetString());
+        m_flinkVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("JobManagerCpu") && !value["JobManagerCpu"].IsNull())
+    {
+        if (!value["JobManagerCpu"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.JobManagerCpu` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_jobManagerCpu = value["JobManagerCpu"].GetDouble();
+        m_jobManagerCpuHasBeenSet = true;
+    }
+
+    if (value.HasMember("JobManagerMem") && !value["JobManagerMem"].IsNull())
+    {
+        if (!value["JobManagerMem"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.JobManagerMem` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_jobManagerMem = value["JobManagerMem"].GetDouble();
+        m_jobManagerMemHasBeenSet = true;
+    }
+
+    if (value.HasMember("TaskManagerCpu") && !value["TaskManagerCpu"].IsNull())
+    {
+        if (!value["TaskManagerCpu"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.TaskManagerCpu` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_taskManagerCpu = value["TaskManagerCpu"].GetDouble();
+        m_taskManagerCpuHasBeenSet = true;
+    }
+
+    if (value.HasMember("TaskManagerMem") && !value["TaskManagerMem"].IsNull())
+    {
+        if (!value["TaskManagerMem"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.TaskManagerMem` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_taskManagerMem = value["TaskManagerMem"].GetDouble();
+        m_taskManagerMemHasBeenSet = true;
+    }
+
+    if (value.HasMember("JobConfigItem") && !value["JobConfigItem"].IsNull())
+    {
+        if (!value["JobConfigItem"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.JobConfigItem` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_jobConfigItem.Deserialize(value["JobConfigItem"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_jobConfigItemHasBeenSet = true;
+    }
+
+    if (value.HasMember("CheckpointTimeoutSecond") && !value["CheckpointTimeoutSecond"].IsNull())
+    {
+        if (!value["CheckpointTimeoutSecond"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.CheckpointTimeoutSecond` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_checkpointTimeoutSecond = value["CheckpointTimeoutSecond"].GetInt64();
+        m_checkpointTimeoutSecondHasBeenSet = true;
+    }
+
+    if (value.HasMember("CheckpointIntervalSecond") && !value["CheckpointIntervalSecond"].IsNull())
+    {
+        if (!value["CheckpointIntervalSecond"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `JobConfig.CheckpointIntervalSecond` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_checkpointIntervalSecond = value["CheckpointIntervalSecond"].GetInt64();
+        m_checkpointIntervalSecondHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -429,6 +698,185 @@ void JobConfig::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "PythonVersion";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_pythonVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoRecoverHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRecover";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoRecover, allocator);
+    }
+
+    if (m_logLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LogLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_logLevel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clazzLevelsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClazzLevels";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_clazzLevels.begin(); itr != m_clazzLevels.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_expertModeOnHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExpertModeOn";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_expertModeOn, allocator);
+    }
+
+    if (m_expertModeConfigurationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExpertModeConfiguration";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_expertModeConfiguration.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_traceModeOnHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TraceModeOn";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_traceModeOn, allocator);
+    }
+
+    if (m_traceModeConfigurationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TraceModeConfiguration";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_traceModeConfiguration.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_checkpointRetainedNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CheckpointRetainedNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_checkpointRetainedNum, allocator);
+    }
+
+    if (m_jobGraphHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "JobGraph";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_jobGraph.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_esServerlessIndexHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EsServerlessIndex";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_esServerlessIndex.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_esServerlessSpaceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EsServerlessSpace";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_esServerlessSpace.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_indexNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IndexName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_indexName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_workspaceNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WorkspaceName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_workspaceName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_flinkVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlinkVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_flinkVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_jobManagerCpuHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "JobManagerCpu";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_jobManagerCpu, allocator);
+    }
+
+    if (m_jobManagerMemHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "JobManagerMem";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_jobManagerMem, allocator);
+    }
+
+    if (m_taskManagerCpuHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TaskManagerCpu";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_taskManagerCpu, allocator);
+    }
+
+    if (m_taskManagerMemHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TaskManagerMem";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_taskManagerMem, allocator);
+    }
+
+    if (m_jobConfigItemHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "JobConfigItem";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_jobConfigItem.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_checkpointTimeoutSecondHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CheckpointTimeoutSecond";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_checkpointTimeoutSecond, allocator);
+    }
+
+    if (m_checkpointIntervalSecondHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CheckpointIntervalSecond";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_checkpointIntervalSecond, allocator);
     }
 
 }
@@ -736,5 +1184,341 @@ void JobConfig::SetPythonVersion(const string& _pythonVersion)
 bool JobConfig::PythonVersionHasBeenSet() const
 {
     return m_pythonVersionHasBeenSet;
+}
+
+int64_t JobConfig::GetAutoRecover() const
+{
+    return m_autoRecover;
+}
+
+void JobConfig::SetAutoRecover(const int64_t& _autoRecover)
+{
+    m_autoRecover = _autoRecover;
+    m_autoRecoverHasBeenSet = true;
+}
+
+bool JobConfig::AutoRecoverHasBeenSet() const
+{
+    return m_autoRecoverHasBeenSet;
+}
+
+string JobConfig::GetLogLevel() const
+{
+    return m_logLevel;
+}
+
+void JobConfig::SetLogLevel(const string& _logLevel)
+{
+    m_logLevel = _logLevel;
+    m_logLevelHasBeenSet = true;
+}
+
+bool JobConfig::LogLevelHasBeenSet() const
+{
+    return m_logLevelHasBeenSet;
+}
+
+vector<ClazzLevel> JobConfig::GetClazzLevels() const
+{
+    return m_clazzLevels;
+}
+
+void JobConfig::SetClazzLevels(const vector<ClazzLevel>& _clazzLevels)
+{
+    m_clazzLevels = _clazzLevels;
+    m_clazzLevelsHasBeenSet = true;
+}
+
+bool JobConfig::ClazzLevelsHasBeenSet() const
+{
+    return m_clazzLevelsHasBeenSet;
+}
+
+bool JobConfig::GetExpertModeOn() const
+{
+    return m_expertModeOn;
+}
+
+void JobConfig::SetExpertModeOn(const bool& _expertModeOn)
+{
+    m_expertModeOn = _expertModeOn;
+    m_expertModeOnHasBeenSet = true;
+}
+
+bool JobConfig::ExpertModeOnHasBeenSet() const
+{
+    return m_expertModeOnHasBeenSet;
+}
+
+ExpertModeConfiguration JobConfig::GetExpertModeConfiguration() const
+{
+    return m_expertModeConfiguration;
+}
+
+void JobConfig::SetExpertModeConfiguration(const ExpertModeConfiguration& _expertModeConfiguration)
+{
+    m_expertModeConfiguration = _expertModeConfiguration;
+    m_expertModeConfigurationHasBeenSet = true;
+}
+
+bool JobConfig::ExpertModeConfigurationHasBeenSet() const
+{
+    return m_expertModeConfigurationHasBeenSet;
+}
+
+bool JobConfig::GetTraceModeOn() const
+{
+    return m_traceModeOn;
+}
+
+void JobConfig::SetTraceModeOn(const bool& _traceModeOn)
+{
+    m_traceModeOn = _traceModeOn;
+    m_traceModeOnHasBeenSet = true;
+}
+
+bool JobConfig::TraceModeOnHasBeenSet() const
+{
+    return m_traceModeOnHasBeenSet;
+}
+
+TraceModeConfiguration JobConfig::GetTraceModeConfiguration() const
+{
+    return m_traceModeConfiguration;
+}
+
+void JobConfig::SetTraceModeConfiguration(const TraceModeConfiguration& _traceModeConfiguration)
+{
+    m_traceModeConfiguration = _traceModeConfiguration;
+    m_traceModeConfigurationHasBeenSet = true;
+}
+
+bool JobConfig::TraceModeConfigurationHasBeenSet() const
+{
+    return m_traceModeConfigurationHasBeenSet;
+}
+
+int64_t JobConfig::GetCheckpointRetainedNum() const
+{
+    return m_checkpointRetainedNum;
+}
+
+void JobConfig::SetCheckpointRetainedNum(const int64_t& _checkpointRetainedNum)
+{
+    m_checkpointRetainedNum = _checkpointRetainedNum;
+    m_checkpointRetainedNumHasBeenSet = true;
+}
+
+bool JobConfig::CheckpointRetainedNumHasBeenSet() const
+{
+    return m_checkpointRetainedNumHasBeenSet;
+}
+
+JobGraph JobConfig::GetJobGraph() const
+{
+    return m_jobGraph;
+}
+
+void JobConfig::SetJobGraph(const JobGraph& _jobGraph)
+{
+    m_jobGraph = _jobGraph;
+    m_jobGraphHasBeenSet = true;
+}
+
+bool JobConfig::JobGraphHasBeenSet() const
+{
+    return m_jobGraphHasBeenSet;
+}
+
+string JobConfig::GetEsServerlessIndex() const
+{
+    return m_esServerlessIndex;
+}
+
+void JobConfig::SetEsServerlessIndex(const string& _esServerlessIndex)
+{
+    m_esServerlessIndex = _esServerlessIndex;
+    m_esServerlessIndexHasBeenSet = true;
+}
+
+bool JobConfig::EsServerlessIndexHasBeenSet() const
+{
+    return m_esServerlessIndexHasBeenSet;
+}
+
+string JobConfig::GetEsServerlessSpace() const
+{
+    return m_esServerlessSpace;
+}
+
+void JobConfig::SetEsServerlessSpace(const string& _esServerlessSpace)
+{
+    m_esServerlessSpace = _esServerlessSpace;
+    m_esServerlessSpaceHasBeenSet = true;
+}
+
+bool JobConfig::EsServerlessSpaceHasBeenSet() const
+{
+    return m_esServerlessSpaceHasBeenSet;
+}
+
+string JobConfig::GetIndexName() const
+{
+    return m_indexName;
+}
+
+void JobConfig::SetIndexName(const string& _indexName)
+{
+    m_indexName = _indexName;
+    m_indexNameHasBeenSet = true;
+}
+
+bool JobConfig::IndexNameHasBeenSet() const
+{
+    return m_indexNameHasBeenSet;
+}
+
+string JobConfig::GetWorkspaceName() const
+{
+    return m_workspaceName;
+}
+
+void JobConfig::SetWorkspaceName(const string& _workspaceName)
+{
+    m_workspaceName = _workspaceName;
+    m_workspaceNameHasBeenSet = true;
+}
+
+bool JobConfig::WorkspaceNameHasBeenSet() const
+{
+    return m_workspaceNameHasBeenSet;
+}
+
+string JobConfig::GetFlinkVersion() const
+{
+    return m_flinkVersion;
+}
+
+void JobConfig::SetFlinkVersion(const string& _flinkVersion)
+{
+    m_flinkVersion = _flinkVersion;
+    m_flinkVersionHasBeenSet = true;
+}
+
+bool JobConfig::FlinkVersionHasBeenSet() const
+{
+    return m_flinkVersionHasBeenSet;
+}
+
+double JobConfig::GetJobManagerCpu() const
+{
+    return m_jobManagerCpu;
+}
+
+void JobConfig::SetJobManagerCpu(const double& _jobManagerCpu)
+{
+    m_jobManagerCpu = _jobManagerCpu;
+    m_jobManagerCpuHasBeenSet = true;
+}
+
+bool JobConfig::JobManagerCpuHasBeenSet() const
+{
+    return m_jobManagerCpuHasBeenSet;
+}
+
+double JobConfig::GetJobManagerMem() const
+{
+    return m_jobManagerMem;
+}
+
+void JobConfig::SetJobManagerMem(const double& _jobManagerMem)
+{
+    m_jobManagerMem = _jobManagerMem;
+    m_jobManagerMemHasBeenSet = true;
+}
+
+bool JobConfig::JobManagerMemHasBeenSet() const
+{
+    return m_jobManagerMemHasBeenSet;
+}
+
+double JobConfig::GetTaskManagerCpu() const
+{
+    return m_taskManagerCpu;
+}
+
+void JobConfig::SetTaskManagerCpu(const double& _taskManagerCpu)
+{
+    m_taskManagerCpu = _taskManagerCpu;
+    m_taskManagerCpuHasBeenSet = true;
+}
+
+bool JobConfig::TaskManagerCpuHasBeenSet() const
+{
+    return m_taskManagerCpuHasBeenSet;
+}
+
+double JobConfig::GetTaskManagerMem() const
+{
+    return m_taskManagerMem;
+}
+
+void JobConfig::SetTaskManagerMem(const double& _taskManagerMem)
+{
+    m_taskManagerMem = _taskManagerMem;
+    m_taskManagerMemHasBeenSet = true;
+}
+
+bool JobConfig::TaskManagerMemHasBeenSet() const
+{
+    return m_taskManagerMemHasBeenSet;
+}
+
+JobConfig JobConfig::GetJobConfigItem() const
+{
+    return m_jobConfigItem;
+}
+
+void JobConfig::SetJobConfigItem(const JobConfig& _jobConfigItem)
+{
+    m_jobConfigItem = _jobConfigItem;
+    m_jobConfigItemHasBeenSet = true;
+}
+
+bool JobConfig::JobConfigItemHasBeenSet() const
+{
+    return m_jobConfigItemHasBeenSet;
+}
+
+int64_t JobConfig::GetCheckpointTimeoutSecond() const
+{
+    return m_checkpointTimeoutSecond;
+}
+
+void JobConfig::SetCheckpointTimeoutSecond(const int64_t& _checkpointTimeoutSecond)
+{
+    m_checkpointTimeoutSecond = _checkpointTimeoutSecond;
+    m_checkpointTimeoutSecondHasBeenSet = true;
+}
+
+bool JobConfig::CheckpointTimeoutSecondHasBeenSet() const
+{
+    return m_checkpointTimeoutSecondHasBeenSet;
+}
+
+int64_t JobConfig::GetCheckpointIntervalSecond() const
+{
+    return m_checkpointIntervalSecond;
+}
+
+void JobConfig::SetCheckpointIntervalSecond(const int64_t& _checkpointIntervalSecond)
+{
+    m_checkpointIntervalSecond = _checkpointIntervalSecond;
+    m_checkpointIntervalSecondHasBeenSet = true;
+}
+
+bool JobConfig::CheckpointIntervalSecondHasBeenSet() const
+{
+    return m_checkpointIntervalSecondHasBeenSet;
 }
 

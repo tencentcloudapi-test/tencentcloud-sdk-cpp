@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取网络ID，可在区块链网络详情或列表中获取
                      * @return ClusterId 网络ID，可在区块链网络详情或列表中获取
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置网络ID，可在区块链网络详情或列表中获取
-                     * @param ClusterId 网络ID，可在区块链网络详情或列表中获取
+                     * @param _clusterId 网络ID，可在区块链网络详情或列表中获取
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取业务链编号，可在业务链列表中获取
-                     * @return ChainId 业务链编号，可在业务链列表中获取
+                     * 获取业务链ID，可在网络概览页获取
+                     * @return ChainId 业务链ID，可在网络概览页获取
+                     * 
                      */
                     std::string GetChainId() const;
 
                     /**
-                     * 设置业务链编号，可在业务链列表中获取
-                     * @param ChainId 业务链编号，可在业务链列表中获取
+                     * 设置业务链ID，可在网络概览页获取
+                     * @param _chainId 业务链ID，可在网络概览页获取
+                     * 
                      */
                     void SetChainId(const std::string& _chainId);
 
                     /**
                      * 判断参数 ChainId 是否已赋值
                      * @return ChainId 是否已赋值
+                     * 
                      */
                     bool ChainIdHasBeenSet() const;
 
                     /**
-                     * 获取区块高度，-1表示最新区块
-                     * @return BlockHeight 区块高度，-1表示最新区块
+                     * 获取区块高度
+                     * @return BlockHeight 区块高度
+                     * 
                      */
                     int64_t GetBlockHeight() const;
 
                     /**
-                     * 设置区块高度，-1表示最新区块
-                     * @param BlockHeight 区块高度，-1表示最新区块
+                     * 设置区块高度
+                     * @param _blockHeight 区块高度
+                     * 
                      */
                     void SetBlockHeight(const int64_t& _blockHeight);
 
                     /**
                      * 判断参数 BlockHeight 是否已赋值
                      * @return BlockHeight 是否已赋值
+                     * 
                      */
                     bool BlockHeightHasBeenSet() const;
 
@@ -105,13 +114,13 @@ namespace TencentCloud
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * 业务链编号，可在业务链列表中获取
+                     * 业务链ID，可在网络概览页获取
                      */
                     std::string m_chainId;
                     bool m_chainIdHasBeenSet;
 
                     /**
-                     * 区块高度，-1表示最新区块
+                     * 区块高度
                      */
                     int64_t m_blockHeight;
                     bool m_blockHeightHasBeenSet;

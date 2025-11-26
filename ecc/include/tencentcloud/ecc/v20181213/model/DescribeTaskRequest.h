@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取任务 ID
                      * @return TaskId 任务 ID
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 设置任务 ID
-                     * @param TaskId 任务 ID
+                     * @param _taskId 任务 ID
+                     * 
                      */
                     void SetTaskId(const std::string& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                     /**
                      * 获取业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数（暂时无需传入）。
                      * @return EccAppid 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数（暂时无需传入）。
+                     * 
                      */
                     std::string GetEccAppid() const;
 
                     /**
                      * 设置业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数（暂时无需传入）。
-                     * @param EccAppid 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数（暂时无需传入）。
+                     * @param _eccAppid 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数（暂时无需传入）。
+                     * 
                      */
                     void SetEccAppid(const std::string& _eccAppid);
 
                     /**
                      * 判断参数 EccAppid 是否已赋值
                      * @return EccAppid 是否已赋值
+                     * 
                      */
                     bool EccAppidHasBeenSet() const;
 

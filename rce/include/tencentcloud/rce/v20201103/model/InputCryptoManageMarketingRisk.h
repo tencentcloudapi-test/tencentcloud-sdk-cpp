@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,75 +47,89 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取是否授权
-                     * @return IsAuthorized 是否授权
+                     * 获取是否授权：1已授权，否则未授权。
+ 调用全栈式风控引擎接口服务时，客户需先明确授权。
+                     * @return IsAuthorized 是否授权：1已授权，否则未授权。
+ 调用全栈式风控引擎接口服务时，客户需先明确授权。
+                     * 
                      */
                     std::string GetIsAuthorized() const;
 
                     /**
-                     * 设置是否授权
-                     * @param IsAuthorized 是否授权
+                     * 设置是否授权：1已授权，否则未授权。
+ 调用全栈式风控引擎接口服务时，客户需先明确授权。
+                     * @param _isAuthorized 是否授权：1已授权，否则未授权。
+ 调用全栈式风控引擎接口服务时，客户需先明确授权。
+                     * 
                      */
                     void SetIsAuthorized(const std::string& _isAuthorized);
 
                     /**
                      * 判断参数 IsAuthorized 是否已赋值
                      * @return IsAuthorized 是否已赋值
+                     * 
                      */
                     bool IsAuthorizedHasBeenSet() const;
 
                     /**
-                     * 获取加密类型
-                     * @return CryptoType 加密类型
+                     * 获取加密类型：1AES加密
+                     * @return CryptoType 加密类型：1AES加密
+                     * 
                      */
                     std::string GetCryptoType() const;
 
                     /**
-                     * 设置加密类型
-                     * @param CryptoType 加密类型
+                     * 设置加密类型：1AES加密
+                     * @param _cryptoType 加密类型：1AES加密
+                     * 
                      */
                     void SetCryptoType(const std::string& _cryptoType);
 
                     /**
                      * 判断参数 CryptoType 是否已赋值
                      * @return CryptoType 是否已赋值
+                     * 
                      */
                     bool CryptoTypeHasBeenSet() const;
 
                     /**
-                     * 获取加密内容
-                     * @return CryptoContent 加密内容
+                     * 获取加密内容，非空时接口采用加密模式。
+                     * @return CryptoContent 加密内容，非空时接口采用加密模式。
+                     * 
                      */
                     std::string GetCryptoContent() const;
 
                     /**
-                     * 设置加密内容
-                     * @param CryptoContent 加密内容
+                     * 设置加密内容，非空时接口采用加密模式。
+                     * @param _cryptoContent 加密内容，非空时接口采用加密模式。
+                     * 
                      */
                     void SetCryptoContent(const std::string& _cryptoContent);
 
                     /**
                      * 判断参数 CryptoContent 是否已赋值
                      * @return CryptoContent 是否已赋值
+                     * 
                      */
                     bool CryptoContentHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 是否授权
+                     * 是否授权：1已授权，否则未授权。
+ 调用全栈式风控引擎接口服务时，客户需先明确授权。
                      */
                     std::string m_isAuthorized;
                     bool m_isAuthorizedHasBeenSet;
 
                     /**
-                     * 加密类型
+                     * 加密类型：1AES加密
                      */
                     std::string m_cryptoType;
                     bool m_cryptoTypeHasBeenSet;
 
                     /**
-                     * 加密内容
+                     * 加密内容，非空时接口采用加密模式。
                      */
                     std::string m_cryptoContent;
                     bool m_cryptoContentHasBeenSet;

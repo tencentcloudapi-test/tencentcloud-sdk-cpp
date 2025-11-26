@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取----非必选，该参数功能暂未对外开放
                      * @return EvilType ----非必选，该参数功能暂未对外开放
+                     * 
                      */
                     std::string GetEvilType() const;
 
                     /**
                      * 设置----非必选，该参数功能暂未对外开放
-                     * @param EvilType ----非必选，该参数功能暂未对外开放
+                     * @param _evilType ----非必选，该参数功能暂未对外开放
+                     * 
                      */
                     void SetEvilType(const std::string& _evilType);
 
                     /**
                      * 判断参数 EvilType 是否已赋值
                      * @return EvilType 是否已赋值
+                     * 
                      */
                     bool EvilTypeHasBeenSet() const;
 
                     /**
                      * 获取分布类型总量
                      * @return Count 分布类型总量
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置分布类型总量
-                     * @param Count 分布类型总量
+                     * @param _count 分布类型总量
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 

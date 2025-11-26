@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/cfw/v20190904/model/SecurityGroupSimplifyRule.h>
 
 
 namespace TencentCloud
@@ -46,14 +47,30 @@ namespace TencentCloud
                     /**
                      * 获取状态值，0：添加成功，非0：添加失败
                      * @return Status 状态值，0：添加成功，非0：添加失败
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取添加成功的规则详情
+                     * @return Rules 添加成功的规则详情
+                     * 
+                     */
+                    std::vector<SecurityGroupSimplifyRule> GetRules() const;
+
+                    /**
+                     * 判断参数 Rules 是否已赋值
+                     * @return Rules 是否已赋值
+                     * 
+                     */
+                    bool RulesHasBeenSet() const;
 
                 private:
 
@@ -62,6 +79,12 @@ namespace TencentCloud
                      */
                     uint64_t m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 添加成功的规则详情
+                     */
+                    std::vector<SecurityGroupSimplifyRule> m_rules;
+                    bool m_rulesHasBeenSet;
 
                 };
             }

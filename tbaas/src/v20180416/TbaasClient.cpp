@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +40,56 @@ TbaasClient::TbaasClient(const Credential &credential, const string &region, con
 }
 
 
+TbaasClient::ApplyChainMakerBatchUserCertOutcome TbaasClient::ApplyChainMakerBatchUserCert(const ApplyChainMakerBatchUserCertRequest &request)
+{
+    auto outcome = MakeRequest(request, "ApplyChainMakerBatchUserCert");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ApplyChainMakerBatchUserCertResponse rsp = ApplyChainMakerBatchUserCertResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ApplyChainMakerBatchUserCertOutcome(rsp);
+        else
+            return ApplyChainMakerBatchUserCertOutcome(o.GetError());
+    }
+    else
+    {
+        return ApplyChainMakerBatchUserCertOutcome(outcome.GetError());
+    }
+}
+
+void TbaasClient::ApplyChainMakerBatchUserCertAsync(const ApplyChainMakerBatchUserCertRequest& request, const ApplyChainMakerBatchUserCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ApplyChainMakerBatchUserCertRequest&;
+    using Resp = ApplyChainMakerBatchUserCertResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ApplyChainMakerBatchUserCert", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TbaasClient::ApplyChainMakerBatchUserCertOutcomeCallable TbaasClient::ApplyChainMakerBatchUserCertCallable(const ApplyChainMakerBatchUserCertRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ApplyChainMakerBatchUserCertOutcome>>();
+    ApplyChainMakerBatchUserCertAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const ApplyChainMakerBatchUserCertRequest&,
+        ApplyChainMakerBatchUserCertOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 TbaasClient::ApplyUserCertOutcome TbaasClient::ApplyUserCert(const ApplyUserCertRequest &request)
 {
     auto outcome = MakeRequest(request, "ApplyUserCert");
@@ -62,197 +112,132 @@ TbaasClient::ApplyUserCertOutcome TbaasClient::ApplyUserCert(const ApplyUserCert
 
 void TbaasClient::ApplyUserCertAsync(const ApplyUserCertRequest& request, const ApplyUserCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ApplyUserCert(request), context);
-    };
+    using Req = const ApplyUserCertRequest&;
+    using Resp = ApplyUserCertResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ApplyUserCert", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::ApplyUserCertOutcomeCallable TbaasClient::ApplyUserCertCallable(const ApplyUserCertRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ApplyUserCertOutcome()>>(
-        [this, request]()
-        {
-            return this->ApplyUserCert(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ApplyUserCertOutcome>>();
+    ApplyUserCertAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const ApplyUserCertRequest&,
+        ApplyUserCertOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-TbaasClient::BlockByNumberHandlerOutcome TbaasClient::BlockByNumberHandler(const BlockByNumberHandlerRequest &request)
+TbaasClient::DescribeFabricBlockOutcome TbaasClient::DescribeFabricBlock(const DescribeFabricBlockRequest &request)
 {
-    auto outcome = MakeRequest(request, "BlockByNumberHandler");
+    auto outcome = MakeRequest(request, "DescribeFabricBlock");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        BlockByNumberHandlerResponse rsp = BlockByNumberHandlerResponse();
+        DescribeFabricBlockResponse rsp = DescribeFabricBlockResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return BlockByNumberHandlerOutcome(rsp);
+            return DescribeFabricBlockOutcome(rsp);
         else
-            return BlockByNumberHandlerOutcome(o.GetError());
+            return DescribeFabricBlockOutcome(o.GetError());
     }
     else
     {
-        return BlockByNumberHandlerOutcome(outcome.GetError());
+        return DescribeFabricBlockOutcome(outcome.GetError());
     }
 }
 
-void TbaasClient::BlockByNumberHandlerAsync(const BlockByNumberHandlerRequest& request, const BlockByNumberHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TbaasClient::DescribeFabricBlockAsync(const DescribeFabricBlockRequest& request, const DescribeFabricBlockAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->BlockByNumberHandler(request), context);
-    };
+    using Req = const DescribeFabricBlockRequest&;
+    using Resp = DescribeFabricBlockResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::BlockByNumberHandlerOutcomeCallable TbaasClient::BlockByNumberHandlerCallable(const BlockByNumberHandlerRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<BlockByNumberHandlerOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DescribeFabricBlock", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->BlockByNumberHandler(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TbaasClient::CreateChaincodeAndInstallForUserOutcome TbaasClient::CreateChaincodeAndInstallForUser(const CreateChaincodeAndInstallForUserRequest &request)
+TbaasClient::DescribeFabricBlockOutcomeCallable TbaasClient::DescribeFabricBlockCallable(const DescribeFabricBlockRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateChaincodeAndInstallForUser");
+    const auto prom = std::make_shared<std::promise<DescribeFabricBlockOutcome>>();
+    DescribeFabricBlockAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const DescribeFabricBlockRequest&,
+        DescribeFabricBlockOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TbaasClient::DescribeFabricTransactionOutcome TbaasClient::DescribeFabricTransaction(const DescribeFabricTransactionRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeFabricTransaction");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateChaincodeAndInstallForUserResponse rsp = CreateChaincodeAndInstallForUserResponse();
+        DescribeFabricTransactionResponse rsp = DescribeFabricTransactionResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateChaincodeAndInstallForUserOutcome(rsp);
+            return DescribeFabricTransactionOutcome(rsp);
         else
-            return CreateChaincodeAndInstallForUserOutcome(o.GetError());
+            return DescribeFabricTransactionOutcome(o.GetError());
     }
     else
     {
-        return CreateChaincodeAndInstallForUserOutcome(outcome.GetError());
+        return DescribeFabricTransactionOutcome(outcome.GetError());
     }
 }
 
-void TbaasClient::CreateChaincodeAndInstallForUserAsync(const CreateChaincodeAndInstallForUserRequest& request, const CreateChaincodeAndInstallForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TbaasClient::DescribeFabricTransactionAsync(const DescribeFabricTransactionRequest& request, const DescribeFabricTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateChaincodeAndInstallForUser(request), context);
-    };
+    using Req = const DescribeFabricTransactionRequest&;
+    using Resp = DescribeFabricTransactionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::CreateChaincodeAndInstallForUserOutcomeCallable TbaasClient::CreateChaincodeAndInstallForUserCallable(const CreateChaincodeAndInstallForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateChaincodeAndInstallForUserOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DescribeFabricTransaction", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->CreateChaincodeAndInstallForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TbaasClient::DeployDynamicBcosContractOutcome TbaasClient::DeployDynamicBcosContract(const DeployDynamicBcosContractRequest &request)
+TbaasClient::DescribeFabricTransactionOutcomeCallable TbaasClient::DescribeFabricTransactionCallable(const DescribeFabricTransactionRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeployDynamicBcosContract");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DescribeFabricTransactionOutcome>>();
+    DescribeFabricTransactionAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const DescribeFabricTransactionRequest&,
+        DescribeFabricTransactionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeployDynamicBcosContractResponse rsp = DeployDynamicBcosContractResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeployDynamicBcosContractOutcome(rsp);
-        else
-            return DeployDynamicBcosContractOutcome(o.GetError());
-    }
-    else
-    {
-        return DeployDynamicBcosContractOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::DeployDynamicBcosContractAsync(const DeployDynamicBcosContractRequest& request, const DeployDynamicBcosContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeployDynamicBcosContract(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::DeployDynamicBcosContractOutcomeCallable TbaasClient::DeployDynamicBcosContractCallable(const DeployDynamicBcosContractRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeployDynamicBcosContractOutcome()>>(
-        [this, request]()
-        {
-            return this->DeployDynamicBcosContract(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::DeployDynamicContractHandlerOutcome TbaasClient::DeployDynamicContractHandler(const DeployDynamicContractHandlerRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeployDynamicContractHandler");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeployDynamicContractHandlerResponse rsp = DeployDynamicContractHandlerResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeployDynamicContractHandlerOutcome(rsp);
-        else
-            return DeployDynamicContractHandlerOutcome(o.GetError());
-    }
-    else
-    {
-        return DeployDynamicContractHandlerOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::DeployDynamicContractHandlerAsync(const DeployDynamicContractHandlerRequest& request, const DeployDynamicContractHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeployDynamicContractHandler(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::DeployDynamicContractHandlerOutcomeCallable TbaasClient::DeployDynamicContractHandlerCallable(const DeployDynamicContractHandlerRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<DeployDynamicContractHandlerOutcome()>>(
-        [this, request]()
-        {
-            return this->DeployDynamicContractHandler(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::DownloadUserCertOutcome TbaasClient::DownloadUserCert(const DownloadUserCertRequest &request)
@@ -277,197 +262,32 @@ TbaasClient::DownloadUserCertOutcome TbaasClient::DownloadUserCert(const Downloa
 
 void TbaasClient::DownloadUserCertAsync(const DownloadUserCertRequest& request, const DownloadUserCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DownloadUserCert(request), context);
-    };
+    using Req = const DownloadUserCertRequest&;
+    using Resp = DownloadUserCertResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DownloadUserCert", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::DownloadUserCertOutcomeCallable TbaasClient::DownloadUserCertCallable(const DownloadUserCertRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DownloadUserCertOutcome()>>(
-        [this, request]()
-        {
-            return this->DownloadUserCert(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetBcosBlockByNumberOutcome TbaasClient::GetBcosBlockByNumber(const GetBcosBlockByNumberRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetBcosBlockByNumber");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<DownloadUserCertOutcome>>();
+    DownloadUserCertAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const DownloadUserCertRequest&,
+        DownloadUserCertOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetBcosBlockByNumberResponse rsp = GetBcosBlockByNumberResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetBcosBlockByNumberOutcome(rsp);
-        else
-            return GetBcosBlockByNumberOutcome(o.GetError());
-    }
-    else
-    {
-        return GetBcosBlockByNumberOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetBcosBlockByNumberAsync(const GetBcosBlockByNumberRequest& request, const GetBcosBlockByNumberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetBcosBlockByNumber(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetBcosBlockByNumberOutcomeCallable TbaasClient::GetBcosBlockByNumberCallable(const GetBcosBlockByNumberRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetBcosBlockByNumberOutcome()>>(
-        [this, request]()
-        {
-            return this->GetBcosBlockByNumber(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetBcosBlockListOutcome TbaasClient::GetBcosBlockList(const GetBcosBlockListRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetBcosBlockList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetBcosBlockListResponse rsp = GetBcosBlockListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetBcosBlockListOutcome(rsp);
-        else
-            return GetBcosBlockListOutcome(o.GetError());
-    }
-    else
-    {
-        return GetBcosBlockListOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetBcosBlockListAsync(const GetBcosBlockListRequest& request, const GetBcosBlockListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetBcosBlockList(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetBcosBlockListOutcomeCallable TbaasClient::GetBcosBlockListCallable(const GetBcosBlockListRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetBcosBlockListOutcome()>>(
-        [this, request]()
-        {
-            return this->GetBcosBlockList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetBcosTransByHashOutcome TbaasClient::GetBcosTransByHash(const GetBcosTransByHashRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetBcosTransByHash");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetBcosTransByHashResponse rsp = GetBcosTransByHashResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetBcosTransByHashOutcome(rsp);
-        else
-            return GetBcosTransByHashOutcome(o.GetError());
-    }
-    else
-    {
-        return GetBcosTransByHashOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetBcosTransByHashAsync(const GetBcosTransByHashRequest& request, const GetBcosTransByHashAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetBcosTransByHash(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetBcosTransByHashOutcomeCallable TbaasClient::GetBcosTransByHashCallable(const GetBcosTransByHashRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetBcosTransByHashOutcome()>>(
-        [this, request]()
-        {
-            return this->GetBcosTransByHash(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetBcosTransListOutcome TbaasClient::GetBcosTransList(const GetBcosTransListRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetBcosTransList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetBcosTransListResponse rsp = GetBcosTransListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetBcosTransListOutcome(rsp);
-        else
-            return GetBcosTransListOutcome(o.GetError());
-    }
-    else
-    {
-        return GetBcosTransListOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetBcosTransListAsync(const GetBcosTransListRequest& request, const GetBcosTransListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetBcosTransList(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetBcosTransListOutcomeCallable TbaasClient::GetBcosTransListCallable(const GetBcosTransListRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetBcosTransListOutcome()>>(
-        [this, request]()
-        {
-            return this->GetBcosTransList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::GetBlockListOutcome TbaasClient::GetBlockList(const GetBlockListRequest &request)
@@ -492,68 +312,32 @@ TbaasClient::GetBlockListOutcome TbaasClient::GetBlockList(const GetBlockListReq
 
 void TbaasClient::GetBlockListAsync(const GetBlockListRequest& request, const GetBlockListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetBlockList(request), context);
-    };
+    using Req = const GetBlockListRequest&;
+    using Resp = GetBlockListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetBlockList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::GetBlockListOutcomeCallable TbaasClient::GetBlockListCallable(const GetBlockListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetBlockListOutcome()>>(
-        [this, request]()
-        {
-            return this->GetBlockList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetBlockListHandlerOutcome TbaasClient::GetBlockListHandler(const GetBlockListHandlerRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetBlockListHandler");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<GetBlockListOutcome>>();
+    GetBlockListAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const GetBlockListRequest&,
+        GetBlockListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetBlockListHandlerResponse rsp = GetBlockListHandlerResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetBlockListHandlerOutcome(rsp);
-        else
-            return GetBlockListHandlerOutcome(o.GetError());
-    }
-    else
-    {
-        return GetBlockListHandlerOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetBlockListHandlerAsync(const GetBlockListHandlerRequest& request, const GetBlockListHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetBlockListHandler(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetBlockListHandlerOutcomeCallable TbaasClient::GetBlockListHandlerCallable(const GetBlockListHandlerRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetBlockListHandlerOutcome()>>(
-        [this, request]()
-        {
-            return this->GetBlockListHandler(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::GetBlockTransactionListForUserOutcome TbaasClient::GetBlockTransactionListForUser(const GetBlockTransactionListForUserRequest &request)
@@ -578,240 +362,32 @@ TbaasClient::GetBlockTransactionListForUserOutcome TbaasClient::GetBlockTransact
 
 void TbaasClient::GetBlockTransactionListForUserAsync(const GetBlockTransactionListForUserRequest& request, const GetBlockTransactionListForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetBlockTransactionListForUser(request), context);
-    };
+    using Req = const GetBlockTransactionListForUserRequest&;
+    using Resp = GetBlockTransactionListForUserResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetBlockTransactionListForUser", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::GetBlockTransactionListForUserOutcomeCallable TbaasClient::GetBlockTransactionListForUserCallable(const GetBlockTransactionListForUserRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetBlockTransactionListForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetBlockTransactionListForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetChaincodeCompileLogForUserOutcome TbaasClient::GetChaincodeCompileLogForUser(const GetChaincodeCompileLogForUserRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetChaincodeCompileLogForUser");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<GetBlockTransactionListForUserOutcome>>();
+    GetBlockTransactionListForUserAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const GetBlockTransactionListForUserRequest&,
+        GetBlockTransactionListForUserOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetChaincodeCompileLogForUserResponse rsp = GetChaincodeCompileLogForUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetChaincodeCompileLogForUserOutcome(rsp);
-        else
-            return GetChaincodeCompileLogForUserOutcome(o.GetError());
-    }
-    else
-    {
-        return GetChaincodeCompileLogForUserOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetChaincodeCompileLogForUserAsync(const GetChaincodeCompileLogForUserRequest& request, const GetChaincodeCompileLogForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetChaincodeCompileLogForUser(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetChaincodeCompileLogForUserOutcomeCallable TbaasClient::GetChaincodeCompileLogForUserCallable(const GetChaincodeCompileLogForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetChaincodeCompileLogForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetChaincodeCompileLogForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetChaincodeInitializeResultForUserOutcome TbaasClient::GetChaincodeInitializeResultForUser(const GetChaincodeInitializeResultForUserRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetChaincodeInitializeResultForUser");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetChaincodeInitializeResultForUserResponse rsp = GetChaincodeInitializeResultForUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetChaincodeInitializeResultForUserOutcome(rsp);
-        else
-            return GetChaincodeInitializeResultForUserOutcome(o.GetError());
-    }
-    else
-    {
-        return GetChaincodeInitializeResultForUserOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetChaincodeInitializeResultForUserAsync(const GetChaincodeInitializeResultForUserRequest& request, const GetChaincodeInitializeResultForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetChaincodeInitializeResultForUser(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetChaincodeInitializeResultForUserOutcomeCallable TbaasClient::GetChaincodeInitializeResultForUserCallable(const GetChaincodeInitializeResultForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetChaincodeInitializeResultForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetChaincodeInitializeResultForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetChaincodeLogForUserOutcome TbaasClient::GetChaincodeLogForUser(const GetChaincodeLogForUserRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetChaincodeLogForUser");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetChaincodeLogForUserResponse rsp = GetChaincodeLogForUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetChaincodeLogForUserOutcome(rsp);
-        else
-            return GetChaincodeLogForUserOutcome(o.GetError());
-    }
-    else
-    {
-        return GetChaincodeLogForUserOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetChaincodeLogForUserAsync(const GetChaincodeLogForUserRequest& request, const GetChaincodeLogForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetChaincodeLogForUser(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetChaincodeLogForUserOutcomeCallable TbaasClient::GetChaincodeLogForUserCallable(const GetChaincodeLogForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetChaincodeLogForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetChaincodeLogForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetChannelListForUserOutcome TbaasClient::GetChannelListForUser(const GetChannelListForUserRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetChannelListForUser");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetChannelListForUserResponse rsp = GetChannelListForUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetChannelListForUserOutcome(rsp);
-        else
-            return GetChannelListForUserOutcome(o.GetError());
-    }
-    else
-    {
-        return GetChannelListForUserOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetChannelListForUserAsync(const GetChannelListForUserRequest& request, const GetChannelListForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetChannelListForUser(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetChannelListForUserOutcomeCallable TbaasClient::GetChannelListForUserCallable(const GetChannelListForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetChannelListForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetChannelListForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetClusterListForUserOutcome TbaasClient::GetClusterListForUser(const GetClusterListForUserRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetClusterListForUser");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetClusterListForUserResponse rsp = GetClusterListForUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetClusterListForUserOutcome(rsp);
-        else
-            return GetClusterListForUserOutcome(o.GetError());
-    }
-    else
-    {
-        return GetClusterListForUserOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetClusterListForUserAsync(const GetClusterListForUserRequest& request, const GetClusterListForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetClusterListForUser(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetClusterListForUserOutcomeCallable TbaasClient::GetClusterListForUserCallable(const GetClusterListForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetClusterListForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetClusterListForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::GetClusterSummaryOutcome TbaasClient::GetClusterSummary(const GetClusterSummaryRequest &request)
@@ -836,25 +412,32 @@ TbaasClient::GetClusterSummaryOutcome TbaasClient::GetClusterSummary(const GetCl
 
 void TbaasClient::GetClusterSummaryAsync(const GetClusterSummaryRequest& request, const GetClusterSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetClusterSummary(request), context);
-    };
+    using Req = const GetClusterSummaryRequest&;
+    using Resp = GetClusterSummaryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetClusterSummary", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::GetClusterSummaryOutcomeCallable TbaasClient::GetClusterSummaryCallable(const GetClusterSummaryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetClusterSummaryOutcome()>>(
-        [this, request]()
-        {
-            return this->GetClusterSummary(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GetClusterSummaryOutcome>>();
+    GetClusterSummaryAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const GetClusterSummaryRequest&,
+        GetClusterSummaryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::GetInvokeTxOutcome TbaasClient::GetInvokeTx(const GetInvokeTxRequest &request)
@@ -879,197 +462,82 @@ TbaasClient::GetInvokeTxOutcome TbaasClient::GetInvokeTx(const GetInvokeTxReques
 
 void TbaasClient::GetInvokeTxAsync(const GetInvokeTxRequest& request, const GetInvokeTxAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetInvokeTx(request), context);
-    };
+    using Req = const GetInvokeTxRequest&;
+    using Resp = GetInvokeTxResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetInvokeTx", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::GetInvokeTxOutcomeCallable TbaasClient::GetInvokeTxCallable(const GetInvokeTxRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetInvokeTxOutcome()>>(
-        [this, request]()
-        {
-            return this->GetInvokeTx(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<GetInvokeTxOutcome>>();
+    GetInvokeTxAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const GetInvokeTxRequest&,
+        GetInvokeTxOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-TbaasClient::GetLatesdTransactionListOutcome TbaasClient::GetLatesdTransactionList(const GetLatesdTransactionListRequest &request)
+TbaasClient::GetLatestTransactionListOutcome TbaasClient::GetLatestTransactionList(const GetLatestTransactionListRequest &request)
 {
-    auto outcome = MakeRequest(request, "GetLatesdTransactionList");
+    auto outcome = MakeRequest(request, "GetLatestTransactionList");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        GetLatesdTransactionListResponse rsp = GetLatesdTransactionListResponse();
+        GetLatestTransactionListResponse rsp = GetLatestTransactionListResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return GetLatesdTransactionListOutcome(rsp);
+            return GetLatestTransactionListOutcome(rsp);
         else
-            return GetLatesdTransactionListOutcome(o.GetError());
+            return GetLatestTransactionListOutcome(o.GetError());
     }
     else
     {
-        return GetLatesdTransactionListOutcome(outcome.GetError());
+        return GetLatestTransactionListOutcome(outcome.GetError());
     }
 }
 
-void TbaasClient::GetLatesdTransactionListAsync(const GetLatesdTransactionListRequest& request, const GetLatesdTransactionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TbaasClient::GetLatestTransactionListAsync(const GetLatestTransactionListRequest& request, const GetLatestTransactionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetLatesdTransactionList(request), context);
-    };
+    using Req = const GetLatestTransactionListRequest&;
+    using Resp = GetLatestTransactionListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetLatesdTransactionListOutcomeCallable TbaasClient::GetLatesdTransactionListCallable(const GetLatesdTransactionListRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetLatesdTransactionListOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "GetLatestTransactionList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->GetLatesdTransactionList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TbaasClient::GetPeerLogForUserOutcome TbaasClient::GetPeerLogForUser(const GetPeerLogForUserRequest &request)
+TbaasClient::GetLatestTransactionListOutcomeCallable TbaasClient::GetLatestTransactionListCallable(const GetLatestTransactionListRequest &request)
 {
-    auto outcome = MakeRequest(request, "GetPeerLogForUser");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<GetLatestTransactionListOutcome>>();
+    GetLatestTransactionListAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const GetLatestTransactionListRequest&,
+        GetLatestTransactionListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetPeerLogForUserResponse rsp = GetPeerLogForUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetPeerLogForUserOutcome(rsp);
-        else
-            return GetPeerLogForUserOutcome(o.GetError());
-    }
-    else
-    {
-        return GetPeerLogForUserOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetPeerLogForUserAsync(const GetPeerLogForUserRequest& request, const GetPeerLogForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetPeerLogForUser(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetPeerLogForUserOutcomeCallable TbaasClient::GetPeerLogForUserCallable(const GetPeerLogForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetPeerLogForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetPeerLogForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetTransByHashHandlerOutcome TbaasClient::GetTransByHashHandler(const GetTransByHashHandlerRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetTransByHashHandler");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetTransByHashHandlerResponse rsp = GetTransByHashHandlerResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetTransByHashHandlerOutcome(rsp);
-        else
-            return GetTransByHashHandlerOutcome(o.GetError());
-    }
-    else
-    {
-        return GetTransByHashHandlerOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetTransByHashHandlerAsync(const GetTransByHashHandlerRequest& request, const GetTransByHashHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetTransByHashHandler(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetTransByHashHandlerOutcomeCallable TbaasClient::GetTransByHashHandlerCallable(const GetTransByHashHandlerRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetTransByHashHandlerOutcome()>>(
-        [this, request]()
-        {
-            return this->GetTransByHashHandler(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::GetTransListHandlerOutcome TbaasClient::GetTransListHandler(const GetTransListHandlerRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetTransListHandler");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetTransListHandlerResponse rsp = GetTransListHandlerResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetTransListHandlerOutcome(rsp);
-        else
-            return GetTransListHandlerOutcome(o.GetError());
-    }
-    else
-    {
-        return GetTransListHandlerOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::GetTransListHandlerAsync(const GetTransListHandlerRequest& request, const GetTransListHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetTransListHandler(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::GetTransListHandlerOutcomeCallable TbaasClient::GetTransListHandlerCallable(const GetTransListHandlerRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetTransListHandlerOutcome()>>(
-        [this, request]()
-        {
-            return this->GetTransListHandler(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::GetTransactionDetailForUserOutcome TbaasClient::GetTransactionDetailForUser(const GetTransactionDetailForUserRequest &request)
@@ -1094,68 +562,32 @@ TbaasClient::GetTransactionDetailForUserOutcome TbaasClient::GetTransactionDetai
 
 void TbaasClient::GetTransactionDetailForUserAsync(const GetTransactionDetailForUserRequest& request, const GetTransactionDetailForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetTransactionDetailForUser(request), context);
-    };
+    using Req = const GetTransactionDetailForUserRequest&;
+    using Resp = GetTransactionDetailForUserResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetTransactionDetailForUser", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::GetTransactionDetailForUserOutcomeCallable TbaasClient::GetTransactionDetailForUserCallable(const GetTransactionDetailForUserRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<GetTransactionDetailForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->GetTransactionDetailForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::InitializeChaincodeForUserOutcome TbaasClient::InitializeChaincodeForUser(const InitializeChaincodeForUserRequest &request)
-{
-    auto outcome = MakeRequest(request, "InitializeChaincodeForUser");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<GetTransactionDetailForUserOutcome>>();
+    GetTransactionDetailForUserAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const GetTransactionDetailForUserRequest&,
+        GetTransactionDetailForUserOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        InitializeChaincodeForUserResponse rsp = InitializeChaincodeForUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return InitializeChaincodeForUserOutcome(rsp);
-        else
-            return InitializeChaincodeForUserOutcome(o.GetError());
-    }
-    else
-    {
-        return InitializeChaincodeForUserOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::InitializeChaincodeForUserAsync(const InitializeChaincodeForUserRequest& request, const InitializeChaincodeForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->InitializeChaincodeForUser(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::InitializeChaincodeForUserOutcomeCallable TbaasClient::InitializeChaincodeForUserCallable(const InitializeChaincodeForUserRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<InitializeChaincodeForUserOutcome()>>(
-        [this, request]()
-        {
-            return this->InitializeChaincodeForUser(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::InvokeOutcome TbaasClient::Invoke(const InvokeRequest &request)
@@ -1180,68 +612,32 @@ TbaasClient::InvokeOutcome TbaasClient::Invoke(const InvokeRequest &request)
 
 void TbaasClient::InvokeAsync(const InvokeRequest& request, const InvokeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->Invoke(request), context);
-    };
+    using Req = const InvokeRequest&;
+    using Resp = InvokeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "Invoke", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::InvokeOutcomeCallable TbaasClient::InvokeCallable(const InvokeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<InvokeOutcome()>>(
-        [this, request]()
-        {
-            return this->Invoke(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::InvokeBcosTransOutcome TbaasClient::InvokeBcosTrans(const InvokeBcosTransRequest &request)
-{
-    auto outcome = MakeRequest(request, "InvokeBcosTrans");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<InvokeOutcome>>();
+    InvokeAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const InvokeRequest&,
+        InvokeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        InvokeBcosTransResponse rsp = InvokeBcosTransResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return InvokeBcosTransOutcome(rsp);
-        else
-            return InvokeBcosTransOutcome(o.GetError());
-    }
-    else
-    {
-        return InvokeBcosTransOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::InvokeBcosTransAsync(const InvokeBcosTransRequest& request, const InvokeBcosTransAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->InvokeBcosTrans(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::InvokeBcosTransOutcomeCallable TbaasClient::InvokeBcosTransCallable(const InvokeBcosTransRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<InvokeBcosTransOutcome()>>(
-        [this, request]()
-        {
-            return this->InvokeBcosTrans(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::InvokeChainMakerContractOutcome TbaasClient::InvokeChainMakerContract(const InvokeChainMakerContractRequest &request)
@@ -1266,25 +662,132 @@ TbaasClient::InvokeChainMakerContractOutcome TbaasClient::InvokeChainMakerContra
 
 void TbaasClient::InvokeChainMakerContractAsync(const InvokeChainMakerContractRequest& request, const InvokeChainMakerContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->InvokeChainMakerContract(request), context);
-    };
+    using Req = const InvokeChainMakerContractRequest&;
+    using Resp = InvokeChainMakerContractResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "InvokeChainMakerContract", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::InvokeChainMakerContractOutcomeCallable TbaasClient::InvokeChainMakerContractCallable(const InvokeChainMakerContractRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<InvokeChainMakerContractOutcome()>>(
-        [this, request]()
-        {
-            return this->InvokeChainMakerContract(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<InvokeChainMakerContractOutcome>>();
+    InvokeChainMakerContractAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const InvokeChainMakerContractRequest&,
+        InvokeChainMakerContractOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TbaasClient::InvokeChainMakerDemoContractOutcome TbaasClient::InvokeChainMakerDemoContract(const InvokeChainMakerDemoContractRequest &request)
+{
+    auto outcome = MakeRequest(request, "InvokeChainMakerDemoContract");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        InvokeChainMakerDemoContractResponse rsp = InvokeChainMakerDemoContractResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return InvokeChainMakerDemoContractOutcome(rsp);
+        else
+            return InvokeChainMakerDemoContractOutcome(o.GetError());
+    }
+    else
+    {
+        return InvokeChainMakerDemoContractOutcome(outcome.GetError());
+    }
+}
+
+void TbaasClient::InvokeChainMakerDemoContractAsync(const InvokeChainMakerDemoContractRequest& request, const InvokeChainMakerDemoContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const InvokeChainMakerDemoContractRequest&;
+    using Resp = InvokeChainMakerDemoContractResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "InvokeChainMakerDemoContract", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TbaasClient::InvokeChainMakerDemoContractOutcomeCallable TbaasClient::InvokeChainMakerDemoContractCallable(const InvokeChainMakerDemoContractRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<InvokeChainMakerDemoContractOutcome>>();
+    InvokeChainMakerDemoContractAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const InvokeChainMakerDemoContractRequest&,
+        InvokeChainMakerDemoContractOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TbaasClient::InvokeFabricChaincodeOutcome TbaasClient::InvokeFabricChaincode(const InvokeFabricChaincodeRequest &request)
+{
+    auto outcome = MakeRequest(request, "InvokeFabricChaincode");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        InvokeFabricChaincodeResponse rsp = InvokeFabricChaincodeResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return InvokeFabricChaincodeOutcome(rsp);
+        else
+            return InvokeFabricChaincodeOutcome(o.GetError());
+    }
+    else
+    {
+        return InvokeFabricChaincodeOutcome(outcome.GetError());
+    }
+}
+
+void TbaasClient::InvokeFabricChaincodeAsync(const InvokeFabricChaincodeRequest& request, const InvokeFabricChaincodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const InvokeFabricChaincodeRequest&;
+    using Resp = InvokeFabricChaincodeResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "InvokeFabricChaincode", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TbaasClient::InvokeFabricChaincodeOutcomeCallable TbaasClient::InvokeFabricChaincodeCallable(const InvokeFabricChaincodeRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<InvokeFabricChaincodeOutcome>>();
+    InvokeFabricChaincodeAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const InvokeFabricChaincodeRequest&,
+        InvokeFabricChaincodeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::QueryOutcome TbaasClient::Query(const QueryRequest &request)
@@ -1309,25 +812,32 @@ TbaasClient::QueryOutcome TbaasClient::Query(const QueryRequest &request)
 
 void TbaasClient::QueryAsync(const QueryRequest& request, const QueryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->Query(request), context);
-    };
+    using Req = const QueryRequest&;
+    using Resp = QueryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "Query", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::QueryOutcomeCallable TbaasClient::QueryCallable(const QueryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryOutcome()>>(
-        [this, request]()
-        {
-            return this->Query(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryOutcome>>();
+    QueryAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryRequest&,
+        QueryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::QueryChainMakerBlockTransactionOutcome TbaasClient::QueryChainMakerBlockTransaction(const QueryChainMakerBlockTransactionRequest &request)
@@ -1352,25 +862,32 @@ TbaasClient::QueryChainMakerBlockTransactionOutcome TbaasClient::QueryChainMaker
 
 void TbaasClient::QueryChainMakerBlockTransactionAsync(const QueryChainMakerBlockTransactionRequest& request, const QueryChainMakerBlockTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryChainMakerBlockTransaction(request), context);
-    };
+    using Req = const QueryChainMakerBlockTransactionRequest&;
+    using Resp = QueryChainMakerBlockTransactionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryChainMakerBlockTransaction", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::QueryChainMakerBlockTransactionOutcomeCallable TbaasClient::QueryChainMakerBlockTransactionCallable(const QueryChainMakerBlockTransactionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryChainMakerBlockTransactionOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryChainMakerBlockTransaction(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryChainMakerBlockTransactionOutcome>>();
+    QueryChainMakerBlockTransactionAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryChainMakerBlockTransactionRequest&,
+        QueryChainMakerBlockTransactionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::QueryChainMakerContractOutcome TbaasClient::QueryChainMakerContract(const QueryChainMakerContractRequest &request)
@@ -1395,25 +912,182 @@ TbaasClient::QueryChainMakerContractOutcome TbaasClient::QueryChainMakerContract
 
 void TbaasClient::QueryChainMakerContractAsync(const QueryChainMakerContractRequest& request, const QueryChainMakerContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryChainMakerContract(request), context);
-    };
+    using Req = const QueryChainMakerContractRequest&;
+    using Resp = QueryChainMakerContractResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryChainMakerContract", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::QueryChainMakerContractOutcomeCallable TbaasClient::QueryChainMakerContractCallable(const QueryChainMakerContractRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryChainMakerContractOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryChainMakerContract(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryChainMakerContractOutcome>>();
+    QueryChainMakerContractAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryChainMakerContractRequest&,
+        QueryChainMakerContractOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TbaasClient::QueryChainMakerDemoBlockTransactionOutcome TbaasClient::QueryChainMakerDemoBlockTransaction(const QueryChainMakerDemoBlockTransactionRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryChainMakerDemoBlockTransaction");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryChainMakerDemoBlockTransactionResponse rsp = QueryChainMakerDemoBlockTransactionResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryChainMakerDemoBlockTransactionOutcome(rsp);
+        else
+            return QueryChainMakerDemoBlockTransactionOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryChainMakerDemoBlockTransactionOutcome(outcome.GetError());
+    }
+}
+
+void TbaasClient::QueryChainMakerDemoBlockTransactionAsync(const QueryChainMakerDemoBlockTransactionRequest& request, const QueryChainMakerDemoBlockTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryChainMakerDemoBlockTransactionRequest&;
+    using Resp = QueryChainMakerDemoBlockTransactionResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryChainMakerDemoBlockTransaction", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TbaasClient::QueryChainMakerDemoBlockTransactionOutcomeCallable TbaasClient::QueryChainMakerDemoBlockTransactionCallable(const QueryChainMakerDemoBlockTransactionRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryChainMakerDemoBlockTransactionOutcome>>();
+    QueryChainMakerDemoBlockTransactionAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryChainMakerDemoBlockTransactionRequest&,
+        QueryChainMakerDemoBlockTransactionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TbaasClient::QueryChainMakerDemoContractOutcome TbaasClient::QueryChainMakerDemoContract(const QueryChainMakerDemoContractRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryChainMakerDemoContract");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryChainMakerDemoContractResponse rsp = QueryChainMakerDemoContractResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryChainMakerDemoContractOutcome(rsp);
+        else
+            return QueryChainMakerDemoContractOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryChainMakerDemoContractOutcome(outcome.GetError());
+    }
+}
+
+void TbaasClient::QueryChainMakerDemoContractAsync(const QueryChainMakerDemoContractRequest& request, const QueryChainMakerDemoContractAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryChainMakerDemoContractRequest&;
+    using Resp = QueryChainMakerDemoContractResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryChainMakerDemoContract", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TbaasClient::QueryChainMakerDemoContractOutcomeCallable TbaasClient::QueryChainMakerDemoContractCallable(const QueryChainMakerDemoContractRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryChainMakerDemoContractOutcome>>();
+    QueryChainMakerDemoContractAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryChainMakerDemoContractRequest&,
+        QueryChainMakerDemoContractOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TbaasClient::QueryChainMakerDemoTransactionOutcome TbaasClient::QueryChainMakerDemoTransaction(const QueryChainMakerDemoTransactionRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryChainMakerDemoTransaction");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryChainMakerDemoTransactionResponse rsp = QueryChainMakerDemoTransactionResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryChainMakerDemoTransactionOutcome(rsp);
+        else
+            return QueryChainMakerDemoTransactionOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryChainMakerDemoTransactionOutcome(outcome.GetError());
+    }
+}
+
+void TbaasClient::QueryChainMakerDemoTransactionAsync(const QueryChainMakerDemoTransactionRequest& request, const QueryChainMakerDemoTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryChainMakerDemoTransactionRequest&;
+    using Resp = QueryChainMakerDemoTransactionResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryChainMakerDemoTransaction", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TbaasClient::QueryChainMakerDemoTransactionOutcomeCallable TbaasClient::QueryChainMakerDemoTransactionCallable(const QueryChainMakerDemoTransactionRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryChainMakerDemoTransactionOutcome>>();
+    QueryChainMakerDemoTransactionAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryChainMakerDemoTransactionRequest&,
+        QueryChainMakerDemoTransactionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::QueryChainMakerTransactionOutcome TbaasClient::QueryChainMakerTransaction(const QueryChainMakerTransactionRequest &request)
@@ -1438,68 +1112,82 @@ TbaasClient::QueryChainMakerTransactionOutcome TbaasClient::QueryChainMakerTrans
 
 void TbaasClient::QueryChainMakerTransactionAsync(const QueryChainMakerTransactionRequest& request, const QueryChainMakerTransactionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryChainMakerTransaction(request), context);
-    };
+    using Req = const QueryChainMakerTransactionRequest&;
+    using Resp = QueryChainMakerTransactionResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryChainMakerTransaction", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::QueryChainMakerTransactionOutcomeCallable TbaasClient::QueryChainMakerTransactionCallable(const QueryChainMakerTransactionRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryChainMakerTransactionOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryChainMakerTransaction(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryChainMakerTransactionOutcome>>();
+    QueryChainMakerTransactionAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryChainMakerTransactionRequest&,
+        QueryChainMakerTransactionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
-TbaasClient::SendTransactionHandlerOutcome TbaasClient::SendTransactionHandler(const SendTransactionHandlerRequest &request)
+TbaasClient::QueryFabricChaincodeOutcome TbaasClient::QueryFabricChaincode(const QueryFabricChaincodeRequest &request)
 {
-    auto outcome = MakeRequest(request, "SendTransactionHandler");
+    auto outcome = MakeRequest(request, "QueryFabricChaincode");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        SendTransactionHandlerResponse rsp = SendTransactionHandlerResponse();
+        QueryFabricChaincodeResponse rsp = QueryFabricChaincodeResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return SendTransactionHandlerOutcome(rsp);
+            return QueryFabricChaincodeOutcome(rsp);
         else
-            return SendTransactionHandlerOutcome(o.GetError());
+            return QueryFabricChaincodeOutcome(o.GetError());
     }
     else
     {
-        return SendTransactionHandlerOutcome(outcome.GetError());
+        return QueryFabricChaincodeOutcome(outcome.GetError());
     }
 }
 
-void TbaasClient::SendTransactionHandlerAsync(const SendTransactionHandlerRequest& request, const SendTransactionHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TbaasClient::QueryFabricChaincodeAsync(const QueryFabricChaincodeRequest& request, const QueryFabricChaincodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SendTransactionHandler(request), context);
-    };
+    using Req = const QueryFabricChaincodeRequest&;
+    using Resp = QueryFabricChaincodeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryFabricChaincode", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TbaasClient::SendTransactionHandlerOutcomeCallable TbaasClient::SendTransactionHandlerCallable(const SendTransactionHandlerRequest &request)
+TbaasClient::QueryFabricChaincodeOutcomeCallable TbaasClient::QueryFabricChaincodeCallable(const QueryFabricChaincodeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SendTransactionHandlerOutcome()>>(
-        [this, request]()
-        {
-            return this->SendTransactionHandler(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryFabricChaincodeOutcome>>();
+    QueryFabricChaincodeAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const QueryFabricChaincodeRequest&,
+        QueryFabricChaincodeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 TbaasClient::SrvInvokeOutcome TbaasClient::SrvInvoke(const SrvInvokeRequest &request)
@@ -1524,67 +1212,31 @@ TbaasClient::SrvInvokeOutcome TbaasClient::SrvInvoke(const SrvInvokeRequest &req
 
 void TbaasClient::SrvInvokeAsync(const SrvInvokeRequest& request, const SrvInvokeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SrvInvoke(request), context);
-    };
+    using Req = const SrvInvokeRequest&;
+    using Resp = SrvInvokeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "SrvInvoke", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TbaasClient::SrvInvokeOutcomeCallable TbaasClient::SrvInvokeCallable(const SrvInvokeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<SrvInvokeOutcome()>>(
-        [this, request]()
-        {
-            return this->SrvInvoke(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
-}
-
-TbaasClient::TransByDynamicContractHandlerOutcome TbaasClient::TransByDynamicContractHandler(const TransByDynamicContractHandlerRequest &request)
-{
-    auto outcome = MakeRequest(request, "TransByDynamicContractHandler");
-    if (outcome.IsSuccess())
+    const auto prom = std::make_shared<std::promise<SrvInvokeOutcome>>();
+    SrvInvokeAsync(
+    request,
+    [prom](
+        const TbaasClient*,
+        const SrvInvokeRequest&,
+        SrvInvokeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
     {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        TransByDynamicContractHandlerResponse rsp = TransByDynamicContractHandlerResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return TransByDynamicContractHandlerOutcome(rsp);
-        else
-            return TransByDynamicContractHandlerOutcome(o.GetError());
-    }
-    else
-    {
-        return TransByDynamicContractHandlerOutcome(outcome.GetError());
-    }
-}
-
-void TbaasClient::TransByDynamicContractHandlerAsync(const TransByDynamicContractHandlerRequest& request, const TransByDynamicContractHandlerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->TransByDynamicContractHandler(request), context);
-    };
-
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TbaasClient::TransByDynamicContractHandlerOutcomeCallable TbaasClient::TransByDynamicContractHandlerCallable(const TransByDynamicContractHandlerRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<TransByDynamicContractHandlerOutcome()>>(
-        [this, request]()
-        {
-            return this->TransByDynamicContractHandler(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

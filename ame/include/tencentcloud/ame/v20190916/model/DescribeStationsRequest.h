@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取条数，必须大于0
                      * @return Limit 条数，必须大于0
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置条数，必须大于0
-                     * @param Limit 条数，必须大于0
+                     * @param _limit 条数，必须大于0
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取offset (Default = 0)，Offset=Offset+Limit
                      * @return Offset offset (Default = 0)，Offset=Offset+Limit
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置offset (Default = 0)，Offset=Offset+Limit
-                     * @param Offset offset (Default = 0)，Offset=Offset+Limit
+                     * @param _offset offset (Default = 0)，Offset=Offset+Limit
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 

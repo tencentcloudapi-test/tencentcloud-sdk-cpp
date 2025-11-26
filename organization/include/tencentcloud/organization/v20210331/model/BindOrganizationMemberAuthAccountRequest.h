@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取成员Uin。
                      * @return MemberUin 成员Uin。
+                     * 
                      */
                     int64_t GetMemberUin() const;
 
                     /**
                      * 设置成员Uin。
-                     * @param MemberUin 成员Uin。
+                     * @param _memberUin 成员Uin。
+                     * 
                      */
                     void SetMemberUin(const int64_t& _memberUin);
 
                     /**
                      * 判断参数 MemberUin 是否已赋值
                      * @return MemberUin 是否已赋值
+                     * 
                      */
                     bool MemberUinHasBeenSet() const;
 
                     /**
-                     * 获取策略ID。
-                     * @return PolicyId 策略ID。
+                     * 获取策略ID。可以调用[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
+                     * @return PolicyId 策略ID。可以调用[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
+                     * 
                      */
                     int64_t GetPolicyId() const;
 
                     /**
-                     * 设置策略ID。
-                     * @param PolicyId 策略ID。
+                     * 设置策略ID。可以调用[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
+                     * @param _policyId 策略ID。可以调用[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
+                     * 
                      */
                     void SetPolicyId(const int64_t& _policyId);
 
                     /**
                      * 判断参数 PolicyId 是否已赋值
                      * @return PolicyId 是否已赋值
+                     * 
                      */
                     bool PolicyIdHasBeenSet() const;
 
                     /**
-                     * 获取组织子账号Uin。
-                     * @return OrgSubAccountUins 组织子账号Uin。
+                     * 获取组织管理员子账号Uin列表。最大5个
+                     * @return OrgSubAccountUins 组织管理员子账号Uin列表。最大5个
+                     * 
                      */
                     std::vector<int64_t> GetOrgSubAccountUins() const;
 
                     /**
-                     * 设置组织子账号Uin。
-                     * @param OrgSubAccountUins 组织子账号Uin。
+                     * 设置组织管理员子账号Uin列表。最大5个
+                     * @param _orgSubAccountUins 组织管理员子账号Uin列表。最大5个
+                     * 
                      */
                     void SetOrgSubAccountUins(const std::vector<int64_t>& _orgSubAccountUins);
 
                     /**
                      * 判断参数 OrgSubAccountUins 是否已赋值
                      * @return OrgSubAccountUins 是否已赋值
+                     * 
                      */
                     bool OrgSubAccountUinsHasBeenSet() const;
 
@@ -105,13 +114,13 @@ namespace TencentCloud
                     bool m_memberUinHasBeenSet;
 
                     /**
-                     * 策略ID。
+                     * 策略ID。可以调用[DescribeOrganizationMemberPolicies](https://cloud.tencent.com/document/product/850/82935)获取
                      */
                     int64_t m_policyId;
                     bool m_policyIdHasBeenSet;
 
                     /**
-                     * 组织子账号Uin。
+                     * 组织管理员子账号Uin列表。最大5个
                      */
                     std::vector<int64_t> m_orgSubAccountUins;
                     bool m_orgSubAccountUinsHasBeenSet;

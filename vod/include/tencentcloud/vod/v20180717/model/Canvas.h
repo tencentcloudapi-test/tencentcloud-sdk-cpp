@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ namespace TencentCloud
 <li>Black：黑色背景</li>
 <li>White：白色背景</li>
 默认值：Black。
+                     * 
                      */
                     std::string GetColor() const;
 
@@ -63,60 +64,68 @@ namespace TencentCloud
 <li>Black：黑色背景</li>
 <li>White：白色背景</li>
 默认值：Black。
-                     * @param Color 背景颜色，取值有：
+                     * @param _color 背景颜色，取值有：
 <li>Black：黑色背景</li>
 <li>White：白色背景</li>
 默认值：Black。
+                     * 
                      */
                     void SetColor(const std::string& _color);
 
                     /**
                      * 判断参数 Color 是否已赋值
                      * @return Color 是否已赋值
+                     * 
                      */
                     bool ColorHasBeenSet() const;
 
                     /**
-                     * 获取画布宽度，即输出视频的宽度，取值范围：0~ 4096，单位：px。
+                     * 获取画布宽度，即输出视频的宽度，取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频宽度一致。
-                     * @return Width 画布宽度，即输出视频的宽度，取值范围：0~ 4096，单位：px。
+                     * @return Width 画布宽度，即输出视频的宽度，取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频宽度一致。
+                     * 
                      */
                     int64_t GetWidth() const;
 
                     /**
-                     * 设置画布宽度，即输出视频的宽度，取值范围：0~ 4096，单位：px。
+                     * 设置画布宽度，即输出视频的宽度，取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频宽度一致。
-                     * @param Width 画布宽度，即输出视频的宽度，取值范围：0~ 4096，单位：px。
+                     * @param _width 画布宽度，即输出视频的宽度，取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频宽度一致。
+                     * 
                      */
                     void SetWidth(const int64_t& _width);
 
                     /**
                      * 判断参数 Width 是否已赋值
                      * @return Width 是否已赋值
+                     * 
                      */
                     bool WidthHasBeenSet() const;
 
                     /**
-                     * 获取画布高度，即输出视频的高度（或长边），取值范围：0~ 4096，单位：px。
+                     * 获取画布高度，即输出视频的高度（或长边），取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频高度一致。
-                     * @return Height 画布高度，即输出视频的高度（或长边），取值范围：0~ 4096，单位：px。
+                     * @return Height 画布高度，即输出视频的高度（或长边），取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频高度一致。
+                     * 
                      */
                     int64_t GetHeight() const;
 
                     /**
-                     * 设置画布高度，即输出视频的高度（或长边），取值范围：0~ 4096，单位：px。
+                     * 设置画布高度，即输出视频的高度（或长边），取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频高度一致。
-                     * @param Height 画布高度，即输出视频的高度（或长边），取值范围：0~ 4096，单位：px。
+                     * @param _height 画布高度，即输出视频的高度（或长边），取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频高度一致。
+                     * 
                      */
                     void SetHeight(const int64_t& _height);
 
                     /**
                      * 判断参数 Height 是否已赋值
                      * @return Height 是否已赋值
+                     * 
                      */
                     bool HeightHasBeenSet() const;
 
@@ -132,14 +141,14 @@ namespace TencentCloud
                     bool m_colorHasBeenSet;
 
                     /**
-                     * 画布宽度，即输出视频的宽度，取值范围：0~ 4096，单位：px。
+                     * 画布宽度，即输出视频的宽度，取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频宽度一致。
                      */
                     int64_t m_width;
                     bool m_widthHasBeenSet;
 
                     /**
-                     * 画布高度，即输出视频的高度（或长边），取值范围：0~ 4096，单位：px。
+                     * 画布高度，即输出视频的高度（或长边），取值范围：0~ 3840，单位：px。
 默认值：0，表示和第一个视频轨的第一个视频片段的视频高度一致。
                      */
                     int64_t m_height;

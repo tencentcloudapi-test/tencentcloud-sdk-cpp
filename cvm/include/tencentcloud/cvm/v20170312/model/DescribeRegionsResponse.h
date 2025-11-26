@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,39 +45,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取地域数量
-                     * @return TotalCount 地域数量
+                     * 获取地域数量。
+                     * @return TotalCount 地域数量。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取地域列表信息
-                     * @return RegionSet 地域列表信息
+                     * 获取地域列表信息。
+                     * @return RegionSet 地域列表信息。
+                     * 
                      */
                     std::vector<RegionInfo> GetRegionSet() const;
 
                     /**
                      * 判断参数 RegionSet 是否已赋值
                      * @return RegionSet 是否已赋值
+                     * 
                      */
                     bool RegionSetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 地域数量
+                     * 地域数量。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 地域列表信息
+                     * 地域列表信息。
                      */
                     std::vector<RegionInfo> m_regionSet;
                     bool m_regionSetHasBeenSet;

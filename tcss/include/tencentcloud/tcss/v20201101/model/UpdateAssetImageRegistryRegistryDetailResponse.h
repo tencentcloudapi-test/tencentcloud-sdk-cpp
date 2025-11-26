@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,43 +45,43 @@ namespace TencentCloud
 
                     /**
                      * 获取连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return HealthCheckErr 连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetHealthCheckErr() const;
 
                     /**
                      * 判断参数 HealthCheckErr 是否已赋值
                      * @return HealthCheckErr 是否已赋值
+                     * 
                      */
                     bool HealthCheckErrHasBeenSet() const;
 
                     /**
                      * 获取名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return NameRepeatErr 名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetNameRepeatErr() const;
 
                     /**
                      * 判断参数 NameRepeatErr 是否已赋值
                      * @return NameRepeatErr 是否已赋值
+                     * 
                      */
                     bool NameRepeatErrHasBeenSet() const;
 
                     /**
                      * 获取仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RegistryId 仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetRegistryId() const;
 
                     /**
                      * 判断参数 RegistryId 是否已赋值
                      * @return RegistryId 是否已赋值
+                     * 
                      */
                     bool RegistryIdHasBeenSet() const;
 
@@ -89,21 +89,18 @@ namespace TencentCloud
 
                     /**
                      * 连接错误信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_healthCheckErr;
                     bool m_healthCheckErrHasBeenSet;
 
                     /**
                      * 名称错误信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_nameRepeatErr;
                     bool m_nameRepeatErrHasBeenSet;
 
                     /**
                      * 仓库唯一id
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_registryId;
                     bool m_registryIdHasBeenSet;

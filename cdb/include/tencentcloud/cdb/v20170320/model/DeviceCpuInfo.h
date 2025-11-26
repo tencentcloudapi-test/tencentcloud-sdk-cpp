@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                *  CPU负载
+                * CPU负载
                 */
                 class DeviceCpuInfo : public AbstractModel
                 {
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取实例CPU平均使用率
                      * @return Rate 实例CPU平均使用率
+                     * 
                      */
                     std::vector<DeviceCpuRateInfo> GetRate() const;
 
                     /**
                      * 设置实例CPU平均使用率
-                     * @param Rate 实例CPU平均使用率
+                     * @param _rate 实例CPU平均使用率
+                     * 
                      */
                     void SetRate(const std::vector<DeviceCpuRateInfo>& _rate);
 
                     /**
                      * 判断参数 Rate 是否已赋值
                      * @return Rate 是否已赋值
+                     * 
                      */
                     bool RateHasBeenSet() const;
 
                     /**
                      * 获取实例CPU监控数据
                      * @return Load 实例CPU监控数据
+                     * 
                      */
                     std::vector<int64_t> GetLoad() const;
 
                     /**
                      * 设置实例CPU监控数据
-                     * @param Load 实例CPU监控数据
+                     * @param _load 实例CPU监控数据
+                     * 
                      */
                     void SetLoad(const std::vector<int64_t>& _load);
 
                     /**
                      * 判断参数 Load 是否已赋值
                      * @return Load 是否已赋值
+                     * 
                      */
                     bool LoadHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取包含此人员的人员库ID
                      * @return GroupId 包含此人员的人员库ID
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置包含此人员的人员库ID
-                     * @param GroupId 包含此人员的人员库ID
+                     * @param _groupId 包含此人员的人员库ID
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取人员描述字段内容
                      * @return PersonExDescriptions 人员描述字段内容
+                     * 
                      */
                     std::vector<std::string> GetPersonExDescriptions() const;
 
                     /**
                      * 设置人员描述字段内容
-                     * @param PersonExDescriptions 人员描述字段内容
+                     * @param _personExDescriptions 人员描述字段内容
+                     * 
                      */
                     void SetPersonExDescriptions(const std::vector<std::string>& _personExDescriptions);
 
                     /**
                      * 判断参数 PersonExDescriptions 是否已赋值
                      * @return PersonExDescriptions 是否已赋值
+                     * 
                      */
                     bool PersonExDescriptionsHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,26 +49,28 @@ namespace TencentCloud
                     /**
                      * 获取数据是否准备好，0未准备好，1准备好
                      * @return Ready 数据是否准备好，0未准备好，1准备好
+                     * 
                      */
                     uint64_t GetReady() const;
 
                     /**
                      * 判断参数 Ready 是否已赋值
                      * @return Ready 是否已赋值
+                     * 
                      */
                     bool ReadyHasBeenSet() const;
 
                     /**
                      * 获取消耗详情
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Total 消耗详情
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     ConsumptionSummaryTotal GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
@@ -77,12 +79,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ConditionValue 过滤条件
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     ConsumptionResourceSummaryConditionValue GetConditionValue() const;
 
                     /**
                      * 判断参数 ConditionValue 是否已赋值
                      * @return ConditionValue 是否已赋值
+                     * 
                      */
                     bool ConditionValueHasBeenSet() const;
 
@@ -91,26 +95,28 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RecordNum 记录数量
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetRecordNum() const;
 
                     /**
                      * 判断参数 RecordNum 是否已赋值
                      * @return RecordNum 是否已赋值
+                     * 
                      */
                     bool RecordNumHasBeenSet() const;
 
                     /**
                      * 获取资源消耗详情
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Data 资源消耗详情
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ConsumptionResourceSummaryDataItem> GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
 
@@ -124,7 +130,6 @@ namespace TencentCloud
 
                     /**
                      * 消耗详情
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ConsumptionSummaryTotal m_total;
                     bool m_totalHasBeenSet;
@@ -145,7 +150,6 @@ namespace TencentCloud
 
                     /**
                      * 资源消耗详情
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ConsumptionResourceSummaryDataItem> m_data;
                     bool m_dataHasBeenSet;

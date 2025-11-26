@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,17 @@ CCN::CCN() :
     m_tagSetHasBeenSet(false),
     m_routePriorityFlagHasBeenSet(false),
     m_routeTableCountHasBeenSet(false),
-    m_routeTableFlagHasBeenSet(false)
+    m_routeTableFlagHasBeenSet(false),
+    m_isSecurityLockHasBeenSet(false),
+    m_routeBroadcastPolicyFlagHasBeenSet(false),
+    m_routeECMPFlagHasBeenSet(false),
+    m_routeOverlapFlagHasBeenSet(false),
+    m_trafficMarkingPolicyFlagHasBeenSet(false),
+    m_routeSelectPolicyFlagHasBeenSet(false),
+    m_directConnectAccelerateChannelFlagHasBeenSet(false),
+    m_ipv6FlagHasBeenSet(false),
+    m_mrtbAggregatePolicyFlagHasBeenSet(false),
+    m_mrtbPolicyValueFlagHasBeenSet(false)
 {
 }
 
@@ -182,6 +192,106 @@ CoreInternalOutcome CCN::Deserialize(const rapidjson::Value &value)
         m_routeTableFlagHasBeenSet = true;
     }
 
+    if (value.HasMember("IsSecurityLock") && !value["IsSecurityLock"].IsNull())
+    {
+        if (!value["IsSecurityLock"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.IsSecurityLock` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isSecurityLock = value["IsSecurityLock"].GetBool();
+        m_isSecurityLockHasBeenSet = true;
+    }
+
+    if (value.HasMember("RouteBroadcastPolicyFlag") && !value["RouteBroadcastPolicyFlag"].IsNull())
+    {
+        if (!value["RouteBroadcastPolicyFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.RouteBroadcastPolicyFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_routeBroadcastPolicyFlag = value["RouteBroadcastPolicyFlag"].GetBool();
+        m_routeBroadcastPolicyFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("RouteECMPFlag") && !value["RouteECMPFlag"].IsNull())
+    {
+        if (!value["RouteECMPFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.RouteECMPFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_routeECMPFlag = value["RouteECMPFlag"].GetBool();
+        m_routeECMPFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("RouteOverlapFlag") && !value["RouteOverlapFlag"].IsNull())
+    {
+        if (!value["RouteOverlapFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.RouteOverlapFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_routeOverlapFlag = value["RouteOverlapFlag"].GetBool();
+        m_routeOverlapFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("TrafficMarkingPolicyFlag") && !value["TrafficMarkingPolicyFlag"].IsNull())
+    {
+        if (!value["TrafficMarkingPolicyFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.TrafficMarkingPolicyFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_trafficMarkingPolicyFlag = value["TrafficMarkingPolicyFlag"].GetBool();
+        m_trafficMarkingPolicyFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("RouteSelectPolicyFlag") && !value["RouteSelectPolicyFlag"].IsNull())
+    {
+        if (!value["RouteSelectPolicyFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.RouteSelectPolicyFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_routeSelectPolicyFlag = value["RouteSelectPolicyFlag"].GetBool();
+        m_routeSelectPolicyFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("DirectConnectAccelerateChannelFlag") && !value["DirectConnectAccelerateChannelFlag"].IsNull())
+    {
+        if (!value["DirectConnectAccelerateChannelFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.DirectConnectAccelerateChannelFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_directConnectAccelerateChannelFlag = value["DirectConnectAccelerateChannelFlag"].GetBool();
+        m_directConnectAccelerateChannelFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("Ipv6Flag") && !value["Ipv6Flag"].IsNull())
+    {
+        if (!value["Ipv6Flag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.Ipv6Flag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_ipv6Flag = value["Ipv6Flag"].GetBool();
+        m_ipv6FlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("MrtbAggregatePolicyFlag") && !value["MrtbAggregatePolicyFlag"].IsNull())
+    {
+        if (!value["MrtbAggregatePolicyFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.MrtbAggregatePolicyFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_mrtbAggregatePolicyFlag = value["MrtbAggregatePolicyFlag"].GetBool();
+        m_mrtbAggregatePolicyFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("MrtbPolicyValueFlag") && !value["MrtbPolicyValueFlag"].IsNull())
+    {
+        if (!value["MrtbPolicyValueFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `CCN.MrtbPolicyValueFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_mrtbPolicyValueFlag = value["MrtbPolicyValueFlag"].GetBool();
+        m_mrtbPolicyValueFlagHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -298,6 +408,86 @@ void CCN::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorTy
         string key = "RouteTableFlag";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_routeTableFlag, allocator);
+    }
+
+    if (m_isSecurityLockHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSecurityLock";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isSecurityLock, allocator);
+    }
+
+    if (m_routeBroadcastPolicyFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RouteBroadcastPolicyFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_routeBroadcastPolicyFlag, allocator);
+    }
+
+    if (m_routeECMPFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RouteECMPFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_routeECMPFlag, allocator);
+    }
+
+    if (m_routeOverlapFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RouteOverlapFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_routeOverlapFlag, allocator);
+    }
+
+    if (m_trafficMarkingPolicyFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TrafficMarkingPolicyFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_trafficMarkingPolicyFlag, allocator);
+    }
+
+    if (m_routeSelectPolicyFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RouteSelectPolicyFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_routeSelectPolicyFlag, allocator);
+    }
+
+    if (m_directConnectAccelerateChannelFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DirectConnectAccelerateChannelFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_directConnectAccelerateChannelFlag, allocator);
+    }
+
+    if (m_ipv6FlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ipv6Flag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_ipv6Flag, allocator);
+    }
+
+    if (m_mrtbAggregatePolicyFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MrtbAggregatePolicyFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_mrtbAggregatePolicyFlag, allocator);
+    }
+
+    if (m_mrtbPolicyValueFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MrtbPolicyValueFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_mrtbPolicyValueFlag, allocator);
     }
 
 }
@@ -509,5 +699,165 @@ void CCN::SetRouteTableFlag(const bool& _routeTableFlag)
 bool CCN::RouteTableFlagHasBeenSet() const
 {
     return m_routeTableFlagHasBeenSet;
+}
+
+bool CCN::GetIsSecurityLock() const
+{
+    return m_isSecurityLock;
+}
+
+void CCN::SetIsSecurityLock(const bool& _isSecurityLock)
+{
+    m_isSecurityLock = _isSecurityLock;
+    m_isSecurityLockHasBeenSet = true;
+}
+
+bool CCN::IsSecurityLockHasBeenSet() const
+{
+    return m_isSecurityLockHasBeenSet;
+}
+
+bool CCN::GetRouteBroadcastPolicyFlag() const
+{
+    return m_routeBroadcastPolicyFlag;
+}
+
+void CCN::SetRouteBroadcastPolicyFlag(const bool& _routeBroadcastPolicyFlag)
+{
+    m_routeBroadcastPolicyFlag = _routeBroadcastPolicyFlag;
+    m_routeBroadcastPolicyFlagHasBeenSet = true;
+}
+
+bool CCN::RouteBroadcastPolicyFlagHasBeenSet() const
+{
+    return m_routeBroadcastPolicyFlagHasBeenSet;
+}
+
+bool CCN::GetRouteECMPFlag() const
+{
+    return m_routeECMPFlag;
+}
+
+void CCN::SetRouteECMPFlag(const bool& _routeECMPFlag)
+{
+    m_routeECMPFlag = _routeECMPFlag;
+    m_routeECMPFlagHasBeenSet = true;
+}
+
+bool CCN::RouteECMPFlagHasBeenSet() const
+{
+    return m_routeECMPFlagHasBeenSet;
+}
+
+bool CCN::GetRouteOverlapFlag() const
+{
+    return m_routeOverlapFlag;
+}
+
+void CCN::SetRouteOverlapFlag(const bool& _routeOverlapFlag)
+{
+    m_routeOverlapFlag = _routeOverlapFlag;
+    m_routeOverlapFlagHasBeenSet = true;
+}
+
+bool CCN::RouteOverlapFlagHasBeenSet() const
+{
+    return m_routeOverlapFlagHasBeenSet;
+}
+
+bool CCN::GetTrafficMarkingPolicyFlag() const
+{
+    return m_trafficMarkingPolicyFlag;
+}
+
+void CCN::SetTrafficMarkingPolicyFlag(const bool& _trafficMarkingPolicyFlag)
+{
+    m_trafficMarkingPolicyFlag = _trafficMarkingPolicyFlag;
+    m_trafficMarkingPolicyFlagHasBeenSet = true;
+}
+
+bool CCN::TrafficMarkingPolicyFlagHasBeenSet() const
+{
+    return m_trafficMarkingPolicyFlagHasBeenSet;
+}
+
+bool CCN::GetRouteSelectPolicyFlag() const
+{
+    return m_routeSelectPolicyFlag;
+}
+
+void CCN::SetRouteSelectPolicyFlag(const bool& _routeSelectPolicyFlag)
+{
+    m_routeSelectPolicyFlag = _routeSelectPolicyFlag;
+    m_routeSelectPolicyFlagHasBeenSet = true;
+}
+
+bool CCN::RouteSelectPolicyFlagHasBeenSet() const
+{
+    return m_routeSelectPolicyFlagHasBeenSet;
+}
+
+bool CCN::GetDirectConnectAccelerateChannelFlag() const
+{
+    return m_directConnectAccelerateChannelFlag;
+}
+
+void CCN::SetDirectConnectAccelerateChannelFlag(const bool& _directConnectAccelerateChannelFlag)
+{
+    m_directConnectAccelerateChannelFlag = _directConnectAccelerateChannelFlag;
+    m_directConnectAccelerateChannelFlagHasBeenSet = true;
+}
+
+bool CCN::DirectConnectAccelerateChannelFlagHasBeenSet() const
+{
+    return m_directConnectAccelerateChannelFlagHasBeenSet;
+}
+
+bool CCN::GetIpv6Flag() const
+{
+    return m_ipv6Flag;
+}
+
+void CCN::SetIpv6Flag(const bool& _ipv6Flag)
+{
+    m_ipv6Flag = _ipv6Flag;
+    m_ipv6FlagHasBeenSet = true;
+}
+
+bool CCN::Ipv6FlagHasBeenSet() const
+{
+    return m_ipv6FlagHasBeenSet;
+}
+
+bool CCN::GetMrtbAggregatePolicyFlag() const
+{
+    return m_mrtbAggregatePolicyFlag;
+}
+
+void CCN::SetMrtbAggregatePolicyFlag(const bool& _mrtbAggregatePolicyFlag)
+{
+    m_mrtbAggregatePolicyFlag = _mrtbAggregatePolicyFlag;
+    m_mrtbAggregatePolicyFlagHasBeenSet = true;
+}
+
+bool CCN::MrtbAggregatePolicyFlagHasBeenSet() const
+{
+    return m_mrtbAggregatePolicyFlagHasBeenSet;
+}
+
+bool CCN::GetMrtbPolicyValueFlag() const
+{
+    return m_mrtbPolicyValueFlag;
+}
+
+void CCN::SetMrtbPolicyValueFlag(const bool& _mrtbPolicyValueFlag)
+{
+    m_mrtbPolicyValueFlag = _mrtbPolicyValueFlag;
+    m_mrtbPolicyValueFlagHasBeenSet = true;
+}
+
+bool CCN::MrtbPolicyValueFlagHasBeenSet() const
+{
+    return m_mrtbPolicyValueFlagHasBeenSet;
 }
 

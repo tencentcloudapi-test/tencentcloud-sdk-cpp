@@ -1,0 +1,294 @@
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <tencentcloud/dts/v20211206/model/CompareOptions.h>
+
+using TencentCloud::CoreInternalOutcome;
+using namespace TencentCloud::Dts::V20211206::Model;
+using namespace std;
+
+CompareOptions::CompareOptions() :
+    m_methodHasBeenSet(false),
+    m_sampleRateHasBeenSet(false),
+    m_threadCountHasBeenSet(false),
+    m_typeHasBeenSet(false),
+    m_compareModeHasBeenSet(false),
+    m_reCheckTimeHasBeenSet(false),
+    m_reCheckIntervalHasBeenSet(false)
+{
+}
+
+CoreInternalOutcome CompareOptions::Deserialize(const rapidjson::Value &value)
+{
+    string requestId = "";
+
+
+    if (value.HasMember("Method") && !value["Method"].IsNull())
+    {
+        if (!value["Method"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompareOptions.Method` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_method = string(value["Method"].GetString());
+        m_methodHasBeenSet = true;
+    }
+
+    if (value.HasMember("SampleRate") && !value["SampleRate"].IsNull())
+    {
+        if (!value["SampleRate"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompareOptions.SampleRate` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_sampleRate = value["SampleRate"].GetInt64();
+        m_sampleRateHasBeenSet = true;
+    }
+
+    if (value.HasMember("ThreadCount") && !value["ThreadCount"].IsNull())
+    {
+        if (!value["ThreadCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompareOptions.ThreadCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_threadCount = value["ThreadCount"].GetInt64();
+        m_threadCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("Type") && !value["Type"].IsNull())
+    {
+        if (!value["Type"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompareOptions.Type` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_type = string(value["Type"].GetString());
+        m_typeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CompareMode") && !value["CompareMode"].IsNull())
+    {
+        if (!value["CompareMode"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CompareOptions.CompareMode` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CompareMode"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_compareMode.push_back((*itr).GetString());
+        }
+        m_compareModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReCheckTime") && !value["ReCheckTime"].IsNull())
+    {
+        if (!value["ReCheckTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompareOptions.ReCheckTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_reCheckTime = value["ReCheckTime"].GetInt64();
+        m_reCheckTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReCheckInterval") && !value["ReCheckInterval"].IsNull())
+    {
+        if (!value["ReCheckInterval"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CompareOptions.ReCheckInterval` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_reCheckInterval = value["ReCheckInterval"].GetInt64();
+        m_reCheckIntervalHasBeenSet = true;
+    }
+
+
+    return CoreInternalOutcome(true);
+}
+
+void CompareOptions::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const
+{
+
+    if (m_methodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Method";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_method.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sampleRateHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SampleRate";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_sampleRate, allocator);
+    }
+
+    if (m_threadCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ThreadCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_threadCount, allocator);
+    }
+
+    if (m_typeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Type";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_compareModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CompareMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_compareMode.begin(); itr != m_compareMode.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_reCheckTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReCheckTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_reCheckTime, allocator);
+    }
+
+    if (m_reCheckIntervalHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReCheckInterval";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_reCheckInterval, allocator);
+    }
+
+}
+
+
+string CompareOptions::GetMethod() const
+{
+    return m_method;
+}
+
+void CompareOptions::SetMethod(const string& _method)
+{
+    m_method = _method;
+    m_methodHasBeenSet = true;
+}
+
+bool CompareOptions::MethodHasBeenSet() const
+{
+    return m_methodHasBeenSet;
+}
+
+int64_t CompareOptions::GetSampleRate() const
+{
+    return m_sampleRate;
+}
+
+void CompareOptions::SetSampleRate(const int64_t& _sampleRate)
+{
+    m_sampleRate = _sampleRate;
+    m_sampleRateHasBeenSet = true;
+}
+
+bool CompareOptions::SampleRateHasBeenSet() const
+{
+    return m_sampleRateHasBeenSet;
+}
+
+int64_t CompareOptions::GetThreadCount() const
+{
+    return m_threadCount;
+}
+
+void CompareOptions::SetThreadCount(const int64_t& _threadCount)
+{
+    m_threadCount = _threadCount;
+    m_threadCountHasBeenSet = true;
+}
+
+bool CompareOptions::ThreadCountHasBeenSet() const
+{
+    return m_threadCountHasBeenSet;
+}
+
+string CompareOptions::GetType() const
+{
+    return m_type;
+}
+
+void CompareOptions::SetType(const string& _type)
+{
+    m_type = _type;
+    m_typeHasBeenSet = true;
+}
+
+bool CompareOptions::TypeHasBeenSet() const
+{
+    return m_typeHasBeenSet;
+}
+
+vector<string> CompareOptions::GetCompareMode() const
+{
+    return m_compareMode;
+}
+
+void CompareOptions::SetCompareMode(const vector<string>& _compareMode)
+{
+    m_compareMode = _compareMode;
+    m_compareModeHasBeenSet = true;
+}
+
+bool CompareOptions::CompareModeHasBeenSet() const
+{
+    return m_compareModeHasBeenSet;
+}
+
+int64_t CompareOptions::GetReCheckTime() const
+{
+    return m_reCheckTime;
+}
+
+void CompareOptions::SetReCheckTime(const int64_t& _reCheckTime)
+{
+    m_reCheckTime = _reCheckTime;
+    m_reCheckTimeHasBeenSet = true;
+}
+
+bool CompareOptions::ReCheckTimeHasBeenSet() const
+{
+    return m_reCheckTimeHasBeenSet;
+}
+
+int64_t CompareOptions::GetReCheckInterval() const
+{
+    return m_reCheckInterval;
+}
+
+void CompareOptions::SetReCheckInterval(const int64_t& _reCheckInterval)
+{
+    m_reCheckInterval = _reCheckInterval;
+    m_reCheckIntervalHasBeenSet = true;
+}
+
+bool CompareOptions::ReCheckIntervalHasBeenSet() const
+{
+    return m_reCheckIntervalHasBeenSet;
+}
+

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ DescribeConsumerResponse::DescribeConsumerResponse() :
     m_effectiveHasBeenSet(false),
     m_needContentHasBeenSet(false),
     m_contentHasBeenSet(false),
-    m_ckafkaHasBeenSet(false)
+    m_ckafkaHasBeenSet(false),
+    m_compressionHasBeenSet(false)
 {
 }
 
@@ -119,6 +120,16 @@ CoreInternalOutcome DescribeConsumerResponse::Deserialize(const string &payload)
         m_ckafkaHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Compression") && !rsp["Compression"].IsNull())
+    {
+        if (!rsp["Compression"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Compression` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_compression = rsp["Compression"].GetInt64();
+        m_compressionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -163,11 +174,19 @@ string DescribeConsumerResponse::ToJsonString() const
         m_ckafka.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_compressionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Compression";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_compression, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -213,6 +232,16 @@ Ckafka DescribeConsumerResponse::GetCkafka() const
 bool DescribeConsumerResponse::CkafkaHasBeenSet() const
 {
     return m_ckafkaHasBeenSet;
+}
+
+int64_t DescribeConsumerResponse::GetCompression() const
+{
+    return m_compression;
+}
+
+bool DescribeConsumerResponse::CompressionHasBeenSet() const
+{
+    return m_compressionHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取设备唯一标识列表
                      * @return DeviceIds 设备唯一标识列表
+                     * 
                      */
                     std::vector<std::string> GetDeviceIds() const;
 
                     /**
                      * 设置设备唯一标识列表
-                     * @param DeviceIds 设备唯一标识列表
+                     * @param _deviceIds 设备唯一标识列表
+                     * 
                      */
                     void SetDeviceIds(const std::vector<std::string>& _deviceIds);
 
                     /**
                      * 判断参数 DeviceIds 是否已赋值
                      * @return DeviceIds 是否已赋值
+                     * 
                      */
                     bool DeviceIdsHasBeenSet() const;
 

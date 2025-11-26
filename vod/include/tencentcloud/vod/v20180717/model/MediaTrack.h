@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +60,7 @@ namespace TencentCloud
 <li>Audio ：音频轨道。音频轨道由以下 Item 组成：<ul><li>AudioTrackItem</li><li>MediaTransitionItem</li><li>EmptyTrackItem</li></ul></li>
 <li>Sticker ：贴图轨道。贴图轨道以下 Item 组成：<ul><li> StickerTrackItem</li><li>EmptyTrackItem</li></ul></li>	
 </ul>
+                     * 
                      */
                     std::string GetType() const;
 
@@ -70,36 +71,41 @@ namespace TencentCloud
 <li>Audio ：音频轨道。音频轨道由以下 Item 组成：<ul><li>AudioTrackItem</li><li>MediaTransitionItem</li><li>EmptyTrackItem</li></ul></li>
 <li>Sticker ：贴图轨道。贴图轨道以下 Item 组成：<ul><li> StickerTrackItem</li><li>EmptyTrackItem</li></ul></li>	
 </ul>
-                     * @param Type 轨道类型，取值有：
+                     * @param _type 轨道类型，取值有：
 <ul>
 <li>Video ：视频轨道。视频轨道由以下 Item 组成：<ul><li>VideoTrackItem</li><li>MediaTransitionItem</li> <li>EmptyTrackItem</li></ul> </li>
 <li>Audio ：音频轨道。音频轨道由以下 Item 组成：<ul><li>AudioTrackItem</li><li>MediaTransitionItem</li><li>EmptyTrackItem</li></ul></li>
 <li>Sticker ：贴图轨道。贴图轨道以下 Item 组成：<ul><li> StickerTrackItem</li><li>EmptyTrackItem</li></ul></li>	
 </ul>
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
                      * 获取轨道上的媒体片段列表。
                      * @return TrackItems 轨道上的媒体片段列表。
+                     * 
                      */
                     std::vector<MediaTrackItem> GetTrackItems() const;
 
                     /**
                      * 设置轨道上的媒体片段列表。
-                     * @param TrackItems 轨道上的媒体片段列表。
+                     * @param _trackItems 轨道上的媒体片段列表。
+                     * 
                      */
                     void SetTrackItems(const std::vector<MediaTrackItem>& _trackItems);
 
                     /**
                      * 判断参数 TrackItems 是否已赋值
                      * @return TrackItems 是否已赋值
+                     * 
                      */
                     bool TrackItemsHasBeenSet() const;
 

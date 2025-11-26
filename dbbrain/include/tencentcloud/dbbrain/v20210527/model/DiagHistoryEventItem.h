@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,193 +47,303 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取诊断类型。
-                     * @return DiagType 诊断类型。
+                     * 获取诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
+                     * @return DiagType 诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
+                     * 
                      */
                     std::string GetDiagType() const;
 
                     /**
-                     * 设置诊断类型。
-                     * @param DiagType 诊断类型。
+                     * 设置诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
+                     * @param _diagType 诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
+                     * 
                      */
                     void SetDiagType(const std::string& _diagType);
 
                     /**
                      * 判断参数 DiagType 是否已赋值
                      * @return DiagType 是否已赋值
+                     * 
                      */
                     bool DiagTypeHasBeenSet() const;
 
                     /**
                      * 获取结束时间。
                      * @return EndTime 结束时间。
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
                      * 设置结束时间。
-                     * @param EndTime 结束时间。
+                     * @param _endTime 结束时间。
+                     * 
                      */
                     void SetEndTime(const std::string& _endTime);
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
                     /**
                      * 获取开始时间。
                      * @return StartTime 开始时间。
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
                      * 设置开始时间。
-                     * @param StartTime 开始时间。
+                     * @param _startTime 开始时间。
+                     * 
                      */
                     void SetStartTime(const std::string& _startTime);
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
                      * 获取事件唯一ID 。
                      * @return EventId 事件唯一ID 。
+                     * 
                      */
                     int64_t GetEventId() const;
 
                     /**
                      * 设置事件唯一ID 。
-                     * @param EventId 事件唯一ID 。
+                     * @param _eventId 事件唯一ID 。
+                     * 
                      */
                     void SetEventId(const int64_t& _eventId);
 
                     /**
                      * 判断参数 EventId 是否已赋值
                      * @return EventId 是否已赋值
+                     * 
                      */
                     bool EventIdHasBeenSet() const;
 
                     /**
                      * 获取严重程度。严重程度分为5级，按影响程度从高至低分别为：1：致命，2：严重，3：告警，4：提示，5：健康。
                      * @return Severity 严重程度。严重程度分为5级，按影响程度从高至低分别为：1：致命，2：严重，3：告警，4：提示，5：健康。
+                     * 
                      */
                     int64_t GetSeverity() const;
 
                     /**
                      * 设置严重程度。严重程度分为5级，按影响程度从高至低分别为：1：致命，2：严重，3：告警，4：提示，5：健康。
-                     * @param Severity 严重程度。严重程度分为5级，按影响程度从高至低分别为：1：致命，2：严重，3：告警，4：提示，5：健康。
+                     * @param _severity 严重程度。严重程度分为5级，按影响程度从高至低分别为：1：致命，2：严重，3：告警，4：提示，5：健康。
+                     * 
                      */
                     void SetSeverity(const int64_t& _severity);
 
                     /**
                      * 判断参数 Severity 是否已赋值
                      * @return Severity 是否已赋值
+                     * 
                      */
                     bool SeverityHasBeenSet() const;
 
                     /**
                      * 获取诊断概要。
                      * @return Outline 诊断概要。
+                     * 
                      */
                     std::string GetOutline() const;
 
                     /**
                      * 设置诊断概要。
-                     * @param Outline 诊断概要。
+                     * @param _outline 诊断概要。
+                     * 
                      */
                     void SetOutline(const std::string& _outline);
 
                     /**
                      * 判断参数 Outline 是否已赋值
                      * @return Outline 是否已赋值
+                     * 
                      */
                     bool OutlineHasBeenSet() const;
 
                     /**
                      * 获取诊断项说明。
                      * @return DiagItem 诊断项说明。
+                     * 
                      */
                     std::string GetDiagItem() const;
 
                     /**
                      * 设置诊断项说明。
-                     * @param DiagItem 诊断项说明。
+                     * @param _diagItem 诊断项说明。
+                     * 
                      */
                     void SetDiagItem(const std::string& _diagItem);
 
                     /**
                      * 判断参数 DiagItem 是否已赋值
                      * @return DiagItem 是否已赋值
+                     * 
                      */
                     bool DiagItemHasBeenSet() const;
 
                     /**
                      * 获取实例 ID 。
                      * @return InstanceId 实例 ID 。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例 ID 。
-                     * @param InstanceId 实例 ID 。
+                     * @param _instanceId 实例 ID 。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Metric 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMetric() const;
 
                     /**
                      * 设置保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Metric 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _metric 保留字段。
+                     * 
                      */
                     void SetMetric(const std::string& _metric);
 
                     /**
                      * 判断参数 Metric 是否已赋值
                      * @return Metric 是否已赋值
+                     * 
                      */
                     bool MetricHasBeenSet() const;
 
                     /**
                      * 获取地域。
                      * @return Region 地域。
+                     * 
                      */
                     std::string GetRegion() const;
 
                     /**
                      * 设置地域。
-                     * @param Region 地域。
+                     * @param _region 地域。
+                     * 
                      */
                     void SetRegion(const std::string& _region);
 
                     /**
                      * 判断参数 Region 是否已赋值
                      * @return Region 是否已赋值
+                     * 
                      */
                     bool RegionHasBeenSet() const;
+
+                    /**
+                     * 获取集群ID。
+                     * @return ClusterId 集群ID。
+                     * 
+                     */
+                    std::string GetClusterId() const;
+
+                    /**
+                     * 设置集群ID。
+                     * @param _clusterId 集群ID。
+                     * 
+                     */
+                    void SetClusterId(const std::string& _clusterId);
+
+                    /**
+                     * 判断参数 ClusterId 是否已赋值
+                     * @return ClusterId 是否已赋值
+                     * 
+                     */
+                    bool ClusterIdHasBeenSet() const;
+
+                    /**
+                     * 获取集群名称。
+                     * @return ClusterName 集群名称。
+                     * 
+                     */
+                    std::string GetClusterName() const;
+
+                    /**
+                     * 设置集群名称。
+                     * @param _clusterName 集群名称。
+                     * 
+                     */
+                    void SetClusterName(const std::string& _clusterName);
+
+                    /**
+                     * 判断参数 ClusterName 是否已赋值
+                     * @return ClusterName 是否已赋值
+                     * 
+                     */
+                    bool ClusterNameHasBeenSet() const;
+
+                    /**
+                     * 获取vip地址。
+                     * @return Vip vip地址。
+                     * 
+                     */
+                    std::string GetVip() const;
+
+                    /**
+                     * 设置vip地址。
+                     * @param _vip vip地址。
+                     * 
+                     */
+                    void SetVip(const std::string& _vip);
+
+                    /**
+                     * 判断参数 Vip 是否已赋值
+                     * @return Vip 是否已赋值
+                     * 
+                     */
+                    bool VipHasBeenSet() const;
+
+                    /**
+                     * 获取vip端口。
+                     * @return Vport vip端口。
+                     * 
+                     */
+                    int64_t GetVport() const;
+
+                    /**
+                     * 设置vip端口。
+                     * @param _vport vip端口。
+                     * 
+                     */
+                    void SetVport(const int64_t& _vport);
+
+                    /**
+                     * 判断参数 Vport 是否已赋值
+                     * @return Vport 是否已赋值
+                     * 
+                     */
+                    bool VportHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 诊断类型。
+                     * 诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
                      */
                     std::string m_diagType;
                     bool m_diagTypeHasBeenSet;
@@ -282,7 +392,6 @@ namespace TencentCloud
 
                     /**
                      * 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_metric;
                     bool m_metricHasBeenSet;
@@ -292,6 +401,30 @@ namespace TencentCloud
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
+
+                    /**
+                     * 集群ID。
+                     */
+                    std::string m_clusterId;
+                    bool m_clusterIdHasBeenSet;
+
+                    /**
+                     * 集群名称。
+                     */
+                    std::string m_clusterName;
+                    bool m_clusterNameHasBeenSet;
+
+                    /**
+                     * vip地址。
+                     */
+                    std::string m_vip;
+                    bool m_vipHasBeenSet;
+
+                    /**
+                     * vip端口。
+                     */
+                    int64_t m_vport;
+                    bool m_vportHasBeenSet;
 
                 };
             }

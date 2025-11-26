@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取待删除的VPC通道唯一ID
-                     * @return UpstreamId 待删除的VPC通道唯一ID
+                     * 获取待删除的后端通道ID
+                     * @return UpstreamId 待删除的后端通道ID
+                     * 
                      */
                     std::string GetUpstreamId() const;
 
                     /**
-                     * 设置待删除的VPC通道唯一ID
-                     * @param UpstreamId 待删除的VPC通道唯一ID
+                     * 设置待删除的后端通道ID
+                     * @param _upstreamId 待删除的后端通道ID
+                     * 
                      */
                     void SetUpstreamId(const std::string& _upstreamId);
 
                     /**
                      * 判断参数 UpstreamId 是否已赋值
                      * @return UpstreamId 是否已赋值
+                     * 
                      */
                     bool UpstreamIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 待删除的VPC通道唯一ID
+                     * 待删除的后端通道ID
                      */
                     std::string m_upstreamId;
                     bool m_upstreamIdHasBeenSet;

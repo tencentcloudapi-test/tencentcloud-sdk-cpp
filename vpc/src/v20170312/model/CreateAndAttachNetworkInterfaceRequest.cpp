@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,10 +29,13 @@ CreateAndAttachNetworkInterfaceRequest::CreateAndAttachNetworkInterfaceRequest()
     m_instanceIdHasBeenSet(false),
     m_privateIpAddressesHasBeenSet(false),
     m_secondaryPrivateIpAddressCountHasBeenSet(false),
+    m_qosLevelHasBeenSet(false),
     m_securityGroupIdsHasBeenSet(false),
     m_networkInterfaceDescriptionHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_attachTypeHasBeenSet(false)
+    m_attachTypeHasBeenSet(false),
+    m_isRdmaHasBeenSet(false),
+    m_clientTokenHasBeenSet(false)
 {
 }
 
@@ -98,6 +101,14 @@ string CreateAndAttachNetworkInterfaceRequest::ToJsonString() const
         d.AddMember(iKey, m_secondaryPrivateIpAddressCount, allocator);
     }
 
+    if (m_qosLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QosLevel";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_qosLevel.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_securityGroupIdsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -140,6 +151,22 @@ string CreateAndAttachNetworkInterfaceRequest::ToJsonString() const
         string key = "AttachType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_attachType, allocator);
+    }
+
+    if (m_isRdmaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsRdma";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isRdma, allocator);
+    }
+
+    if (m_clientTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -246,6 +273,22 @@ bool CreateAndAttachNetworkInterfaceRequest::SecondaryPrivateIpAddressCountHasBe
     return m_secondaryPrivateIpAddressCountHasBeenSet;
 }
 
+string CreateAndAttachNetworkInterfaceRequest::GetQosLevel() const
+{
+    return m_qosLevel;
+}
+
+void CreateAndAttachNetworkInterfaceRequest::SetQosLevel(const string& _qosLevel)
+{
+    m_qosLevel = _qosLevel;
+    m_qosLevelHasBeenSet = true;
+}
+
+bool CreateAndAttachNetworkInterfaceRequest::QosLevelHasBeenSet() const
+{
+    return m_qosLevelHasBeenSet;
+}
+
 vector<string> CreateAndAttachNetworkInterfaceRequest::GetSecurityGroupIds() const
 {
     return m_securityGroupIds;
@@ -308,6 +351,38 @@ void CreateAndAttachNetworkInterfaceRequest::SetAttachType(const uint64_t& _atta
 bool CreateAndAttachNetworkInterfaceRequest::AttachTypeHasBeenSet() const
 {
     return m_attachTypeHasBeenSet;
+}
+
+bool CreateAndAttachNetworkInterfaceRequest::GetIsRdma() const
+{
+    return m_isRdma;
+}
+
+void CreateAndAttachNetworkInterfaceRequest::SetIsRdma(const bool& _isRdma)
+{
+    m_isRdma = _isRdma;
+    m_isRdmaHasBeenSet = true;
+}
+
+bool CreateAndAttachNetworkInterfaceRequest::IsRdmaHasBeenSet() const
+{
+    return m_isRdmaHasBeenSet;
+}
+
+string CreateAndAttachNetworkInterfaceRequest::GetClientToken() const
+{
+    return m_clientToken;
+}
+
+void CreateAndAttachNetworkInterfaceRequest::SetClientToken(const string& _clientToken)
+{
+    m_clientToken = _clientToken;
+    m_clientTokenHasBeenSet = true;
+}
+
+bool CreateAndAttachNetworkInterfaceRequest::ClientTokenHasBeenSet() const
+{
+    return m_clientTokenHasBeenSet;
 }
 
 

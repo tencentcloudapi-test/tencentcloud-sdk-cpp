@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,11 @@ AccountCreateInfo::AccountCreateInfo() :
     m_passwordHasBeenSet(false),
     m_dBPrivilegesHasBeenSet(false),
     m_remarkHasBeenSet(false),
-    m_isAdminHasBeenSet(false)
+    m_isAdminHasBeenSet(false),
+    m_authenticationHasBeenSet(false),
+    m_accountTypeHasBeenSet(false),
+    m_isCamHasBeenSet(false),
+    m_encryptedVersionHasBeenSet(false)
 {
 }
 
@@ -94,6 +98,46 @@ CoreInternalOutcome AccountCreateInfo::Deserialize(const rapidjson::Value &value
         m_isAdminHasBeenSet = true;
     }
 
+    if (value.HasMember("Authentication") && !value["Authentication"].IsNull())
+    {
+        if (!value["Authentication"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountCreateInfo.Authentication` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_authentication = string(value["Authentication"].GetString());
+        m_authenticationHasBeenSet = true;
+    }
+
+    if (value.HasMember("AccountType") && !value["AccountType"].IsNull())
+    {
+        if (!value["AccountType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountCreateInfo.AccountType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_accountType = string(value["AccountType"].GetString());
+        m_accountTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsCam") && !value["IsCam"].IsNull())
+    {
+        if (!value["IsCam"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountCreateInfo.IsCam` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isCam = value["IsCam"].GetBool();
+        m_isCamHasBeenSet = true;
+    }
+
+    if (value.HasMember("EncryptedVersion") && !value["EncryptedVersion"].IsNull())
+    {
+        if (!value["EncryptedVersion"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AccountCreateInfo.EncryptedVersion` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_encryptedVersion = value["EncryptedVersion"].GetInt64();
+        m_encryptedVersionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -146,6 +190,38 @@ void AccountCreateInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "IsAdmin";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_isAdmin, allocator);
+    }
+
+    if (m_authenticationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Authentication";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_authentication.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_accountTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccountType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_accountType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isCamHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsCam";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isCam, allocator);
+    }
+
+    if (m_encryptedVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptedVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_encryptedVersion, allocator);
     }
 
 }
@@ -229,5 +305,69 @@ void AccountCreateInfo::SetIsAdmin(const bool& _isAdmin)
 bool AccountCreateInfo::IsAdminHasBeenSet() const
 {
     return m_isAdminHasBeenSet;
+}
+
+string AccountCreateInfo::GetAuthentication() const
+{
+    return m_authentication;
+}
+
+void AccountCreateInfo::SetAuthentication(const string& _authentication)
+{
+    m_authentication = _authentication;
+    m_authenticationHasBeenSet = true;
+}
+
+bool AccountCreateInfo::AuthenticationHasBeenSet() const
+{
+    return m_authenticationHasBeenSet;
+}
+
+string AccountCreateInfo::GetAccountType() const
+{
+    return m_accountType;
+}
+
+void AccountCreateInfo::SetAccountType(const string& _accountType)
+{
+    m_accountType = _accountType;
+    m_accountTypeHasBeenSet = true;
+}
+
+bool AccountCreateInfo::AccountTypeHasBeenSet() const
+{
+    return m_accountTypeHasBeenSet;
+}
+
+bool AccountCreateInfo::GetIsCam() const
+{
+    return m_isCam;
+}
+
+void AccountCreateInfo::SetIsCam(const bool& _isCam)
+{
+    m_isCam = _isCam;
+    m_isCamHasBeenSet = true;
+}
+
+bool AccountCreateInfo::IsCamHasBeenSet() const
+{
+    return m_isCamHasBeenSet;
+}
+
+int64_t AccountCreateInfo::GetEncryptedVersion() const
+{
+    return m_encryptedVersion;
+}
+
+void AccountCreateInfo::SetEncryptedVersion(const int64_t& _encryptedVersion)
+{
+    m_encryptedVersion = _encryptedVersion;
+    m_encryptedVersionHasBeenSet = true;
+}
+
+bool AccountCreateInfo::EncryptedVersionHasBeenSet() const
+{
+    return m_encryptedVersionHasBeenSet;
 }
 

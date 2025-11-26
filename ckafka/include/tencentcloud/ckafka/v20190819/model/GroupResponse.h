@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,63 +49,86 @@ namespace TencentCloud
 
                     /**
                      * 获取计数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCount 计数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 设置计数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TotalCount 计数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _totalCount 计数
+                     * 
                      */
                     void SetTotalCount(const int64_t& _totalCount);
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取GroupList
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return GroupList GroupList
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<DescribeGroup> GetGroupList() const;
 
                     /**
                      * 设置GroupList
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param GroupList GroupList
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _groupList GroupList
+                     * 
                      */
                     void SetGroupList(const std::vector<DescribeGroup>& _groupList);
 
                     /**
                      * 判断参数 GroupList 是否已赋值
                      * @return GroupList 是否已赋值
+                     * 
                      */
                     bool GroupListHasBeenSet() const;
+
+                    /**
+                     * 获取消费分组配额
+                     * @return GroupCountQuota 消费分组配额
+                     * 
+                     */
+                    uint64_t GetGroupCountQuota() const;
+
+                    /**
+                     * 设置消费分组配额
+                     * @param _groupCountQuota 消费分组配额
+                     * 
+                     */
+                    void SetGroupCountQuota(const uint64_t& _groupCountQuota);
+
+                    /**
+                     * 判断参数 GroupCountQuota 是否已赋值
+                     * @return GroupCountQuota 是否已赋值
+                     * 
+                     */
+                    bool GroupCountQuotaHasBeenSet() const;
 
                 private:
 
                     /**
                      * 计数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
                      * GroupList
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<DescribeGroup> m_groupList;
                     bool m_groupListHasBeenSet;
+
+                    /**
+                     * 消费分组配额
+                     */
+                    uint64_t m_groupCountQuota;
+                    bool m_groupCountQuotaHasBeenSet;
 
                 };
             }

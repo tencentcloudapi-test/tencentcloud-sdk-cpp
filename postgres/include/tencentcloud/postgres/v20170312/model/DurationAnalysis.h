@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取慢SQL耗时，时段
                      * @return TimeSegment 慢SQL耗时，时段
+                     * 
                      */
                     std::string GetTimeSegment() const;
 
                     /**
                      * 设置慢SQL耗时，时段
-                     * @param TimeSegment 慢SQL耗时，时段
+                     * @param _timeSegment 慢SQL耗时，时段
+                     * 
                      */
                     void SetTimeSegment(const std::string& _timeSegment);
 
                     /**
                      * 判断参数 TimeSegment 是否已赋值
                      * @return TimeSegment 是否已赋值
+                     * 
                      */
                     bool TimeSegmentHasBeenSet() const;
 
                     /**
                      * 获取对应时段区间慢SQL 条数
                      * @return Count 对应时段区间慢SQL 条数
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置对应时段区间慢SQL 条数
-                     * @param Count 对应时段区间慢SQL 条数
+                     * @param _count 对应时段区间慢SQL 条数
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 

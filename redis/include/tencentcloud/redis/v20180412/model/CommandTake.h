@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,51 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取命令
-                     * @return Cmd 命令
+                     * 获取命令名。
+                     * @return Cmd 命令名。
+                     * 
                      */
                     std::string GetCmd() const;
 
                     /**
-                     * 设置命令
-                     * @param Cmd 命令
+                     * 设置命令名。
+                     * @param _cmd 命令名。
+                     * 
                      */
                     void SetCmd(const std::string& _cmd);
 
                     /**
                      * 判断参数 Cmd 是否已赋值
                      * @return Cmd 是否已赋值
+                     * 
                      */
                     bool CmdHasBeenSet() const;
 
                     /**
-                     * 获取耗时
-                     * @return Took 耗时
+                     * 获取耗时时长。单位：ms。
+                     * @return Took 耗时时长。单位：ms。
+                     * 
                      */
                     int64_t GetTook() const;
 
                     /**
-                     * 设置耗时
-                     * @param Took 耗时
+                     * 设置耗时时长。单位：ms。
+                     * @param _took 耗时时长。单位：ms。
+                     * 
                      */
                     void SetTook(const int64_t& _took);
 
                     /**
                      * 判断参数 Took 是否已赋值
                      * @return Took 是否已赋值
+                     * 
                      */
                     bool TookHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 命令
+                     * 命令名。
                      */
                     std::string m_cmd;
                     bool m_cmdHasBeenSet;
 
                     /**
-                     * 耗时
+                     * 耗时时长。单位：ms。
                      */
                     int64_t m_took;
                     bool m_tookHasBeenSet;

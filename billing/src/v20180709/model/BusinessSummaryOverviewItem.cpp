@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,12 @@ using namespace std;
 BusinessSummaryOverviewItem::BusinessSummaryOverviewItem() :
     m_businessCodeHasBeenSet(false),
     m_businessCodeNameHasBeenSet(false),
-    m_realTotalCostHasBeenSet(false),
     m_realTotalCostRatioHasBeenSet(false),
+    m_realTotalCostHasBeenSet(false),
     m_cashPayAmountHasBeenSet(false),
     m_incentivePayAmountHasBeenSet(false),
     m_voucherPayAmountHasBeenSet(false),
+    m_transferPayAmountHasBeenSet(false),
     m_billMonthHasBeenSet(false),
     m_totalCostHasBeenSet(false)
 {
@@ -58,16 +59,6 @@ CoreInternalOutcome BusinessSummaryOverviewItem::Deserialize(const rapidjson::Va
         m_businessCodeNameHasBeenSet = true;
     }
 
-    if (value.HasMember("RealTotalCost") && !value["RealTotalCost"].IsNull())
-    {
-        if (!value["RealTotalCost"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `BusinessSummaryOverviewItem.RealTotalCost` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_realTotalCost = string(value["RealTotalCost"].GetString());
-        m_realTotalCostHasBeenSet = true;
-    }
-
     if (value.HasMember("RealTotalCostRatio") && !value["RealTotalCostRatio"].IsNull())
     {
         if (!value["RealTotalCostRatio"].IsString())
@@ -76,6 +67,16 @@ CoreInternalOutcome BusinessSummaryOverviewItem::Deserialize(const rapidjson::Va
         }
         m_realTotalCostRatio = string(value["RealTotalCostRatio"].GetString());
         m_realTotalCostRatioHasBeenSet = true;
+    }
+
+    if (value.HasMember("RealTotalCost") && !value["RealTotalCost"].IsNull())
+    {
+        if (!value["RealTotalCost"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BusinessSummaryOverviewItem.RealTotalCost` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_realTotalCost = string(value["RealTotalCost"].GetString());
+        m_realTotalCostHasBeenSet = true;
     }
 
     if (value.HasMember("CashPayAmount") && !value["CashPayAmount"].IsNull())
@@ -106,6 +107,16 @@ CoreInternalOutcome BusinessSummaryOverviewItem::Deserialize(const rapidjson::Va
         }
         m_voucherPayAmount = string(value["VoucherPayAmount"].GetString());
         m_voucherPayAmountHasBeenSet = true;
+    }
+
+    if (value.HasMember("TransferPayAmount") && !value["TransferPayAmount"].IsNull())
+    {
+        if (!value["TransferPayAmount"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BusinessSummaryOverviewItem.TransferPayAmount` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_transferPayAmount = string(value["TransferPayAmount"].GetString());
+        m_transferPayAmountHasBeenSet = true;
     }
 
     if (value.HasMember("BillMonth") && !value["BillMonth"].IsNull())
@@ -151,20 +162,20 @@ void BusinessSummaryOverviewItem::ToJsonObject(rapidjson::Value &value, rapidjso
         value.AddMember(iKey, rapidjson::Value(m_businessCodeName.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_realTotalCostHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RealTotalCost";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_realTotalCost.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_realTotalCostRatioHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "RealTotalCostRatio";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_realTotalCostRatio.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_realTotalCostHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RealTotalCost";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_realTotalCost.c_str(), allocator).Move(), allocator);
     }
 
     if (m_cashPayAmountHasBeenSet)
@@ -189,6 +200,14 @@ void BusinessSummaryOverviewItem::ToJsonObject(rapidjson::Value &value, rapidjso
         string key = "VoucherPayAmount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_voucherPayAmount.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_transferPayAmountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TransferPayAmount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_transferPayAmount.c_str(), allocator).Move(), allocator);
     }
 
     if (m_billMonthHasBeenSet)
@@ -242,22 +261,6 @@ bool BusinessSummaryOverviewItem::BusinessCodeNameHasBeenSet() const
     return m_businessCodeNameHasBeenSet;
 }
 
-string BusinessSummaryOverviewItem::GetRealTotalCost() const
-{
-    return m_realTotalCost;
-}
-
-void BusinessSummaryOverviewItem::SetRealTotalCost(const string& _realTotalCost)
-{
-    m_realTotalCost = _realTotalCost;
-    m_realTotalCostHasBeenSet = true;
-}
-
-bool BusinessSummaryOverviewItem::RealTotalCostHasBeenSet() const
-{
-    return m_realTotalCostHasBeenSet;
-}
-
 string BusinessSummaryOverviewItem::GetRealTotalCostRatio() const
 {
     return m_realTotalCostRatio;
@@ -272,6 +275,22 @@ void BusinessSummaryOverviewItem::SetRealTotalCostRatio(const string& _realTotal
 bool BusinessSummaryOverviewItem::RealTotalCostRatioHasBeenSet() const
 {
     return m_realTotalCostRatioHasBeenSet;
+}
+
+string BusinessSummaryOverviewItem::GetRealTotalCost() const
+{
+    return m_realTotalCost;
+}
+
+void BusinessSummaryOverviewItem::SetRealTotalCost(const string& _realTotalCost)
+{
+    m_realTotalCost = _realTotalCost;
+    m_realTotalCostHasBeenSet = true;
+}
+
+bool BusinessSummaryOverviewItem::RealTotalCostHasBeenSet() const
+{
+    return m_realTotalCostHasBeenSet;
 }
 
 string BusinessSummaryOverviewItem::GetCashPayAmount() const
@@ -320,6 +339,22 @@ void BusinessSummaryOverviewItem::SetVoucherPayAmount(const string& _voucherPayA
 bool BusinessSummaryOverviewItem::VoucherPayAmountHasBeenSet() const
 {
     return m_voucherPayAmountHasBeenSet;
+}
+
+string BusinessSummaryOverviewItem::GetTransferPayAmount() const
+{
+    return m_transferPayAmount;
+}
+
+void BusinessSummaryOverviewItem::SetTransferPayAmount(const string& _transferPayAmount)
+{
+    m_transferPayAmount = _transferPayAmount;
+    m_transferPayAmountHasBeenSet = true;
+}
+
+bool BusinessSummaryOverviewItem::TransferPayAmountHasBeenSet() const
+{
+    return m_transferPayAmountHasBeenSet;
 }
 
 string BusinessSummaryOverviewItem::GetBillMonth() const

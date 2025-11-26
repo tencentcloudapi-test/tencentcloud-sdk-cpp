@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,38 +46,86 @@ namespace TencentCloud
                     /**
                      * 获取子解析
                      * @return SubDomain 子解析
+                     * 
                      */
                     std::string GetSubDomain() const;
 
                     /**
                      * 判断参数 SubDomain 是否已赋值
                      * @return SubDomain 是否已赋值
+                     * 
                      */
                     bool SubDomainHasBeenSet() const;
 
                     /**
                      * 获取解析值
                      * @return Record 解析值
+                     * 
                      */
                     std::string GetRecord() const;
 
                     /**
                      * 判断参数 Record 是否已赋值
                      * @return Record 是否已赋值
+                     * 
                      */
                     bool RecordHasBeenSet() const;
 
                     /**
                      * 获取解析类型
                      * @return RecordType 解析类型
+                     * 
                      */
                     std::string GetRecordType() const;
 
                     /**
                      * 判断参数 RecordType 是否已赋值
                      * @return RecordType 是否已赋值
+                     * 
                      */
                     bool RecordTypeHasBeenSet() const;
+
+                    /**
+                     * 获取文件验证 URL 指引
+                     * @return FileVerifyUrl 文件验证 URL 指引
+                     * 
+                     */
+                    std::string GetFileVerifyUrl() const;
+
+                    /**
+                     * 判断参数 FileVerifyUrl 是否已赋值
+                     * @return FileVerifyUrl 是否已赋值
+                     * 
+                     */
+                    bool FileVerifyUrlHasBeenSet() const;
+
+                    /**
+                     * 获取文件校验域名列表
+                     * @return FileVerifyDomains 文件校验域名列表
+                     * 
+                     */
+                    std::vector<std::string> GetFileVerifyDomains() const;
+
+                    /**
+                     * 判断参数 FileVerifyDomains 是否已赋值
+                     * @return FileVerifyDomains 是否已赋值
+                     * 
+                     */
+                    bool FileVerifyDomainsHasBeenSet() const;
+
+                    /**
+                     * 获取文件校验文件名
+                     * @return FileVerifyName 文件校验文件名
+                     * 
+                     */
+                    std::string GetFileVerifyName() const;
+
+                    /**
+                     * 判断参数 FileVerifyName 是否已赋值
+                     * @return FileVerifyName 是否已赋值
+                     * 
+                     */
+                    bool FileVerifyNameHasBeenSet() const;
 
                 private:
 
@@ -98,6 +146,24 @@ namespace TencentCloud
                      */
                     std::string m_recordType;
                     bool m_recordTypeHasBeenSet;
+
+                    /**
+                     * 文件验证 URL 指引
+                     */
+                    std::string m_fileVerifyUrl;
+                    bool m_fileVerifyUrlHasBeenSet;
+
+                    /**
+                     * 文件校验域名列表
+                     */
+                    std::vector<std::string> m_fileVerifyDomains;
+                    bool m_fileVerifyDomainsHasBeenSet;
+
+                    /**
+                     * 文件校验文件名
+                     */
+                    std::string m_fileVerifyName;
+                    bool m_fileVerifyNameHasBeenSet;
 
                 };
             }

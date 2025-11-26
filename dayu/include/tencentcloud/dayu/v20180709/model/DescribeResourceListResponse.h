@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取总记录数
                      * @return Total 总记录数
+                     * 
                      */
                     uint64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
@@ -119,24 +121,28 @@ namespace TencentCloud
 "Key": "DdosMax" 表示资源实例的保底防护值，只针对高防IP专业版
 "Key": "GFBandwidth" 表示资源实例的保底业务带宽，只针对高防IP
 "Key": "ServiceBandwidth" 表示资源实例的保底业务带宽，只针对高防IP专业版
+                     * 
                      */
                     std::vector<KeyValueRecord> GetServicePacks() const;
 
                     /**
                      * 判断参数 ServicePacks 是否已赋值
                      * @return ServicePacks 是否已赋值
+                     * 
                      */
                     bool ServicePacksHasBeenSet() const;
 
                     /**
                      * 获取大禹子产品代号（bgp表示独享包；bgp-multip表示共享包；bgpip表示高防IP；net表示高防IP专业版）
                      * @return Business 大禹子产品代号（bgp表示独享包；bgp-multip表示共享包；bgpip表示高防IP；net表示高防IP专业版）
+                     * 
                      */
                     std::string GetBusiness() const;
 
                     /**
                      * 判断参数 Business 是否已赋值
                      * @return Business 是否已赋值
+                     * 
                      */
                     bool BusinessHasBeenSet() const;
 

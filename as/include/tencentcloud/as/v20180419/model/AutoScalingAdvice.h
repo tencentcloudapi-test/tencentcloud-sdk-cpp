@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,75 @@ namespace TencentCloud
                     /**
                      * 获取伸缩组ID。
                      * @return AutoScalingGroupId 伸缩组ID。
+                     * 
                      */
                     std::string GetAutoScalingGroupId() const;
 
                     /**
                      * 设置伸缩组ID。
-                     * @param AutoScalingGroupId 伸缩组ID。
+                     * @param _autoScalingGroupId 伸缩组ID。
+                     * 
                      */
                     void SetAutoScalingGroupId(const std::string& _autoScalingGroupId);
 
                     /**
                      * 判断参数 AutoScalingGroupId 是否已赋值
                      * @return AutoScalingGroupId 是否已赋值
+                     * 
                      */
                     bool AutoScalingGroupIdHasBeenSet() const;
 
                     /**
+                     * 获取伸缩组警告级别。取值范围：
+<li>NORMAL：正常</li>
+<li>WARNING：警告级别</li>
+<li>CRITICAL：严重级别</li>
+                     * @return Level 伸缩组警告级别。取值范围：
+<li>NORMAL：正常</li>
+<li>WARNING：警告级别</li>
+<li>CRITICAL：严重级别</li>
+                     * 
+                     */
+                    std::string GetLevel() const;
+
+                    /**
+                     * 设置伸缩组警告级别。取值范围：
+<li>NORMAL：正常</li>
+<li>WARNING：警告级别</li>
+<li>CRITICAL：严重级别</li>
+                     * @param _level 伸缩组警告级别。取值范围：
+<li>NORMAL：正常</li>
+<li>WARNING：警告级别</li>
+<li>CRITICAL：严重级别</li>
+                     * 
+                     */
+                    void SetLevel(const std::string& _level);
+
+                    /**
+                     * 判断参数 Level 是否已赋值
+                     * @return Level 是否已赋值
+                     * 
+                     */
+                    bool LevelHasBeenSet() const;
+
+                    /**
                      * 获取伸缩组配置建议集合。
                      * @return Advices 伸缩组配置建议集合。
+                     * 
                      */
                     std::vector<Advice> GetAdvices() const;
 
                     /**
                      * 设置伸缩组配置建议集合。
-                     * @param Advices 伸缩组配置建议集合。
+                     * @param _advices 伸缩组配置建议集合。
+                     * 
                      */
                     void SetAdvices(const std::vector<Advice>& _advices);
 
                     /**
                      * 判断参数 Advices 是否已赋值
                      * @return Advices 是否已赋值
+                     * 
                      */
                     bool AdvicesHasBeenSet() const;
 
@@ -90,6 +129,15 @@ namespace TencentCloud
                      */
                     std::string m_autoScalingGroupId;
                     bool m_autoScalingGroupIdHasBeenSet;
+
+                    /**
+                     * 伸缩组警告级别。取值范围：
+<li>NORMAL：正常</li>
+<li>WARNING：警告级别</li>
+<li>CRITICAL：严重级别</li>
+                     */
+                    std::string m_level;
+                    bool m_levelHasBeenSet;
 
                     /**
                      * 伸缩组配置建议集合。

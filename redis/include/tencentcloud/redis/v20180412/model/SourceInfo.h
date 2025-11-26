@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,69 +47,78 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取来源IP
-                     * @return Ip 来源IP
+                     * 获取来源 IP 地址。
+                     * @return Ip 来源 IP 地址。
+                     * 
                      */
                     std::string GetIp() const;
 
                     /**
-                     * 设置来源IP
-                     * @param Ip 来源IP
+                     * 设置来源 IP 地址。
+                     * @param _ip 来源 IP 地址。
+                     * 
                      */
                     void SetIp(const std::string& _ip);
 
                     /**
                      * 判断参数 Ip 是否已赋值
                      * @return Ip 是否已赋值
+                     * 
                      */
                     bool IpHasBeenSet() const;
 
                     /**
-                     * 获取连接数
-                     * @return Conn 连接数
+                     * 获取客户端连接数量。
+                     * @return Conn 客户端连接数量。
+                     * 
                      */
                     int64_t GetConn() const;
 
                     /**
-                     * 设置连接数
-                     * @param Conn 连接数
+                     * 设置客户端连接数量。
+                     * @param _conn 客户端连接数量。
+                     * 
                      */
                     void SetConn(const int64_t& _conn);
 
                     /**
                      * 判断参数 Conn 是否已赋值
                      * @return Conn 是否已赋值
+                     * 
                      */
                     bool ConnHasBeenSet() const;
 
                     /**
                      * 获取命令
                      * @return Cmd 命令
+                     * 
                      */
                     int64_t GetCmd() const;
 
                     /**
                      * 设置命令
-                     * @param Cmd 命令
+                     * @param _cmd 命令
+                     * 
                      */
                     void SetCmd(const int64_t& _cmd);
 
                     /**
                      * 判断参数 Cmd 是否已赋值
                      * @return Cmd 是否已赋值
+                     * 
                      */
                     bool CmdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 来源IP
+                     * 来源 IP 地址。
                      */
                     std::string m_ip;
                     bool m_ipHasBeenSet;
 
                     /**
-                     * 连接数
+                     * 客户端连接数量。
                      */
                     int64_t m_conn;
                     bool m_connHasBeenSet;

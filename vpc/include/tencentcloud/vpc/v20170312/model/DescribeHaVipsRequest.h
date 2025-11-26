@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,96 +46,92 @@ namespace TencentCloud
                     /**
                      * 获取`HAVIP`唯一`ID`，形如：`havip-9o233uri`。
                      * @return HaVipIds `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
+                     * 
                      */
                     std::vector<std::string> GetHaVipIds() const;
 
                     /**
                      * 设置`HAVIP`唯一`ID`，形如：`havip-9o233uri`。
-                     * @param HaVipIds `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
+                     * @param _haVipIds `HAVIP`唯一`ID`，形如：`havip-9o233uri`。
+                     * 
                      */
                     void SetHaVipIds(const std::vector<std::string>& _haVipIds);
 
                     /**
                      * 判断参数 HaVipIds 是否已赋值
                      * @return HaVipIds 是否已赋值
+                     * 
                      */
                     bool HaVipIdsHasBeenSet() const;
 
                     /**
-                     * 获取过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。
-<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li>
-<li>havip-name - String - `HAVIP`名称。</li>
-<li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li>
-<li>subnet-id - String - `HAVIP`所在子网`ID`。</li>
-<li>vip - String - `HAVIP`的地址`VIP`。</li>
-<li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li>
-                     * @return Filters 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。
-<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li>
-<li>havip-name - String - `HAVIP`名称。</li>
-<li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li>
-<li>subnet-id - String - `HAVIP`所在子网`ID`。</li>
-<li>vip - String - `HAVIP`的地址`VIP`。</li>
-<li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li>
+                     * 获取过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li><li>havip-name - String - `HAVIP`名称。</li><li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li><li>subnet-id - String - `HAVIP`所在子网`ID`。</li><li>vip - String - `HAVIP`的地址`VIP`。</li><li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li><li>havip-association.instance-id - String - `HAVIP`绑定的子机或网卡。</li><li>havip-association.instance-type - String - `HAVIP`绑定的类型，取值:CVM, ENI。</li><li>check-associate - Bool - 是否开启HaVip飘移时校验绑定的子机或网卡。</li><li>cdc-id - String - CDC实例ID。</li>
+                     * @return Filters 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li><li>havip-name - String - `HAVIP`名称。</li><li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li><li>subnet-id - String - `HAVIP`所在子网`ID`。</li><li>vip - String - `HAVIP`的地址`VIP`。</li><li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li><li>havip-association.instance-id - String - `HAVIP`绑定的子机或网卡。</li><li>havip-association.instance-type - String - `HAVIP`绑定的类型，取值:CVM, ENI。</li><li>check-associate - Bool - 是否开启HaVip飘移时校验绑定的子机或网卡。</li><li>cdc-id - String - CDC实例ID。</li>
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。
-<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li>
-<li>havip-name - String - `HAVIP`名称。</li>
-<li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li>
-<li>subnet-id - String - `HAVIP`所在子网`ID`。</li>
-<li>vip - String - `HAVIP`的地址`VIP`。</li>
-<li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li>
-                     * @param Filters 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。
-<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li>
-<li>havip-name - String - `HAVIP`名称。</li>
-<li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li>
-<li>subnet-id - String - `HAVIP`所在子网`ID`。</li>
-<li>vip - String - `HAVIP`的地址`VIP`。</li>
-<li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li>
+                     * 设置过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li><li>havip-name - String - `HAVIP`名称。</li><li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li><li>subnet-id - String - `HAVIP`所在子网`ID`。</li><li>vip - String - `HAVIP`的地址`VIP`。</li><li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li><li>havip-association.instance-id - String - `HAVIP`绑定的子机或网卡。</li><li>havip-association.instance-type - String - `HAVIP`绑定的类型，取值:CVM, ENI。</li><li>check-associate - Bool - 是否开启HaVip飘移时校验绑定的子机或网卡。</li><li>cdc-id - String - CDC实例ID。</li>
+                     * @param _filters 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li><li>havip-name - String - `HAVIP`名称。</li><li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li><li>subnet-id - String - `HAVIP`所在子网`ID`。</li><li>vip - String - `HAVIP`的地址`VIP`。</li><li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li><li>havip-association.instance-id - String - `HAVIP`绑定的子机或网卡。</li><li>havip-association.instance-type - String - `HAVIP`绑定的类型，取值:CVM, ENI。</li><li>check-associate - Bool - 是否开启HaVip飘移时校验绑定的子机或网卡。</li><li>cdc-id - String - CDC实例ID。</li>
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取偏移量
-                     * @return Offset 偏移量
+                     * 获取偏移量，默认为0。
+
+                     * @return Offset 偏移量，默认为0。
+
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置偏移量
-                     * @param Offset 偏移量
+                     * 设置偏移量，默认为0。
+
+                     * @param _offset 偏移量，默认为0。
+
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取返回数量
-                     * @return Limit 返回数量
+                     * 获取返回数量，默认为20，最大值为100。
+
+                     * @return Limit 返回数量，默认为20，最大值为100。
+
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置返回数量
-                     * @param Limit 返回数量
+                     * 设置返回数量，默认为20，最大值为100。
+
+                     * @param _limit 返回数量，默认为20，最大值为100。
+
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
@@ -148,25 +144,21 @@ namespace TencentCloud
                     bool m_haVipIdsHasBeenSet;
 
                     /**
-                     * 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。
-<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li>
-<li>havip-name - String - `HAVIP`名称。</li>
-<li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li>
-<li>subnet-id - String - `HAVIP`所在子网`ID`。</li>
-<li>vip - String - `HAVIP`的地址`VIP`。</li>
-<li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li>
+                     * 过滤条件，参数不支持同时指定`HaVipIds`和`Filters`。<li>havip-id - String - `HAVIP`唯一`ID`，形如：`havip-9o233uri`。</li><li>havip-name - String - `HAVIP`名称。</li><li>vpc-id - String - `HAVIP`所在私有网络`ID`。</li><li>subnet-id - String - `HAVIP`所在子网`ID`。</li><li>vip - String - `HAVIP`的地址`VIP`。</li><li>address-ip - String - `HAVIP`绑定的弹性公网`IP`。</li><li>havip-association.instance-id - String - `HAVIP`绑定的子机或网卡。</li><li>havip-association.instance-type - String - `HAVIP`绑定的类型，取值:CVM, ENI。</li><li>check-associate - Bool - 是否开启HaVip飘移时校验绑定的子机或网卡。</li><li>cdc-id - String - CDC实例ID。</li>
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * 偏移量
+                     * 偏移量，默认为0。
+
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 返回数量
+                     * 返回数量，默认为20，最大值为100。
+
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;

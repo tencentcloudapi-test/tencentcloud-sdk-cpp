@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ CcnInstance::CcnInstance() :
     m_instanceRegionHasBeenSet(false),
     m_instanceTypeHasBeenSet(false),
     m_descriptionHasBeenSet(false),
-    m_routeTableIdHasBeenSet(false)
+    m_routeTableIdHasBeenSet(false),
+    m_orderTypeHasBeenSet(false)
 {
 }
 
@@ -84,6 +85,16 @@ CoreInternalOutcome CcnInstance::Deserialize(const rapidjson::Value &value)
         m_routeTableIdHasBeenSet = true;
     }
 
+    if (value.HasMember("OrderType") && !value["OrderType"].IsNull())
+    {
+        if (!value["OrderType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CcnInstance.OrderType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_orderType = string(value["OrderType"].GetString());
+        m_orderTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +140,14 @@ void CcnInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "RouteTableId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_routeTableId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orderTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_orderType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -212,5 +231,21 @@ void CcnInstance::SetRouteTableId(const string& _routeTableId)
 bool CcnInstance::RouteTableIdHasBeenSet() const
 {
     return m_routeTableIdHasBeenSet;
+}
+
+string CcnInstance::GetOrderType() const
+{
+    return m_orderType;
+}
+
+void CcnInstance::SetOrderType(const string& _orderType)
+{
+    m_orderType = _orderType;
+    m_orderTypeHasBeenSet = true;
+}
+
+bool CcnInstance::OrderTypeHasBeenSet() const
+{
+    return m_orderTypeHasBeenSet;
 }
 

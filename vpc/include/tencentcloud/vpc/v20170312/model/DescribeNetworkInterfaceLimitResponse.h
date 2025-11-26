@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,84 +44,126 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取标准型弹性网卡配额
-                     * @return EniQuantity 标准型弹性网卡配额
+                     * 获取标准型弹性网卡配额。
+                     * @return EniQuantity 标准型弹性网卡配额。
+                     * 
                      */
                     int64_t GetEniQuantity() const;
 
                     /**
                      * 判断参数 EniQuantity 是否已赋值
                      * @return EniQuantity 是否已赋值
+                     * 
                      */
                     bool EniQuantityHasBeenSet() const;
 
                     /**
-                     * 获取每个标准型弹性网卡可以分配的IP配额
-                     * @return EniPrivateIpAddressQuantity 每个标准型弹性网卡可以分配的IP配额
+                     * 获取每个标准型弹性网卡可以分配的IP配额。
+                     * @return EniPrivateIpAddressQuantity 每个标准型弹性网卡可以分配的IP配额。
+                     * 
                      */
                     int64_t GetEniPrivateIpAddressQuantity() const;
 
                     /**
                      * 判断参数 EniPrivateIpAddressQuantity 是否已赋值
                      * @return EniPrivateIpAddressQuantity 是否已赋值
+                     * 
                      */
                     bool EniPrivateIpAddressQuantityHasBeenSet() const;
 
                     /**
-                     * 获取扩展型网卡配额
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ExtendEniQuantity 扩展型网卡配额
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取扩展型网卡配额。
+                     * @return ExtendEniQuantity 扩展型网卡配额。
+                     * 
                      */
                     int64_t GetExtendEniQuantity() const;
 
                     /**
                      * 判断参数 ExtendEniQuantity 是否已赋值
                      * @return ExtendEniQuantity 是否已赋值
+                     * 
                      */
                     bool ExtendEniQuantityHasBeenSet() const;
 
                     /**
-                     * 获取每个扩展型弹性网卡可以分配的IP配额
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ExtendEniPrivateIpAddressQuantity 每个扩展型弹性网卡可以分配的IP配额
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取每个扩展型弹性网卡可以分配的IP配额。
+                     * @return ExtendEniPrivateIpAddressQuantity 每个扩展型弹性网卡可以分配的IP配额。
+                     * 
                      */
                     int64_t GetExtendEniPrivateIpAddressQuantity() const;
 
                     /**
                      * 判断参数 ExtendEniPrivateIpAddressQuantity 是否已赋值
                      * @return ExtendEniPrivateIpAddressQuantity 是否已赋值
+                     * 
                      */
                     bool ExtendEniPrivateIpAddressQuantityHasBeenSet() const;
+
+                    /**
+                     * 获取中继网卡配额。
+                     * @return SubEniQuantity 中继网卡配额。
+                     * 
+                     */
+                    int64_t GetSubEniQuantity() const;
+
+                    /**
+                     * 判断参数 SubEniQuantity 是否已赋值
+                     * @return SubEniQuantity 是否已赋值
+                     * 
+                     */
+                    bool SubEniQuantityHasBeenSet() const;
+
+                    /**
+                     * 获取每个中继网卡可以分配的IP配额。
+                     * @return SubEniPrivateIpAddressQuantity 每个中继网卡可以分配的IP配额。
+                     * 
+                     */
+                    int64_t GetSubEniPrivateIpAddressQuantity() const;
+
+                    /**
+                     * 判断参数 SubEniPrivateIpAddressQuantity 是否已赋值
+                     * @return SubEniPrivateIpAddressQuantity 是否已赋值
+                     * 
+                     */
+                    bool SubEniPrivateIpAddressQuantityHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 标准型弹性网卡配额
+                     * 标准型弹性网卡配额。
                      */
                     int64_t m_eniQuantity;
                     bool m_eniQuantityHasBeenSet;
 
                     /**
-                     * 每个标准型弹性网卡可以分配的IP配额
+                     * 每个标准型弹性网卡可以分配的IP配额。
                      */
                     int64_t m_eniPrivateIpAddressQuantity;
                     bool m_eniPrivateIpAddressQuantityHasBeenSet;
 
                     /**
-                     * 扩展型网卡配额
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 扩展型网卡配额。
                      */
                     int64_t m_extendEniQuantity;
                     bool m_extendEniQuantityHasBeenSet;
 
                     /**
-                     * 每个扩展型弹性网卡可以分配的IP配额
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 每个扩展型弹性网卡可以分配的IP配额。
                      */
                     int64_t m_extendEniPrivateIpAddressQuantity;
                     bool m_extendEniPrivateIpAddressQuantityHasBeenSet;
+
+                    /**
+                     * 中继网卡配额。
+                     */
+                    int64_t m_subEniQuantity;
+                    bool m_subEniQuantityHasBeenSet;
+
+                    /**
+                     * 每个中继网卡可以分配的IP配额。
+                     */
+                    int64_t m_subEniPrivateIpAddressQuantity;
+                    bool m_subEniPrivateIpAddressQuantityHasBeenSet;
 
                 };
             }

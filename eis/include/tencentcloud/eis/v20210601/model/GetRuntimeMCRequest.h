@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,54 +43,87 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取运行时id
-                     * @return RuntimeId 运行时id
+                     * 获取环境id
+                     * @return RuntimeId 环境id
+                     * 
                      */
                     int64_t GetRuntimeId() const;
 
                     /**
-                     * 设置运行时id
-                     * @param RuntimeId 运行时id
+                     * 设置环境id
+                     * @param _runtimeId 环境id
+                     * 
                      */
                     void SetRuntimeId(const int64_t& _runtimeId);
 
                     /**
                      * 判断参数 RuntimeId 是否已赋值
                      * @return RuntimeId 是否已赋值
+                     * 
                      */
                     bool RuntimeIdHasBeenSet() const;
 
                     /**
-                     * 获取运行时地域
-                     * @return Zone 运行时地域
+                     * 获取环境地域
+                     * @return Zone 环境地域
+                     * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置运行时地域
-                     * @param Zone 运行时地域
+                     * 设置环境地域
+                     * @param _zone 环境地域
+                     * 
                      */
                     void SetZone(const std::string& _zone);
 
                     /**
                      * 判断参数 Zone 是否已赋值
                      * @return Zone 是否已赋值
+                     * 
                      */
                     bool ZoneHasBeenSet() const;
+
+                    /**
+                     * 获取环境运行类型：0:运行时类型、1:api类型
+                     * @return RuntimeClass 环境运行类型：0:运行时类型、1:api类型
+                     * 
+                     */
+                    int64_t GetRuntimeClass() const;
+
+                    /**
+                     * 设置环境运行类型：0:运行时类型、1:api类型
+                     * @param _runtimeClass 环境运行类型：0:运行时类型、1:api类型
+                     * 
+                     */
+                    void SetRuntimeClass(const int64_t& _runtimeClass);
+
+                    /**
+                     * 判断参数 RuntimeClass 是否已赋值
+                     * @return RuntimeClass 是否已赋值
+                     * 
+                     */
+                    bool RuntimeClassHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 运行时id
+                     * 环境id
                      */
                     int64_t m_runtimeId;
                     bool m_runtimeIdHasBeenSet;
 
                     /**
-                     * 运行时地域
+                     * 环境地域
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
+
+                    /**
+                     * 环境运行类型：0:运行时类型、1:api类型
+                     */
+                    int64_t m_runtimeClass;
+                    bool m_runtimeClassHasBeenSet;
 
                 };
             }

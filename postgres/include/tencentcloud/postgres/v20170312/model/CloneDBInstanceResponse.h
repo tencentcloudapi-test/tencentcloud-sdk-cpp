@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,47 +45,65 @@ namespace TencentCloud
 
                     /**
                      * 获取订单号。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DealName 订单号。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDealName() const;
 
                     /**
                      * 判断参数 DealName 是否已赋值
                      * @return DealName 是否已赋值
+                     * 
                      */
                     bool DealNameHasBeenSet() const;
 
                     /**
                      * 获取订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return BillId 订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetBillId() const;
 
                     /**
                      * 判断参数 BillId 是否已赋值
                      * @return BillId 是否已赋值
+                     * 
                      */
                     bool BillIdHasBeenSet() const;
+
+                    /**
+                     * 获取克隆出的新实例ID，当前只支持后付费返回该值。
+                     * @return DBInstanceId 克隆出的新实例ID，当前只支持后付费返回该值。
+                     * 
+                     */
+                    std::string GetDBInstanceId() const;
+
+                    /**
+                     * 判断参数 DBInstanceId 是否已赋值
+                     * @return DBInstanceId 是否已赋值
+                     * 
+                     */
+                    bool DBInstanceIdHasBeenSet() const;
 
                 private:
 
                     /**
                      * 订单号。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_dealName;
                     bool m_dealNameHasBeenSet;
 
                     /**
                      * 订单流水号。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_billId;
                     bool m_billIdHasBeenSet;
+
+                    /**
+                     * 克隆出的新实例ID，当前只支持后付费返回该值。
+                     */
+                    std::string m_dBInstanceId;
+                    bool m_dBInstanceIdHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,20 +45,65 @@ namespace TencentCloud
                     /**
                      * 获取实例 ID 列表，单个实例 ID 的格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
                      * @return InstanceIds 实例 ID 列表，单个实例 ID 的格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
+                     * 
                      */
                     std::vector<std::string> GetInstanceIds() const;
 
                     /**
                      * 设置实例 ID 列表，单个实例 ID 的格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
-                     * @param InstanceIds 实例 ID 列表，单个实例 ID 的格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
+                     * @param _instanceIds 实例 ID 列表，单个实例 ID 的格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例 ID 相同。
+                     * 
                      */
                     void SetInstanceIds(const std::vector<std::string>& _instanceIds);
 
                     /**
                      * 判断参数 InstanceIds 是否已赋值
                      * @return InstanceIds 是否已赋值
+                     * 
                      */
                     bool InstanceIdsHasBeenSet() const;
+
+                    /**
+                     * 获取克隆实例与源实例是否在异地可用区，是:"true"，否:"false"
+                     * @return IsRemoteZone 克隆实例与源实例是否在异地可用区，是:"true"，否:"false"
+                     * 
+                     */
+                    std::string GetIsRemoteZone() const;
+
+                    /**
+                     * 设置克隆实例与源实例是否在异地可用区，是:"true"，否:"false"
+                     * @param _isRemoteZone 克隆实例与源实例是否在异地可用区，是:"true"，否:"false"
+                     * 
+                     */
+                    void SetIsRemoteZone(const std::string& _isRemoteZone);
+
+                    /**
+                     * 判断参数 IsRemoteZone 是否已赋值
+                     * @return IsRemoteZone 是否已赋值
+                     * 
+                     */
+                    bool IsRemoteZoneHasBeenSet() const;
+
+                    /**
+                     * 获取克隆实例与源实例不在同一地域时需填写克隆实例所在地域，例："ap-guangzhou"
+                     * @return BackupRegion 克隆实例与源实例不在同一地域时需填写克隆实例所在地域，例："ap-guangzhou"
+                     * 
+                     */
+                    std::string GetBackupRegion() const;
+
+                    /**
+                     * 设置克隆实例与源实例不在同一地域时需填写克隆实例所在地域，例："ap-guangzhou"
+                     * @param _backupRegion 克隆实例与源实例不在同一地域时需填写克隆实例所在地域，例："ap-guangzhou"
+                     * 
+                     */
+                    void SetBackupRegion(const std::string& _backupRegion);
+
+                    /**
+                     * 判断参数 BackupRegion 是否已赋值
+                     * @return BackupRegion 是否已赋值
+                     * 
+                     */
+                    bool BackupRegionHasBeenSet() const;
 
                 private:
 
@@ -67,6 +112,18 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_instanceIds;
                     bool m_instanceIdsHasBeenSet;
+
+                    /**
+                     * 克隆实例与源实例是否在异地可用区，是:"true"，否:"false"
+                     */
+                    std::string m_isRemoteZone;
+                    bool m_isRemoteZoneHasBeenSet;
+
+                    /**
+                     * 克隆实例与源实例不在同一地域时需填写克隆实例所在地域，例："ap-guangzhou"
+                     */
+                    std::string m_backupRegion;
+                    bool m_backupRegionHasBeenSet;
 
                 };
             }

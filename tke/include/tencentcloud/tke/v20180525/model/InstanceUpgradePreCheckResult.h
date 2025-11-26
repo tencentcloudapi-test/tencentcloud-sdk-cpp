@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,54 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取检查是否通过
                      * @return CheckPass 检查是否通过
+                     * 
                      */
                     bool GetCheckPass() const;
 
                     /**
                      * 设置检查是否通过
-                     * @param CheckPass 检查是否通过
+                     * @param _checkPass 检查是否通过
+                     * 
                      */
                     void SetCheckPass(const bool& _checkPass);
 
                     /**
                      * 判断参数 CheckPass 是否已赋值
                      * @return CheckPass 是否已赋值
+                     * 
                      */
                     bool CheckPassHasBeenSet() const;
 
                     /**
                      * 获取检查项数组
                      * @return Items 检查项数组
+                     * 
                      */
                     std::vector<InstanceUpgradePreCheckResultItem> GetItems() const;
 
                     /**
                      * 设置检查项数组
-                     * @param Items 检查项数组
+                     * @param _items 检查项数组
+                     * 
                      */
                     void SetItems(const std::vector<InstanceUpgradePreCheckResultItem>& _items);
 
                     /**
                      * 判断参数 Items 是否已赋值
                      * @return Items 是否已赋值
+                     * 
                      */
                     bool ItemsHasBeenSet() const;
 
                     /**
                      * 获取本节点独立pod列表
                      * @return SinglePods 本节点独立pod列表
+                     * 
                      */
                     std::vector<std::string> GetSinglePods() const;
 
                     /**
                      * 设置本节点独立pod列表
-                     * @param SinglePods 本节点独立pod列表
+                     * @param _singlePods 本节点独立pod列表
+                     * 
                      */
                     void SetSinglePods(const std::vector<std::string>& _singlePods);
 
                     /**
                      * 判断参数 SinglePods 是否已赋值
                      * @return SinglePods 是否已赋值
+                     * 
                      */
                     bool SinglePodsHasBeenSet() const;
 

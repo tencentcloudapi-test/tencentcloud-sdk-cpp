@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,10 @@ RocketMQNamespace::RocketMQNamespace() :
     m_namespaceIdHasBeenSet(false),
     m_ttlHasBeenSet(false),
     m_retentionTimeHasBeenSet(false),
-    m_remarkHasBeenSet(false)
+    m_remarkHasBeenSet(false),
+    m_publicEndpointHasBeenSet(false),
+    m_vpcEndpointHasBeenSet(false),
+    m_internalEndpointHasBeenSet(false)
 {
 }
 
@@ -73,6 +76,36 @@ CoreInternalOutcome RocketMQNamespace::Deserialize(const rapidjson::Value &value
         m_remarkHasBeenSet = true;
     }
 
+    if (value.HasMember("PublicEndpoint") && !value["PublicEndpoint"].IsNull())
+    {
+        if (!value["PublicEndpoint"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RocketMQNamespace.PublicEndpoint` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_publicEndpoint = string(value["PublicEndpoint"].GetString());
+        m_publicEndpointHasBeenSet = true;
+    }
+
+    if (value.HasMember("VpcEndpoint") && !value["VpcEndpoint"].IsNull())
+    {
+        if (!value["VpcEndpoint"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RocketMQNamespace.VpcEndpoint` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_vpcEndpoint = string(value["VpcEndpoint"].GetString());
+        m_vpcEndpointHasBeenSet = true;
+    }
+
+    if (value.HasMember("InternalEndpoint") && !value["InternalEndpoint"].IsNull())
+    {
+        if (!value["InternalEndpoint"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RocketMQNamespace.InternalEndpoint` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_internalEndpoint = string(value["InternalEndpoint"].GetString());
+        m_internalEndpointHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -110,6 +143,30 @@ void RocketMQNamespace::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "Remark";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_publicEndpointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PublicEndpoint";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_publicEndpoint.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_vpcEndpointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VpcEndpoint";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vpcEndpoint.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_internalEndpointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InternalEndpoint";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_internalEndpoint.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -177,5 +234,53 @@ void RocketMQNamespace::SetRemark(const string& _remark)
 bool RocketMQNamespace::RemarkHasBeenSet() const
 {
     return m_remarkHasBeenSet;
+}
+
+string RocketMQNamespace::GetPublicEndpoint() const
+{
+    return m_publicEndpoint;
+}
+
+void RocketMQNamespace::SetPublicEndpoint(const string& _publicEndpoint)
+{
+    m_publicEndpoint = _publicEndpoint;
+    m_publicEndpointHasBeenSet = true;
+}
+
+bool RocketMQNamespace::PublicEndpointHasBeenSet() const
+{
+    return m_publicEndpointHasBeenSet;
+}
+
+string RocketMQNamespace::GetVpcEndpoint() const
+{
+    return m_vpcEndpoint;
+}
+
+void RocketMQNamespace::SetVpcEndpoint(const string& _vpcEndpoint)
+{
+    m_vpcEndpoint = _vpcEndpoint;
+    m_vpcEndpointHasBeenSet = true;
+}
+
+bool RocketMQNamespace::VpcEndpointHasBeenSet() const
+{
+    return m_vpcEndpointHasBeenSet;
+}
+
+string RocketMQNamespace::GetInternalEndpoint() const
+{
+    return m_internalEndpoint;
+}
+
+void RocketMQNamespace::SetInternalEndpoint(const string& _internalEndpoint)
+{
+    m_internalEndpoint = _internalEndpoint;
+    m_internalEndpointHasBeenSet = true;
+}
+
+bool RocketMQNamespace::InternalEndpointHasBeenSet() const
+{
+    return m_internalEndpointHasBeenSet;
 }
 

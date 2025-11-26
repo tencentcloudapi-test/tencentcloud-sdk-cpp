@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RiskCode 风险码
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRiskCode() const;
 
                     /**
                      * 设置风险码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RiskCode 风险码
+                     * @param _riskCode 风险码
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRiskCode(const std::string& _riskCode);
 
                     /**
                      * 判断参数 RiskCode 是否已赋值
                      * @return RiskCode 是否已赋值
+                     * 
                      */
                     bool RiskCodeHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RiskCodeValue 风险码详情
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRiskCodeValue() const;
 
                     /**
                      * 设置风险码详情
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RiskCodeValue 风险码详情
+                     * @param _riskCodeValue 风险码详情
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRiskCodeValue(const std::string& _riskCodeValue);
 
                     /**
                      * 判断参数 RiskCodeValue 是否已赋值
                      * @return RiskCodeValue 是否已赋值
+                     * 
                      */
                     bool RiskCodeValueHasBeenSet() const;
 

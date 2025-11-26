@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取需诊断的url，形如：http://www.test.com/test.txt。
                      * @return Url 需诊断的url，形如：http://www.test.com/test.txt。
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置需诊断的url，形如：http://www.test.com/test.txt。
-                     * @param Url 需诊断的url，形如：http://www.test.com/test.txt。
+                     * @param _url 需诊断的url，形如：http://www.test.com/test.txt。
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
                      * 获取请求源带协议头，形如：https://console.cloud.tencent.com
                      * @return Origin 请求源带协议头，形如：https://console.cloud.tencent.com
+                     * 
                      */
                     std::string GetOrigin() const;
 
                     /**
                      * 设置请求源带协议头，形如：https://console.cloud.tencent.com
-                     * @param Origin 请求源带协议头，形如：https://console.cloud.tencent.com
+                     * @param _origin 请求源带协议头，形如：https://console.cloud.tencent.com
+                     * 
                      */
                     void SetOrigin(const std::string& _origin);
 
                     /**
                      * 判断参数 Origin 是否已赋值
                      * @return Origin 是否已赋值
+                     * 
                      */
                     bool OriginHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,56 +52,65 @@ namespace TencentCloud
 <font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 CoverSetFileUrl 对应的文件中获取。
                      * @return CoverSet 智能封面列表。
 <font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 CoverSetFileUrl 对应的文件中获取。
+                     * 
                      */
                     std::vector<MediaAiAnalysisCoverItem> GetCoverSet() const;
 
                     /**
                      * 设置智能封面列表。
 <font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 CoverSetFileUrl 对应的文件中获取。
-                     * @param CoverSet 智能封面列表。
+                     * @param _coverSet 智能封面列表。
 <font color=red>注意</font> ：该列表最多仅展示前 100 个元素。如希望获得完整结果，请从 CoverSetFileUrl 对应的文件中获取。
+                     * 
                      */
                     void SetCoverSet(const std::vector<MediaAiAnalysisCoverItem>& _coverSet);
 
                     /**
                      * 判断参数 CoverSet 是否已赋值
                      * @return CoverSet 是否已赋值
+                     * 
                      */
                     bool CoverSetHasBeenSet() const;
 
                     /**
                      * 获取智能封面列表文件 URL。文件的内容为 JSON，数据结构与 CoverSet 字段一致。 （文件不会永久存储，到达 CoverSetFileUrlExpireTime 时间点后文件将被删除）。
                      * @return CoverSetFileUrl 智能封面列表文件 URL。文件的内容为 JSON，数据结构与 CoverSet 字段一致。 （文件不会永久存储，到达 CoverSetFileUrlExpireTime 时间点后文件将被删除）。
+                     * 
                      */
                     std::string GetCoverSetFileUrl() const;
 
                     /**
                      * 设置智能封面列表文件 URL。文件的内容为 JSON，数据结构与 CoverSet 字段一致。 （文件不会永久存储，到达 CoverSetFileUrlExpireTime 时间点后文件将被删除）。
-                     * @param CoverSetFileUrl 智能封面列表文件 URL。文件的内容为 JSON，数据结构与 CoverSet 字段一致。 （文件不会永久存储，到达 CoverSetFileUrlExpireTime 时间点后文件将被删除）。
+                     * @param _coverSetFileUrl 智能封面列表文件 URL。文件的内容为 JSON，数据结构与 CoverSet 字段一致。 （文件不会永久存储，到达 CoverSetFileUrlExpireTime 时间点后文件将被删除）。
+                     * 
                      */
                     void SetCoverSetFileUrl(const std::string& _coverSetFileUrl);
 
                     /**
                      * 判断参数 CoverSetFileUrl 是否已赋值
                      * @return CoverSetFileUrl 是否已赋值
+                     * 
                      */
                     bool CoverSetFileUrlHasBeenSet() const;
 
                     /**
                      * 获取智能封面列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      * @return CoverSetFileUrlExpireTime 智能封面列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     std::string GetCoverSetFileUrlExpireTime() const;
 
                     /**
                      * 设置智能封面列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
-                     * @param CoverSetFileUrlExpireTime 智能封面列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @param _coverSetFileUrlExpireTime 智能封面列表文件 URL 失效时间，使用  [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * 
                      */
                     void SetCoverSetFileUrlExpireTime(const std::string& _coverSetFileUrlExpireTime);
 
                     /**
                      * 判断参数 CoverSetFileUrlExpireTime 是否已赋值
                      * @return CoverSetFileUrlExpireTime 是否已赋值
+                     * 
                      */
                     bool CoverSetFileUrlExpireTimeHasBeenSet() const;
 

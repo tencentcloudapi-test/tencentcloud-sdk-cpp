@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,243 +43,303 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取物理专线的ID。
-                     * @return DirectConnectId 物理专线的ID。
+                     * 获取物理专线ID。
+                     * @return DirectConnectId 物理专线ID。
+                     * 
                      */
                     std::string GetDirectConnectId() const;
 
                     /**
-                     * 设置物理专线的ID。
-                     * @param DirectConnectId 物理专线的ID。
+                     * 设置物理专线ID。
+                     * @param _directConnectId 物理专线ID。
+                     * 
                      */
                     void SetDirectConnectId(const std::string& _directConnectId);
 
                     /**
                      * 判断参数 DirectConnectId 是否已赋值
                      * @return DirectConnectId 是否已赋值
+                     * 
                      */
                     bool DirectConnectIdHasBeenSet() const;
 
                     /**
                      * 获取物理专线名称。
                      * @return DirectConnectName 物理专线名称。
+                     * 
                      */
                     std::string GetDirectConnectName() const;
 
                     /**
                      * 设置物理专线名称。
-                     * @param DirectConnectName 物理专线名称。
+                     * @param _directConnectName 物理专线名称。
+                     * 
                      */
                     void SetDirectConnectName(const std::string& _directConnectName);
 
                     /**
                      * 判断参数 DirectConnectName 是否已赋值
                      * @return DirectConnectName 是否已赋值
+                     * 
                      */
                     bool DirectConnectNameHasBeenSet() const;
 
                     /**
                      * 获取运营商或者服务商为物理专线提供的电路编码。
                      * @return CircuitCode 运营商或者服务商为物理专线提供的电路编码。
+                     * 
                      */
                     std::string GetCircuitCode() const;
 
                     /**
                      * 设置运营商或者服务商为物理专线提供的电路编码。
-                     * @param CircuitCode 运营商或者服务商为物理专线提供的电路编码。
+                     * @param _circuitCode 运营商或者服务商为物理专线提供的电路编码。
+                     * 
                      */
                     void SetCircuitCode(const std::string& _circuitCode);
 
                     /**
                      * 判断参数 CircuitCode 是否已赋值
                      * @return CircuitCode 是否已赋值
+                     * 
                      */
                     bool CircuitCodeHasBeenSet() const;
 
                     /**
                      * 获取物理专线调试VLAN。
                      * @return Vlan 物理专线调试VLAN。
+                     * 
                      */
                     int64_t GetVlan() const;
 
                     /**
                      * 设置物理专线调试VLAN。
-                     * @param Vlan 物理专线调试VLAN。
+                     * @param _vlan 物理专线调试VLAN。
+                     * 
                      */
                     void SetVlan(const int64_t& _vlan);
 
                     /**
                      * 判断参数 Vlan 是否已赋值
                      * @return Vlan 是否已赋值
+                     * 
                      */
                     bool VlanHasBeenSet() const;
 
                     /**
                      * 获取物理专线调试腾讯侧互联 IP。
                      * @return TencentAddress 物理专线调试腾讯侧互联 IP。
+                     * 
                      */
                     std::string GetTencentAddress() const;
 
                     /**
                      * 设置物理专线调试腾讯侧互联 IP。
-                     * @param TencentAddress 物理专线调试腾讯侧互联 IP。
+                     * @param _tencentAddress 物理专线调试腾讯侧互联 IP。
+                     * 
                      */
                     void SetTencentAddress(const std::string& _tencentAddress);
 
                     /**
                      * 判断参数 TencentAddress 是否已赋值
                      * @return TencentAddress 是否已赋值
+                     * 
                      */
                     bool TencentAddressHasBeenSet() const;
 
                     /**
                      * 获取物理专线调试用户侧互联 IP。
                      * @return CustomerAddress 物理专线调试用户侧互联 IP。
+                     * 
                      */
                     std::string GetCustomerAddress() const;
 
                     /**
                      * 设置物理专线调试用户侧互联 IP。
-                     * @param CustomerAddress 物理专线调试用户侧互联 IP。
+                     * @param _customerAddress 物理专线调试用户侧互联 IP。
+                     * 
                      */
                     void SetCustomerAddress(const std::string& _customerAddress);
 
                     /**
                      * 判断参数 CustomerAddress 是否已赋值
                      * @return CustomerAddress 是否已赋值
+                     * 
                      */
                     bool CustomerAddressHasBeenSet() const;
 
                     /**
                      * 获取物理专线申请者姓名。默认从账户体系获取。
                      * @return CustomerName 物理专线申请者姓名。默认从账户体系获取。
+                     * 
                      */
                     std::string GetCustomerName() const;
 
                     /**
                      * 设置物理专线申请者姓名。默认从账户体系获取。
-                     * @param CustomerName 物理专线申请者姓名。默认从账户体系获取。
+                     * @param _customerName 物理专线申请者姓名。默认从账户体系获取。
+                     * 
                      */
                     void SetCustomerName(const std::string& _customerName);
 
                     /**
                      * 判断参数 CustomerName 是否已赋值
                      * @return CustomerName 是否已赋值
+                     * 
                      */
                     bool CustomerNameHasBeenSet() const;
 
                     /**
                      * 获取物理专线申请者联系邮箱。默认从账户体系获取。
                      * @return CustomerContactMail 物理专线申请者联系邮箱。默认从账户体系获取。
+                     * 
                      */
                     std::string GetCustomerContactMail() const;
 
                     /**
                      * 设置物理专线申请者联系邮箱。默认从账户体系获取。
-                     * @param CustomerContactMail 物理专线申请者联系邮箱。默认从账户体系获取。
+                     * @param _customerContactMail 物理专线申请者联系邮箱。默认从账户体系获取。
+                     * 
                      */
                     void SetCustomerContactMail(const std::string& _customerContactMail);
 
                     /**
                      * 判断参数 CustomerContactMail 是否已赋值
                      * @return CustomerContactMail 是否已赋值
+                     * 
                      */
                     bool CustomerContactMailHasBeenSet() const;
 
                     /**
                      * 获取物理专线申请者联系号码。默认从账户体系获取。
                      * @return CustomerContactNumber 物理专线申请者联系号码。默认从账户体系获取。
+                     * 
                      */
                     std::string GetCustomerContactNumber() const;
 
                     /**
                      * 设置物理专线申请者联系号码。默认从账户体系获取。
-                     * @param CustomerContactNumber 物理专线申请者联系号码。默认从账户体系获取。
+                     * @param _customerContactNumber 物理专线申请者联系号码。默认从账户体系获取。
+                     * 
                      */
                     void SetCustomerContactNumber(const std::string& _customerContactNumber);
 
                     /**
                      * 判断参数 CustomerContactNumber 是否已赋值
                      * @return CustomerContactNumber 是否已赋值
+                     * 
                      */
                     bool CustomerContactNumberHasBeenSet() const;
 
                     /**
                      * 获取报障联系人。
                      * @return FaultReportContactPerson 报障联系人。
+                     * 
                      */
                     std::string GetFaultReportContactPerson() const;
 
                     /**
                      * 设置报障联系人。
-                     * @param FaultReportContactPerson 报障联系人。
+                     * @param _faultReportContactPerson 报障联系人。
+                     * 
                      */
                     void SetFaultReportContactPerson(const std::string& _faultReportContactPerson);
 
                     /**
                      * 判断参数 FaultReportContactPerson 是否已赋值
                      * @return FaultReportContactPerson 是否已赋值
+                     * 
                      */
                     bool FaultReportContactPersonHasBeenSet() const;
 
                     /**
                      * 获取报障联系电话。
                      * @return FaultReportContactNumber 报障联系电话。
+                     * 
                      */
                     std::string GetFaultReportContactNumber() const;
 
                     /**
                      * 设置报障联系电话。
-                     * @param FaultReportContactNumber 报障联系电话。
+                     * @param _faultReportContactNumber 报障联系电话。
+                     * 
                      */
                     void SetFaultReportContactNumber(const std::string& _faultReportContactNumber);
 
                     /**
                      * 判断参数 FaultReportContactNumber 是否已赋值
                      * @return FaultReportContactNumber 是否已赋值
+                     * 
                      */
                     bool FaultReportContactNumberHasBeenSet() const;
 
                     /**
-                     * 获取物理专线申请者补签用户使用协议
-                     * @return SignLaw 物理专线申请者补签用户使用协议
+                     * 获取报障联系邮箱。
+                     * @return FaultReportContactEmail 报障联系邮箱。
+                     * 
+                     */
+                    std::string GetFaultReportContactEmail() const;
+
+                    /**
+                     * 设置报障联系邮箱。
+                     * @param _faultReportContactEmail 报障联系邮箱。
+                     * 
+                     */
+                    void SetFaultReportContactEmail(const std::string& _faultReportContactEmail);
+
+                    /**
+                     * 判断参数 FaultReportContactEmail 是否已赋值
+                     * @return FaultReportContactEmail 是否已赋值
+                     * 
+                     */
+                    bool FaultReportContactEmailHasBeenSet() const;
+
+                    /**
+                     * 获取物理专线申请者补签用户使用协议。
+                     * @return SignLaw 物理专线申请者补签用户使用协议。
+                     * 
                      */
                     bool GetSignLaw() const;
 
                     /**
-                     * 设置物理专线申请者补签用户使用协议
-                     * @param SignLaw 物理专线申请者补签用户使用协议
+                     * 设置物理专线申请者补签用户使用协议。
+                     * @param _signLaw 物理专线申请者补签用户使用协议。
+                     * 
                      */
                     void SetSignLaw(const bool& _signLaw);
 
                     /**
                      * 判断参数 SignLaw 是否已赋值
                      * @return SignLaw 是否已赋值
+                     * 
                      */
                     bool SignLawHasBeenSet() const;
 
                     /**
-                     * 获取物理专线带宽
-                     * @return Bandwidth 物理专线带宽
+                     * 获取物理专线带宽。
+                     * @return Bandwidth 物理专线带宽。
+                     * 
                      */
                     uint64_t GetBandwidth() const;
 
                     /**
-                     * 设置物理专线带宽
-                     * @param Bandwidth 物理专线带宽
+                     * 设置物理专线带宽。
+                     * @param _bandwidth 物理专线带宽。
+                     * 
                      */
                     void SetBandwidth(const uint64_t& _bandwidth);
 
                     /**
                      * 判断参数 Bandwidth 是否已赋值
                      * @return Bandwidth 是否已赋值
+                     * 
                      */
                     bool BandwidthHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 物理专线的ID。
+                     * 物理专线ID。
                      */
                     std::string m_directConnectId;
                     bool m_directConnectIdHasBeenSet;
@@ -345,13 +405,19 @@ namespace TencentCloud
                     bool m_faultReportContactNumberHasBeenSet;
 
                     /**
-                     * 物理专线申请者补签用户使用协议
+                     * 报障联系邮箱。
+                     */
+                    std::string m_faultReportContactEmail;
+                    bool m_faultReportContactEmailHasBeenSet;
+
+                    /**
+                     * 物理专线申请者补签用户使用协议。
                      */
                     bool m_signLaw;
                     bool m_signLawHasBeenSet;
 
                     /**
-                     * 物理专线带宽
+                     * 物理专线带宽。
                      */
                     uint64_t m_bandwidth;
                     bool m_bandwidthHasBeenSet;

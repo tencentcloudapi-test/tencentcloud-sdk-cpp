@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,11 @@ DescribeAlarmHistoriesRequest::DescribeAlarmHistoriesRequest() :
     m_contentHasBeenSet(false),
     m_receiverUidsHasBeenSet(false),
     m_receiverGroupsHasBeenSet(false),
-    m_policyIdsHasBeenSet(false)
+    m_policyIdsHasBeenSet(false),
+    m_alarmLevelsHasBeenSet(false),
+    m_convergenceHistoryIDsHasBeenSet(false),
+    m_alarmTypesHasBeenSet(false),
+    m_shieldStatusHasBeenSet(false)
 {
 }
 
@@ -237,6 +241,58 @@ string DescribeAlarmHistoriesRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
 
         for (auto itr = m_policyIds.begin(); itr != m_policyIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_alarmLevelsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmLevels";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_alarmLevels.begin(); itr != m_alarmLevels.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_convergenceHistoryIDsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConvergenceHistoryIDs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_convergenceHistoryIDs.begin(); itr != m_convergenceHistoryIDs.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_alarmTypesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmTypes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_alarmTypes.begin(); itr != m_alarmTypes.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_shieldStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ShieldStatus";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_shieldStatus.begin(); itr != m_shieldStatus.end(); ++itr)
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
@@ -536,6 +592,70 @@ void DescribeAlarmHistoriesRequest::SetPolicyIds(const vector<string>& _policyId
 bool DescribeAlarmHistoriesRequest::PolicyIdsHasBeenSet() const
 {
     return m_policyIdsHasBeenSet;
+}
+
+vector<string> DescribeAlarmHistoriesRequest::GetAlarmLevels() const
+{
+    return m_alarmLevels;
+}
+
+void DescribeAlarmHistoriesRequest::SetAlarmLevels(const vector<string>& _alarmLevels)
+{
+    m_alarmLevels = _alarmLevels;
+    m_alarmLevelsHasBeenSet = true;
+}
+
+bool DescribeAlarmHistoriesRequest::AlarmLevelsHasBeenSet() const
+{
+    return m_alarmLevelsHasBeenSet;
+}
+
+vector<string> DescribeAlarmHistoriesRequest::GetConvergenceHistoryIDs() const
+{
+    return m_convergenceHistoryIDs;
+}
+
+void DescribeAlarmHistoriesRequest::SetConvergenceHistoryIDs(const vector<string>& _convergenceHistoryIDs)
+{
+    m_convergenceHistoryIDs = _convergenceHistoryIDs;
+    m_convergenceHistoryIDsHasBeenSet = true;
+}
+
+bool DescribeAlarmHistoriesRequest::ConvergenceHistoryIDsHasBeenSet() const
+{
+    return m_convergenceHistoryIDsHasBeenSet;
+}
+
+vector<string> DescribeAlarmHistoriesRequest::GetAlarmTypes() const
+{
+    return m_alarmTypes;
+}
+
+void DescribeAlarmHistoriesRequest::SetAlarmTypes(const vector<string>& _alarmTypes)
+{
+    m_alarmTypes = _alarmTypes;
+    m_alarmTypesHasBeenSet = true;
+}
+
+bool DescribeAlarmHistoriesRequest::AlarmTypesHasBeenSet() const
+{
+    return m_alarmTypesHasBeenSet;
+}
+
+vector<string> DescribeAlarmHistoriesRequest::GetShieldStatus() const
+{
+    return m_shieldStatus;
+}
+
+void DescribeAlarmHistoriesRequest::SetShieldStatus(const vector<string>& _shieldStatus)
+{
+    m_shieldStatus = _shieldStatus;
+    m_shieldStatusHasBeenSet = true;
+}
+
+bool DescribeAlarmHistoriesRequest::ShieldStatusHasBeenSet() const
+{
+    return m_shieldStatusHasBeenSet;
 }
 
 

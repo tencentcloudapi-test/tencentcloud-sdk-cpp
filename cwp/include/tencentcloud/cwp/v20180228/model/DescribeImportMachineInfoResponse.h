@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,29 +46,29 @@ namespace TencentCloud
 
                     /**
                      * 获取有效的机器信息列表：机器名称、机器公网/内网ip、机器标签
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EffectiveMachineInfoList 有效的机器信息列表：机器名称、机器公网/内网ip、机器标签
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<EffectiveMachineInfo> GetEffectiveMachineInfoList() const;
 
                     /**
                      * 判断参数 EffectiveMachineInfoList 是否已赋值
                      * @return EffectiveMachineInfoList 是否已赋值
+                     * 
                      */
                     bool EffectiveMachineInfoListHasBeenSet() const;
 
                     /**
-                     * 获取用户批量导入失败的机器列表（比如机器不存在等...）
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return InvalidMachineList 用户批量导入失败的机器列表（比如机器不存在等...）
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取用户批量导入失败的机器列表（例如机器不存在等...）
+                     * @return InvalidMachineList 用户批量导入失败的机器列表（例如机器不存在等...）
+                     * 
                      */
                     std::vector<std::string> GetInvalidMachineList() const;
 
                     /**
                      * 判断参数 InvalidMachineList 是否已赋值
                      * @return InvalidMachineList 是否已赋值
+                     * 
                      */
                     bool InvalidMachineListHasBeenSet() const;
 
@@ -76,14 +76,12 @@ namespace TencentCloud
 
                     /**
                      * 有效的机器信息列表：机器名称、机器公网/内网ip、机器标签
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<EffectiveMachineInfo> m_effectiveMachineInfoList;
                     bool m_effectiveMachineInfoListHasBeenSet;
 
                     /**
-                     * 用户批量导入失败的机器列表（比如机器不存在等...）
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 用户批量导入失败的机器列表（例如机器不存在等...）
                      */
                     std::vector<std::string> m_invalidMachineList;
                     bool m_invalidMachineListHasBeenSet;

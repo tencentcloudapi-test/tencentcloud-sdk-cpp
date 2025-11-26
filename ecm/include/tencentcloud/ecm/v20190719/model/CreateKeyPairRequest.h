@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
                      * @return KeyName 密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
+                     * 
                      */
                     std::string GetKeyName() const;
 
                     /**
                      * 设置密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
-                     * @param KeyName 密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
+                     * @param _keyName 密钥对名称，可由数字，字母和下划线组成，长度不超过25个字符。
+                     * 
                      */
                     void SetKeyName(const std::string& _keyName);
 
                     /**
                      * 判断参数 KeyName 是否已赋值
                      * @return KeyName 是否已赋值
+                     * 
                      */
                     bool KeyNameHasBeenSet() const;
 

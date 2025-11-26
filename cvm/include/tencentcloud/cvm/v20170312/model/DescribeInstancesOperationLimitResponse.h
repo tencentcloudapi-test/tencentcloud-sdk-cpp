@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取该参数表示调整配置操作（降配）限制次数查询。
                      * @return InstanceOperationLimitSet 该参数表示调整配置操作（降配）限制次数查询。
+                     * 
                      */
                     std::vector<OperationCountLimit> GetInstanceOperationLimitSet() const;
 
                     /**
                      * 判断参数 InstanceOperationLimitSet 是否已赋值
                      * @return InstanceOperationLimitSet 是否已赋值
+                     * 
                      */
                     bool InstanceOperationLimitSetHasBeenSet() const;
 

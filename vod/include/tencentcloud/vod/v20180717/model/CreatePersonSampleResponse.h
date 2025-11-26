@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,24 +48,28 @@ namespace TencentCloud
                     /**
                      * 获取素材信息。
                      * @return Person 素材信息。
+                     * 
                      */
                     AiSamplePerson GetPerson() const;
 
                     /**
                      * 判断参数 Person 是否已赋值
                      * @return Person 是否已赋值
+                     * 
                      */
                     bool PersonHasBeenSet() const;
 
                     /**
                      * 获取处理失败的五官定位信息。
                      * @return FailFaceInfoSet 处理失败的五官定位信息。
+                     * 
                      */
                     std::vector<AiSampleFailFaceInfo> GetFailFaceInfoSet() const;
 
                     /**
                      * 判断参数 FailFaceInfoSet 是否已赋值
                      * @return FailFaceInfoSet 是否已赋值
+                     * 
                      */
                     bool FailFaceInfoSetHasBeenSet() const;
 

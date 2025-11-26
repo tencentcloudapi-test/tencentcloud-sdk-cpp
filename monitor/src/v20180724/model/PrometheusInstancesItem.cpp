@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +47,10 @@ PrometheusInstancesItem::PrometheusInstancesItem() :
     m_grafanaStatusHasBeenSet(false),
     m_grafanaIpWhiteListHasBeenSet(false),
     m_grantHasBeenSet(false),
-    m_grafanaInstanceIdHasBeenSet(false)
+    m_grafanaInstanceIdHasBeenSet(false),
+    m_alertRuleLimitHasBeenSet(false),
+    m_recordingRuleLimitHasBeenSet(false),
+    m_migrationTypeHasBeenSet(false)
 {
 }
 
@@ -343,6 +346,36 @@ CoreInternalOutcome PrometheusInstancesItem::Deserialize(const rapidjson::Value 
         m_grafanaInstanceIdHasBeenSet = true;
     }
 
+    if (value.HasMember("AlertRuleLimit") && !value["AlertRuleLimit"].IsNull())
+    {
+        if (!value["AlertRuleLimit"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrometheusInstancesItem.AlertRuleLimit` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_alertRuleLimit = value["AlertRuleLimit"].GetInt64();
+        m_alertRuleLimitHasBeenSet = true;
+    }
+
+    if (value.HasMember("RecordingRuleLimit") && !value["RecordingRuleLimit"].IsNull())
+    {
+        if (!value["RecordingRuleLimit"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrometheusInstancesItem.RecordingRuleLimit` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_recordingRuleLimit = value["RecordingRuleLimit"].GetInt64();
+        m_recordingRuleLimitHasBeenSet = true;
+    }
+
+    if (value.HasMember("MigrationType") && !value["MigrationType"].IsNull())
+    {
+        if (!value["MigrationType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PrometheusInstancesItem.MigrationType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_migrationType = value["MigrationType"].GetInt64();
+        m_migrationTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -572,6 +605,30 @@ void PrometheusInstancesItem::ToJsonObject(rapidjson::Value &value, rapidjson::D
         string key = "GrafanaInstanceId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_grafanaInstanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alertRuleLimitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlertRuleLimit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_alertRuleLimit, allocator);
+    }
+
+    if (m_recordingRuleLimitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecordingRuleLimit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_recordingRuleLimit, allocator);
+    }
+
+    if (m_migrationTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MigrationType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_migrationType, allocator);
     }
 
 }
@@ -1007,5 +1064,53 @@ void PrometheusInstancesItem::SetGrafanaInstanceId(const string& _grafanaInstanc
 bool PrometheusInstancesItem::GrafanaInstanceIdHasBeenSet() const
 {
     return m_grafanaInstanceIdHasBeenSet;
+}
+
+int64_t PrometheusInstancesItem::GetAlertRuleLimit() const
+{
+    return m_alertRuleLimit;
+}
+
+void PrometheusInstancesItem::SetAlertRuleLimit(const int64_t& _alertRuleLimit)
+{
+    m_alertRuleLimit = _alertRuleLimit;
+    m_alertRuleLimitHasBeenSet = true;
+}
+
+bool PrometheusInstancesItem::AlertRuleLimitHasBeenSet() const
+{
+    return m_alertRuleLimitHasBeenSet;
+}
+
+int64_t PrometheusInstancesItem::GetRecordingRuleLimit() const
+{
+    return m_recordingRuleLimit;
+}
+
+void PrometheusInstancesItem::SetRecordingRuleLimit(const int64_t& _recordingRuleLimit)
+{
+    m_recordingRuleLimit = _recordingRuleLimit;
+    m_recordingRuleLimitHasBeenSet = true;
+}
+
+bool PrometheusInstancesItem::RecordingRuleLimitHasBeenSet() const
+{
+    return m_recordingRuleLimitHasBeenSet;
+}
+
+int64_t PrometheusInstancesItem::GetMigrationType() const
+{
+    return m_migrationType;
+}
+
+void PrometheusInstancesItem::SetMigrationType(const int64_t& _migrationType)
+{
+    m_migrationType = _migrationType;
+    m_migrationTypeHasBeenSet = true;
+}
+
+bool PrometheusInstancesItem::MigrationTypeHasBeenSet() const
+{
+    return m_migrationTypeHasBeenSet;
 }
 

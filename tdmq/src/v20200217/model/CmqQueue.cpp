@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,8 @@ CmqQueue::CmqQueue() :
     m_namespaceNameHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_maxUnackedMsgNumHasBeenSet(false),
-    m_maxMsgBacklogSizeHasBeenSet(false)
+    m_maxMsgBacklogSizeHasBeenSet(false),
+    m_retentionSizeInMBHasBeenSet(false)
 {
 }
 
@@ -393,6 +394,16 @@ CoreInternalOutcome CmqQueue::Deserialize(const rapidjson::Value &value)
         m_maxMsgBacklogSizeHasBeenSet = true;
     }
 
+    if (value.HasMember("RetentionSizeInMB") && !value["RetentionSizeInMB"].IsNull())
+    {
+        if (!value["RetentionSizeInMB"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CmqQueue.RetentionSizeInMB` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_retentionSizeInMB = value["RetentionSizeInMB"].GetUint64();
+        m_retentionSizeInMBHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -654,6 +665,14 @@ void CmqQueue::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "MaxMsgBacklogSize";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_maxMsgBacklogSize, allocator);
+    }
+
+    if (m_retentionSizeInMBHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RetentionSizeInMB";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_retentionSizeInMB, allocator);
     }
 
 }
@@ -1137,5 +1156,21 @@ void CmqQueue::SetMaxMsgBacklogSize(const int64_t& _maxMsgBacklogSize)
 bool CmqQueue::MaxMsgBacklogSizeHasBeenSet() const
 {
     return m_maxMsgBacklogSizeHasBeenSet;
+}
+
+uint64_t CmqQueue::GetRetentionSizeInMB() const
+{
+    return m_retentionSizeInMB;
+}
+
+void CmqQueue::SetRetentionSizeInMB(const uint64_t& _retentionSizeInMB)
+{
+    m_retentionSizeInMB = _retentionSizeInMB;
+    m_retentionSizeInMBHasBeenSet = true;
+}
+
+bool CmqQueue::RetentionSizeInMBHasBeenSet() const
+{
+    return m_retentionSizeInMBHasBeenSet;
 }
 

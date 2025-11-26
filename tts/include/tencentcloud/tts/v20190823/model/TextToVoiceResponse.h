@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/tts/v20190823/model/Subtitle.h>
 
 
 namespace TencentCloud
@@ -46,26 +47,44 @@ namespace TencentCloud
                     /**
                      * 获取base64编码的wav/mp3音频数据
                      * @return Audio base64编码的wav/mp3音频数据
+                     * 
                      */
                     std::string GetAudio() const;
 
                     /**
                      * 判断参数 Audio 是否已赋值
                      * @return Audio 是否已赋值
+                     * 
                      */
                     bool AudioHasBeenSet() const;
 
                     /**
                      * 获取一次请求对应一个SessionId
                      * @return SessionId 一次请求对应一个SessionId
+                     * 
                      */
                     std::string GetSessionId() const;
 
                     /**
                      * 判断参数 SessionId 是否已赋值
                      * @return SessionId 是否已赋值
+                     * 
                      */
                     bool SessionIdHasBeenSet() const;
+
+                    /**
+                     * 获取时间戳信息，若未开启时间戳，则返回空数组。
+                     * @return Subtitles 时间戳信息，若未开启时间戳，则返回空数组。
+                     * 
+                     */
+                    std::vector<Subtitle> GetSubtitles() const;
+
+                    /**
+                     * 判断参数 Subtitles 是否已赋值
+                     * @return Subtitles 是否已赋值
+                     * 
+                     */
+                    bool SubtitlesHasBeenSet() const;
 
                 private:
 
@@ -80,6 +99,12 @@ namespace TencentCloud
                      */
                     std::string m_sessionId;
                     bool m_sessionIdHasBeenSet;
+
+                    /**
+                     * 时间戳信息，若未开启时间戳，则返回空数组。
+                     */
+                    std::vector<Subtitle> m_subtitles;
+                    bool m_subtitlesHasBeenSet;
 
                 };
             }

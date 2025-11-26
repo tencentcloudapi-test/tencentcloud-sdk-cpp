@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取阻断时长，单位：秒
                      * @return Ttl 阻断时长，单位：秒
+                     * 
                      */
                     uint64_t GetTtl() const;
 
                     /**
                      * 设置阻断时长，单位：秒
-                     * @param Ttl 阻断时长，单位：秒
+                     * @param _ttl 阻断时长，单位：秒
+                     * 
                      */
                     void SetTtl(const uint64_t& _ttl);
 
                     /**
                      * 判断参数 Ttl 是否已赋值
                      * @return Ttl 是否已赋值
+                     * 
                      */
                     bool TtlHasBeenSet() const;
 

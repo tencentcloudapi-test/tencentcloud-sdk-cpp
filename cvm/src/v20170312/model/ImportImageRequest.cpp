@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,11 @@ ImportImageRequest::ImportImageRequest() :
     m_imageDescriptionHasBeenSet(false),
     m_dryRunHasBeenSet(false),
     m_forceHasBeenSet(false),
-    m_tagSpecificationHasBeenSet(false)
+    m_tagSpecificationHasBeenSet(false),
+    m_licenseTypeHasBeenSet(false),
+    m_bootModeHasBeenSet(false),
+    m_imageFamilyHasBeenSet(false),
+    m_importImageDataDiskListHasBeenSet(false)
 {
 }
 
@@ -115,6 +119,45 @@ string ImportImageRequest::ToJsonString() const
 
         int i=0;
         for (auto itr = m_tagSpecification.begin(); itr != m_tagSpecification.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_licenseTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LicenseType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_licenseType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_bootModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BootMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_bootMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_imageFamilyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageFamily";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_imageFamily.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_importImageDataDiskListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImportImageDataDiskList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_importImageDataDiskList.begin(); itr != m_importImageDataDiskList.end(); ++itr, ++i)
         {
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
@@ -271,6 +314,70 @@ void ImportImageRequest::SetTagSpecification(const vector<TagSpecification>& _ta
 bool ImportImageRequest::TagSpecificationHasBeenSet() const
 {
     return m_tagSpecificationHasBeenSet;
+}
+
+string ImportImageRequest::GetLicenseType() const
+{
+    return m_licenseType;
+}
+
+void ImportImageRequest::SetLicenseType(const string& _licenseType)
+{
+    m_licenseType = _licenseType;
+    m_licenseTypeHasBeenSet = true;
+}
+
+bool ImportImageRequest::LicenseTypeHasBeenSet() const
+{
+    return m_licenseTypeHasBeenSet;
+}
+
+string ImportImageRequest::GetBootMode() const
+{
+    return m_bootMode;
+}
+
+void ImportImageRequest::SetBootMode(const string& _bootMode)
+{
+    m_bootMode = _bootMode;
+    m_bootModeHasBeenSet = true;
+}
+
+bool ImportImageRequest::BootModeHasBeenSet() const
+{
+    return m_bootModeHasBeenSet;
+}
+
+string ImportImageRequest::GetImageFamily() const
+{
+    return m_imageFamily;
+}
+
+void ImportImageRequest::SetImageFamily(const string& _imageFamily)
+{
+    m_imageFamily = _imageFamily;
+    m_imageFamilyHasBeenSet = true;
+}
+
+bool ImportImageRequest::ImageFamilyHasBeenSet() const
+{
+    return m_imageFamilyHasBeenSet;
+}
+
+vector<ImportImageDataDisk> ImportImageRequest::GetImportImageDataDiskList() const
+{
+    return m_importImageDataDiskList;
+}
+
+void ImportImageRequest::SetImportImageDataDiskList(const vector<ImportImageDataDisk>& _importImageDataDiskList)
+{
+    m_importImageDataDiskList = _importImageDataDiskList;
+    m_importImageDataDiskListHasBeenSet = true;
+}
+
+bool ImportImageRequest::ImportImageDataDiskListHasBeenSet() const
+{
+    return m_importImageDataDiskListHasBeenSet;
 }
 
 

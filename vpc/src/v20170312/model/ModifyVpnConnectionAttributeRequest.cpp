@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,10 @@ ModifyVpnConnectionAttributeRequest::ModifyVpnConnectionAttributeRequest() :
     m_negotiationTypeHasBeenSet(false),
     m_dpdEnableHasBeenSet(false),
     m_dpdTimeoutHasBeenSet(false),
-    m_dpdActionHasBeenSet(false)
+    m_dpdActionHasBeenSet(false),
+    m_customerGatewayIdHasBeenSet(false),
+    m_healthCheckConfigHasBeenSet(false),
+    m_bgpConfigHasBeenSet(false)
 {
 }
 
@@ -157,6 +160,32 @@ string ModifyVpnConnectionAttributeRequest::ToJsonString() const
         string key = "DpdAction";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_dpdAction.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_customerGatewayIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CustomerGatewayId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_customerGatewayId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_healthCheckConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HealthCheckConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_healthCheckConfig.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_bgpConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BgpConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_bgpConfig.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -373,6 +402,54 @@ void ModifyVpnConnectionAttributeRequest::SetDpdAction(const string& _dpdAction)
 bool ModifyVpnConnectionAttributeRequest::DpdActionHasBeenSet() const
 {
     return m_dpdActionHasBeenSet;
+}
+
+string ModifyVpnConnectionAttributeRequest::GetCustomerGatewayId() const
+{
+    return m_customerGatewayId;
+}
+
+void ModifyVpnConnectionAttributeRequest::SetCustomerGatewayId(const string& _customerGatewayId)
+{
+    m_customerGatewayId = _customerGatewayId;
+    m_customerGatewayIdHasBeenSet = true;
+}
+
+bool ModifyVpnConnectionAttributeRequest::CustomerGatewayIdHasBeenSet() const
+{
+    return m_customerGatewayIdHasBeenSet;
+}
+
+HealthCheckConfig ModifyVpnConnectionAttributeRequest::GetHealthCheckConfig() const
+{
+    return m_healthCheckConfig;
+}
+
+void ModifyVpnConnectionAttributeRequest::SetHealthCheckConfig(const HealthCheckConfig& _healthCheckConfig)
+{
+    m_healthCheckConfig = _healthCheckConfig;
+    m_healthCheckConfigHasBeenSet = true;
+}
+
+bool ModifyVpnConnectionAttributeRequest::HealthCheckConfigHasBeenSet() const
+{
+    return m_healthCheckConfigHasBeenSet;
+}
+
+BgpConfig ModifyVpnConnectionAttributeRequest::GetBgpConfig() const
+{
+    return m_bgpConfig;
+}
+
+void ModifyVpnConnectionAttributeRequest::SetBgpConfig(const BgpConfig& _bgpConfig)
+{
+    m_bgpConfig = _bgpConfig;
+    m_bgpConfigHasBeenSet = true;
+}
+
+bool ModifyVpnConnectionAttributeRequest::BgpConfigHasBeenSet() const
+{
+    return m_bgpConfigHasBeenSet;
 }
 
 

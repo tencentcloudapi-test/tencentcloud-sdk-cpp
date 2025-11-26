@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取服务器ID
                      * @return InstanceId 服务器ID
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置服务器ID
-                     * @param InstanceId 服务器ID
+                     * @param _instanceId 服务器ID
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取角色名称。
                      * @return RoleName 角色名称。
+                     * 
                      */
                     std::string GetRoleName() const;
 
                     /**
                      * 设置角色名称。
-                     * @param RoleName 角色名称。
+                     * @param _roleName 角色名称。
+                     * 
                      */
                     void SetRoleName(const std::string& _roleName);
 
                     /**
                      * 判断参数 RoleName 是否已赋值
                      * @return RoleName 是否已赋值
+                     * 
                      */
                     bool RoleNameHasBeenSet() const;
 

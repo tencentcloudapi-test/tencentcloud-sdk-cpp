@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeVpcTaskResultResponse::DescribeVpcTaskResultResponse() :
     m_statusHasBeenSet(false),
-    m_outputHasBeenSet(false)
+    m_outputHasBeenSet(false),
+    m_resultHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,26 @@ CoreInternalOutcome DescribeVpcTaskResultResponse::Deserialize(const string &pay
         m_outputHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Result") && !rsp["Result"].IsNull())
+    {
+        if (!rsp["Result"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Result` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["Result"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            VpcTaskResultDetailInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_result.push_back(item);
+        }
+        m_resultHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +130,26 @@ string DescribeVpcTaskResultResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_output.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_resultHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Result";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_result.begin(); itr != m_result.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +175,16 @@ string DescribeVpcTaskResultResponse::GetOutput() const
 bool DescribeVpcTaskResultResponse::OutputHasBeenSet() const
 {
     return m_outputHasBeenSet;
+}
+
+vector<VpcTaskResultDetailInfo> DescribeVpcTaskResultResponse::GetResult() const
+{
+    return m_result;
+}
+
+bool DescribeVpcTaskResultResponse::ResultHasBeenSet() const
+{
+    return m_resultHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取排序字段
                      * @return SortKey 排序字段
+                     * 
                      */
                     std::string GetSortKey() const;
 
                     /**
                      * 设置排序字段
-                     * @param SortKey 排序字段
+                     * @param _sortKey 排序字段
+                     * 
                      */
                     void SetSortKey(const std::string& _sortKey);
 
                     /**
                      * 判断参数 SortKey 是否已赋值
                      * @return SortKey 是否已赋值
+                     * 
                      */
                     bool SortKeyHasBeenSet() const;
 
                     /**
                      * 获取顺序，1升序2降序
                      * @return SortType 顺序，1升序2降序
+                     * 
                      */
                     int64_t GetSortType() const;
 
                     /**
                      * 设置顺序，1升序2降序
-                     * @param SortType 顺序，1升序2降序
+                     * @param _sortType 顺序，1升序2降序
+                     * 
                      */
                     void SetSortType(const int64_t& _sortType);
 
                     /**
                      * 判断参数 SortType 是否已赋值
                      * @return SortType 是否已赋值
+                     * 
                      */
                     bool SortTypeHasBeenSet() const;
 

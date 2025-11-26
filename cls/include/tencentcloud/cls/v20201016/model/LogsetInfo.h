@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,112 +50,147 @@ namespace TencentCloud
                     /**
                      * 获取日志集ID
                      * @return LogsetId 日志集ID
+                     * 
                      */
                     std::string GetLogsetId() const;
 
                     /**
                      * 设置日志集ID
-                     * @param LogsetId 日志集ID
+                     * @param _logsetId 日志集ID
+                     * 
                      */
                     void SetLogsetId(const std::string& _logsetId);
 
                     /**
                      * 判断参数 LogsetId 是否已赋值
                      * @return LogsetId 是否已赋值
+                     * 
                      */
                     bool LogsetIdHasBeenSet() const;
 
                     /**
                      * 获取日志集名称
                      * @return LogsetName 日志集名称
+                     * 
                      */
                     std::string GetLogsetName() const;
 
                     /**
                      * 设置日志集名称
-                     * @param LogsetName 日志集名称
+                     * @param _logsetName 日志集名称
+                     * 
                      */
                     void SetLogsetName(const std::string& _logsetName);
 
                     /**
                      * 判断参数 LogsetName 是否已赋值
                      * @return LogsetName 是否已赋值
+                     * 
                      */
                     bool LogsetNameHasBeenSet() const;
 
                     /**
-                     * 获取创建时间
-                     * @return CreateTime 创建时间
+                     * 获取创建时间。格式 `YYYY-MM-DD HH:MM:SS`
+                     * @return CreateTime 创建时间。格式 `YYYY-MM-DD HH:MM:SS`
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置创建时间
-                     * @param CreateTime 创建时间
+                     * 设置创建时间。格式 `YYYY-MM-DD HH:MM:SS`
+                     * @param _createTime 创建时间。格式 `YYYY-MM-DD HH:MM:SS`
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
+                     * 获取云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
+                     * @return AssumerName 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
+                     * 
+                     */
+                    std::string GetAssumerName() const;
+
+                    /**
+                     * 设置云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
+                     * @param _assumerName 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
+                     * 
+                     */
+                    void SetAssumerName(const std::string& _assumerName);
+
+                    /**
+                     * 判断参数 AssumerName 是否已赋值
+                     * @return AssumerName 是否已赋值
+                     * 
+                     */
+                    bool AssumerNameHasBeenSet() const;
+
+                    /**
                      * 获取日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Tags 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
                      * 设置日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Tags 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tags 日志集绑定的标签
+                     * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 
                     /**
                      * 获取日志集下日志主题的数目
                      * @return TopicCount 日志集下日志主题的数目
+                     * 
                      */
                     int64_t GetTopicCount() const;
 
                     /**
                      * 设置日志集下日志主题的数目
-                     * @param TopicCount 日志集下日志主题的数目
+                     * @param _topicCount 日志集下日志主题的数目
+                     * 
                      */
                     void SetTopicCount(const int64_t& _topicCount);
 
                     /**
                      * 判断参数 TopicCount 是否已赋值
                      * @return TopicCount 是否已赋值
+                     * 
                      */
                     bool TopicCountHasBeenSet() const;
 
                     /**
-                     * 获取若AssumerUin非空，则表示创建该日志集的服务方角色
-                     * @return RoleName 若AssumerUin非空，则表示创建该日志集的服务方角色
+                     * 获取若AssumerName非空，则表示创建该日志集的服务方角色
+                     * @return RoleName 若AssumerName非空，则表示创建该日志集的服务方角色
+                     * 
                      */
                     std::string GetRoleName() const;
 
                     /**
-                     * 设置若AssumerUin非空，则表示创建该日志集的服务方角色
-                     * @param RoleName 若AssumerUin非空，则表示创建该日志集的服务方角色
+                     * 设置若AssumerName非空，则表示创建该日志集的服务方角色
+                     * @param _roleName 若AssumerName非空，则表示创建该日志集的服务方角色
+                     * 
                      */
                     void SetRoleName(const std::string& _roleName);
 
                     /**
                      * 判断参数 RoleName 是否已赋值
                      * @return RoleName 是否已赋值
+                     * 
                      */
                     bool RoleNameHasBeenSet() const;
 
@@ -174,14 +209,19 @@ namespace TencentCloud
                     bool m_logsetNameHasBeenSet;
 
                     /**
-                     * 创建时间
+                     * 创建时间。格式 `YYYY-MM-DD HH:MM:SS`
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
+                     * 云产品标识，日志集由其它云产品创建时，该字段会显示云产品名称，例如CDN、TKE
+                     */
+                    std::string m_assumerName;
+                    bool m_assumerNameHasBeenSet;
+
+                    /**
                      * 日志集绑定的标签
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
@@ -193,7 +233,7 @@ namespace TencentCloud
                     bool m_topicCountHasBeenSet;
 
                     /**
-                     * 若AssumerUin非空，则表示创建该日志集的服务方角色
+                     * 若AssumerName非空，则表示创建该日志集的服务方角色
                      */
                     std::string m_roleName;
                     bool m_roleNameHasBeenSet;

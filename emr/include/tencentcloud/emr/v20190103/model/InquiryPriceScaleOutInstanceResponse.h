@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/emr/v20190103/model/PriceResource.h>
+#include <tencentcloud/emr/v20190103/model/EmrPrice.h>
 
 
 namespace TencentCloud
@@ -46,47 +47,47 @@ namespace TencentCloud
 
                     /**
                      * 获取原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return OriginalCost 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetOriginalCost() const;
 
                     /**
                      * 判断参数 OriginalCost 是否已赋值
                      * @return OriginalCost 是否已赋值
+                     * 
                      */
                     bool OriginalCostHasBeenSet() const;
 
                     /**
                      * 获取折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DiscountCost 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDiscountCost() const;
 
                     /**
                      * 判断参数 DiscountCost 是否已赋值
                      * @return DiscountCost 是否已赋值
+                     * 
                      */
                     bool DiscountCostHasBeenSet() const;
 
                     /**
                      * 获取扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>m：表示月份。</li>
                      * @return Unit 扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>m：表示月份。</li>
+                     * 
                      */
                     std::string GetUnit() const;
 
                     /**
                      * 判断参数 Unit 是否已赋值
                      * @return Unit 是否已赋值
+                     * 
                      */
                     bool UnitHasBeenSet() const;
 
@@ -95,27 +96,43 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PriceSpec 询价的节点规格。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     PriceResource GetPriceSpec() const;
 
                     /**
                      * 判断参数 PriceSpec 是否已赋值
                      * @return PriceSpec 是否已赋值
+                     * 
                      */
                     bool PriceSpecHasBeenSet() const;
+
+                    /**
+                     * 获取对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return MultipleEmrPrice 对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<EmrPrice> GetMultipleEmrPrice() const;
+
+                    /**
+                     * 判断参数 MultipleEmrPrice 是否已赋值
+                     * @return MultipleEmrPrice 是否已赋值
+                     * 
+                     */
+                    bool MultipleEmrPriceHasBeenSet() const;
 
                 private:
 
                     /**
                      * 原价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_originalCost;
                     bool m_originalCostHasBeenSet;
 
                     /**
                      * 折扣价，单位为元。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_discountCost;
                     bool m_discountCostHasBeenSet;
@@ -123,8 +140,7 @@ namespace TencentCloud
                     /**
                      * 扩容的时间单位。取值范围：
 <li>s：表示秒。</li>
-<li>m：表示月份。</li>
-注意：此字段可能返回 null，表示取不到有效值。
+<li>m：表示月份。</li>
                      */
                     std::string m_unit;
                     bool m_unitHasBeenSet;
@@ -135,6 +151,13 @@ namespace TencentCloud
                      */
                     PriceResource m_priceSpec;
                     bool m_priceSpecHasBeenSet;
+
+                    /**
+                     * 对应入参MultipleResources中多个规格的询价结果，其它出参返回的是第一个规格的询价结果
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<EmrPrice> m_multipleEmrPrice;
+                    bool m_multipleEmrPriceHasBeenSet;
 
                 };
             }

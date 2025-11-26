@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/vpc/v20170312/model/CcnInstanceInfo.h>
 
 
 namespace TencentCloud
@@ -43,7 +44,47 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取云联网（CCN）对象。
+                     * @return CcnSet 云联网（CCN）对象。
+                     * 
+                     */
+                    std::vector<CcnInstanceInfo> GetCcnSet() const;
+
+                    /**
+                     * 判断参数 CcnSet 是否已赋值
+                     * @return CcnSet 是否已赋值
+                     * 
+                     */
+                    bool CcnSetHasBeenSet() const;
+
+                    /**
+                     * 获取符合条件的对象总数。
+                     * @return TotalCount 符合条件的对象总数。
+                     * 
+                     */
+                    uint64_t GetTotalCount() const;
+
+                    /**
+                     * 判断参数 TotalCount 是否已赋值
+                     * @return TotalCount 是否已赋值
+                     * 
+                     */
+                    bool TotalCountHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 云联网（CCN）对象。
+                     */
+                    std::vector<CcnInstanceInfo> m_ccnSet;
+                    bool m_ccnSetHasBeenSet;
+
+                    /**
+                     * 符合条件的对象总数。
+                     */
+                    uint64_t m_totalCount;
+                    bool m_totalCountHasBeenSet;
 
                 };
             }

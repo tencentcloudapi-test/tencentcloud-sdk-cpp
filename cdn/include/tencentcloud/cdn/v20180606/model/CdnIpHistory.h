@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,7 @@ offline：节点下线
                      * @return Status 操作类型
 online：节点上线
 offline：节点下线
+                     * 
                      */
                     std::string GetStatus() const;
 
@@ -60,15 +61,17 @@ offline：节点下线
                      * 设置操作类型
 online：节点上线
 offline：节点下线
-                     * @param Status 操作类型
+                     * @param _status 操作类型
 online：节点上线
 offline：节点下线
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
@@ -79,6 +82,7 @@ offline：节点下线
                      * @return Datetime 操作类型对应的操作时间
 当该值为 null 时表示无历史状态变更记录
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDatetime() const;
 
@@ -86,15 +90,17 @@ offline：节点下线
                      * 设置操作类型对应的操作时间
 当该值为 null 时表示无历史状态变更记录
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Datetime 操作类型对应的操作时间
+                     * @param _datetime 操作类型对应的操作时间
 当该值为 null 时表示无历史状态变更记录
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetDatetime(const std::string& _datetime);
 
                     /**
                      * 判断参数 Datetime 是否已赋值
                      * @return Datetime 是否已赋值
+                     * 
                      */
                     bool DatetimeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,40 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取标识本次发送 ID，标识一次下发记录。
                      * @return CallId 标识本次发送 ID，标识一次下发记录。
+                     * 
                      */
                     std::string GetCallId() const;
 
                     /**
                      * 设置标识本次发送 ID，标识一次下发记录。
-                     * @param CallId 标识本次发送 ID，标识一次下发记录。
+                     * @param _callId 标识本次发送 ID，标识一次下发记录。
+                     * 
                      */
                     void SetCallId(const std::string& _callId);
 
                     /**
                      * 判断参数 CallId 是否已赋值
                      * @return CallId 是否已赋值
+                     * 
                      */
                     bool CallIdHasBeenSet() const;
 
                     /**
                      * 获取用户的 session 内容，腾讯 server 回包中会原样返回。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SessionContext 用户的 session 内容，腾讯 server 回包中会原样返回。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSessionContext() const;
 
                     /**
                      * 设置用户的 session 内容，腾讯 server 回包中会原样返回。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SessionContext 用户的 session 内容，腾讯 server 回包中会原样返回。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _sessionContext 用户的 session 内容，腾讯 server 回包中会原样返回。
+                     * 
                      */
                     void SetSessionContext(const std::string& _sessionContext);
 
                     /**
                      * 判断参数 SessionContext 是否已赋值
                      * @return SessionContext 是否已赋值
+                     * 
                      */
                     bool SessionContextHasBeenSet() const;
 
@@ -96,7 +98,6 @@ namespace TencentCloud
 
                     /**
                      * 用户的 session 内容，腾讯 server 回包中会原样返回。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_sessionContext;
                     bool m_sessionContextHasBeenSet;

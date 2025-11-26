@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ CreateAppRequest::CreateAppRequest() :
     m_realtimeSpeechConfHasBeenSet(false),
     m_voiceMessageConfHasBeenSet(false),
     m_voiceFilterConfHasBeenSet(false),
+    m_asrConfHasBeenSet(false),
     m_tagsHasBeenSet(false)
 {
 }
@@ -108,6 +109,15 @@ string CreateAppRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_voiceFilterConf.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_asrConfHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AsrConf";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_asrConf.ToJsonObject(d[key.c_str()], allocator);
     }
 
     if (m_tagsHasBeenSet)
@@ -243,6 +253,22 @@ void CreateAppRequest::SetVoiceFilterConf(const VoiceFilterConf& _voiceFilterCon
 bool CreateAppRequest::VoiceFilterConfHasBeenSet() const
 {
     return m_voiceFilterConfHasBeenSet;
+}
+
+AsrConf CreateAppRequest::GetAsrConf() const
+{
+    return m_asrConf;
+}
+
+void CreateAppRequest::SetAsrConf(const AsrConf& _asrConf)
+{
+    m_asrConf = _asrConf;
+    m_asrConfHasBeenSet = true;
+}
+
+bool CreateAppRequest::AsrConfHasBeenSet() const
+{
+    return m_asrConfHasBeenSet;
 }
 
 vector<Tag> CreateAppRequest::GetTags() const

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/lighthouse/v20200324/model/Tag.h>
 
 
 namespace TencentCloud
@@ -49,76 +50,84 @@ namespace TencentCloud
                     /**
                      * 获取密钥对 ID ，是密钥对的唯一标识。
                      * @return KeyId 密钥对 ID ，是密钥对的唯一标识。
+                     * 
                      */
                     std::string GetKeyId() const;
 
                     /**
                      * 设置密钥对 ID ，是密钥对的唯一标识。
-                     * @param KeyId 密钥对 ID ，是密钥对的唯一标识。
+                     * @param _keyId 密钥对 ID ，是密钥对的唯一标识。
+                     * 
                      */
                     void SetKeyId(const std::string& _keyId);
 
                     /**
                      * 判断参数 KeyId 是否已赋值
                      * @return KeyId 是否已赋值
+                     * 
                      */
                     bool KeyIdHasBeenSet() const;
 
                     /**
                      * 获取密钥对名称。
                      * @return KeyName 密钥对名称。
+                     * 
                      */
                     std::string GetKeyName() const;
 
                     /**
                      * 设置密钥对名称。
-                     * @param KeyName 密钥对名称。
+                     * @param _keyName 密钥对名称。
+                     * 
                      */
                     void SetKeyName(const std::string& _keyName);
 
                     /**
                      * 判断参数 KeyName 是否已赋值
                      * @return KeyName 是否已赋值
+                     * 
                      */
                     bool KeyNameHasBeenSet() const;
 
                     /**
                      * 获取密钥对的纯文本公钥。
                      * @return PublicKey 密钥对的纯文本公钥。
+                     * 
                      */
                     std::string GetPublicKey() const;
 
                     /**
                      * 设置密钥对的纯文本公钥。
-                     * @param PublicKey 密钥对的纯文本公钥。
+                     * @param _publicKey 密钥对的纯文本公钥。
+                     * 
                      */
                     void SetPublicKey(const std::string& _publicKey);
 
                     /**
                      * 判断参数 PublicKey 是否已赋值
                      * @return PublicKey 是否已赋值
+                     * 
                      */
                     bool PublicKeyHasBeenSet() const;
 
                     /**
                      * 获取密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return AssociatedInstanceIds 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetAssociatedInstanceIds() const;
 
                     /**
                      * 设置密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AssociatedInstanceIds 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _associatedInstanceIds 密钥对关联的实例 ID 列表。
+                     * 
                      */
                     void SetAssociatedInstanceIds(const std::vector<std::string>& _associatedInstanceIds);
 
                     /**
                      * 判断参数 AssociatedInstanceIds 是否已赋值
                      * @return AssociatedInstanceIds 是否已赋值
+                     * 
                      */
                     bool AssociatedInstanceIdsHasBeenSet() const;
 
@@ -127,20 +136,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreatedTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCreatedTime() const;
 
                     /**
                      * 设置创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CreatedTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
+                     * @param _createdTime 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCreatedTime(const std::string& _createdTime);
 
                     /**
                      * 判断参数 CreatedTime 是否已赋值
                      * @return CreatedTime 是否已赋值
+                     * 
                      */
                     bool CreatedTimeHasBeenSet() const;
 
@@ -149,22 +161,46 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PrivateKey 密钥对私钥。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPrivateKey() const;
 
                     /**
                      * 设置密钥对私钥。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PrivateKey 密钥对私钥。
+                     * @param _privateKey 密钥对私钥。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPrivateKey(const std::string& _privateKey);
 
                     /**
                      * 判断参数 PrivateKey 是否已赋值
                      * @return PrivateKey 是否已赋值
+                     * 
                      */
                     bool PrivateKeyHasBeenSet() const;
+
+                    /**
+                     * 获取密钥对绑定的标签列表。
+                     * @return Tags 密钥对绑定的标签列表。
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置密钥对绑定的标签列表。
+                     * @param _tags 密钥对绑定的标签列表。
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
 
                 private:
 
@@ -188,7 +224,6 @@ namespace TencentCloud
 
                     /**
                      * 密钥对关联的实例 ID 列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_associatedInstanceIds;
                     bool m_associatedInstanceIdsHasBeenSet;
@@ -206,6 +241,12 @@ namespace TencentCloud
                      */
                     std::string m_privateKey;
                     bool m_privateKeyHasBeenSet;
+
+                    /**
+                     * 密钥对绑定的标签列表。
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
 
                 };
             }

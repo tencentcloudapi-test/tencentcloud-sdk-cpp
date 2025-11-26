@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取套餐IP数量
                      * @return IpCount 套餐IP数量
+                     * 
                      */
                     uint64_t GetIpCount() const;
 
                     /**
                      * 设置套餐IP数量
-                     * @param IpCount 套餐IP数量
+                     * @param _ipCount 套餐IP数量
+                     * 
                      */
                     void SetIpCount(const uint64_t& _ipCount);
 
                     /**
                      * 判断参数 IpCount 是否已赋值
                      * @return IpCount 是否已赋值
+                     * 
                      */
                     bool IpCountHasBeenSet() const;
 
                     /**
                      * 获取自动续费标记
                      * @return AutoRenewFlag 自动续费标记
+                     * 
                      */
                     uint64_t GetAutoRenewFlag() const;
 
                     /**
                      * 设置自动续费标记
-                     * @param AutoRenewFlag 自动续费标记
+                     * @param _autoRenewFlag 自动续费标记
+                     * 
                      */
                     void SetAutoRenewFlag(const uint64_t& _autoRenewFlag);
 
                     /**
                      * 判断参数 AutoRenewFlag 是否已赋值
                      * @return AutoRenewFlag 是否已赋值
+                     * 
                      */
                     bool AutoRenewFlagHasBeenSet() const;
 
                     /**
                      * 获取当前到期时间
                      * @return CurDeadline 当前到期时间
+                     * 
                      */
                     std::string GetCurDeadline() const;
 
                     /**
                      * 设置当前到期时间
-                     * @param CurDeadline 当前到期时间
+                     * @param _curDeadline 当前到期时间
+                     * 
                      */
                     void SetCurDeadline(const std::string& _curDeadline);
 
                     /**
                      * 判断参数 CurDeadline 是否已赋值
                      * @return CurDeadline 是否已赋值
+                     * 
                      */
                     bool CurDeadlineHasBeenSet() const;
 

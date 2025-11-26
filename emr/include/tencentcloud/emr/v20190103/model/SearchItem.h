@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取支持搜索的类型
                      * @return SearchType 支持搜索的类型
+                     * 
                      */
                     std::string GetSearchType() const;
 
                     /**
                      * 设置支持搜索的类型
-                     * @param SearchType 支持搜索的类型
+                     * @param _searchType 支持搜索的类型
+                     * 
                      */
                     void SetSearchType(const std::string& _searchType);
 
                     /**
                      * 判断参数 SearchType 是否已赋值
                      * @return SearchType 是否已赋值
+                     * 
                      */
                     bool SearchTypeHasBeenSet() const;
 
                     /**
                      * 获取支持搜索的值
                      * @return SearchValue 支持搜索的值
+                     * 
                      */
                     std::string GetSearchValue() const;
 
                     /**
                      * 设置支持搜索的值
-                     * @param SearchValue 支持搜索的值
+                     * @param _searchValue 支持搜索的值
+                     * 
                      */
                     void SetSearchValue(const std::string& _searchValue);
 
                     /**
                      * 判断参数 SearchValue 是否已赋值
                      * @return SearchValue 是否已赋值
+                     * 
                      */
                     bool SearchValueHasBeenSet() const;
 

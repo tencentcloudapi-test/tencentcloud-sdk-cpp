@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,37 +49,51 @@ namespace TencentCloud
 
                     /**
                      * 获取片头列表。
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return HeadSet 片头列表。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<MediaInputInfo> GetHeadSet() const;
 
                     /**
                      * 设置片头列表。
-                     * @param HeadSet 片头列表。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _headSet 片头列表。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetHeadSet(const std::vector<MediaInputInfo>& _headSet);
 
                     /**
                      * 判断参数 HeadSet 是否已赋值
                      * @return HeadSet 是否已赋值
+                     * 
                      */
                     bool HeadSetHasBeenSet() const;
 
                     /**
                      * 获取片尾列表。
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return TailSet 片尾列表。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<MediaInputInfo> GetTailSet() const;
 
                     /**
                      * 设置片尾列表。
-                     * @param TailSet 片尾列表。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _tailSet 片尾列表。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTailSet(const std::vector<MediaInputInfo>& _tailSet);
 
                     /**
                      * 判断参数 TailSet 是否已赋值
                      * @return TailSet 是否已赋值
+                     * 
                      */
                     bool TailSetHasBeenSet() const;
 
@@ -87,12 +101,14 @@ namespace TencentCloud
 
                     /**
                      * 片头列表。
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<MediaInputInfo> m_headSet;
                     bool m_headSetHasBeenSet;
 
                     /**
                      * 片尾列表。
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<MediaInputInfo> m_tailSet;
                     bool m_tailSetHasBeenSet;

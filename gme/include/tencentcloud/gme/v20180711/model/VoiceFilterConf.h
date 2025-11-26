@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/gme/v20180711/model/SceneInfo.h>
 
 
 namespace TencentCloud
@@ -49,20 +50,44 @@ namespace TencentCloud
                     /**
                      * 获取语音过滤服务开关，取值：open/close
                      * @return Status 语音过滤服务开关，取值：open/close
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置语音过滤服务开关，取值：open/close
-                     * @param Status 语音过滤服务开关，取值：open/close
+                     * @param _status 语音过滤服务开关，取值：open/close
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取场景配置信息，如开关状态，回调地址。
+                     * @return SceneInfos 场景配置信息，如开关状态，回调地址。
+                     * 
+                     */
+                    std::vector<SceneInfo> GetSceneInfos() const;
+
+                    /**
+                     * 设置场景配置信息，如开关状态，回调地址。
+                     * @param _sceneInfos 场景配置信息，如开关状态，回调地址。
+                     * 
+                     */
+                    void SetSceneInfos(const std::vector<SceneInfo>& _sceneInfos);
+
+                    /**
+                     * 判断参数 SceneInfos 是否已赋值
+                     * @return SceneInfos 是否已赋值
+                     * 
+                     */
+                    bool SceneInfosHasBeenSet() const;
 
                 private:
 
@@ -71,6 +96,12 @@ namespace TencentCloud
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 场景配置信息，如开关状态，回调地址。
+                     */
+                    std::vector<SceneInfo> m_sceneInfos;
+                    bool m_sceneInfosHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取app的icon的url
                      * @return AppIconUrl app的icon的url
+                     * 
                      */
                     std::string GetAppIconUrl() const;
 
                     /**
                      * 设置app的icon的url
-                     * @param AppIconUrl app的icon的url
+                     * @param _appIconUrl app的icon的url
+                     * 
                      */
                     void SetAppIconUrl(const std::string& _appIconUrl);
 
                     /**
                      * 判断参数 AppIconUrl 是否已赋值
                      * @return AppIconUrl 是否已赋值
+                     * 
                      */
                     bool AppIconUrlHasBeenSet() const;
 
                     /**
                      * 获取app的名称
                      * @return AppName app的名称
+                     * 
                      */
                     std::string GetAppName() const;
 
                     /**
                      * 设置app的名称
-                     * @param AppName app的名称
+                     * @param _appName app的名称
+                     * 
                      */
                     void SetAppName(const std::string& _appName);
 
                     /**
                      * 判断参数 AppName 是否已赋值
                      * @return AppName 是否已赋值
+                     * 
                      */
                     bool AppNameHasBeenSet() const;
 
                     /**
                      * 获取app的包名
                      * @return AppPkgName app的包名
+                     * 
                      */
                     std::string GetAppPkgName() const;
 
                     /**
                      * 设置app的包名
-                     * @param AppPkgName app的包名
+                     * @param _appPkgName app的包名
+                     * 
                      */
                     void SetAppPkgName(const std::string& _appPkgName);
 
                     /**
                      * 判断参数 AppPkgName 是否已赋值
                      * @return AppPkgName 是否已赋值
+                     * 
                      */
                     bool AppPkgNameHasBeenSet() const;
 

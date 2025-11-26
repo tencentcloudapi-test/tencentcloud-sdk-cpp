@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取要删除的用户 UIN/UID和用户组 ID对应数组
                      * @return Info 要删除的用户 UIN/UID和用户组 ID对应数组
+                     * 
                      */
                     std::vector<GroupIdOfUidInfo> GetInfo() const;
 
                     /**
                      * 设置要删除的用户 UIN/UID和用户组 ID对应数组
-                     * @param Info 要删除的用户 UIN/UID和用户组 ID对应数组
+                     * @param _info 要删除的用户 UIN/UID和用户组 ID对应数组
+                     * 
                      */
                     void SetInfo(const std::vector<GroupIdOfUidInfo>& _info);
 
                     /**
                      * 判断参数 Info 是否已赋值
                      * @return Info 是否已赋值
+                     * 
                      */
                     bool InfoHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,72 +51,84 @@ namespace TencentCloud
                     /**
                      * 获取左上顶点坐标
                      * @return LeftTop 左上顶点坐标
+                     * 
                      */
                     Coord GetLeftTop() const;
 
                     /**
                      * 设置左上顶点坐标
-                     * @param LeftTop 左上顶点坐标
+                     * @param _leftTop 左上顶点坐标
+                     * 
                      */
                     void SetLeftTop(const Coord& _leftTop);
 
                     /**
                      * 判断参数 LeftTop 是否已赋值
                      * @return LeftTop 是否已赋值
+                     * 
                      */
                     bool LeftTopHasBeenSet() const;
 
                     /**
                      * 获取右上顶点坐标
                      * @return RightTop 右上顶点坐标
+                     * 
                      */
                     Coord GetRightTop() const;
 
                     /**
                      * 设置右上顶点坐标
-                     * @param RightTop 右上顶点坐标
+                     * @param _rightTop 右上顶点坐标
+                     * 
                      */
                     void SetRightTop(const Coord& _rightTop);
 
                     /**
                      * 判断参数 RightTop 是否已赋值
                      * @return RightTop 是否已赋值
+                     * 
                      */
                     bool RightTopHasBeenSet() const;
 
                     /**
                      * 获取右下顶点坐标
                      * @return RightBottom 右下顶点坐标
+                     * 
                      */
                     Coord GetRightBottom() const;
 
                     /**
                      * 设置右下顶点坐标
-                     * @param RightBottom 右下顶点坐标
+                     * @param _rightBottom 右下顶点坐标
+                     * 
                      */
                     void SetRightBottom(const Coord& _rightBottom);
 
                     /**
                      * 判断参数 RightBottom 是否已赋值
                      * @return RightBottom 是否已赋值
+                     * 
                      */
                     bool RightBottomHasBeenSet() const;
 
                     /**
                      * 获取左下顶点坐标
                      * @return LeftBottom 左下顶点坐标
+                     * 
                      */
                     Coord GetLeftBottom() const;
 
                     /**
                      * 设置左下顶点坐标
-                     * @param LeftBottom 左下顶点坐标
+                     * @param _leftBottom 左下顶点坐标
+                     * 
                      */
                     void SetLeftBottom(const Coord& _leftBottom);
 
                     /**
                      * 判断参数 LeftBottom 是否已赋值
                      * @return LeftBottom 是否已赋值
+                     * 
                      */
                     bool LeftBottomHasBeenSet() const;
 

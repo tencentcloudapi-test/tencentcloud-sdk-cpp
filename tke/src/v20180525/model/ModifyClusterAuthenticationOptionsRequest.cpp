@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace std;
 
 ModifyClusterAuthenticationOptionsRequest::ModifyClusterAuthenticationOptionsRequest() :
     m_clusterIdHasBeenSet(false),
-    m_serviceAccountsHasBeenSet(false)
+    m_serviceAccountsHasBeenSet(false),
+    m_oIDCConfigHasBeenSet(false)
 {
 }
 
@@ -50,6 +51,15 @@ string ModifyClusterAuthenticationOptionsRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_serviceAccounts.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_oIDCConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OIDCConfig";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_oIDCConfig.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -90,6 +100,22 @@ void ModifyClusterAuthenticationOptionsRequest::SetServiceAccounts(const Service
 bool ModifyClusterAuthenticationOptionsRequest::ServiceAccountsHasBeenSet() const
 {
     return m_serviceAccountsHasBeenSet;
+}
+
+OIDCConfigAuthenticationOptions ModifyClusterAuthenticationOptionsRequest::GetOIDCConfig() const
+{
+    return m_oIDCConfig;
+}
+
+void ModifyClusterAuthenticationOptionsRequest::SetOIDCConfig(const OIDCConfigAuthenticationOptions& _oIDCConfig)
+{
+    m_oIDCConfig = _oIDCConfig;
+    m_oIDCConfigHasBeenSet = true;
+}
+
+bool ModifyClusterAuthenticationOptionsRequest::OIDCConfigHasBeenSet() const
+{
+    return m_oIDCConfigHasBeenSet;
 }
 
 

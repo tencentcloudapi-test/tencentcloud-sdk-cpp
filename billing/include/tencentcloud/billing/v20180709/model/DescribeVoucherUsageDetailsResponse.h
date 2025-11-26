@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,38 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取券总数
                      * @return TotalCount 券总数
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取总已用金额（微分）
                      * @return TotalUsedAmount 总已用金额（微分）
+                     * 
                      */
                     int64_t GetTotalUsedAmount() const;
 
                     /**
                      * 判断参数 TotalUsedAmount 是否已赋值
                      * @return TotalUsedAmount 是否已赋值
+                     * 
                      */
                     bool TotalUsedAmountHasBeenSet() const;
 
                     /**
                      * 获取代金券使用记录细节
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return UsageRecords 代金券使用记录细节
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<UsageRecords> GetUsageRecords() const;
 
                     /**
                      * 判断参数 UsageRecords 是否已赋值
                      * @return UsageRecords 是否已赋值
+                     * 
                      */
                     bool UsageRecordsHasBeenSet() const;
 
@@ -98,7 +102,6 @@ namespace TencentCloud
 
                     /**
                      * 代金券使用记录细节
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<UsageRecords> m_usageRecords;
                     bool m_usageRecordsHasBeenSet;

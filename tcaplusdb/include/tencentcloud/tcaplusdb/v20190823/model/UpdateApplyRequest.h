@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取申请单状态
                      * @return ApplyStatus 申请单状态
+                     * 
                      */
                     std::vector<ApplyStatus> GetApplyStatus() const;
 
                     /**
                      * 设置申请单状态
-                     * @param ApplyStatus 申请单状态
+                     * @param _applyStatus 申请单状态
+                     * 
                      */
                     void SetApplyStatus(const std::vector<ApplyStatus>& _applyStatus);
 
                     /**
                      * 判断参数 ApplyStatus 是否已赋值
                      * @return ApplyStatus 是否已赋值
+                     * 
                      */
                     bool ApplyStatusHasBeenSet() const;
 

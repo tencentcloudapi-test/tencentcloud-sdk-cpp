@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,12 @@ DescribeManagerDetailResponse::DescribeManagerDetailResponse() :
     m_managerDepartmentHasBeenSet(false),
     m_companyInfoHasBeenSet(false),
     m_companyIdHasBeenSet(false),
-    m_managerIdHasBeenSet(false)
+    m_managerIdHasBeenSet(false),
+    m_statusInfoHasBeenSet(false),
+    m_managerIdTypeHasBeenSet(false),
+    m_managerIdNumberHasBeenSet(false),
+    m_contactIdTypeHasBeenSet(false),
+    m_contactIdNumberHasBeenSet(false)
 {
 }
 
@@ -266,6 +271,66 @@ CoreInternalOutcome DescribeManagerDetailResponse::Deserialize(const string &pay
         m_managerIdHasBeenSet = true;
     }
 
+    if (rsp.HasMember("StatusInfo") && !rsp["StatusInfo"].IsNull())
+    {
+        if (!rsp["StatusInfo"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `StatusInfo` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["StatusInfo"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ManagerStatusInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_statusInfo.push_back(item);
+        }
+        m_statusInfoHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ManagerIdType") && !rsp["ManagerIdType"].IsNull())
+    {
+        if (!rsp["ManagerIdType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ManagerIdType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_managerIdType = string(rsp["ManagerIdType"].GetString());
+        m_managerIdTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ManagerIdNumber") && !rsp["ManagerIdNumber"].IsNull())
+    {
+        if (!rsp["ManagerIdNumber"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ManagerIdNumber` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_managerIdNumber = string(rsp["ManagerIdNumber"].GetString());
+        m_managerIdNumberHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ContactIdType") && !rsp["ContactIdType"].IsNull())
+    {
+        if (!rsp["ContactIdType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContactIdType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_contactIdType = string(rsp["ContactIdType"].GetString());
+        m_contactIdTypeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ContactIdNumber") && !rsp["ContactIdNumber"].IsNull())
+    {
+        if (!rsp["ContactIdNumber"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ContactIdNumber` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_contactIdNumber = string(rsp["ContactIdNumber"].GetString());
+        m_contactIdNumberHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -421,11 +486,58 @@ string DescribeManagerDetailResponse::ToJsonString() const
         value.AddMember(iKey, m_managerId, allocator);
     }
 
+    if (m_statusInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StatusInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_statusInfo.begin(); itr != m_statusInfo.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_managerIdTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ManagerIdType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_managerIdType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_managerIdNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ManagerIdNumber";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_managerIdNumber.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_contactIdTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContactIdType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_contactIdType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_contactIdNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ContactIdNumber";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_contactIdNumber.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -611,6 +723,56 @@ int64_t DescribeManagerDetailResponse::GetManagerId() const
 bool DescribeManagerDetailResponse::ManagerIdHasBeenSet() const
 {
     return m_managerIdHasBeenSet;
+}
+
+vector<ManagerStatusInfo> DescribeManagerDetailResponse::GetStatusInfo() const
+{
+    return m_statusInfo;
+}
+
+bool DescribeManagerDetailResponse::StatusInfoHasBeenSet() const
+{
+    return m_statusInfoHasBeenSet;
+}
+
+string DescribeManagerDetailResponse::GetManagerIdType() const
+{
+    return m_managerIdType;
+}
+
+bool DescribeManagerDetailResponse::ManagerIdTypeHasBeenSet() const
+{
+    return m_managerIdTypeHasBeenSet;
+}
+
+string DescribeManagerDetailResponse::GetManagerIdNumber() const
+{
+    return m_managerIdNumber;
+}
+
+bool DescribeManagerDetailResponse::ManagerIdNumberHasBeenSet() const
+{
+    return m_managerIdNumberHasBeenSet;
+}
+
+string DescribeManagerDetailResponse::GetContactIdType() const
+{
+    return m_contactIdType;
+}
+
+bool DescribeManagerDetailResponse::ContactIdTypeHasBeenSet() const
+{
+    return m_contactIdTypeHasBeenSet;
+}
+
+string DescribeManagerDetailResponse::GetContactIdNumber() const
+{
+    return m_contactIdNumber;
+}
+
+bool DescribeManagerDetailResponse::ContactIdNumberHasBeenSet() const
+{
+    return m_contactIdNumberHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取全球地域分布数据
                      * @return NationCount 全球地域分布数据
+                     * 
                      */
                     std::vector<KeyValueRecord> GetNationCount() const;
 
                     /**
                      * 判断参数 NationCount 是否已赋值
                      * @return NationCount 是否已赋值
+                     * 
                      */
                     bool NationCountHasBeenSet() const;
 
                     /**
                      * 获取国内省份地域分布数据
                      * @return ProvinceCount 国内省份地域分布数据
+                     * 
                      */
                     std::vector<KeyValueRecord> GetProvinceCount() const;
 
                     /**
                      * 判断参数 ProvinceCount 是否已赋值
                      * @return ProvinceCount 是否已赋值
+                     * 
                      */
                     bool ProvinceCountHasBeenSet() const;
 

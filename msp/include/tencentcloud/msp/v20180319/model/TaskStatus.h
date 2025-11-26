@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取迁移状态
                      * @return Status 迁移状态
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置迁移状态
-                     * @param Status 迁移状态
+                     * @param _status 迁移状态
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取迁移进度
                      * @return Progress 迁移进度
+                     * 
                      */
                     std::string GetProgress() const;
 
                     /**
                      * 设置迁移进度
-                     * @param Progress 迁移进度
+                     * @param _progress 迁移进度
+                     * 
                      */
                     void SetProgress(const std::string& _progress);
 
                     /**
                      * 判断参数 Progress 是否已赋值
                      * @return Progress 是否已赋值
+                     * 
                      */
                     bool ProgressHasBeenSet() const;
 
                     /**
                      * 获取迁移日期
                      * @return UpdateTime 迁移日期
+                     * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
                      * 设置迁移日期
-                     * @param UpdateTime 迁移日期
+                     * @param _updateTime 迁移日期
+                     * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
 
                     /**
                      * 判断参数 UpdateTime 是否已赋值
                      * @return UpdateTime 是否已赋值
+                     * 
                      */
                     bool UpdateTimeHasBeenSet() const;
 

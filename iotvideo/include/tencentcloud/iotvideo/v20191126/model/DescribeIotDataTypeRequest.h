@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取自定义数据类型的标识符，为空则返回全量自定义类型的列表
                      * @return TypeId 自定义数据类型的标识符，为空则返回全量自定义类型的列表
+                     * 
                      */
                     std::string GetTypeId() const;
 
                     /**
                      * 设置自定义数据类型的标识符，为空则返回全量自定义类型的列表
-                     * @param TypeId 自定义数据类型的标识符，为空则返回全量自定义类型的列表
+                     * @param _typeId 自定义数据类型的标识符，为空则返回全量自定义类型的列表
+                     * 
                      */
                     void SetTypeId(const std::string& _typeId);
 
                     /**
                      * 判断参数 TypeId 是否已赋值
                      * @return TypeId 是否已赋值
+                     * 
                      */
                     bool TypeIdHasBeenSet() const;
 

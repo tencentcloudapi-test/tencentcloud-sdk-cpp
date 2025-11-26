@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,11 +96,11 @@ CoreInternalOutcome DescribeDBSecurityGroupsResponse::Deserialize(const string &
 
     if (rsp.HasMember("VPort") && !rsp["VPort"].IsNull())
     {
-        if (!rsp["VPort"].IsInt64())
+        if (!rsp["VPort"].IsString())
         {
-            return CoreInternalOutcome(Core::Error("response `VPort` IsInt64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `VPort` IsString=false incorrectly").SetRequestId(requestId));
         }
-        m_vPort = rsp["VPort"].GetInt64();
+        m_vPort = string(rsp["VPort"].GetString());
         m_vPortHasBeenSet = true;
     }
 
@@ -142,14 +142,14 @@ string DescribeDBSecurityGroupsResponse::ToJsonString() const
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "VPort";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_vPort, allocator);
+        value.AddMember(iKey, rapidjson::Value(m_vPort.c_str(), allocator).Move(), allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -177,7 +177,7 @@ bool DescribeDBSecurityGroupsResponse::VIPHasBeenSet() const
     return m_vIPHasBeenSet;
 }
 
-int64_t DescribeDBSecurityGroupsResponse::GetVPort() const
+string DescribeDBSecurityGroupsResponse::GetVPort() const
 {
     return m_vPort;
 }

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,32 +21,42 @@ set(sts_public_header
 set(sts_public_header_model
   include/tencentcloud/sts/v20180813/model/AssumeRoleWithSAMLResponse.h
   include/tencentcloud/sts/v20180813/model/ApiKey.h
-  include/tencentcloud/sts/v20180813/model/AssumeRoleWithSAMLRequest.h
+  include/tencentcloud/sts/v20180813/model/AssumeRoleWithWebIdentityRequest.h
+  include/tencentcloud/sts/v20180813/model/AssumeRoleWithWebIdentityResponse.h
   include/tencentcloud/sts/v20180813/model/GetFederationTokenResponse.h
   include/tencentcloud/sts/v20180813/model/QueryApiKeyResponse.h
   include/tencentcloud/sts/v20180813/model/AssumeRoleResponse.h
-  include/tencentcloud/sts/v20180813/model/QueryApiKeyRequest.h
+  include/tencentcloud/sts/v20180813/model/GetSessionTokenResponse.h
   include/tencentcloud/sts/v20180813/model/GetFederationTokenRequest.h
+  include/tencentcloud/sts/v20180813/model/Tag.h
   include/tencentcloud/sts/v20180813/model/GetCallerIdentityResponse.h
+  include/tencentcloud/sts/v20180813/model/QueryApiKeyRequest.h
+  include/tencentcloud/sts/v20180813/model/GetSessionTokenRequest.h
   include/tencentcloud/sts/v20180813/model/Credentials.h
   include/tencentcloud/sts/v20180813/model/AssumeRoleRequest.h
   include/tencentcloud/sts/v20180813/model/GetCallerIdentityRequest.h
+  include/tencentcloud/sts/v20180813/model/AssumeRoleWithSAMLRequest.h
   )
 
 set(sts_src
   src/v20180813/StsClient.cpp
   src/v20180813/model/AssumeRoleWithSAMLResponse.cpp
   src/v20180813/model/ApiKey.cpp
-  src/v20180813/model/AssumeRoleWithSAMLRequest.cpp
+  src/v20180813/model/AssumeRoleWithWebIdentityRequest.cpp
+  src/v20180813/model/AssumeRoleWithWebIdentityResponse.cpp
   src/v20180813/model/GetFederationTokenResponse.cpp
   src/v20180813/model/QueryApiKeyResponse.cpp
   src/v20180813/model/AssumeRoleResponse.cpp
-  src/v20180813/model/QueryApiKeyRequest.cpp
+  src/v20180813/model/GetSessionTokenResponse.cpp
   src/v20180813/model/GetFederationTokenRequest.cpp
+  src/v20180813/model/Tag.cpp
   src/v20180813/model/GetCallerIdentityResponse.cpp
+  src/v20180813/model/QueryApiKeyRequest.cpp
+  src/v20180813/model/GetSessionTokenRequest.cpp
   src/v20180813/model/Credentials.cpp
   src/v20180813/model/AssumeRoleRequest.cpp
   src/v20180813/model/GetCallerIdentityRequest.cpp
+  src/v20180813/model/AssumeRoleWithSAMLRequest.cpp
   )
 
 set(sts_include

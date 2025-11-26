@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取三元组查询条件
                      * @return TripleCondition 三元组查询条件
+                     * 
                      */
                     std::string GetTripleCondition() const;
 
                     /**
                      * 设置三元组查询条件
-                     * @param TripleCondition 三元组查询条件
+                     * @param _tripleCondition 三元组查询条件
+                     * 
                      */
                     void SetTripleCondition(const std::string& _tripleCondition);
 
                     /**
                      * 判断参数 TripleCondition 是否已赋值
                      * @return TripleCondition 是否已赋值
+                     * 
                      */
                     bool TripleConditionHasBeenSet() const;
 

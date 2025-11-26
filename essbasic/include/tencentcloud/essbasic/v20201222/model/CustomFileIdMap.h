@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取用户自定义ID
                      * @return CustomId 用户自定义ID
+                     * 
                      */
                     std::string GetCustomId() const;
 
                     /**
                      * 设置用户自定义ID
-                     * @param CustomId 用户自定义ID
+                     * @param _customId 用户自定义ID
+                     * 
                      */
                     void SetCustomId(const std::string& _customId);
 
                     /**
                      * 判断参数 CustomId 是否已赋值
                      * @return CustomId 是否已赋值
+                     * 
                      */
                     bool CustomIdHasBeenSet() const;
 
                     /**
                      * 获取文件id
                      * @return FileId 文件id
+                     * 
                      */
                     std::string GetFileId() const;
 
                     /**
                      * 设置文件id
-                     * @param FileId 文件id
+                     * @param _fileId 文件id
+                     * 
                      */
                     void SetFileId(const std::string& _fileId);
 
                     /**
                      * 判断参数 FileId 是否已赋值
                      * @return FileId 是否已赋值
+                     * 
                      */
                     bool FileIdHasBeenSet() const;
 

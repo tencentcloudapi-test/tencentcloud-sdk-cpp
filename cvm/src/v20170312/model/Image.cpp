@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,12 @@ Image::Image() :
     m_imageSourceHasBeenSet(false),
     m_syncPercentHasBeenSet(false),
     m_isSupportCloudinitHasBeenSet(false),
-    m_snapshotSetHasBeenSet(false)
+    m_snapshotSetHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_licenseTypeHasBeenSet(false),
+    m_imageFamilyHasBeenSet(false),
+    m_imageDeprecatedHasBeenSet(false),
+    m_cdcCacheStatusHasBeenSet(false)
 {
 }
 
@@ -204,6 +209,66 @@ CoreInternalOutcome Image::Deserialize(const rapidjson::Value &value)
         m_snapshotSetHasBeenSet = true;
     }
 
+    if (value.HasMember("Tags") && !value["Tags"].IsNull())
+    {
+        if (!value["Tags"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Image.Tags` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Tags"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tags.push_back(item);
+        }
+        m_tagsHasBeenSet = true;
+    }
+
+    if (value.HasMember("LicenseType") && !value["LicenseType"].IsNull())
+    {
+        if (!value["LicenseType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Image.LicenseType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_licenseType = string(value["LicenseType"].GetString());
+        m_licenseTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ImageFamily") && !value["ImageFamily"].IsNull())
+    {
+        if (!value["ImageFamily"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Image.ImageFamily` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_imageFamily = string(value["ImageFamily"].GetString());
+        m_imageFamilyHasBeenSet = true;
+    }
+
+    if (value.HasMember("ImageDeprecated") && !value["ImageDeprecated"].IsNull())
+    {
+        if (!value["ImageDeprecated"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Image.ImageDeprecated` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_imageDeprecated = value["ImageDeprecated"].GetBool();
+        m_imageDeprecatedHasBeenSet = true;
+    }
+
+    if (value.HasMember("CdcCacheStatus") && !value["CdcCacheStatus"].IsNull())
+    {
+        if (!value["CdcCacheStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Image.CdcCacheStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cdcCacheStatus = string(value["CdcCacheStatus"].GetString());
+        m_cdcCacheStatusHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -336,6 +401,53 @@ void Image::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocator
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_licenseTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LicenseType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_licenseType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_imageFamilyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageFamily";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_imageFamily.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_imageDeprecatedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageDeprecated";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_imageDeprecated, allocator);
+    }
+
+    if (m_cdcCacheStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CdcCacheStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cdcCacheStatus.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -579,5 +691,85 @@ void Image::SetSnapshotSet(const vector<Snapshot>& _snapshotSet)
 bool Image::SnapshotSetHasBeenSet() const
 {
     return m_snapshotSetHasBeenSet;
+}
+
+vector<Tag> Image::GetTags() const
+{
+    return m_tags;
+}
+
+void Image::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool Image::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+string Image::GetLicenseType() const
+{
+    return m_licenseType;
+}
+
+void Image::SetLicenseType(const string& _licenseType)
+{
+    m_licenseType = _licenseType;
+    m_licenseTypeHasBeenSet = true;
+}
+
+bool Image::LicenseTypeHasBeenSet() const
+{
+    return m_licenseTypeHasBeenSet;
+}
+
+string Image::GetImageFamily() const
+{
+    return m_imageFamily;
+}
+
+void Image::SetImageFamily(const string& _imageFamily)
+{
+    m_imageFamily = _imageFamily;
+    m_imageFamilyHasBeenSet = true;
+}
+
+bool Image::ImageFamilyHasBeenSet() const
+{
+    return m_imageFamilyHasBeenSet;
+}
+
+bool Image::GetImageDeprecated() const
+{
+    return m_imageDeprecated;
+}
+
+void Image::SetImageDeprecated(const bool& _imageDeprecated)
+{
+    m_imageDeprecated = _imageDeprecated;
+    m_imageDeprecatedHasBeenSet = true;
+}
+
+bool Image::ImageDeprecatedHasBeenSet() const
+{
+    return m_imageDeprecatedHasBeenSet;
+}
+
+string Image::GetCdcCacheStatus() const
+{
+    return m_cdcCacheStatus;
+}
+
+void Image::SetCdcCacheStatus(const string& _cdcCacheStatus)
+{
+    m_cdcCacheStatus = _cdcCacheStatus;
+    m_cdcCacheStatusHasBeenSet = true;
+}
+
+bool Image::CdcCacheStatusHasBeenSet() const
+{
+    return m_cdcCacheStatusHasBeenSet;
 }
 

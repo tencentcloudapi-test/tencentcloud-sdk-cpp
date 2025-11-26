@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,26 +37,34 @@
 #include <tencentcloud/tiia/v20190529/model/DescribeGroupsResponse.h>
 #include <tencentcloud/tiia/v20190529/model/DescribeImagesRequest.h>
 #include <tencentcloud/tiia/v20190529/model/DescribeImagesResponse.h>
-#include <tencentcloud/tiia/v20190529/model/DetectCelebrityRequest.h>
-#include <tencentcloud/tiia/v20190529/model/DetectCelebrityResponse.h>
+#include <tencentcloud/tiia/v20190529/model/DetectChefDressRequest.h>
+#include <tencentcloud/tiia/v20190529/model/DetectChefDressResponse.h>
 #include <tencentcloud/tiia/v20190529/model/DetectDisgustRequest.h>
 #include <tencentcloud/tiia/v20190529/model/DetectDisgustResponse.h>
+#include <tencentcloud/tiia/v20190529/model/DetectEnvelopeRequest.h>
+#include <tencentcloud/tiia/v20190529/model/DetectEnvelopeResponse.h>
 #include <tencentcloud/tiia/v20190529/model/DetectLabelRequest.h>
 #include <tencentcloud/tiia/v20190529/model/DetectLabelResponse.h>
-#include <tencentcloud/tiia/v20190529/model/DetectLabelBetaRequest.h>
-#include <tencentcloud/tiia/v20190529/model/DetectLabelBetaResponse.h>
+#include <tencentcloud/tiia/v20190529/model/DetectLabelProRequest.h>
+#include <tencentcloud/tiia/v20190529/model/DetectLabelProResponse.h>
 #include <tencentcloud/tiia/v20190529/model/DetectMisbehaviorRequest.h>
 #include <tencentcloud/tiia/v20190529/model/DetectMisbehaviorResponse.h>
+#include <tencentcloud/tiia/v20190529/model/DetectPetRequest.h>
+#include <tencentcloud/tiia/v20190529/model/DetectPetResponse.h>
 #include <tencentcloud/tiia/v20190529/model/DetectProductRequest.h>
 #include <tencentcloud/tiia/v20190529/model/DetectProductResponse.h>
-#include <tencentcloud/tiia/v20190529/model/DetectProductBetaRequest.h>
-#include <tencentcloud/tiia/v20190529/model/DetectProductBetaResponse.h>
+#include <tencentcloud/tiia/v20190529/model/DetectSecurityRequest.h>
+#include <tencentcloud/tiia/v20190529/model/DetectSecurityResponse.h>
 #include <tencentcloud/tiia/v20190529/model/EnhanceImageRequest.h>
 #include <tencentcloud/tiia/v20190529/model/EnhanceImageResponse.h>
 #include <tencentcloud/tiia/v20190529/model/RecognizeCarRequest.h>
 #include <tencentcloud/tiia/v20190529/model/RecognizeCarResponse.h>
+#include <tencentcloud/tiia/v20190529/model/RecognizeCarProRequest.h>
+#include <tencentcloud/tiia/v20190529/model/RecognizeCarProResponse.h>
 #include <tencentcloud/tiia/v20190529/model/SearchImageRequest.h>
 #include <tencentcloud/tiia/v20190529/model/SearchImageResponse.h>
+#include <tencentcloud/tiia/v20190529/model/UpdateImageRequest.h>
+#include <tencentcloud/tiia/v20190529/model/UpdateImageResponse.h>
 
 
 namespace TencentCloud
@@ -92,42 +100,56 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeImagesResponse> DescribeImagesOutcome;
                 typedef std::future<DescribeImagesOutcome> DescribeImagesOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::DescribeImagesRequest&, DescribeImagesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImagesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DetectCelebrityResponse> DetectCelebrityOutcome;
-                typedef std::future<DetectCelebrityOutcome> DetectCelebrityOutcomeCallable;
-                typedef std::function<void(const TiiaClient*, const Model::DetectCelebrityRequest&, DetectCelebrityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectCelebrityAsyncHandler;
+                typedef Outcome<Core::Error, Model::DetectChefDressResponse> DetectChefDressOutcome;
+                typedef std::future<DetectChefDressOutcome> DetectChefDressOutcomeCallable;
+                typedef std::function<void(const TiiaClient*, const Model::DetectChefDressRequest&, DetectChefDressOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectChefDressAsyncHandler;
                 typedef Outcome<Core::Error, Model::DetectDisgustResponse> DetectDisgustOutcome;
                 typedef std::future<DetectDisgustOutcome> DetectDisgustOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::DetectDisgustRequest&, DetectDisgustOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectDisgustAsyncHandler;
+                typedef Outcome<Core::Error, Model::DetectEnvelopeResponse> DetectEnvelopeOutcome;
+                typedef std::future<DetectEnvelopeOutcome> DetectEnvelopeOutcomeCallable;
+                typedef std::function<void(const TiiaClient*, const Model::DetectEnvelopeRequest&, DetectEnvelopeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectEnvelopeAsyncHandler;
                 typedef Outcome<Core::Error, Model::DetectLabelResponse> DetectLabelOutcome;
                 typedef std::future<DetectLabelOutcome> DetectLabelOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::DetectLabelRequest&, DetectLabelOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectLabelAsyncHandler;
-                typedef Outcome<Core::Error, Model::DetectLabelBetaResponse> DetectLabelBetaOutcome;
-                typedef std::future<DetectLabelBetaOutcome> DetectLabelBetaOutcomeCallable;
-                typedef std::function<void(const TiiaClient*, const Model::DetectLabelBetaRequest&, DetectLabelBetaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectLabelBetaAsyncHandler;
+                typedef Outcome<Core::Error, Model::DetectLabelProResponse> DetectLabelProOutcome;
+                typedef std::future<DetectLabelProOutcome> DetectLabelProOutcomeCallable;
+                typedef std::function<void(const TiiaClient*, const Model::DetectLabelProRequest&, DetectLabelProOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectLabelProAsyncHandler;
                 typedef Outcome<Core::Error, Model::DetectMisbehaviorResponse> DetectMisbehaviorOutcome;
                 typedef std::future<DetectMisbehaviorOutcome> DetectMisbehaviorOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::DetectMisbehaviorRequest&, DetectMisbehaviorOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectMisbehaviorAsyncHandler;
+                typedef Outcome<Core::Error, Model::DetectPetResponse> DetectPetOutcome;
+                typedef std::future<DetectPetOutcome> DetectPetOutcomeCallable;
+                typedef std::function<void(const TiiaClient*, const Model::DetectPetRequest&, DetectPetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectPetAsyncHandler;
                 typedef Outcome<Core::Error, Model::DetectProductResponse> DetectProductOutcome;
                 typedef std::future<DetectProductOutcome> DetectProductOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::DetectProductRequest&, DetectProductOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectProductAsyncHandler;
-                typedef Outcome<Core::Error, Model::DetectProductBetaResponse> DetectProductBetaOutcome;
-                typedef std::future<DetectProductBetaOutcome> DetectProductBetaOutcomeCallable;
-                typedef std::function<void(const TiiaClient*, const Model::DetectProductBetaRequest&, DetectProductBetaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectProductBetaAsyncHandler;
+                typedef Outcome<Core::Error, Model::DetectSecurityResponse> DetectSecurityOutcome;
+                typedef std::future<DetectSecurityOutcome> DetectSecurityOutcomeCallable;
+                typedef std::function<void(const TiiaClient*, const Model::DetectSecurityRequest&, DetectSecurityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetectSecurityAsyncHandler;
                 typedef Outcome<Core::Error, Model::EnhanceImageResponse> EnhanceImageOutcome;
                 typedef std::future<EnhanceImageOutcome> EnhanceImageOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::EnhanceImageRequest&, EnhanceImageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnhanceImageAsyncHandler;
                 typedef Outcome<Core::Error, Model::RecognizeCarResponse> RecognizeCarOutcome;
                 typedef std::future<RecognizeCarOutcome> RecognizeCarOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::RecognizeCarRequest&, RecognizeCarOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RecognizeCarAsyncHandler;
+                typedef Outcome<Core::Error, Model::RecognizeCarProResponse> RecognizeCarProOutcome;
+                typedef std::future<RecognizeCarProOutcome> RecognizeCarProOutcomeCallable;
+                typedef std::function<void(const TiiaClient*, const Model::RecognizeCarProRequest&, RecognizeCarProOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RecognizeCarProAsyncHandler;
                 typedef Outcome<Core::Error, Model::SearchImageResponse> SearchImageOutcome;
                 typedef std::future<SearchImageOutcome> SearchImageOutcomeCallable;
                 typedef std::function<void(const TiiaClient*, const Model::SearchImageRequest&, SearchImageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SearchImageAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateImageResponse> UpdateImageOutcome;
+                typedef std::future<UpdateImageOutcome> UpdateImageOutcomeCallable;
+                typedef std::function<void(const TiiaClient*, const Model::UpdateImageRequest&, UpdateImageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateImageAsyncHandler;
 
 
 
                 /**
                  *评估输入图片在视觉上的质量，从多个方面评估，并同时给出综合的、客观的清晰度评分，和主观的美观度评分。
->     
+
+>   
+- 可前往 [图像处理](https://cloud.tencent.com/document/product/1590) 产品文档中查看更多产品信息。
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
                  * @param req AssessQualityRequest
                  * @return AssessQualityOutcome
@@ -137,8 +159,38 @@ namespace TencentCloud
                 AssessQualityOutcomeCallable AssessQualityCallable(const Model::AssessQualityRequest& request);
 
                 /**
-                 *用于创建一个空的图片库，如果图片库已存在则返回错误。
+                 *本接口用于创建一个空的图片库，图片库主要用于存储在创建图片时提取的图片特征数据，如果图片库已存在则返回错误。不同的图片库类型对应不同的图像搜索服务类型，根据输入参数GroupType区分。
 
+<table>
+    <th>服务类型</th><th>GroupType</th><th>功能描述</th>
+    <tr>
+        <td>通用图像搜索</td>
+        <td>4</td>
+        <td>通用图像搜索1.0版。<br>在自建图片库中搜索相同原图或相似图片集，并给出相似度打分，可支持裁剪、翻转、调色、加水印等二次编辑后的图片搜索。适用于图片版权保护、原图查询等场景。</td>
+    </tr>
+    <tr>
+        <td rowspan="3">商品图像搜索</td>
+        <td>8</td>
+         <td>商品图像搜索3.0升级版（推荐）。<br>
+        在自建图库中搜索同款或相似商品，并给出相似度打分。对于服饰类商品可支持识别服饰类别、属性等信息。适用于商品分类、检索、推荐等电商场景。</td>
+    </tr>   
+ <tr>
+        <td>7</td>
+        <td>商品图像搜索2.0版。<br>
+         功能和3.0升级版类似。</td>
+    </tr>
+     <tr>
+        <td>5</td>
+        <td>商品图像搜索1.0版。<br>
+        功能和3.0升级版类似。</td>
+    </tr>
+    <tr>
+    <td>图案花纹搜索</td><td>6</td><td>图案花纹搜索1.0版。<br>
+    在自建图库中搜索相似的图案、logo、纹理等图像元素或主体，并给出相似度打分。</td>
+    </tr>
+</table>
+
+- 可前往 [图像搜索](https://cloud.tencent.com/document/product/1589) 产品文档中查看更多产品信息。
                  * @param req CreateGroupRequest
                  * @return CreateGroupOutcome
                  */
@@ -147,7 +199,10 @@ namespace TencentCloud
                 CreateGroupOutcomeCallable CreateGroupCallable(const Model::CreateGroupRequest& request);
 
                 /**
-                 *创建图片，并添加对应图片的自定义信息。
+                 *创建图片，并添加对应图片的自定义信息。模型将在创建图片时自动提取图像特征并存储到指定的图片库中，每创建一张图片会对应提取和存储一条图片特征数据。
+
+>   
+- 可前往 [图像搜索](https://cloud.tencent.com/document/product/1589) 产品文档中查看更多产品信息。
                  * @param req CreateImageRequest
                  * @return CreateImageOutcome
                  */
@@ -156,10 +211,10 @@ namespace TencentCloud
                 CreateImageOutcomeCallable CreateImageCallable(const Model::CreateImageRequest& request);
 
                 /**
-                 *根据输入的裁剪比例，智能判断一张图片的最佳裁剪区域，确保原图的主体区域不受影响。
+                 *根据输入的裁剪比例，智能判断一张图片的最佳裁剪区域，确保原图的主体区域不受影响，以适应不同平台、设备的展示要求，避免简单拉伸带来的变形。
 
-可以自动裁剪图片，适应不同平台、设备的展示要求，避免简单拉伸带来的变形。
->     
+>   
+- 可前往 [图像处理](https://cloud.tencent.com/document/product/1590) 产品文档中查看更多产品信息。
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
                  * @param req CropImageRequest
                  * @return CropImageOutcome
@@ -170,6 +225,9 @@ namespace TencentCloud
 
                 /**
                  *删除图片。
+
+>   
+- 可前往 [图像搜索](https://cloud.tencent.com/document/product/1589) 产品文档中查看更多产品信息。
                  * @param req DeleteImagesRequest
                  * @return DeleteImagesOutcome
                  */
@@ -179,6 +237,9 @@ namespace TencentCloud
 
                 /**
                  *查询所有的图库信息。
+
+>   
+- 可前往 [图像搜索](https://cloud.tencent.com/document/product/1589) 产品文档中查看更多产品信息。
                  * @param req DescribeGroupsRequest
                  * @return DescribeGroupsOutcome
                  */
@@ -188,6 +249,9 @@ namespace TencentCloud
 
                 /**
                  *获取指定图片库中的图片列表。
+
+>   
+- 可前往 [图像搜索](https://cloud.tencent.com/document/product/1589) 产品文档中查看更多产品信息。
                  * @param req DescribeImagesRequest
                  * @return DescribeImagesOutcome
                  */
@@ -196,17 +260,24 @@ namespace TencentCloud
                 DescribeImagesOutcomeCallable DescribeImagesCallable(const Model::DescribeImagesRequest& request);
 
                 /**
-                 *传入一张图片，可以识别图片中包含的人物是否为公众人物，如果是，输出人物的姓名、基本信息、脸部坐标。
+                 *可对图片中厨师穿戴进行识别，支持厨师服识别，厨师帽识别，赤膊识别和口罩识别,可应用于明厨亮灶场景。
+"被优选过滤"标签值在人体优选开关开启时才会返回。
+厨师服：厨师服定义为白色上衣
+厨师服识别(酒店版)：厨师服定义为红色，白色，黑色上衣
 
-支持识别一张图片中存在的多个人脸，针对每个人脸，会给出与之最相似的公众人物。
->     
-- 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
-                 * @param req DetectCelebrityRequest
-                 * @return DetectCelebrityOutcome
+|序号 | 标签名称 | 标签值 |
+| :-----|  :----------   |:-----------------  |
+| 1 | 厨师服识别<div style="width: 70pt"/> |无厨师服、有厨师服、被优选过滤|
+| 2 | 厨师服识别（酒店版）<div style="width: 70pt"/> |无厨师服、有厨师服、被优选过滤|
+| 3 | 厨师帽识别<div style="width: 70pt"/> |无厨师帽、有厨师帽、被优选过滤	|
+| 4 | 赤膊识别<div style="width: 70pt"/> |非赤膊、赤膊、被优选过滤|
+| 5 | 口罩识别<div style="width: 70pt"/> |无口罩、有口罩、口罩不确定、被优选过滤	|
+                 * @param req DetectChefDressRequest
+                 * @return DetectChefDressOutcome
                  */
-                DetectCelebrityOutcome DetectCelebrity(const Model::DetectCelebrityRequest &request);
-                void DetectCelebrityAsync(const Model::DetectCelebrityRequest& request, const DetectCelebrityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DetectCelebrityOutcomeCallable DetectCelebrityCallable(const Model::DetectCelebrityRequest& request);
+                DetectChefDressOutcome DetectChefDress(const Model::DetectChefDressRequest &request);
+                void DetectChefDressAsync(const Model::DetectChefDressRequest& request, const DetectChefDressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DetectChefDressOutcomeCallable DetectChefDressCallable(const Model::DetectChefDressRequest& request);
 
                 /**
                  *输入一张图片，返回AI针对一张图片是否是恶心的一系列判断值。
@@ -222,9 +293,21 @@ namespace TencentCloud
                 DetectDisgustOutcomeCallable DetectDisgustCallable(const Model::DetectDisgustRequest& request);
 
                 /**
-                 *图像标签利用深度学习技术、海量训练数据，可以对图片进行智能分类、物体识别等。
+                 *文件封识别可检测图片中是否包含符合文件封（即文件、单据、资料等的袋状包装）特征的物品，覆盖顺丰快递文件封、文件袋、档案袋等多种文件封类型，可应用于物流行业对文件快递的包装审核等场景。
 
-目前支持8个大类、六十多个子类、数千个标签。涵盖各种日常场景、动植物、物品、美食、卡证等。具体分类请见[图像分析常见问题功能与限制相关](https://cloud.tencent.com/document/product/865/39164)。
+>?   
+- 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
+                 * @param req DetectEnvelopeRequest
+                 * @return DetectEnvelopeOutcome
+                 */
+                DetectEnvelopeOutcome DetectEnvelope(const Model::DetectEnvelopeRequest &request);
+                void DetectEnvelopeAsync(const Model::DetectEnvelopeRequest& request, const DetectEnvelopeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DetectEnvelopeOutcomeCallable DetectEnvelopeCallable(const Model::DetectEnvelopeRequest& request);
+
+                /**
+                 *图像标签利用深度学习技术，可以对图片进行智能分类、物体识别等。
+
+目前支持八个大类、六十多个子类、数千个标签，涵盖各种日常场景、动植物、物品、美食等。
 
 图像标签提供四个版本供选择：
 
@@ -236,12 +319,14 @@ namespace TencentCloud
 
 • 新闻版：针对新闻、资讯、广电等行业进行优化，增加定制识别，支持万级图像标签。
 
-每个产品的图像类型都有独特性，建议在接入初期，对四个版本进行对比评估后选择合适的版本使用。
+为了方便使用、减少图片传输次数，图像标签将不同版本包装成多合一接口，实际上是多个服务，分别计费。建议在接入初期，对四个版本进行对比评估后选择合适的版本使用。
 
-为了方便使用、减少图片传输次数，图像标签包装成多合一接口，实际上是多个服务。
+>?
+- 图像标签已升级服务，建议使用新版接口[通用图像标签](https://cloud.tencent.com/document/product/865/75196)。
+- 图像标签摄像头版、相册版、网络版、新闻版分别按照各自的实际使用次数进行收费，例如一张图片同时使用相册版、摄像头版，则按照两次调用计费。建议测试对比后从中选择一个最合适的版本使用即可。
 
-图像标签按照服务的实际使用数量进行收费。例如一张图片同时调用相册版、摄像头版两个服务，那么此次调用按照两次计费。
->     
+>   
+- 可前往 [图像标签](https://cloud.tencent.com/document/product/1588) 产品文档中查看更多产品信息。
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
                  * @param req DetectLabelRequest
                  * @return DetectLabelOutcome
@@ -251,16 +336,17 @@ namespace TencentCloud
                 DetectLabelOutcomeCallable DetectLabelCallable(const Model::DetectLabelRequest& request);
 
                 /**
-                 *图像标签测试接口
+                 *通用图像标签可识别数千种常见物体或场景，覆盖日常物品、场景、动物、植物、食物、饮品、交通工具等多个大类，返回主体的标签名称和所属细分类目等。
 
->     
+>   
+- 可前往 [图像标签](https://cloud.tencent.com/document/product/1588) 产品文档中查看更多产品信息。
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
-                 * @param req DetectLabelBetaRequest
-                 * @return DetectLabelBetaOutcome
+                 * @param req DetectLabelProRequest
+                 * @return DetectLabelProOutcome
                  */
-                DetectLabelBetaOutcome DetectLabelBeta(const Model::DetectLabelBetaRequest &request);
-                void DetectLabelBetaAsync(const Model::DetectLabelBetaRequest& request, const DetectLabelBetaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DetectLabelBetaOutcomeCallable DetectLabelBetaCallable(const Model::DetectLabelBetaRequest& request);
+                DetectLabelProOutcome DetectLabelPro(const Model::DetectLabelProRequest &request);
+                void DetectLabelProAsync(const Model::DetectLabelProRequest& request, const DetectLabelProAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DetectLabelProOutcomeCallable DetectLabelProCallable(const Model::DetectLabelProRequest& request);
 
                 /**
                  *可以识别输入的图片中是否包含不良行为，例如打架斗殴、赌博、抽烟等，可以应用于广告图、直播截图、短视频截图等审核，减少不良行为对平台内容质量的影响，维护健康向上的互联网环境。
@@ -274,8 +360,19 @@ namespace TencentCloud
                 DetectMisbehaviorOutcomeCallable DetectMisbehaviorCallable(const Model::DetectMisbehaviorRequest& request);
 
                 /**
-                 *本接口支持识别图片中包含的商品，能够输出商品的品类名称、类别，还可以输出商品在图片中的位置。支持一张图片多个商品的识别。
+                 *传入一张图片，识别出图片中是否存在宠物
 >     
+- 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
+                 * @param req DetectPetRequest
+                 * @return DetectPetOutcome
+                 */
+                DetectPetOutcome DetectPet(const Model::DetectPetRequest &request);
+                void DetectPetAsync(const Model::DetectPetRequest& request, const DetectPetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DetectPetOutcomeCallable DetectPetCallable(const Model::DetectPetRequest& request);
+
+                /**
+                 *本接口支持识别图片中包含的商品，能够输出商品的品类名称、类别，还可以输出商品在图片中的位置。支持一张图片多个商品的识别。
+>?    
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
                  * @param req DetectProductRequest
                  * @return DetectProductOutcome
@@ -285,23 +382,34 @@ namespace TencentCloud
                 DetectProductOutcomeCallable DetectProductCallable(const Model::DetectProductRequest& request);
 
                 /**
-                 *商品识别-微信识物版，基于人工智能技术、海量训练图片、亿级商品库，可以实现全覆盖、细粒度、高准确率的商品识别和商品推荐功能。
-本服务可以识别出图片中的主体位置、主体商品类型，覆盖亿级SKU，输出具体商品的价格、型号等详细信息。
-客户无需自建商品库，即可快速实现商品识别、拍照搜商品等功能。
->   
-- 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
-                 * @param req DetectProductBetaRequest
-                 * @return DetectProductBetaOutcome
+                 *安全属性识别可对图片中人体安全防护属性进行识别，支持识别安全帽，反光衣，护目镜，工服，手套，工地安全带，口罩，抽烟，玩手机等多种属性。
+"被优选过滤"标签值在人体优选开关开启时才会返回。
+
+|序号 | 标签名称 | 标签值 |
+| :-----|  :----------   |:-----------------  |
+| 1 | 安全帽识别<div style="width: 70pt"/> |无安全帽、有安全帽、被优选过滤|
+| 2 | 玩手机识别<div style="width: 70pt"/> |没有电话、打电话、玩手机、被优选过滤|
+| 3 | 抽烟识别<div style="width: 70pt"/> |没有抽烟、抽烟、被优选过滤	|
+| 4 | 口罩识别<div style="width: 70pt"/> |无口罩、有口罩、口罩不确定、被优选过滤|
+| 5 | 工地安全带识别<div style="width: 70pt"/> |无工地安全带、工地安全带、被优选过滤	|
+| 6 | 手套识别<div style="width: 70pt"/> |无手套、有手套、手套不确定、被优选过滤	|
+| 7 | 工服识别<div style="width: 70pt"/> |无工服、有工服、被优选过滤|
+| 8 | 护目镜识别<div style="width: 70pt"/> |无护目镜、有护目镜、被优选过滤|
+| 9 | 反光衣识别<div style="width: 70pt"/> |无反光衣、有反光衣、被优选过滤|
+                 * @param req DetectSecurityRequest
+                 * @return DetectSecurityOutcome
                  */
-                DetectProductBetaOutcome DetectProductBeta(const Model::DetectProductBetaRequest &request);
-                void DetectProductBetaAsync(const Model::DetectProductBetaRequest& request, const DetectProductBetaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DetectProductBetaOutcomeCallable DetectProductBetaCallable(const Model::DetectProductBetaRequest& request);
+                DetectSecurityOutcome DetectSecurity(const Model::DetectSecurityRequest &request);
+                void DetectSecurityAsync(const Model::DetectSecurityRequest& request, const DetectSecurityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DetectSecurityOutcomeCallable DetectSecurityCallable(const Model::DetectSecurityRequest& request);
 
                 /**
                  *传入一张图片，输出清晰度提升后的图片。
 
 可以消除图片有损压缩导致的噪声，和使用滤镜、拍摄失焦导致的模糊。让图片的边缘和细节更加清晰自然。
->     
+
+>   
+- 可前往 [图像处理](https://cloud.tencent.com/document/product/1590) 产品文档中查看更多产品信息。
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
                  * @param req EnhanceImageRequest
                  * @return EnhanceImageOutcome
@@ -311,8 +419,9 @@ namespace TencentCloud
                 EnhanceImageOutcomeCallable EnhanceImageCallable(const Model::EnhanceImageRequest& request);
 
                 /**
-                 *腾讯云车辆属性识别可对汽车车身及车辆属性进行检测与识别，目前支持11种车身颜色、20多种车型、300多种品牌、4000多种车系+年款的识别，同时支持对车辆的位置进行检测。如果图片中存在多辆车，会分别输出每辆车的车型和坐标。
->     
+                 *车辆识别可对图片中车辆的车型进行识别，输出车辆的品牌（如路虎）、车系（如神行者2）、类型（如中型SUV）、颜色和车辆在图中的坐标等信息，覆盖轿车、SUV、大型客车等市面常见车，支持三千多种车辆型号。如果图片中存在多辆车，会分别输出每辆车的车型和坐标。
+
+>?   
 - 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
                  * @param req RecognizeCarRequest
                  * @return RecognizeCarOutcome
@@ -322,13 +431,40 @@ namespace TencentCloud
                 RecognizeCarOutcomeCallable RecognizeCarCallable(const Model::RecognizeCarRequest& request);
 
                 /**
-                 *本接口用于对一张待识别的商品图片，在指定图片库中检索出最相似的图片列表。
+                 *车辆识别（增强版）在车辆识别的基础上**增加了车牌识别的功能，并升级了车型识别的效果**。可对图片中车辆的车型和车牌进行同时识别，输出车辆的车牌信息，以及车辆品牌（如路虎）、车系（如神行者2）、类型（如中型SUV）、颜色和车辆在图中的坐标等信息，覆盖轿车、SUV、大型客车等市面常见车，支持三千多种车辆型号。如果图片中存在多辆车，会分别输出每辆车的车型、车牌和坐标。
+
+>?   
+- 公共参数中的签名方式必须指定为V3版本，即配置SignatureMethod参数为TC3-HMAC-SHA256。
+                 * @param req RecognizeCarProRequest
+                 * @return RecognizeCarProOutcome
+                 */
+                RecognizeCarProOutcome RecognizeCarPro(const Model::RecognizeCarProRequest &request);
+                void RecognizeCarProAsync(const Model::RecognizeCarProRequest& request, const RecognizeCarProAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                RecognizeCarProOutcomeCallable RecognizeCarProCallable(const Model::RecognizeCarProRequest& request);
+
+                /**
+                 *本接口用于对一张图片，在指定图片库中检索出与之相似的图片列表。
+
+>   
+- 可前往 [图像搜索](https://cloud.tencent.com/document/product/1589) 产品文档中查看更多产品信息。
                  * @param req SearchImageRequest
                  * @return SearchImageOutcome
                  */
                 SearchImageOutcome SearchImage(const Model::SearchImageRequest &request);
                 void SearchImageAsync(const Model::SearchImageRequest& request, const SearchImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 SearchImageOutcomeCallable SearchImageCallable(const Model::SearchImageRequest& request);
+
+                /**
+                 *本接口支持根据图库ID、物品ID、图片名称来修改图片信息（暂仅支持修改Tags）
+
+>   
+- 可前往 [图像搜索](https://cloud.tencent.com/document/product/1589) 产品文档中查看更多产品信息。
+                 * @param req UpdateImageRequest
+                 * @return UpdateImageOutcome
+                 */
+                UpdateImageOutcome UpdateImage(const Model::UpdateImageRequest &request);
+                void UpdateImageAsync(const Model::UpdateImageRequest& request, const UpdateImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateImageOutcomeCallable UpdateImageCallable(const Model::UpdateImageRequest& request);
 
             };
         }

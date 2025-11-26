@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取定时发送邮件的开始时间
                      * @return BeginTime 定时发送邮件的开始时间
+                     * 
                      */
                     std::string GetBeginTime() const;
 
                     /**
                      * 设置定时发送邮件的开始时间
-                     * @param BeginTime 定时发送邮件的开始时间
+                     * @param _beginTime 定时发送邮件的开始时间
+                     * 
                      */
                     void SetBeginTime(const std::string& _beginTime);
 
                     /**
                      * 判断参数 BeginTime 是否已赋值
                      * @return BeginTime 是否已赋值
+                     * 
                      */
                     bool BeginTimeHasBeenSet() const;
 

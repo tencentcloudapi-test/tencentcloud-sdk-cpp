@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,9 @@ using namespace std;
 
 CreateEventBusRequest::CreateEventBusRequest() :
     m_eventBusNameHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_descriptionHasBeenSet(false),
+    m_saveDaysHasBeenSet(false),
+    m_enableStoreHasBeenSet(false)
 {
 }
 
@@ -49,6 +51,22 @@ string CreateEventBusRequest::ToJsonString() const
         string key = "Description";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_saveDaysHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SaveDays";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_saveDays, allocator);
+    }
+
+    if (m_enableStoreHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableStore";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_enableStore, allocator);
     }
 
 
@@ -89,6 +107,38 @@ void CreateEventBusRequest::SetDescription(const string& _description)
 bool CreateEventBusRequest::DescriptionHasBeenSet() const
 {
     return m_descriptionHasBeenSet;
+}
+
+int64_t CreateEventBusRequest::GetSaveDays() const
+{
+    return m_saveDays;
+}
+
+void CreateEventBusRequest::SetSaveDays(const int64_t& _saveDays)
+{
+    m_saveDays = _saveDays;
+    m_saveDaysHasBeenSet = true;
+}
+
+bool CreateEventBusRequest::SaveDaysHasBeenSet() const
+{
+    return m_saveDaysHasBeenSet;
+}
+
+bool CreateEventBusRequest::GetEnableStore() const
+{
+    return m_enableStore;
+}
+
+void CreateEventBusRequest::SetEnableStore(const bool& _enableStore)
+{
+    m_enableStore = _enableStore;
+    m_enableStoreHasBeenSet = true;
+}
+
+bool CreateEventBusRequest::EnableStoreHasBeenSet() const
+{
+    return m_enableStoreHasBeenSet;
 }
 
 

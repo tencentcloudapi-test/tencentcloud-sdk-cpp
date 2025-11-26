@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,40 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取存储实例Id，当流日志存储类型为ckafka时，必填。
                      * @return StorageId 存储实例Id，当流日志存储类型为ckafka时，必填。
+                     * 
                      */
                     std::string GetStorageId() const;
 
                     /**
                      * 设置存储实例Id，当流日志存储类型为ckafka时，必填。
-                     * @param StorageId 存储实例Id，当流日志存储类型为ckafka时，必填。
+                     * @param _storageId 存储实例Id，当流日志存储类型为ckafka时，必填。
+                     * 
                      */
                     void SetStorageId(const std::string& _storageId);
 
                     /**
                      * 判断参数 StorageId 是否已赋值
                      * @return StorageId 是否已赋值
+                     * 
                      */
                     bool StorageIdHasBeenSet() const;
 
                     /**
                      * 获取主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return StorageTopic 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetStorageTopic() const;
 
                     /**
                      * 设置主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param StorageTopic 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _storageTopic 主题Id，当流日志存储类型为ckafka时，必填。
+                     * 
                      */
                     void SetStorageTopic(const std::string& _storageTopic);
 
                     /**
                      * 判断参数 StorageTopic 是否已赋值
                      * @return StorageTopic 是否已赋值
+                     * 
                      */
                     bool StorageTopicHasBeenSet() const;
 
@@ -96,7 +98,6 @@ namespace TencentCloud
 
                     /**
                      * 主题Id，当流日志存储类型为ckafka时，必填。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_storageTopic;
                     bool m_storageTopicHasBeenSet;

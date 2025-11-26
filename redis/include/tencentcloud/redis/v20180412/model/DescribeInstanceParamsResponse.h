@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,93 +48,103 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例参数个数
-                     * @return TotalCount 实例参数个数
+                     * 获取参数列表总数量。
+                     * @return TotalCount 参数列表总数量。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取实例枚举类型参数
-                     * @return InstanceEnumParam 实例枚举类型参数
+                     * 获取实例枚举类型参数。
+                     * @return InstanceEnumParam 实例枚举类型参数。
+                     * 
                      */
                     std::vector<InstanceEnumParam> GetInstanceEnumParam() const;
 
                     /**
                      * 判断参数 InstanceEnumParam 是否已赋值
                      * @return InstanceEnumParam 是否已赋值
+                     * 
                      */
                     bool InstanceEnumParamHasBeenSet() const;
 
                     /**
-                     * 获取实例整型参数
-                     * @return InstanceIntegerParam 实例整型参数
+                     * 获取实例整型参数。
+                     * @return InstanceIntegerParam 实例整型参数。
+                     * 
                      */
                     std::vector<InstanceIntegerParam> GetInstanceIntegerParam() const;
 
                     /**
                      * 判断参数 InstanceIntegerParam 是否已赋值
                      * @return InstanceIntegerParam 是否已赋值
+                     * 
                      */
                     bool InstanceIntegerParamHasBeenSet() const;
 
                     /**
-                     * 获取实例字符型参数
-                     * @return InstanceTextParam 实例字符型参数
+                     * 获取实例字符型参数。
+                     * @return InstanceTextParam 实例字符型参数。
+                     * 
                      */
                     std::vector<InstanceTextParam> GetInstanceTextParam() const;
 
                     /**
                      * 判断参数 InstanceTextParam 是否已赋值
                      * @return InstanceTextParam 是否已赋值
+                     * 
                      */
                     bool InstanceTextParamHasBeenSet() const;
 
                     /**
-                     * 获取实例多选项型参数
-                     * @return InstanceMultiParam 实例多选项型参数
+                     * 获取实例多选项型参数。
+                     * @return InstanceMultiParam 实例多选项型参数。
+                     * 
                      */
                     std::vector<InstanceMultiParam> GetInstanceMultiParam() const;
 
                     /**
                      * 判断参数 InstanceMultiParam 是否已赋值
                      * @return InstanceMultiParam 是否已赋值
+                     * 
                      */
                     bool InstanceMultiParamHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例参数个数
+                     * 参数列表总数量。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 实例枚举类型参数
+                     * 实例枚举类型参数。
                      */
                     std::vector<InstanceEnumParam> m_instanceEnumParam;
                     bool m_instanceEnumParamHasBeenSet;
 
                     /**
-                     * 实例整型参数
+                     * 实例整型参数。
                      */
                     std::vector<InstanceIntegerParam> m_instanceIntegerParam;
                     bool m_instanceIntegerParamHasBeenSet;
 
                     /**
-                     * 实例字符型参数
+                     * 实例字符型参数。
                      */
                     std::vector<InstanceTextParam> m_instanceTextParam;
                     bool m_instanceTextParamHasBeenSet;
 
                     /**
-                     * 实例多选项型参数
+                     * 实例多选项型参数。
                      */
                     std::vector<InstanceMultiParam> m_instanceMultiParam;
                     bool m_instanceMultiParamHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取模板名称
                      * @return TemplateName 模板名称
+                     * 
                      */
                     std::string GetTemplateName() const;
 
                     /**
                      * 设置模板名称
-                     * @param TemplateName 模板名称
+                     * @param _templateName 模板名称
+                     * 
                      */
                     void SetTemplateName(const std::string& _templateName);
 
                     /**
                      * 判断参数 TemplateName 是否已赋值
                      * @return TemplateName 是否已赋值
+                     * 
                      */
                     bool TemplateNameHasBeenSet() const;
 
                     /**
                      * 获取模板内容
                      * @return TemplateContent 模板内容
+                     * 
                      */
                     TemplateContent GetTemplateContent() const;
 
                     /**
                      * 设置模板内容
-                     * @param TemplateContent 模板内容
+                     * @param _templateContent 模板内容
+                     * 
                      */
                     void SetTemplateContent(const TemplateContent& _templateContent);
 
                     /**
                      * 判断参数 TemplateContent 是否已赋值
                      * @return TemplateContent 是否已赋值
+                     * 
                      */
                     bool TemplateContentHasBeenSet() const;
 

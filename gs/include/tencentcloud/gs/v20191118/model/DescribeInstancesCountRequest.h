@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,38 +45,94 @@ namespace TencentCloud
                     /**
                      * 获取游戏ID
                      * @return GameId 游戏ID
+                     * 
                      */
                     std::string GetGameId() const;
 
                     /**
                      * 设置游戏ID
-                     * @param GameId 游戏ID
+                     * @param _gameId 游戏ID
+                     * 
                      */
                     void SetGameId(const std::string& _gameId);
 
                     /**
                      * 判断参数 GameId 是否已赋值
                      * @return GameId 是否已赋值
+                     * 
                      */
                     bool GameIdHasBeenSet() const;
 
                     /**
                      * 获取实例分组ID
                      * @return GroupId 实例分组ID
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置实例分组ID
-                     * @param GroupId 实例分组ID
+                     * @param _groupId 实例分组ID
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
+
+                    /**
+                     * 获取游戏区域
+                     * @return GameRegion 游戏区域
+                     * 
+                     */
+                    std::string GetGameRegion() const;
+
+                    /**
+                     * 设置游戏区域
+                     * @param _gameRegion 游戏区域
+                     * 
+                     */
+                    void SetGameRegion(const std::string& _gameRegion);
+
+                    /**
+                     * 判断参数 GameRegion 是否已赋值
+                     * @return GameRegion 是否已赋值
+                     * 
+                     */
+                    bool GameRegionHasBeenSet() const;
+
+                    /**
+                     * 获取游戏类型。
+MOBILE：手游
+PC：默认值，端游
+                     * @return GameType 游戏类型。
+MOBILE：手游
+PC：默认值，端游
+                     * 
+                     */
+                    std::string GetGameType() const;
+
+                    /**
+                     * 设置游戏类型。
+MOBILE：手游
+PC：默认值，端游
+                     * @param _gameType 游戏类型。
+MOBILE：手游
+PC：默认值，端游
+                     * 
+                     */
+                    void SetGameType(const std::string& _gameType);
+
+                    /**
+                     * 判断参数 GameType 是否已赋值
+                     * @return GameType 是否已赋值
+                     * 
+                     */
+                    bool GameTypeHasBeenSet() const;
 
                 private:
 
@@ -91,6 +147,20 @@ namespace TencentCloud
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
+
+                    /**
+                     * 游戏区域
+                     */
+                    std::string m_gameRegion;
+                    bool m_gameRegionHasBeenSet;
+
+                    /**
+                     * 游戏类型。
+MOBILE：手游
+PC：默认值，端游
+                     */
+                    std::string m_gameType;
+                    bool m_gameTypeHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ namespace TencentCloud
 <li>ECM:  表示边缘计算服务器</li>
 <li>LH:  表示轻量应用服务器</li>
 <li>Other:  表示混合云机器</li>
+                     * 
                      */
                     std::string GetMachineType() const;
 
@@ -65,36 +66,41 @@ namespace TencentCloud
 <li>ECM:  表示边缘计算服务器</li>
 <li>LH:  表示轻量应用服务器</li>
 <li>Other:  表示混合云机器</li>
-                     * @param MachineType 云主机类型。
+                     * @param _machineType 云主机类型。
 <li>CVM：表示腾讯云服务器</li>
 <li>BM:  表示黑石物理机</li>
 <li>ECM:  表示边缘计算服务器</li>
 <li>LH:  表示轻量应用服务器</li>
 <li>Other:  表示混合云机器</li>
+                     * 
                      */
                     void SetMachineType(const std::string& _machineType);
 
                     /**
                      * 判断参数 MachineType 是否已赋值
                      * @return MachineType 是否已赋值
+                     * 
                      */
                     bool MachineTypeHasBeenSet() const;
 
                     /**
                      * 获取机器所属地域。如：ap-guangzhou，ap-shanghai
                      * @return MachineRegion 机器所属地域。如：ap-guangzhou，ap-shanghai
+                     * 
                      */
                     std::string GetMachineRegion() const;
 
                     /**
                      * 设置机器所属地域。如：ap-guangzhou，ap-shanghai
-                     * @param MachineRegion 机器所属地域。如：ap-guangzhou，ap-shanghai
+                     * @param _machineRegion 机器所属地域。如：ap-guangzhou，ap-shanghai
+                     * 
                      */
                     void SetMachineRegion(const std::string& _machineRegion);
 
                     /**
                      * 判断参数 MachineRegion 是否已赋值
                      * @return MachineRegion 是否已赋值
+                     * 
                      */
                     bool MachineRegionHasBeenSet() const;
 

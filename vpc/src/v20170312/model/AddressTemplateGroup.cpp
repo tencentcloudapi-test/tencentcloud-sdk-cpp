@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ AddressTemplateGroup::AddressTemplateGroup() :
     m_addressTemplateGroupIdHasBeenSet(false),
     m_addressTemplateIdSetHasBeenSet(false),
     m_createdTimeHasBeenSet(false),
-    m_addressTemplateSetHasBeenSet(false)
+    m_updatedTimeHasBeenSet(false),
+    m_addressTemplateSetHasBeenSet(false),
+    m_tagSetHasBeenSet(false)
 {
 }
 
@@ -77,6 +79,16 @@ CoreInternalOutcome AddressTemplateGroup::Deserialize(const rapidjson::Value &va
         m_createdTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("UpdatedTime") && !value["UpdatedTime"].IsNull())
+    {
+        if (!value["UpdatedTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AddressTemplateGroup.UpdatedTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_updatedTime = string(value["UpdatedTime"].GetString());
+        m_updatedTimeHasBeenSet = true;
+    }
+
     if (value.HasMember("AddressTemplateSet") && !value["AddressTemplateSet"].IsNull())
     {
         if (!value["AddressTemplateSet"].IsArray())
@@ -95,6 +107,26 @@ CoreInternalOutcome AddressTemplateGroup::Deserialize(const rapidjson::Value &va
             m_addressTemplateSet.push_back(item);
         }
         m_addressTemplateSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("TagSet") && !value["TagSet"].IsNull())
+    {
+        if (!value["TagSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `AddressTemplateGroup.TagSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TagSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Tag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tagSet.push_back(item);
+        }
+        m_tagSetHasBeenSet = true;
     }
 
 
@@ -141,6 +173,14 @@ void AddressTemplateGroup::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         value.AddMember(iKey, rapidjson::Value(m_createdTime.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_updatedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UpdatedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_updatedTime.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_addressTemplateSetHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -150,6 +190,21 @@ void AddressTemplateGroup::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
 
         int i=0;
         for (auto itr = m_addressTemplateSet.begin(); itr != m_addressTemplateSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_tagSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagSet.begin(); itr != m_tagSet.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
@@ -223,6 +278,22 @@ bool AddressTemplateGroup::CreatedTimeHasBeenSet() const
     return m_createdTimeHasBeenSet;
 }
 
+string AddressTemplateGroup::GetUpdatedTime() const
+{
+    return m_updatedTime;
+}
+
+void AddressTemplateGroup::SetUpdatedTime(const string& _updatedTime)
+{
+    m_updatedTime = _updatedTime;
+    m_updatedTimeHasBeenSet = true;
+}
+
+bool AddressTemplateGroup::UpdatedTimeHasBeenSet() const
+{
+    return m_updatedTimeHasBeenSet;
+}
+
 vector<AddressTemplateItem> AddressTemplateGroup::GetAddressTemplateSet() const
 {
     return m_addressTemplateSet;
@@ -237,5 +308,21 @@ void AddressTemplateGroup::SetAddressTemplateSet(const vector<AddressTemplateIte
 bool AddressTemplateGroup::AddressTemplateSetHasBeenSet() const
 {
     return m_addressTemplateSetHasBeenSet;
+}
+
+vector<Tag> AddressTemplateGroup::GetTagSet() const
+{
+    return m_tagSet;
+}
+
+void AddressTemplateGroup::SetTagSet(const vector<Tag>& _tagSet)
+{
+    m_tagSet = _tagSet;
+    m_tagSetHasBeenSet = true;
+}
+
+bool AddressTemplateGroup::TagSetHasBeenSet() const
+{
+    return m_tagSetHasBeenSet;
 }
 

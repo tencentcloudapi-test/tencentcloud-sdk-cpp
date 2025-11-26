@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,12 @@ using namespace std;
 CreateNamespaceRequest::CreateNamespaceRequest() :
     m_registryIdHasBeenSet(false),
     m_namespaceNameHasBeenSet(false),
-    m_isPublicHasBeenSet(false)
+    m_isPublicHasBeenSet(false),
+    m_tagSpecificationHasBeenSet(false),
+    m_isAutoScanHasBeenSet(false),
+    m_isPreventVULHasBeenSet(false),
+    m_severityHasBeenSet(false),
+    m_cVEWhitelistItemsHasBeenSet(false)
 {
 }
 
@@ -58,6 +63,54 @@ string CreateNamespaceRequest::ToJsonString() const
         string key = "IsPublic";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_isPublic, allocator);
+    }
+
+    if (m_tagSpecificationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagSpecification";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_tagSpecification.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_isAutoScanHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsAutoScan";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isAutoScan, allocator);
+    }
+
+    if (m_isPreventVULHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsPreventVUL";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isPreventVUL, allocator);
+    }
+
+    if (m_severityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Severity";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_severity.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_cVEWhitelistItemsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CVEWhitelistItems";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_cVEWhitelistItems.begin(); itr != m_cVEWhitelistItems.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -114,6 +167,86 @@ void CreateNamespaceRequest::SetIsPublic(const bool& _isPublic)
 bool CreateNamespaceRequest::IsPublicHasBeenSet() const
 {
     return m_isPublicHasBeenSet;
+}
+
+TagSpecification CreateNamespaceRequest::GetTagSpecification() const
+{
+    return m_tagSpecification;
+}
+
+void CreateNamespaceRequest::SetTagSpecification(const TagSpecification& _tagSpecification)
+{
+    m_tagSpecification = _tagSpecification;
+    m_tagSpecificationHasBeenSet = true;
+}
+
+bool CreateNamespaceRequest::TagSpecificationHasBeenSet() const
+{
+    return m_tagSpecificationHasBeenSet;
+}
+
+bool CreateNamespaceRequest::GetIsAutoScan() const
+{
+    return m_isAutoScan;
+}
+
+void CreateNamespaceRequest::SetIsAutoScan(const bool& _isAutoScan)
+{
+    m_isAutoScan = _isAutoScan;
+    m_isAutoScanHasBeenSet = true;
+}
+
+bool CreateNamespaceRequest::IsAutoScanHasBeenSet() const
+{
+    return m_isAutoScanHasBeenSet;
+}
+
+bool CreateNamespaceRequest::GetIsPreventVUL() const
+{
+    return m_isPreventVUL;
+}
+
+void CreateNamespaceRequest::SetIsPreventVUL(const bool& _isPreventVUL)
+{
+    m_isPreventVUL = _isPreventVUL;
+    m_isPreventVULHasBeenSet = true;
+}
+
+bool CreateNamespaceRequest::IsPreventVULHasBeenSet() const
+{
+    return m_isPreventVULHasBeenSet;
+}
+
+string CreateNamespaceRequest::GetSeverity() const
+{
+    return m_severity;
+}
+
+void CreateNamespaceRequest::SetSeverity(const string& _severity)
+{
+    m_severity = _severity;
+    m_severityHasBeenSet = true;
+}
+
+bool CreateNamespaceRequest::SeverityHasBeenSet() const
+{
+    return m_severityHasBeenSet;
+}
+
+vector<CVEWhitelistItem> CreateNamespaceRequest::GetCVEWhitelistItems() const
+{
+    return m_cVEWhitelistItems;
+}
+
+void CreateNamespaceRequest::SetCVEWhitelistItems(const vector<CVEWhitelistItem>& _cVEWhitelistItems)
+{
+    m_cVEWhitelistItems = _cVEWhitelistItems;
+    m_cVEWhitelistItemsHasBeenSet = true;
+}
+
+bool CreateNamespaceRequest::CVEWhitelistItemsHasBeenSet() const
+{
+    return m_cVEWhitelistItemsHasBeenSet;
 }
 
 

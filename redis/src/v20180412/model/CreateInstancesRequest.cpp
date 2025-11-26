@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,12 @@ CreateInstancesRequest::CreateInstancesRequest() :
     m_nodeSetHasBeenSet(false),
     m_resourceTagsHasBeenSet(false),
     m_zoneNameHasBeenSet(false),
-    m_templateIdHasBeenSet(false)
+    m_templateIdHasBeenSet(false),
+    m_dryRunHasBeenSet(false),
+    m_productVersionHasBeenSet(false),
+    m_redisClusterIdHasBeenSet(false),
+    m_alarmPolicyListHasBeenSet(false),
+    m_encryptPasswordHasBeenSet(false)
 {
 }
 
@@ -248,6 +253,51 @@ string CreateInstancesRequest::ToJsonString() const
         string key = "TemplateId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_templateId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dryRunHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DryRun";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_dryRun, allocator);
+    }
+
+    if (m_productVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProductVersion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_productVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_redisClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RedisClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_redisClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmPolicyListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmPolicyList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_alarmPolicyList.begin(); itr != m_alarmPolicyList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_encryptPasswordHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EncryptPassword";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_encryptPassword, allocator);
     }
 
 
@@ -608,6 +658,86 @@ void CreateInstancesRequest::SetTemplateId(const string& _templateId)
 bool CreateInstancesRequest::TemplateIdHasBeenSet() const
 {
     return m_templateIdHasBeenSet;
+}
+
+bool CreateInstancesRequest::GetDryRun() const
+{
+    return m_dryRun;
+}
+
+void CreateInstancesRequest::SetDryRun(const bool& _dryRun)
+{
+    m_dryRun = _dryRun;
+    m_dryRunHasBeenSet = true;
+}
+
+bool CreateInstancesRequest::DryRunHasBeenSet() const
+{
+    return m_dryRunHasBeenSet;
+}
+
+string CreateInstancesRequest::GetProductVersion() const
+{
+    return m_productVersion;
+}
+
+void CreateInstancesRequest::SetProductVersion(const string& _productVersion)
+{
+    m_productVersion = _productVersion;
+    m_productVersionHasBeenSet = true;
+}
+
+bool CreateInstancesRequest::ProductVersionHasBeenSet() const
+{
+    return m_productVersionHasBeenSet;
+}
+
+string CreateInstancesRequest::GetRedisClusterId() const
+{
+    return m_redisClusterId;
+}
+
+void CreateInstancesRequest::SetRedisClusterId(const string& _redisClusterId)
+{
+    m_redisClusterId = _redisClusterId;
+    m_redisClusterIdHasBeenSet = true;
+}
+
+bool CreateInstancesRequest::RedisClusterIdHasBeenSet() const
+{
+    return m_redisClusterIdHasBeenSet;
+}
+
+vector<string> CreateInstancesRequest::GetAlarmPolicyList() const
+{
+    return m_alarmPolicyList;
+}
+
+void CreateInstancesRequest::SetAlarmPolicyList(const vector<string>& _alarmPolicyList)
+{
+    m_alarmPolicyList = _alarmPolicyList;
+    m_alarmPolicyListHasBeenSet = true;
+}
+
+bool CreateInstancesRequest::AlarmPolicyListHasBeenSet() const
+{
+    return m_alarmPolicyListHasBeenSet;
+}
+
+bool CreateInstancesRequest::GetEncryptPassword() const
+{
+    return m_encryptPassword;
+}
+
+void CreateInstancesRequest::SetEncryptPassword(const bool& _encryptPassword)
+{
+    m_encryptPassword = _encryptPassword;
+    m_encryptPasswordHasBeenSet = true;
+}
+
+bool CreateInstancesRequest::EncryptPasswordHasBeenSet() const
+{
+    return m_encryptPasswordHasBeenSet;
 }
 
 

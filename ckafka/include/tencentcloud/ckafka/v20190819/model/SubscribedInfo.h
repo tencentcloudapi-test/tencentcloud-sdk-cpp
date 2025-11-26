@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,84 +50,84 @@ namespace TencentCloud
                     /**
                      * 获取订阅的主题名
                      * @return TopicName 订阅的主题名
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置订阅的主题名
-                     * @param TopicName 订阅的主题名
+                     * @param _topicName 订阅的主题名
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
                      * 获取订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Partition 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<int64_t> GetPartition() const;
 
                     /**
                      * 设置订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Partition 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _partition 订阅的分区
+                     * 
                      */
                     void SetPartition(const std::vector<int64_t>& _partition);
 
                     /**
                      * 判断参数 Partition 是否已赋值
                      * @return Partition 是否已赋值
+                     * 
                      */
                     bool PartitionHasBeenSet() const;
 
                     /**
                      * 获取分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return PartitionOffset 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<PartitionOffset> GetPartitionOffset() const;
 
                     /**
                      * 设置分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PartitionOffset 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _partitionOffset 分区offset信息
+                     * 
                      */
                     void SetPartitionOffset(const std::vector<PartitionOffset>& _partitionOffset);
 
                     /**
                      * 判断参数 PartitionOffset 是否已赋值
                      * @return PartitionOffset 是否已赋值
+                     * 
                      */
                     bool PartitionOffsetHasBeenSet() const;
 
                     /**
                      * 获取订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TopicId 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetTopicId() const;
 
                     /**
                      * 设置订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TopicId 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _topicId 订阅的主题ID
+                     * 
                      */
                     void SetTopicId(const std::string& _topicId);
 
                     /**
                      * 判断参数 TopicId 是否已赋值
                      * @return TopicId 是否已赋值
+                     * 
                      */
                     bool TopicIdHasBeenSet() const;
 
@@ -141,21 +141,18 @@ namespace TencentCloud
 
                     /**
                      * 订阅的分区
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<int64_t> m_partition;
                     bool m_partitionHasBeenSet;
 
                     /**
                      * 分区offset信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<PartitionOffset> m_partitionOffset;
                     bool m_partitionOffsetHasBeenSet;
 
                     /**
                      * 订阅的主题ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,54 +47,87 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取资源类型，例如CBS
-                     * @return ResourceType 资源类型，例如CBS
+                     * 获取资源类型，例如CBS、CLB、CVM
+                     * @return ResourceType 资源类型，例如CBS、CLB、CVM
+                     * 
                      */
                     std::string GetResourceType() const;
 
                     /**
-                     * 设置资源类型，例如CBS
-                     * @param ResourceType 资源类型，例如CBS
+                     * 设置资源类型，例如CBS、CLB、CVM
+                     * @param _resourceType 资源类型，例如CBS、CLB、CVM
+                     * 
                      */
                     void SetResourceType(const std::string& _resourceType);
 
                     /**
                      * 判断参数 ResourceType 是否已赋值
                      * @return ResourceType 是否已赋值
+                     * 
                      */
                     bool ResourceTypeHasBeenSet() const;
 
                     /**
-                     * 获取集群删除时资源的删除模式：terminate（销毁），retain （保留）
-                     * @return DeleteMode 集群删除时资源的删除模式：terminate（销毁），retain （保留）
+                     * 获取集群删除时CBS资源的删除模式：terminate（销毁），retain （保留）。其他资源默认为销毁。
+                     * @return DeleteMode 集群删除时CBS资源的删除模式：terminate（销毁），retain （保留）。其他资源默认为销毁。
+                     * 
                      */
                     std::string GetDeleteMode() const;
 
                     /**
-                     * 设置集群删除时资源的删除模式：terminate（销毁），retain （保留）
-                     * @param DeleteMode 集群删除时资源的删除模式：terminate（销毁），retain （保留）
+                     * 设置集群删除时CBS资源的删除模式：terminate（销毁），retain （保留）。其他资源默认为销毁。
+                     * @param _deleteMode 集群删除时CBS资源的删除模式：terminate（销毁），retain （保留）。其他资源默认为销毁。
+                     * 
                      */
                     void SetDeleteMode(const std::string& _deleteMode);
 
                     /**
                      * 判断参数 DeleteMode 是否已赋值
                      * @return DeleteMode 是否已赋值
+                     * 
                      */
                     bool DeleteModeHasBeenSet() const;
+
+                    /**
+                     * 获取是否跳过开启删除保护的资源，默认false，设置为true时不清理开启了删除保护的资源，clb有终端节点的情况也属于开了删除保护。
+                     * @return SkipDeletionProtection 是否跳过开启删除保护的资源，默认false，设置为true时不清理开启了删除保护的资源，clb有终端节点的情况也属于开了删除保护。
+                     * 
+                     */
+                    bool GetSkipDeletionProtection() const;
+
+                    /**
+                     * 设置是否跳过开启删除保护的资源，默认false，设置为true时不清理开启了删除保护的资源，clb有终端节点的情况也属于开了删除保护。
+                     * @param _skipDeletionProtection 是否跳过开启删除保护的资源，默认false，设置为true时不清理开启了删除保护的资源，clb有终端节点的情况也属于开了删除保护。
+                     * 
+                     */
+                    void SetSkipDeletionProtection(const bool& _skipDeletionProtection);
+
+                    /**
+                     * 判断参数 SkipDeletionProtection 是否已赋值
+                     * @return SkipDeletionProtection 是否已赋值
+                     * 
+                     */
+                    bool SkipDeletionProtectionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 资源类型，例如CBS
+                     * 资源类型，例如CBS、CLB、CVM
                      */
                     std::string m_resourceType;
                     bool m_resourceTypeHasBeenSet;
 
                     /**
-                     * 集群删除时资源的删除模式：terminate（销毁），retain （保留）
+                     * 集群删除时CBS资源的删除模式：terminate（销毁），retain （保留）。其他资源默认为销毁。
                      */
                     std::string m_deleteMode;
                     bool m_deleteModeHasBeenSet;
+
+                    /**
+                     * 是否跳过开启删除保护的资源，默认false，设置为true时不清理开启了删除保护的资源，clb有终端节点的情况也属于开了删除保护。
+                     */
+                    bool m_skipDeletionProtection;
+                    bool m_skipDeletionProtectionHasBeenSet;
 
                 };
             }

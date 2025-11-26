@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,63 @@ namespace TencentCloud
                     /**
                      * 获取API 分组ID
                      * @return GroupId API 分组ID
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置API 分组ID
-                     * @param GroupId API 分组ID
+                     * @param _groupId API 分组ID
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
                      * 获取Api信息
                      * @return ApiList Api信息
+                     * 
                      */
                     std::vector<ApiInfo> GetApiList() const;
 
                     /**
                      * 设置Api信息
-                     * @param ApiList Api信息
+                     * @param _apiList Api信息
+                     * 
                      */
                     void SetApiList(const std::vector<ApiInfo>& _apiList);
 
                     /**
                      * 判断参数 ApiList 是否已赋值
                      * @return ApiList 是否已赋值
+                     * 
                      */
                     bool ApiListHasBeenSet() const;
 
                     /**
                      * 获取无
                      * @return ProgramIdList 无
+                     * 
                      */
                     std::vector<std::string> GetProgramIdList() const;
 
                     /**
                      * 设置无
-                     * @param ProgramIdList 无
+                     * @param _programIdList 无
+                     * 
                      */
                     void SetProgramIdList(const std::vector<std::string>& _programIdList);
 
                     /**
                      * 判断参数 ProgramIdList 是否已赋值
                      * @return ProgramIdList 是否已赋值
+                     * 
                      */
                     bool ProgramIdListHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,92 +49,128 @@ namespace TencentCloud
                     /**
                      * 获取log名
                      * @return LogsetName log名
+                     * 
                      */
                     std::string GetLogsetName() const;
 
                     /**
                      * 设置log名
-                     * @param LogsetName log名
+                     * @param _logsetName log名
+                     * 
                      */
                     void SetLogsetName(const std::string& _logsetName);
 
                     /**
                      * 判断参数 LogsetName 是否已赋值
                      * @return LogsetName 是否已赋值
+                     * 
                      */
                     bool LogsetNameHasBeenSet() const;
 
                     /**
                      * 获取log-id
                      * @return LogsetId log-id
+                     * 
                      */
                     std::string GetLogsetId() const;
 
                     /**
                      * 设置log-id
-                     * @param LogsetId log-id
+                     * @param _logsetId log-id
+                     * 
                      */
                     void SetLogsetId(const std::string& _logsetId);
 
                     /**
                      * 判断参数 LogsetId 是否已赋值
                      * @return LogsetId 是否已赋值
+                     * 
                      */
                     bool LogsetIdHasBeenSet() const;
 
                     /**
                      * 获取topic名
                      * @return TopicName topic名
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
                      * 设置topic名
-                     * @param TopicName topic名
+                     * @param _topicName topic名
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
                      * 获取topic-id
                      * @return TopicId topic-id
+                     * 
                      */
                     std::string GetTopicId() const;
 
                     /**
                      * 设置topic-id
-                     * @param TopicId topic-id
+                     * @param _topicId topic-id
+                     * 
                      */
                     void SetTopicId(const std::string& _topicId);
 
                     /**
                      * 判断参数 TopicId 是否已赋值
                      * @return TopicId 是否已赋值
+                     * 
                      */
                     bool TopicIdHasBeenSet() const;
 
                     /**
                      * 获取cls日志所属地域
                      * @return Region cls日志所属地域
+                     * 
                      */
                     std::string GetRegion() const;
 
                     /**
                      * 设置cls日志所属地域
-                     * @param Region cls日志所属地域
+                     * @param _region cls日志所属地域
+                     * 
                      */
                     void SetRegion(const std::string& _region);
 
                     /**
                      * 判断参数 Region 是否已赋值
                      * @return Region 是否已赋值
+                     * 
                      */
                     bool RegionHasBeenSet() const;
+
+                    /**
+                     * 获取topic保存时长 默认7天
+                     * @return Period topic保存时长 默认7天
+                     * 
+                     */
+                    int64_t GetPeriod() const;
+
+                    /**
+                     * 设置topic保存时长 默认7天
+                     * @param _period topic保存时长 默认7天
+                     * 
+                     */
+                    void SetPeriod(const int64_t& _period);
+
+                    /**
+                     * 判断参数 Period 是否已赋值
+                     * @return Period 是否已赋值
+                     * 
+                     */
+                    bool PeriodHasBeenSet() const;
 
                 private:
 
@@ -167,6 +203,12 @@ namespace TencentCloud
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
+
+                    /**
+                     * topic保存时长 默认7天
+                     */
+                    int64_t m_period;
+                    bool m_periodHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,21 +45,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取专用通道扩展信息
-                     * @return DirectConnectTunnelExtra 专用通道扩展信息
+                     * 获取专用通道扩展信息。
+                     * @return DirectConnectTunnelExtra 专用通道扩展信息。
+                     * 
                      */
                     DirectConnectTunnelExtra GetDirectConnectTunnelExtra() const;
 
                     /**
                      * 判断参数 DirectConnectTunnelExtra 是否已赋值
                      * @return DirectConnectTunnelExtra 是否已赋值
+                     * 
                      */
                     bool DirectConnectTunnelExtraHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 专用通道扩展信息
+                     * 专用通道扩展信息。
                      */
                     DirectConnectTunnelExtra m_directConnectTunnelExtra;
                     bool m_directConnectTunnelExtraHasBeenSet;

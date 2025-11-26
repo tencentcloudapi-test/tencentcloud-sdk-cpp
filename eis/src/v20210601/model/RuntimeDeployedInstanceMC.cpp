@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ RuntimeDeployedInstanceMC::RuntimeDeployedInstanceMC() :
     m_statusHasBeenSet(false),
     m_createdAtHasBeenSet(false),
     m_updatedAtHasBeenSet(false),
-    m_projectTypeHasBeenSet(false)
+    m_projectTypeHasBeenSet(false),
+    m_projectVersionHasBeenSet(false)
 {
 }
 
@@ -150,6 +151,16 @@ CoreInternalOutcome RuntimeDeployedInstanceMC::Deserialize(const rapidjson::Valu
         m_projectTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("ProjectVersion") && !value["ProjectVersion"].IsNull())
+    {
+        if (!value["ProjectVersion"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RuntimeDeployedInstanceMC.ProjectVersion` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_projectVersion = value["ProjectVersion"].GetInt64();
+        m_projectVersionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -243,6 +254,14 @@ void RuntimeDeployedInstanceMC::ToJsonObject(rapidjson::Value &value, rapidjson:
         string key = "ProjectType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_projectType, allocator);
+    }
+
+    if (m_projectVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProjectVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_projectVersion, allocator);
     }
 
 }
@@ -422,5 +441,21 @@ void RuntimeDeployedInstanceMC::SetProjectType(const int64_t& _projectType)
 bool RuntimeDeployedInstanceMC::ProjectTypeHasBeenSet() const
 {
     return m_projectTypeHasBeenSet;
+}
+
+int64_t RuntimeDeployedInstanceMC::GetProjectVersion() const
+{
+    return m_projectVersion;
+}
+
+void RuntimeDeployedInstanceMC::SetProjectVersion(const int64_t& _projectVersion)
+{
+    m_projectVersion = _projectVersion;
+    m_projectVersionHasBeenSet = true;
+}
+
+bool RuntimeDeployedInstanceMC::ProjectVersionHasBeenSet() const
+{
+    return m_projectVersionHasBeenSet;
 }
 

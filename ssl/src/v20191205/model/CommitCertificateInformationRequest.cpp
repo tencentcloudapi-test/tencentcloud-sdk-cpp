@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace TencentCloud::Ssl::V20191205::Model;
 using namespace std;
 
 CommitCertificateInformationRequest::CommitCertificateInformationRequest() :
-    m_certificateIdHasBeenSet(false)
+    m_certificateIdHasBeenSet(false),
+    m_verifyTypeHasBeenSet(false)
 {
 }
 
@@ -40,6 +41,14 @@ string CommitCertificateInformationRequest::ToJsonString() const
         string key = "CertificateId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_certificateId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_verifyTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VerifyType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_verifyType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -64,6 +73,22 @@ void CommitCertificateInformationRequest::SetCertificateId(const string& _certif
 bool CommitCertificateInformationRequest::CertificateIdHasBeenSet() const
 {
     return m_certificateIdHasBeenSet;
+}
+
+string CommitCertificateInformationRequest::GetVerifyType() const
+{
+    return m_verifyType;
+}
+
+void CommitCertificateInformationRequest::SetVerifyType(const string& _verifyType)
+{
+    m_verifyType = _verifyType;
+    m_verifyTypeHasBeenSet = true;
+}
+
+bool CommitCertificateInformationRequest::VerifyTypeHasBeenSet() const
+{
+    return m_verifyTypeHasBeenSet;
 }
 
 

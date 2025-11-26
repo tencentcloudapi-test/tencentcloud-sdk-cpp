@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,45 +47,51 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取如果成功则返回Success，失败则返回yunapi定义的错误码
-                     * @return Code 如果成功则返回Success，失败则返回yunapi定义的错误码
+                     * 获取如果成功则返回Success，失败则返回云api定义的错误码
+                     * @return Code 如果成功则返回Success，失败则返回云api定义的错误码
+                     * 
                      */
                     std::string GetCode() const;
 
                     /**
-                     * 设置如果成功则返回Success，失败则返回yunapi定义的错误码
-                     * @param Code 如果成功则返回Success，失败则返回yunapi定义的错误码
+                     * 设置如果成功则返回Success，失败则返回云api定义的错误码
+                     * @param _code 如果成功则返回Success，失败则返回云api定义的错误码
+                     * 
                      */
                     void SetCode(const std::string& _code);
 
                     /**
                      * 判断参数 Code 是否已赋值
                      * @return Code 是否已赋值
+                     * 
                      */
                     bool CodeHasBeenSet() const;
 
                     /**
                      * 获取如果成功则返回Success，失败则返回WAF定义的二级错误码
                      * @return Message 如果成功则返回Success，失败则返回WAF定义的二级错误码
+                     * 
                      */
                     std::string GetMessage() const;
 
                     /**
                      * 设置如果成功则返回Success，失败则返回WAF定义的二级错误码
-                     * @param Message 如果成功则返回Success，失败则返回WAF定义的二级错误码
+                     * @param _message 如果成功则返回Success，失败则返回WAF定义的二级错误码
+                     * 
                      */
                     void SetMessage(const std::string& _message);
 
                     /**
                      * 判断参数 Message 是否已赋值
                      * @return Message 是否已赋值
+                     * 
                      */
                     bool MessageHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 如果成功则返回Success，失败则返回yunapi定义的错误码
+                     * 如果成功则返回Success，失败则返回云api定义的错误码
                      */
                     std::string m_code;
                     bool m_codeHasBeenSet;

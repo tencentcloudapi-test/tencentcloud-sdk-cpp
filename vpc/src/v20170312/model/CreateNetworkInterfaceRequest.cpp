@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +28,13 @@ CreateNetworkInterfaceRequest::CreateNetworkInterfaceRequest() :
     m_subnetIdHasBeenSet(false),
     m_networkInterfaceDescriptionHasBeenSet(false),
     m_secondaryPrivateIpAddressCountHasBeenSet(false),
+    m_qosLevelHasBeenSet(false),
     m_securityGroupIdsHasBeenSet(false),
     m_privateIpAddressesHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_trunkingFlagHasBeenSet(false),
+    m_isRdmaHasBeenSet(false),
+    m_clientTokenHasBeenSet(false)
 {
 }
 
@@ -81,6 +85,14 @@ string CreateNetworkInterfaceRequest::ToJsonString() const
         d.AddMember(iKey, m_secondaryPrivateIpAddressCount, allocator);
     }
 
+    if (m_qosLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QosLevel";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_qosLevel.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_securityGroupIdsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -122,6 +134,30 @@ string CreateNetworkInterfaceRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_trunkingFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TrunkingFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_trunkingFlag.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isRdmaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsRdma";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isRdma, allocator);
+    }
+
+    if (m_clientTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -212,6 +248,22 @@ bool CreateNetworkInterfaceRequest::SecondaryPrivateIpAddressCountHasBeenSet() c
     return m_secondaryPrivateIpAddressCountHasBeenSet;
 }
 
+string CreateNetworkInterfaceRequest::GetQosLevel() const
+{
+    return m_qosLevel;
+}
+
+void CreateNetworkInterfaceRequest::SetQosLevel(const string& _qosLevel)
+{
+    m_qosLevel = _qosLevel;
+    m_qosLevelHasBeenSet = true;
+}
+
+bool CreateNetworkInterfaceRequest::QosLevelHasBeenSet() const
+{
+    return m_qosLevelHasBeenSet;
+}
+
 vector<string> CreateNetworkInterfaceRequest::GetSecurityGroupIds() const
 {
     return m_securityGroupIds;
@@ -258,6 +310,54 @@ void CreateNetworkInterfaceRequest::SetTags(const vector<Tag>& _tags)
 bool CreateNetworkInterfaceRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
+}
+
+string CreateNetworkInterfaceRequest::GetTrunkingFlag() const
+{
+    return m_trunkingFlag;
+}
+
+void CreateNetworkInterfaceRequest::SetTrunkingFlag(const string& _trunkingFlag)
+{
+    m_trunkingFlag = _trunkingFlag;
+    m_trunkingFlagHasBeenSet = true;
+}
+
+bool CreateNetworkInterfaceRequest::TrunkingFlagHasBeenSet() const
+{
+    return m_trunkingFlagHasBeenSet;
+}
+
+bool CreateNetworkInterfaceRequest::GetIsRdma() const
+{
+    return m_isRdma;
+}
+
+void CreateNetworkInterfaceRequest::SetIsRdma(const bool& _isRdma)
+{
+    m_isRdma = _isRdma;
+    m_isRdmaHasBeenSet = true;
+}
+
+bool CreateNetworkInterfaceRequest::IsRdmaHasBeenSet() const
+{
+    return m_isRdmaHasBeenSet;
+}
+
+string CreateNetworkInterfaceRequest::GetClientToken() const
+{
+    return m_clientToken;
+}
+
+void CreateNetworkInterfaceRequest::SetClientToken(const string& _clientToken)
+{
+    m_clientToken = _clientToken;
+    m_clientTokenHasBeenSet = true;
+}
+
+bool CreateNetworkInterfaceRequest::ClientTokenHasBeenSet() const
+{
+    return m_clientTokenHasBeenSet;
 }
 
 

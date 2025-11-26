@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,142 +49,147 @@ namespace TencentCloud
                     /**
                      * 获取镜像id
                      * @return ImageId 镜像id
+                     * 
                      */
                     std::string GetImageId() const;
 
                     /**
                      * 设置镜像id
-                     * @param ImageId 镜像id
+                     * @param _imageId 镜像id
+                     * 
                      */
                     void SetImageId(const std::string& _imageId);
 
                     /**
                      * 判断参数 ImageId 是否已赋值
                      * @return ImageId 是否已赋值
+                     * 
                      */
                     bool ImageIdHasBeenSet() const;
 
                     /**
                      * 获取镜像名称
                      * @return ImageName 镜像名称
+                     * 
                      */
                     std::string GetImageName() const;
 
                     /**
                      * 设置镜像名称
-                     * @param ImageName 镜像名称
+                     * @param _imageName 镜像名称
+                     * 
                      */
                     void SetImageName(const std::string& _imageName);
 
                     /**
                      * 判断参数 ImageName 是否已赋值
                      * @return ImageName 是否已赋值
+                     * 
                      */
                     bool ImageNameHasBeenSet() const;
 
                     /**
                      * 获取关联容器数量
                      * @return ContainerCnt 关联容器数量
+                     * 
                      */
                     int64_t GetContainerCnt() const;
 
                     /**
                      * 设置关联容器数量
-                     * @param ContainerCnt 关联容器数量
+                     * @param _containerCnt 关联容器数量
+                     * 
                      */
                     void SetContainerCnt(const int64_t& _containerCnt);
 
                     /**
                      * 判断参数 ContainerCnt 是否已赋值
                      * @return ContainerCnt 是否已赋值
+                     * 
                      */
                     bool ContainerCntHasBeenSet() const;
 
                     /**
                      * 获取绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RuleId 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRuleId() const;
 
                     /**
                      * 设置绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RuleId 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _ruleId 绑定规则id
+                     * 
                      */
                     void SetRuleId(const std::string& _ruleId);
 
                     /**
                      * 判断参数 RuleId 是否已赋值
                      * @return RuleId 是否已赋值
+                     * 
                      */
                     bool RuleIdHasBeenSet() const;
 
                     /**
                      * 获取规则名字
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RuleName 规则名字
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRuleName() const;
 
                     /**
                      * 设置规则名字
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RuleName 规则名字
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _ruleName 规则名字
+                     * 
                      */
                     void SetRuleName(const std::string& _ruleName);
 
                     /**
                      * 判断参数 RuleName 是否已赋值
                      * @return RuleName 是否已赋值
+                     * 
                      */
                     bool RuleNameHasBeenSet() const;
 
                     /**
                      * 获取镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ImageSize 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetImageSize() const;
 
                     /**
                      * 设置镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ImageSize 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _imageSize 镜像大小
+                     * 
                      */
                     void SetImageSize(const int64_t& _imageSize);
 
                     /**
                      * 判断参数 ImageSize 是否已赋值
                      * @return ImageSize 是否已赋值
+                     * 
                      */
                     bool ImageSizeHasBeenSet() const;
 
                     /**
                      * 获取最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScanTime 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetScanTime() const;
 
                     /**
                      * 设置最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ScanTime 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _scanTime 最近扫描时间
+                     * 
                      */
                     void SetScanTime(const std::string& _scanTime);
 
                     /**
                      * 判断参数 ScanTime 是否已赋值
                      * @return ScanTime 是否已赋值
+                     * 
                      */
                     bool ScanTimeHasBeenSet() const;
 
@@ -210,28 +215,24 @@ namespace TencentCloud
 
                     /**
                      * 绑定规则id
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_ruleId;
                     bool m_ruleIdHasBeenSet;
 
                     /**
                      * 规则名字
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_ruleName;
                     bool m_ruleNameHasBeenSet;
 
                     /**
                      * 镜像大小
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_imageSize;
                     bool m_imageSizeHasBeenSet;
 
                     /**
                      * 最近扫描时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_scanTime;
                     bool m_scanTimeHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,22 +49,29 @@ namespace TencentCloud
                     /**
                      * 获取HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return FlowContinueDuration HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetFlowContinueDuration() const;
 
                     /**
                      * 设置HLS续流超时时间。
 取值范围[0，1800]。
-                     * @param FlowContinueDuration HLS续流超时时间。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _flowContinueDuration HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFlowContinueDuration(const uint64_t& _flowContinueDuration);
 
                     /**
                      * 判断参数 FlowContinueDuration 是否已赋值
                      * @return FlowContinueDuration 是否已赋值
+                     * 
                      */
                     bool FlowContinueDurationHasBeenSet() const;
 
@@ -73,6 +80,7 @@ namespace TencentCloud
                     /**
                      * HLS续流超时时间。
 取值范围[0，1800]。
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_flowContinueDuration;
                     bool m_flowContinueDurationHasBeenSet;

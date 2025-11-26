@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,39 +44,43 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取修改是否成功。
-                     * @return Changed 修改是否成功。
+                     * 获取说明修改参数配置是否成功。<br><li>true：指修改成功；</li><li>false：指修改失败。</li>
+                     * @return Changed 说明修改参数配置是否成功。<br><li>true：指修改成功；</li><li>false：指修改失败。</li>
+                     * 
                      */
                     bool GetChanged() const;
 
                     /**
                      * 判断参数 Changed 是否已赋值
                      * @return Changed 是否已赋值
+                     * 
                      */
                     bool ChangedHasBeenSet() const;
 
                     /**
-                     * 获取任务ID
-                     * @return TaskId 任务ID
+                     * 获取任务ID。
+                     * @return TaskId 任务ID。
+                     * 
                      */
                     int64_t GetTaskId() const;
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 修改是否成功。
+                     * 说明修改参数配置是否成功。<br><li>true：指修改成功；</li><li>false：指修改失败。</li>
                      */
                     bool m_changed;
                     bool m_changedHasBeenSet;
 
                     /**
-                     * 任务ID
+                     * 任务ID。
                      */
                     int64_t m_taskId;
                     bool m_taskIdHasBeenSet;

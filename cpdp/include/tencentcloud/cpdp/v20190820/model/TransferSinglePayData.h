@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取平台交易流水号，唯一
                      * @return TradeSerialNo 平台交易流水号，唯一
+                     * 
                      */
                     std::string GetTradeSerialNo() const;
 
                     /**
                      * 设置平台交易流水号，唯一
-                     * @param TradeSerialNo 平台交易流水号，唯一
+                     * @param _tradeSerialNo 平台交易流水号，唯一
+                     * 
                      */
                     void SetTradeSerialNo(const std::string& _tradeSerialNo);
 
                     /**
                      * 判断参数 TradeSerialNo 是否已赋值
                      * @return TradeSerialNo 是否已赋值
+                     * 
                      */
                     bool TradeSerialNoHasBeenSet() const;
 

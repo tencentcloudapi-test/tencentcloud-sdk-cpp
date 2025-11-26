@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,10 @@ DescribeStatisticsRequest::DescribeStatisticsRequest() :
     m_searchWordHasBeenSet(false),
     m_metricDimensionValuesHasBeenSet(false),
     m_bucketKeyHasBeenSet(false),
-    m_dbNameHasBeenSet(false)
+    m_dbNameHasBeenSet(false),
+    m_namespaceIdListHasBeenSet(false),
+    m_configCenterInstanceIdHasBeenSet(false),
+    m_serviceFilterHasBeenSet(false)
 {
 }
 
@@ -164,6 +167,35 @@ string DescribeStatisticsRequest::ToJsonString() const
         string key = "DbName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_dbName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_namespaceIdListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NamespaceIdList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_namespaceIdList.begin(); itr != m_namespaceIdList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_configCenterInstanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConfigCenterInstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_configCenterInstanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_serviceFilterHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ServiceFilter";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_serviceFilter.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -396,6 +428,54 @@ void DescribeStatisticsRequest::SetDbName(const string& _dbName)
 bool DescribeStatisticsRequest::DbNameHasBeenSet() const
 {
     return m_dbNameHasBeenSet;
+}
+
+vector<string> DescribeStatisticsRequest::GetNamespaceIdList() const
+{
+    return m_namespaceIdList;
+}
+
+void DescribeStatisticsRequest::SetNamespaceIdList(const vector<string>& _namespaceIdList)
+{
+    m_namespaceIdList = _namespaceIdList;
+    m_namespaceIdListHasBeenSet = true;
+}
+
+bool DescribeStatisticsRequest::NamespaceIdListHasBeenSet() const
+{
+    return m_namespaceIdListHasBeenSet;
+}
+
+string DescribeStatisticsRequest::GetConfigCenterInstanceId() const
+{
+    return m_configCenterInstanceId;
+}
+
+void DescribeStatisticsRequest::SetConfigCenterInstanceId(const string& _configCenterInstanceId)
+{
+    m_configCenterInstanceId = _configCenterInstanceId;
+    m_configCenterInstanceIdHasBeenSet = true;
+}
+
+bool DescribeStatisticsRequest::ConfigCenterInstanceIdHasBeenSet() const
+{
+    return m_configCenterInstanceIdHasBeenSet;
+}
+
+string DescribeStatisticsRequest::GetServiceFilter() const
+{
+    return m_serviceFilter;
+}
+
+void DescribeStatisticsRequest::SetServiceFilter(const string& _serviceFilter)
+{
+    m_serviceFilter = _serviceFilter;
+    m_serviceFilterHasBeenSet = true;
+}
+
+bool DescribeStatisticsRequest::ServiceFilterHasBeenSet() const
+{
+    return m_serviceFilterHasBeenSet;
 }
 
 

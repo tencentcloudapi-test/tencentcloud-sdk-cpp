@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,28 +48,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取访问URL重写配置开关
+                     * 获取访问URL重写配置开关，取值有：
 on：开启
 off：关闭
-                     * @return Switch 访问URL重写配置开关
+                     * @return Switch 访问URL重写配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置访问URL重写配置开关
+                     * 设置访问URL重写配置开关，取值有：
 on：开启
 off：关闭
-                     * @param Switch 访问URL重写配置开关
+                     * @param _switch 访问URL重写配置开关，取值有：
 on：开启
 off：关闭
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -78,27 +81,30 @@ off：关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PathRules 访问URL重写规则，当Switch为on时必填，规则数量最大为10个。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<UrlRedirectRule> GetPathRules() const;
 
                     /**
                      * 设置访问URL重写规则，当Switch为on时必填，规则数量最大为10个。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PathRules 访问URL重写规则，当Switch为on时必填，规则数量最大为10个。
+                     * @param _pathRules 访问URL重写规则，当Switch为on时必填，规则数量最大为10个。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPathRules(const std::vector<UrlRedirectRule>& _pathRules);
 
                     /**
                      * 判断参数 PathRules 是否已赋值
                      * @return PathRules 是否已赋值
+                     * 
                      */
                     bool PathRulesHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 访问URL重写配置开关
+                     * 访问URL重写配置开关，取值有：
 on：开启
 off：关闭
                      */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ using namespace TencentCloud::Cms::V20190321::Model;
 using namespace std;
 
 ImageModerationResponse::ImageModerationResponse() :
-    m_dataHasBeenSet(false),
-    m_businessCodeHasBeenSet(false)
+    m_businessCodeHasBeenSet(false),
+    m_dataHasBeenSet(false)
 {
 }
 
@@ -63,6 +63,16 @@ CoreInternalOutcome ImageModerationResponse::Deserialize(const string &payload)
     }
 
 
+    if (rsp.HasMember("BusinessCode") && !rsp["BusinessCode"].IsNull())
+    {
+        if (!rsp["BusinessCode"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BusinessCode` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_businessCode = rsp["BusinessCode"].GetInt64();
+        m_businessCodeHasBeenSet = true;
+    }
+
     if (rsp.HasMember("Data") && !rsp["Data"].IsNull())
     {
         if (!rsp["Data"].IsObject())
@@ -80,16 +90,6 @@ CoreInternalOutcome ImageModerationResponse::Deserialize(const string &payload)
         m_dataHasBeenSet = true;
     }
 
-    if (rsp.HasMember("BusinessCode") && !rsp["BusinessCode"].IsNull())
-    {
-        if (!rsp["BusinessCode"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `BusinessCode` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_businessCode = rsp["BusinessCode"].GetInt64();
-        m_businessCodeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -100,6 +100,14 @@ string ImageModerationResponse::ToJsonString() const
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
 
+    if (m_businessCodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BusinessCode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_businessCode, allocator);
+    }
+
     if (m_dataHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -109,35 +117,17 @@ string ImageModerationResponse::ToJsonString() const
         m_data.ToJsonObject(value[key.c_str()], allocator);
     }
 
-    if (m_businessCodeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BusinessCode";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_businessCode, allocator);
-    }
-
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
     return buffer.GetString();
 }
 
-
-ImageData ImageModerationResponse::GetData() const
-{
-    return m_data;
-}
-
-bool ImageModerationResponse::DataHasBeenSet() const
-{
-    return m_dataHasBeenSet;
-}
 
 int64_t ImageModerationResponse::GetBusinessCode() const
 {
@@ -147,6 +137,16 @@ int64_t ImageModerationResponse::GetBusinessCode() const
 bool ImageModerationResponse::BusinessCodeHasBeenSet() const
 {
     return m_businessCodeHasBeenSet;
+}
+
+ImageData ImageModerationResponse::GetData() const
+{
+    return m_data;
+}
+
+bool ImageModerationResponse::DataHasBeenSet() const
+{
+    return m_dataHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ DataDisk::DataDisk() :
     m_diskSizeHasBeenSet(false),
     m_snapshotIdHasBeenSet(false),
     m_deleteWithInstanceHasBeenSet(false),
-    m_encryptHasBeenSet(false)
+    m_encryptHasBeenSet(false),
+    m_throughputPerformanceHasBeenSet(false),
+    m_burstPerformanceHasBeenSet(false)
 {
 }
 
@@ -84,6 +86,26 @@ CoreInternalOutcome DataDisk::Deserialize(const rapidjson::Value &value)
         m_encryptHasBeenSet = true;
     }
 
+    if (value.HasMember("ThroughputPerformance") && !value["ThroughputPerformance"].IsNull())
+    {
+        if (!value["ThroughputPerformance"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DataDisk.ThroughputPerformance` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_throughputPerformance = value["ThroughputPerformance"].GetUint64();
+        m_throughputPerformanceHasBeenSet = true;
+    }
+
+    if (value.HasMember("BurstPerformance") && !value["BurstPerformance"].IsNull())
+    {
+        if (!value["BurstPerformance"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `DataDisk.BurstPerformance` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_burstPerformance = value["BurstPerformance"].GetBool();
+        m_burstPerformanceHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +151,22 @@ void DataDisk::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "Encrypt";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_encrypt, allocator);
+    }
+
+    if (m_throughputPerformanceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ThroughputPerformance";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_throughputPerformance, allocator);
+    }
+
+    if (m_burstPerformanceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BurstPerformance";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_burstPerformance, allocator);
     }
 
 }
@@ -212,5 +250,37 @@ void DataDisk::SetEncrypt(const bool& _encrypt)
 bool DataDisk::EncryptHasBeenSet() const
 {
     return m_encryptHasBeenSet;
+}
+
+uint64_t DataDisk::GetThroughputPerformance() const
+{
+    return m_throughputPerformance;
+}
+
+void DataDisk::SetThroughputPerformance(const uint64_t& _throughputPerformance)
+{
+    m_throughputPerformance = _throughputPerformance;
+    m_throughputPerformanceHasBeenSet = true;
+}
+
+bool DataDisk::ThroughputPerformanceHasBeenSet() const
+{
+    return m_throughputPerformanceHasBeenSet;
+}
+
+bool DataDisk::GetBurstPerformance() const
+{
+    return m_burstPerformance;
+}
+
+void DataDisk::SetBurstPerformance(const bool& _burstPerformance)
+{
+    m_burstPerformance = _burstPerformance;
+    m_burstPerformanceHasBeenSet = true;
+}
+
+bool DataDisk::BurstPerformanceHasBeenSet() const
+{
+    return m_burstPerformanceHasBeenSet;
 }
 

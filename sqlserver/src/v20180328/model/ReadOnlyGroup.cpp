@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,11 @@ ReadOnlyGroup::ReadOnlyGroup() :
     m_subnetIdHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_masterInstanceIdHasBeenSet(false),
-    m_readOnlyInstanceSetHasBeenSet(false)
+    m_readOnlyInstanceSetHasBeenSet(false),
+    m_dnsPodDomainHasBeenSet(false),
+    m_tgwWanVPortHasBeenSet(false),
+    m_readOnlyGroupTypeHasBeenSet(false),
+    m_readOnlyGroupForcedUpgradeHasBeenSet(false)
 {
 }
 
@@ -193,6 +197,46 @@ CoreInternalOutcome ReadOnlyGroup::Deserialize(const rapidjson::Value &value)
         m_readOnlyInstanceSetHasBeenSet = true;
     }
 
+    if (value.HasMember("DnsPodDomain") && !value["DnsPodDomain"].IsNull())
+    {
+        if (!value["DnsPodDomain"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReadOnlyGroup.DnsPodDomain` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dnsPodDomain = string(value["DnsPodDomain"].GetString());
+        m_dnsPodDomainHasBeenSet = true;
+    }
+
+    if (value.HasMember("TgwWanVPort") && !value["TgwWanVPort"].IsNull())
+    {
+        if (!value["TgwWanVPort"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReadOnlyGroup.TgwWanVPort` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_tgwWanVPort = value["TgwWanVPort"].GetUint64();
+        m_tgwWanVPortHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReadOnlyGroupType") && !value["ReadOnlyGroupType"].IsNull())
+    {
+        if (!value["ReadOnlyGroupType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReadOnlyGroup.ReadOnlyGroupType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_readOnlyGroupType = value["ReadOnlyGroupType"].GetInt64();
+        m_readOnlyGroupTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReadOnlyGroupForcedUpgrade") && !value["ReadOnlyGroupForcedUpgrade"].IsNull())
+    {
+        if (!value["ReadOnlyGroupForcedUpgrade"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ReadOnlyGroup.ReadOnlyGroupForcedUpgrade` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_readOnlyGroupForcedUpgrade = value["ReadOnlyGroupForcedUpgrade"].GetInt64();
+        m_readOnlyGroupForcedUpgradeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -317,6 +361,38 @@ void ReadOnlyGroup::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_dnsPodDomainHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DnsPodDomain";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dnsPodDomain.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tgwWanVPortHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TgwWanVPort";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_tgwWanVPort, allocator);
+    }
+
+    if (m_readOnlyGroupTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReadOnlyGroupType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_readOnlyGroupType, allocator);
+    }
+
+    if (m_readOnlyGroupForcedUpgradeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReadOnlyGroupForcedUpgrade";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_readOnlyGroupForcedUpgrade, allocator);
     }
 
 }
@@ -544,5 +620,69 @@ void ReadOnlyGroup::SetReadOnlyInstanceSet(const vector<ReadOnlyInstance>& _read
 bool ReadOnlyGroup::ReadOnlyInstanceSetHasBeenSet() const
 {
     return m_readOnlyInstanceSetHasBeenSet;
+}
+
+string ReadOnlyGroup::GetDnsPodDomain() const
+{
+    return m_dnsPodDomain;
+}
+
+void ReadOnlyGroup::SetDnsPodDomain(const string& _dnsPodDomain)
+{
+    m_dnsPodDomain = _dnsPodDomain;
+    m_dnsPodDomainHasBeenSet = true;
+}
+
+bool ReadOnlyGroup::DnsPodDomainHasBeenSet() const
+{
+    return m_dnsPodDomainHasBeenSet;
+}
+
+uint64_t ReadOnlyGroup::GetTgwWanVPort() const
+{
+    return m_tgwWanVPort;
+}
+
+void ReadOnlyGroup::SetTgwWanVPort(const uint64_t& _tgwWanVPort)
+{
+    m_tgwWanVPort = _tgwWanVPort;
+    m_tgwWanVPortHasBeenSet = true;
+}
+
+bool ReadOnlyGroup::TgwWanVPortHasBeenSet() const
+{
+    return m_tgwWanVPortHasBeenSet;
+}
+
+int64_t ReadOnlyGroup::GetReadOnlyGroupType() const
+{
+    return m_readOnlyGroupType;
+}
+
+void ReadOnlyGroup::SetReadOnlyGroupType(const int64_t& _readOnlyGroupType)
+{
+    m_readOnlyGroupType = _readOnlyGroupType;
+    m_readOnlyGroupTypeHasBeenSet = true;
+}
+
+bool ReadOnlyGroup::ReadOnlyGroupTypeHasBeenSet() const
+{
+    return m_readOnlyGroupTypeHasBeenSet;
+}
+
+int64_t ReadOnlyGroup::GetReadOnlyGroupForcedUpgrade() const
+{
+    return m_readOnlyGroupForcedUpgrade;
+}
+
+void ReadOnlyGroup::SetReadOnlyGroupForcedUpgrade(const int64_t& _readOnlyGroupForcedUpgrade)
+{
+    m_readOnlyGroupForcedUpgrade = _readOnlyGroupForcedUpgrade;
+    m_readOnlyGroupForcedUpgradeHasBeenSet = true;
+}
+
+bool ReadOnlyGroup::ReadOnlyGroupForcedUpgradeHasBeenSet() const
+{
+    return m_readOnlyGroupForcedUpgradeHasBeenSet;
 }
 

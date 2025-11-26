@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取指定需要删除密钥材料的EXTERNAL CMK。
                      * @return KeyId 指定需要删除密钥材料的EXTERNAL CMK。
+                     * 
                      */
                     std::string GetKeyId() const;
 
                     /**
                      * 设置指定需要删除密钥材料的EXTERNAL CMK。
-                     * @param KeyId 指定需要删除密钥材料的EXTERNAL CMK。
+                     * @param _keyId 指定需要删除密钥材料的EXTERNAL CMK。
+                     * 
                      */
                     void SetKeyId(const std::string& _keyId);
 
                     /**
                      * 判断参数 KeyId 是否已赋值
                      * @return KeyId 是否已赋值
+                     * 
                      */
                     bool KeyIdHasBeenSet() const;
 

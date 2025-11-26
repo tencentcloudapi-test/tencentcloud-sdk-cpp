@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,60 +44,206 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取持码人姓名
-                     * @return Name 持码人姓名
+                     * 获取持码人姓名，如：王*（允许返回空值）
+                     * @return Name 持码人姓名，如：王*（允许返回空值）
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX
-                     * @return Time 健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX
+                     * 获取持码人身份证号，如：11**************01（允许返回空值）
+                     * @return IDNumber 持码人身份证号，如：11**************01（允许返回空值）
+                     * 
+                     */
+                    std::string GetIDNumber() const;
+
+                    /**
+                     * 判断参数 IDNumber 是否已赋值
+                     * @return IDNumber 是否已赋值
+                     * 
+                     */
+                    bool IDNumberHasBeenSet() const;
+
+                    /**
+                     * 获取健康码更新时间（允许返回空值）
+                     * @return Time 健康码更新时间（允许返回空值）
+                     * 
                      */
                     std::string GetTime() const;
 
                     /**
                      * 判断参数 Time 是否已赋值
                      * @return Time 是否已赋值
+                     * 
                      */
                     bool TimeHasBeenSet() const;
 
                     /**
-                     * 获取健康码颜色：绿色、黄色、红色
-                     * @return Color 健康码颜色：绿色、黄色、红色
+                     * 获取健康码颜色：绿色、黄色、红色（允许返回空值）
+                     * @return Color 健康码颜色：绿色、黄色、红色（允许返回空值）
+                     * 
                      */
                     std::string GetColor() const;
 
                     /**
                      * 判断参数 Color 是否已赋值
                      * @return Color 是否已赋值
+                     * 
                      */
                     bool ColorHasBeenSet() const;
+
+                    /**
+                     * 获取核酸检测间隔时长（允许返回空值）
+                     * @return TestingInterval 核酸检测间隔时长（允许返回空值）
+                     * 
+                     */
+                    std::string GetTestingInterval() const;
+
+                    /**
+                     * 判断参数 TestingInterval 是否已赋值
+                     * @return TestingInterval 是否已赋值
+                     * 
+                     */
+                    bool TestingIntervalHasBeenSet() const;
+
+                    /**
+                     * 获取核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值）
+                     * @return TestingResult 核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值）
+                     * 
+                     */
+                    std::string GetTestingResult() const;
+
+                    /**
+                     * 判断参数 TestingResult 是否已赋值
+                     * @return TestingResult 是否已赋值
+                     * 
+                     */
+                    bool TestingResultHasBeenSet() const;
+
+                    /**
+                     * 获取核酸检测时间（允许返回空值）
+                     * @return TestingTime 核酸检测时间（允许返回空值）
+                     * 
+                     */
+                    std::string GetTestingTime() const;
+
+                    /**
+                     * 判断参数 TestingTime 是否已赋值
+                     * @return TestingTime 是否已赋值
+                     * 
+                     */
+                    bool TestingTimeHasBeenSet() const;
+
+                    /**
+                     * 获取疫苗接种信息，返回接种针数或接种情况（允许返回空值）
+                     * @return Vaccination 疫苗接种信息，返回接种针数或接种情况（允许返回空值）
+                     * 
+                     */
+                    std::string GetVaccination() const;
+
+                    /**
+                     * 判断参数 Vaccination 是否已赋值
+                     * @return Vaccination 是否已赋值
+                     * 
+                     */
+                    bool VaccinationHasBeenSet() const;
+
+                    /**
+                     * 获取场所名称（允许返回空值）
+                     * @return SpotName 场所名称（允许返回空值）
+                     * 
+                     */
+                    std::string GetSpotName() const;
+
+                    /**
+                     * 判断参数 SpotName 是否已赋值
+                     * @return SpotName 是否已赋值
+                     * 
+                     */
+                    bool SpotNameHasBeenSet() const;
+
+                    /**
+                     * 获取疫苗接种时间
+                     * @return VaccinationTime 疫苗接种时间
+                     * 
+                     */
+                    std::string GetVaccinationTime() const;
+
+                    /**
+                     * 判断参数 VaccinationTime 是否已赋值
+                     * @return VaccinationTime 是否已赋值
+                     * 
+                     */
+                    bool VaccinationTimeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 持码人姓名
+                     * 持码人姓名，如：王*（允许返回空值）
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 健康码更新时间，格式为：XXXX-XX-XX XX:XX:XX
+                     * 持码人身份证号，如：11**************01（允许返回空值）
+                     */
+                    std::string m_iDNumber;
+                    bool m_iDNumberHasBeenSet;
+
+                    /**
+                     * 健康码更新时间（允许返回空值）
                      */
                     std::string m_time;
                     bool m_timeHasBeenSet;
 
                     /**
-                     * 健康码颜色：绿色、黄色、红色
+                     * 健康码颜色：绿色、黄色、红色（允许返回空值）
                      */
                     std::string m_color;
                     bool m_colorHasBeenSet;
+
+                    /**
+                     * 核酸检测间隔时长（允许返回空值）
+                     */
+                    std::string m_testingInterval;
+                    bool m_testingIntervalHasBeenSet;
+
+                    /**
+                     * 核酸检测结果：阴性、阳性、暂无核酸检测记录（允许返回空值）
+                     */
+                    std::string m_testingResult;
+                    bool m_testingResultHasBeenSet;
+
+                    /**
+                     * 核酸检测时间（允许返回空值）
+                     */
+                    std::string m_testingTime;
+                    bool m_testingTimeHasBeenSet;
+
+                    /**
+                     * 疫苗接种信息，返回接种针数或接种情况（允许返回空值）
+                     */
+                    std::string m_vaccination;
+                    bool m_vaccinationHasBeenSet;
+
+                    /**
+                     * 场所名称（允许返回空值）
+                     */
+                    std::string m_spotName;
+                    bool m_spotNameHasBeenSet;
+
+                    /**
+                     * 疫苗接种时间
+                     */
+                    std::string m_vaccinationTime;
+                    bool m_vaccinationTimeHasBeenSet;
 
                 };
             }

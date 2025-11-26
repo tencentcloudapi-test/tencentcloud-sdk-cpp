@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,26 @@ TaskResponseInfo::TaskResponseInfo() :
     m_inputTypeHasBeenSet(false),
     m_inputConfHasBeenSet(false),
     m_dataNumberHasBeenSet(false),
-    m_canDownloadHasBeenSet(false)
+    m_canDownloadHasBeenSet(false),
+    m_userAliasHasBeenSet(false),
+    m_sparkJobNameHasBeenSet(false),
+    m_sparkJobIdHasBeenSet(false),
+    m_sparkJobFileHasBeenSet(false),
+    m_uiUrlHasBeenSet(false),
+    m_totalTimeHasBeenSet(false),
+    m_cmdArgsHasBeenSet(false),
+    m_imageVersionHasBeenSet(false),
+    m_driverSizeHasBeenSet(false),
+    m_executorSizeHasBeenSet(false),
+    m_executorNumsHasBeenSet(false),
+    m_executorMaxNumbersHasBeenSet(false),
+    m_commonMetricsHasBeenSet(false),
+    m_sparkMonitorMetricsHasBeenSet(false),
+    m_prestoMonitorMetricsHasBeenSet(false),
+    m_resultFormatHasBeenSet(false),
+    m_engineTypeDetailHasBeenSet(false),
+    m_resourceGroupNameHasBeenSet(false),
+    m_jobTimeSumHasBeenSet(false)
 {
 }
 
@@ -304,6 +323,217 @@ CoreInternalOutcome TaskResponseInfo::Deserialize(const rapidjson::Value &value)
         m_canDownloadHasBeenSet = true;
     }
 
+    if (value.HasMember("UserAlias") && !value["UserAlias"].IsNull())
+    {
+        if (!value["UserAlias"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.UserAlias` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_userAlias = string(value["UserAlias"].GetString());
+        m_userAliasHasBeenSet = true;
+    }
+
+    if (value.HasMember("SparkJobName") && !value["SparkJobName"].IsNull())
+    {
+        if (!value["SparkJobName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.SparkJobName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sparkJobName = string(value["SparkJobName"].GetString());
+        m_sparkJobNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("SparkJobId") && !value["SparkJobId"].IsNull())
+    {
+        if (!value["SparkJobId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.SparkJobId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sparkJobId = string(value["SparkJobId"].GetString());
+        m_sparkJobIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("SparkJobFile") && !value["SparkJobFile"].IsNull())
+    {
+        if (!value["SparkJobFile"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.SparkJobFile` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_sparkJobFile = string(value["SparkJobFile"].GetString());
+        m_sparkJobFileHasBeenSet = true;
+    }
+
+    if (value.HasMember("UiUrl") && !value["UiUrl"].IsNull())
+    {
+        if (!value["UiUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.UiUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_uiUrl = string(value["UiUrl"].GetString());
+        m_uiUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("TotalTime") && !value["TotalTime"].IsNull())
+    {
+        if (!value["TotalTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.TotalTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_totalTime = value["TotalTime"].GetInt64();
+        m_totalTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("CmdArgs") && !value["CmdArgs"].IsNull())
+    {
+        if (!value["CmdArgs"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.CmdArgs` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cmdArgs = string(value["CmdArgs"].GetString());
+        m_cmdArgsHasBeenSet = true;
+    }
+
+    if (value.HasMember("ImageVersion") && !value["ImageVersion"].IsNull())
+    {
+        if (!value["ImageVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.ImageVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_imageVersion = string(value["ImageVersion"].GetString());
+        m_imageVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("DriverSize") && !value["DriverSize"].IsNull())
+    {
+        if (!value["DriverSize"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.DriverSize` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_driverSize = string(value["DriverSize"].GetString());
+        m_driverSizeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExecutorSize") && !value["ExecutorSize"].IsNull())
+    {
+        if (!value["ExecutorSize"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.ExecutorSize` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_executorSize = string(value["ExecutorSize"].GetString());
+        m_executorSizeHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExecutorNums") && !value["ExecutorNums"].IsNull())
+    {
+        if (!value["ExecutorNums"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.ExecutorNums` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_executorNums = value["ExecutorNums"].GetUint64();
+        m_executorNumsHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExecutorMaxNumbers") && !value["ExecutorMaxNumbers"].IsNull())
+    {
+        if (!value["ExecutorMaxNumbers"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.ExecutorMaxNumbers` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_executorMaxNumbers = value["ExecutorMaxNumbers"].GetUint64();
+        m_executorMaxNumbersHasBeenSet = true;
+    }
+
+    if (value.HasMember("CommonMetrics") && !value["CommonMetrics"].IsNull())
+    {
+        if (!value["CommonMetrics"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.CommonMetrics` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_commonMetrics.Deserialize(value["CommonMetrics"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_commonMetricsHasBeenSet = true;
+    }
+
+    if (value.HasMember("SparkMonitorMetrics") && !value["SparkMonitorMetrics"].IsNull())
+    {
+        if (!value["SparkMonitorMetrics"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.SparkMonitorMetrics` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_sparkMonitorMetrics.Deserialize(value["SparkMonitorMetrics"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_sparkMonitorMetricsHasBeenSet = true;
+    }
+
+    if (value.HasMember("PrestoMonitorMetrics") && !value["PrestoMonitorMetrics"].IsNull())
+    {
+        if (!value["PrestoMonitorMetrics"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.PrestoMonitorMetrics` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_prestoMonitorMetrics.Deserialize(value["PrestoMonitorMetrics"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_prestoMonitorMetricsHasBeenSet = true;
+    }
+
+    if (value.HasMember("ResultFormat") && !value["ResultFormat"].IsNull())
+    {
+        if (!value["ResultFormat"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.ResultFormat` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_resultFormat = string(value["ResultFormat"].GetString());
+        m_resultFormatHasBeenSet = true;
+    }
+
+    if (value.HasMember("EngineTypeDetail") && !value["EngineTypeDetail"].IsNull())
+    {
+        if (!value["EngineTypeDetail"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.EngineTypeDetail` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_engineTypeDetail = string(value["EngineTypeDetail"].GetString());
+        m_engineTypeDetailHasBeenSet = true;
+    }
+
+    if (value.HasMember("ResourceGroupName") && !value["ResourceGroupName"].IsNull())
+    {
+        if (!value["ResourceGroupName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.ResourceGroupName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_resourceGroupName = string(value["ResourceGroupName"].GetString());
+        m_resourceGroupNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("JobTimeSum") && !value["JobTimeSum"].IsNull())
+    {
+        if (!value["JobTimeSum"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskResponseInfo.JobTimeSum` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_jobTimeSum = value["JobTimeSum"].GetInt64();
+        m_jobTimeSumHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -509,6 +739,161 @@ void TaskResponseInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "CanDownload";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_canDownload, allocator);
+    }
+
+    if (m_userAliasHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserAlias";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_userAlias.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sparkJobNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SparkJobName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sparkJobName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sparkJobIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SparkJobId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sparkJobId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sparkJobFileHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SparkJobFile";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_sparkJobFile.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_uiUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UiUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_uiUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_totalTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TotalTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_totalTime, allocator);
+    }
+
+    if (m_cmdArgsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CmdArgs";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cmdArgs.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_imageVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_imageVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_driverSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DriverSize";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_driverSize.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_executorSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExecutorSize";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_executorSize.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_executorNumsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExecutorNums";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_executorNums, allocator);
+    }
+
+    if (m_executorMaxNumbersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExecutorMaxNumbers";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_executorMaxNumbers, allocator);
+    }
+
+    if (m_commonMetricsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CommonMetrics";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_commonMetrics.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_sparkMonitorMetricsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SparkMonitorMetrics";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_sparkMonitorMetrics.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_prestoMonitorMetricsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PrestoMonitorMetrics";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_prestoMonitorMetrics.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_resultFormatHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResultFormat";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_resultFormat.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_engineTypeDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EngineTypeDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_engineTypeDetail.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_resourceGroupNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceGroupName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_resourceGroupName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_jobTimeSumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "JobTimeSum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_jobTimeSum, allocator);
     }
 
 }
@@ -912,5 +1297,309 @@ void TaskResponseInfo::SetCanDownload(const bool& _canDownload)
 bool TaskResponseInfo::CanDownloadHasBeenSet() const
 {
     return m_canDownloadHasBeenSet;
+}
+
+string TaskResponseInfo::GetUserAlias() const
+{
+    return m_userAlias;
+}
+
+void TaskResponseInfo::SetUserAlias(const string& _userAlias)
+{
+    m_userAlias = _userAlias;
+    m_userAliasHasBeenSet = true;
+}
+
+bool TaskResponseInfo::UserAliasHasBeenSet() const
+{
+    return m_userAliasHasBeenSet;
+}
+
+string TaskResponseInfo::GetSparkJobName() const
+{
+    return m_sparkJobName;
+}
+
+void TaskResponseInfo::SetSparkJobName(const string& _sparkJobName)
+{
+    m_sparkJobName = _sparkJobName;
+    m_sparkJobNameHasBeenSet = true;
+}
+
+bool TaskResponseInfo::SparkJobNameHasBeenSet() const
+{
+    return m_sparkJobNameHasBeenSet;
+}
+
+string TaskResponseInfo::GetSparkJobId() const
+{
+    return m_sparkJobId;
+}
+
+void TaskResponseInfo::SetSparkJobId(const string& _sparkJobId)
+{
+    m_sparkJobId = _sparkJobId;
+    m_sparkJobIdHasBeenSet = true;
+}
+
+bool TaskResponseInfo::SparkJobIdHasBeenSet() const
+{
+    return m_sparkJobIdHasBeenSet;
+}
+
+string TaskResponseInfo::GetSparkJobFile() const
+{
+    return m_sparkJobFile;
+}
+
+void TaskResponseInfo::SetSparkJobFile(const string& _sparkJobFile)
+{
+    m_sparkJobFile = _sparkJobFile;
+    m_sparkJobFileHasBeenSet = true;
+}
+
+bool TaskResponseInfo::SparkJobFileHasBeenSet() const
+{
+    return m_sparkJobFileHasBeenSet;
+}
+
+string TaskResponseInfo::GetUiUrl() const
+{
+    return m_uiUrl;
+}
+
+void TaskResponseInfo::SetUiUrl(const string& _uiUrl)
+{
+    m_uiUrl = _uiUrl;
+    m_uiUrlHasBeenSet = true;
+}
+
+bool TaskResponseInfo::UiUrlHasBeenSet() const
+{
+    return m_uiUrlHasBeenSet;
+}
+
+int64_t TaskResponseInfo::GetTotalTime() const
+{
+    return m_totalTime;
+}
+
+void TaskResponseInfo::SetTotalTime(const int64_t& _totalTime)
+{
+    m_totalTime = _totalTime;
+    m_totalTimeHasBeenSet = true;
+}
+
+bool TaskResponseInfo::TotalTimeHasBeenSet() const
+{
+    return m_totalTimeHasBeenSet;
+}
+
+string TaskResponseInfo::GetCmdArgs() const
+{
+    return m_cmdArgs;
+}
+
+void TaskResponseInfo::SetCmdArgs(const string& _cmdArgs)
+{
+    m_cmdArgs = _cmdArgs;
+    m_cmdArgsHasBeenSet = true;
+}
+
+bool TaskResponseInfo::CmdArgsHasBeenSet() const
+{
+    return m_cmdArgsHasBeenSet;
+}
+
+string TaskResponseInfo::GetImageVersion() const
+{
+    return m_imageVersion;
+}
+
+void TaskResponseInfo::SetImageVersion(const string& _imageVersion)
+{
+    m_imageVersion = _imageVersion;
+    m_imageVersionHasBeenSet = true;
+}
+
+bool TaskResponseInfo::ImageVersionHasBeenSet() const
+{
+    return m_imageVersionHasBeenSet;
+}
+
+string TaskResponseInfo::GetDriverSize() const
+{
+    return m_driverSize;
+}
+
+void TaskResponseInfo::SetDriverSize(const string& _driverSize)
+{
+    m_driverSize = _driverSize;
+    m_driverSizeHasBeenSet = true;
+}
+
+bool TaskResponseInfo::DriverSizeHasBeenSet() const
+{
+    return m_driverSizeHasBeenSet;
+}
+
+string TaskResponseInfo::GetExecutorSize() const
+{
+    return m_executorSize;
+}
+
+void TaskResponseInfo::SetExecutorSize(const string& _executorSize)
+{
+    m_executorSize = _executorSize;
+    m_executorSizeHasBeenSet = true;
+}
+
+bool TaskResponseInfo::ExecutorSizeHasBeenSet() const
+{
+    return m_executorSizeHasBeenSet;
+}
+
+uint64_t TaskResponseInfo::GetExecutorNums() const
+{
+    return m_executorNums;
+}
+
+void TaskResponseInfo::SetExecutorNums(const uint64_t& _executorNums)
+{
+    m_executorNums = _executorNums;
+    m_executorNumsHasBeenSet = true;
+}
+
+bool TaskResponseInfo::ExecutorNumsHasBeenSet() const
+{
+    return m_executorNumsHasBeenSet;
+}
+
+uint64_t TaskResponseInfo::GetExecutorMaxNumbers() const
+{
+    return m_executorMaxNumbers;
+}
+
+void TaskResponseInfo::SetExecutorMaxNumbers(const uint64_t& _executorMaxNumbers)
+{
+    m_executorMaxNumbers = _executorMaxNumbers;
+    m_executorMaxNumbersHasBeenSet = true;
+}
+
+bool TaskResponseInfo::ExecutorMaxNumbersHasBeenSet() const
+{
+    return m_executorMaxNumbersHasBeenSet;
+}
+
+CommonMetrics TaskResponseInfo::GetCommonMetrics() const
+{
+    return m_commonMetrics;
+}
+
+void TaskResponseInfo::SetCommonMetrics(const CommonMetrics& _commonMetrics)
+{
+    m_commonMetrics = _commonMetrics;
+    m_commonMetricsHasBeenSet = true;
+}
+
+bool TaskResponseInfo::CommonMetricsHasBeenSet() const
+{
+    return m_commonMetricsHasBeenSet;
+}
+
+SparkMonitorMetrics TaskResponseInfo::GetSparkMonitorMetrics() const
+{
+    return m_sparkMonitorMetrics;
+}
+
+void TaskResponseInfo::SetSparkMonitorMetrics(const SparkMonitorMetrics& _sparkMonitorMetrics)
+{
+    m_sparkMonitorMetrics = _sparkMonitorMetrics;
+    m_sparkMonitorMetricsHasBeenSet = true;
+}
+
+bool TaskResponseInfo::SparkMonitorMetricsHasBeenSet() const
+{
+    return m_sparkMonitorMetricsHasBeenSet;
+}
+
+PrestoMonitorMetrics TaskResponseInfo::GetPrestoMonitorMetrics() const
+{
+    return m_prestoMonitorMetrics;
+}
+
+void TaskResponseInfo::SetPrestoMonitorMetrics(const PrestoMonitorMetrics& _prestoMonitorMetrics)
+{
+    m_prestoMonitorMetrics = _prestoMonitorMetrics;
+    m_prestoMonitorMetricsHasBeenSet = true;
+}
+
+bool TaskResponseInfo::PrestoMonitorMetricsHasBeenSet() const
+{
+    return m_prestoMonitorMetricsHasBeenSet;
+}
+
+string TaskResponseInfo::GetResultFormat() const
+{
+    return m_resultFormat;
+}
+
+void TaskResponseInfo::SetResultFormat(const string& _resultFormat)
+{
+    m_resultFormat = _resultFormat;
+    m_resultFormatHasBeenSet = true;
+}
+
+bool TaskResponseInfo::ResultFormatHasBeenSet() const
+{
+    return m_resultFormatHasBeenSet;
+}
+
+string TaskResponseInfo::GetEngineTypeDetail() const
+{
+    return m_engineTypeDetail;
+}
+
+void TaskResponseInfo::SetEngineTypeDetail(const string& _engineTypeDetail)
+{
+    m_engineTypeDetail = _engineTypeDetail;
+    m_engineTypeDetailHasBeenSet = true;
+}
+
+bool TaskResponseInfo::EngineTypeDetailHasBeenSet() const
+{
+    return m_engineTypeDetailHasBeenSet;
+}
+
+string TaskResponseInfo::GetResourceGroupName() const
+{
+    return m_resourceGroupName;
+}
+
+void TaskResponseInfo::SetResourceGroupName(const string& _resourceGroupName)
+{
+    m_resourceGroupName = _resourceGroupName;
+    m_resourceGroupNameHasBeenSet = true;
+}
+
+bool TaskResponseInfo::ResourceGroupNameHasBeenSet() const
+{
+    return m_resourceGroupNameHasBeenSet;
+}
+
+int64_t TaskResponseInfo::GetJobTimeSum() const
+{
+    return m_jobTimeSum;
+}
+
+void TaskResponseInfo::SetJobTimeSum(const int64_t& _jobTimeSum)
+{
+    m_jobTimeSum = _jobTimeSum;
+    m_jobTimeSumHasBeenSet = true;
+}
+
+bool TaskResponseInfo::JobTimeSumHasBeenSet() const
+{
+    return m_jobTimeSumHasBeenSet;
 }
 

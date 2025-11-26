@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取设备所属产品id
                      * @return ProductId 设备所属产品id
+                     * 
                      */
                     std::string GetProductId() const;
 
                     /**
                      * 设置设备所属产品id
-                     * @param ProductId 设备所属产品id
+                     * @param _productId 设备所属产品id
+                     * 
                      */
                     void SetProductId(const std::string& _productId);
 
                     /**
                      * 判断参数 ProductId 是否已赋值
                      * @return ProductId 是否已赋值
+                     * 
                      */
                     bool ProductIdHasBeenSet() const;
 
                     /**
                      * 获取设备名称集合
                      * @return DeviceNames 设备名称集合
+                     * 
                      */
                     std::vector<std::string> GetDeviceNames() const;
 
                     /**
                      * 设置设备名称集合
-                     * @param DeviceNames 设备名称集合
+                     * @param _deviceNames 设备名称集合
+                     * 
                      */
                     void SetDeviceNames(const std::vector<std::string>& _deviceNames);
 
                     /**
                      * 判断参数 DeviceNames 是否已赋值
                      * @return DeviceNames 是否已赋值
+                     * 
                      */
                     bool DeviceNamesHasBeenSet() const;
 
                     /**
                      * 获取要设置的设备状态，1为启用，0为禁用
                      * @return Status 要设置的设备状态，1为启用，0为禁用
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 设置要设置的设备状态，1为启用，0为禁用
-                     * @param Status 要设置的设备状态，1为启用，0为禁用
+                     * @param _status 要设置的设备状态，1为启用，0为禁用
+                     * 
                      */
                     void SetStatus(const uint64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 

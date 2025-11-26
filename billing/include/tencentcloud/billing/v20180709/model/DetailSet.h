@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,58 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取域名
                      * @return Domain 域名
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置域名
-                     * @param Domain 域名
+                     * @param _domain 域名
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                     /**
                      * 获取使用数据明细
                      * @return DetailPoints 使用数据明细
+                     * 
                      */
                     std::vector<DetailPoint> GetDetailPoints() const;
 
                     /**
                      * 设置使用数据明细
-                     * @param DetailPoints 使用数据明细
+                     * @param _detailPoints 使用数据明细
+                     * 
                      */
                     void SetDetailPoints(const std::vector<DetailPoint>& _detailPoints);
 
                     /**
                      * 判断参数 DetailPoints 是否已赋值
                      * @return DetailPoints 是否已赋值
+                     * 
                      */
                     bool DetailPointsHasBeenSet() const;
 
                     /**
                      * 获取实例ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return InstanceID 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInstanceID() const;
 
                     /**
                      * 设置实例ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstanceID 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _instanceID 实例ID
+                     * 
                      */
                     void SetInstanceID(const std::string& _instanceID);
 
                     /**
                      * 判断参数 InstanceID 是否已赋值
                      * @return InstanceID 是否已赋值
+                     * 
                      */
                     bool InstanceIDHasBeenSet() const;
 
@@ -121,7 +126,6 @@ namespace TencentCloud
 
                     /**
                      * 实例ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_instanceID;
                     bool m_instanceIDHasBeenSet;

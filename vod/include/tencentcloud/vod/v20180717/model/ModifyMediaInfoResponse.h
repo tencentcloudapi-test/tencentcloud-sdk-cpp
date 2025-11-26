@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,24 +49,28 @@ namespace TencentCloud
 * 注意：仅当请求携带 CoverData 时此返回值有效。 *
                      * @return CoverUrl 新的视频封面 URL。
 * 注意：仅当请求携带 CoverData 时此返回值有效。 *
+                     * 
                      */
                     std::string GetCoverUrl() const;
 
                     /**
                      * 判断参数 CoverUrl 是否已赋值
                      * @return CoverUrl 是否已赋值
+                     * 
                      */
                     bool CoverUrlHasBeenSet() const;
 
                     /**
                      * 获取新增的字幕信息。
                      * @return AddedSubtitleSet 新增的字幕信息。
+                     * 
                      */
                     std::vector<MediaSubtitleItem> GetAddedSubtitleSet() const;
 
                     /**
                      * 判断参数 AddedSubtitleSet 是否已赋值
                      * @return AddedSubtitleSet 是否已赋值
+                     * 
                      */
                     bool AddedSubtitleSetHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取环境ID
                      * @return EnvId 环境ID
+                     * 
                      */
                     std::string GetEnvId() const;
 
                     /**
                      * 设置环境ID
-                     * @param EnvId 环境ID
+                     * @param _envId 环境ID
+                     * 
                      */
                     void SetEnvId(const std::string& _envId);
 
                     /**
                      * 判断参数 EnvId 是否已赋值
                      * @return EnvId 是否已赋值
+                     * 
                      */
                     bool EnvIdHasBeenSet() const;
 
@@ -65,20 +68,23 @@ namespace TencentCloud
 不传则返回全部资源指标
                      * @return ResourceTypes 资源类型：可选值：CDN, COS, FLEXDB, HOSTING, SCF
 不传则返回全部资源指标
+                     * 
                      */
                     std::vector<std::string> GetResourceTypes() const;
 
                     /**
                      * 设置资源类型：可选值：CDN, COS, FLEXDB, HOSTING, SCF
 不传则返回全部资源指标
-                     * @param ResourceTypes 资源类型：可选值：CDN, COS, FLEXDB, HOSTING, SCF
+                     * @param _resourceTypes 资源类型：可选值：CDN, COS, FLEXDB, HOSTING, SCF
 不传则返回全部资源指标
+                     * 
                      */
                     void SetResourceTypes(const std::vector<std::string>& _resourceTypes);
 
                     /**
                      * 判断参数 ResourceTypes 是否已赋值
                      * @return ResourceTypes 是否已赋值
+                     * 
                      */
                     bool ResourceTypesHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ InquiryPriceScaleOutInstanceResponse::InquiryPriceScaleOutInstanceResponse() :
     m_originalCostHasBeenSet(false),
     m_discountCostHasBeenSet(false),
     m_unitHasBeenSet(false),
-    m_priceSpecHasBeenSet(false)
+    m_priceSpecHasBeenSet(false),
+    m_multipleEmrPriceHasBeenSet(false)
 {
 }
 
@@ -112,6 +113,26 @@ CoreInternalOutcome InquiryPriceScaleOutInstanceResponse::Deserialize(const stri
         m_priceSpecHasBeenSet = true;
     }
 
+    if (rsp.HasMember("MultipleEmrPrice") && !rsp["MultipleEmrPrice"].IsNull())
+    {
+        if (!rsp["MultipleEmrPrice"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `MultipleEmrPrice` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["MultipleEmrPrice"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            EmrPrice item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_multipleEmrPrice.push_back(item);
+        }
+        m_multipleEmrPriceHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -155,11 +176,26 @@ string InquiryPriceScaleOutInstanceResponse::ToJsonString() const
         m_priceSpec.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_multipleEmrPriceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MultipleEmrPrice";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_multipleEmrPrice.begin(); itr != m_multipleEmrPrice.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -205,6 +241,16 @@ PriceResource InquiryPriceScaleOutInstanceResponse::GetPriceSpec() const
 bool InquiryPriceScaleOutInstanceResponse::PriceSpecHasBeenSet() const
 {
     return m_priceSpecHasBeenSet;
+}
+
+vector<EmrPrice> InquiryPriceScaleOutInstanceResponse::GetMultipleEmrPrice() const
+{
+    return m_multipleEmrPrice;
+}
+
+bool InquiryPriceScaleOutInstanceResponse::MultipleEmrPriceHasBeenSet() const
+{
+    return m_multipleEmrPriceHasBeenSet;
 }
 
 

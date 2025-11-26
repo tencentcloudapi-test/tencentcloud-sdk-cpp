@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,72 +47,77 @@ namespace TencentCloud
 
 
                     /**
+                     * 获取Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return FailureThreshold Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    int64_t GetFailureThreshold() const;
+
+                    /**
+                     * 设置Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _failureThreshold Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetFailureThreshold(const int64_t& _failureThreshold);
+
+                    /**
+                     * 判断参数 FailureThreshold 是否已赋值
+                     * @return FailureThreshold 是否已赋值
+                     * 
+                     */
+                    bool FailureThresholdHasBeenSet() const;
+
+                    /**
                      * 获取Number of seconds after the container has started before liveness probes are initiated.
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return InitialDelaySeconds Number of seconds after the container has started before liveness probes are initiated.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetInitialDelaySeconds() const;
 
                     /**
                      * 设置Number of seconds after the container has started before liveness probes are initiated.
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InitialDelaySeconds Number of seconds after the container has started before liveness probes are initiated.
+                     * @param _initialDelaySeconds Number of seconds after the container has started before liveness probes are initiated.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetInitialDelaySeconds(const int64_t& _initialDelaySeconds);
 
                     /**
                      * 判断参数 InitialDelaySeconds 是否已赋值
                      * @return InitialDelaySeconds 是否已赋值
+                     * 
                      */
                     bool InitialDelaySecondsHasBeenSet() const;
-
-                    /**
-                     * 获取Number of seconds after which the probe times out.
-Defaults to 1 second. Minimum value is 1.
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TimeoutSeconds Number of seconds after which the probe times out.
-Defaults to 1 second. Minimum value is 1.
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    int64_t GetTimeoutSeconds() const;
-
-                    /**
-                     * 设置Number of seconds after which the probe times out.
-Defaults to 1 second. Minimum value is 1.
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TimeoutSeconds Number of seconds after which the probe times out.
-Defaults to 1 second. Minimum value is 1.
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    void SetTimeoutSeconds(const int64_t& _timeoutSeconds);
-
-                    /**
-                     * 判断参数 TimeoutSeconds 是否已赋值
-                     * @return TimeoutSeconds 是否已赋值
-                     */
-                    bool TimeoutSecondsHasBeenSet() const;
 
                     /**
                      * 获取How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PeriodSeconds How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetPeriodSeconds() const;
 
                     /**
                      * 设置How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PeriodSeconds How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
+                     * @param _periodSeconds How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPeriodSeconds(const int64_t& _periodSeconds);
 
                     /**
                      * 判断参数 PeriodSeconds 是否已赋值
                      * @return PeriodSeconds 是否已赋值
+                     * 
                      */
                     bool PeriodSecondsHasBeenSet() const;
 
@@ -121,46 +126,63 @@ Defaults to 1 second. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return SuccessThreshold Minimum consecutive successes for the probe to be considered successful after having failed.Defaults to 1. Must be 1 for liveness. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetSuccessThreshold() const;
 
                     /**
                      * 设置Minimum consecutive successes for the probe to be considered successful after having failed.Defaults to 1. Must be 1 for liveness. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SuccessThreshold Minimum consecutive successes for the probe to be considered successful after having failed.Defaults to 1. Must be 1 for liveness. Minimum value is 1.
+                     * @param _successThreshold Minimum consecutive successes for the probe to be considered successful after having failed.Defaults to 1. Must be 1 for liveness. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSuccessThreshold(const int64_t& _successThreshold);
 
                     /**
                      * 判断参数 SuccessThreshold 是否已赋值
                      * @return SuccessThreshold 是否已赋值
+                     * 
                      */
                     bool SuccessThresholdHasBeenSet() const;
 
                     /**
-                     * 获取Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+                     * 获取Number of seconds after which the probe times out.
+Defaults to 1 second. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FailureThreshold Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+                     * @return TimeoutSeconds Number of seconds after which the probe times out.
+Defaults to 1 second. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    int64_t GetFailureThreshold() const;
+                    int64_t GetTimeoutSeconds() const;
 
                     /**
-                     * 设置Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+                     * 设置Number of seconds after which the probe times out.
+Defaults to 1 second. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FailureThreshold Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+                     * @param _timeoutSeconds Number of seconds after which the probe times out.
+Defaults to 1 second. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
-                    void SetFailureThreshold(const int64_t& _failureThreshold);
+                    void SetTimeoutSeconds(const int64_t& _timeoutSeconds);
 
                     /**
-                     * 判断参数 FailureThreshold 是否已赋值
-                     * @return FailureThreshold 是否已赋值
+                     * 判断参数 TimeoutSeconds 是否已赋值
+                     * @return TimeoutSeconds 是否已赋值
+                     * 
                      */
-                    bool FailureThresholdHasBeenSet() const;
+                    bool TimeoutSecondsHasBeenSet() const;
 
                 private:
+
+                    /**
+                     * Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    int64_t m_failureThreshold;
+                    bool m_failureThresholdHasBeenSet;
 
                     /**
                      * Number of seconds after the container has started before liveness probes are initiated.
@@ -168,14 +190,6 @@ Defaults to 1 second. Minimum value is 1.
                      */
                     int64_t m_initialDelaySeconds;
                     bool m_initialDelaySecondsHasBeenSet;
-
-                    /**
-                     * Number of seconds after which the probe times out.
-Defaults to 1 second. Minimum value is 1.
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    int64_t m_timeoutSeconds;
-                    bool m_timeoutSecondsHasBeenSet;
 
                     /**
                      * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.
@@ -192,11 +206,12 @@ Defaults to 1 second. Minimum value is 1.
                     bool m_successThresholdHasBeenSet;
 
                     /**
-                     * Minimum consecutive failures for the probe to be considered failed after having succeeded.Defaults to 3. Minimum value is 1.
+                     * Number of seconds after which the probe times out.
+Defaults to 1 second. Minimum value is 1.
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    int64_t m_failureThreshold;
-                    bool m_failureThresholdHasBeenSet;
+                    int64_t m_timeoutSeconds;
+                    bool m_timeoutSecondsHasBeenSet;
 
                 };
             }

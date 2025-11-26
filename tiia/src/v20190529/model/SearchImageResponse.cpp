@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 SearchImageResponse::SearchImageResponse() :
     m_countHasBeenSet(false),
-    m_imageInfosHasBeenSet(false)
+    m_imageInfosHasBeenSet(false),
+    m_objectHasBeenSet(false)
 {
 }
 
@@ -93,6 +94,23 @@ CoreInternalOutcome SearchImageResponse::Deserialize(const string &payload)
         m_imageInfosHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Object") && !rsp["Object"].IsNull())
+    {
+        if (!rsp["Object"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `Object` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_object.Deserialize(rsp["Object"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_objectHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,11 +144,20 @@ string SearchImageResponse::ToJsonString() const
         }
     }
 
+    if (m_objectHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Object";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_object.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -156,6 +183,16 @@ vector<ImageInfo> SearchImageResponse::GetImageInfos() const
 bool SearchImageResponse::ImageInfosHasBeenSet() const
 {
     return m_imageInfosHasBeenSet;
+}
+
+ObjectInfo SearchImageResponse::GetObject() const
+{
+    return m_object;
+}
+
+bool SearchImageResponse::ObjectHasBeenSet() const
+{
+    return m_objectHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ using namespace std;
 DescribeTaskResultRequest::DescribeTaskResultRequest() :
     m_taskIdHasBeenSet(false),
     m_nextTokenHasBeenSet(false),
-    m_maxResultsHasBeenSet(false)
+    m_maxResultsHasBeenSet(false),
+    m_isTransformDataTypeHasBeenSet(false),
+    m_dataFieldCutLenHasBeenSet(false)
 {
 }
 
@@ -58,6 +60,22 @@ string DescribeTaskResultRequest::ToJsonString() const
         string key = "MaxResults";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_maxResults, allocator);
+    }
+
+    if (m_isTransformDataTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsTransformDataType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isTransformDataType, allocator);
+    }
+
+    if (m_dataFieldCutLenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DataFieldCutLen";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_dataFieldCutLen, allocator);
     }
 
 
@@ -114,6 +132,38 @@ void DescribeTaskResultRequest::SetMaxResults(const int64_t& _maxResults)
 bool DescribeTaskResultRequest::MaxResultsHasBeenSet() const
 {
     return m_maxResultsHasBeenSet;
+}
+
+bool DescribeTaskResultRequest::GetIsTransformDataType() const
+{
+    return m_isTransformDataType;
+}
+
+void DescribeTaskResultRequest::SetIsTransformDataType(const bool& _isTransformDataType)
+{
+    m_isTransformDataType = _isTransformDataType;
+    m_isTransformDataTypeHasBeenSet = true;
+}
+
+bool DescribeTaskResultRequest::IsTransformDataTypeHasBeenSet() const
+{
+    return m_isTransformDataTypeHasBeenSet;
+}
+
+int64_t DescribeTaskResultRequest::GetDataFieldCutLen() const
+{
+    return m_dataFieldCutLen;
+}
+
+void DescribeTaskResultRequest::SetDataFieldCutLen(const int64_t& _dataFieldCutLen)
+{
+    m_dataFieldCutLen = _dataFieldCutLen;
+    m_dataFieldCutLenHasBeenSet = true;
+}
+
+bool DescribeTaskResultRequest::DataFieldCutLenHasBeenSet() const
+{
+    return m_dataFieldCutLenHasBeenSet;
 }
 
 

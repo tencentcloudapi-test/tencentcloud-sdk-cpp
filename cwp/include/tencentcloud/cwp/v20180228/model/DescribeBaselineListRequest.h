@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,78 +46,63 @@ namespace TencentCloud
                     /**
                      * 获取分页参数 最大100条
                      * @return Limit 分页参数 最大100条
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置分页参数 最大100条
-                     * @param Limit 分页参数 最大100条
+                     * @param _limit 分页参数 最大100条
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取分页参数
                      * @return Offset 分页参数
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置分页参数
-                     * @param Offset 分页参数
+                     * @param _offset 分页参数
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取过滤条件。
-<li>StrategyId- Uint64 - 基线策略id</li>
-<li>Status - Uint64 - 处理状态1已通过 0未通过</li>
-<li>Level - Uint64[] - 处理状态1已通过 0未通过</li>BaselineName 
-<li>BaselineName  - String - 基线名称</li>
-<li>Quuid- String - 主机quuid</li>
-<li>Uuid- String - 主机uuid</li>
-                     * @return Filters 过滤条件。
-<li>StrategyId- Uint64 - 基线策略id</li>
-<li>Status - Uint64 - 处理状态1已通过 0未通过</li>
-<li>Level - Uint64[] - 处理状态1已通过 0未通过</li>BaselineName 
-<li>BaselineName  - String - 基线名称</li>
-<li>Quuid- String - 主机quuid</li>
-<li>Uuid- String - 主机uuid</li>
+                     * 获取过滤条件 <li>StrategyId- Uint64 - 基线策略id</li> <li>Status - Uint64 - 处理状态 1-已通过 0-未通过</li> <li>Level - Uint64 - 威胁等级 1-低危 2-中危 3-高危 4-严重</li> <li>BaselineName  - String - 基线名称</li> <li>Quuid- String - 主机quuid</li> <li>Uuid- String - 主机uuid</li>
+                     * @return Filters 过滤条件 <li>StrategyId- Uint64 - 基线策略id</li> <li>Status - Uint64 - 处理状态 1-已通过 0-未通过</li> <li>Level - Uint64 - 威胁等级 1-低危 2-中危 3-高危 4-严重</li> <li>BaselineName  - String - 基线名称</li> <li>Quuid- String - 主机quuid</li> <li>Uuid- String - 主机uuid</li>
+                     * 
                      */
                     std::vector<Filters> GetFilters() const;
 
                     /**
-                     * 设置过滤条件。
-<li>StrategyId- Uint64 - 基线策略id</li>
-<li>Status - Uint64 - 处理状态1已通过 0未通过</li>
-<li>Level - Uint64[] - 处理状态1已通过 0未通过</li>BaselineName 
-<li>BaselineName  - String - 基线名称</li>
-<li>Quuid- String - 主机quuid</li>
-<li>Uuid- String - 主机uuid</li>
-                     * @param Filters 过滤条件。
-<li>StrategyId- Uint64 - 基线策略id</li>
-<li>Status - Uint64 - 处理状态1已通过 0未通过</li>
-<li>Level - Uint64[] - 处理状态1已通过 0未通过</li>BaselineName 
-<li>BaselineName  - String - 基线名称</li>
-<li>Quuid- String - 主机quuid</li>
-<li>Uuid- String - 主机uuid</li>
+                     * 设置过滤条件 <li>StrategyId- Uint64 - 基线策略id</li> <li>Status - Uint64 - 处理状态 1-已通过 0-未通过</li> <li>Level - Uint64 - 威胁等级 1-低危 2-中危 3-高危 4-严重</li> <li>BaselineName  - String - 基线名称</li> <li>Quuid- String - 主机quuid</li> <li>Uuid- String - 主机uuid</li>
+                     * @param _filters 过滤条件 <li>StrategyId- Uint64 - 基线策略id</li> <li>Status - Uint64 - 处理状态 1-已通过 0-未通过</li> <li>Level - Uint64 - 威胁等级 1-低危 2-中危 3-高危 4-严重</li> <li>BaselineName  - String - 基线名称</li> <li>Quuid- String - 主机quuid</li> <li>Uuid- String - 主机uuid</li>
+                     * 
                      */
                     void SetFilters(const std::vector<Filters>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
@@ -136,13 +121,7 @@ namespace TencentCloud
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 过滤条件。
-<li>StrategyId- Uint64 - 基线策略id</li>
-<li>Status - Uint64 - 处理状态1已通过 0未通过</li>
-<li>Level - Uint64[] - 处理状态1已通过 0未通过</li>BaselineName 
-<li>BaselineName  - String - 基线名称</li>
-<li>Quuid- String - 主机quuid</li>
-<li>Uuid- String - 主机uuid</li>
+                     * 过滤条件 <li>StrategyId- Uint64 - 基线策略id</li> <li>Status - Uint64 - 处理状态 1-已通过 0-未通过</li> <li>Level - Uint64 - 威胁等级 1-低危 2-中危 3-高危 4-严重</li> <li>BaselineName  - String - 基线名称</li> <li>Quuid- String - 主机quuid</li> <li>Uuid- String - 主机uuid</li>
                      */
                     std::vector<Filters> m_filters;
                     bool m_filtersHasBeenSet;

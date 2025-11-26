@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,17 @@ using namespace std;
 SentenceDetail::SentenceDetail() :
     m_finalSentenceHasBeenSet(false),
     m_sliceSentenceHasBeenSet(false),
+    m_writtenTextHasBeenSet(false),
     m_startMsHasBeenSet(false),
     m_endMsHasBeenSet(false),
     m_wordsNumHasBeenSet(false),
     m_wordsHasBeenSet(false),
-    m_speechSpeedHasBeenSet(false)
+    m_speechSpeedHasBeenSet(false),
+    m_speakerIdHasBeenSet(false),
+    m_emotionalEnergyHasBeenSet(false),
+    m_silenceTimeHasBeenSet(false),
+    m_emotionTypeHasBeenSet(false),
+    m_keyWordResultsHasBeenSet(false)
 {
 }
 
@@ -54,6 +60,16 @@ CoreInternalOutcome SentenceDetail::Deserialize(const rapidjson::Value &value)
         }
         m_sliceSentence = string(value["SliceSentence"].GetString());
         m_sliceSentenceHasBeenSet = true;
+    }
+
+    if (value.HasMember("WrittenText") && !value["WrittenText"].IsNull())
+    {
+        if (!value["WrittenText"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SentenceDetail.WrittenText` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_writtenText = string(value["WrittenText"].GetString());
+        m_writtenTextHasBeenSet = true;
     }
 
     if (value.HasMember("StartMs") && !value["StartMs"].IsNull())
@@ -116,6 +132,69 @@ CoreInternalOutcome SentenceDetail::Deserialize(const rapidjson::Value &value)
         m_speechSpeedHasBeenSet = true;
     }
 
+    if (value.HasMember("SpeakerId") && !value["SpeakerId"].IsNull())
+    {
+        if (!value["SpeakerId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SentenceDetail.SpeakerId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_speakerId = value["SpeakerId"].GetInt64();
+        m_speakerIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("EmotionalEnergy") && !value["EmotionalEnergy"].IsNull())
+    {
+        if (!value["EmotionalEnergy"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `SentenceDetail.EmotionalEnergy` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_emotionalEnergy = value["EmotionalEnergy"].GetDouble();
+        m_emotionalEnergyHasBeenSet = true;
+    }
+
+    if (value.HasMember("SilenceTime") && !value["SilenceTime"].IsNull())
+    {
+        if (!value["SilenceTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SentenceDetail.SilenceTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_silenceTime = value["SilenceTime"].GetInt64();
+        m_silenceTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("EmotionType") && !value["EmotionType"].IsNull())
+    {
+        if (!value["EmotionType"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `SentenceDetail.EmotionType` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["EmotionType"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_emotionType.push_back((*itr).GetString());
+        }
+        m_emotionTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("KeyWordResults") && !value["KeyWordResults"].IsNull())
+    {
+        if (!value["KeyWordResults"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `SentenceDetail.KeyWordResults` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["KeyWordResults"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            KeyWordResult item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_keyWordResults.push_back(item);
+        }
+        m_keyWordResultsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -137,6 +216,14 @@ void SentenceDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "SliceSentence";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_sliceSentence.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_writtenTextHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WrittenText";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_writtenText.c_str(), allocator).Move(), allocator);
     }
 
     if (m_startMsHasBeenSet)
@@ -186,6 +273,58 @@ void SentenceDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         value.AddMember(iKey, m_speechSpeed, allocator);
     }
 
+    if (m_speakerIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SpeakerId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_speakerId, allocator);
+    }
+
+    if (m_emotionalEnergyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EmotionalEnergy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_emotionalEnergy, allocator);
+    }
+
+    if (m_silenceTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SilenceTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_silenceTime, allocator);
+    }
+
+    if (m_emotionTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EmotionType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_emotionType.begin(); itr != m_emotionType.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_keyWordResultsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KeyWordResults";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_keyWordResults.begin(); itr != m_keyWordResults.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
 }
 
 
@@ -219,6 +358,22 @@ void SentenceDetail::SetSliceSentence(const string& _sliceSentence)
 bool SentenceDetail::SliceSentenceHasBeenSet() const
 {
     return m_sliceSentenceHasBeenSet;
+}
+
+string SentenceDetail::GetWrittenText() const
+{
+    return m_writtenText;
+}
+
+void SentenceDetail::SetWrittenText(const string& _writtenText)
+{
+    m_writtenText = _writtenText;
+    m_writtenTextHasBeenSet = true;
+}
+
+bool SentenceDetail::WrittenTextHasBeenSet() const
+{
+    return m_writtenTextHasBeenSet;
 }
 
 int64_t SentenceDetail::GetStartMs() const
@@ -299,5 +454,85 @@ void SentenceDetail::SetSpeechSpeed(const double& _speechSpeed)
 bool SentenceDetail::SpeechSpeedHasBeenSet() const
 {
     return m_speechSpeedHasBeenSet;
+}
+
+int64_t SentenceDetail::GetSpeakerId() const
+{
+    return m_speakerId;
+}
+
+void SentenceDetail::SetSpeakerId(const int64_t& _speakerId)
+{
+    m_speakerId = _speakerId;
+    m_speakerIdHasBeenSet = true;
+}
+
+bool SentenceDetail::SpeakerIdHasBeenSet() const
+{
+    return m_speakerIdHasBeenSet;
+}
+
+double SentenceDetail::GetEmotionalEnergy() const
+{
+    return m_emotionalEnergy;
+}
+
+void SentenceDetail::SetEmotionalEnergy(const double& _emotionalEnergy)
+{
+    m_emotionalEnergy = _emotionalEnergy;
+    m_emotionalEnergyHasBeenSet = true;
+}
+
+bool SentenceDetail::EmotionalEnergyHasBeenSet() const
+{
+    return m_emotionalEnergyHasBeenSet;
+}
+
+int64_t SentenceDetail::GetSilenceTime() const
+{
+    return m_silenceTime;
+}
+
+void SentenceDetail::SetSilenceTime(const int64_t& _silenceTime)
+{
+    m_silenceTime = _silenceTime;
+    m_silenceTimeHasBeenSet = true;
+}
+
+bool SentenceDetail::SilenceTimeHasBeenSet() const
+{
+    return m_silenceTimeHasBeenSet;
+}
+
+vector<string> SentenceDetail::GetEmotionType() const
+{
+    return m_emotionType;
+}
+
+void SentenceDetail::SetEmotionType(const vector<string>& _emotionType)
+{
+    m_emotionType = _emotionType;
+    m_emotionTypeHasBeenSet = true;
+}
+
+bool SentenceDetail::EmotionTypeHasBeenSet() const
+{
+    return m_emotionTypeHasBeenSet;
+}
+
+vector<KeyWordResult> SentenceDetail::GetKeyWordResults() const
+{
+    return m_keyWordResults;
+}
+
+void SentenceDetail::SetKeyWordResults(const vector<KeyWordResult>& _keyWordResults)
+{
+    m_keyWordResults = _keyWordResults;
+    m_keyWordResultsHasBeenSet = true;
+}
+
+bool SentenceDetail::KeyWordResultsHasBeenSet() const
+{
+    return m_keyWordResultsHasBeenSet;
 }
 

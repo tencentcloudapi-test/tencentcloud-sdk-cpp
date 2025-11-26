@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,13 @@ DescribeCertificatesRequest::DescribeCertificatesRequest() :
     m_deployableHasBeenSet(false),
     m_uploadHasBeenSet(false),
     m_renewHasBeenSet(false),
-    m_filterSourceHasBeenSet(false)
+    m_filterSourceHasBeenSet(false),
+    m_isSMHasBeenSet(false),
+    m_filterExpiringHasBeenSet(false),
+    m_hostableHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_isPendingIssueHasBeenSet(false),
+    m_certIdsHasBeenSet(false)
 {
 }
 
@@ -135,6 +141,66 @@ string DescribeCertificatesRequest::ToJsonString() const
         string key = "FilterSource";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_filterSource.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isSMHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsSM";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isSM, allocator);
+    }
+
+    if (m_filterExpiringHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FilterExpiring";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_filterExpiring, allocator);
+    }
+
+    if (m_hostableHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Hostable";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_hostable, allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_isPendingIssueHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsPendingIssue";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isPendingIssue, allocator);
+    }
+
+    if (m_certIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CertIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_certIds.begin(); itr != m_certIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 
@@ -319,6 +385,102 @@ void DescribeCertificatesRequest::SetFilterSource(const string& _filterSource)
 bool DescribeCertificatesRequest::FilterSourceHasBeenSet() const
 {
     return m_filterSourceHasBeenSet;
+}
+
+int64_t DescribeCertificatesRequest::GetIsSM() const
+{
+    return m_isSM;
+}
+
+void DescribeCertificatesRequest::SetIsSM(const int64_t& _isSM)
+{
+    m_isSM = _isSM;
+    m_isSMHasBeenSet = true;
+}
+
+bool DescribeCertificatesRequest::IsSMHasBeenSet() const
+{
+    return m_isSMHasBeenSet;
+}
+
+uint64_t DescribeCertificatesRequest::GetFilterExpiring() const
+{
+    return m_filterExpiring;
+}
+
+void DescribeCertificatesRequest::SetFilterExpiring(const uint64_t& _filterExpiring)
+{
+    m_filterExpiring = _filterExpiring;
+    m_filterExpiringHasBeenSet = true;
+}
+
+bool DescribeCertificatesRequest::FilterExpiringHasBeenSet() const
+{
+    return m_filterExpiringHasBeenSet;
+}
+
+uint64_t DescribeCertificatesRequest::GetHostable() const
+{
+    return m_hostable;
+}
+
+void DescribeCertificatesRequest::SetHostable(const uint64_t& _hostable)
+{
+    m_hostable = _hostable;
+    m_hostableHasBeenSet = true;
+}
+
+bool DescribeCertificatesRequest::HostableHasBeenSet() const
+{
+    return m_hostableHasBeenSet;
+}
+
+vector<Tags> DescribeCertificatesRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void DescribeCertificatesRequest::SetTags(const vector<Tags>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool DescribeCertificatesRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+int64_t DescribeCertificatesRequest::GetIsPendingIssue() const
+{
+    return m_isPendingIssue;
+}
+
+void DescribeCertificatesRequest::SetIsPendingIssue(const int64_t& _isPendingIssue)
+{
+    m_isPendingIssue = _isPendingIssue;
+    m_isPendingIssueHasBeenSet = true;
+}
+
+bool DescribeCertificatesRequest::IsPendingIssueHasBeenSet() const
+{
+    return m_isPendingIssueHasBeenSet;
+}
+
+vector<string> DescribeCertificatesRequest::GetCertIds() const
+{
+    return m_certIds;
+}
+
+void DescribeCertificatesRequest::SetCertIds(const vector<string>& _certIds)
+{
+    m_certIds = _certIds;
+    m_certIdsHasBeenSet = true;
+}
+
+bool DescribeCertificatesRequest::CertIdsHasBeenSet() const
+{
+    return m_certIdsHasBeenSet;
 }
 
 

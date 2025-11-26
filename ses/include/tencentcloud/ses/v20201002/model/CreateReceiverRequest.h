@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取收件人列表名称
                      * @return ReceiversName 收件人列表名称
+                     * 
                      */
                     std::string GetReceiversName() const;
 
                     /**
                      * 设置收件人列表名称
-                     * @param ReceiversName 收件人列表名称
+                     * @param _receiversName 收件人列表名称
+                     * 
                      */
                     void SetReceiversName(const std::string& _receiversName);
 
                     /**
                      * 判断参数 ReceiversName 是否已赋值
                      * @return ReceiversName 是否已赋值
+                     * 
                      */
                     bool ReceiversNameHasBeenSet() const;
 
                     /**
                      * 获取收件人列表描述
                      * @return Desc 收件人列表描述
+                     * 
                      */
                     std::string GetDesc() const;
 
                     /**
                      * 设置收件人列表描述
-                     * @param Desc 收件人列表描述
+                     * @param _desc 收件人列表描述
+                     * 
                      */
                     void SetDesc(const std::string& _desc);
 
                     /**
                      * 判断参数 Desc 是否已赋值
                      * @return Desc 是否已赋值
+                     * 
                      */
                     bool DescHasBeenSet() const;
 

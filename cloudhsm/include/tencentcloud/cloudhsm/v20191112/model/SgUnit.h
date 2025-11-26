@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,89 +48,85 @@ namespace TencentCloud
 
                     /**
                      * 获取安全组Id
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SgId 安全组Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSgId() const;
 
                     /**
                      * 设置安全组Id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SgId 安全组Id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _sgId 安全组Id
+                     * 
                      */
                     void SetSgId(const std::string& _sgId);
 
                     /**
                      * 判断参数 SgId 是否已赋值
                      * @return SgId 是否已赋值
+                     * 
                      */
                     bool SgIdHasBeenSet() const;
 
                     /**
                      * 获取安全组名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SgName 安全组名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSgName() const;
 
                     /**
                      * 设置安全组名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SgName 安全组名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _sgName 安全组名称
+                     * 
                      */
                     void SetSgName(const std::string& _sgName);
 
                     /**
                      * 判断参数 SgName 是否已赋值
                      * @return SgName 是否已赋值
+                     * 
                      */
                     bool SgNameHasBeenSet() const;
 
                     /**
                      * 获取备注
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SgRemark 备注
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSgRemark() const;
 
                     /**
                      * 设置备注
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SgRemark 备注
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _sgRemark 备注
+                     * 
                      */
                     void SetSgRemark(const std::string& _sgRemark);
 
                     /**
                      * 判断参数 SgRemark 是否已赋值
                      * @return SgRemark 是否已赋值
+                     * 
                      */
                     bool SgRemarkHasBeenSet() const;
 
                     /**
                      * 获取创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置创建时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CreateTime 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _createTime 创建时间
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
@@ -138,28 +134,24 @@ namespace TencentCloud
 
                     /**
                      * 安全组Id
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_sgId;
                     bool m_sgIdHasBeenSet;
 
                     /**
                      * 安全组名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_sgName;
                     bool m_sgNameHasBeenSet;
 
                     /**
                      * 备注
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_sgRemark;
                     bool m_sgRemarkHasBeenSet;
 
                     /**
                      * 创建时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;

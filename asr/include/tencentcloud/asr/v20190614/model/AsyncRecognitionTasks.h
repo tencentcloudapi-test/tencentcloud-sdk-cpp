@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 音频流异步识别任务列表
+                * [音频流异步识别任务列表](https://cloud.tencent.com/document/product/1093/52060#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
                 */
                 class AsyncRecognitionTasks : public AbstractModel
                 {
@@ -52,20 +52,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Tasks 任务列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AsyncRecognitionTaskInfo> GetTasks() const;
 
                     /**
                      * 设置任务列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Tasks 任务列表
+                     * @param _tasks 任务列表
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetTasks(const std::vector<AsyncRecognitionTaskInfo>& _tasks);
 
                     /**
                      * 判断参数 Tasks 是否已赋值
                      * @return Tasks 是否已赋值
+                     * 
                      */
                     bool TasksHasBeenSet() const;
 

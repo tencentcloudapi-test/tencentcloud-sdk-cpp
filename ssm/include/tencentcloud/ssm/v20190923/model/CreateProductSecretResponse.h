@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,56 @@ namespace TencentCloud
                     /**
                      * 获取创建的凭据名称。
                      * @return SecretName 创建的凭据名称。
+                     * 
                      */
                     std::string GetSecretName() const;
 
                     /**
                      * 判断参数 SecretName 是否已赋值
                      * @return SecretName 是否已赋值
+                     * 
                      */
                     bool SecretNameHasBeenSet() const;
 
                     /**
                      * 获取标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误。
-注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TagCode 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误。
-注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetTagCode() const;
 
                     /**
                      * 判断参数 TagCode 是否已赋值
                      * @return TagCode 是否已赋值
+                     * 
                      */
                     bool TagCodeHasBeenSet() const;
 
                     /**
                      * 获取标签操作的返回信息。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TagMsg 标签操作的返回信息。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetTagMsg() const;
 
                     /**
                      * 判断参数 TagMsg 是否已赋值
                      * @return TagMsg 是否已赋值
+                     * 
                      */
                     bool TagMsgHasBeenSet() const;
 
                     /**
                      * 获取创建云产品凭据异步任务ID号。
                      * @return FlowID 创建云产品凭据异步任务ID号。
+                     * 
                      */
                     int64_t GetFlowID() const;
 
                     /**
                      * 判断参数 FlowID 是否已赋值
                      * @return FlowID 是否已赋值
+                     * 
                      */
                     bool FlowIDHasBeenSet() const;
 
@@ -107,15 +109,12 @@ namespace TencentCloud
 
                     /**
                      * 标签操作的返回码. 0: 成功；1: 内部错误；2: 业务处理错误。
-注意：此字段可能返回 null，表示取不到有效值。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_tagCode;
                     bool m_tagCodeHasBeenSet;
 
                     /**
                      * 标签操作的返回信息。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_tagMsg;
                     bool m_tagMsgHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取记录总数
                      * @return Total 记录总数
+                     * 
                      */
                     uint64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
                     /**
                      * 获取列表
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Packages 列表
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AssetSystemPackageInfo> GetPackages() const;
 
                     /**
                      * 判断参数 Packages 是否已赋值
                      * @return Packages 是否已赋值
+                     * 
                      */
                     bool PackagesHasBeenSet() const;
 
@@ -80,7 +82,6 @@ namespace TencentCloud
 
                     /**
                      * 列表
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<AssetSystemPackageInfo> m_packages;
                     bool m_packagesHasBeenSet;

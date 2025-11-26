@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Cat::V20180409::Model;
 using namespace std;
 
-CreateProbeTasksResponse::CreateProbeTasksResponse()
+CreateProbeTasksResponse::CreateProbeTasksResponse() :
+    m_taskIDsHasBeenSet(false)
 {
 }
 
@@ -61,6 +62,19 @@ CoreInternalOutcome CreateProbeTasksResponse::Deserialize(const string &payload)
     }
 
 
+    if (rsp.HasMember("TaskIDs") && !rsp["TaskIDs"].IsNull())
+    {
+        if (!rsp["TaskIDs"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TaskIDs` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["TaskIDs"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_taskIDs.push_back((*itr).GetString());
+        }
+        m_taskIDsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -71,16 +85,39 @@ string CreateProbeTasksResponse::ToJsonString() const
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
 
+    if (m_taskIDsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TaskIDs";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_taskIDs.begin(); itr != m_taskIDs.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
     return buffer.GetString();
 }
 
+
+vector<string> CreateProbeTasksResponse::GetTaskIDs() const
+{
+    return m_taskIDs;
+}
+
+bool CreateProbeTasksResponse::TaskIDsHasBeenSet() const
+{
+    return m_taskIDsHasBeenSet;
+}
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,134 +46,154 @@ namespace TencentCloud
                     /**
                      * 获取诊断项。
                      * @return DiagItem 诊断项。
+                     * 
                      */
                     std::string GetDiagItem() const;
 
                     /**
                      * 判断参数 DiagItem 是否已赋值
                      * @return DiagItem 是否已赋值
+                     * 
                      */
                     bool DiagItemHasBeenSet() const;
 
                     /**
-                     * 获取诊断类型。
-                     * @return DiagType 诊断类型。
+                     * 获取诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
+                     * @return DiagType 诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
+                     * 
                      */
                     std::string GetDiagType() const;
 
                     /**
                      * 判断参数 DiagType 是否已赋值
                      * @return DiagType 是否已赋值
+                     * 
                      */
                     bool DiagTypeHasBeenSet() const;
 
                     /**
                      * 获取事件 ID 。
                      * @return EventId 事件 ID 。
+                     * 
                      */
                     int64_t GetEventId() const;
 
                     /**
                      * 判断参数 EventId 是否已赋值
                      * @return EventId 是否已赋值
+                     * 
                      */
                     bool EventIdHasBeenSet() const;
 
                     /**
                      * 获取诊断事件详情，若无附加解释信息则输出为空。
                      * @return Explanation 诊断事件详情，若无附加解释信息则输出为空。
+                     * 
                      */
                     std::string GetExplanation() const;
 
                     /**
                      * 判断参数 Explanation 是否已赋值
                      * @return Explanation 是否已赋值
+                     * 
                      */
                     bool ExplanationHasBeenSet() const;
 
                     /**
                      * 获取诊断概要。
                      * @return Outline 诊断概要。
+                     * 
                      */
                     std::string GetOutline() const;
 
                     /**
                      * 判断参数 Outline 是否已赋值
                      * @return Outline 是否已赋值
+                     * 
                      */
                     bool OutlineHasBeenSet() const;
 
                     /**
                      * 获取诊断出的问题。
                      * @return Problem 诊断出的问题。
+                     * 
                      */
                     std::string GetProblem() const;
 
                     /**
                      * 判断参数 Problem 是否已赋值
                      * @return Problem 是否已赋值
+                     * 
                      */
                     bool ProblemHasBeenSet() const;
 
                     /**
                      * 获取严重程度。严重程度分为5级，按影响程度从高至低分别为：1：致命，2：严重，3：告警，4：提示，5：健康。
                      * @return Severity 严重程度。严重程度分为5级，按影响程度从高至低分别为：1：致命，2：严重，3：告警，4：提示，5：健康。
+                     * 
                      */
                     int64_t GetSeverity() const;
 
                     /**
                      * 判断参数 Severity 是否已赋值
                      * @return Severity 是否已赋值
+                     * 
                      */
                     bool SeverityHasBeenSet() const;
 
                     /**
-                     * 获取开始时间
-                     * @return StartTime 开始时间
+                     * 获取开始时间。格式: "yyyy-MM-dd HH:mm:ss"
+                     * @return StartTime 开始时间。格式: "yyyy-MM-dd HH:mm:ss"
+                     * 
                      */
                     std::string GetStartTime() const;
 
                     /**
                      * 判断参数 StartTime 是否已赋值
                      * @return StartTime 是否已赋值
+                     * 
                      */
                     bool StartTimeHasBeenSet() const;
 
                     /**
                      * 获取诊断建议，若无建议则输出为空。
                      * @return Suggestions 诊断建议，若无建议则输出为空。
+                     * 
                      */
                     std::string GetSuggestions() const;
 
                     /**
                      * 判断参数 Suggestions 是否已赋值
                      * @return Suggestions 是否已赋值
+                     * 
                      */
                     bool SuggestionsHasBeenSet() const;
 
                     /**
                      * 获取保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Metric 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMetric() const;
 
                     /**
                      * 判断参数 Metric 是否已赋值
                      * @return Metric 是否已赋值
+                     * 
                      */
                     bool MetricHasBeenSet() const;
 
                     /**
-                     * 获取结束时间。
-                     * @return EndTime 结束时间。
+                     * 获取结束时间。格式: "yyyy-MM-dd HH:mm:ss"
+                     * @return EndTime 结束时间。格式: "yyyy-MM-dd HH:mm:ss"
+                     * 
                      */
                     std::string GetEndTime() const;
 
                     /**
                      * 判断参数 EndTime 是否已赋值
                      * @return EndTime 是否已赋值
+                     * 
                      */
                     bool EndTimeHasBeenSet() const;
 
@@ -186,7 +206,7 @@ namespace TencentCloud
                     bool m_diagItemHasBeenSet;
 
                     /**
-                     * 诊断类型。
+                     * 诊断类型。支持值包括"高危账号","自增键耗尽","连接性检查","CPU利用率","死锁","全表扫描","高并发/压力请求","预编译语句过多","内存利用率","Metadata lock","磁盘超限","内存超限","只读锁","只读实例剔除","行锁","活跃会话","慢SQL","数据库快照","磁盘空间利用率","执行计划变化","主从切换","Table open cache命中率低","大表","事务未提交","事务导致复制延迟"等。
                      */
                     std::string m_diagType;
                     bool m_diagTypeHasBeenSet;
@@ -222,7 +242,7 @@ namespace TencentCloud
                     bool m_severityHasBeenSet;
 
                     /**
-                     * 开始时间
+                     * 开始时间。格式: "yyyy-MM-dd HH:mm:ss"
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
@@ -235,13 +255,12 @@ namespace TencentCloud
 
                     /**
                      * 保留字段。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_metric;
                     bool m_metricHasBeenSet;
 
                     /**
-                     * 结束时间。
+                     * 结束时间。格式: "yyyy-MM-dd HH:mm:ss"
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,6 +59,7 @@ namespace TencentCloud
 - UNLINKING: 解关联中
 - LINK_FAILED: 关联失败
 - UNLINK_FAILED: 解关联失败
+                     * 
                      */
                     std::string GetLinkState() const;
 
@@ -69,18 +70,20 @@ namespace TencentCloud
 - UNLINKING: 解关联中
 - LINK_FAILED: 关联失败
 - UNLINK_FAILED: 解关联失败
-                     * @param LinkState 关联状态，取值范围：
+                     * @param _linkState 关联状态，取值范围：
 - LINKING: 关联中
 - LINKED: 已关联
 - UNLINKING: 解关联中
 - LINK_FAILED: 关联失败
 - UNLINK_FAILED: 解关联失败
+                     * 
                      */
                     void SetLinkState(const std::string& _linkState);
 
                     /**
                      * 判断参数 LinkState 是否已赋值
                      * @return LinkState 是否已赋值
+                     * 
                      */
                     bool LinkStateHasBeenSet() const;
 
@@ -89,20 +92,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return LinkErrorDetail 关联错误详情
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLinkErrorDetail() const;
 
                     /**
                      * 设置关联错误详情
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param LinkErrorDetail 关联错误详情
+                     * @param _linkErrorDetail 关联错误详情
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetLinkErrorDetail(const std::string& _linkErrorDetail);
 
                     /**
                      * 判断参数 LinkErrorDetail 是否已赋值
                      * @return LinkErrorDetail 是否已赋值
+                     * 
                      */
                     bool LinkErrorDetailHasBeenSet() const;
 

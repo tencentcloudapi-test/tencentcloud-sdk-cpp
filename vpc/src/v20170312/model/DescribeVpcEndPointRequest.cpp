@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,10 @@ DescribeVpcEndPointRequest::DescribeVpcEndPointRequest() :
     m_filtersHasBeenSet(false),
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false),
-    m_endPointIdHasBeenSet(false)
+    m_endPointIdHasBeenSet(false),
+    m_ipAddressTypeHasBeenSet(false),
+    m_maxResultsHasBeenSet(false),
+    m_nextTokenHasBeenSet(false)
 {
 }
 
@@ -79,6 +82,30 @@ string DescribeVpcEndPointRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_ipAddressTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IpAddressType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_ipAddressType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_maxResultsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxResults";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_maxResults, allocator);
+    }
+
+    if (m_nextTokenHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NextToken";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_nextToken.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -151,6 +178,54 @@ void DescribeVpcEndPointRequest::SetEndPointId(const vector<string>& _endPointId
 bool DescribeVpcEndPointRequest::EndPointIdHasBeenSet() const
 {
     return m_endPointIdHasBeenSet;
+}
+
+string DescribeVpcEndPointRequest::GetIpAddressType() const
+{
+    return m_ipAddressType;
+}
+
+void DescribeVpcEndPointRequest::SetIpAddressType(const string& _ipAddressType)
+{
+    m_ipAddressType = _ipAddressType;
+    m_ipAddressTypeHasBeenSet = true;
+}
+
+bool DescribeVpcEndPointRequest::IpAddressTypeHasBeenSet() const
+{
+    return m_ipAddressTypeHasBeenSet;
+}
+
+uint64_t DescribeVpcEndPointRequest::GetMaxResults() const
+{
+    return m_maxResults;
+}
+
+void DescribeVpcEndPointRequest::SetMaxResults(const uint64_t& _maxResults)
+{
+    m_maxResults = _maxResults;
+    m_maxResultsHasBeenSet = true;
+}
+
+bool DescribeVpcEndPointRequest::MaxResultsHasBeenSet() const
+{
+    return m_maxResultsHasBeenSet;
+}
+
+string DescribeVpcEndPointRequest::GetNextToken() const
+{
+    return m_nextToken;
+}
+
+void DescribeVpcEndPointRequest::SetNextToken(const string& _nextToken)
+{
+    m_nextToken = _nextToken;
+    m_nextTokenHasBeenSet = true;
+}
+
+bool DescribeVpcEndPointRequest::NextTokenHasBeenSet() const
+{
+    return m_nextTokenHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ DescribeBackupOverviewResponse::DescribeBackupOverviewResponse() :
     m_backupCountHasBeenSet(false),
     m_backupVolumeHasBeenSet(false),
     m_billingVolumeHasBeenSet(false),
-    m_freeVolumeHasBeenSet(false)
+    m_freeVolumeHasBeenSet(false),
+    m_remoteBackupVolumeHasBeenSet(false),
+    m_backupArchiveVolumeHasBeenSet(false),
+    m_backupStandbyVolumeHasBeenSet(false)
 {
 }
 
@@ -105,6 +108,36 @@ CoreInternalOutcome DescribeBackupOverviewResponse::Deserialize(const string &pa
         m_freeVolumeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("RemoteBackupVolume") && !rsp["RemoteBackupVolume"].IsNull())
+    {
+        if (!rsp["RemoteBackupVolume"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RemoteBackupVolume` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_remoteBackupVolume = rsp["RemoteBackupVolume"].GetInt64();
+        m_remoteBackupVolumeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BackupArchiveVolume") && !rsp["BackupArchiveVolume"].IsNull())
+    {
+        if (!rsp["BackupArchiveVolume"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupArchiveVolume` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_backupArchiveVolume = rsp["BackupArchiveVolume"].GetInt64();
+        m_backupArchiveVolumeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BackupStandbyVolume") && !rsp["BackupStandbyVolume"].IsNull())
+    {
+        if (!rsp["BackupStandbyVolume"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BackupStandbyVolume` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_backupStandbyVolume = rsp["BackupStandbyVolume"].GetInt64();
+        m_backupStandbyVolumeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -147,11 +180,35 @@ string DescribeBackupOverviewResponse::ToJsonString() const
         value.AddMember(iKey, m_freeVolume, allocator);
     }
 
+    if (m_remoteBackupVolumeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RemoteBackupVolume";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_remoteBackupVolume, allocator);
+    }
+
+    if (m_backupArchiveVolumeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupArchiveVolume";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_backupArchiveVolume, allocator);
+    }
+
+    if (m_backupStandbyVolumeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BackupStandbyVolume";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_backupStandbyVolume, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -197,6 +254,36 @@ int64_t DescribeBackupOverviewResponse::GetFreeVolume() const
 bool DescribeBackupOverviewResponse::FreeVolumeHasBeenSet() const
 {
     return m_freeVolumeHasBeenSet;
+}
+
+int64_t DescribeBackupOverviewResponse::GetRemoteBackupVolume() const
+{
+    return m_remoteBackupVolume;
+}
+
+bool DescribeBackupOverviewResponse::RemoteBackupVolumeHasBeenSet() const
+{
+    return m_remoteBackupVolumeHasBeenSet;
+}
+
+int64_t DescribeBackupOverviewResponse::GetBackupArchiveVolume() const
+{
+    return m_backupArchiveVolume;
+}
+
+bool DescribeBackupOverviewResponse::BackupArchiveVolumeHasBeenSet() const
+{
+    return m_backupArchiveVolumeHasBeenSet;
+}
+
+int64_t DescribeBackupOverviewResponse::GetBackupStandbyVolume() const
+{
+    return m_backupStandbyVolume;
+}
+
+bool DescribeBackupOverviewResponse::BackupStandbyVolumeHasBeenSet() const
+{
+    return m_backupStandbyVolumeHasBeenSet;
 }
 
 

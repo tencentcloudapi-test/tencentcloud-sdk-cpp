@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取日志信息列表。
                      * @return LogInfoList 日志信息列表。
+                     * 
                      */
                     std::vector<LogInfo> GetLogInfoList() const;
 
                     /**
                      * 判断参数 LogInfoList 是否已赋值
                      * @return LogInfoList 是否已赋值
+                     * 
                      */
                     bool LogInfoListHasBeenSet() const;
 
                     /**
                      * 获取总条数。
                      * @return TotalNum 总条数。
+                     * 
                      */
                     uint64_t GetTotalNum() const;
 
                     /**
                      * 判断参数 TotalNum 是否已赋值
                      * @return TotalNum 是否已赋值
+                     * 
                      */
                     bool TotalNumHasBeenSet() const;
 

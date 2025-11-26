@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,12 @@ using namespace TencentCloud::Vod::V20180717::Model;
 using namespace std;
 
 ModifyEventConfigRequest::ModifyEventConfigRequest() :
+    m_subAppIdHasBeenSet(false),
     m_modeHasBeenSet(false),
     m_notificationUrlHasBeenSet(false),
     m_uploadMediaCompleteEventSwitchHasBeenSet(false),
     m_deleteMediaCompleteEventSwitchHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_persistenceCompleteEventSwitchHasBeenSet(false)
 {
 }
 
@@ -37,6 +38,14 @@ string ModifyEventConfigRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
+    }
 
     if (m_modeHasBeenSet)
     {
@@ -70,12 +79,12 @@ string ModifyEventConfigRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_deleteMediaCompleteEventSwitch.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_subAppIdHasBeenSet)
+    if (m_persistenceCompleteEventSwitchHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
+        string key = "PersistenceCompleteEventSwitch";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
+        d.AddMember(iKey, rapidjson::Value(m_persistenceCompleteEventSwitch.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -85,6 +94,22 @@ string ModifyEventConfigRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+uint64_t ModifyEventConfigRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void ModifyEventConfigRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool ModifyEventConfigRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
+}
 
 string ModifyEventConfigRequest::GetMode() const
 {
@@ -150,20 +175,20 @@ bool ModifyEventConfigRequest::DeleteMediaCompleteEventSwitchHasBeenSet() const
     return m_deleteMediaCompleteEventSwitchHasBeenSet;
 }
 
-uint64_t ModifyEventConfigRequest::GetSubAppId() const
+string ModifyEventConfigRequest::GetPersistenceCompleteEventSwitch() const
 {
-    return m_subAppId;
+    return m_persistenceCompleteEventSwitch;
 }
 
-void ModifyEventConfigRequest::SetSubAppId(const uint64_t& _subAppId)
+void ModifyEventConfigRequest::SetPersistenceCompleteEventSwitch(const string& _persistenceCompleteEventSwitch)
 {
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
+    m_persistenceCompleteEventSwitch = _persistenceCompleteEventSwitch;
+    m_persistenceCompleteEventSwitchHasBeenSet = true;
 }
 
-bool ModifyEventConfigRequest::SubAppIdHasBeenSet() const
+bool ModifyEventConfigRequest::PersistenceCompleteEventSwitchHasBeenSet() const
 {
-    return m_subAppIdHasBeenSet;
+    return m_persistenceCompleteEventSwitchHasBeenSet;
 }
 
 

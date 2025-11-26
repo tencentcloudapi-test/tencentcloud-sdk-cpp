@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,99 +44,114 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取平台名称，指定访问的平台。
-                     * @return Platform 平台名称，指定访问的平台。
+                     * 获取平台名称，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
+                     * @return Platform 平台名称，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
+                     * 
                      */
                     std::string GetPlatform() const;
 
                     /**
-                     * 设置平台名称，指定访问的平台。
-                     * @param Platform 平台名称，指定访问的平台。
+                     * 设置平台名称，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
+                     * @param _platform 平台名称，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
+                     * 
                      */
                     void SetPlatform(const std::string& _platform);
 
                     /**
                      * 判断参数 Platform 是否已赋值
                      * @return Platform 是否已赋值
+                     * 
                      */
                     bool PlatformHasBeenSet() const;
 
                     /**
                      * 获取归属者。
                      * @return Owner 归属者。
+                     * 
                      */
                     Entity GetOwner() const;
 
                     /**
                      * 设置归属者。
-                     * @param Owner 归属者。
+                     * @param _owner 归属者。
+                     * 
                      */
                     void SetOwner(const Entity& _owner);
 
                     /**
                      * 判断参数 Owner 是否已赋值
                      * @return Owner 是否已赋值
+                     * 
                      */
                     bool OwnerHasBeenSet() const;
 
                     /**
                      * 获取源分类路径。
                      * @return SourceClassPath 源分类路径。
+                     * 
                      */
                     std::string GetSourceClassPath() const;
 
                     /**
                      * 设置源分类路径。
-                     * @param SourceClassPath 源分类路径。
+                     * @param _sourceClassPath 源分类路径。
+                     * 
                      */
                     void SetSourceClassPath(const std::string& _sourceClassPath);
 
                     /**
                      * 判断参数 SourceClassPath 是否已赋值
                      * @return SourceClassPath 是否已赋值
+                     * 
                      */
                     bool SourceClassPathHasBeenSet() const;
 
                     /**
                      * 获取目标分类路径。
                      * @return DestinationClassPath 目标分类路径。
+                     * 
                      */
                     std::string GetDestinationClassPath() const;
 
                     /**
                      * 设置目标分类路径。
-                     * @param DestinationClassPath 目标分类路径。
+                     * @param _destinationClassPath 目标分类路径。
+                     * 
                      */
                     void SetDestinationClassPath(const std::string& _destinationClassPath);
 
                     /**
                      * 判断参数 DestinationClassPath 是否已赋值
                      * @return DestinationClassPath 是否已赋值
+                     * 
                      */
                     bool DestinationClassPathHasBeenSet() const;
 
                     /**
                      * 获取操作者。填写用户的 Id，用于标识调用者及校验操作权限。
                      * @return Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+                     * 
                      */
                     std::string GetOperator() const;
 
                     /**
                      * 设置操作者。填写用户的 Id，用于标识调用者及校验操作权限。
-                     * @param Operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+                     * @param _operator 操作者。填写用户的 Id，用于标识调用者及校验操作权限。
+                     * 
                      */
                     void SetOperator(const std::string& _operator);
 
                     /**
                      * 判断参数 Operator 是否已赋值
                      * @return Operator 是否已赋值
+                     * 
                      */
                     bool OperatorHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 平台名称，指定访问的平台。
+                     * 平台名称，指定访问的平台。关于平台概念，请参见文档 [平台](https://cloud.tencent.com/document/product/1156/43767)。
                      */
                     std::string m_platform;
                     bool m_platformHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 CreateConsoleLoginUrlResponse::CreateConsoleLoginUrlResponse() :
     m_consoleUrlHasBeenSet(false),
-    m_isActivatedHasBeenSet(false)
+    m_isActivatedHasBeenSet(false),
+    m_proxyOperatorIsVerifiedHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome CreateConsoleLoginUrlResponse::Deserialize(const string &pay
         m_isActivatedHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ProxyOperatorIsVerified") && !rsp["ProxyOperatorIsVerified"].IsNull())
+    {
+        if (!rsp["ProxyOperatorIsVerified"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProxyOperatorIsVerified` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_proxyOperatorIsVerified = rsp["ProxyOperatorIsVerified"].GetBool();
+        m_proxyOperatorIsVerifiedHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string CreateConsoleLoginUrlResponse::ToJsonString() const
         value.AddMember(iKey, m_isActivated, allocator);
     }
 
+    if (m_proxyOperatorIsVerifiedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyOperatorIsVerified";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_proxyOperatorIsVerified, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ bool CreateConsoleLoginUrlResponse::GetIsActivated() const
 bool CreateConsoleLoginUrlResponse::IsActivatedHasBeenSet() const
 {
     return m_isActivatedHasBeenSet;
+}
+
+bool CreateConsoleLoginUrlResponse::GetProxyOperatorIsVerified() const
+{
+    return m_proxyOperatorIsVerified;
+}
+
+bool CreateConsoleLoginUrlResponse::ProxyOperatorIsVerifiedHasBeenSet() const
+{
+    return m_proxyOperatorIsVerifiedHasBeenSet;
 }
 
 

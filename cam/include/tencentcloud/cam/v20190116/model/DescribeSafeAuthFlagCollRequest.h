@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取子账号
                      * @return SubUin 子账号
+                     * 
                      */
                     uint64_t GetSubUin() const;
 
                     /**
                      * 设置子账号
-                     * @param SubUin 子账号
+                     * @param _subUin 子账号
+                     * 
                      */
                     void SetSubUin(const uint64_t& _subUin);
 
                     /**
                      * 判断参数 SubUin 是否已赋值
                      * @return SubUin 是否已赋值
+                     * 
                      */
                     bool SubUinHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,92 @@ namespace TencentCloud
                     /**
                      * 获取目标组实例的内网IP
                      * @return BindIP 目标组实例的内网IP
+                     * 
                      */
                     std::string GetBindIP() const;
 
                     /**
                      * 设置目标组实例的内网IP
-                     * @param BindIP 目标组实例的内网IP
+                     * @param _bindIP 目标组实例的内网IP
+                     * 
                      */
                     void SetBindIP(const std::string& _bindIP);
 
                     /**
                      * 判断参数 BindIP 是否已赋值
                      * @return BindIP 是否已赋值
+                     * 
                      */
                     bool BindIPHasBeenSet() const;
 
                     /**
-                     * 获取目标组实例的端口
-                     * @return Port 目标组实例的端口
+                     * 获取目标组实例的端口，全监听目标组不支持传此字段。
+                     * @return Port 目标组实例的端口，全监听目标组不支持传此字段。
+                     * 
                      */
                     uint64_t GetPort() const;
 
                     /**
-                     * 设置目标组实例的端口
-                     * @param Port 目标组实例的端口
+                     * 设置目标组实例的端口，全监听目标组不支持传此字段。
+                     * @param _port 目标组实例的端口，全监听目标组不支持传此字段。
+                     * 
                      */
                     void SetPort(const uint64_t& _port);
 
                     /**
                      * 判断参数 Port 是否已赋值
                      * @return Port 是否已赋值
+                     * 
                      */
                     bool PortHasBeenSet() const;
 
                     /**
                      * 获取目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
                      * @return Weight 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
+                     * 
                      */
                     uint64_t GetWeight() const;
 
                     /**
                      * 设置目标组实例的权重
-                     * @param Weight 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
+                     * @param _weight 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
+                     * 
                      */
                     void SetWeight(const uint64_t& _weight);
 
                     /**
                      * 判断参数 Weight 是否已赋值
                      * @return Weight 是否已赋值
+                     * 
                      */
                     bool WeightHasBeenSet() const;
 
                     /**
-                     * 获取目标组实例的新端口
-                     * @return NewPort 目标组实例的新端口
+                     * 获取目标组实例的新端口，全监听目标组不支持传此字段。
+                     * @return NewPort 目标组实例的新端口，全监听目标组不支持传此字段。
+                     * 
                      */
                     uint64_t GetNewPort() const;
 
                     /**
-                     * 设置目标组实例的新端口
-                     * @param NewPort 目标组实例的新端口
+                     * 设置目标组实例的新端口，全监听目标组不支持传此字段。
+                     * @param _newPort 目标组实例的新端口，全监听目标组不支持传此字段。
+                     * 
                      */
                     void SetNewPort(const uint64_t& _newPort);
 
                     /**
                      * 判断参数 NewPort 是否已赋值
                      * @return NewPort 是否已赋值
+                     * 
                      */
                     bool NewPortHasBeenSet() const;
 
@@ -127,19 +147,21 @@ namespace TencentCloud
                     bool m_bindIPHasBeenSet;
 
                     /**
-                     * 目标组实例的端口
+                     * 目标组实例的端口，全监听目标组不支持传此字段。
                      */
                     uint64_t m_port;
                     bool m_portHasBeenSet;
 
                     /**
                      * 目标组实例的权重
+v2目标组需要配置权重，调用CreateTargetGroup接口创建目标组时该参数与创建接口中的Weight参数必填其一。
+取值范围：0-100
                      */
                     uint64_t m_weight;
                     bool m_weightHasBeenSet;
 
                     /**
-                     * 目标组实例的新端口
+                     * 目标组实例的新端口，全监听目标组不支持传此字段。
                      */
                     uint64_t m_newPort;
                     bool m_newPortHasBeenSet;

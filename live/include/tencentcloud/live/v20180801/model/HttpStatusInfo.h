@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取播放HTTP状态码。
                      * @return HttpStatus 播放HTTP状态码。
+                     * 
                      */
                     std::string GetHttpStatus() const;
 
                     /**
                      * 设置播放HTTP状态码。
-                     * @param HttpStatus 播放HTTP状态码。
+                     * @param _httpStatus 播放HTTP状态码。
+                     * 
                      */
                     void SetHttpStatus(const std::string& _httpStatus);
 
                     /**
                      * 判断参数 HttpStatus 是否已赋值
                      * @return HttpStatus 是否已赋值
+                     * 
                      */
                     bool HttpStatusHasBeenSet() const;
 
                     /**
                      * 获取个数。
                      * @return Num 个数。
+                     * 
                      */
                     uint64_t GetNum() const;
 
                     /**
                      * 设置个数。
-                     * @param Num 个数。
+                     * @param _num 个数。
+                     * 
                      */
                     void SetNum(const uint64_t& _num);
 
                     /**
                      * 判断参数 Num 是否已赋值
                      * @return Num 是否已赋值
+                     * 
                      */
                     bool NumHasBeenSet() const;
 

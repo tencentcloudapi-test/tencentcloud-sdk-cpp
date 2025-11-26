@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取关联的标签ID
                      * @return Rid 关联的标签ID
+                     * 
                      */
                     uint64_t GetRid() const;
 
                     /**
                      * 设置关联的标签ID
-                     * @param Rid 关联的标签ID
+                     * @param _rid 关联的标签ID
+                     * 
                      */
                     void SetRid(const uint64_t& _rid);
 
                     /**
                      * 判断参数 Rid 是否已赋值
                      * @return Rid 是否已赋值
+                     * 
                      */
                     bool RidHasBeenSet() const;
 

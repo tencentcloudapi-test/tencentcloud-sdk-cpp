@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ WarningObject::WarningObject() :
     m_disablePhoneWarningHasBeenSet(false),
     m_beginTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
-    m_controlBitsHasBeenSet(false)
+    m_controlBitsHasBeenSet(false),
+    m_hostRangeHasBeenSet(false),
+    m_unitHasBeenSet(false)
 {
 }
 
@@ -84,6 +86,26 @@ CoreInternalOutcome WarningObject::Deserialize(const rapidjson::Value &value)
         m_controlBitsHasBeenSet = true;
     }
 
+    if (value.HasMember("HostRange") && !value["HostRange"].IsNull())
+    {
+        if (!value["HostRange"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `WarningObject.HostRange` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_hostRange = value["HostRange"].GetInt64();
+        m_hostRangeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Unit") && !value["Unit"].IsNull())
+    {
+        if (!value["Unit"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `WarningObject.Unit` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_unit = string(value["Unit"].GetString());
+        m_unitHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +151,22 @@ void WarningObject::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "ControlBits";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_controlBits.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hostRangeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HostRange";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_hostRange, allocator);
+    }
+
+    if (m_unitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Unit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_unit.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -212,5 +250,37 @@ void WarningObject::SetControlBits(const string& _controlBits)
 bool WarningObject::ControlBitsHasBeenSet() const
 {
     return m_controlBitsHasBeenSet;
+}
+
+int64_t WarningObject::GetHostRange() const
+{
+    return m_hostRange;
+}
+
+void WarningObject::SetHostRange(const int64_t& _hostRange)
+{
+    m_hostRange = _hostRange;
+    m_hostRangeHasBeenSet = true;
+}
+
+bool WarningObject::HostRangeHasBeenSet() const
+{
+    return m_hostRangeHasBeenSet;
+}
+
+string WarningObject::GetUnit() const
+{
+    return m_unit;
+}
+
+void WarningObject::SetUnit(const string& _unit)
+{
+    m_unit = _unit;
+    m_unitHasBeenSet = true;
+}
+
+bool WarningObject::UnitHasBeenSet() const
+{
+    return m_unitHasBeenSet;
 }
 

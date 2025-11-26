@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,72 +47,84 @@ namespace TencentCloud
                     /**
                      * 获取批量任务详情
                      * @return DetailList 批量任务详情
+                     * 
                      */
                     std::vector<DescribeBatchTaskDetail> GetDetailList() const;
 
                     /**
                      * 判断参数 DetailList 是否已赋值
                      * @return DetailList 是否已赋值
+                     * 
                      */
                     bool DetailListHasBeenSet() const;
 
                     /**
                      * 获取总任务条数
                      * @return TotalCount 总任务条数
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取成功条数
                      * @return SuccessCount 成功条数
+                     * 
                      */
                     uint64_t GetSuccessCount() const;
 
                     /**
                      * 判断参数 SuccessCount 是否已赋值
                      * @return SuccessCount 是否已赋值
+                     * 
                      */
                     bool SuccessCountHasBeenSet() const;
 
                     /**
                      * 获取失败条数
                      * @return FailCount 失败条数
+                     * 
                      */
                     uint64_t GetFailCount() const;
 
                     /**
                      * 判断参数 FailCount 是否已赋值
                      * @return FailCount 是否已赋值
+                     * 
                      */
                     bool FailCountHasBeenSet() const;
 
                     /**
                      * 获取批量任务类型
                      * @return JobType 批量任务类型
+                     * 
                      */
                     std::string GetJobType() const;
 
                     /**
                      * 判断参数 JobType 是否已赋值
                      * @return JobType 是否已赋值
+                     * 
                      */
                     bool JobTypeHasBeenSet() const;
 
                     /**
                      * 获取任务创建时间
                      * @return CreatedAt 任务创建时间
+                     * 
                      */
                     std::string GetCreatedAt() const;
 
                     /**
                      * 判断参数 CreatedAt 是否已赋值
                      * @return CreatedAt 是否已赋值
+                     * 
                      */
                     bool CreatedAtHasBeenSet() const;
 

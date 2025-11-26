@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取ImageId必填，单张购买，所有必填，会员身份可以省略部分参数
                      * @return ImageInfos ImageId必填，单张购买，所有必填，会员身份可以省略部分参数
+                     * 
                      */
                     std::vector<ImageInfo> GetImageInfos() const;
 
                     /**
                      * 设置ImageId必填，单张购买，所有必填，会员身份可以省略部分参数
-                     * @param ImageInfos ImageId必填，单张购买，所有必填，会员身份可以省略部分参数
+                     * @param _imageInfos ImageId必填，单张购买，所有必填，会员身份可以省略部分参数
+                     * 
                      */
                     void SetImageInfos(const std::vector<ImageInfo>& _imageInfos);
 
                     /**
                      * 判断参数 ImageInfos 是否已赋值
                      * @return ImageInfos 是否已赋值
+                     * 
                      */
                     bool ImageInfosHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取需要获取预置并发详情的函数名称。
                      * @return FunctionName 需要获取预置并发详情的函数名称。
+                     * 
                      */
                     std::string GetFunctionName() const;
 
                     /**
                      * 设置需要获取预置并发详情的函数名称。
-                     * @param FunctionName 需要获取预置并发详情的函数名称。
+                     * @param _functionName 需要获取预置并发详情的函数名称。
+                     * 
                      */
                     void SetFunctionName(const std::string& _functionName);
 
                     /**
                      * 判断参数 FunctionName 是否已赋值
                      * @return FunctionName 是否已赋值
+                     * 
                      */
                     bool FunctionNameHasBeenSet() const;
 
                     /**
                      * 获取函数所在的命名空间，默认为default。
                      * @return Namespace 函数所在的命名空间，默认为default。
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置函数所在的命名空间，默认为default。
-                     * @param Namespace 函数所在的命名空间，默认为default。
+                     * @param _namespace 函数所在的命名空间，默认为default。
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 
                     /**
                      * 获取函数版本号，不传则返回函数所有版本的预置并发信息。
                      * @return Qualifier 函数版本号，不传则返回函数所有版本的预置并发信息。
+                     * 
                      */
                     std::string GetQualifier() const;
 
                     /**
                      * 设置函数版本号，不传则返回函数所有版本的预置并发信息。
-                     * @param Qualifier 函数版本号，不传则返回函数所有版本的预置并发信息。
+                     * @param _qualifier 函数版本号，不传则返回函数所有版本的预置并发信息。
+                     * 
                      */
                     void SetQualifier(const std::string& _qualifier);
 
                     /**
                      * 判断参数 Qualifier 是否已赋值
                      * @return Qualifier 是否已赋值
+                     * 
                      */
                     bool QualifierHasBeenSet() const;
 

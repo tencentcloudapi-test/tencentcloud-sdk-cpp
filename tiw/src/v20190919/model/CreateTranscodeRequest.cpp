@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,10 @@ CreateTranscodeRequest::CreateTranscodeRequest() :
     m_compressFileTypeHasBeenSet(false),
     m_extraDataHasBeenSet(false),
     m_priorityHasBeenSet(false),
-    m_minScaleResolutionHasBeenSet(false)
+    m_minScaleResolutionHasBeenSet(false),
+    m_autoHandleUnsupportedElementHasBeenSet(false),
+    m_autoHandleUnsupportedElementTypesHasBeenSet(false),
+    m_excelParamHasBeenSet(false)
 {
 }
 
@@ -112,6 +115,36 @@ string CreateTranscodeRequest::ToJsonString() const
         string key = "MinScaleResolution";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_minScaleResolution.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoHandleUnsupportedElementHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoHandleUnsupportedElement";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoHandleUnsupportedElement, allocator);
+    }
+
+    if (m_autoHandleUnsupportedElementTypesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoHandleUnsupportedElementTypes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_autoHandleUnsupportedElementTypes.begin(); itr != m_autoHandleUnsupportedElementTypes.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_excelParamHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExcelParam";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_excelParam.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -264,6 +297,54 @@ void CreateTranscodeRequest::SetMinScaleResolution(const string& _minScaleResolu
 bool CreateTranscodeRequest::MinScaleResolutionHasBeenSet() const
 {
     return m_minScaleResolutionHasBeenSet;
+}
+
+bool CreateTranscodeRequest::GetAutoHandleUnsupportedElement() const
+{
+    return m_autoHandleUnsupportedElement;
+}
+
+void CreateTranscodeRequest::SetAutoHandleUnsupportedElement(const bool& _autoHandleUnsupportedElement)
+{
+    m_autoHandleUnsupportedElement = _autoHandleUnsupportedElement;
+    m_autoHandleUnsupportedElementHasBeenSet = true;
+}
+
+bool CreateTranscodeRequest::AutoHandleUnsupportedElementHasBeenSet() const
+{
+    return m_autoHandleUnsupportedElementHasBeenSet;
+}
+
+vector<int64_t> CreateTranscodeRequest::GetAutoHandleUnsupportedElementTypes() const
+{
+    return m_autoHandleUnsupportedElementTypes;
+}
+
+void CreateTranscodeRequest::SetAutoHandleUnsupportedElementTypes(const vector<int64_t>& _autoHandleUnsupportedElementTypes)
+{
+    m_autoHandleUnsupportedElementTypes = _autoHandleUnsupportedElementTypes;
+    m_autoHandleUnsupportedElementTypesHasBeenSet = true;
+}
+
+bool CreateTranscodeRequest::AutoHandleUnsupportedElementTypesHasBeenSet() const
+{
+    return m_autoHandleUnsupportedElementTypesHasBeenSet;
+}
+
+ExcelParam CreateTranscodeRequest::GetExcelParam() const
+{
+    return m_excelParam;
+}
+
+void CreateTranscodeRequest::SetExcelParam(const ExcelParam& _excelParam)
+{
+    m_excelParam = _excelParam;
+    m_excelParamHasBeenSet = true;
+}
+
+bool CreateTranscodeRequest::ExcelParamHasBeenSet() const
+{
+    return m_excelParamHasBeenSet;
 }
 
 

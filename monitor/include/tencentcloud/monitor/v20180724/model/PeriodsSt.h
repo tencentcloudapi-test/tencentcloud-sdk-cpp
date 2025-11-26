@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取周期
                      * @return Period 周期
+                     * 
                      */
                     std::string GetPeriod() const;
 
                     /**
                      * 设置周期
-                     * @param Period 周期
+                     * @param _period 周期
+                     * 
                      */
                     void SetPeriod(const std::string& _period);
 
                     /**
                      * 判断参数 Period 是否已赋值
                      * @return Period 是否已赋值
+                     * 
                      */
                     bool PeriodHasBeenSet() const;
 
                     /**
                      * 获取统计方式
                      * @return StatType 统计方式
+                     * 
                      */
                     std::vector<std::string> GetStatType() const;
 
                     /**
                      * 设置统计方式
-                     * @param StatType 统计方式
+                     * @param _statType 统计方式
+                     * 
                      */
                     void SetStatType(const std::vector<std::string>& _statType);
 
                     /**
                      * 判断参数 StatType 是否已赋值
                      * @return StatType 是否已赋值
+                     * 
                      */
                     bool StatTypeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,67 +48,64 @@ namespace TencentCloud
 
                     /**
                      * 获取等级
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetGrade() const;
 
                     /**
                      * 设置等级
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Grade 等级
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _grade 等级
+                     * 
                      */
                     void SetGrade(const std::string& _grade);
 
                     /**
                      * 判断参数 Grade 是否已赋值
                      * @return Grade 是否已赋值
+                     * 
                      */
                     bool GradeHasBeenSet() const;
 
                     /**
                      * 获取原文位置
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<int64_t> GetIndex() const;
 
                     /**
                      * 设置原文位置
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Index 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _index 原文位置
+                     * 
                      */
                     void SetIndex(const std::vector<int64_t>& _index);
 
                     /**
                      * 判断参数 Index 是否已赋值
                      * @return Index 是否已赋值
+                     * 
                      */
                     bool IndexHasBeenSet() const;
 
                     /**
                      * 获取原文
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSrc() const;
 
                     /**
                      * 设置原文
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Src 原文
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _src 原文
+                     * 
                      */
                     void SetSrc(const std::string& _src);
 
                     /**
                      * 判断参数 Src 是否已赋值
                      * @return Src 是否已赋值
+                     * 
                      */
                     bool SrcHasBeenSet() const;
 
@@ -116,21 +113,18 @@ namespace TencentCloud
 
                     /**
                      * 等级
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_grade;
                     bool m_gradeHasBeenSet;
 
                     /**
                      * 原文位置
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<int64_t> m_index;
                     bool m_indexHasBeenSet;
 
                     /**
                      * 原文
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_src;
                     bool m_srcHasBeenSet;

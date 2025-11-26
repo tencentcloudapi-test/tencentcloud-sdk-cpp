@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取歌手性别分类列表
                      * @return GenderSet 歌手性别分类列表
+                     * 
                      */
                     std::vector<KTVSingerCategoryInfo> GetGenderSet() const;
 
                     /**
                      * 判断参数 GenderSet 是否已赋值
                      * @return GenderSet 是否已赋值
+                     * 
                      */
                     bool GenderSetHasBeenSet() const;
 
                     /**
                      * 获取歌手区域分类列表
                      * @return AreaSet 歌手区域分类列表
+                     * 
                      */
                     std::vector<KTVSingerCategoryInfo> GetAreaSet() const;
 
                     /**
                      * 判断参数 AreaSet 是否已赋值
                      * @return AreaSet 是否已赋值
+                     * 
                      */
                     bool AreaSetHasBeenSet() const;
 

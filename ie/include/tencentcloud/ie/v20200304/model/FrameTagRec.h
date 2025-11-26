@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,7 @@ namespace TencentCloud
                      * @return TagType 标签类型：
 "Common": 通用类型
 "Game":游戏类型
+                     * 
                      */
                     std::string GetTagType() const;
 
@@ -60,15 +61,17 @@ namespace TencentCloud
                      * 设置标签类型：
 "Common": 通用类型
 "Game":游戏类型
-                     * @param TagType 标签类型：
+                     * @param _tagType 标签类型：
 "Common": 通用类型
 "Game":游戏类型
+                     * 
                      */
                     void SetTagType(const std::string& _tagType);
 
                     /**
                      * 判断参数 TagType 是否已赋值
                      * @return TagType 是否已赋值
+                     * 
                      */
                     bool TagTypeHasBeenSet() const;
 
@@ -87,6 +90,7 @@ namespace TencentCloud
 "LOL_GameViews":英雄联盟比赛视角
 "PUBG_AnchorViews":和平精英主播视角
 "PUBG_GameViews":和平精英比赛视角
+                     * 
                      */
                     std::string GetGameExtendType() const;
 
@@ -98,19 +102,21 @@ namespace TencentCloud
 "LOL_GameViews":英雄联盟比赛视角
 "PUBG_AnchorViews":和平精英主播视角
 "PUBG_GameViews":和平精英比赛视角
-                     * @param GameExtendType 游戏具体类型:
+                     * @param _gameExtendType 游戏具体类型:
 "HonorOfKings_AnchorViews":王者荣耀主播视角
 "HonorOfKings_GameViews":王者荣耀比赛视角
 "LOL_AnchorViews":英雄联盟主播视角
 "LOL_GameViews":英雄联盟比赛视角
 "PUBG_AnchorViews":和平精英主播视角
 "PUBG_GameViews":和平精英比赛视角
+                     * 
                      */
                     void SetGameExtendType(const std::string& _gameExtendType);
 
                     /**
                      * 判断参数 GameExtendType 是否已赋值
                      * @return GameExtendType 是否已赋值
+                     * 
                      */
                     bool GameExtendTypeHasBeenSet() const;
 

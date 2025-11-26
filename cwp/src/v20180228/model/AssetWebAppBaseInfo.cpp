@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,10 @@ AssetWebAppBaseInfo::AssetWebAppBaseInfo() :
     m_idHasBeenSet(false),
     m_descHasBeenSet(false),
     m_machineNameHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false),
+    m_firstTimeHasBeenSet(false),
+    m_isNewHasBeenSet(false),
+    m_machineExtraInfoHasBeenSet(false)
 {
 }
 
@@ -237,6 +240,43 @@ CoreInternalOutcome AssetWebAppBaseInfo::Deserialize(const rapidjson::Value &val
         m_updateTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("FirstTime") && !value["FirstTime"].IsNull())
+    {
+        if (!value["FirstTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetWebAppBaseInfo.FirstTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_firstTime = string(value["FirstTime"].GetString());
+        m_firstTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsNew") && !value["IsNew"].IsNull())
+    {
+        if (!value["IsNew"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetWebAppBaseInfo.IsNew` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isNew = value["IsNew"].GetInt64();
+        m_isNewHasBeenSet = true;
+    }
+
+    if (value.HasMember("MachineExtraInfo") && !value["MachineExtraInfo"].IsNull())
+    {
+        if (!value["MachineExtraInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AssetWebAppBaseInfo.MachineExtraInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_machineExtraInfo.Deserialize(value["MachineExtraInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_machineExtraInfoHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -393,6 +433,31 @@ void AssetWebAppBaseInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_firstTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FirstTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_firstTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isNewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsNew";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isNew, allocator);
+    }
+
+    if (m_machineExtraInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MachineExtraInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_machineExtraInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -684,5 +749,53 @@ void AssetWebAppBaseInfo::SetUpdateTime(const string& _updateTime)
 bool AssetWebAppBaseInfo::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
+}
+
+string AssetWebAppBaseInfo::GetFirstTime() const
+{
+    return m_firstTime;
+}
+
+void AssetWebAppBaseInfo::SetFirstTime(const string& _firstTime)
+{
+    m_firstTime = _firstTime;
+    m_firstTimeHasBeenSet = true;
+}
+
+bool AssetWebAppBaseInfo::FirstTimeHasBeenSet() const
+{
+    return m_firstTimeHasBeenSet;
+}
+
+int64_t AssetWebAppBaseInfo::GetIsNew() const
+{
+    return m_isNew;
+}
+
+void AssetWebAppBaseInfo::SetIsNew(const int64_t& _isNew)
+{
+    m_isNew = _isNew;
+    m_isNewHasBeenSet = true;
+}
+
+bool AssetWebAppBaseInfo::IsNewHasBeenSet() const
+{
+    return m_isNewHasBeenSet;
+}
+
+MachineExtraInfo AssetWebAppBaseInfo::GetMachineExtraInfo() const
+{
+    return m_machineExtraInfo;
+}
+
+void AssetWebAppBaseInfo::SetMachineExtraInfo(const MachineExtraInfo& _machineExtraInfo)
+{
+    m_machineExtraInfo = _machineExtraInfo;
+    m_machineExtraInfoHasBeenSet = true;
+}
+
+bool AssetWebAppBaseInfo::MachineExtraInfoHasBeenSet() const
+{
+    return m_machineExtraInfoHasBeenSet;
 }
 

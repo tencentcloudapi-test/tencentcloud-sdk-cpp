@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,8 @@
 #include <tencentcloud/antiddos/v20200309/model/CreateIPAlarmThresholdConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/CreateL7RuleCertsRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/CreateL7RuleCertsResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/CreateNewL7RulesRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/CreateNewL7RulesResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/CreatePacketFilterConfigRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/CreatePacketFilterConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/CreatePortAclConfigRequest.h>
@@ -69,8 +71,6 @@
 #include <tencentcloud/antiddos/v20200309/model/CreateWaterPrintConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/CreateWaterPrintKeyRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/CreateWaterPrintKeyResponse.h>
-#include <tencentcloud/antiddos/v20200309/model/DeleteBlackWhiteIpListRequest.h>
-#include <tencentcloud/antiddos/v20200309/model/DeleteBlackWhiteIpListResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DeleteCCLevelPolicyRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DeleteCCLevelPolicyResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DeleteCCPrecisionPolicyRequest.h>
@@ -97,12 +97,18 @@
 #include <tencentcloud/antiddos/v20200309/model/DeleteWaterPrintConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DeleteWaterPrintKeyRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DeleteWaterPrintKeyResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBGPIPL7RulesRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBGPIPL7RulesResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBasicDeviceStatusRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBasicDeviceStatusResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBgpBizTrendRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBgpBizTrendResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBizHttpStatusRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBizHttpStatusResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBizMonitorTrendRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBizMonitorTrendResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBizTrendRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBizTrendResponse.h>
-#include <tencentcloud/antiddos/v20200309/model/DescribeBlackWhiteIpListRequest.h>
-#include <tencentcloud/antiddos/v20200309/model/DescribeBlackWhiteIpListResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeCCLevelListRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeCCLevelListResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeCCLevelPolicyRequest.h>
@@ -127,6 +133,8 @@
 #include <tencentcloud/antiddos/v20200309/model/DescribeDDoSTrendResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeDefaultAlarmThresholdRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeDefaultAlarmThresholdResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeIpBlockListRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeIpBlockListResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeL7RulesBySSLCertIdRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeL7RulesBySSLCertIdResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListBGPIPInstancesRequest.h>
@@ -149,14 +157,28 @@
 #include <tencentcloud/antiddos/v20200309/model/DescribeListPacketFilterConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListPortAclListRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListPortAclListResponse.h>
-#include <tencentcloud/antiddos/v20200309/model/DescribeListProtectThresholdConfigRequest.h>
-#include <tencentcloud/antiddos/v20200309/model/DescribeListProtectThresholdConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListProtocolBlockConfigRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListProtocolBlockConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListSchedulingDomainRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListSchedulingDomainResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListWaterPrintConfigRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListWaterPrintConfigResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeNewL7RulesRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeNewL7RulesResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeNewL7RulesErrHealthRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeNewL7RulesErrHealthResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewAttackTrendRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewAttackTrendResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewCCTrendRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewCCTrendResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewDDoSEventListRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewDDoSEventListResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewDDoSTrendRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewDDoSTrendResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewIndexRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeOverviewIndexResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribePendingRiskInfoRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribePendingRiskInfoResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DisassociateDDoSEipAddressRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DisassociateDDoSEipAddressResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/ModifyCCLevelPolicyRequest.h>
@@ -181,8 +203,6 @@
 #include <tencentcloud/antiddos/v20200309/model/ModifyDDoSThresholdResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/ModifyDomainUsrNameRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/ModifyDomainUsrNameResponse.h>
-#include <tencentcloud/antiddos/v20200309/model/ModifyL7RulesEdgeRequest.h>
-#include <tencentcloud/antiddos/v20200309/model/ModifyL7RulesEdgeResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/ModifyNewDomainRulesRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/ModifyNewDomainRulesResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/ModifyPacketFilterConfigRequest.h>
@@ -253,6 +273,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateL7RuleCertsResponse> CreateL7RuleCertsOutcome;
                 typedef std::future<CreateL7RuleCertsOutcome> CreateL7RuleCertsOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::CreateL7RuleCertsRequest&, CreateL7RuleCertsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateL7RuleCertsAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateNewL7RulesResponse> CreateNewL7RulesOutcome;
+                typedef std::future<CreateNewL7RulesOutcome> CreateNewL7RulesOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::CreateNewL7RulesRequest&, CreateNewL7RulesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateNewL7RulesAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreatePacketFilterConfigResponse> CreatePacketFilterConfigOutcome;
                 typedef std::future<CreatePacketFilterConfigOutcome> CreatePacketFilterConfigOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::CreatePacketFilterConfigRequest&, CreatePacketFilterConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreatePacketFilterConfigAsyncHandler;
@@ -274,9 +297,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateWaterPrintKeyResponse> CreateWaterPrintKeyOutcome;
                 typedef std::future<CreateWaterPrintKeyOutcome> CreateWaterPrintKeyOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::CreateWaterPrintKeyRequest&, CreateWaterPrintKeyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateWaterPrintKeyAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteBlackWhiteIpListResponse> DeleteBlackWhiteIpListOutcome;
-                typedef std::future<DeleteBlackWhiteIpListOutcome> DeleteBlackWhiteIpListOutcomeCallable;
-                typedef std::function<void(const AntiddosClient*, const Model::DeleteBlackWhiteIpListRequest&, DeleteBlackWhiteIpListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteBlackWhiteIpListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteCCLevelPolicyResponse> DeleteCCLevelPolicyOutcome;
                 typedef std::future<DeleteCCLevelPolicyOutcome> DeleteCCLevelPolicyOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DeleteCCLevelPolicyRequest&, DeleteCCLevelPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCCLevelPolicyAsyncHandler;
@@ -316,15 +336,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteWaterPrintKeyResponse> DeleteWaterPrintKeyOutcome;
                 typedef std::future<DeleteWaterPrintKeyOutcome> DeleteWaterPrintKeyOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DeleteWaterPrintKeyRequest&, DeleteWaterPrintKeyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteWaterPrintKeyAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBGPIPL7RulesResponse> DescribeBGPIPL7RulesOutcome;
+                typedef std::future<DescribeBGPIPL7RulesOutcome> DescribeBGPIPL7RulesOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeBGPIPL7RulesRequest&, DescribeBGPIPL7RulesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBGPIPL7RulesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeBasicDeviceStatusResponse> DescribeBasicDeviceStatusOutcome;
                 typedef std::future<DescribeBasicDeviceStatusOutcome> DescribeBasicDeviceStatusOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeBasicDeviceStatusRequest&, DescribeBasicDeviceStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBasicDeviceStatusAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBgpBizTrendResponse> DescribeBgpBizTrendOutcome;
+                typedef std::future<DescribeBgpBizTrendOutcome> DescribeBgpBizTrendOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeBgpBizTrendRequest&, DescribeBgpBizTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBgpBizTrendAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBizHttpStatusResponse> DescribeBizHttpStatusOutcome;
+                typedef std::future<DescribeBizHttpStatusOutcome> DescribeBizHttpStatusOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeBizHttpStatusRequest&, DescribeBizHttpStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBizHttpStatusAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBizMonitorTrendResponse> DescribeBizMonitorTrendOutcome;
+                typedef std::future<DescribeBizMonitorTrendOutcome> DescribeBizMonitorTrendOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeBizMonitorTrendRequest&, DescribeBizMonitorTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBizMonitorTrendAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeBizTrendResponse> DescribeBizTrendOutcome;
                 typedef std::future<DescribeBizTrendOutcome> DescribeBizTrendOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeBizTrendRequest&, DescribeBizTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBizTrendAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeBlackWhiteIpListResponse> DescribeBlackWhiteIpListOutcome;
-                typedef std::future<DescribeBlackWhiteIpListOutcome> DescribeBlackWhiteIpListOutcomeCallable;
-                typedef std::function<void(const AntiddosClient*, const Model::DescribeBlackWhiteIpListRequest&, DescribeBlackWhiteIpListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBlackWhiteIpListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeCCLevelListResponse> DescribeCCLevelListOutcome;
                 typedef std::future<DescribeCCLevelListOutcome> DescribeCCLevelListOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeCCLevelListRequest&, DescribeCCLevelListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCCLevelListAsyncHandler;
@@ -361,6 +390,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDefaultAlarmThresholdResponse> DescribeDefaultAlarmThresholdOutcome;
                 typedef std::future<DescribeDefaultAlarmThresholdOutcome> DescribeDefaultAlarmThresholdOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeDefaultAlarmThresholdRequest&, DescribeDefaultAlarmThresholdOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDefaultAlarmThresholdAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeIpBlockListResponse> DescribeIpBlockListOutcome;
+                typedef std::future<DescribeIpBlockListOutcome> DescribeIpBlockListOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeIpBlockListRequest&, DescribeIpBlockListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeIpBlockListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeL7RulesBySSLCertIdResponse> DescribeL7RulesBySSLCertIdOutcome;
                 typedef std::future<DescribeL7RulesBySSLCertIdOutcome> DescribeL7RulesBySSLCertIdOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeL7RulesBySSLCertIdRequest&, DescribeL7RulesBySSLCertIdOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeL7RulesBySSLCertIdAsyncHandler;
@@ -394,9 +426,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeListPortAclListResponse> DescribeListPortAclListOutcome;
                 typedef std::future<DescribeListPortAclListOutcome> DescribeListPortAclListOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeListPortAclListRequest&, DescribeListPortAclListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeListPortAclListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeListProtectThresholdConfigResponse> DescribeListProtectThresholdConfigOutcome;
-                typedef std::future<DescribeListProtectThresholdConfigOutcome> DescribeListProtectThresholdConfigOutcomeCallable;
-                typedef std::function<void(const AntiddosClient*, const Model::DescribeListProtectThresholdConfigRequest&, DescribeListProtectThresholdConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeListProtectThresholdConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeListProtocolBlockConfigResponse> DescribeListProtocolBlockConfigOutcome;
                 typedef std::future<DescribeListProtocolBlockConfigOutcome> DescribeListProtocolBlockConfigOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeListProtocolBlockConfigRequest&, DescribeListProtocolBlockConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeListProtocolBlockConfigAsyncHandler;
@@ -406,6 +435,30 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeListWaterPrintConfigResponse> DescribeListWaterPrintConfigOutcome;
                 typedef std::future<DescribeListWaterPrintConfigOutcome> DescribeListWaterPrintConfigOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeListWaterPrintConfigRequest&, DescribeListWaterPrintConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeListWaterPrintConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeNewL7RulesResponse> DescribeNewL7RulesOutcome;
+                typedef std::future<DescribeNewL7RulesOutcome> DescribeNewL7RulesOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeNewL7RulesRequest&, DescribeNewL7RulesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeNewL7RulesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeNewL7RulesErrHealthResponse> DescribeNewL7RulesErrHealthOutcome;
+                typedef std::future<DescribeNewL7RulesErrHealthOutcome> DescribeNewL7RulesErrHealthOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeNewL7RulesErrHealthRequest&, DescribeNewL7RulesErrHealthOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeNewL7RulesErrHealthAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeOverviewAttackTrendResponse> DescribeOverviewAttackTrendOutcome;
+                typedef std::future<DescribeOverviewAttackTrendOutcome> DescribeOverviewAttackTrendOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeOverviewAttackTrendRequest&, DescribeOverviewAttackTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOverviewAttackTrendAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeOverviewCCTrendResponse> DescribeOverviewCCTrendOutcome;
+                typedef std::future<DescribeOverviewCCTrendOutcome> DescribeOverviewCCTrendOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeOverviewCCTrendRequest&, DescribeOverviewCCTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOverviewCCTrendAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeOverviewDDoSEventListResponse> DescribeOverviewDDoSEventListOutcome;
+                typedef std::future<DescribeOverviewDDoSEventListOutcome> DescribeOverviewDDoSEventListOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeOverviewDDoSEventListRequest&, DescribeOverviewDDoSEventListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOverviewDDoSEventListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeOverviewDDoSTrendResponse> DescribeOverviewDDoSTrendOutcome;
+                typedef std::future<DescribeOverviewDDoSTrendOutcome> DescribeOverviewDDoSTrendOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeOverviewDDoSTrendRequest&, DescribeOverviewDDoSTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOverviewDDoSTrendAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeOverviewIndexResponse> DescribeOverviewIndexOutcome;
+                typedef std::future<DescribeOverviewIndexOutcome> DescribeOverviewIndexOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeOverviewIndexRequest&, DescribeOverviewIndexOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOverviewIndexAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribePendingRiskInfoResponse> DescribePendingRiskInfoOutcome;
+                typedef std::future<DescribePendingRiskInfoOutcome> DescribePendingRiskInfoOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribePendingRiskInfoRequest&, DescribePendingRiskInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePendingRiskInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DisassociateDDoSEipAddressResponse> DisassociateDDoSEipAddressOutcome;
                 typedef std::future<DisassociateDDoSEipAddressOutcome> DisassociateDDoSEipAddressOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DisassociateDDoSEipAddressRequest&, DisassociateDDoSEipAddressOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisassociateDDoSEipAddressAsyncHandler;
@@ -442,9 +495,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyDomainUsrNameResponse> ModifyDomainUsrNameOutcome;
                 typedef std::future<ModifyDomainUsrNameOutcome> ModifyDomainUsrNameOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::ModifyDomainUsrNameRequest&, ModifyDomainUsrNameOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDomainUsrNameAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyL7RulesEdgeResponse> ModifyL7RulesEdgeOutcome;
-                typedef std::future<ModifyL7RulesEdgeOutcome> ModifyL7RulesEdgeOutcomeCallable;
-                typedef std::function<void(const AntiddosClient*, const Model::ModifyL7RulesEdgeRequest&, ModifyL7RulesEdgeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyL7RulesEdgeAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyNewDomainRulesResponse> ModifyNewDomainRulesOutcome;
                 typedef std::future<ModifyNewDomainRulesOutcome> ModifyNewDomainRulesOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::ModifyNewDomainRulesRequest&, ModifyNewDomainRulesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyNewDomainRulesAsyncHandler;
@@ -488,7 +538,7 @@ namespace TencentCloud
                 CreateBlackWhiteIpListOutcomeCallable CreateBlackWhiteIpListCallable(const Model::CreateBlackWhiteIpListRequest& request);
 
                 /**
-                 *绑定IP到高防包实例，支持独享包、共享包；需要注意的是此接口绑定或解绑IP是异步接口，当处于绑定或解绑中时，则不允许再进行绑定或解绑，需要等待当前绑定或解绑完成。
+                 *绑定IP到高防包实例，支持独享包、共享包（新版）；需要注意的是此接口绑定或解绑IP是异步接口，当处于绑定或解绑中时，则不允许再进行绑定或解绑，需要等待当前绑定或解绑完成。
                  * @param req CreateBoundIPRequest
                  * @return CreateBoundIPOutcome
                  */
@@ -524,7 +574,7 @@ namespace TencentCloud
                 CreateCcBlackWhiteIpListOutcomeCallable CreateCcBlackWhiteIpListCallable(const Model::CreateCcBlackWhiteIpListRequest& request);
 
                 /**
-                 *新建cc防护的地域封禁配置
+                 *新建CC防护的地域封禁配置
                  * @param req CreateCcGeoIPBlockConfigRequest
                  * @return CreateCcGeoIPBlockConfigOutcome
                  */
@@ -605,6 +655,15 @@ namespace TencentCloud
                 CreateL7RuleCertsOutcomeCallable CreateL7RuleCertsCallable(const Model::CreateL7RuleCertsRequest& request);
 
                 /**
+                 *添加7层转发规则
+                 * @param req CreateNewL7RulesRequest
+                 * @return CreateNewL7RulesOutcome
+                 */
+                CreateNewL7RulesOutcome CreateNewL7Rules(const Model::CreateNewL7RulesRequest &request);
+                void CreateNewL7RulesAsync(const Model::CreateNewL7RulesRequest& request, const CreateNewL7RulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateNewL7RulesOutcomeCallable CreateNewL7RulesCallable(const Model::CreateNewL7RulesRequest& request);
+
+                /**
                  *添加DDoS防护的特征过滤规则
                  * @param req CreatePacketFilterConfigRequest
                  * @return CreatePacketFilterConfigOutcome
@@ -666,15 +725,6 @@ namespace TencentCloud
                 CreateWaterPrintKeyOutcome CreateWaterPrintKey(const Model::CreateWaterPrintKeyRequest &request);
                 void CreateWaterPrintKeyAsync(const Model::CreateWaterPrintKeyRequest& request, const CreateWaterPrintKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateWaterPrintKeyOutcomeCallable CreateWaterPrintKeyCallable(const Model::CreateWaterPrintKeyRequest& request);
-
-                /**
-                 *删除DDoS防护的IP黑白名单
-                 * @param req DeleteBlackWhiteIpListRequest
-                 * @return DeleteBlackWhiteIpListOutcome
-                 */
-                DeleteBlackWhiteIpListOutcome DeleteBlackWhiteIpList(const Model::DeleteBlackWhiteIpListRequest &request);
-                void DeleteBlackWhiteIpListAsync(const Model::DeleteBlackWhiteIpListRequest& request, const DeleteBlackWhiteIpListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteBlackWhiteIpListOutcomeCallable DeleteBlackWhiteIpListCallable(const Model::DeleteBlackWhiteIpListRequest& request);
 
                 /**
                  *删除CC分级策略
@@ -794,6 +844,15 @@ namespace TencentCloud
                 DeleteWaterPrintKeyOutcomeCallable DeleteWaterPrintKeyCallable(const Model::DeleteWaterPrintKeyRequest& request);
 
                 /**
+                 *高防IP获取7层规则
+                 * @param req DescribeBGPIPL7RulesRequest
+                 * @return DescribeBGPIPL7RulesOutcome
+                 */
+                DescribeBGPIPL7RulesOutcome DescribeBGPIPL7Rules(const Model::DescribeBGPIPL7RulesRequest &request);
+                void DescribeBGPIPL7RulesAsync(const Model::DescribeBGPIPL7RulesRequest& request, const DescribeBGPIPL7RulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBGPIPL7RulesOutcomeCallable DescribeBGPIPL7RulesCallable(const Model::DescribeBGPIPL7RulesRequest& request);
+
+                /**
                  *获取基础防护攻击状态
                  * @param req DescribeBasicDeviceStatusRequest
                  * @return DescribeBasicDeviceStatusOutcome
@@ -801,6 +860,33 @@ namespace TencentCloud
                 DescribeBasicDeviceStatusOutcome DescribeBasicDeviceStatus(const Model::DescribeBasicDeviceStatusRequest &request);
                 void DescribeBasicDeviceStatusAsync(const Model::DescribeBasicDeviceStatusRequest& request, const DescribeBasicDeviceStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeBasicDeviceStatusOutcomeCallable DescribeBasicDeviceStatusCallable(const Model::DescribeBasicDeviceStatusRequest& request);
+
+                /**
+                 *获取高防包流量折线图
+                 * @param req DescribeBgpBizTrendRequest
+                 * @return DescribeBgpBizTrendOutcome
+                 */
+                DescribeBgpBizTrendOutcome DescribeBgpBizTrend(const Model::DescribeBgpBizTrendRequest &request);
+                void DescribeBgpBizTrendAsync(const Model::DescribeBgpBizTrendRequest& request, const DescribeBgpBizTrendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBgpBizTrendOutcomeCallable DescribeBgpBizTrendCallable(const Model::DescribeBgpBizTrendRequest& request);
+
+                /**
+                 *获取业务流量状态码统计列表
+                 * @param req DescribeBizHttpStatusRequest
+                 * @return DescribeBizHttpStatusOutcome
+                 */
+                DescribeBizHttpStatusOutcome DescribeBizHttpStatus(const Model::DescribeBizHttpStatusRequest &request);
+                void DescribeBizHttpStatusAsync(const Model::DescribeBizHttpStatusRequest& request, const DescribeBizHttpStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBizHttpStatusOutcomeCallable DescribeBizHttpStatusCallable(const Model::DescribeBizHttpStatusRequest& request);
+
+                /**
+                 *获取高防IP业务监控流量曲线
+                 * @param req DescribeBizMonitorTrendRequest
+                 * @return DescribeBizMonitorTrendOutcome
+                 */
+                DescribeBizMonitorTrendOutcome DescribeBizMonitorTrend(const Model::DescribeBizMonitorTrendRequest &request);
+                void DescribeBizMonitorTrendAsync(const Model::DescribeBizMonitorTrendRequest& request, const DescribeBizMonitorTrendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBizMonitorTrendOutcomeCallable DescribeBizMonitorTrendCallable(const Model::DescribeBizMonitorTrendRequest& request);
 
                 /**
                  *获取业务流量曲线
@@ -812,16 +898,7 @@ namespace TencentCloud
                 DescribeBizTrendOutcomeCallable DescribeBizTrendCallable(const Model::DescribeBizTrendRequest& request);
 
                 /**
-                 *获取DDoS防护的IP黑白名单
-                 * @param req DescribeBlackWhiteIpListRequest
-                 * @return DescribeBlackWhiteIpListOutcome
-                 */
-                DescribeBlackWhiteIpListOutcome DescribeBlackWhiteIpList(const Model::DescribeBlackWhiteIpListRequest &request);
-                void DescribeBlackWhiteIpListAsync(const Model::DescribeBlackWhiteIpListRequest& request, const DescribeBlackWhiteIpListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeBlackWhiteIpListOutcomeCallable DescribeBlackWhiteIpListCallable(const Model::DescribeBlackWhiteIpListRequest& request);
-
-                /**
-                 *获取CC防护等级列表
+                 *获取边界防护CC防护等级列表
                  * @param req DescribeCCLevelListRequest
                  * @return DescribeCCLevelListOutcome
                  */
@@ -929,6 +1006,15 @@ namespace TencentCloud
                 DescribeDefaultAlarmThresholdOutcomeCallable DescribeDefaultAlarmThresholdCallable(const Model::DescribeDefaultAlarmThresholdRequest& request);
 
                 /**
+                 *获取IP封堵列表
+                 * @param req DescribeIpBlockListRequest
+                 * @return DescribeIpBlockListOutcome
+                 */
+                DescribeIpBlockListOutcome DescribeIpBlockList(const Model::DescribeIpBlockListRequest &request);
+                void DescribeIpBlockListAsync(const Model::DescribeIpBlockListRequest& request, const DescribeIpBlockListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeIpBlockListOutcomeCallable DescribeIpBlockListCallable(const Model::DescribeIpBlockListRequest& request);
+
+                /**
                  *查询与证书ID对于域名匹配的七层规则
                  * @param req DescribeL7RulesBySSLCertIdRequest
                  * @return DescribeL7RulesBySSLCertIdOutcome
@@ -939,7 +1025,6 @@ namespace TencentCloud
 
                 /**
                  *获取高防IP资产实例列表
-
                  * @param req DescribeListBGPIPInstancesRequest
                  * @return DescribeListBGPIPInstancesOutcome
                  */
@@ -949,7 +1034,6 @@ namespace TencentCloud
 
                 /**
                  *获取高防包资产实例列表
-
                  * @param req DescribeListBGPInstancesRequest
                  * @return DescribeListBGPInstancesOutcome
                  */
@@ -1030,15 +1114,6 @@ namespace TencentCloud
                 DescribeListPortAclListOutcomeCallable DescribeListPortAclListCallable(const Model::DescribeListPortAclListRequest& request);
 
                 /**
-                 *获取防护阈值配置列表，包括DDoS的AI、等级、CC阈值开关等
-                 * @param req DescribeListProtectThresholdConfigRequest
-                 * @return DescribeListProtectThresholdConfigOutcome
-                 */
-                DescribeListProtectThresholdConfigOutcome DescribeListProtectThresholdConfig(const Model::DescribeListProtectThresholdConfigRequest &request);
-                void DescribeListProtectThresholdConfigAsync(const Model::DescribeListProtectThresholdConfigRequest& request, const DescribeListProtectThresholdConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeListProtectThresholdConfigOutcomeCallable DescribeListProtectThresholdConfigCallable(const Model::DescribeListProtectThresholdConfigRequest& request);
-
-                /**
                  *获取DDoS防护的协议封禁配置列表
                  * @param req DescribeListProtocolBlockConfigRequest
                  * @return DescribeListProtocolBlockConfigOutcome
@@ -1064,6 +1139,78 @@ namespace TencentCloud
                 DescribeListWaterPrintConfigOutcome DescribeListWaterPrintConfig(const Model::DescribeListWaterPrintConfigRequest &request);
                 void DescribeListWaterPrintConfigAsync(const Model::DescribeListWaterPrintConfigRequest& request, const DescribeListWaterPrintConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeListWaterPrintConfigOutcomeCallable DescribeListWaterPrintConfigCallable(const Model::DescribeListWaterPrintConfigRequest& request);
+
+                /**
+                 *高防IP获取7层规则
+                 * @param req DescribeNewL7RulesRequest
+                 * @return DescribeNewL7RulesOutcome
+                 */
+                DescribeNewL7RulesOutcome DescribeNewL7Rules(const Model::DescribeNewL7RulesRequest &request);
+                void DescribeNewL7RulesAsync(const Model::DescribeNewL7RulesRequest& request, const DescribeNewL7RulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeNewL7RulesOutcomeCallable DescribeNewL7RulesCallable(const Model::DescribeNewL7RulesRequest& request);
+
+                /**
+                 *获取L7转发规则健康检查异常结果列表
+                 * @param req DescribeNewL7RulesErrHealthRequest
+                 * @return DescribeNewL7RulesErrHealthOutcome
+                 */
+                DescribeNewL7RulesErrHealthOutcome DescribeNewL7RulesErrHealth(const Model::DescribeNewL7RulesErrHealthRequest &request);
+                void DescribeNewL7RulesErrHealthAsync(const Model::DescribeNewL7RulesErrHealthRequest& request, const DescribeNewL7RulesErrHealthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeNewL7RulesErrHealthOutcomeCallable DescribeNewL7RulesErrHealthCallable(const Model::DescribeNewL7RulesErrHealthRequest& request);
+
+                /**
+                 *拉取防护概览攻击趋势
+                 * @param req DescribeOverviewAttackTrendRequest
+                 * @return DescribeOverviewAttackTrendOutcome
+                 */
+                DescribeOverviewAttackTrendOutcome DescribeOverviewAttackTrend(const Model::DescribeOverviewAttackTrendRequest &request);
+                void DescribeOverviewAttackTrendAsync(const Model::DescribeOverviewAttackTrendRequest& request, const DescribeOverviewAttackTrendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeOverviewAttackTrendOutcomeCallable DescribeOverviewAttackTrendCallable(const Model::DescribeOverviewAttackTrendRequest& request);
+
+                /**
+                 *获取防护概览总请求峰值(QPS)和攻击请求(QPS)以及总请求次数和攻击请求次数
+                 * @param req DescribeOverviewCCTrendRequest
+                 * @return DescribeOverviewCCTrendOutcome
+                 */
+                DescribeOverviewCCTrendOutcome DescribeOverviewCCTrend(const Model::DescribeOverviewCCTrendRequest &request);
+                void DescribeOverviewCCTrendAsync(const Model::DescribeOverviewCCTrendRequest& request, const DescribeOverviewCCTrendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeOverviewCCTrendOutcomeCallable DescribeOverviewCCTrendCallable(const Model::DescribeOverviewCCTrendRequest& request);
+
+                /**
+                 *获取防护概览的ddos攻击事件
+                 * @param req DescribeOverviewDDoSEventListRequest
+                 * @return DescribeOverviewDDoSEventListOutcome
+                 */
+                DescribeOverviewDDoSEventListOutcome DescribeOverviewDDoSEventList(const Model::DescribeOverviewDDoSEventListRequest &request);
+                void DescribeOverviewDDoSEventListAsync(const Model::DescribeOverviewDDoSEventListRequest& request, const DescribeOverviewDDoSEventListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeOverviewDDoSEventListOutcomeCallable DescribeOverviewDDoSEventListCallable(const Model::DescribeOverviewDDoSEventListRequest& request);
+
+                /**
+                 *获取防护概览DDoS攻击流量带宽和攻击包速率数据
+                 * @param req DescribeOverviewDDoSTrendRequest
+                 * @return DescribeOverviewDDoSTrendOutcome
+                 */
+                DescribeOverviewDDoSTrendOutcome DescribeOverviewDDoSTrend(const Model::DescribeOverviewDDoSTrendRequest &request);
+                void DescribeOverviewDDoSTrendAsync(const Model::DescribeOverviewDDoSTrendRequest& request, const DescribeOverviewDDoSTrendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeOverviewDDoSTrendOutcomeCallable DescribeOverviewDDoSTrendCallable(const Model::DescribeOverviewDDoSTrendRequest& request);
+
+                /**
+                 *拉取防护概览指标
+                 * @param req DescribeOverviewIndexRequest
+                 * @return DescribeOverviewIndexOutcome
+                 */
+                DescribeOverviewIndexOutcome DescribeOverviewIndex(const Model::DescribeOverviewIndexRequest &request);
+                void DescribeOverviewIndexAsync(const Model::DescribeOverviewIndexRequest& request, const DescribeOverviewIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeOverviewIndexOutcomeCallable DescribeOverviewIndexCallable(const Model::DescribeOverviewIndexRequest& request);
+
+                /**
+                 *查询账号维度待处理风险信息，包括是否为付费用户，查询攻击中、封堵中、过期资源数量等
+                 * @param req DescribePendingRiskInfoRequest
+                 * @return DescribePendingRiskInfoOutcome
+                 */
+                DescribePendingRiskInfoOutcome DescribePendingRiskInfo(const Model::DescribePendingRiskInfoRequest &request);
+                void DescribePendingRiskInfoAsync(const Model::DescribePendingRiskInfoRequest& request, const DescribePendingRiskInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribePendingRiskInfoOutcomeCallable DescribePendingRiskInfoCallable(const Model::DescribePendingRiskInfoRequest& request);
 
                 /**
                  *本接口 (DisassociateDDoSEipAddress) 用于解绑高防弹性公网IP。
@@ -1174,15 +1321,6 @@ namespace TencentCloud
                 ModifyDomainUsrNameOutcomeCallable ModifyDomainUsrNameCallable(const Model::ModifyDomainUsrNameRequest& request);
 
                 /**
-                 *修改边界防护L7转发规则
-                 * @param req ModifyL7RulesEdgeRequest
-                 * @return ModifyL7RulesEdgeOutcome
-                 */
-                ModifyL7RulesEdgeOutcome ModifyL7RulesEdge(const Model::ModifyL7RulesEdgeRequest &request);
-                void ModifyL7RulesEdgeAsync(const Model::ModifyL7RulesEdgeRequest& request, const ModifyL7RulesEdgeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyL7RulesEdgeOutcomeCallable ModifyL7RulesEdgeCallable(const Model::ModifyL7RulesEdgeRequest& request);
-
-                /**
                  *修改7层转发规则
                  * @param req ModifyNewDomainRulesRequest
                  * @return ModifyNewDomainRulesOutcome
@@ -1210,7 +1348,7 @@ namespace TencentCloud
                 ModifyPortAclConfigOutcomeCallable ModifyPortAclConfigCallable(const Model::ModifyPortAclConfigRequest& request);
 
                 /**
-                 *开启或关闭DDoS防护的水印防护配置
+                 *开启或关闭DDoS防护的水印防护配置，此功能为付费增值服务，有需求请联系售后
                  * @param req SwitchWaterPrintConfigRequest
                  * @return SwitchWaterPrintConfigOutcome
                  */

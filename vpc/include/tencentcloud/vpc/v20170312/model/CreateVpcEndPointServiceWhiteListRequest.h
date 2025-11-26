@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,75 +43,84 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取UIN。
-                     * @return UserUin UIN。
+                     * 获取UIN。腾讯云账号中心控制台获取。
+                     * @return UserUin UIN。腾讯云账号中心控制台获取。
+                     * 
                      */
                     std::string GetUserUin() const;
 
                     /**
-                     * 设置UIN。
-                     * @param UserUin UIN。
+                     * 设置UIN。腾讯云账号中心控制台获取。
+                     * @param _userUin UIN。腾讯云账号中心控制台获取。
+                     * 
                      */
                     void SetUserUin(const std::string& _userUin);
 
                     /**
                      * 判断参数 UserUin 是否已赋值
                      * @return UserUin 是否已赋值
+                     * 
                      */
                     bool UserUinHasBeenSet() const;
 
                     /**
-                     * 获取终端节点服务ID。
-                     * @return EndPointServiceId 终端节点服务ID。
+                     * 获取终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
+                     * @return EndPointServiceId 终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
+                     * 
                      */
                     std::string GetEndPointServiceId() const;
 
                     /**
-                     * 设置终端节点服务ID。
-                     * @param EndPointServiceId 终端节点服务ID。
+                     * 设置终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
+                     * @param _endPointServiceId 终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
+                     * 
                      */
                     void SetEndPointServiceId(const std::string& _endPointServiceId);
 
                     /**
                      * 判断参数 EndPointServiceId 是否已赋值
                      * @return EndPointServiceId 是否已赋值
+                     * 
                      */
                     bool EndPointServiceIdHasBeenSet() const;
 
                     /**
-                     * 获取白名单描述。
-                     * @return Description 白名单描述。
+                     * 获取白名单描述。长度不超过60个字符。
+                     * @return Description 白名单描述。长度不超过60个字符。
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置白名单描述。
-                     * @param Description 白名单描述。
+                     * 设置白名单描述。长度不超过60个字符。
+                     * @param _description 白名单描述。长度不超过60个字符。
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * UIN。
+                     * UIN。腾讯云账号中心控制台获取。
                      */
                     std::string m_userUin;
                     bool m_userUinHasBeenSet;
 
                     /**
-                     * 终端节点服务ID。
+                     * 终端节点服务ID。可通过[DescribeVpcEndPointService](https://cloud.tencent.com/document/product/215/54678)接口获取。
                      */
                     std::string m_endPointServiceId;
                     bool m_endPointServiceIdHasBeenSet;
 
                     /**
-                     * 白名单描述。
+                     * 白名单描述。长度不超过60个字符。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;

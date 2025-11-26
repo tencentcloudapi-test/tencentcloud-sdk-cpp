@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,11 +23,11 @@ using namespace TencentCloud::Gs::V20191118::Model;
 using namespace std;
 
 CreateSessionRequest::CreateSessionRequest() :
-    m_clientSessionHasBeenSet(false),
     m_userIdHasBeenSet(false),
     m_gameIdHasBeenSet(false),
     m_gameRegionHasBeenSet(false),
     m_gameParasHasBeenSet(false),
+    m_clientSessionHasBeenSet(false),
     m_resolutionHasBeenSet(false),
     m_imageUrlHasBeenSet(false),
     m_setNoHasBeenSet(false),
@@ -39,7 +39,8 @@ CreateSessionRequest::CreateSessionRequest() :
     m_optimizationHasBeenSet(false),
     m_hostUserIdHasBeenSet(false),
     m_roleHasBeenSet(false),
-    m_gameContextHasBeenSet(false)
+    m_gameContextHasBeenSet(false),
+    m_runModeHasBeenSet(false)
 {
 }
 
@@ -49,14 +50,6 @@ string CreateSessionRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
-
-    if (m_clientSessionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClientSession";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_clientSession.c_str(), allocator).Move(), allocator);
-    }
 
     if (m_userIdHasBeenSet)
     {
@@ -88,6 +81,14 @@ string CreateSessionRequest::ToJsonString() const
         string key = "GameParas";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_gameParas.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clientSessionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientSession";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_clientSession.c_str(), allocator).Move(), allocator);
     }
 
     if (m_resolutionHasBeenSet)
@@ -186,6 +187,14 @@ string CreateSessionRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_gameContext.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_runModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RunMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_runMode.c_str(), allocator).Move(), allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -193,22 +202,6 @@ string CreateSessionRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-string CreateSessionRequest::GetClientSession() const
-{
-    return m_clientSession;
-}
-
-void CreateSessionRequest::SetClientSession(const string& _clientSession)
-{
-    m_clientSession = _clientSession;
-    m_clientSessionHasBeenSet = true;
-}
-
-bool CreateSessionRequest::ClientSessionHasBeenSet() const
-{
-    return m_clientSessionHasBeenSet;
-}
 
 string CreateSessionRequest::GetUserId() const
 {
@@ -272,6 +265,22 @@ void CreateSessionRequest::SetGameParas(const string& _gameParas)
 bool CreateSessionRequest::GameParasHasBeenSet() const
 {
     return m_gameParasHasBeenSet;
+}
+
+string CreateSessionRequest::GetClientSession() const
+{
+    return m_clientSession;
+}
+
+void CreateSessionRequest::SetClientSession(const string& _clientSession)
+{
+    m_clientSession = _clientSession;
+    m_clientSessionHasBeenSet = true;
+}
+
+bool CreateSessionRequest::ClientSessionHasBeenSet() const
+{
+    return m_clientSessionHasBeenSet;
 }
 
 string CreateSessionRequest::GetResolution() const
@@ -464,6 +473,22 @@ void CreateSessionRequest::SetGameContext(const string& _gameContext)
 bool CreateSessionRequest::GameContextHasBeenSet() const
 {
     return m_gameContextHasBeenSet;
+}
+
+string CreateSessionRequest::GetRunMode() const
+{
+    return m_runMode;
+}
+
+void CreateSessionRequest::SetRunMode(const string& _runMode)
+{
+    m_runMode = _runMode;
+    m_runModeHasBeenSet = true;
+}
+
+bool CreateSessionRequest::RunModeHasBeenSet() const
+{
+    return m_runModeHasBeenSet;
 }
 
 

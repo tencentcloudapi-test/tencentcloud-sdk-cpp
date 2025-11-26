@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 CreateReplicationInstanceRequest::CreateReplicationInstanceRequest() :
     m_registryIdHasBeenSet(false),
     m_replicationRegionIdHasBeenSet(false),
-    m_replicationRegionNameHasBeenSet(false)
+    m_replicationRegionNameHasBeenSet(false),
+    m_syncTagHasBeenSet(false)
 {
 }
 
@@ -58,6 +59,14 @@ string CreateReplicationInstanceRequest::ToJsonString() const
         string key = "ReplicationRegionName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_replicationRegionName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_syncTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SyncTag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_syncTag, allocator);
     }
 
 
@@ -114,6 +123,22 @@ void CreateReplicationInstanceRequest::SetReplicationRegionName(const string& _r
 bool CreateReplicationInstanceRequest::ReplicationRegionNameHasBeenSet() const
 {
     return m_replicationRegionNameHasBeenSet;
+}
+
+bool CreateReplicationInstanceRequest::GetSyncTag() const
+{
+    return m_syncTag;
+}
+
+void CreateReplicationInstanceRequest::SetSyncTag(const bool& _syncTag)
+{
+    m_syncTag = _syncTag;
+    m_syncTagHasBeenSet = true;
+}
+
+bool CreateReplicationInstanceRequest::SyncTagHasBeenSet() const
+{
+    return m_syncTagHasBeenSet;
 }
 
 

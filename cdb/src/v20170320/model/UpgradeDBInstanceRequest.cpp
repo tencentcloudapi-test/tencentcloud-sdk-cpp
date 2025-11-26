@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,11 @@ UpgradeDBInstanceRequest::UpgradeDBInstanceRequest() :
     m_fastUpgradeHasBeenSet(false),
     m_maxDelayTimeHasBeenSet(false),
     m_crossClusterHasBeenSet(false),
-    m_zoneIdHasBeenSet(false)
+    m_zoneIdHasBeenSet(false),
+    m_roTransTypeHasBeenSet(false),
+    m_clusterTopologyHasBeenSet(false),
+    m_checkFastUpgradeRebootHasBeenSet(false),
+    m_dataCheckSensitiveHasBeenSet(false)
 {
 }
 
@@ -175,6 +179,39 @@ string UpgradeDBInstanceRequest::ToJsonString() const
         string key = "ZoneId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_zoneId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_roTransTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RoTransType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_roTransType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clusterTopologyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClusterTopology";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_clusterTopology.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_checkFastUpgradeRebootHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CheckFastUpgradeReboot";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_checkFastUpgradeReboot, allocator);
+    }
+
+    if (m_dataCheckSensitiveHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DataCheckSensitive";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dataCheckSensitive.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -439,6 +476,70 @@ void UpgradeDBInstanceRequest::SetZoneId(const string& _zoneId)
 bool UpgradeDBInstanceRequest::ZoneIdHasBeenSet() const
 {
     return m_zoneIdHasBeenSet;
+}
+
+string UpgradeDBInstanceRequest::GetRoTransType() const
+{
+    return m_roTransType;
+}
+
+void UpgradeDBInstanceRequest::SetRoTransType(const string& _roTransType)
+{
+    m_roTransType = _roTransType;
+    m_roTransTypeHasBeenSet = true;
+}
+
+bool UpgradeDBInstanceRequest::RoTransTypeHasBeenSet() const
+{
+    return m_roTransTypeHasBeenSet;
+}
+
+ClusterTopology UpgradeDBInstanceRequest::GetClusterTopology() const
+{
+    return m_clusterTopology;
+}
+
+void UpgradeDBInstanceRequest::SetClusterTopology(const ClusterTopology& _clusterTopology)
+{
+    m_clusterTopology = _clusterTopology;
+    m_clusterTopologyHasBeenSet = true;
+}
+
+bool UpgradeDBInstanceRequest::ClusterTopologyHasBeenSet() const
+{
+    return m_clusterTopologyHasBeenSet;
+}
+
+int64_t UpgradeDBInstanceRequest::GetCheckFastUpgradeReboot() const
+{
+    return m_checkFastUpgradeReboot;
+}
+
+void UpgradeDBInstanceRequest::SetCheckFastUpgradeReboot(const int64_t& _checkFastUpgradeReboot)
+{
+    m_checkFastUpgradeReboot = _checkFastUpgradeReboot;
+    m_checkFastUpgradeRebootHasBeenSet = true;
+}
+
+bool UpgradeDBInstanceRequest::CheckFastUpgradeRebootHasBeenSet() const
+{
+    return m_checkFastUpgradeRebootHasBeenSet;
+}
+
+string UpgradeDBInstanceRequest::GetDataCheckSensitive() const
+{
+    return m_dataCheckSensitive;
+}
+
+void UpgradeDBInstanceRequest::SetDataCheckSensitive(const string& _dataCheckSensitive)
+{
+    m_dataCheckSensitive = _dataCheckSensitive;
+    m_dataCheckSensitiveHasBeenSet = true;
+}
+
+bool UpgradeDBInstanceRequest::DataCheckSensitiveHasBeenSet() const
+{
+    return m_dataCheckSensitiveHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取新的描述信息，最大支持1024字节
                      * @return Description 新的描述信息，最大支持1024字节
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置新的描述信息，最大支持1024字节
-                     * @param Description 新的描述信息，最大支持1024字节
+                     * @param _description 新的描述信息，最大支持1024字节
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取需要修改描述信息的CMK ID
                      * @return KeyId 需要修改描述信息的CMK ID
+                     * 
                      */
                     std::string GetKeyId() const;
 
                     /**
                      * 设置需要修改描述信息的CMK ID
-                     * @param KeyId 需要修改描述信息的CMK ID
+                     * @param _keyId 需要修改描述信息的CMK ID
+                     * 
                      */
                     void SetKeyId(const std::string& _keyId);
 
                     /**
                      * 判断参数 KeyId 是否已赋值
                      * @return KeyId 是否已赋值
+                     * 
                      */
                     bool KeyIdHasBeenSet() const;
 

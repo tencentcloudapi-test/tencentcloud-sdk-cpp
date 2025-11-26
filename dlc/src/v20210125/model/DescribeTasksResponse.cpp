@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeTasksResponse::DescribeTasksResponse() :
     m_taskListHasBeenSet(false),
-    m_totalCountHasBeenSet(false)
+    m_totalCountHasBeenSet(false),
+    m_tasksOverviewHasBeenSet(false)
 {
 }
 
@@ -93,6 +94,23 @@ CoreInternalOutcome DescribeTasksResponse::Deserialize(const string &payload)
         m_totalCountHasBeenSet = true;
     }
 
+    if (rsp.HasMember("TasksOverview") && !rsp["TasksOverview"].IsNull())
+    {
+        if (!rsp["TasksOverview"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TasksOverview` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_tasksOverview.Deserialize(rsp["TasksOverview"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_tasksOverviewHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,11 +144,20 @@ string DescribeTasksResponse::ToJsonString() const
         value.AddMember(iKey, m_totalCount, allocator);
     }
 
+    if (m_tasksOverviewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TasksOverview";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_tasksOverview.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -156,6 +183,16 @@ uint64_t DescribeTasksResponse::GetTotalCount() const
 bool DescribeTasksResponse::TotalCountHasBeenSet() const
 {
     return m_totalCountHasBeenSet;
+}
+
+TasksOverview DescribeTasksResponse::GetTasksOverview() const
+{
+    return m_tasksOverview;
+}
+
+bool DescribeTasksResponse::TasksOverviewHasBeenSet() const
+{
+    return m_tasksOverviewHasBeenSet;
 }
 
 

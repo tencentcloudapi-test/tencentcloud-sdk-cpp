@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,72 +47,84 @@ namespace TencentCloud
                     /**
                      * 获取分页查询偏移量，默认为 0
                      * @return Offset 分页查询偏移量，默认为 0
+                     * 
                      */
                     int64_t GetOffset() const;
 
                     /**
                      * 设置分页查询偏移量，默认为 0
-                     * @param Offset 分页查询偏移量，默认为 0
+                     * @param _offset 分页查询偏移量，默认为 0
+                     * 
                      */
                     void SetOffset(const int64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取分页查询限制数目，默认为 100，最大可设置为 1000
-                     * @return Limit 分页查询限制数目，默认为 100，最大可设置为 1000
+                     * 获取分页查询限制数目，默认为 100，最大可设置为 100
+                     * @return Limit 分页查询限制数目，默认为 100，最大可设置为 100
+                     * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置分页查询限制数目，默认为 100，最大可设置为 1000
-                     * @param Limit 分页查询限制数目，默认为 100，最大可设置为 1000
+                     * 设置分页查询限制数目，默认为 100，最大可设置为 100
+                     * @param _limit 分页查询限制数目，默认为 100，最大可设置为 100
+                     * 
                      */
                     void SetLimit(const int64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取查询条件过滤器，复杂类型
                      * @return Filters 查询条件过滤器，复杂类型
+                     * 
                      */
                     std::vector<DomainFilter> GetFilters() const;
 
                     /**
                      * 设置查询条件过滤器，复杂类型
-                     * @param Filters 查询条件过滤器，复杂类型
+                     * @param _filters 查询条件过滤器，复杂类型
+                     * 
                      */
                     void SetFilters(const std::vector<DomainFilter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
                      * 获取排序规则
                      * @return Sort 排序规则
+                     * 
                      */
                     Sort GetSort() const;
 
                     /**
                      * 设置排序规则
-                     * @param Sort 排序规则
+                     * @param _sort 排序规则
+                     * 
                      */
                     void SetSort(const Sort& _sort);
 
                     /**
                      * 判断参数 Sort 是否已赋值
                      * @return Sort 是否已赋值
+                     * 
                      */
                     bool SortHasBeenSet() const;
 
@@ -125,7 +137,7 @@ namespace TencentCloud
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * 分页查询限制数目，默认为 100，最大可设置为 1000
+                     * 分页查询限制数目，默认为 100，最大可设置为 100
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;

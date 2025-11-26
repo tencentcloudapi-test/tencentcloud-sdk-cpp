@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取模板设置
                      * @return Template 模板设置
+                     * 
                      */
                     PrometheusTemplate GetTemplate() const;
 
                     /**
                      * 设置模板设置
-                     * @param Template 模板设置
+                     * @param _template 模板设置
+                     * 
                      */
                     void SetTemplate(const PrometheusTemplate& _template);
 
                     /**
                      * 判断参数 Template 是否已赋值
                      * @return Template 是否已赋值
+                     * 
                      */
                     bool TemplateHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取企业主体对应的外部联系人id列表，列表长度限制最大为50。
                      * @return CorpExternalUserIdList 企业主体对应的外部联系人id列表，列表长度限制最大为50。
+                     * 
                      */
                     std::vector<std::string> GetCorpExternalUserIdList() const;
 
                     /**
                      * 设置企业主体对应的外部联系人id列表，列表长度限制最大为50。
-                     * @param CorpExternalUserIdList 企业主体对应的外部联系人id列表，列表长度限制最大为50。
+                     * @param _corpExternalUserIdList 企业主体对应的外部联系人id列表，列表长度限制最大为50。
+                     * 
                      */
                     void SetCorpExternalUserIdList(const std::vector<std::string>& _corpExternalUserIdList);
 
                     /**
                      * 判断参数 CorpExternalUserIdList 是否已赋值
                      * @return CorpExternalUserIdList 是否已赋值
+                     * 
                      */
                     bool CorpExternalUserIdListHasBeenSet() const;
 

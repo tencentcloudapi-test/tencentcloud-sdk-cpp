@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取规则名称
                      * @return RuleName 规则名称
+                     * 
                      */
                     std::string GetRuleName() const;
 
                     /**
                      * 设置规则名称
-                     * @param RuleName 规则名称
+                     * @param _ruleName 规则名称
+                     * 
                      */
                     void SetRuleName(const std::string& _ruleName);
 
                     /**
                      * 判断参数 RuleName 是否已赋值
                      * @return RuleName 是否已赋值
+                     * 
                      */
                     bool RuleNameHasBeenSet() const;
 
                     /**
                      * 获取规则内容
                      * @return TopicRulePayload 规则内容
+                     * 
                      */
                     TopicRulePayload GetTopicRulePayload() const;
 
                     /**
                      * 设置规则内容
-                     * @param TopicRulePayload 规则内容
+                     * @param _topicRulePayload 规则内容
+                     * 
                      */
                     void SetTopicRulePayload(const TopicRulePayload& _topicRulePayload);
 
                     /**
                      * 判断参数 TopicRulePayload 是否已赋值
                      * @return TopicRulePayload 是否已赋值
+                     * 
                      */
                     bool TopicRulePayloadHasBeenSet() const;
 

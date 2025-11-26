@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 InvokeResponse::InvokeResponse() :
     m_txidHasBeenSet(false),
-    m_eventsHasBeenSet(false)
+    m_eventsHasBeenSet(false),
+    m_txIdHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,16 @@ CoreInternalOutcome InvokeResponse::Deserialize(const string &payload)
         m_eventsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("TxId") && !rsp["TxId"].IsNull())
+    {
+        if (!rsp["TxId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TxId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_txId = string(rsp["TxId"].GetString());
+        m_txIdHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +120,19 @@ string InvokeResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_events.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_txIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TxId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_txId.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +158,16 @@ string InvokeResponse::GetEvents() const
 bool InvokeResponse::EventsHasBeenSet() const
 {
     return m_eventsHasBeenSet;
+}
+
+string InvokeResponse::GetTxId() const
+{
+    return m_txId;
+}
+
+bool InvokeResponse::TxIdHasBeenSet() const
+{
+    return m_txIdHasBeenSet;
 }
 
 

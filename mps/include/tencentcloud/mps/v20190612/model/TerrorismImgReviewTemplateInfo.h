@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,7 @@ namespace TencentCloud
                      * @return Switch 画面涉敏任务开关，可选值：
 <li>ON：开启画面涉敏任务；</li>
 <li>OFF：关闭画面涉敏任务。</li>
+                     * 
                      */
                     std::string GetSwitch() const;
 
@@ -60,15 +61,17 @@ namespace TencentCloud
                      * 设置画面涉敏任务开关，可选值：
 <li>ON：开启画面涉敏任务；</li>
 <li>OFF：关闭画面涉敏任务。</li>
-                     * @param Switch 画面涉敏任务开关，可选值：
+                     * @param _switch 画面涉敏任务开关，可选值：
 <li>ON：开启画面涉敏任务；</li>
 <li>OFF：关闭画面涉敏任务。</li>
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -82,7 +85,6 @@ namespace TencentCloud
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
                      * @return LabelSet 画面涉敏过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
 <li>guns：武器枪支；</li>
 <li>crowd：人群聚集；</li>
@@ -92,7 +94,7 @@ namespace TencentCloud
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
+                     * 
                      */
                     std::vector<std::string> GetLabelSet() const;
 
@@ -106,8 +108,7 @@ namespace TencentCloud
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
-                     * @param LabelSet 画面涉敏过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
+                     * @param _labelSet 画面涉敏过滤标签，审核结果包含选择的标签则返回结果，如果过滤标签为空，则审核结果全部返回，可选值为：
 <li>guns：武器枪支；</li>
 <li>crowd：人群聚集；</li>
 <li>bloody：血腥画面；</li>
@@ -116,49 +117,56 @@ namespace TencentCloud
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
+                     * 
                      */
                     void SetLabelSet(const std::vector<std::string>& _labelSet);
 
                     /**
                      * 判断参数 LabelSet 是否已赋值
                      * @return LabelSet 是否已赋值
+                     * 
                      */
                     bool LabelSetHasBeenSet() const;
 
                     /**
                      * 获取判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
                      * @return BlockConfidence 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
+                     * 
                      */
                     int64_t GetBlockConfidence() const;
 
                     /**
                      * 设置判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
-                     * @param BlockConfidence 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
+                     * @param _blockConfidence 判定涉嫌违规的分数阈值，当智能审核达到该分数以上，认为涉嫌违规，不填默认为 90 分。取值范围：0~100。
+                     * 
                      */
                     void SetBlockConfidence(const int64_t& _blockConfidence);
 
                     /**
                      * 判断参数 BlockConfidence 是否已赋值
                      * @return BlockConfidence 是否已赋值
+                     * 
                      */
                     bool BlockConfidenceHasBeenSet() const;
 
                     /**
                      * 获取判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 80 分。取值范围：0~100。
                      * @return ReviewConfidence 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 80 分。取值范围：0~100。
+                     * 
                      */
                     int64_t GetReviewConfidence() const;
 
                     /**
                      * 设置判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 80 分。取值范围：0~100。
-                     * @param ReviewConfidence 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 80 分。取值范围：0~100。
+                     * @param _reviewConfidence 判定需人工复核是否违规的分数阈值，当智能审核达到该分数以上，认为需人工复核，不填默认为 80 分。取值范围：0~100。
+                     * 
                      */
                     void SetReviewConfidence(const int64_t& _reviewConfidence);
 
                     /**
                      * 判断参数 ReviewConfidence 是否已赋值
                      * @return ReviewConfidence 是否已赋值
+                     * 
                      */
                     bool ReviewConfidenceHasBeenSet() const;
 
@@ -182,7 +190,6 @@ namespace TencentCloud
 <li>militant：武装分子；</li>
 <li>explosion：爆炸火灾；</li>
 <li>terrorists：涉敏人物；</li>
-<li>scenario：涉敏画面。</li>
                      */
                     std::vector<std::string> m_labelSet;
                     bool m_labelSetHasBeenSet;

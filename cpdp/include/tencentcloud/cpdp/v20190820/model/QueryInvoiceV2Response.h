@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Result 发票查询结果
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     QueryInvoiceResultData GetResult() const;
 
                     /**
                      * 判断参数 Result 是否已赋值
                      * @return Result 是否已赋值
+                     * 
                      */
                     bool ResultHasBeenSet() const;
 
                     /**
                      * 获取错误码
                      * @return ErrCode 错误码
+                     * 
                      */
                     std::string GetErrCode() const;
 
                     /**
                      * 判断参数 ErrCode 是否已赋值
                      * @return ErrCode 是否已赋值
+                     * 
                      */
                     bool ErrCodeHasBeenSet() const;
 
                     /**
                      * 获取错误消息
                      * @return ErrMessage 错误消息
+                     * 
                      */
                     std::string GetErrMessage() const;
 
                     /**
                      * 判断参数 ErrMessage 是否已赋值
                      * @return ErrMessage 是否已赋值
+                     * 
                      */
                     bool ErrMessageHasBeenSet() const;
 

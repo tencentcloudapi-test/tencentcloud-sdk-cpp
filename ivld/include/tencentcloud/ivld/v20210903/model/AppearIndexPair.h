@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,36 +60,42 @@ AppearIndex可选值定义如下：
                     /**
                      * 获取出现信息，取值范围为[1，3]
                      * @return AppearIndex 出现信息，取值范围为[1，3]
+                     * 
                      */
                     int64_t GetAppearIndex() const;
 
                     /**
                      * 设置出现信息，取值范围为[1，3]
-                     * @param AppearIndex 出现信息，取值范围为[1，3]
+                     * @param _appearIndex 出现信息，取值范围为[1，3]
+                     * 
                      */
                     void SetAppearIndex(const int64_t& _appearIndex);
 
                     /**
                      * 判断参数 AppearIndex 是否已赋值
                      * @return AppearIndex 是否已赋值
+                     * 
                      */
                     bool AppearIndexHasBeenSet() const;
 
                     /**
-                     * 获取AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
-                     * @return Index AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
+                     * 获取AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
+                     * @return Index AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
+                     * 
                      */
                     int64_t GetIndex() const;
 
                     /**
-                     * 设置AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
-                     * @param Index AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
+                     * 设置AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
+                     * @param _index AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
+                     * 
                      */
                     void SetIndex(const int64_t& _index);
 
                     /**
                      * 判断参数 Index 是否已赋值
                      * @return Index 是否已赋值
+                     * 
                      */
                     bool IndexHasBeenSet() const;
 
@@ -102,7 +108,7 @@ AppearIndex可选值定义如下：
                     bool m_appearIndexHasBeenSet;
 
                     /**
-                     * AppearInfo中AppearIndex对应元素的第Index元素，从0开始技术
+                     * AppearInfo中AppearIndex对应元素的第Index元素，从0开始计数
                      */
                     int64_t m_index;
                     bool m_indexHasBeenSet;

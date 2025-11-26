@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ using namespace std;
 DescribeLiveDomainsResponse::DescribeLiveDomainsResponse() :
     m_allCountHasBeenSet(false),
     m_domainListHasBeenSet(false),
-    m_createLimitCountHasBeenSet(false)
+    m_createLimitCountHasBeenSet(false),
+    m_playTypeCountHasBeenSet(false)
 {
 }
 
@@ -104,6 +105,19 @@ CoreInternalOutcome DescribeLiveDomainsResponse::Deserialize(const string &paylo
         m_createLimitCountHasBeenSet = true;
     }
 
+    if (rsp.HasMember("PlayTypeCount") && !rsp["PlayTypeCount"].IsNull())
+    {
+        if (!rsp["PlayTypeCount"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `PlayTypeCount` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["PlayTypeCount"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_playTypeCount.push_back((*itr).GetInt64());
+        }
+        m_playTypeCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -145,11 +159,24 @@ string DescribeLiveDomainsResponse::ToJsonString() const
         value.AddMember(iKey, m_createLimitCount, allocator);
     }
 
+    if (m_playTypeCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PlayTypeCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_playTypeCount.begin(); itr != m_playTypeCount.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -185,6 +212,16 @@ int64_t DescribeLiveDomainsResponse::GetCreateLimitCount() const
 bool DescribeLiveDomainsResponse::CreateLimitCountHasBeenSet() const
 {
     return m_createLimitCountHasBeenSet;
+}
+
+vector<int64_t> DescribeLiveDomainsResponse::GetPlayTypeCount() const
+{
+    return m_playTypeCount;
+}
+
+bool DescribeLiveDomainsResponse::PlayTypeCountHasBeenSet() const
+{
+    return m_playTypeCountHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 帐号统计数据。
+                * 账号统计数据。
                 */
                 class AccountStatistics : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取用户名。
                      * @return Username 用户名。
+                     * 
                      */
                     std::string GetUsername() const;
 
                     /**
                      * 设置用户名。
-                     * @param Username 用户名。
+                     * @param _username 用户名。
+                     * 
                      */
                     void SetUsername(const std::string& _username);
 
                     /**
                      * 判断参数 Username 是否已赋值
                      * @return Username 是否已赋值
+                     * 
                      */
                     bool UsernameHasBeenSet() const;
 
                     /**
                      * 获取主机数量。
                      * @return MachineNum 主机数量。
+                     * 
                      */
                     uint64_t GetMachineNum() const;
 
                     /**
                      * 设置主机数量。
-                     * @param MachineNum 主机数量。
+                     * @param _machineNum 主机数量。
+                     * 
                      */
                     void SetMachineNum(const uint64_t& _machineNum);
 
                     /**
                      * 判断参数 MachineNum 是否已赋值
                      * @return MachineNum 是否已赋值
+                     * 
                      */
                     bool MachineNumHasBeenSet() const;
 

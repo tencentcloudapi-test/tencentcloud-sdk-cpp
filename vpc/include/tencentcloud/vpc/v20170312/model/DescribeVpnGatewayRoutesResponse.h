@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,24 +45,46 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取VPN网关目的路由
-                     * @return Routes VPN网关目的路由
+                     * 获取VPN网关目的路由。
+                     * @return Routes VPN网关目的路由。
+                     * 
                      */
                     std::vector<VpnGatewayRoute> GetRoutes() const;
 
                     /**
                      * 判断参数 Routes 是否已赋值
                      * @return Routes 是否已赋值
+                     * 
                      */
                     bool RoutesHasBeenSet() const;
+
+                    /**
+                     * 获取路由条数。
+                     * @return TotalCount 路由条数。
+                     * 
+                     */
+                    uint64_t GetTotalCount() const;
+
+                    /**
+                     * 判断参数 TotalCount 是否已赋值
+                     * @return TotalCount 是否已赋值
+                     * 
+                     */
+                    bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * VPN网关目的路由
+                     * VPN网关目的路由。
                      */
                     std::vector<VpnGatewayRoute> m_routes;
                     bool m_routesHasBeenSet;
+
+                    /**
+                     * 路由条数。
+                     */
+                    uint64_t m_totalCount;
+                    bool m_totalCountHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mps/v20190612/model/CosFileUploadTrigger.h>
+#include <tencentcloud/mps/v20190612/model/AwsS3FileUploadTrigger.h>
 
 
 namespace TencentCloud
@@ -48,20 +49,39 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取触发器的类型，目前仅支持 CosFileUpload。
-                     * @return Type 触发器的类型，目前仅支持 CosFileUpload。
+                     * 获取触发器的类型，可选值：
+<li>CosFileUpload：COS触发</li>
+<li>AwsS3FileUpload：AWS触发，目前只支持转码任务。只有编排支持，工作流不支持。  </li>
+
+
+                     * @return Type 触发器的类型，可选值：
+<li>CosFileUpload：COS触发</li>
+<li>AwsS3FileUpload：AWS触发，目前只支持转码任务。只有编排支持，工作流不支持。  </li>
+
+
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置触发器的类型，目前仅支持 CosFileUpload。
-                     * @param Type 触发器的类型，目前仅支持 CosFileUpload。
+                     * 设置触发器的类型，可选值：
+<li>CosFileUpload：COS触发</li>
+<li>AwsS3FileUpload：AWS触发，目前只支持转码任务。只有编排支持，工作流不支持。  </li>
+
+
+                     * @param _type 触发器的类型，可选值：
+<li>CosFileUpload：COS触发</li>
+<li>AwsS3FileUpload：AWS触发，目前只支持转码任务。只有编排支持，工作流不支持。  </li>
+
+
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
@@ -70,27 +90,67 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return CosFileUploadTrigger 当 Type 为 CosFileUpload 时必填且有效，为 COS 触发规则。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     CosFileUploadTrigger GetCosFileUploadTrigger() const;
 
                     /**
                      * 设置当 Type 为 CosFileUpload 时必填且有效，为 COS 触发规则。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CosFileUploadTrigger 当 Type 为 CosFileUpload 时必填且有效，为 COS 触发规则。
+                     * @param _cosFileUploadTrigger 当 Type 为 CosFileUpload 时必填且有效，为 COS 触发规则。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCosFileUploadTrigger(const CosFileUploadTrigger& _cosFileUploadTrigger);
 
                     /**
                      * 判断参数 CosFileUploadTrigger 是否已赋值
                      * @return CosFileUploadTrigger 是否已赋值
+                     * 
                      */
                     bool CosFileUploadTriggerHasBeenSet() const;
+
+                    /**
+                     * 获取当 Type 为 AwsS3FileUpload 时必填且有效，为 AWS S3 触发规则。
+
+注意：目前AWS的S3、对应触发队列SQS、回调队列SQS的秘钥需要一致。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return AwsS3FileUploadTrigger 当 Type 为 AwsS3FileUpload 时必填且有效，为 AWS S3 触发规则。
+
+注意：目前AWS的S3、对应触发队列SQS、回调队列SQS的秘钥需要一致。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    AwsS3FileUploadTrigger GetAwsS3FileUploadTrigger() const;
+
+                    /**
+                     * 设置当 Type 为 AwsS3FileUpload 时必填且有效，为 AWS S3 触发规则。
+
+注意：目前AWS的S3、对应触发队列SQS、回调队列SQS的秘钥需要一致。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _awsS3FileUploadTrigger 当 Type 为 AwsS3FileUpload 时必填且有效，为 AWS S3 触发规则。
+
+注意：目前AWS的S3、对应触发队列SQS、回调队列SQS的秘钥需要一致。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetAwsS3FileUploadTrigger(const AwsS3FileUploadTrigger& _awsS3FileUploadTrigger);
+
+                    /**
+                     * 判断参数 AwsS3FileUploadTrigger 是否已赋值
+                     * @return AwsS3FileUploadTrigger 是否已赋值
+                     * 
+                     */
+                    bool AwsS3FileUploadTriggerHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 触发器的类型，目前仅支持 CosFileUpload。
+                     * 触发器的类型，可选值：
+<li>CosFileUpload：COS触发</li>
+<li>AwsS3FileUpload：AWS触发，目前只支持转码任务。只有编排支持，工作流不支持。  </li>
+
+
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
@@ -101,6 +161,15 @@ namespace TencentCloud
                      */
                     CosFileUploadTrigger m_cosFileUploadTrigger;
                     bool m_cosFileUploadTriggerHasBeenSet;
+
+                    /**
+                     * 当 Type 为 AwsS3FileUpload 时必填且有效，为 AWS S3 触发规则。
+
+注意：目前AWS的S3、对应触发队列SQS、回调队列SQS的秘钥需要一致。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    AwsS3FileUploadTrigger m_awsS3FileUploadTrigger;
+                    bool m_awsS3FileUploadTriggerHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ using namespace std;
 DownloadBillResponse::DownloadBillResponse() :
     m_fileNameHasBeenSet(false),
     m_fileMD5HasBeenSet(false),
-    m_downloadUrlHasBeenSet(false)
+    m_downloadUrlHasBeenSet(false),
+    m_stateTypeHasBeenSet(false)
 {
 }
 
@@ -94,6 +95,16 @@ CoreInternalOutcome DownloadBillResponse::Deserialize(const string &payload)
         m_downloadUrlHasBeenSet = true;
     }
 
+    if (rsp.HasMember("StateType") && !rsp["StateType"].IsNull())
+    {
+        if (!rsp["StateType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `StateType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_stateType = string(rsp["StateType"].GetString());
+        m_stateTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -128,11 +139,19 @@ string DownloadBillResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_downloadUrl.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_stateTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StateType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_stateType.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -168,6 +187,16 @@ string DownloadBillResponse::GetDownloadUrl() const
 bool DownloadBillResponse::DownloadUrlHasBeenSet() const
 {
     return m_downloadUrlHasBeenSet;
+}
+
+string DownloadBillResponse::GetStateType() const
+{
+    return m_stateType;
+}
+
+bool DownloadBillResponse::StateTypeHasBeenSet() const
+{
+    return m_stateTypeHasBeenSet;
 }
 
 

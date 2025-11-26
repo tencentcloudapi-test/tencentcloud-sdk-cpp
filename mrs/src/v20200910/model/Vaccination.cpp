@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,8 @@ Vaccination::Vaccination() :
     m_manufacturerHasBeenSet(false),
     m_clinicHasBeenSet(false),
     m_siteHasBeenSet(false),
-    m_providerHasBeenSet(false)
+    m_providerHasBeenSet(false),
+    m_lotHasBeenSet(false)
 {
 }
 
@@ -128,6 +129,16 @@ CoreInternalOutcome Vaccination::Deserialize(const rapidjson::Value &value)
         m_providerHasBeenSet = true;
     }
 
+    if (value.HasMember("Lot") && !value["Lot"].IsNull())
+    {
+        if (!value["Lot"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Vaccination.Lot` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_lot = string(value["Lot"].GetString());
+        m_lotHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -205,6 +216,14 @@ void Vaccination::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "Provider";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_provider.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_lotHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Lot";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_lot.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -352,5 +371,21 @@ void Vaccination::SetProvider(const string& _provider)
 bool Vaccination::ProviderHasBeenSet() const
 {
     return m_providerHasBeenSet;
+}
+
+string Vaccination::GetLot() const
+{
+    return m_lot;
+}
+
+void Vaccination::SetLot(const string& _lot)
+{
+    m_lot = _lot;
+    m_lotHasBeenSet = true;
+}
+
+bool Vaccination::LotHasBeenSet() const
+{
+    return m_lotHasBeenSet;
 }
 

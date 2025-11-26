@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ UpdateProbeTaskConfigurationListRequest::UpdateProbeTaskConfigurationListRequest
     m_nodesHasBeenSet(false),
     m_intervalHasBeenSet(false),
     m_parametersHasBeenSet(false),
-    m_cronHasBeenSet(false)
+    m_cronHasBeenSet(false),
+    m_resourceIDsHasBeenSet(false),
+    m_nodeIpTypeHasBeenSet(false),
+    m_batchTasksHasBeenSet(false)
 {
 }
 
@@ -86,6 +89,42 @@ string UpdateProbeTaskConfigurationListRequest::ToJsonString() const
         string key = "Cron";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_cron.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_resourceIDsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourceIDs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_resourceIDs.begin(); itr != m_resourceIDs.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_nodeIpTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeIpType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_nodeIpType, allocator);
+    }
+
+    if (m_batchTasksHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BatchTasks";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_batchTasks.begin(); itr != m_batchTasks.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -174,6 +213,54 @@ void UpdateProbeTaskConfigurationListRequest::SetCron(const string& _cron)
 bool UpdateProbeTaskConfigurationListRequest::CronHasBeenSet() const
 {
     return m_cronHasBeenSet;
+}
+
+vector<string> UpdateProbeTaskConfigurationListRequest::GetResourceIDs() const
+{
+    return m_resourceIDs;
+}
+
+void UpdateProbeTaskConfigurationListRequest::SetResourceIDs(const vector<string>& _resourceIDs)
+{
+    m_resourceIDs = _resourceIDs;
+    m_resourceIDsHasBeenSet = true;
+}
+
+bool UpdateProbeTaskConfigurationListRequest::ResourceIDsHasBeenSet() const
+{
+    return m_resourceIDsHasBeenSet;
+}
+
+int64_t UpdateProbeTaskConfigurationListRequest::GetNodeIpType() const
+{
+    return m_nodeIpType;
+}
+
+void UpdateProbeTaskConfigurationListRequest::SetNodeIpType(const int64_t& _nodeIpType)
+{
+    m_nodeIpType = _nodeIpType;
+    m_nodeIpTypeHasBeenSet = true;
+}
+
+bool UpdateProbeTaskConfigurationListRequest::NodeIpTypeHasBeenSet() const
+{
+    return m_nodeIpTypeHasBeenSet;
+}
+
+vector<ProbeTaskBasicConfiguration> UpdateProbeTaskConfigurationListRequest::GetBatchTasks() const
+{
+    return m_batchTasks;
+}
+
+void UpdateProbeTaskConfigurationListRequest::SetBatchTasks(const vector<ProbeTaskBasicConfiguration>& _batchTasks)
+{
+    m_batchTasks = _batchTasks;
+    m_batchTasksHasBeenSet = true;
+}
+
+bool UpdateProbeTaskConfigurationListRequest::BatchTasksHasBeenSet() const
+{
+    return m_batchTasksHasBeenSet;
 }
 
 

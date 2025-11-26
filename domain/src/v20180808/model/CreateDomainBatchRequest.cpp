@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,10 @@ CreateDomainBatchRequest::CreateDomainBatchRequest() :
     m_autoRenewFlagHasBeenSet(false),
     m_packageResourceIdHasBeenSet(false),
     m_updateProhibitionHasBeenSet(false),
-    m_transferProhibitionHasBeenSet(false)
+    m_transferProhibitionHasBeenSet(false),
+    m_channelFromHasBeenSet(false),
+    m_orderFromHasBeenSet(false),
+    m_activityIdHasBeenSet(false)
 {
 }
 
@@ -108,6 +111,30 @@ string CreateDomainBatchRequest::ToJsonString() const
         string key = "TransferProhibition";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_transferProhibition, allocator);
+    }
+
+    if (m_channelFromHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChannelFrom";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_channelFrom.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orderFromHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderFrom";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_orderFrom.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_activityIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ActivityId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_activityId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -244,6 +271,54 @@ void CreateDomainBatchRequest::SetTransferProhibition(const int64_t& _transferPr
 bool CreateDomainBatchRequest::TransferProhibitionHasBeenSet() const
 {
     return m_transferProhibitionHasBeenSet;
+}
+
+string CreateDomainBatchRequest::GetChannelFrom() const
+{
+    return m_channelFrom;
+}
+
+void CreateDomainBatchRequest::SetChannelFrom(const string& _channelFrom)
+{
+    m_channelFrom = _channelFrom;
+    m_channelFromHasBeenSet = true;
+}
+
+bool CreateDomainBatchRequest::ChannelFromHasBeenSet() const
+{
+    return m_channelFromHasBeenSet;
+}
+
+string CreateDomainBatchRequest::GetOrderFrom() const
+{
+    return m_orderFrom;
+}
+
+void CreateDomainBatchRequest::SetOrderFrom(const string& _orderFrom)
+{
+    m_orderFrom = _orderFrom;
+    m_orderFromHasBeenSet = true;
+}
+
+bool CreateDomainBatchRequest::OrderFromHasBeenSet() const
+{
+    return m_orderFromHasBeenSet;
+}
+
+string CreateDomainBatchRequest::GetActivityId() const
+{
+    return m_activityId;
+}
+
+void CreateDomainBatchRequest::SetActivityId(const string& _activityId)
+{
+    m_activityId = _activityId;
+    m_activityIdHasBeenSet = true;
+}
+
+bool CreateDomainBatchRequest::ActivityIdHasBeenSet() const
+{
+    return m_activityIdHasBeenSet;
 }
 
 

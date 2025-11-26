@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 热词的词和权重
+                * [热词的词和权重](https://cloud.tencent.com/document/product/1093/41111#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0)
                 */
                 class HotWord : public AbstractModel
                 {
@@ -48,37 +48,51 @@ namespace TencentCloud
 
                     /**
                      * 获取热词
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return Word 热词
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetWord() const;
 
                     /**
                      * 设置热词
-                     * @param Word 热词
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _word 热词
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetWord(const std::string& _word);
 
                     /**
                      * 判断参数 Word 是否已赋值
                      * @return Word 是否已赋值
+                     * 
                      */
                     bool WordHasBeenSet() const;
 
                     /**
                      * 获取权重
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return Weight 权重
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetWeight() const;
 
                     /**
                      * 设置权重
-                     * @param Weight 权重
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _weight 权重
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetWeight(const int64_t& _weight);
 
                     /**
                      * 判断参数 Weight 是否已赋值
                      * @return Weight 是否已赋值
+                     * 
                      */
                     bool WeightHasBeenSet() const;
 
@@ -86,12 +100,14 @@ namespace TencentCloud
 
                     /**
                      * 热词
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_word;
                     bool m_wordHasBeenSet;
 
                     /**
                      * 权重
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_weight;
                     bool m_weightHasBeenSet;

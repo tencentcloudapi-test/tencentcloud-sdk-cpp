@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取IP地址ID，例如：ipm-2uw6ujo6。
                      * @return AddressId IP地址ID，例如：ipm-2uw6ujo6。
+                     * 
                      */
                     std::string GetAddressId() const;
 
                     /**
                      * 设置IP地址ID，例如：ipm-2uw6ujo6。
-                     * @param AddressId IP地址ID，例如：ipm-2uw6ujo6。
+                     * @param _addressId IP地址ID，例如：ipm-2uw6ujo6。
+                     * 
                      */
                     void SetAddressId(const std::string& _addressId);
 
                     /**
                      * 判断参数 AddressId 是否已赋值
                      * @return AddressId 是否已赋值
+                     * 
                      */
                     bool AddressIdHasBeenSet() const;
 
                     /**
                      * 获取IP地址组ID，例如：ipmg-2uw6ujo6。
                      * @return AddressGroupId IP地址组ID，例如：ipmg-2uw6ujo6。
+                     * 
                      */
                     std::string GetAddressGroupId() const;
 
                     /**
                      * 设置IP地址组ID，例如：ipmg-2uw6ujo6。
-                     * @param AddressGroupId IP地址组ID，例如：ipmg-2uw6ujo6。
+                     * @param _addressGroupId IP地址组ID，例如：ipmg-2uw6ujo6。
+                     * 
                      */
                     void SetAddressGroupId(const std::string& _addressGroupId);
 
                     /**
                      * 判断参数 AddressGroupId 是否已赋值
                      * @return AddressGroupId 是否已赋值
+                     * 
                      */
                     bool AddressGroupIdHasBeenSet() const;
 

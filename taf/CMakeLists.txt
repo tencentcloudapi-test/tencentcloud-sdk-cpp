@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,72 +19,20 @@ set(taf_public_header
   )
 
 set(taf_public_header_model
-  include/tencentcloud/taf/v20200210/model/OutputRecognizeEffectiveFlowValue.h
-  include/tencentcloud/taf/v20200210/model/OutputKolData.h
-  include/tencentcloud/taf/v20200210/model/InputKolBspData.h
-  include/tencentcloud/taf/v20200210/model/RecognizeEffectiveFlowRequest.h
-  include/tencentcloud/taf/v20200210/model/EnhanceTaDegreeRequest.h
-  include/tencentcloud/taf/v20200210/model/OutputRecognizeTargetAudienceValue.h
-  include/tencentcloud/taf/v20200210/model/SendTrafficSecuritySmsMessageRequest.h
-  include/tencentcloud/taf/v20200210/model/DetectFraudKOLResponse.h
-  include/tencentcloud/taf/v20200210/model/RecognizeCustomizedAudienceResponse.h
-  include/tencentcloud/taf/v20200210/model/OutputKolValue.h
-  include/tencentcloud/taf/v20200210/model/EnhanceTaDegreeResponse.h
-  include/tencentcloud/taf/v20200210/model/InputTaBspData.h
-  include/tencentcloud/taf/v20200210/model/Device.h
-  include/tencentcloud/taf/v20200210/model/OutputSendTrafficSecuritySmsMsg.h
-  include/tencentcloud/taf/v20200210/model/RecognizeEffectiveFlowResponse.h
-  include/tencentcloud/taf/v20200210/model/SendTrafficSecuritySmsMessageResponse.h
-  include/tencentcloud/taf/v20200210/model/DetectFraudKOLRequest.h
-  include/tencentcloud/taf/v20200210/model/RecognizeCustomizedAudienceRequest.h
-  include/tencentcloud/taf/v20200210/model/RecognizeTargetAudienceRequest.h
-  include/tencentcloud/taf/v20200210/model/RecognizeTargetAudienceResponse.h
-  include/tencentcloud/taf/v20200210/model/OutputRecognizeEffectiveFlow.h
-  include/tencentcloud/taf/v20200210/model/InputRecognizeTargetAudience.h
-  include/tencentcloud/taf/v20200210/model/OutputTaData.h
-  include/tencentcloud/taf/v20200210/model/OutputTaValue.h
-  include/tencentcloud/taf/v20200210/model/RecognizePreciseTargetAudienceRequest.h
-  include/tencentcloud/taf/v20200210/model/InputKolDataList.h
-  include/tencentcloud/taf/v20200210/model/RecognizePreciseTargetAudienceResponse.h
-  include/tencentcloud/taf/v20200210/model/InputRecognizeEffectiveFlow.h
-  include/tencentcloud/taf/v20200210/model/InputBusinessEncryptData.h
-  include/tencentcloud/taf/v20200210/model/OutputRecognizeTargetAudience.h
-  include/tencentcloud/taf/v20200210/model/InputSendTrafficSecuritySmsMsg.h
+  include/tencentcloud/taf/v20200210/model/ManagePortraitRiskResponse.h
+  include/tencentcloud/taf/v20200210/model/ManagePortraitRiskOutput.h
+  include/tencentcloud/taf/v20200210/model/ManagePortraitRiskInput.h
+  include/tencentcloud/taf/v20200210/model/ManagePortraitRiskRequest.h
+  include/tencentcloud/taf/v20200210/model/ManagePortraitRiskValueOutput.h
   )
 
 set(taf_src
   src/v20200210/TafClient.cpp
-  src/v20200210/model/OutputRecognizeEffectiveFlowValue.cpp
-  src/v20200210/model/OutputKolData.cpp
-  src/v20200210/model/InputKolBspData.cpp
-  src/v20200210/model/RecognizeEffectiveFlowRequest.cpp
-  src/v20200210/model/EnhanceTaDegreeRequest.cpp
-  src/v20200210/model/OutputRecognizeTargetAudienceValue.cpp
-  src/v20200210/model/SendTrafficSecuritySmsMessageRequest.cpp
-  src/v20200210/model/DetectFraudKOLResponse.cpp
-  src/v20200210/model/RecognizeCustomizedAudienceResponse.cpp
-  src/v20200210/model/OutputKolValue.cpp
-  src/v20200210/model/EnhanceTaDegreeResponse.cpp
-  src/v20200210/model/InputTaBspData.cpp
-  src/v20200210/model/Device.cpp
-  src/v20200210/model/OutputSendTrafficSecuritySmsMsg.cpp
-  src/v20200210/model/RecognizeEffectiveFlowResponse.cpp
-  src/v20200210/model/SendTrafficSecuritySmsMessageResponse.cpp
-  src/v20200210/model/DetectFraudKOLRequest.cpp
-  src/v20200210/model/RecognizeCustomizedAudienceRequest.cpp
-  src/v20200210/model/RecognizeTargetAudienceRequest.cpp
-  src/v20200210/model/RecognizeTargetAudienceResponse.cpp
-  src/v20200210/model/OutputRecognizeEffectiveFlow.cpp
-  src/v20200210/model/InputRecognizeTargetAudience.cpp
-  src/v20200210/model/OutputTaData.cpp
-  src/v20200210/model/OutputTaValue.cpp
-  src/v20200210/model/RecognizePreciseTargetAudienceRequest.cpp
-  src/v20200210/model/InputKolDataList.cpp
-  src/v20200210/model/RecognizePreciseTargetAudienceResponse.cpp
-  src/v20200210/model/InputRecognizeEffectiveFlow.cpp
-  src/v20200210/model/InputBusinessEncryptData.cpp
-  src/v20200210/model/OutputRecognizeTargetAudience.cpp
-  src/v20200210/model/InputSendTrafficSecuritySmsMsg.cpp
+  src/v20200210/model/ManagePortraitRiskResponse.cpp
+  src/v20200210/model/ManagePortraitRiskOutput.cpp
+  src/v20200210/model/ManagePortraitRiskInput.cpp
+  src/v20200210/model/ManagePortraitRiskRequest.cpp
+  src/v20200210/model/ManagePortraitRiskValueOutput.cpp
   )
 
 set(taf_include

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ ImageWatermarkInputForUpdate::ImageWatermarkInputForUpdate() :
     m_imageContentHasBeenSet(false),
     m_widthHasBeenSet(false),
     m_heightHasBeenSet(false),
-    m_repeatTypeHasBeenSet(false)
+    m_repeatTypeHasBeenSet(false),
+    m_transparencyHasBeenSet(false)
 {
 }
 
@@ -73,6 +74,16 @@ CoreInternalOutcome ImageWatermarkInputForUpdate::Deserialize(const rapidjson::V
         m_repeatTypeHasBeenSet = true;
     }
 
+    if (value.HasMember("Transparency") && !value["Transparency"].IsNull())
+    {
+        if (!value["Transparency"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ImageWatermarkInputForUpdate.Transparency` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_transparency = value["Transparency"].GetInt64();
+        m_transparencyHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -110,6 +121,14 @@ void ImageWatermarkInputForUpdate::ToJsonObject(rapidjson::Value &value, rapidjs
         string key = "RepeatType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_repeatType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_transparencyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Transparency";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_transparency, allocator);
     }
 
 }
@@ -177,5 +196,21 @@ void ImageWatermarkInputForUpdate::SetRepeatType(const string& _repeatType)
 bool ImageWatermarkInputForUpdate::RepeatTypeHasBeenSet() const
 {
     return m_repeatTypeHasBeenSet;
+}
+
+int64_t ImageWatermarkInputForUpdate::GetTransparency() const
+{
+    return m_transparency;
+}
+
+void ImageWatermarkInputForUpdate::SetTransparency(const int64_t& _transparency)
+{
+    m_transparency = _transparency;
+    m_transparencyHasBeenSet = true;
+}
+
+bool ImageWatermarkInputForUpdate::TransparencyHasBeenSet() const
+{
+    return m_transparencyHasBeenSet;
 }
 

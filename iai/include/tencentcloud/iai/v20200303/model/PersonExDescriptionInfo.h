@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,56 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取人员描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PersonExDescriptionIndex 人员描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取人员描述字段Index，从0开始。
+                     * @return PersonExDescriptionIndex 人员描述字段Index，从0开始。
+                     * 
                      */
                     uint64_t GetPersonExDescriptionIndex() const;
 
                     /**
-                     * 设置人员描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PersonExDescriptionIndex 人员描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置人员描述字段Index，从0开始。
+                     * @param _personExDescriptionIndex 人员描述字段Index，从0开始。
+                     * 
                      */
                     void SetPersonExDescriptionIndex(const uint64_t& _personExDescriptionIndex);
 
                     /**
                      * 判断参数 PersonExDescriptionIndex 是否已赋值
                      * @return PersonExDescriptionIndex 是否已赋值
+                     * 
                      */
                     bool PersonExDescriptionIndexHasBeenSet() const;
 
                     /**
-                     * 获取需要更新的人员描述字段内容
-                     * @return PersonExDescription 需要更新的人员描述字段内容
+                     * 获取需要更新的人员描述字段内容。
+                     * @return PersonExDescription 需要更新的人员描述字段内容。
+                     * 
                      */
                     std::string GetPersonExDescription() const;
 
                     /**
-                     * 设置需要更新的人员描述字段内容
-                     * @param PersonExDescription 需要更新的人员描述字段内容
+                     * 设置需要更新的人员描述字段内容。
+                     * @param _personExDescription 需要更新的人员描述字段内容。
+                     * 
                      */
                     void SetPersonExDescription(const std::string& _personExDescription);
 
                     /**
                      * 判断参数 PersonExDescription 是否已赋值
                      * @return PersonExDescription 是否已赋值
+                     * 
                      */
                     bool PersonExDescriptionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 人员描述字段Index，从0开始
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 人员描述字段Index，从0开始。
                      */
                     uint64_t m_personExDescriptionIndex;
                     bool m_personExDescriptionIndexHasBeenSet;
 
                     /**
-                     * 需要更新的人员描述字段内容
+                     * 需要更新的人员描述字段内容。
                      */
                     std::string m_personExDescription;
                     bool m_personExDescriptionHasBeenSet;

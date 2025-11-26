@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取创建任务返回的TaskId
                      * @return TaskId 创建任务返回的TaskId
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 设置创建任务返回的TaskId
-                     * @param TaskId 创建任务返回的TaskId
+                     * @param _taskId 创建任务返回的TaskId
+                     * 
                      */
                     void SetTaskId(const std::string& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 

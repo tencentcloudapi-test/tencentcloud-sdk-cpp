@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,22 +23,56 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
+#include <tencentcloud/cfs/v20190719/model/ApplyPathLifecyclePolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/ApplyPathLifecyclePolicyResponse.h>
+#include <tencentcloud/cfs/v20190719/model/BindAutoSnapshotPolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/BindAutoSnapshotPolicyResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateAccessCertRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateAccessCertResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateAutoSnapshotPolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateAutoSnapshotPolicyResponse.h>
 #include <tencentcloud/cfs/v20190719/model/CreateCfsFileSystemRequest.h>
 #include <tencentcloud/cfs/v20190719/model/CreateCfsFileSystemResponse.h>
 #include <tencentcloud/cfs/v20190719/model/CreateCfsPGroupRequest.h>
 #include <tencentcloud/cfs/v20190719/model/CreateCfsPGroupResponse.h>
 #include <tencentcloud/cfs/v20190719/model/CreateCfsRuleRequest.h>
 #include <tencentcloud/cfs/v20190719/model/CreateCfsRuleResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateCfsSnapshotRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateCfsSnapshotResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateDataFlowRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateDataFlowResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateLifecycleDataTaskRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateLifecycleDataTaskResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateLifecyclePolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateLifecyclePolicyResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateLifecyclePolicyDownloadTaskRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateLifecyclePolicyDownloadTaskResponse.h>
+#include <tencentcloud/cfs/v20190719/model/CreateMigrationTaskRequest.h>
+#include <tencentcloud/cfs/v20190719/model/CreateMigrationTaskResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteAutoSnapshotPolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteAutoSnapshotPolicyResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DeleteCfsFileSystemRequest.h>
 #include <tencentcloud/cfs/v20190719/model/DeleteCfsFileSystemResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DeleteCfsPGroupRequest.h>
 #include <tencentcloud/cfs/v20190719/model/DeleteCfsPGroupResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DeleteCfsRuleRequest.h>
 #include <tencentcloud/cfs/v20190719/model/DeleteCfsRuleResponse.h>
-#include <tencentcloud/cfs/v20190719/model/DeleteMountTargetRequest.h>
-#include <tencentcloud/cfs/v20190719/model/DeleteMountTargetResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteCfsSnapshotRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteCfsSnapshotResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteDataFlowRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteDataFlowResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteLifecyclePolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteLifecyclePolicyResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteMigrationTaskRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteMigrationTaskResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteUserQuotaRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DeleteUserQuotaResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeAutoSnapshotPoliciesRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeAutoSnapshotPoliciesResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeAvailableZoneInfoRequest.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeAvailableZoneInfoResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeBucketListRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeBucketListResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeCfsFileSystemClientsRequest.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeCfsFileSystemClientsResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeCfsFileSystemsRequest.h>
@@ -49,10 +83,46 @@
 #include <tencentcloud/cfs/v20190719/model/DescribeCfsRulesResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeCfsServiceStatusRequest.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeCfsServiceStatusResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeCfsSnapshotOverviewRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeCfsSnapshotOverviewResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeCfsSnapshotsRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeCfsSnapshotsResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeDataFlowRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeDataFlowResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeLifecycleDataTaskRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeLifecycleDataTaskResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeLifecyclePoliciesRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeLifecyclePoliciesResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeMigrationTasksRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeMigrationTasksResponse.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeMountTargetsRequest.h>
 #include <tencentcloud/cfs/v20190719/model/DescribeMountTargetsResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeSnapshotOperationLogsRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeSnapshotOperationLogsResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeUserQuotaRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DescribeUserQuotaResponse.h>
+#include <tencentcloud/cfs/v20190719/model/DoDirectoryOperationRequest.h>
+#include <tencentcloud/cfs/v20190719/model/DoDirectoryOperationResponse.h>
+#include <tencentcloud/cfs/v20190719/model/ModifyDataFlowRequest.h>
+#include <tencentcloud/cfs/v20190719/model/ModifyDataFlowResponse.h>
+#include <tencentcloud/cfs/v20190719/model/ModifyFileSystemAutoScaleUpRuleRequest.h>
+#include <tencentcloud/cfs/v20190719/model/ModifyFileSystemAutoScaleUpRuleResponse.h>
+#include <tencentcloud/cfs/v20190719/model/ModifyLifecyclePolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/ModifyLifecyclePolicyResponse.h>
+#include <tencentcloud/cfs/v20190719/model/ScaleUpFileSystemRequest.h>
+#include <tencentcloud/cfs/v20190719/model/ScaleUpFileSystemResponse.h>
+#include <tencentcloud/cfs/v20190719/model/SetUserQuotaRequest.h>
+#include <tencentcloud/cfs/v20190719/model/SetUserQuotaResponse.h>
 #include <tencentcloud/cfs/v20190719/model/SignUpCfsServiceRequest.h>
 #include <tencentcloud/cfs/v20190719/model/SignUpCfsServiceResponse.h>
+#include <tencentcloud/cfs/v20190719/model/StopLifecycleDataTaskRequest.h>
+#include <tencentcloud/cfs/v20190719/model/StopLifecycleDataTaskResponse.h>
+#include <tencentcloud/cfs/v20190719/model/StopMigrationTaskRequest.h>
+#include <tencentcloud/cfs/v20190719/model/StopMigrationTaskResponse.h>
+#include <tencentcloud/cfs/v20190719/model/UnbindAutoSnapshotPolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/UnbindAutoSnapshotPolicyResponse.h>
+#include <tencentcloud/cfs/v20190719/model/UpdateAutoSnapshotPolicyRequest.h>
+#include <tencentcloud/cfs/v20190719/model/UpdateAutoSnapshotPolicyResponse.h>
 #include <tencentcloud/cfs/v20190719/model/UpdateCfsFileSystemNameRequest.h>
 #include <tencentcloud/cfs/v20190719/model/UpdateCfsFileSystemNameResponse.h>
 #include <tencentcloud/cfs/v20190719/model/UpdateCfsFileSystemPGroupRequest.h>
@@ -63,6 +133,10 @@
 #include <tencentcloud/cfs/v20190719/model/UpdateCfsPGroupResponse.h>
 #include <tencentcloud/cfs/v20190719/model/UpdateCfsRuleRequest.h>
 #include <tencentcloud/cfs/v20190719/model/UpdateCfsRuleResponse.h>
+#include <tencentcloud/cfs/v20190719/model/UpdateCfsSnapshotAttributeRequest.h>
+#include <tencentcloud/cfs/v20190719/model/UpdateCfsSnapshotAttributeResponse.h>
+#include <tencentcloud/cfs/v20190719/model/UpdateFileSystemBandwidthLimitRequest.h>
+#include <tencentcloud/cfs/v20190719/model/UpdateFileSystemBandwidthLimitResponse.h>
 
 
 namespace TencentCloud
@@ -77,6 +151,18 @@ namespace TencentCloud
                 CfsClient(const Credential &credential, const std::string &region);
                 CfsClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
+                typedef Outcome<Core::Error, Model::ApplyPathLifecyclePolicyResponse> ApplyPathLifecyclePolicyOutcome;
+                typedef std::future<ApplyPathLifecyclePolicyOutcome> ApplyPathLifecyclePolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::ApplyPathLifecyclePolicyRequest&, ApplyPathLifecyclePolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ApplyPathLifecyclePolicyAsyncHandler;
+                typedef Outcome<Core::Error, Model::BindAutoSnapshotPolicyResponse> BindAutoSnapshotPolicyOutcome;
+                typedef std::future<BindAutoSnapshotPolicyOutcome> BindAutoSnapshotPolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::BindAutoSnapshotPolicyRequest&, BindAutoSnapshotPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BindAutoSnapshotPolicyAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAccessCertResponse> CreateAccessCertOutcome;
+                typedef std::future<CreateAccessCertOutcome> CreateAccessCertOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateAccessCertRequest&, CreateAccessCertOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAccessCertAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAutoSnapshotPolicyResponse> CreateAutoSnapshotPolicyOutcome;
+                typedef std::future<CreateAutoSnapshotPolicyOutcome> CreateAutoSnapshotPolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateAutoSnapshotPolicyRequest&, CreateAutoSnapshotPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAutoSnapshotPolicyAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateCfsFileSystemResponse> CreateCfsFileSystemOutcome;
                 typedef std::future<CreateCfsFileSystemOutcome> CreateCfsFileSystemOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::CreateCfsFileSystemRequest&, CreateCfsFileSystemOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCfsFileSystemAsyncHandler;
@@ -86,6 +172,27 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateCfsRuleResponse> CreateCfsRuleOutcome;
                 typedef std::future<CreateCfsRuleOutcome> CreateCfsRuleOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::CreateCfsRuleRequest&, CreateCfsRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCfsRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateCfsSnapshotResponse> CreateCfsSnapshotOutcome;
+                typedef std::future<CreateCfsSnapshotOutcome> CreateCfsSnapshotOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateCfsSnapshotRequest&, CreateCfsSnapshotOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCfsSnapshotAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateDataFlowResponse> CreateDataFlowOutcome;
+                typedef std::future<CreateDataFlowOutcome> CreateDataFlowOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateDataFlowRequest&, CreateDataFlowOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDataFlowAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateLifecycleDataTaskResponse> CreateLifecycleDataTaskOutcome;
+                typedef std::future<CreateLifecycleDataTaskOutcome> CreateLifecycleDataTaskOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateLifecycleDataTaskRequest&, CreateLifecycleDataTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateLifecycleDataTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateLifecyclePolicyResponse> CreateLifecyclePolicyOutcome;
+                typedef std::future<CreateLifecyclePolicyOutcome> CreateLifecyclePolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateLifecyclePolicyRequest&, CreateLifecyclePolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateLifecyclePolicyAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateLifecyclePolicyDownloadTaskResponse> CreateLifecyclePolicyDownloadTaskOutcome;
+                typedef std::future<CreateLifecyclePolicyDownloadTaskOutcome> CreateLifecyclePolicyDownloadTaskOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateLifecyclePolicyDownloadTaskRequest&, CreateLifecyclePolicyDownloadTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateLifecyclePolicyDownloadTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateMigrationTaskResponse> CreateMigrationTaskOutcome;
+                typedef std::future<CreateMigrationTaskOutcome> CreateMigrationTaskOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::CreateMigrationTaskRequest&, CreateMigrationTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMigrationTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteAutoSnapshotPolicyResponse> DeleteAutoSnapshotPolicyOutcome;
+                typedef std::future<DeleteAutoSnapshotPolicyOutcome> DeleteAutoSnapshotPolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DeleteAutoSnapshotPolicyRequest&, DeleteAutoSnapshotPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAutoSnapshotPolicyAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteCfsFileSystemResponse> DeleteCfsFileSystemOutcome;
                 typedef std::future<DeleteCfsFileSystemOutcome> DeleteCfsFileSystemOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::DeleteCfsFileSystemRequest&, DeleteCfsFileSystemOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCfsFileSystemAsyncHandler;
@@ -95,12 +202,30 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteCfsRuleResponse> DeleteCfsRuleOutcome;
                 typedef std::future<DeleteCfsRuleOutcome> DeleteCfsRuleOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::DeleteCfsRuleRequest&, DeleteCfsRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCfsRuleAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteMountTargetResponse> DeleteMountTargetOutcome;
-                typedef std::future<DeleteMountTargetOutcome> DeleteMountTargetOutcomeCallable;
-                typedef std::function<void(const CfsClient*, const Model::DeleteMountTargetRequest&, DeleteMountTargetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMountTargetAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteCfsSnapshotResponse> DeleteCfsSnapshotOutcome;
+                typedef std::future<DeleteCfsSnapshotOutcome> DeleteCfsSnapshotOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DeleteCfsSnapshotRequest&, DeleteCfsSnapshotOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCfsSnapshotAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteDataFlowResponse> DeleteDataFlowOutcome;
+                typedef std::future<DeleteDataFlowOutcome> DeleteDataFlowOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DeleteDataFlowRequest&, DeleteDataFlowOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteDataFlowAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteLifecyclePolicyResponse> DeleteLifecyclePolicyOutcome;
+                typedef std::future<DeleteLifecyclePolicyOutcome> DeleteLifecyclePolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DeleteLifecyclePolicyRequest&, DeleteLifecyclePolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteLifecyclePolicyAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteMigrationTaskResponse> DeleteMigrationTaskOutcome;
+                typedef std::future<DeleteMigrationTaskOutcome> DeleteMigrationTaskOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DeleteMigrationTaskRequest&, DeleteMigrationTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMigrationTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteUserQuotaResponse> DeleteUserQuotaOutcome;
+                typedef std::future<DeleteUserQuotaOutcome> DeleteUserQuotaOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DeleteUserQuotaRequest&, DeleteUserQuotaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteUserQuotaAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAutoSnapshotPoliciesResponse> DescribeAutoSnapshotPoliciesOutcome;
+                typedef std::future<DescribeAutoSnapshotPoliciesOutcome> DescribeAutoSnapshotPoliciesOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeAutoSnapshotPoliciesRequest&, DescribeAutoSnapshotPoliciesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAutoSnapshotPoliciesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeAvailableZoneInfoResponse> DescribeAvailableZoneInfoOutcome;
                 typedef std::future<DescribeAvailableZoneInfoOutcome> DescribeAvailableZoneInfoOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::DescribeAvailableZoneInfoRequest&, DescribeAvailableZoneInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAvailableZoneInfoAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBucketListResponse> DescribeBucketListOutcome;
+                typedef std::future<DescribeBucketListOutcome> DescribeBucketListOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeBucketListRequest&, DescribeBucketListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBucketListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeCfsFileSystemClientsResponse> DescribeCfsFileSystemClientsOutcome;
                 typedef std::future<DescribeCfsFileSystemClientsOutcome> DescribeCfsFileSystemClientsOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::DescribeCfsFileSystemClientsRequest&, DescribeCfsFileSystemClientsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCfsFileSystemClientsAsyncHandler;
@@ -116,12 +241,66 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeCfsServiceStatusResponse> DescribeCfsServiceStatusOutcome;
                 typedef std::future<DescribeCfsServiceStatusOutcome> DescribeCfsServiceStatusOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::DescribeCfsServiceStatusRequest&, DescribeCfsServiceStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCfsServiceStatusAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeCfsSnapshotOverviewResponse> DescribeCfsSnapshotOverviewOutcome;
+                typedef std::future<DescribeCfsSnapshotOverviewOutcome> DescribeCfsSnapshotOverviewOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeCfsSnapshotOverviewRequest&, DescribeCfsSnapshotOverviewOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCfsSnapshotOverviewAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeCfsSnapshotsResponse> DescribeCfsSnapshotsOutcome;
+                typedef std::future<DescribeCfsSnapshotsOutcome> DescribeCfsSnapshotsOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeCfsSnapshotsRequest&, DescribeCfsSnapshotsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCfsSnapshotsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDataFlowResponse> DescribeDataFlowOutcome;
+                typedef std::future<DescribeDataFlowOutcome> DescribeDataFlowOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeDataFlowRequest&, DescribeDataFlowOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataFlowAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeLifecycleDataTaskResponse> DescribeLifecycleDataTaskOutcome;
+                typedef std::future<DescribeLifecycleDataTaskOutcome> DescribeLifecycleDataTaskOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeLifecycleDataTaskRequest&, DescribeLifecycleDataTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLifecycleDataTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeLifecyclePoliciesResponse> DescribeLifecyclePoliciesOutcome;
+                typedef std::future<DescribeLifecyclePoliciesOutcome> DescribeLifecyclePoliciesOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeLifecyclePoliciesRequest&, DescribeLifecyclePoliciesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLifecyclePoliciesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMigrationTasksResponse> DescribeMigrationTasksOutcome;
+                typedef std::future<DescribeMigrationTasksOutcome> DescribeMigrationTasksOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeMigrationTasksRequest&, DescribeMigrationTasksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMigrationTasksAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeMountTargetsResponse> DescribeMountTargetsOutcome;
                 typedef std::future<DescribeMountTargetsOutcome> DescribeMountTargetsOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::DescribeMountTargetsRequest&, DescribeMountTargetsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMountTargetsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeSnapshotOperationLogsResponse> DescribeSnapshotOperationLogsOutcome;
+                typedef std::future<DescribeSnapshotOperationLogsOutcome> DescribeSnapshotOperationLogsOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeSnapshotOperationLogsRequest&, DescribeSnapshotOperationLogsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSnapshotOperationLogsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeUserQuotaResponse> DescribeUserQuotaOutcome;
+                typedef std::future<DescribeUserQuotaOutcome> DescribeUserQuotaOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DescribeUserQuotaRequest&, DescribeUserQuotaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUserQuotaAsyncHandler;
+                typedef Outcome<Core::Error, Model::DoDirectoryOperationResponse> DoDirectoryOperationOutcome;
+                typedef std::future<DoDirectoryOperationOutcome> DoDirectoryOperationOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::DoDirectoryOperationRequest&, DoDirectoryOperationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DoDirectoryOperationAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyDataFlowResponse> ModifyDataFlowOutcome;
+                typedef std::future<ModifyDataFlowOutcome> ModifyDataFlowOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::ModifyDataFlowRequest&, ModifyDataFlowOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDataFlowAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyFileSystemAutoScaleUpRuleResponse> ModifyFileSystemAutoScaleUpRuleOutcome;
+                typedef std::future<ModifyFileSystemAutoScaleUpRuleOutcome> ModifyFileSystemAutoScaleUpRuleOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::ModifyFileSystemAutoScaleUpRuleRequest&, ModifyFileSystemAutoScaleUpRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyFileSystemAutoScaleUpRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyLifecyclePolicyResponse> ModifyLifecyclePolicyOutcome;
+                typedef std::future<ModifyLifecyclePolicyOutcome> ModifyLifecyclePolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::ModifyLifecyclePolicyRequest&, ModifyLifecyclePolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyLifecyclePolicyAsyncHandler;
+                typedef Outcome<Core::Error, Model::ScaleUpFileSystemResponse> ScaleUpFileSystemOutcome;
+                typedef std::future<ScaleUpFileSystemOutcome> ScaleUpFileSystemOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::ScaleUpFileSystemRequest&, ScaleUpFileSystemOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ScaleUpFileSystemAsyncHandler;
+                typedef Outcome<Core::Error, Model::SetUserQuotaResponse> SetUserQuotaOutcome;
+                typedef std::future<SetUserQuotaOutcome> SetUserQuotaOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::SetUserQuotaRequest&, SetUserQuotaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SetUserQuotaAsyncHandler;
                 typedef Outcome<Core::Error, Model::SignUpCfsServiceResponse> SignUpCfsServiceOutcome;
                 typedef std::future<SignUpCfsServiceOutcome> SignUpCfsServiceOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::SignUpCfsServiceRequest&, SignUpCfsServiceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SignUpCfsServiceAsyncHandler;
+                typedef Outcome<Core::Error, Model::StopLifecycleDataTaskResponse> StopLifecycleDataTaskOutcome;
+                typedef std::future<StopLifecycleDataTaskOutcome> StopLifecycleDataTaskOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::StopLifecycleDataTaskRequest&, StopLifecycleDataTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopLifecycleDataTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::StopMigrationTaskResponse> StopMigrationTaskOutcome;
+                typedef std::future<StopMigrationTaskOutcome> StopMigrationTaskOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::StopMigrationTaskRequest&, StopMigrationTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopMigrationTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::UnbindAutoSnapshotPolicyResponse> UnbindAutoSnapshotPolicyOutcome;
+                typedef std::future<UnbindAutoSnapshotPolicyOutcome> UnbindAutoSnapshotPolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::UnbindAutoSnapshotPolicyRequest&, UnbindAutoSnapshotPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UnbindAutoSnapshotPolicyAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateAutoSnapshotPolicyResponse> UpdateAutoSnapshotPolicyOutcome;
+                typedef std::future<UpdateAutoSnapshotPolicyOutcome> UpdateAutoSnapshotPolicyOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::UpdateAutoSnapshotPolicyRequest&, UpdateAutoSnapshotPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateAutoSnapshotPolicyAsyncHandler;
                 typedef Outcome<Core::Error, Model::UpdateCfsFileSystemNameResponse> UpdateCfsFileSystemNameOutcome;
                 typedef std::future<UpdateCfsFileSystemNameOutcome> UpdateCfsFileSystemNameOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::UpdateCfsFileSystemNameRequest&, UpdateCfsFileSystemNameOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateCfsFileSystemNameAsyncHandler;
@@ -137,8 +316,50 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::UpdateCfsRuleResponse> UpdateCfsRuleOutcome;
                 typedef std::future<UpdateCfsRuleOutcome> UpdateCfsRuleOutcomeCallable;
                 typedef std::function<void(const CfsClient*, const Model::UpdateCfsRuleRequest&, UpdateCfsRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateCfsRuleAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateCfsSnapshotAttributeResponse> UpdateCfsSnapshotAttributeOutcome;
+                typedef std::future<UpdateCfsSnapshotAttributeOutcome> UpdateCfsSnapshotAttributeOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::UpdateCfsSnapshotAttributeRequest&, UpdateCfsSnapshotAttributeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateCfsSnapshotAttributeAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateFileSystemBandwidthLimitResponse> UpdateFileSystemBandwidthLimitOutcome;
+                typedef std::future<UpdateFileSystemBandwidthLimitOutcome> UpdateFileSystemBandwidthLimitOutcomeCallable;
+                typedef std::function<void(const CfsClient*, const Model::UpdateFileSystemBandwidthLimitRequest&, UpdateFileSystemBandwidthLimitOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateFileSystemBandwidthLimitAsyncHandler;
 
 
+
+                /**
+                 *配置生命周期策略关联到的目录列表
+                 * @param req ApplyPathLifecyclePolicyRequest
+                 * @return ApplyPathLifecyclePolicyOutcome
+                 */
+                ApplyPathLifecyclePolicyOutcome ApplyPathLifecyclePolicy(const Model::ApplyPathLifecyclePolicyRequest &request);
+                void ApplyPathLifecyclePolicyAsync(const Model::ApplyPathLifecyclePolicyRequest& request, const ApplyPathLifecyclePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ApplyPathLifecyclePolicyOutcomeCallable ApplyPathLifecyclePolicyCallable(const Model::ApplyPathLifecyclePolicyRequest& request);
+
+                /**
+                 *文件系统绑定快照策略，可以同时绑定多个fs，一个fs 只能跟一个策略绑定
+                 * @param req BindAutoSnapshotPolicyRequest
+                 * @return BindAutoSnapshotPolicyOutcome
+                 */
+                BindAutoSnapshotPolicyOutcome BindAutoSnapshotPolicy(const Model::BindAutoSnapshotPolicyRequest &request);
+                void BindAutoSnapshotPolicyAsync(const Model::BindAutoSnapshotPolicyRequest& request, const BindAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                BindAutoSnapshotPolicyOutcomeCallable BindAutoSnapshotPolicyCallable(const Model::BindAutoSnapshotPolicyRequest& request);
+
+                /**
+                 *创建用于访问文件系统的凭证
+                 * @param req CreateAccessCertRequest
+                 * @return CreateAccessCertOutcome
+                 */
+                CreateAccessCertOutcome CreateAccessCert(const Model::CreateAccessCertRequest &request);
+                void CreateAccessCertAsync(const Model::CreateAccessCertRequest& request, const CreateAccessCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAccessCertOutcomeCallable CreateAccessCertCallable(const Model::CreateAccessCertRequest& request);
+
+                /**
+                 *创建定期快照策略
+                 * @param req CreateAutoSnapshotPolicyRequest
+                 * @return CreateAutoSnapshotPolicyOutcome
+                 */
+                CreateAutoSnapshotPolicyOutcome CreateAutoSnapshotPolicy(const Model::CreateAutoSnapshotPolicyRequest &request);
+                void CreateAutoSnapshotPolicyAsync(const Model::CreateAutoSnapshotPolicyRequest& request, const CreateAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAutoSnapshotPolicyOutcomeCallable CreateAutoSnapshotPolicyCallable(const Model::CreateAutoSnapshotPolicyRequest& request);
 
                 /**
                  *用于添加新文件系统
@@ -168,6 +389,69 @@ namespace TencentCloud
                 CreateCfsRuleOutcomeCallable CreateCfsRuleCallable(const Model::CreateCfsRuleRequest& request);
 
                 /**
+                 *创建文件系统快照
+                 * @param req CreateCfsSnapshotRequest
+                 * @return CreateCfsSnapshotOutcome
+                 */
+                CreateCfsSnapshotOutcome CreateCfsSnapshot(const Model::CreateCfsSnapshotRequest &request);
+                void CreateCfsSnapshotAsync(const Model::CreateCfsSnapshotRequest& request, const CreateCfsSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateCfsSnapshotOutcomeCallable CreateCfsSnapshotCallable(const Model::CreateCfsSnapshotRequest& request);
+
+                /**
+                 *创建数据流动接口
+                 * @param req CreateDataFlowRequest
+                 * @return CreateDataFlowOutcome
+                 */
+                CreateDataFlowOutcome CreateDataFlow(const Model::CreateDataFlowRequest &request);
+                void CreateDataFlowAsync(const Model::CreateDataFlowRequest& request, const CreateDataFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateDataFlowOutcomeCallable CreateDataFlowCallable(const Model::CreateDataFlowRequest& request);
+
+                /**
+                 *支持主动沉降/预热接口
+                 * @param req CreateLifecycleDataTaskRequest
+                 * @return CreateLifecycleDataTaskOutcome
+                 */
+                CreateLifecycleDataTaskOutcome CreateLifecycleDataTask(const Model::CreateLifecycleDataTaskRequest &request);
+                void CreateLifecycleDataTaskAsync(const Model::CreateLifecycleDataTaskRequest& request, const CreateLifecycleDataTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateLifecycleDataTaskOutcomeCallable CreateLifecycleDataTaskCallable(const Model::CreateLifecycleDataTaskRequest& request);
+
+                /**
+                 *创建文件存储生命周期策略
+                 * @param req CreateLifecyclePolicyRequest
+                 * @return CreateLifecyclePolicyOutcome
+                 */
+                CreateLifecyclePolicyOutcome CreateLifecyclePolicy(const Model::CreateLifecyclePolicyRequest &request);
+                void CreateLifecyclePolicyAsync(const Model::CreateLifecyclePolicyRequest& request, const CreateLifecyclePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateLifecyclePolicyOutcomeCallable CreateLifecyclePolicyCallable(const Model::CreateLifecyclePolicyRequest& request);
+
+                /**
+                 *下载生命周期任务中文件列表
+                 * @param req CreateLifecyclePolicyDownloadTaskRequest
+                 * @return CreateLifecyclePolicyDownloadTaskOutcome
+                 */
+                CreateLifecyclePolicyDownloadTaskOutcome CreateLifecyclePolicyDownloadTask(const Model::CreateLifecyclePolicyDownloadTaskRequest &request);
+                void CreateLifecyclePolicyDownloadTaskAsync(const Model::CreateLifecyclePolicyDownloadTaskRequest& request, const CreateLifecyclePolicyDownloadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateLifecyclePolicyDownloadTaskOutcomeCallable CreateLifecyclePolicyDownloadTaskCallable(const Model::CreateLifecyclePolicyDownloadTaskRequest& request);
+
+                /**
+                 *用于创建迁移任务。
+                 * @param req CreateMigrationTaskRequest
+                 * @return CreateMigrationTaskOutcome
+                 */
+                CreateMigrationTaskOutcome CreateMigrationTask(const Model::CreateMigrationTaskRequest &request);
+                void CreateMigrationTaskAsync(const Model::CreateMigrationTaskRequest& request, const CreateMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateMigrationTaskOutcomeCallable CreateMigrationTaskCallable(const Model::CreateMigrationTaskRequest& request);
+
+                /**
+                 *删除快照定期策略
+                 * @param req DeleteAutoSnapshotPolicyRequest
+                 * @return DeleteAutoSnapshotPolicyOutcome
+                 */
+                DeleteAutoSnapshotPolicyOutcome DeleteAutoSnapshotPolicy(const Model::DeleteAutoSnapshotPolicyRequest &request);
+                void DeleteAutoSnapshotPolicyAsync(const Model::DeleteAutoSnapshotPolicyRequest& request, const DeleteAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteAutoSnapshotPolicyOutcomeCallable DeleteAutoSnapshotPolicyCallable(const Model::DeleteAutoSnapshotPolicyRequest& request);
+
+                /**
                  *用于删除文件系统
                  * @param req DeleteCfsFileSystemRequest
                  * @return DeleteCfsFileSystemOutcome
@@ -177,7 +461,7 @@ namespace TencentCloud
                 DeleteCfsFileSystemOutcomeCallable DeleteCfsFileSystemCallable(const Model::DeleteCfsFileSystemRequest& request);
 
                 /**
-                 *本接口（DeleteCfsPGroup）用于删除权限组。
+                 *本接口（DeleteCfsPGroup）用于删除权限组，只有未绑定文件系统的权限组才能够被此接口删除。
                  * @param req DeleteCfsPGroupRequest
                  * @return DeleteCfsPGroupOutcome
                  */
@@ -195,13 +479,58 @@ namespace TencentCloud
                 DeleteCfsRuleOutcomeCallable DeleteCfsRuleCallable(const Model::DeleteCfsRuleRequest& request);
 
                 /**
-                 *本接口（DeleteMountTarget）用于删除挂载点
-                 * @param req DeleteMountTargetRequest
-                 * @return DeleteMountTargetOutcome
+                 *删除文件系统快照
+                 * @param req DeleteCfsSnapshotRequest
+                 * @return DeleteCfsSnapshotOutcome
                  */
-                DeleteMountTargetOutcome DeleteMountTarget(const Model::DeleteMountTargetRequest &request);
-                void DeleteMountTargetAsync(const Model::DeleteMountTargetRequest& request, const DeleteMountTargetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteMountTargetOutcomeCallable DeleteMountTargetCallable(const Model::DeleteMountTargetRequest& request);
+                DeleteCfsSnapshotOutcome DeleteCfsSnapshot(const Model::DeleteCfsSnapshotRequest &request);
+                void DeleteCfsSnapshotAsync(const Model::DeleteCfsSnapshotRequest& request, const DeleteCfsSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteCfsSnapshotOutcomeCallable DeleteCfsSnapshotCallable(const Model::DeleteCfsSnapshotRequest& request);
+
+                /**
+                 *删除数据流动
+                 * @param req DeleteDataFlowRequest
+                 * @return DeleteDataFlowOutcome
+                 */
+                DeleteDataFlowOutcome DeleteDataFlow(const Model::DeleteDataFlowRequest &request);
+                void DeleteDataFlowAsync(const Model::DeleteDataFlowRequest& request, const DeleteDataFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteDataFlowOutcomeCallable DeleteDataFlowCallable(const Model::DeleteDataFlowRequest& request);
+
+                /**
+                 *删除生命周期管理策略
+                 * @param req DeleteLifecyclePolicyRequest
+                 * @return DeleteLifecyclePolicyOutcome
+                 */
+                DeleteLifecyclePolicyOutcome DeleteLifecyclePolicy(const Model::DeleteLifecyclePolicyRequest &request);
+                void DeleteLifecyclePolicyAsync(const Model::DeleteLifecyclePolicyRequest& request, const DeleteLifecyclePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteLifecyclePolicyOutcomeCallable DeleteLifecyclePolicyCallable(const Model::DeleteLifecyclePolicyRequest& request);
+
+                /**
+                 *用于删除迁移任务。不支持删除等待中、创建中、运行中、取消中、终止中状态的任务。
+                 * @param req DeleteMigrationTaskRequest
+                 * @return DeleteMigrationTaskOutcome
+                 */
+                DeleteMigrationTaskOutcome DeleteMigrationTask(const Model::DeleteMigrationTaskRequest &request);
+                void DeleteMigrationTaskAsync(const Model::DeleteMigrationTaskRequest& request, const DeleteMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteMigrationTaskOutcomeCallable DeleteMigrationTaskCallable(const Model::DeleteMigrationTaskRequest& request);
+
+                /**
+                 *指定条件删除文件系统配额（仅部分Turbo实例能使用，若需要调用请提交工单与我们联系）
+                 * @param req DeleteUserQuotaRequest
+                 * @return DeleteUserQuotaOutcome
+                 */
+                DeleteUserQuotaOutcome DeleteUserQuota(const Model::DeleteUserQuotaRequest &request);
+                void DeleteUserQuotaAsync(const Model::DeleteUserQuotaRequest& request, const DeleteUserQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteUserQuotaOutcomeCallable DeleteUserQuotaCallable(const Model::DeleteUserQuotaRequest& request);
+
+                /**
+                 *查询文件系统快照定期策略列表信息
+                 * @param req DescribeAutoSnapshotPoliciesRequest
+                 * @return DescribeAutoSnapshotPoliciesOutcome
+                 */
+                DescribeAutoSnapshotPoliciesOutcome DescribeAutoSnapshotPolicies(const Model::DescribeAutoSnapshotPoliciesRequest &request);
+                void DescribeAutoSnapshotPoliciesAsync(const Model::DescribeAutoSnapshotPoliciesRequest& request, const DescribeAutoSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAutoSnapshotPoliciesOutcomeCallable DescribeAutoSnapshotPoliciesCallable(const Model::DescribeAutoSnapshotPoliciesRequest& request);
 
                 /**
                  *本接口（DescribeAvailableZoneInfo）用于查询区域的可用情况。
@@ -211,6 +540,15 @@ namespace TencentCloud
                 DescribeAvailableZoneInfoOutcome DescribeAvailableZoneInfo(const Model::DescribeAvailableZoneInfoRequest &request);
                 void DescribeAvailableZoneInfoAsync(const Model::DescribeAvailableZoneInfoRequest& request, const DescribeAvailableZoneInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeAvailableZoneInfoOutcomeCallable DescribeAvailableZoneInfoCallable(const Model::DescribeAvailableZoneInfoRequest& request);
+
+                /**
+                 *用于获取数据源桶列表。
+                 * @param req DescribeBucketListRequest
+                 * @return DescribeBucketListOutcome
+                 */
+                DescribeBucketListOutcome DescribeBucketList(const Model::DescribeBucketListRequest &request);
+                void DescribeBucketListAsync(const Model::DescribeBucketListRequest& request, const DescribeBucketListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBucketListOutcomeCallable DescribeBucketListCallable(const Model::DescribeBucketListRequest& request);
 
                 /**
                  *查询挂载该文件系统的客户端。此功能需要客户端安装CFS监控插件。
@@ -258,6 +596,61 @@ namespace TencentCloud
                 DescribeCfsServiceStatusOutcomeCallable DescribeCfsServiceStatusCallable(const Model::DescribeCfsServiceStatusRequest& request);
 
                 /**
+                 *文件系统快照概览
+                 * @param req DescribeCfsSnapshotOverviewRequest
+                 * @return DescribeCfsSnapshotOverviewOutcome
+                 */
+                DescribeCfsSnapshotOverviewOutcome DescribeCfsSnapshotOverview(const Model::DescribeCfsSnapshotOverviewRequest &request);
+                void DescribeCfsSnapshotOverviewAsync(const Model::DescribeCfsSnapshotOverviewRequest& request, const DescribeCfsSnapshotOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeCfsSnapshotOverviewOutcomeCallable DescribeCfsSnapshotOverviewCallable(const Model::DescribeCfsSnapshotOverviewRequest& request);
+
+                /**
+                 *查询文件系统快照列表
+                 * @param req DescribeCfsSnapshotsRequest
+                 * @return DescribeCfsSnapshotsOutcome
+                 */
+                DescribeCfsSnapshotsOutcome DescribeCfsSnapshots(const Model::DescribeCfsSnapshotsRequest &request);
+                void DescribeCfsSnapshotsAsync(const Model::DescribeCfsSnapshotsRequest& request, const DescribeCfsSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeCfsSnapshotsOutcomeCallable DescribeCfsSnapshotsCallable(const Model::DescribeCfsSnapshotsRequest& request);
+
+                /**
+                 *查询数据流动信息接口
+                 * @param req DescribeDataFlowRequest
+                 * @return DescribeDataFlowOutcome
+                 */
+                DescribeDataFlowOutcome DescribeDataFlow(const Model::DescribeDataFlowRequest &request);
+                void DescribeDataFlowAsync(const Model::DescribeDataFlowRequest& request, const DescribeDataFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDataFlowOutcomeCallable DescribeDataFlowCallable(const Model::DescribeDataFlowRequest& request);
+
+                /**
+                 *查询生命周期任务的接口。仅支持查询最近三个月内的任务数据。
+                 * @param req DescribeLifecycleDataTaskRequest
+                 * @return DescribeLifecycleDataTaskOutcome
+                 */
+                DescribeLifecycleDataTaskOutcome DescribeLifecycleDataTask(const Model::DescribeLifecycleDataTaskRequest &request);
+                void DescribeLifecycleDataTaskAsync(const Model::DescribeLifecycleDataTaskRequest& request, const DescribeLifecycleDataTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeLifecycleDataTaskOutcomeCallable DescribeLifecycleDataTaskCallable(const Model::DescribeLifecycleDataTaskRequest& request);
+
+                /**
+                 *查询生命周期管理策略
+                 * @param req DescribeLifecyclePoliciesRequest
+                 * @return DescribeLifecyclePoliciesOutcome
+                 */
+                DescribeLifecyclePoliciesOutcome DescribeLifecyclePolicies(const Model::DescribeLifecyclePoliciesRequest &request);
+                void DescribeLifecyclePoliciesAsync(const Model::DescribeLifecyclePoliciesRequest& request, const DescribeLifecyclePoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeLifecyclePoliciesOutcomeCallable DescribeLifecyclePoliciesCallable(const Model::DescribeLifecyclePoliciesRequest& request);
+
+                /**
+                 *用于获取迁移任务列表。
+此接口需提交工单，开启白名单之后才能使用。
+                 * @param req DescribeMigrationTasksRequest
+                 * @return DescribeMigrationTasksOutcome
+                 */
+                DescribeMigrationTasksOutcome DescribeMigrationTasks(const Model::DescribeMigrationTasksRequest &request);
+                void DescribeMigrationTasksAsync(const Model::DescribeMigrationTasksRequest& request, const DescribeMigrationTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMigrationTasksOutcomeCallable DescribeMigrationTasksCallable(const Model::DescribeMigrationTasksRequest& request);
+
+                /**
                  *本接口（DescribeMountTargets）用于查询文件系统挂载点信息
                  * @param req DescribeMountTargetsRequest
                  * @return DescribeMountTargetsOutcome
@@ -267,6 +660,78 @@ namespace TencentCloud
                 DescribeMountTargetsOutcomeCallable DescribeMountTargetsCallable(const Model::DescribeMountTargetsRequest& request);
 
                 /**
+                 *查询快照操作日志
+                 * @param req DescribeSnapshotOperationLogsRequest
+                 * @return DescribeSnapshotOperationLogsOutcome
+                 */
+                DescribeSnapshotOperationLogsOutcome DescribeSnapshotOperationLogs(const Model::DescribeSnapshotOperationLogsRequest &request);
+                void DescribeSnapshotOperationLogsAsync(const Model::DescribeSnapshotOperationLogsRequest& request, const DescribeSnapshotOperationLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeSnapshotOperationLogsOutcomeCallable DescribeSnapshotOperationLogsCallable(const Model::DescribeSnapshotOperationLogsRequest& request);
+
+                /**
+                 *查询文件系统配额（仅部分Turbo实例能使用，若需要调用请提交工单与我们联系）
+                 * @param req DescribeUserQuotaRequest
+                 * @return DescribeUserQuotaOutcome
+                 */
+                DescribeUserQuotaOutcome DescribeUserQuota(const Model::DescribeUserQuotaRequest &request);
+                void DescribeUserQuotaAsync(const Model::DescribeUserQuotaRequest& request, const DescribeUserQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeUserQuotaOutcomeCallable DescribeUserQuotaCallable(const Model::DescribeUserQuotaRequest& request);
+
+                /**
+                 *文件系统目录操作接口
+                 * @param req DoDirectoryOperationRequest
+                 * @return DoDirectoryOperationOutcome
+                 */
+                DoDirectoryOperationOutcome DoDirectoryOperation(const Model::DoDirectoryOperationRequest &request);
+                void DoDirectoryOperationAsync(const Model::DoDirectoryOperationRequest& request, const DoDirectoryOperationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DoDirectoryOperationOutcomeCallable DoDirectoryOperationCallable(const Model::DoDirectoryOperationRequest& request);
+
+                /**
+                 *修改数据流动相关参数
+                 * @param req ModifyDataFlowRequest
+                 * @return ModifyDataFlowOutcome
+                 */
+                ModifyDataFlowOutcome ModifyDataFlow(const Model::ModifyDataFlowRequest &request);
+                void ModifyDataFlowAsync(const Model::ModifyDataFlowRequest& request, const ModifyDataFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyDataFlowOutcomeCallable ModifyDataFlowCallable(const Model::ModifyDataFlowRequest& request);
+
+                /**
+                 *用来设置文件系统扩容策略，该接口只支持turbo文件系统
+                 * @param req ModifyFileSystemAutoScaleUpRuleRequest
+                 * @return ModifyFileSystemAutoScaleUpRuleOutcome
+                 */
+                ModifyFileSystemAutoScaleUpRuleOutcome ModifyFileSystemAutoScaleUpRule(const Model::ModifyFileSystemAutoScaleUpRuleRequest &request);
+                void ModifyFileSystemAutoScaleUpRuleAsync(const Model::ModifyFileSystemAutoScaleUpRuleRequest& request, const ModifyFileSystemAutoScaleUpRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyFileSystemAutoScaleUpRuleOutcomeCallable ModifyFileSystemAutoScaleUpRuleCallable(const Model::ModifyFileSystemAutoScaleUpRuleRequest& request);
+
+                /**
+                 *更新文件存储生命周期策略
+                 * @param req ModifyLifecyclePolicyRequest
+                 * @return ModifyLifecyclePolicyOutcome
+                 */
+                ModifyLifecyclePolicyOutcome ModifyLifecyclePolicy(const Model::ModifyLifecyclePolicyRequest &request);
+                void ModifyLifecyclePolicyAsync(const Model::ModifyLifecyclePolicyRequest& request, const ModifyLifecyclePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyLifecyclePolicyOutcomeCallable ModifyLifecyclePolicyCallable(const Model::ModifyLifecyclePolicyRequest& request);
+
+                /**
+                 *该接口用于对turbo 文件系统扩容使用,该接口只支持扩容不支持缩容。turbo标准型扩容步长是10240GIB，turbo性能型扩容步长是5120GIB
+                 * @param req ScaleUpFileSystemRequest
+                 * @return ScaleUpFileSystemOutcome
+                 */
+                ScaleUpFileSystemOutcome ScaleUpFileSystem(const Model::ScaleUpFileSystemRequest &request);
+                void ScaleUpFileSystemAsync(const Model::ScaleUpFileSystemRequest& request, const ScaleUpFileSystemAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ScaleUpFileSystemOutcomeCallable ScaleUpFileSystemCallable(const Model::ScaleUpFileSystemRequest& request);
+
+                /**
+                 *设置文件系统配额，提供UID/GID的配额设置的接口（仅部分Turbo实例能使用，若需要调用请提交工单与我们联系）
+                 * @param req SetUserQuotaRequest
+                 * @return SetUserQuotaOutcome
+                 */
+                SetUserQuotaOutcome SetUserQuota(const Model::SetUserQuotaRequest &request);
+                void SetUserQuotaAsync(const Model::SetUserQuotaRequest& request, const SetUserQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                SetUserQuotaOutcomeCallable SetUserQuotaCallable(const Model::SetUserQuotaRequest& request);
+
+                /**
                  *本接口（SignUpCfsService）用于开通CFS服务。
                  * @param req SignUpCfsServiceRequest
                  * @return SignUpCfsServiceOutcome
@@ -274,6 +739,42 @@ namespace TencentCloud
                 SignUpCfsServiceOutcome SignUpCfsService(const Model::SignUpCfsServiceRequest &request);
                 void SignUpCfsServiceAsync(const Model::SignUpCfsServiceRequest& request, const SignUpCfsServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 SignUpCfsServiceOutcomeCallable SignUpCfsServiceCallable(const Model::SignUpCfsServiceRequest& request);
+
+                /**
+                 *终止生命周期任务的接口
+                 * @param req StopLifecycleDataTaskRequest
+                 * @return StopLifecycleDataTaskOutcome
+                 */
+                StopLifecycleDataTaskOutcome StopLifecycleDataTask(const Model::StopLifecycleDataTaskRequest &request);
+                void StopLifecycleDataTaskAsync(const Model::StopLifecycleDataTaskRequest& request, const StopLifecycleDataTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                StopLifecycleDataTaskOutcomeCallable StopLifecycleDataTaskCallable(const Model::StopLifecycleDataTaskRequest& request);
+
+                /**
+                 *用于终止迁移任务，可以终止等待中、运行中状态的任务。
+                 * @param req StopMigrationTaskRequest
+                 * @return StopMigrationTaskOutcome
+                 */
+                StopMigrationTaskOutcome StopMigrationTask(const Model::StopMigrationTaskRequest &request);
+                void StopMigrationTaskAsync(const Model::StopMigrationTaskRequest& request, const StopMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                StopMigrationTaskOutcomeCallable StopMigrationTaskCallable(const Model::StopMigrationTaskRequest& request);
+
+                /**
+                 *解除文件系统绑定的快照策略
+                 * @param req UnbindAutoSnapshotPolicyRequest
+                 * @return UnbindAutoSnapshotPolicyOutcome
+                 */
+                UnbindAutoSnapshotPolicyOutcome UnbindAutoSnapshotPolicy(const Model::UnbindAutoSnapshotPolicyRequest &request);
+                void UnbindAutoSnapshotPolicyAsync(const Model::UnbindAutoSnapshotPolicyRequest& request, const UnbindAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UnbindAutoSnapshotPolicyOutcomeCallable UnbindAutoSnapshotPolicyCallable(const Model::UnbindAutoSnapshotPolicyRequest& request);
+
+                /**
+                 *更新定期自动快照策略
+                 * @param req UpdateAutoSnapshotPolicyRequest
+                 * @return UpdateAutoSnapshotPolicyOutcome
+                 */
+                UpdateAutoSnapshotPolicyOutcome UpdateAutoSnapshotPolicy(const Model::UpdateAutoSnapshotPolicyRequest &request);
+                void UpdateAutoSnapshotPolicyAsync(const Model::UpdateAutoSnapshotPolicyRequest& request, const UpdateAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateAutoSnapshotPolicyOutcomeCallable UpdateAutoSnapshotPolicyCallable(const Model::UpdateAutoSnapshotPolicyRequest& request);
 
                 /**
                  *本接口（UpdateCfsFileSystemName）用于更新文件系统名
@@ -319,6 +820,25 @@ namespace TencentCloud
                 UpdateCfsRuleOutcome UpdateCfsRule(const Model::UpdateCfsRuleRequest &request);
                 void UpdateCfsRuleAsync(const Model::UpdateCfsRuleRequest& request, const UpdateCfsRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 UpdateCfsRuleOutcomeCallable UpdateCfsRuleCallable(const Model::UpdateCfsRuleRequest& request);
+
+                /**
+                 *更新文件系统快照名称及保留时长
+                 * @param req UpdateCfsSnapshotAttributeRequest
+                 * @return UpdateCfsSnapshotAttributeOutcome
+                 */
+                UpdateCfsSnapshotAttributeOutcome UpdateCfsSnapshotAttribute(const Model::UpdateCfsSnapshotAttributeRequest &request);
+                void UpdateCfsSnapshotAttributeAsync(const Model::UpdateCfsSnapshotAttributeRequest& request, const UpdateCfsSnapshotAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateCfsSnapshotAttributeOutcomeCallable UpdateCfsSnapshotAttributeCallable(const Model::UpdateCfsSnapshotAttributeRequest& request);
+
+                /**
+                 *更新文件系统吞吐
+仅吞吐型支持此接口
+                 * @param req UpdateFileSystemBandwidthLimitRequest
+                 * @return UpdateFileSystemBandwidthLimitOutcome
+                 */
+                UpdateFileSystemBandwidthLimitOutcome UpdateFileSystemBandwidthLimit(const Model::UpdateFileSystemBandwidthLimitRequest &request);
+                void UpdateFileSystemBandwidthLimitAsync(const Model::UpdateFileSystemBandwidthLimitRequest& request, const UpdateFileSystemBandwidthLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateFileSystemBandwidthLimitOutcomeCallable UpdateFileSystemBandwidthLimitCallable(const Model::UpdateFileSystemBandwidthLimitRequest& request);
 
             };
         }

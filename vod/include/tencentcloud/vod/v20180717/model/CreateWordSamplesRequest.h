@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@ namespace TencentCloud
 5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
 6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
 7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。
+                     * 
                      */
                     std::vector<std::string> GetUsages() const;
 
@@ -75,7 +76,7 @@ namespace TencentCloud
 5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
 6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
 7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。
-                     * @param Usages <b>关键词应用场景，可选值：</b>
+                     * @param _usages <b>关键词应用场景，可选值：</b>
 1. Recognition.Ocr：通过光学字符识别技术，进行内容识别；
 2. Recognition.Asr：通过音频识别技术，进行内容识别；
 3. Review.Ocr：通过光学字符识别技术，进行不适宜内容识别；
@@ -84,48 +85,56 @@ namespace TencentCloud
 5. Recognition：通过光学字符识别技术、音频识别技术，进行内容识别，等价于 1+2；
 6. Review：通过光学字符识别技术、音频识别技术，进行不适宜内容识别，等价于 3+4；
 7. All：通过光学字符识别技术、音频识别技术，进行内容识别、不适宜内容识别，等价于 1+2+3+4。
+                     * 
                      */
                     void SetUsages(const std::vector<std::string>& _usages);
 
                     /**
                      * 判断参数 Usages 是否已赋值
                      * @return Usages 是否已赋值
+                     * 
                      */
                     bool UsagesHasBeenSet() const;
 
                     /**
                      * 获取关键词，数组长度限制：100。
                      * @return Words 关键词，数组长度限制：100。
+                     * 
                      */
                     std::vector<AiSampleWordInfo> GetWords() const;
 
                     /**
                      * 设置关键词，数组长度限制：100。
-                     * @param Words 关键词，数组长度限制：100。
+                     * @param _words 关键词，数组长度限制：100。
+                     * 
                      */
                     void SetWords(const std::vector<AiSampleWordInfo>& _words);
 
                     /**
                      * 判断参数 Words 是否已赋值
                      * @return Words 是否已赋值
+                     * 
                      */
                     bool WordsHasBeenSet() const;
 
                     /**
-                     * 获取点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+                     * 获取<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * 
                      */
                     uint64_t GetSubAppId() const;
 
                     /**
-                     * 设置点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+                     * 设置<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @param _subAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * 
                      */
                     void SetSubAppId(const uint64_t& _subAppId);
 
                     /**
                      * 判断参数 SubAppId 是否已赋值
                      * @return SubAppId 是否已赋值
+                     * 
                      */
                     bool SubAppIdHasBeenSet() const;
 
@@ -152,7 +161,7 @@ namespace TencentCloud
                     bool m_wordsHasBeenSet;
 
                     /**
-                     * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+                     * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
                      */
                     uint64_t m_subAppId;
                     bool m_subAppIdHasBeenSet;

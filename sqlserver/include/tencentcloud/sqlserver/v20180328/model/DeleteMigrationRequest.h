@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取迁移任务ID
                      * @return MigrateId 迁移任务ID
+                     * 
                      */
                     uint64_t GetMigrateId() const;
 
                     /**
                      * 设置迁移任务ID
-                     * @param MigrateId 迁移任务ID
+                     * @param _migrateId 迁移任务ID
+                     * 
                      */
                     void SetMigrateId(const uint64_t& _migrateId);
 
                     /**
                      * 判断参数 MigrateId 是否已赋值
                      * @return MigrateId 是否已赋值
+                     * 
                      */
                     bool MigrateIdHasBeenSet() const;
 

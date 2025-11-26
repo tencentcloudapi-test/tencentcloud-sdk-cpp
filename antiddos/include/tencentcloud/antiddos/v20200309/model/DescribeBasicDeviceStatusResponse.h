@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,14 +53,44 @@ namespace TencentCloud
 1 - 封堵状态
 2 - 正常状态
 3 - 攻击状态
+                     * 
                      */
                     std::vector<KeyValue> GetData() const;
 
                     /**
                      * 判断参数 Data 是否已赋值
                      * @return Data 是否已赋值
+                     * 
                      */
                     bool DataHasBeenSet() const;
+
+                    /**
+                     * 获取域名化资产的名称
+                     * @return CLBData 域名化资产的名称
+                     * 
+                     */
+                    std::vector<KeyValue> GetCLBData() const;
+
+                    /**
+                     * 判断参数 CLBData 是否已赋值
+                     * @return CLBData 是否已赋值
+                     * 
+                     */
+                    bool CLBDataHasBeenSet() const;
+
+                    /**
+                     * 获取cnamewaf资源状态
+                     * @return CnameWafData cnamewaf资源状态
+                     * 
+                     */
+                    std::vector<KeyValue> GetCnameWafData() const;
+
+                    /**
+                     * 判断参数 CnameWafData 是否已赋值
+                     * @return CnameWafData 是否已赋值
+                     * 
+                     */
+                    bool CnameWafDataHasBeenSet() const;
 
                 private:
 
@@ -72,6 +102,18 @@ namespace TencentCloud
                      */
                     std::vector<KeyValue> m_data;
                     bool m_dataHasBeenSet;
+
+                    /**
+                     * 域名化资产的名称
+                     */
+                    std::vector<KeyValue> m_cLBData;
+                    bool m_cLBDataHasBeenSet;
+
+                    /**
+                     * cnamewaf资源状态
+                     */
+                    std::vector<KeyValue> m_cnameWafData;
+                    bool m_cnameWafDataHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ InquiryPriceUpdateInstanceResponse::InquiryPriceUpdateInstanceResponse() :
     m_originalCostHasBeenSet(false),
     m_discountCostHasBeenSet(false),
     m_timeUnitHasBeenSet(false),
-    m_timeSpanHasBeenSet(false)
+    m_timeSpanHasBeenSet(false),
+    m_priceDetailHasBeenSet(false),
+    m_newConfigPriceHasBeenSet(false)
 {
 }
 
@@ -105,6 +107,43 @@ CoreInternalOutcome InquiryPriceUpdateInstanceResponse::Deserialize(const string
         m_timeSpanHasBeenSet = true;
     }
 
+    if (rsp.HasMember("PriceDetail") && !rsp["PriceDetail"].IsNull())
+    {
+        if (!rsp["PriceDetail"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `PriceDetail` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["PriceDetail"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            PriceDetail item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_priceDetail.push_back(item);
+        }
+        m_priceDetailHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("NewConfigPrice") && !rsp["NewConfigPrice"].IsNull())
+    {
+        if (!rsp["NewConfigPrice"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `NewConfigPrice` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_newConfigPrice.Deserialize(rsp["NewConfigPrice"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_newConfigPriceHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -147,11 +186,35 @@ string InquiryPriceUpdateInstanceResponse::ToJsonString() const
         value.AddMember(iKey, m_timeSpan, allocator);
     }
 
+    if (m_priceDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PriceDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_priceDetail.begin(); itr != m_priceDetail.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_newConfigPriceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NewConfigPrice";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_newConfigPrice.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -197,6 +260,26 @@ int64_t InquiryPriceUpdateInstanceResponse::GetTimeSpan() const
 bool InquiryPriceUpdateInstanceResponse::TimeSpanHasBeenSet() const
 {
     return m_timeSpanHasBeenSet;
+}
+
+vector<PriceDetail> InquiryPriceUpdateInstanceResponse::GetPriceDetail() const
+{
+    return m_priceDetail;
+}
+
+bool InquiryPriceUpdateInstanceResponse::PriceDetailHasBeenSet() const
+{
+    return m_priceDetailHasBeenSet;
+}
+
+PriceResult InquiryPriceUpdateInstanceResponse::GetNewConfigPrice() const
+{
+    return m_newConfigPrice;
+}
+
+bool InquiryPriceUpdateInstanceResponse::NewConfigPriceHasBeenSet() const
+{
+    return m_newConfigPriceHasBeenSet;
 }
 
 

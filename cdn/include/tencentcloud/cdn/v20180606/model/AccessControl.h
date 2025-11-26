@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,20 +48,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取on | off 是否启用请求头部及请求url访问控制
-                     * @return Switch on | off 是否启用请求头部及请求url访问控制
+                     * 获取启用请求头部及请求url访问控制开关，取值有：
+on：开启
+off：关闭
+                     * @return Switch 启用请求头部及请求url访问控制开关，取值有：
+on：开启
+off：关闭
+                     * 
                      */
                     std::string GetSwitch() const;
 
                     /**
-                     * 设置on | off 是否启用请求头部及请求url访问控制
-                     * @param Switch on | off 是否启用请求头部及请求url访问控制
+                     * 设置启用请求头部及请求url访问控制开关，取值有：
+on：开启
+off：关闭
+                     * @param _switch 启用请求头部及请求url访问控制开关，取值有：
+on：开启
+off：关闭
+                     * 
                      */
                     void SetSwitch(const std::string& _switch);
 
                     /**
                      * 判断参数 Switch 是否已赋值
                      * @return Switch 是否已赋值
+                     * 
                      */
                     bool SwitchHasBeenSet() const;
 
@@ -70,20 +81,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return AccessControlRules 请求头部及请求url访问规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<AccessControlRule> GetAccessControlRules() const;
 
                     /**
                      * 设置请求头部及请求url访问规则
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AccessControlRules 请求头部及请求url访问规则
+                     * @param _accessControlRules 请求头部及请求url访问规则
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetAccessControlRules(const std::vector<AccessControlRule>& _accessControlRules);
 
                     /**
                      * 判断参数 AccessControlRules 是否已赋值
                      * @return AccessControlRules 是否已赋值
+                     * 
                      */
                     bool AccessControlRulesHasBeenSet() const;
 
@@ -92,27 +106,32 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ReturnCode 返回状态码
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetReturnCode() const;
 
                     /**
                      * 设置返回状态码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ReturnCode 返回状态码
+                     * @param _returnCode 返回状态码
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetReturnCode(const int64_t& _returnCode);
 
                     /**
                      * 判断参数 ReturnCode 是否已赋值
                      * @return ReturnCode 是否已赋值
+                     * 
                      */
                     bool ReturnCodeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * on | off 是否启用请求头部及请求url访问控制
+                     * 启用请求头部及请求url访问控制开关，取值有：
+on：开启
+off：关闭
                      */
                     std::string m_switch;
                     bool m_switchHasBeenSet;

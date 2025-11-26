@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,8 @@ ModifyVsmAttributesRequest::ModifyVsmAttributesRequest() :
     m_resourceNameHasBeenSet(false),
     m_sgIdsHasBeenSet(false),
     m_vpcIdHasBeenSet(false),
-    m_subnetIdHasBeenSet(false)
+    m_subnetIdHasBeenSet(false),
+    m_alarmStatusHasBeenSet(false)
 {
 }
 
@@ -95,6 +96,14 @@ string ModifyVsmAttributesRequest::ToJsonString() const
         string key = "SubnetId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_subnetId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_alarmStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmStatus";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_alarmStatus, allocator);
     }
 
 
@@ -199,6 +208,22 @@ void ModifyVsmAttributesRequest::SetSubnetId(const string& _subnetId)
 bool ModifyVsmAttributesRequest::SubnetIdHasBeenSet() const
 {
     return m_subnetIdHasBeenSet;
+}
+
+int64_t ModifyVsmAttributesRequest::GetAlarmStatus() const
+{
+    return m_alarmStatus;
+}
+
+void ModifyVsmAttributesRequest::SetAlarmStatus(const int64_t& _alarmStatus)
+{
+    m_alarmStatus = _alarmStatus;
+    m_alarmStatusHasBeenSet = true;
+}
+
+bool ModifyVsmAttributesRequest::AlarmStatusHasBeenSet() const
+{
+    return m_alarmStatusHasBeenSet;
 }
 
 

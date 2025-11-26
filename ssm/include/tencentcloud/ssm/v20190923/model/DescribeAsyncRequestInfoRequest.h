@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取异步任务ID号。
-                     * @return FlowID 异步任务ID号。
+                     * 获取异步任务ID号
+                     * @return FlowID 异步任务ID号
+                     * 
                      */
                     int64_t GetFlowID() const;
 
                     /**
-                     * 设置异步任务ID号。
-                     * @param FlowID 异步任务ID号。
+                     * 设置异步任务ID号
+                     * @param _flowID 异步任务ID号
+                     * 
                      */
                     void SetFlowID(const int64_t& _flowID);
 
                     /**
                      * 判断参数 FlowID 是否已赋值
                      * @return FlowID 是否已赋值
+                     * 
                      */
                     bool FlowIDHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 异步任务ID号。
+                     * 异步任务ID号
                      */
                     int64_t m_flowID;
                     bool m_flowIDHasBeenSet;

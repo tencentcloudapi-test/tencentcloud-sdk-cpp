@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace TencentCloud::Tcss::V20201101::Model;
 using namespace std;
 
 DescribeEscapeEventDetailRequest::DescribeEscapeEventDetailRequest() :
-    m_eventIdHasBeenSet(false)
+    m_eventIdHasBeenSet(false),
+    m_eventTypeHasBeenSet(false)
 {
 }
 
@@ -40,6 +41,14 @@ string DescribeEscapeEventDetailRequest::ToJsonString() const
         string key = "EventId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_eventId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_eventTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EventType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_eventType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -64,6 +73,22 @@ void DescribeEscapeEventDetailRequest::SetEventId(const string& _eventId)
 bool DescribeEscapeEventDetailRequest::EventIdHasBeenSet() const
 {
     return m_eventIdHasBeenSet;
+}
+
+string DescribeEscapeEventDetailRequest::GetEventType() const
+{
+    return m_eventType;
+}
+
+void DescribeEscapeEventDetailRequest::SetEventType(const string& _eventType)
+{
+    m_eventType = _eventType;
+    m_eventTypeHasBeenSet = true;
+}
+
+bool DescribeEscapeEventDetailRequest::EventTypeHasBeenSet() const
+{
+    return m_eventTypeHasBeenSet;
 }
 
 

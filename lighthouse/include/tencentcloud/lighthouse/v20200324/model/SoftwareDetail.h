@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,75 +47,84 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取详情唯一键。
-                     * @return Key 详情唯一键。
+                     * 获取软件的属性标识
+                     * @return Key 软件的属性标识
+                     * 
                      */
                     std::string GetKey() const;
 
                     /**
-                     * 设置详情唯一键。
-                     * @param Key 详情唯一键。
+                     * 设置软件的属性标识
+                     * @param _key 软件的属性标识
+                     * 
                      */
                     void SetKey(const std::string& _key);
 
                     /**
                      * 判断参数 Key 是否已赋值
                      * @return Key 是否已赋值
+                     * 
                      */
                     bool KeyHasBeenSet() const;
 
                     /**
-                     * 获取详情标题。
-                     * @return Title 详情标题。
+                     * 获取软件的属性标识描述
+                     * @return Title 软件的属性标识描述
+                     * 
                      */
                     std::string GetTitle() const;
 
                     /**
-                     * 设置详情标题。
-                     * @param Title 详情标题。
+                     * 设置软件的属性标识描述
+                     * @param _title 软件的属性标识描述
+                     * 
                      */
                     void SetTitle(const std::string& _title);
 
                     /**
                      * 判断参数 Title 是否已赋值
                      * @return Title 是否已赋值
+                     * 
                      */
                     bool TitleHasBeenSet() const;
 
                     /**
-                     * 获取详情值。
-                     * @return Value 详情值。
+                     * 获取软件的属性值
+                     * @return Value 软件的属性值
+                     * 
                      */
                     std::string GetValue() const;
 
                     /**
-                     * 设置详情值。
-                     * @param Value 详情值。
+                     * 设置软件的属性值
+                     * @param _value 软件的属性值
+                     * 
                      */
                     void SetValue(const std::string& _value);
 
                     /**
                      * 判断参数 Value 是否已赋值
                      * @return Value 是否已赋值
+                     * 
                      */
                     bool ValueHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 详情唯一键。
+                     * 软件的属性标识
                      */
                     std::string m_key;
                     bool m_keyHasBeenSet;
 
                     /**
-                     * 详情标题。
+                     * 软件的属性标识描述
                      */
                     std::string m_title;
                     bool m_titleHasBeenSet;
 
                     /**
-                     * 详情值。
+                     * 软件的属性值
                      */
                     std::string m_value;
                     bool m_valueHasBeenSet;

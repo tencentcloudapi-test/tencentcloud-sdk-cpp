@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,15 @@ DescribeAlarmPoliciesRequest::DescribeAlarmPoliciesRequest() :
     m_notBindingNoticeRuleHasBeenSet(false),
     m_instanceGroupIdHasBeenSet(false),
     m_needCorrespondenceHasBeenSet(false),
-    m_triggerTasksHasBeenSet(false)
+    m_triggerTasksHasBeenSet(false),
+    m_oneClickPolicyTypeHasBeenSet(false),
+    m_notBindAllHasBeenSet(false),
+    m_notInstanceGroupHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_promInsIdHasBeenSet(false),
+    m_receiverOnCallFormIDsHasBeenSet(false),
+    m_noticeContentTmplIDsHasBeenSet(false),
+    m_isPredefinedHasBeenSet(false)
 {
 }
 
@@ -263,6 +271,92 @@ string DescribeAlarmPoliciesRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_oneClickPolicyTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OneClickPolicyType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_oneClickPolicyType.begin(); itr != m_oneClickPolicyType.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_notBindAllHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NotBindAll";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_notBindAll, allocator);
+    }
+
+    if (m_notInstanceGroupHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NotInstanceGroup";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_notInstanceGroup, allocator);
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_promInsIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PromInsId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_promInsId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_receiverOnCallFormIDsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReceiverOnCallFormIDs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_receiverOnCallFormIDs.begin(); itr != m_receiverOnCallFormIDs.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_noticeContentTmplIDsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NoticeContentTmplIDs";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_noticeContentTmplIDs.begin(); itr != m_noticeContentTmplIDs.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_isPredefinedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsPredefined";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isPredefined, allocator);
     }
 
 
@@ -591,6 +685,134 @@ void DescribeAlarmPoliciesRequest::SetTriggerTasks(const vector<AlarmPolicyTrigg
 bool DescribeAlarmPoliciesRequest::TriggerTasksHasBeenSet() const
 {
     return m_triggerTasksHasBeenSet;
+}
+
+vector<string> DescribeAlarmPoliciesRequest::GetOneClickPolicyType() const
+{
+    return m_oneClickPolicyType;
+}
+
+void DescribeAlarmPoliciesRequest::SetOneClickPolicyType(const vector<string>& _oneClickPolicyType)
+{
+    m_oneClickPolicyType = _oneClickPolicyType;
+    m_oneClickPolicyTypeHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::OneClickPolicyTypeHasBeenSet() const
+{
+    return m_oneClickPolicyTypeHasBeenSet;
+}
+
+int64_t DescribeAlarmPoliciesRequest::GetNotBindAll() const
+{
+    return m_notBindAll;
+}
+
+void DescribeAlarmPoliciesRequest::SetNotBindAll(const int64_t& _notBindAll)
+{
+    m_notBindAll = _notBindAll;
+    m_notBindAllHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::NotBindAllHasBeenSet() const
+{
+    return m_notBindAllHasBeenSet;
+}
+
+int64_t DescribeAlarmPoliciesRequest::GetNotInstanceGroup() const
+{
+    return m_notInstanceGroup;
+}
+
+void DescribeAlarmPoliciesRequest::SetNotInstanceGroup(const int64_t& _notInstanceGroup)
+{
+    m_notInstanceGroup = _notInstanceGroup;
+    m_notInstanceGroupHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::NotInstanceGroupHasBeenSet() const
+{
+    return m_notInstanceGroupHasBeenSet;
+}
+
+vector<Tag> DescribeAlarmPoliciesRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void DescribeAlarmPoliciesRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+string DescribeAlarmPoliciesRequest::GetPromInsId() const
+{
+    return m_promInsId;
+}
+
+void DescribeAlarmPoliciesRequest::SetPromInsId(const string& _promInsId)
+{
+    m_promInsId = _promInsId;
+    m_promInsIdHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::PromInsIdHasBeenSet() const
+{
+    return m_promInsIdHasBeenSet;
+}
+
+vector<string> DescribeAlarmPoliciesRequest::GetReceiverOnCallFormIDs() const
+{
+    return m_receiverOnCallFormIDs;
+}
+
+void DescribeAlarmPoliciesRequest::SetReceiverOnCallFormIDs(const vector<string>& _receiverOnCallFormIDs)
+{
+    m_receiverOnCallFormIDs = _receiverOnCallFormIDs;
+    m_receiverOnCallFormIDsHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::ReceiverOnCallFormIDsHasBeenSet() const
+{
+    return m_receiverOnCallFormIDsHasBeenSet;
+}
+
+vector<string> DescribeAlarmPoliciesRequest::GetNoticeContentTmplIDs() const
+{
+    return m_noticeContentTmplIDs;
+}
+
+void DescribeAlarmPoliciesRequest::SetNoticeContentTmplIDs(const vector<string>& _noticeContentTmplIDs)
+{
+    m_noticeContentTmplIDs = _noticeContentTmplIDs;
+    m_noticeContentTmplIDsHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::NoticeContentTmplIDsHasBeenSet() const
+{
+    return m_noticeContentTmplIDsHasBeenSet;
+}
+
+int64_t DescribeAlarmPoliciesRequest::GetIsPredefined() const
+{
+    return m_isPredefined;
+}
+
+void DescribeAlarmPoliciesRequest::SetIsPredefined(const int64_t& _isPredefined)
+{
+    m_isPredefined = _isPredefined;
+    m_isPredefinedHasBeenSet = true;
+}
+
+bool DescribeAlarmPoliciesRequest::IsPredefinedHasBeenSet() const
+{
+    return m_isPredefinedHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取NAT网关的ID，形如：`nat-df453454`。
                      * @return NatGatewayId NAT网关的ID，形如：`nat-df453454`。
+                     * 
                      */
                     std::string GetNatGatewayId() const;
 
                     /**
                      * 设置NAT网关的ID，形如：`nat-df453454`。
-                     * @param NatGatewayId NAT网关的ID，形如：`nat-df453454`。
+                     * @param _natGatewayId NAT网关的ID，形如：`nat-df453454`。
+                     * 
                      */
                     void SetNatGatewayId(const std::string& _natGatewayId);
 
                     /**
                      * 判断参数 NatGatewayId 是否已赋值
                      * @return NatGatewayId 是否已赋值
+                     * 
                      */
                     bool NatGatewayIdHasBeenSet() const;
 
                     /**
-                     * 获取NAT网关的SNAT转换规则。
-                     * @return SourceIpTranslationNatRule NAT网关的SNAT转换规则。
+                     * 获取NAT网关的SNAT转换规则。仅支持根据指定的NatGatewaySnatId修改PublicIpAddresses或Description。
+                     * @return SourceIpTranslationNatRule NAT网关的SNAT转换规则。仅支持根据指定的NatGatewaySnatId修改PublicIpAddresses或Description。
+                     * 
                      */
                     SourceIpTranslationNatRule GetSourceIpTranslationNatRule() const;
 
                     /**
-                     * 设置NAT网关的SNAT转换规则。
-                     * @param SourceIpTranslationNatRule NAT网关的SNAT转换规则。
+                     * 设置NAT网关的SNAT转换规则。仅支持根据指定的NatGatewaySnatId修改PublicIpAddresses或Description。
+                     * @param _sourceIpTranslationNatRule NAT网关的SNAT转换规则。仅支持根据指定的NatGatewaySnatId修改PublicIpAddresses或Description。
+                     * 
                      */
                     void SetSourceIpTranslationNatRule(const SourceIpTranslationNatRule& _sourceIpTranslationNatRule);
 
                     /**
                      * 判断参数 SourceIpTranslationNatRule 是否已赋值
                      * @return SourceIpTranslationNatRule 是否已赋值
+                     * 
                      */
                     bool SourceIpTranslationNatRuleHasBeenSet() const;
 
@@ -88,7 +94,7 @@ namespace TencentCloud
                     bool m_natGatewayIdHasBeenSet;
 
                     /**
-                     * NAT网关的SNAT转换规则。
+                     * NAT网关的SNAT转换规则。仅支持根据指定的NatGatewaySnatId修改PublicIpAddresses或Description。
                      */
                     SourceIpTranslationNatRule m_sourceIpTranslationNatRule;
                     bool m_sourceIpTranslationNatRuleHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@ using namespace TencentCloud::Cbs::V20170312::Model;
 using namespace std;
 
 InquirePriceModifyDiskExtraPerformanceRequest::InquirePriceModifyDiskExtraPerformanceRequest() :
-    m_diskIdHasBeenSet(false),
-    m_throughputPerformanceHasBeenSet(false)
+    m_throughputPerformanceHasBeenSet(false),
+    m_diskIdHasBeenSet(false)
 {
 }
 
@@ -35,20 +35,20 @@ string InquirePriceModifyDiskExtraPerformanceRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_diskIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DiskId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_diskId.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_throughputPerformanceHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "ThroughputPerformance";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_throughputPerformance, allocator);
+    }
+
+    if (m_diskIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiskId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_diskId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -58,22 +58,6 @@ string InquirePriceModifyDiskExtraPerformanceRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-string InquirePriceModifyDiskExtraPerformanceRequest::GetDiskId() const
-{
-    return m_diskId;
-}
-
-void InquirePriceModifyDiskExtraPerformanceRequest::SetDiskId(const string& _diskId)
-{
-    m_diskId = _diskId;
-    m_diskIdHasBeenSet = true;
-}
-
-bool InquirePriceModifyDiskExtraPerformanceRequest::DiskIdHasBeenSet() const
-{
-    return m_diskIdHasBeenSet;
-}
 
 uint64_t InquirePriceModifyDiskExtraPerformanceRequest::GetThroughputPerformance() const
 {
@@ -89,6 +73,22 @@ void InquirePriceModifyDiskExtraPerformanceRequest::SetThroughputPerformance(con
 bool InquirePriceModifyDiskExtraPerformanceRequest::ThroughputPerformanceHasBeenSet() const
 {
     return m_throughputPerformanceHasBeenSet;
+}
+
+string InquirePriceModifyDiskExtraPerformanceRequest::GetDiskId() const
+{
+    return m_diskId;
+}
+
+void InquirePriceModifyDiskExtraPerformanceRequest::SetDiskId(const string& _diskId)
+{
+    m_diskId = _diskId;
+    m_diskIdHasBeenSet = true;
+}
+
+bool InquirePriceModifyDiskExtraPerformanceRequest::DiskIdHasBeenSet() const
+{
+    return m_diskIdHasBeenSet;
 }
 
 

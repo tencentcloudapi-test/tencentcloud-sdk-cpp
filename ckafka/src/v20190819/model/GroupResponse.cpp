@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ using namespace std;
 
 GroupResponse::GroupResponse() :
     m_totalCountHasBeenSet(false),
-    m_groupListHasBeenSet(false)
+    m_groupListHasBeenSet(false),
+    m_groupCountQuotaHasBeenSet(false)
 {
 }
 
@@ -61,6 +62,16 @@ CoreInternalOutcome GroupResponse::Deserialize(const rapidjson::Value &value)
         m_groupListHasBeenSet = true;
     }
 
+    if (value.HasMember("GroupCountQuota") && !value["GroupCountQuota"].IsNull())
+    {
+        if (!value["GroupCountQuota"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `GroupResponse.GroupCountQuota` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_groupCountQuota = value["GroupCountQuota"].GetUint64();
+        m_groupCountQuotaHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -89,6 +100,14 @@ void GroupResponse::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_groupCountQuotaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GroupCountQuota";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_groupCountQuota, allocator);
     }
 
 }
@@ -124,5 +143,21 @@ void GroupResponse::SetGroupList(const vector<DescribeGroup>& _groupList)
 bool GroupResponse::GroupListHasBeenSet() const
 {
     return m_groupListHasBeenSet;
+}
+
+uint64_t GroupResponse::GetGroupCountQuota() const
+{
+    return m_groupCountQuota;
+}
+
+void GroupResponse::SetGroupCountQuota(const uint64_t& _groupCountQuota)
+{
+    m_groupCountQuota = _groupCountQuota;
+    m_groupCountQuotaHasBeenSet = true;
+}
+
+bool GroupResponse::GroupCountQuotaHasBeenSet() const
+{
+    return m_groupCountQuotaHasBeenSet;
 }
 

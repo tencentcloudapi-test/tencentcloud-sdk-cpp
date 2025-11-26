@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,58 +50,63 @@ namespace TencentCloud
                     /**
                      * 获取状态描述
                      * @return Status 状态描述
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 设置状态描述
-                     * @param Status 状态描述
+                     * @param _status 状态描述
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取状态描述信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Message 状态描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMessage() const;
 
                     /**
                      * 设置状态描述信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Message 状态描述信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _message 状态描述信息
+                     * 
                      */
                     void SetMessage(const std::string& _message);
 
                     /**
                      * 判断参数 Message 是否已赋值
                      * @return Message 是否已赋值
+                     * 
                      */
                     bool MessageHasBeenSet() const;
 
                     /**
                      * 获取配置信息
                      * @return InstanceTypeConfig 配置信息
+                     * 
                      */
                     InstanceTypeConfig GetInstanceTypeConfig() const;
 
                     /**
                      * 设置配置信息
-                     * @param InstanceTypeConfig 配置信息
+                     * @param _instanceTypeConfig 配置信息
+                     * 
                      */
                     void SetInstanceTypeConfig(const InstanceTypeConfig& _instanceTypeConfig);
 
                     /**
                      * 判断参数 InstanceTypeConfig 是否已赋值
                      * @return InstanceTypeConfig 是否已赋值
+                     * 
                      */
                     bool InstanceTypeConfigHasBeenSet() const;
 
@@ -115,7 +120,6 @@ namespace TencentCloud
 
                     /**
                      * 状态描述信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_message;
                     bool m_messageHasBeenSet;

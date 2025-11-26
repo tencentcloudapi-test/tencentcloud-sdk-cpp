@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,8 @@ ModifyAutoScalingGroupRequest::ModifyAutoScalingGroupRequest() :
     m_loadBalancerHealthCheckGracePeriodHasBeenSet(false),
     m_instanceAllocationPolicyHasBeenSet(false),
     m_spotMixedAllocationPolicyHasBeenSet(false),
-    m_capacityRebalanceHasBeenSet(false)
+    m_capacityRebalanceHasBeenSet(false),
+    m_instanceNameIndexSettingsHasBeenSet(false)
 {
 }
 
@@ -246,6 +247,15 @@ string ModifyAutoScalingGroupRequest::ToJsonString() const
         string key = "CapacityRebalance";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_capacityRebalance, allocator);
+    }
+
+    if (m_instanceNameIndexSettingsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceNameIndexSettings";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_instanceNameIndexSettings.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -606,6 +616,22 @@ void ModifyAutoScalingGroupRequest::SetCapacityRebalance(const bool& _capacityRe
 bool ModifyAutoScalingGroupRequest::CapacityRebalanceHasBeenSet() const
 {
     return m_capacityRebalanceHasBeenSet;
+}
+
+InstanceNameIndexSettings ModifyAutoScalingGroupRequest::GetInstanceNameIndexSettings() const
+{
+    return m_instanceNameIndexSettings;
+}
+
+void ModifyAutoScalingGroupRequest::SetInstanceNameIndexSettings(const InstanceNameIndexSettings& _instanceNameIndexSettings)
+{
+    m_instanceNameIndexSettings = _instanceNameIndexSettings;
+    m_instanceNameIndexSettingsHasBeenSet = true;
+}
+
+bool ModifyAutoScalingGroupRequest::InstanceNameIndexSettingsHasBeenSet() const
+{
+    return m_instanceNameIndexSettingsHasBeenSet;
 }
 
 

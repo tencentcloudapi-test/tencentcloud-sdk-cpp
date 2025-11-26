@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,18 +49,21 @@ namespace TencentCloud
                     /**
                      * 获取是否启用
                      * @return Enable 是否启用
+                     * 
                      */
                     bool GetEnable() const;
 
                     /**
                      * 设置是否启用
-                     * @param Enable 是否启用
+                     * @param _enable 是否启用
+                     * 
                      */
                     void SetEnable(const bool& _enable);
 
                     /**
                      * 判断参数 Enable 是否已赋值
                      * @return Enable 是否已赋值
+                     * 
                      */
                     bool EnableHasBeenSet() const;
 
@@ -69,20 +72,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Region 地域
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRegion() const;
 
                     /**
                      * 设置地域
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Region 地域
+                     * @param _region 地域
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRegion(const std::string& _region);
 
                     /**
                      * 判断参数 Region 是否已赋值
                      * @return Region 是否已赋值
+                     * 
                      */
                     bool RegionHasBeenSet() const;
 
@@ -91,22 +97,50 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return InstanceId APM 实例，如果创建时传入的参数为空，则表示自动创建 APM 实例。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置APM 实例，如果创建时传入的参数为空，则表示自动创建 APM 实例。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param InstanceId APM 实例，如果创建时传入的参数为空，则表示自动创建 APM 实例。
+                     * @param _instanceId APM 实例，如果创建时传入的参数为空，则表示自动创建 APM 实例。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
+
+                    /**
+                     * 获取是否要删除APM实例
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return NeedDelete 是否要删除APM实例
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    bool GetNeedDelete() const;
+
+                    /**
+                     * 设置是否要删除APM实例
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _needDelete 是否要删除APM实例
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetNeedDelete(const bool& _needDelete);
+
+                    /**
+                     * 判断参数 NeedDelete 是否已赋值
+                     * @return NeedDelete 是否已赋值
+                     * 
+                     */
+                    bool NeedDeleteHasBeenSet() const;
 
                 private:
 
@@ -129,6 +163,13 @@ namespace TencentCloud
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
+
+                    /**
+                     * 是否要删除APM实例
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    bool m_needDelete;
+                    bool m_needDeleteHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 视频处理任务中的水印参数类型
+                * 媒体处理任务中的水印参数类型
                 */
                 class WatermarkInput : public AbstractModel
                 {
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取水印模板 ID。
                      * @return Definition 水印模板 ID。
+                     * 
                      */
                     uint64_t GetDefinition() const;
 
                     /**
                      * 设置水印模板 ID。
-                     * @param Definition 水印模板 ID。
+                     * @param _definition 水印模板 ID。
+                     * 
                      */
                     void SetDefinition(const uint64_t& _definition);
 
                     /**
                      * 判断参数 Definition 是否已赋值
                      * @return Definition 是否已赋值
+                     * 
                      */
                     bool DefinitionHasBeenSet() const;
 
@@ -72,6 +75,7 @@ namespace TencentCloud
                      * @return RawParameter 水印自定义参数，当 Definition 填 0 时有效。
 该参数用于高度定制场景，建议您优先使用 Definition 指定水印参数。
 水印自定义参数不支持截图打水印。
+                     * 
                      */
                     RawWatermarkParameter GetRawParameter() const;
 
@@ -79,15 +83,17 @@ namespace TencentCloud
                      * 设置水印自定义参数，当 Definition 填 0 时有效。
 该参数用于高度定制场景，建议您优先使用 Definition 指定水印参数。
 水印自定义参数不支持截图打水印。
-                     * @param RawParameter 水印自定义参数，当 Definition 填 0 时有效。
+                     * @param _rawParameter 水印自定义参数，当 Definition 填 0 时有效。
 该参数用于高度定制场景，建议您优先使用 Definition 指定水印参数。
 水印自定义参数不支持截图打水印。
+                     * 
                      */
                     void SetRawParameter(const RawWatermarkParameter& _rawParameter);
 
                     /**
                      * 判断参数 RawParameter 是否已赋值
                      * @return RawParameter 是否已赋值
+                     * 
                      */
                     bool RawParameterHasBeenSet() const;
 
@@ -96,20 +102,23 @@ namespace TencentCloud
 文字水印不支持截图打水印。
                      * @return TextContent 文字内容，长度不超过100个字符。仅当水印类型为文字水印时填写。
 文字水印不支持截图打水印。
+                     * 
                      */
                     std::string GetTextContent() const;
 
                     /**
                      * 设置文字内容，长度不超过100个字符。仅当水印类型为文字水印时填写。
 文字水印不支持截图打水印。
-                     * @param TextContent 文字内容，长度不超过100个字符。仅当水印类型为文字水印时填写。
+                     * @param _textContent 文字内容，长度不超过100个字符。仅当水印类型为文字水印时填写。
 文字水印不支持截图打水印。
+                     * 
                      */
                     void SetTextContent(const std::string& _textContent);
 
                     /**
                      * 判断参数 TextContent 是否已赋值
                      * @return TextContent 是否已赋值
+                     * 
                      */
                     bool TextContentHasBeenSet() const;
 
@@ -118,20 +127,23 @@ namespace TencentCloud
 SVG 水印不支持截图打水印。
                      * @return SvgContent SVG 内容。长度不超过 2000000 个字符。仅当水印类型为 SVG 水印时填写。
 SVG 水印不支持截图打水印。
+                     * 
                      */
                     std::string GetSvgContent() const;
 
                     /**
                      * 设置SVG 内容。长度不超过 2000000 个字符。仅当水印类型为 SVG 水印时填写。
 SVG 水印不支持截图打水印。
-                     * @param SvgContent SVG 内容。长度不超过 2000000 个字符。仅当水印类型为 SVG 水印时填写。
+                     * @param _svgContent SVG 内容。长度不超过 2000000 个字符。仅当水印类型为 SVG 水印时填写。
 SVG 水印不支持截图打水印。
+                     * 
                      */
                     void SetSvgContent(const std::string& _svgContent);
 
                     /**
                      * 判断参数 SvgContent 是否已赋值
                      * @return SvgContent 是否已赋值
+                     * 
                      */
                     bool SvgContentHasBeenSet() const;
 
@@ -140,10 +152,13 @@ SVG 水印不支持截图打水印。
 <li>不填或填0，表示水印从画面开始就出现；</li>
 <li>当数值大于0时（假设为 n），表示水印从画面开始的第 n 秒出现；</li>
 <li>当数值小于0时（假设为 -n），表示水印从离画面结束 n 秒前开始出现。</li>
+注：只用于视频场景，截图不支持。
                      * @return StartTimeOffset 水印的起始时间偏移，单位：秒。不填或填0，表示水印从画面出现时开始显现。
 <li>不填或填0，表示水印从画面开始就出现；</li>
 <li>当数值大于0时（假设为 n），表示水印从画面开始的第 n 秒出现；</li>
 <li>当数值小于0时（假设为 -n），表示水印从离画面结束 n 秒前开始出现。</li>
+注：只用于视频场景，截图不支持。
+                     * 
                      */
                     double GetStartTimeOffset() const;
 
@@ -152,16 +167,20 @@ SVG 水印不支持截图打水印。
 <li>不填或填0，表示水印从画面开始就出现；</li>
 <li>当数值大于0时（假设为 n），表示水印从画面开始的第 n 秒出现；</li>
 <li>当数值小于0时（假设为 -n），表示水印从离画面结束 n 秒前开始出现。</li>
-                     * @param StartTimeOffset 水印的起始时间偏移，单位：秒。不填或填0，表示水印从画面出现时开始显现。
+注：只用于视频场景，截图不支持。
+                     * @param _startTimeOffset 水印的起始时间偏移，单位：秒。不填或填0，表示水印从画面出现时开始显现。
 <li>不填或填0，表示水印从画面开始就出现；</li>
 <li>当数值大于0时（假设为 n），表示水印从画面开始的第 n 秒出现；</li>
 <li>当数值小于0时（假设为 -n），表示水印从离画面结束 n 秒前开始出现。</li>
+注：只用于视频场景，截图不支持。
+                     * 
                      */
                     void SetStartTimeOffset(const double& _startTimeOffset);
 
                     /**
                      * 判断参数 StartTimeOffset 是否已赋值
                      * @return StartTimeOffset 是否已赋值
+                     * 
                      */
                     bool StartTimeOffsetHasBeenSet() const;
 
@@ -170,10 +189,13 @@ SVG 水印不支持截图打水印。
 <li>不填或填0，表示水印持续到画面结束；</li>
 <li>当数值大于0时（假设为 n），表示水印持续到第 n 秒时消失；</li>
 <li>当数值小于0时（假设为 -n），表示水印持续到离画面结束 n 秒前消失。</li>
+注：只用于视频场景，截图不支持。
                      * @return EndTimeOffset 水印的结束时间偏移，单位：秒。
 <li>不填或填0，表示水印持续到画面结束；</li>
 <li>当数值大于0时（假设为 n），表示水印持续到第 n 秒时消失；</li>
 <li>当数值小于0时（假设为 -n），表示水印持续到离画面结束 n 秒前消失。</li>
+注：只用于视频场景，截图不支持。
+                     * 
                      */
                     double GetEndTimeOffset() const;
 
@@ -182,16 +204,20 @@ SVG 水印不支持截图打水印。
 <li>不填或填0，表示水印持续到画面结束；</li>
 <li>当数值大于0时（假设为 n），表示水印持续到第 n 秒时消失；</li>
 <li>当数值小于0时（假设为 -n），表示水印持续到离画面结束 n 秒前消失。</li>
-                     * @param EndTimeOffset 水印的结束时间偏移，单位：秒。
+注：只用于视频场景，截图不支持。
+                     * @param _endTimeOffset 水印的结束时间偏移，单位：秒。
 <li>不填或填0，表示水印持续到画面结束；</li>
 <li>当数值大于0时（假设为 n），表示水印持续到第 n 秒时消失；</li>
 <li>当数值小于0时（假设为 -n），表示水印持续到离画面结束 n 秒前消失。</li>
+注：只用于视频场景，截图不支持。
+                     * 
                      */
                     void SetEndTimeOffset(const double& _endTimeOffset);
 
                     /**
                      * 判断参数 EndTimeOffset 是否已赋值
                      * @return EndTimeOffset 是否已赋值
+                     * 
                      */
                     bool EndTimeOffsetHasBeenSet() const;
 
@@ -230,6 +256,7 @@ SVG 水印不支持截图打水印。
 <li>不填或填0，表示水印从画面开始就出现；</li>
 <li>当数值大于0时（假设为 n），表示水印从画面开始的第 n 秒出现；</li>
 <li>当数值小于0时（假设为 -n），表示水印从离画面结束 n 秒前开始出现。</li>
+注：只用于视频场景，截图不支持。
                      */
                     double m_startTimeOffset;
                     bool m_startTimeOffsetHasBeenSet;
@@ -239,6 +266,7 @@ SVG 水印不支持截图打水印。
 <li>不填或填0，表示水印持续到画面结束；</li>
 <li>当数值大于0时（假设为 n），表示水印持续到第 n 秒时消失；</li>
 <li>当数值小于0时（假设为 -n），表示水印持续到离画面结束 n 秒前消失。</li>
+注：只用于视频场景，截图不支持。
                      */
                     double m_endTimeOffset;
                     bool m_endTimeOffsetHasBeenSet;

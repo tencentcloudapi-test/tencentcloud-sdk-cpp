@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,12 +47,14 @@ namespace TencentCloud
                     /**
                      * 获取自定义人物信息
                      * @return PersonInfo 自定义人物信息
+                     * 
                      */
                     CustomPersonInfo GetPersonInfo() const;
 
                     /**
                      * 判断参数 PersonInfo 是否已赋值
                      * @return PersonInfo 是否已赋值
+                     * 
                      */
                     bool PersonInfoHasBeenSet() const;
 
@@ -61,12 +63,14 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return TaskIdSet 出现该自定义人物的所有分析人物Id
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetTaskIdSet() const;
 
                     /**
                      * 判断参数 TaskIdSet 是否已赋值
                      * @return TaskIdSet 是否已赋值
+                     * 
                      */
                     bool TaskIdSetHasBeenSet() const;
 

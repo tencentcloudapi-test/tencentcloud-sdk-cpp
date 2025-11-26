@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 TextToVoiceResponse::TextToVoiceResponse() :
     m_audioHasBeenSet(false),
-    m_sessionIdHasBeenSet(false)
+    m_sessionIdHasBeenSet(false),
+    m_subtitlesHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,26 @@ CoreInternalOutcome TextToVoiceResponse::Deserialize(const string &payload)
         m_sessionIdHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Subtitles") && !rsp["Subtitles"].IsNull())
+    {
+        if (!rsp["Subtitles"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Subtitles` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["Subtitles"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            Subtitle item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_subtitles.push_back(item);
+        }
+        m_subtitlesHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +130,26 @@ string TextToVoiceResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_sessionId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_subtitlesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Subtitles";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_subtitles.begin(); itr != m_subtitles.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +175,16 @@ string TextToVoiceResponse::GetSessionId() const
 bool TextToVoiceResponse::SessionIdHasBeenSet() const
 {
     return m_sessionIdHasBeenSet;
+}
+
+vector<Subtitle> TextToVoiceResponse::GetSubtitles() const
+{
+    return m_subtitles;
+}
+
+bool TextToVoiceResponse::SubtitlesHasBeenSet() const
+{
+    return m_subtitlesHasBeenSet;
 }
 
 

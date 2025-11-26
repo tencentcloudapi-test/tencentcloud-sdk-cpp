@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,30 @@ namespace TencentCloud
                     /**
                      * 获取资源汇总列表
                      * @return ResourceSummarySet 资源汇总列表
+                     * 
                      */
                     std::vector<BillResourceSummary> GetResourceSummarySet() const;
 
                     /**
                      * 判断参数 ResourceSummarySet 是否已赋值
                      * @return ResourceSummarySet 是否已赋值
+                     * 
                      */
                     bool ResourceSummarySetHasBeenSet() const;
 
                     /**
-                     * 获取资源汇总列表总数
+                     * 获取资源汇总列表总数，入参NeedRecordNum为0时不返回
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Total 资源汇总列表总数
+                     * @return Total 资源汇总列表总数，入参NeedRecordNum为0时不返回
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
@@ -79,7 +83,7 @@ namespace TencentCloud
                     bool m_resourceSummarySetHasBeenSet;
 
                     /**
-                     * 资源汇总列表总数
+                     * 资源汇总列表总数，入参NeedRecordNum为0时不返回
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_total;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,7 +60,9 @@ DescribeCloudBaseRunServerVersionResponse::DescribeCloudBaseRunServerVersionResp
     m_baseImageHasBeenSet(false),
     m_entryPointHasBeenSet(false),
     m_repoLanguageHasBeenSet(false),
-    m_policyDetailHasBeenSet(false)
+    m_policyDetailHasBeenSet(false),
+    m_tkeClusterInfoHasBeenSet(false),
+    m_tkeWorkloadTypeHasBeenSet(false)
 {
 }
 
@@ -140,21 +142,21 @@ CoreInternalOutcome DescribeCloudBaseRunServerVersionResponse::Deserialize(const
 
     if (rsp.HasMember("Cpu") && !rsp["Cpu"].IsNull())
     {
-        if (!rsp["Cpu"].IsInt64())
+        if (!rsp["Cpu"].IsLosslessDouble())
         {
-            return CoreInternalOutcome(Core::Error("response `Cpu` IsInt64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `Cpu` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
         }
-        m_cpu = rsp["Cpu"].GetInt64();
+        m_cpu = rsp["Cpu"].GetDouble();
         m_cpuHasBeenSet = true;
     }
 
     if (rsp.HasMember("Mem") && !rsp["Mem"].IsNull())
     {
-        if (!rsp["Mem"].IsInt64())
+        if (!rsp["Mem"].IsLosslessDouble())
         {
-            return CoreInternalOutcome(Core::Error("response `Mem` IsInt64=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `Mem` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
         }
-        m_mem = rsp["Mem"].GetInt64();
+        m_mem = rsp["Mem"].GetDouble();
         m_memHasBeenSet = true;
     }
 
@@ -481,6 +483,33 @@ CoreInternalOutcome DescribeCloudBaseRunServerVersionResponse::Deserialize(const
         m_policyDetailHasBeenSet = true;
     }
 
+    if (rsp.HasMember("TkeClusterInfo") && !rsp["TkeClusterInfo"].IsNull())
+    {
+        if (!rsp["TkeClusterInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TkeClusterInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_tkeClusterInfo.Deserialize(rsp["TkeClusterInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_tkeClusterInfoHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("TkeWorkloadType") && !rsp["TkeWorkloadType"].IsNull())
+    {
+        if (!rsp["TkeWorkloadType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TkeWorkloadType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_tkeWorkloadType = string(rsp["TkeWorkloadType"].GetString());
+        m_tkeWorkloadTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -799,11 +828,28 @@ string DescribeCloudBaseRunServerVersionResponse::ToJsonString() const
         }
     }
 
+    if (m_tkeClusterInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TkeClusterInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_tkeClusterInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_tkeWorkloadTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TkeWorkloadType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_tkeWorkloadType.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -851,7 +897,7 @@ bool DescribeCloudBaseRunServerVersionResponse::BuildDirHasBeenSet() const
     return m_buildDirHasBeenSet;
 }
 
-int64_t DescribeCloudBaseRunServerVersionResponse::GetCpu() const
+double DescribeCloudBaseRunServerVersionResponse::GetCpu() const
 {
     return m_cpu;
 }
@@ -861,7 +907,7 @@ bool DescribeCloudBaseRunServerVersionResponse::CpuHasBeenSet() const
     return m_cpuHasBeenSet;
 }
 
-int64_t DescribeCloudBaseRunServerVersionResponse::GetMem() const
+double DescribeCloudBaseRunServerVersionResponse::GetMem() const
 {
     return m_mem;
 }
@@ -1179,6 +1225,26 @@ vector<HpaPolicy> DescribeCloudBaseRunServerVersionResponse::GetPolicyDetail() c
 bool DescribeCloudBaseRunServerVersionResponse::PolicyDetailHasBeenSet() const
 {
     return m_policyDetailHasBeenSet;
+}
+
+TkeClusterInfo DescribeCloudBaseRunServerVersionResponse::GetTkeClusterInfo() const
+{
+    return m_tkeClusterInfo;
+}
+
+bool DescribeCloudBaseRunServerVersionResponse::TkeClusterInfoHasBeenSet() const
+{
+    return m_tkeClusterInfoHasBeenSet;
+}
+
+string DescribeCloudBaseRunServerVersionResponse::GetTkeWorkloadType() const
+{
+    return m_tkeWorkloadType;
+}
+
+bool DescribeCloudBaseRunServerVersionResponse::TkeWorkloadTypeHasBeenSet() const
+{
+    return m_tkeWorkloadTypeHasBeenSet;
 }
 
 

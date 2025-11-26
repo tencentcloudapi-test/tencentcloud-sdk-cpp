@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取视频短边长度，单位：像素。
                      * @return MinEdgeLength 视频短边长度，单位：像素。
+                     * 
                      */
                     uint64_t GetMinEdgeLength() const;
 
                     /**
                      * 设置视频短边长度，单位：像素。
-                     * @param MinEdgeLength 视频短边长度，单位：像素。
+                     * @param _minEdgeLength 视频短边长度，单位：像素。
+                     * 
                      */
                     void SetMinEdgeLength(const uint64_t& _minEdgeLength);
 
                     /**
                      * 判断参数 MinEdgeLength 是否已赋值
                      * @return MinEdgeLength 是否已赋值
+                     * 
                      */
                     bool MinEdgeLengthHasBeenSet() const;
 
                     /**
                      * 获取展示名字。
                      * @return Name 展示名字。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置展示名字。
-                     * @param Name 展示名字。
+                     * @param _name 展示名字。
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 

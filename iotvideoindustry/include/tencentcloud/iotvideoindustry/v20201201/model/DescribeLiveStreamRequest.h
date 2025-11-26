@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取频道ID
                      * @return LiveChannelId 频道ID
+                     * 
                      */
                     std::string GetLiveChannelId() const;
 
                     /**
                      * 设置频道ID
-                     * @param LiveChannelId 频道ID
+                     * @param _liveChannelId 频道ID
+                     * 
                      */
                     void SetLiveChannelId(const std::string& _liveChannelId);
 
                     /**
                      * 判断参数 LiveChannelId 是否已赋值
                      * @return LiveChannelId 是否已赋值
+                     * 
                      */
                     bool LiveChannelIdHasBeenSet() const;
 
                     /**
-                     * 获取过期时间
-                     * @return ExpireTime 过期时间
+                     * 获取过期时间 秒级unix时间戳
+                     * @return ExpireTime 过期时间 秒级unix时间戳
+                     * 
                      */
                     int64_t GetExpireTime() const;
 
                     /**
-                     * 设置过期时间
-                     * @param ExpireTime 过期时间
+                     * 设置过期时间 秒级unix时间戳
+                     * @param _expireTime 过期时间 秒级unix时间戳
+                     * 
                      */
                     void SetExpireTime(const int64_t& _expireTime);
 
                     /**
                      * 判断参数 ExpireTime 是否已赋值
                      * @return ExpireTime 是否已赋值
+                     * 
                      */
                     bool ExpireTimeHasBeenSet() const;
 
@@ -87,7 +93,7 @@ namespace TencentCloud
                     bool m_liveChannelIdHasBeenSet;
 
                     /**
-                     * 过期时间
+                     * 过期时间 秒级unix时间戳
                      */
                     int64_t m_expireTime;
                     bool m_expireTimeHasBeenSet;

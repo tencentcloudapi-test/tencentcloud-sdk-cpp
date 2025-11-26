@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,9 @@ CreateUserRequest::CreateUserRequest() :
     m_userDescriptionHasBeenSet(false),
     m_policySetHasBeenSet(false),
     m_userTypeHasBeenSet(false),
-    m_workGroupIdsHasBeenSet(false)
+    m_workGroupIdsHasBeenSet(false),
+    m_userAliasHasBeenSet(false),
+    m_accountTypeHasBeenSet(false)
 {
 }
 
@@ -88,6 +90,22 @@ string CreateUserRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
         }
+    }
+
+    if (m_userAliasHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserAlias";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_userAlias.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_accountTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AccountType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_accountType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -176,6 +194,38 @@ void CreateUserRequest::SetWorkGroupIds(const vector<int64_t>& _workGroupIds)
 bool CreateUserRequest::WorkGroupIdsHasBeenSet() const
 {
     return m_workGroupIdsHasBeenSet;
+}
+
+string CreateUserRequest::GetUserAlias() const
+{
+    return m_userAlias;
+}
+
+void CreateUserRequest::SetUserAlias(const string& _userAlias)
+{
+    m_userAlias = _userAlias;
+    m_userAliasHasBeenSet = true;
+}
+
+bool CreateUserRequest::UserAliasHasBeenSet() const
+{
+    return m_userAliasHasBeenSet;
+}
+
+string CreateUserRequest::GetAccountType() const
+{
+    return m_accountType;
+}
+
+void CreateUserRequest::SetAccountType(const string& _accountType)
+{
+    m_accountType = _accountType;
+    m_accountTypeHasBeenSet = true;
+}
+
+bool CreateUserRequest::AccountTypeHasBeenSet() const
+{
+    return m_accountTypeHasBeenSet;
 }
 
 

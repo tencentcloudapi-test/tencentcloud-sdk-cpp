@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取vpc列表
                      * @return VpcSet vpc列表
+                     * 
                      */
                     std::vector<VpcAndDomainInfo> GetVpcSet() const;
 
                     /**
                      * 设置vpc列表
-                     * @param VpcSet vpc列表
+                     * @param _vpcSet vpc列表
+                     * 
                      */
                     void SetVpcSet(const std::vector<VpcAndDomainInfo>& _vpcSet);
 
                     /**
                      * 判断参数 VpcSet 是否已赋值
                      * @return VpcSet 是否已赋值
+                     * 
                      */
                     bool VpcSetHasBeenSet() const;
 

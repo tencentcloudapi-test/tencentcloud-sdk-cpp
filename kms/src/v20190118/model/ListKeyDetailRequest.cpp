@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ ListKeyDetailRequest::ListKeyDetailRequest() :
     m_searchKeyAliasHasBeenSet(false),
     m_originHasBeenSet(false),
     m_keyUsageHasBeenSet(false),
-    m_tagFiltersHasBeenSet(false)
+    m_tagFiltersHasBeenSet(false),
+    m_hsmClusterIdHasBeenSet(false)
 {
 }
 
@@ -119,6 +120,14 @@ string ListKeyDetailRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_hsmClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HsmClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_hsmClusterId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -271,6 +280,22 @@ void ListKeyDetailRequest::SetTagFilters(const vector<TagFilter>& _tagFilters)
 bool ListKeyDetailRequest::TagFiltersHasBeenSet() const
 {
     return m_tagFiltersHasBeenSet;
+}
+
+string ListKeyDetailRequest::GetHsmClusterId() const
+{
+    return m_hsmClusterId;
+}
+
+void ListKeyDetailRequest::SetHsmClusterId(const string& _hsmClusterId)
+{
+    m_hsmClusterId = _hsmClusterId;
+    m_hsmClusterIdHasBeenSet = true;
+}
+
+bool ListKeyDetailRequest::HsmClusterIdHasBeenSet() const
+{
+    return m_hsmClusterIdHasBeenSet;
 }
 
 

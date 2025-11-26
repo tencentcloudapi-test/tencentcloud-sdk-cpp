@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,56 @@ namespace TencentCloud
                     /**
                      * 获取导出的状态。取值为, SUCCESS:成功、FAILURE:失败，RUNNING: 进行中。
                      * @return ExportStatus 导出的状态。取值为, SUCCESS:成功、FAILURE:失败，RUNNING: 进行中。
+                     * 
                      */
                     std::string GetExportStatus() const;
 
                     /**
                      * 判断参数 ExportStatus 是否已赋值
                      * @return ExportStatus 是否已赋值
+                     * 
                      */
                     bool ExportStatusHasBeenSet() const;
 
                     /**
                      * 获取返回下载URL
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DownloadURL 返回下载URL
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDownloadURL() const;
 
                     /**
                      * 判断参数 DownloadURL 是否已赋值
                      * @return DownloadURL 是否已赋值
+                     * 
                      */
                     bool DownloadURLHasBeenSet() const;
 
                     /**
                      * 获取当ExportStatus为RUNNING时，返回导出进度。0~100范围的浮点数。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ExportProgress 当ExportStatus为RUNNING时，返回导出进度。0~100范围的浮点数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     double GetExportProgress() const;
 
                     /**
                      * 判断参数 ExportProgress 是否已赋值
                      * @return ExportProgress 是否已赋值
+                     * 
                      */
                     bool ExportProgressHasBeenSet() const;
 
                     /**
                      * 获取失败原因
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FailureMsg 失败原因
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetFailureMsg() const;
 
                     /**
                      * 判断参数 FailureMsg 是否已赋值
                      * @return FailureMsg 是否已赋值
+                     * 
                      */
                     bool FailureMsgHasBeenSet() const;
 
@@ -107,21 +109,18 @@ namespace TencentCloud
 
                     /**
                      * 返回下载URL
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_downloadURL;
                     bool m_downloadURLHasBeenSet;
 
                     /**
                      * 当ExportStatus为RUNNING时，返回导出进度。0~100范围的浮点数。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_exportProgress;
                     bool m_exportProgressHasBeenSet;
 
                     /**
                      * 失败原因
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_failureMsg;
                     bool m_failureMsgHasBeenSet;

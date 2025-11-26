@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,177 +48,169 @@ namespace TencentCloud
 
                     /**
                      * 获取第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return FirstTimestamp 第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetFirstTimestamp() const;
 
                     /**
                      * 设置第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FirstTimestamp 第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _firstTimestamp 第一次出现的时间，以 ms 为单位的时间戳
+                     * 
                      */
                     void SetFirstTimestamp(const int64_t& _firstTimestamp);
 
                     /**
                      * 判断参数 FirstTimestamp 是否已赋值
                      * @return FirstTimestamp 是否已赋值
+                     * 
                      */
                     bool FirstTimestampHasBeenSet() const;
 
                     /**
                      * 获取最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LastTimestamp 最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetLastTimestamp() const;
 
                     /**
                      * 设置最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param LastTimestamp 最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _lastTimestamp 最后一次出现的时间，以 ms 为单位的时间戳
+                     * 
                      */
                     void SetLastTimestamp(const int64_t& _lastTimestamp);
 
                     /**
                      * 判断参数 LastTimestamp 是否已赋值
                      * @return LastTimestamp 是否已赋值
+                     * 
                      */
                     bool LastTimestampHasBeenSet() const;
 
                     /**
                      * 获取级别
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Type 级别
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置级别
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Type 级别
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _type 级别
+                     * 
                      */
                     void SetType(const std::string& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取资源类型
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Kind 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
+                     * @return Kind Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
+                     * 
                      */
                     std::string GetKind() const;
 
                     /**
-                     * 设置资源类型
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Kind 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
+                     * @param _kind Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
+                     * 
                      */
                     void SetKind(const std::string& _kind);
 
                     /**
                      * 判断参数 Kind 是否已赋值
                      * @return Kind 是否已赋值
+                     * 
                      */
                     bool KindHasBeenSet() const;
 
                     /**
                      * 获取资源名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Name 资源名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置资源名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Name 资源名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _name 资源名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取内容
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Reason 内容
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetReason() const;
 
                     /**
                      * 设置内容
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Reason 内容
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _reason 内容
+                     * 
                      */
                     void SetReason(const std::string& _reason);
 
                     /**
                      * 判断参数 Reason 是否已赋值
                      * @return Reason 是否已赋值
+                     * 
                      */
                     bool ReasonHasBeenSet() const;
 
                     /**
                      * 获取详细描述
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Message 详细描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMessage() const;
 
                     /**
                      * 设置详细描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Message 详细描述
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _message 详细描述
+                     * 
                      */
                     void SetMessage(const std::string& _message);
 
                     /**
                      * 判断参数 Message 是否已赋值
                      * @return Message 是否已赋值
+                     * 
                      */
                     bool MessageHasBeenSet() const;
 
                     /**
                      * 获取出现次数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Count 出现次数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置出现次数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Count 出现次数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _count 出现次数
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
@@ -226,56 +218,48 @@ namespace TencentCloud
 
                     /**
                      * 第一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_firstTimestamp;
                     bool m_firstTimestampHasBeenSet;
 
                     /**
                      * 最后一次出现的时间，以 ms 为单位的时间戳
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_lastTimestamp;
                     bool m_lastTimestampHasBeenSet;
 
                     /**
                      * 级别
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * 资源类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * Kubernetes 资源类型，典型取值有 Deployment(部署资源)、Pod(容器组)、Service(服务资源) 等
                      */
                     std::string m_kind;
                     bool m_kindHasBeenSet;
 
                     /**
                      * 资源名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
                      * 内容
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_reason;
                     bool m_reasonHasBeenSet;
 
                     /**
                      * 详细描述
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_message;
                     bool m_messageHasBeenSet;
 
                     /**
                      * 出现次数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_count;
                     bool m_countHasBeenSet;

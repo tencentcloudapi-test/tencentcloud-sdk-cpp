@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ CreateWxCloudBaseRunServerDBClusterRequest::CreateWxCloudBaseRunServerDBClusterR
     m_accountPasswordHasBeenSet(false),
     m_envIdHasBeenSet(false),
     m_wxAppIdHasBeenSet(false),
-    m_dbVersionHasBeenSet(false)
+    m_dbVersionHasBeenSet(false),
+    m_lowerCaseTableNameHasBeenSet(false)
 {
 }
 
@@ -67,6 +68,14 @@ string CreateWxCloudBaseRunServerDBClusterRequest::ToJsonString() const
         string key = "DbVersion";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_dbVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_lowerCaseTableNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LowerCaseTableName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_lowerCaseTableName.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -139,6 +148,22 @@ void CreateWxCloudBaseRunServerDBClusterRequest::SetDbVersion(const string& _dbV
 bool CreateWxCloudBaseRunServerDBClusterRequest::DbVersionHasBeenSet() const
 {
     return m_dbVersionHasBeenSet;
+}
+
+string CreateWxCloudBaseRunServerDBClusterRequest::GetLowerCaseTableName() const
+{
+    return m_lowerCaseTableName;
+}
+
+void CreateWxCloudBaseRunServerDBClusterRequest::SetLowerCaseTableName(const string& _lowerCaseTableName)
+{
+    m_lowerCaseTableName = _lowerCaseTableName;
+    m_lowerCaseTableNameHasBeenSet = true;
+}
+
+bool CreateWxCloudBaseRunServerDBClusterRequest::LowerCaseTableNameHasBeenSet() const
+{
+    return m_lowerCaseTableNameHasBeenSet;
 }
 
 

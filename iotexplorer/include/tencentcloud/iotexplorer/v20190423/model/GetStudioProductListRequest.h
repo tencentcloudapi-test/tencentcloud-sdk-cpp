@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,72 +45,84 @@ namespace TencentCloud
                     /**
                      * 获取项目ID
                      * @return ProjectId 项目ID
+                     * 
                      */
                     std::string GetProjectId() const;
 
                     /**
                      * 设置项目ID
-                     * @param ProjectId 项目ID
+                     * @param _projectId 项目ID
+                     * 
                      */
                     void SetProjectId(const std::string& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 
                     /**
                      * 获取产品DevStatus
                      * @return DevStatus 产品DevStatus
+                     * 
                      */
                     std::string GetDevStatus() const;
 
                     /**
                      * 设置产品DevStatus
-                     * @param DevStatus 产品DevStatus
+                     * @param _devStatus 产品DevStatus
+                     * 
                      */
                     void SetDevStatus(const std::string& _devStatus);
 
                     /**
                      * 判断参数 DevStatus 是否已赋值
                      * @return DevStatus 是否已赋值
+                     * 
                      */
                     bool DevStatusHasBeenSet() const;
 
                     /**
-                     * 获取Offset
-                     * @return Offset Offset
+                     * 获取偏移量
+                     * @return Offset 偏移量
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置Offset
-                     * @param Offset Offset
+                     * 设置偏移量
+                     * @param _offset 偏移量
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取Limit
-                     * @return Limit Limit
+                     * 获取数量限制
+                     * @return Limit 数量限制
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置Limit
-                     * @param Limit Limit
+                     * 设置数量限制
+                     * @param _limit 数量限制
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
@@ -129,13 +141,13 @@ namespace TencentCloud
                     bool m_devStatusHasBeenSet;
 
                     /**
-                     * Offset
+                     * 偏移量
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * Limit
+                     * 数量限制
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;

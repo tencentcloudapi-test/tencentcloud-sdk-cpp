@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PosId 机位
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetPosId() const;
 
                     /**
                      * 设置机位
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PosId 机位
+                     * @param _posId 机位
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPosId(const std::string& _posId);
 
                     /**
                      * 判断参数 PosId 是否已赋值
                      * @return PosId 是否已赋值
+                     * 
                      */
                     bool PosIdHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return RackId 机架
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRackId() const;
 
                     /**
                      * 设置机架
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RackId 机架
+                     * @param _rackId 机架
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetRackId(const std::string& _rackId);
 
                     /**
                      * 判断参数 RackId 是否已赋值
                      * @return RackId 是否已赋值
+                     * 
                      */
                     bool RackIdHasBeenSet() const;
 
@@ -95,20 +101,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return SwitchId 交换机
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSwitchId() const;
 
                     /**
                      * 设置交换机
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SwitchId 交换机
+                     * @param _switchId 交换机
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetSwitchId(const std::string& _switchId);
 
                     /**
                      * 判断参数 SwitchId 是否已赋值
                      * @return SwitchId 是否已赋值
+                     * 
                      */
                     bool SwitchIdHasBeenSet() const;
 

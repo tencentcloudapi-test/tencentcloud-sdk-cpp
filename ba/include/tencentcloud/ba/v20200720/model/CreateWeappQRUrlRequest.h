@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取代理角色临时密钥的Token
                      * @return SessionKey 代理角色临时密钥的Token
+                     * 
                      */
                     std::string GetSessionKey() const;
 
                     /**
                      * 设置代理角色临时密钥的Token
-                     * @param SessionKey 代理角色临时密钥的Token
+                     * @param _sessionKey 代理角色临时密钥的Token
+                     * 
                      */
                     void SetSessionKey(const std::string& _sessionKey);
 
                     /**
                      * 判断参数 SessionKey 是否已赋值
                      * @return SessionKey 是否已赋值
+                     * 
                      */
                     bool SessionKeyHasBeenSet() const;
 

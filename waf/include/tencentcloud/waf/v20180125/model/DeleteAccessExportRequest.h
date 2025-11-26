@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取日志导出ID
                      * @return ExportId 日志导出ID
+                     * 
                      */
                     std::string GetExportId() const;
 
                     /**
                      * 设置日志导出ID
-                     * @param ExportId 日志导出ID
+                     * @param _exportId 日志导出ID
+                     * 
                      */
                     void SetExportId(const std::string& _exportId);
 
                     /**
                      * 判断参数 ExportId 是否已赋值
                      * @return ExportId 是否已赋值
+                     * 
                      */
                     bool ExportIdHasBeenSet() const;
 
                     /**
                      * 获取日志主题
                      * @return TopicId 日志主题
+                     * 
                      */
                     std::string GetTopicId() const;
 
                     /**
                      * 设置日志主题
-                     * @param TopicId 日志主题
+                     * @param _topicId 日志主题
+                     * 
                      */
                     void SetTopicId(const std::string& _topicId);
 
                     /**
                      * 判断参数 TopicId 是否已赋值
                      * @return TopicId 是否已赋值
+                     * 
                      */
                     bool TopicIdHasBeenSet() const;
 

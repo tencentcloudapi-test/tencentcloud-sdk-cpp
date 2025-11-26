@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ ModifyAdaptiveDynamicStreamingTemplateRequest::ModifyAdaptiveDynamicStreamingTem
     m_disableHigherVideoBitrateHasBeenSet(false),
     m_disableHigherVideoResolutionHasBeenSet(false),
     m_streamInfosHasBeenSet(false),
-    m_commentHasBeenSet(false)
+    m_commentHasBeenSet(false),
+    m_pureAudioHasBeenSet(false),
+    m_segmentTypeHasBeenSet(false)
 {
 }
 
@@ -101,6 +103,22 @@ string ModifyAdaptiveDynamicStreamingTemplateRequest::ToJsonString() const
         string key = "Comment";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_comment.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_pureAudioHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PureAudio";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_pureAudio, allocator);
+    }
+
+    if (m_segmentTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SegmentType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_segmentType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -221,6 +239,38 @@ void ModifyAdaptiveDynamicStreamingTemplateRequest::SetComment(const string& _co
 bool ModifyAdaptiveDynamicStreamingTemplateRequest::CommentHasBeenSet() const
 {
     return m_commentHasBeenSet;
+}
+
+uint64_t ModifyAdaptiveDynamicStreamingTemplateRequest::GetPureAudio() const
+{
+    return m_pureAudio;
+}
+
+void ModifyAdaptiveDynamicStreamingTemplateRequest::SetPureAudio(const uint64_t& _pureAudio)
+{
+    m_pureAudio = _pureAudio;
+    m_pureAudioHasBeenSet = true;
+}
+
+bool ModifyAdaptiveDynamicStreamingTemplateRequest::PureAudioHasBeenSet() const
+{
+    return m_pureAudioHasBeenSet;
+}
+
+string ModifyAdaptiveDynamicStreamingTemplateRequest::GetSegmentType() const
+{
+    return m_segmentType;
+}
+
+void ModifyAdaptiveDynamicStreamingTemplateRequest::SetSegmentType(const string& _segmentType)
+{
+    m_segmentType = _segmentType;
+    m_segmentTypeHasBeenSet = true;
+}
+
+bool ModifyAdaptiveDynamicStreamingTemplateRequest::SegmentTypeHasBeenSet() const
+{
+    return m_segmentTypeHasBeenSet;
 }
 
 

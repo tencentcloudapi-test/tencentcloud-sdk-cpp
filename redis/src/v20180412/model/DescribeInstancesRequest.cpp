@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,8 @@ DescribeInstancesRequest::DescribeInstancesRequest() :
     m_orderTypeHasBeenSet(false),
     m_vpcIdsHasBeenSet(false),
     m_subnetIdsHasBeenSet(false),
-    m_projectIdsHasBeenSet(false),
     m_searchKeyHasBeenSet(false),
+    m_projectIdsHasBeenSet(false),
     m_instanceNameHasBeenSet(false),
     m_uniqVpcIdsHasBeenSet(false),
     m_uniqSubnetIdsHasBeenSet(false),
@@ -46,7 +46,10 @@ DescribeInstancesRequest::DescribeInstancesRequest() :
     m_typeListHasBeenSet(false),
     m_monitorVersionHasBeenSet(false),
     m_instanceTagsHasBeenSet(false),
-    m_tagKeysHasBeenSet(false)
+    m_tagKeysHasBeenSet(false),
+    m_productVersionsHasBeenSet(false),
+    m_instanceIdsHasBeenSet(false),
+    m_azModeHasBeenSet(false)
 {
 }
 
@@ -123,6 +126,14 @@ string DescribeInstancesRequest::ToJsonString() const
         }
     }
 
+    if (m_searchKeyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SearchKey";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_searchKey.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_projectIdsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -134,14 +145,6 @@ string DescribeInstancesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
         }
-    }
-
-    if (m_searchKeyHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SearchKey";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_searchKey.c_str(), allocator).Move(), allocator);
     }
 
     if (m_instanceNameHasBeenSet)
@@ -311,6 +314,40 @@ string DescribeInstancesRequest::ToJsonString() const
         }
     }
 
+    if (m_productVersionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProductVersions";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_productVersions.begin(); itr != m_productVersions.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_instanceIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_instanceIds.begin(); itr != m_instanceIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_azModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AzMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_azMode.c_str(), allocator).Move(), allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -431,22 +468,6 @@ bool DescribeInstancesRequest::SubnetIdsHasBeenSet() const
     return m_subnetIdsHasBeenSet;
 }
 
-vector<int64_t> DescribeInstancesRequest::GetProjectIds() const
-{
-    return m_projectIds;
-}
-
-void DescribeInstancesRequest::SetProjectIds(const vector<int64_t>& _projectIds)
-{
-    m_projectIds = _projectIds;
-    m_projectIdsHasBeenSet = true;
-}
-
-bool DescribeInstancesRequest::ProjectIdsHasBeenSet() const
-{
-    return m_projectIdsHasBeenSet;
-}
-
 string DescribeInstancesRequest::GetSearchKey() const
 {
     return m_searchKey;
@@ -461,6 +482,22 @@ void DescribeInstancesRequest::SetSearchKey(const string& _searchKey)
 bool DescribeInstancesRequest::SearchKeyHasBeenSet() const
 {
     return m_searchKeyHasBeenSet;
+}
+
+vector<int64_t> DescribeInstancesRequest::GetProjectIds() const
+{
+    return m_projectIds;
+}
+
+void DescribeInstancesRequest::SetProjectIds(const vector<int64_t>& _projectIds)
+{
+    m_projectIds = _projectIds;
+    m_projectIdsHasBeenSet = true;
+}
+
+bool DescribeInstancesRequest::ProjectIdsHasBeenSet() const
+{
+    return m_projectIdsHasBeenSet;
 }
 
 string DescribeInstancesRequest::GetInstanceName() const
@@ -701,6 +738,54 @@ void DescribeInstancesRequest::SetTagKeys(const vector<string>& _tagKeys)
 bool DescribeInstancesRequest::TagKeysHasBeenSet() const
 {
     return m_tagKeysHasBeenSet;
+}
+
+vector<string> DescribeInstancesRequest::GetProductVersions() const
+{
+    return m_productVersions;
+}
+
+void DescribeInstancesRequest::SetProductVersions(const vector<string>& _productVersions)
+{
+    m_productVersions = _productVersions;
+    m_productVersionsHasBeenSet = true;
+}
+
+bool DescribeInstancesRequest::ProductVersionsHasBeenSet() const
+{
+    return m_productVersionsHasBeenSet;
+}
+
+vector<string> DescribeInstancesRequest::GetInstanceIds() const
+{
+    return m_instanceIds;
+}
+
+void DescribeInstancesRequest::SetInstanceIds(const vector<string>& _instanceIds)
+{
+    m_instanceIds = _instanceIds;
+    m_instanceIdsHasBeenSet = true;
+}
+
+bool DescribeInstancesRequest::InstanceIdsHasBeenSet() const
+{
+    return m_instanceIdsHasBeenSet;
+}
+
+string DescribeInstancesRequest::GetAzMode() const
+{
+    return m_azMode;
+}
+
+void DescribeInstancesRequest::SetAzMode(const string& _azMode)
+{
+    m_azMode = _azMode;
+    m_azModeHasBeenSet = true;
+}
+
+bool DescribeInstancesRequest::AzModeHasBeenSet() const
+{
+    return m_azModeHasBeenSet;
 }
 
 

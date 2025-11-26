@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,105 +44,135 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取过滤条件，必须传入主实例ID进行过滤，否则返回值将为空，过滤参数为：db-master-instance-id
-                     * @return Filters 过滤条件，必须传入主实例ID进行过滤，否则返回值将为空，过滤参数为：db-master-instance-id
+                     * 获取按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：
+db-master-instance-id：按照主实例过滤，类型为string。
+read-only-group-id：按照只读组ID过滤，类型为string。
+注：该参数的过滤条件中，db-master-instance-id为必须指定项。
+                     * @return Filters 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：
+db-master-instance-id：按照主实例过滤，类型为string。
+read-only-group-id：按照只读组ID过滤，类型为string。
+注：该参数的过滤条件中，db-master-instance-id为必须指定项。
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置过滤条件，必须传入主实例ID进行过滤，否则返回值将为空，过滤参数为：db-master-instance-id
-                     * @param Filters 过滤条件，必须传入主实例ID进行过滤，否则返回值将为空，过滤参数为：db-master-instance-id
+                     * 设置按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：
+db-master-instance-id：按照主实例过滤，类型为string。
+read-only-group-id：按照只读组ID过滤，类型为string。
+注：该参数的过滤条件中，db-master-instance-id为必须指定项。
+                     * @param _filters 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：
+db-master-instance-id：按照主实例过滤，类型为string。
+read-only-group-id：按照只读组ID过滤，类型为string。
+注：该参数的过滤条件中，db-master-instance-id为必须指定项。
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取查询每一页的条数，默认为10
-                     * @return PageSize 查询每一页的条数，默认为10
+                     * 获取查询每一页的条数，默认为10，最大值99。
+                     * @return PageSize 查询每一页的条数，默认为10，最大值99。
+                     * 
                      */
                     int64_t GetPageSize() const;
 
                     /**
-                     * 设置查询每一页的条数，默认为10
-                     * @param PageSize 查询每一页的条数，默认为10
+                     * 设置查询每一页的条数，默认为10，最大值99。
+                     * @param _pageSize 查询每一页的条数，默认为10，最大值99。
+                     * 
                      */
                     void SetPageSize(const int64_t& _pageSize);
 
                     /**
                      * 判断参数 PageSize 是否已赋值
                      * @return PageSize 是否已赋值
+                     * 
                      */
                     bool PageSizeHasBeenSet() const;
 
                     /**
                      * 获取查询的页码，默认为1
                      * @return PageNumber 查询的页码，默认为1
+                     * 
                      */
                     int64_t GetPageNumber() const;
 
                     /**
                      * 设置查询的页码，默认为1
-                     * @param PageNumber 查询的页码，默认为1
+                     * @param _pageNumber 查询的页码，默认为1
+                     * 
                      */
                     void SetPageNumber(const int64_t& _pageNumber);
 
                     /**
                      * 判断参数 PageNumber 是否已赋值
                      * @return PageNumber 是否已赋值
+                     * 
                      */
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取查询排序依据，目前支持:ROGroupId,CreateTime,Name
-                     * @return OrderBy 查询排序依据，目前支持:ROGroupId,CreateTime,Name
+                     * 获取查询排序依据，目前支持:ROGroupId,CreateTime,Name。默认值CreateTime
+                     * @return OrderBy 查询排序依据，目前支持:ROGroupId,CreateTime,Name。默认值CreateTime
+                     * 
                      */
                     std::string GetOrderBy() const;
 
                     /**
-                     * 设置查询排序依据，目前支持:ROGroupId,CreateTime,Name
-                     * @param OrderBy 查询排序依据，目前支持:ROGroupId,CreateTime,Name
+                     * 设置查询排序依据，目前支持:ROGroupId,CreateTime,Name。默认值CreateTime
+                     * @param _orderBy 查询排序依据，目前支持:ROGroupId,CreateTime,Name。默认值CreateTime
+                     * 
                      */
                     void SetOrderBy(const std::string& _orderBy);
 
                     /**
                      * 判断参数 OrderBy 是否已赋值
                      * @return OrderBy 是否已赋值
+                     * 
                      */
                     bool OrderByHasBeenSet() const;
 
                     /**
-                     * 获取查询排序依据类型，目前支持:desc,asc
-                     * @return OrderByType 查询排序依据类型，目前支持:desc,asc
+                     * 获取查询排序依据类型，目前支持:desc,asc。默认值asc。
+                     * @return OrderByType 查询排序依据类型，目前支持:desc,asc。默认值asc。
+                     * 
                      */
                     std::string GetOrderByType() const;
 
                     /**
-                     * 设置查询排序依据类型，目前支持:desc,asc
-                     * @param OrderByType 查询排序依据类型，目前支持:desc,asc
+                     * 设置查询排序依据类型，目前支持:desc,asc。默认值asc。
+                     * @param _orderByType 查询排序依据类型，目前支持:desc,asc。默认值asc。
+                     * 
                      */
                     void SetOrderByType(const std::string& _orderByType);
 
                     /**
                      * 判断参数 OrderByType 是否已赋值
                      * @return OrderByType 是否已赋值
+                     * 
                      */
                     bool OrderByTypeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 过滤条件，必须传入主实例ID进行过滤，否则返回值将为空，过滤参数为：db-master-instance-id
+                     * 按照一个或者多个过滤条件进行查询，目前支持的过滤条件有：
+db-master-instance-id：按照主实例过滤，类型为string。
+read-only-group-id：按照只读组ID过滤，类型为string。
+注：该参数的过滤条件中，db-master-instance-id为必须指定项。
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * 查询每一页的条数，默认为10
+                     * 查询每一页的条数，默认为10，最大值99。
                      */
                     int64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
@@ -154,13 +184,13 @@ namespace TencentCloud
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * 查询排序依据，目前支持:ROGroupId,CreateTime,Name
+                     * 查询排序依据，目前支持:ROGroupId,CreateTime,Name。默认值CreateTime
                      */
                     std::string m_orderBy;
                     bool m_orderByHasBeenSet;
 
                     /**
-                     * 查询排序依据类型，目前支持:desc,asc
+                     * 查询排序依据类型，目前支持:desc,asc。默认值asc。
                      */
                     std::string m_orderByType;
                     bool m_orderByTypeHasBeenSet;

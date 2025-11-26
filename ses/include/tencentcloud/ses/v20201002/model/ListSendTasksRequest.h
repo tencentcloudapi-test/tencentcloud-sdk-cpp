@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,90 +45,105 @@ namespace TencentCloud
                     /**
                      * 获取偏移量，整型，从0开始，0代表跳过0行
                      * @return Offset 偏移量，整型，从0开始，0代表跳过0行
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，整型，从0开始，0代表跳过0行
-                     * @param Offset 偏移量，整型，从0开始，0代表跳过0行
+                     * @param _offset 偏移量，整型，从0开始，0代表跳过0行
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取限制数目，整型,不超过100
                      * @return Limit 限制数目，整型,不超过100
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置限制数目，整型,不超过100
-                     * @param Limit 限制数目，整型,不超过100
+                     * @param _limit 限制数目，整型,不超过100
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取任务状态 1 待开始 5 发送中 6 今日暂停发送  7 发信异常 10 发送完成。查询所有状态，则不传这个字段
                      * @return Status 任务状态 1 待开始 5 发送中 6 今日暂停发送  7 发信异常 10 发送完成。查询所有状态，则不传这个字段
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 设置任务状态 1 待开始 5 发送中 6 今日暂停发送  7 发信异常 10 发送完成。查询所有状态，则不传这个字段
-                     * @param Status 任务状态 1 待开始 5 发送中 6 今日暂停发送  7 发信异常 10 发送完成。查询所有状态，则不传这个字段
+                     * @param _status 任务状态 1 待开始 5 发送中 6 今日暂停发送  7 发信异常 10 发送完成。查询所有状态，则不传这个字段
+                     * 
                      */
                     void SetStatus(const uint64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取收件人列表ID
                      * @return ReceiverId 收件人列表ID
+                     * 
                      */
                     uint64_t GetReceiverId() const;
 
                     /**
                      * 设置收件人列表ID
-                     * @param ReceiverId 收件人列表ID
+                     * @param _receiverId 收件人列表ID
+                     * 
                      */
                     void SetReceiverId(const uint64_t& _receiverId);
 
                     /**
                      * 判断参数 ReceiverId 是否已赋值
                      * @return ReceiverId 是否已赋值
+                     * 
                      */
                     bool ReceiverIdHasBeenSet() const;
 
                     /**
                      * 获取任务类型 1即时 2定时 3周期，查询所有类型则不传这个字段
                      * @return TaskType 任务类型 1即时 2定时 3周期，查询所有类型则不传这个字段
+                     * 
                      */
                     uint64_t GetTaskType() const;
 
                     /**
                      * 设置任务类型 1即时 2定时 3周期，查询所有类型则不传这个字段
-                     * @param TaskType 任务类型 1即时 2定时 3周期，查询所有类型则不传这个字段
+                     * @param _taskType 任务类型 1即时 2定时 3周期，查询所有类型则不传这个字段
+                     * 
                      */
                     void SetTaskType(const uint64_t& _taskType);
 
                     /**
                      * 判断参数 TaskType 是否已赋值
                      * @return TaskType 是否已赋值
+                     * 
                      */
                     bool TaskTypeHasBeenSet() const;
 

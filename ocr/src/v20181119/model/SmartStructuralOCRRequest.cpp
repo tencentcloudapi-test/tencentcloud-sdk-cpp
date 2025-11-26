@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,10 @@ using namespace std;
 SmartStructuralOCRRequest::SmartStructuralOCRRequest() :
     m_imageUrlHasBeenSet(false),
     m_imageBase64HasBeenSet(false),
-    m_itemNamesHasBeenSet(false)
+    m_itemNamesHasBeenSet(false),
+    m_isPdfHasBeenSet(false),
+    m_pdfPageNumberHasBeenSet(false),
+    m_returnFullTextHasBeenSet(false)
 {
 }
 
@@ -63,6 +66,30 @@ string SmartStructuralOCRRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_isPdfHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsPdf";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isPdf, allocator);
+    }
+
+    if (m_pdfPageNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PdfPageNumber";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_pdfPageNumber, allocator);
+    }
+
+    if (m_returnFullTextHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReturnFullText";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_returnFullText, allocator);
     }
 
 
@@ -119,6 +146,54 @@ void SmartStructuralOCRRequest::SetItemNames(const vector<string>& _itemNames)
 bool SmartStructuralOCRRequest::ItemNamesHasBeenSet() const
 {
     return m_itemNamesHasBeenSet;
+}
+
+bool SmartStructuralOCRRequest::GetIsPdf() const
+{
+    return m_isPdf;
+}
+
+void SmartStructuralOCRRequest::SetIsPdf(const bool& _isPdf)
+{
+    m_isPdf = _isPdf;
+    m_isPdfHasBeenSet = true;
+}
+
+bool SmartStructuralOCRRequest::IsPdfHasBeenSet() const
+{
+    return m_isPdfHasBeenSet;
+}
+
+uint64_t SmartStructuralOCRRequest::GetPdfPageNumber() const
+{
+    return m_pdfPageNumber;
+}
+
+void SmartStructuralOCRRequest::SetPdfPageNumber(const uint64_t& _pdfPageNumber)
+{
+    m_pdfPageNumber = _pdfPageNumber;
+    m_pdfPageNumberHasBeenSet = true;
+}
+
+bool SmartStructuralOCRRequest::PdfPageNumberHasBeenSet() const
+{
+    return m_pdfPageNumberHasBeenSet;
+}
+
+bool SmartStructuralOCRRequest::GetReturnFullText() const
+{
+    return m_returnFullText;
+}
+
+void SmartStructuralOCRRequest::SetReturnFullText(const bool& _returnFullText)
+{
+    m_returnFullText = _returnFullText;
+    m_returnFullTextHasBeenSet = true;
+}
+
+bool SmartStructuralOCRRequest::ReturnFullTextHasBeenSet() const
+{
+    return m_returnFullTextHasBeenSet;
 }
 
 

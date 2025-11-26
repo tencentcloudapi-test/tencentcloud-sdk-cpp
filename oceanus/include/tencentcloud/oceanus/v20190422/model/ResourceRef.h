@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取资源ID
                      * @return ResourceId 资源ID
+                     * 
                      */
                     std::string GetResourceId() const;
 
                     /**
                      * 设置资源ID
-                     * @param ResourceId 资源ID
+                     * @param _resourceId 资源ID
+                     * 
                      */
                     void SetResourceId(const std::string& _resourceId);
 
                     /**
                      * 判断参数 ResourceId 是否已赋值
                      * @return ResourceId 是否已赋值
+                     * 
                      */
                     bool ResourceIdHasBeenSet() const;
 
                     /**
-                     * 获取资源版本ID，-1表示使用最新版本
-                     * @return Version 资源版本ID，-1表示使用最新版本
+                     * 获取资源版本
+                     * @return Version 资源版本
+                     * 
                      */
                     int64_t GetVersion() const;
 
                     /**
-                     * 设置资源版本ID，-1表示使用最新版本
-                     * @param Version 资源版本ID，-1表示使用最新版本
+                     * 设置资源版本
+                     * @param _version 资源版本
+                     * 
                      */
                     void SetVersion(const int64_t& _version);
 
                     /**
                      * 判断参数 Version 是否已赋值
                      * @return Version 是否已赋值
+                     * 
                      */
                     bool VersionHasBeenSet() const;
 
                     /**
-                     * 获取引用资源类型，例如主资源设置为1，代表main class所在的jar包
-                     * @return Type 引用资源类型，例如主资源设置为1，代表main class所在的jar包
+                     * 获取0-引用 JAR 程序包，1-主程序包，2-引用配置文件，3-Python程序包，4-Python数据文件
+                     * @return Type 0-引用 JAR 程序包，1-主程序包，2-引用配置文件，3-Python程序包，4-Python数据文件
+                     * 
                      */
                     int64_t GetType() const;
 
                     /**
-                     * 设置引用资源类型，例如主资源设置为1，代表main class所在的jar包
-                     * @param Type 引用资源类型，例如主资源设置为1，代表main class所在的jar包
+                     * 设置0-引用 JAR 程序包，1-主程序包，2-引用配置文件，3-Python程序包，4-Python数据文件
+                     * @param _type 0-引用 JAR 程序包，1-主程序包，2-引用配置文件，3-Python程序包，4-Python数据文件
+                     * 
                      */
                     void SetType(const int64_t& _type);
 
                     /**
                      * 判断参数 Type 是否已赋值
                      * @return Type 是否已赋值
+                     * 
                      */
                     bool TypeHasBeenSet() const;
 
@@ -109,13 +118,13 @@ namespace TencentCloud
                     bool m_resourceIdHasBeenSet;
 
                     /**
-                     * 资源版本ID，-1表示使用最新版本
+                     * 资源版本
                      */
                     int64_t m_version;
                     bool m_versionHasBeenSet;
 
                     /**
-                     * 引用资源类型，例如主资源设置为1，代表main class所在的jar包
+                     * 0-引用 JAR 程序包，1-主程序包，2-引用配置文件，3-Python程序包，4-Python数据文件
                      */
                     int64_t m_type;
                     bool m_typeHasBeenSet;

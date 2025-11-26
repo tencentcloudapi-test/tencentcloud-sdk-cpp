@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取设备类型代号。 可以从DescribeDeviceClass查询设备类型列表
                      * @return DeviceClassCode 设备类型代号。 可以从DescribeDeviceClass查询设备类型列表
+                     * 
                      */
                     std::string GetDeviceClassCode() const;
 
                     /**
                      * 设置设备类型代号。 可以从DescribeDeviceClass查询设备类型列表
-                     * @param DeviceClassCode 设备类型代号。 可以从DescribeDeviceClass查询设备类型列表
+                     * @param _deviceClassCode 设备类型代号。 可以从DescribeDeviceClass查询设备类型列表
+                     * 
                      */
                     void SetDeviceClassCode(const std::string& _deviceClassCode);
 
                     /**
                      * 判断参数 DeviceClassCode 是否已赋值
                      * @return DeviceClassCode 是否已赋值
+                     * 
                      */
                     bool DeviceClassCodeHasBeenSet() const;
 

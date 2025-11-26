@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,8 @@ DescribeSocAlertListRequest::DescribeSocAlertListRequest() :
     m_pageIndexHasBeenSet(false),
     m_scenesHasBeenSet(false),
     m_filterHasBeenSet(false),
-    m_sorterHasBeenSet(false)
+    m_sorterHasBeenSet(false),
+    m_exportFlagHasBeenSet(false)
 {
 }
 
@@ -90,6 +91,14 @@ string DescribeSocAlertListRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_exportFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExportFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_exportFlag, allocator);
     }
 
 
@@ -178,6 +187,22 @@ void DescribeSocAlertListRequest::SetSorter(const vector<QuerySort>& _sorter)
 bool DescribeSocAlertListRequest::SorterHasBeenSet() const
 {
     return m_sorterHasBeenSet;
+}
+
+bool DescribeSocAlertListRequest::GetExportFlag() const
+{
+    return m_exportFlag;
+}
+
+void DescribeSocAlertListRequest::SetExportFlag(const bool& _exportFlag)
+{
+    m_exportFlag = _exportFlag;
+    m_exportFlagHasBeenSet = true;
+}
+
+bool DescribeSocAlertListRequest::ExportFlagHasBeenSet() const
+{
+    return m_exportFlagHasBeenSet;
 }
 
 

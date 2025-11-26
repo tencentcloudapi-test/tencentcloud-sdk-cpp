@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,72 +43,81 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取负载均衡实例 ID。
-                     * @return LoadBalancerId 负载均衡实例 ID。
+                     * 获取负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * @return LoadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * 
                      */
                     std::string GetLoadBalancerId() const;
 
                     /**
-                     * 设置负载均衡实例 ID。
-                     * @param LoadBalancerId 负载均衡实例 ID。
+                     * 设置负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * @param _loadBalancerId 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * 
                      */
                     void SetLoadBalancerId(const std::string& _loadBalancerId);
 
                     /**
                      * 判断参数 LoadBalancerId 是否已赋值
                      * @return LoadBalancerId 是否已赋值
+                     * 
                      */
                     bool LoadBalancerIdHasBeenSet() const;
 
                     /**
                      * 获取日志服务(CLS)的日志集 ID。
-<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/56454) 接口获取日志集 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/58624) 接口获取日志集 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
                      * @return LogSetId 日志服务(CLS)的日志集 ID。
-<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/56454) 接口获取日志集 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/58624) 接口获取日志集 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
+                     * 
                      */
                     std::string GetLogSetId() const;
 
                     /**
                      * 设置日志服务(CLS)的日志集 ID。
-<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/56454) 接口获取日志集 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
-                     * @param LogSetId 日志服务(CLS)的日志集 ID。
-<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/56454) 接口获取日志集 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/58624) 接口获取日志集 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
+                     * @param _logSetId 日志服务(CLS)的日志集 ID。
+<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/58624) 接口获取日志集 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
+                     * 
                      */
                     void SetLogSetId(const std::string& _logSetId);
 
                     /**
                      * 判断参数 LogSetId 是否已赋值
                      * @return LogSetId 是否已赋值
+                     * 
                      */
                     bool LogSetIdHasBeenSet() const;
 
                     /**
                      * 获取日志服务(CLS)的日志主题 ID。
-<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/58624) 接口获取日志主题 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/56454) 接口获取日志主题 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
                      * @return LogTopicId 日志服务(CLS)的日志主题 ID。
-<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/58624) 接口获取日志主题 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/56454) 接口获取日志主题 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
+                     * 
                      */
                     std::string GetLogTopicId() const;
 
                     /**
                      * 设置日志服务(CLS)的日志主题 ID。
-<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/58624) 接口获取日志主题 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
-                     * @param LogTopicId 日志服务(CLS)的日志主题 ID。
-<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/58624) 接口获取日志主题 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/56454) 接口获取日志主题 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
+                     * @param _logTopicId 日志服务(CLS)的日志主题 ID。
+<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/56454) 接口获取日志主题 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
+                     * 
                      */
                     void SetLogTopicId(const std::string& _logTopicId);
 
                     /**
                      * 判断参数 LogTopicId 是否已赋值
                      * @return LogTopicId 是否已赋值
+                     * 
                      */
                     bool LogTopicIdHasBeenSet() const;
 
@@ -121,6 +130,7 @@ namespace TencentCloud
 <li>ACCESS：访问日志</li>
 <li>HEALTH：健康检查日志</li>
 默认为ACCESS。
+                     * 
                      */
                     std::string GetLogType() const;
 
@@ -129,39 +139,41 @@ namespace TencentCloud
 <li>ACCESS：访问日志</li>
 <li>HEALTH：健康检查日志</li>
 默认为ACCESS。
-                     * @param LogType 日志类型：
+                     * @param _logType 日志类型：
 <li>ACCESS：访问日志</li>
 <li>HEALTH：健康检查日志</li>
 默认为ACCESS。
+                     * 
                      */
                     void SetLogType(const std::string& _logType);
 
                     /**
                      * 判断参数 LogType 是否已赋值
                      * @return LogType 是否已赋值
+                     * 
                      */
                     bool LogTypeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 负载均衡实例 ID。
+                     * 负载均衡实例 ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
                      */
                     std::string m_loadBalancerId;
                     bool m_loadBalancerIdHasBeenSet;
 
                     /**
                      * 日志服务(CLS)的日志集 ID。
-<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/56454) 接口获取日志集 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeLogsets](https://cloud.tencent.com/document/product/614/58624) 接口获取日志集 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
                      */
                     std::string m_logSetId;
                     bool m_logSetIdHasBeenSet;
 
                     /**
                      * 日志服务(CLS)的日志主题 ID。
-<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/58624) 接口获取日志主题 ID。</li>
-<li>删除日志主题时，此参数填写为null即可。</li>
+<li>增加和更新日志主题时可调用 [DescribeTopics](https://cloud.tencent.com/document/product/614/56454) 接口获取日志主题 ID。</li>
+<li>删除日志主题时，此参数填写为**空字符串**即可。</li>
                      */
                     std::string m_logTopicId;
                     bool m_logTopicIdHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/cme/v20191029/model/VodPullInputPlayInfo.h>
 
 
 namespace TencentCloud
@@ -46,14 +47,32 @@ namespace TencentCloud
                     /**
                      * 获取输入源推流地址，当 Operation 取值 AddInput 且 InputType 为 RtmpPush 类型时有效。
                      * @return StreamInputRtmpPushUrl 输入源推流地址，当 Operation 取值 AddInput 且 InputType 为 RtmpPush 类型时有效。
+                     * 
                      */
                     std::string GetStreamInputRtmpPushUrl() const;
 
                     /**
                      * 判断参数 StreamInputRtmpPushUrl 是否已赋值
                      * @return StreamInputRtmpPushUrl 是否已赋值
+                     * 
                      */
                     bool StreamInputRtmpPushUrlHasBeenSet() const;
+
+                    /**
+                     * 获取点播输入源播放进度信息，当 Operation 取值 DescribeInputPlayInfo 且 InputType 为 VodPull 类型时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return VodPullInputPlayInfo 点播输入源播放进度信息，当 Operation 取值 DescribeInputPlayInfo 且 InputType 为 VodPull 类型时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    VodPullInputPlayInfo GetVodPullInputPlayInfo() const;
+
+                    /**
+                     * 判断参数 VodPullInputPlayInfo 是否已赋值
+                     * @return VodPullInputPlayInfo 是否已赋值
+                     * 
+                     */
+                    bool VodPullInputPlayInfoHasBeenSet() const;
 
                 private:
 
@@ -62,6 +81,13 @@ namespace TencentCloud
                      */
                     std::string m_streamInputRtmpPushUrl;
                     bool m_streamInputRtmpPushUrlHasBeenSet;
+
+                    /**
+                     * 点播输入源播放进度信息，当 Operation 取值 DescribeInputPlayInfo 且 InputType 为 VodPull 类型时有效。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    VodPullInputPlayInfo m_vodPullInputPlayInfo;
+                    bool m_vodPullInputPlayInfoHasBeenSet;
 
                 };
             }

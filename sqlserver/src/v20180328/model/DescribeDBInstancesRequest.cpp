@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,9 @@ DescribeDBInstancesRequest::DescribeDBInstancesRequest() :
     m_zoneHasBeenSet(false),
     m_tagKeysHasBeenSet(false),
     m_searchKeyHasBeenSet(false),
-    m_uidSetHasBeenSet(false)
+    m_uidSetHasBeenSet(false),
+    m_instanceTypeHasBeenSet(false),
+    m_paginationTypeHasBeenSet(false)
 {
 }
 
@@ -196,6 +198,22 @@ string DescribeDBInstancesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_instanceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_instanceType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_paginationTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PaginationType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_paginationType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -444,6 +462,38 @@ void DescribeDBInstancesRequest::SetUidSet(const vector<string>& _uidSet)
 bool DescribeDBInstancesRequest::UidSetHasBeenSet() const
 {
     return m_uidSetHasBeenSet;
+}
+
+string DescribeDBInstancesRequest::GetInstanceType() const
+{
+    return m_instanceType;
+}
+
+void DescribeDBInstancesRequest::SetInstanceType(const string& _instanceType)
+{
+    m_instanceType = _instanceType;
+    m_instanceTypeHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::InstanceTypeHasBeenSet() const
+{
+    return m_instanceTypeHasBeenSet;
+}
+
+string DescribeDBInstancesRequest::GetPaginationType() const
+{
+    return m_paginationType;
+}
+
+void DescribeDBInstancesRequest::SetPaginationType(const string& _paginationType)
+{
+    m_paginationType = _paginationType;
+    m_paginationTypeHasBeenSet = true;
+}
+
+bool DescribeDBInstancesRequest::PaginationTypeHasBeenSet() const
+{
+    return m_paginationTypeHasBeenSet;
 }
 
 

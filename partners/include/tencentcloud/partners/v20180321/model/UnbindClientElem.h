@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,98 +49,105 @@ namespace TencentCloud
                     /**
                      * 获取解绑账号ID
                      * @return Uin 解绑账号ID
+                     * 
                      */
                     std::string GetUin() const;
 
                     /**
                      * 设置解绑账号ID
-                     * @param Uin 解绑账号ID
+                     * @param _uin 解绑账号ID
+                     * 
                      */
                     void SetUin(const std::string& _uin);
 
                     /**
                      * 判断参数 Uin 是否已赋值
                      * @return Uin 是否已赋值
+                     * 
                      */
                     bool UinHasBeenSet() const;
 
                     /**
                      * 获取名称
                      * @return Name 名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置名称
-                     * @param Name 名称
+                     * @param _name 名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取状态：0:审核中；1：已解绑；2：已撤销 3：关联撤销 4: 已驳回
                      * @return Status 状态：0:审核中；1：已解绑；2：已撤销 3：关联撤销 4: 已驳回
+                     * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
                      * 设置状态：0:审核中；1：已解绑；2：已撤销 3：关联撤销 4: 已驳回
-                     * @param Status 状态：0:审核中；1：已解绑；2：已撤销 3：关联撤销 4: 已驳回
+                     * @param _status 状态：0:审核中；1：已解绑；2：已撤销 3：关联撤销 4: 已驳回
+                     * 
                      */
                     void SetStatus(const uint64_t& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取申请时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ApplyTime 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetApplyTime() const;
 
                     /**
                      * 设置申请时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ApplyTime 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _applyTime 申请时间
+                     * 
                      */
                     void SetApplyTime(const std::string& _applyTime);
 
                     /**
                      * 判断参数 ApplyTime 是否已赋值
                      * @return ApplyTime 是否已赋值
+                     * 
                      */
                     bool ApplyTimeHasBeenSet() const;
 
                     /**
                      * 获取解绑/撤销时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ActionTime 解绑/撤销时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetActionTime() const;
 
                     /**
                      * 设置解绑/撤销时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ActionTime 解绑/撤销时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _actionTime 解绑/撤销时间
+                     * 
                      */
                     void SetActionTime(const std::string& _actionTime);
 
                     /**
                      * 判断参数 ActionTime 是否已赋值
                      * @return ActionTime 是否已赋值
+                     * 
                      */
                     bool ActionTimeHasBeenSet() const;
 
@@ -166,14 +173,12 @@ namespace TencentCloud
 
                     /**
                      * 申请时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_applyTime;
                     bool m_applyTimeHasBeenSet;
 
                     /**
                      * 解绑/撤销时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_actionTime;
                     bool m_actionTimeHasBeenSet;

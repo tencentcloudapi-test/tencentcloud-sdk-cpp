@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取true为通过检查，false为未通过检查。
                      * @return IsValid true为通过检查，false为未通过检查。
+                     * 
                      */
                     bool GetIsValid() const;
 
                     /**
                      * 判断参数 IsValid 是否已赋值
                      * @return IsValid 是否已赋值
+                     * 
                      */
                     bool IsValidHasBeenSet() const;
 
                     /**
                      * 获取true为可信CA，false为不可信CA。
                      * @return IsTrustedCA true为可信CA，false为不可信CA。
+                     * 
                      */
                     bool GetIsTrustedCA() const;
 
                     /**
                      * 判断参数 IsTrustedCA 是否已赋值
                      * @return IsTrustedCA 是否已赋值
+                     * 
                      */
                     bool IsTrustedCAHasBeenSet() const;
 
                     /**
                      * 获取包含证书链中每一段证书的通用名称。
                      * @return Chains 包含证书链中每一段证书的通用名称。
+                     * 
                      */
                     std::vector<std::string> GetChains() const;
 
                     /**
                      * 判断参数 Chains 是否已赋值
                      * @return Chains 是否已赋值
+                     * 
                      */
                     bool ChainsHasBeenSet() const;
 

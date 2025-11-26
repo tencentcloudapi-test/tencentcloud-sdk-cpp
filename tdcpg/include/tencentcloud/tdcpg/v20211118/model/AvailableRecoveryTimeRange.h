@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取可回档起始时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
                      * @return AvailableBeginTime 可回档起始时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
+                     * 
                      */
                     std::string GetAvailableBeginTime() const;
 
                     /**
                      * 设置可回档起始时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
-                     * @param AvailableBeginTime 可回档起始时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
+                     * @param _availableBeginTime 可回档起始时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
+                     * 
                      */
                     void SetAvailableBeginTime(const std::string& _availableBeginTime);
 
                     /**
                      * 判断参数 AvailableBeginTime 是否已赋值
                      * @return AvailableBeginTime 是否已赋值
+                     * 
                      */
                     bool AvailableBeginTimeHasBeenSet() const;
 
                     /**
                      * 获取可回档结束时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
                      * @return AvailableEndTime 可回档结束时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
+                     * 
                      */
                     std::string GetAvailableEndTime() const;
 
                     /**
                      * 设置可回档结束时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
-                     * @param AvailableEndTime 可回档结束时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
+                     * @param _availableEndTime 可回档结束时间。按照RFC3339标准表示，并且使用东八区时区时间，格式为：YYYY-MM-DDThh:mm:ss+08:00。
+                     * 
                      */
                     void SetAvailableEndTime(const std::string& _availableEndTime);
 
                     /**
                      * 判断参数 AvailableEndTime 是否已赋值
                      * @return AvailableEndTime 是否已赋值
+                     * 
                      */
                     bool AvailableEndTimeHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/clb/v20180317/model/Backend.h>
+#include <tencentcloud/clb/v20180317/model/FunctionTarget.h>
 
 
 namespace TencentCloud
@@ -50,78 +51,107 @@ namespace TencentCloud
                     /**
                      * 获取转发规则的 ID
                      * @return LocationId 转发规则的 ID
+                     * 
                      */
                     std::string GetLocationId() const;
 
                     /**
                      * 设置转发规则的 ID
-                     * @param LocationId 转发规则的 ID
+                     * @param _locationId 转发规则的 ID
+                     * 
                      */
                     void SetLocationId(const std::string& _locationId);
 
                     /**
                      * 判断参数 LocationId 是否已赋值
                      * @return LocationId 是否已赋值
+                     * 
                      */
                     bool LocationIdHasBeenSet() const;
 
                     /**
                      * 获取转发规则的域名
                      * @return Domain 转发规则的域名
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置转发规则的域名
-                     * @param Domain 转发规则的域名
+                     * @param _domain 转发规则的域名
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                     /**
                      * 获取转发规则的路径。
                      * @return Url 转发规则的路径。
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置转发规则的路径。
-                     * @param Url 转发规则的路径。
+                     * @param _url 转发规则的路径。
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
                      * 获取后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Targets 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Backend> GetTargets() const;
 
                     /**
                      * 设置后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Targets 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _targets 后端服务的信息
+                     * 
                      */
                     void SetTargets(const std::vector<Backend>& _targets);
 
                     /**
                      * 判断参数 Targets 是否已赋值
                      * @return Targets 是否已赋值
+                     * 
                      */
                     bool TargetsHasBeenSet() const;
+
+                    /**
+                     * 获取后端云函数的信息
+                     * @return FunctionTargets 后端云函数的信息
+                     * 
+                     */
+                    std::vector<FunctionTarget> GetFunctionTargets() const;
+
+                    /**
+                     * 设置后端云函数的信息
+                     * @param _functionTargets 后端云函数的信息
+                     * 
+                     */
+                    void SetFunctionTargets(const std::vector<FunctionTarget>& _functionTargets);
+
+                    /**
+                     * 判断参数 FunctionTargets 是否已赋值
+                     * @return FunctionTargets 是否已赋值
+                     * 
+                     */
+                    bool FunctionTargetsHasBeenSet() const;
 
                 private:
 
@@ -145,10 +175,15 @@ namespace TencentCloud
 
                     /**
                      * 后端服务的信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Backend> m_targets;
                     bool m_targetsHasBeenSet;
+
+                    /**
+                     * 后端云函数的信息
+                     */
+                    std::vector<FunctionTarget> m_functionTargets;
+                    bool m_functionTargetsHasBeenSet;
 
                 };
             }

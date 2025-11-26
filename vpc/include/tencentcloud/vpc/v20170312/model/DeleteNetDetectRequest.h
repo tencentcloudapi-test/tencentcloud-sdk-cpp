@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取网络探测实例`ID`。形如：`netd-12345678`
-                     * @return NetDetectId 网络探测实例`ID`。形如：`netd-12345678`
+                     * 获取网络探测实例`ID`。形如：`netd-12345678`。
+                     * @return NetDetectId 网络探测实例`ID`。形如：`netd-12345678`。
+                     * 
                      */
                     std::string GetNetDetectId() const;
 
                     /**
-                     * 设置网络探测实例`ID`。形如：`netd-12345678`
-                     * @param NetDetectId 网络探测实例`ID`。形如：`netd-12345678`
+                     * 设置网络探测实例`ID`。形如：`netd-12345678`。
+                     * @param _netDetectId 网络探测实例`ID`。形如：`netd-12345678`。
+                     * 
                      */
                     void SetNetDetectId(const std::string& _netDetectId);
 
                     /**
                      * 判断参数 NetDetectId 是否已赋值
                      * @return NetDetectId 是否已赋值
+                     * 
                      */
                     bool NetDetectIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 网络探测实例`ID`。形如：`netd-12345678`
+                     * 网络探测实例`ID`。形如：`netd-12345678`。
                      */
                     std::string m_netDetectId;
                     bool m_netDetectIdHasBeenSet;

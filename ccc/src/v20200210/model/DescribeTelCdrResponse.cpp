@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeTelCdrResponse::DescribeTelCdrResponse() :
     m_totalCountHasBeenSet(false),
-    m_telCdrsHasBeenSet(false)
+    m_telCdrsHasBeenSet(false),
+    m_telCdrListHasBeenSet(false)
 {
 }
 
@@ -93,6 +94,26 @@ CoreInternalOutcome DescribeTelCdrResponse::Deserialize(const string &payload)
         m_telCdrsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("TelCdrList") && !rsp["TelCdrList"].IsNull())
+    {
+        if (!rsp["TelCdrList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TelCdrList` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["TelCdrList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            TelCdrInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_telCdrList.push_back(item);
+        }
+        m_telCdrListHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,11 +147,26 @@ string DescribeTelCdrResponse::ToJsonString() const
         }
     }
 
+    if (m_telCdrListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TelCdrList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_telCdrList.begin(); itr != m_telCdrList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -156,6 +192,16 @@ vector<TelCdrInfo> DescribeTelCdrResponse::GetTelCdrs() const
 bool DescribeTelCdrResponse::TelCdrsHasBeenSet() const
 {
     return m_telCdrsHasBeenSet;
+}
+
+vector<TelCdrInfo> DescribeTelCdrResponse::GetTelCdrList() const
+{
+    return m_telCdrList;
+}
+
+bool DescribeTelCdrResponse::TelCdrListHasBeenSet() const
+{
+    return m_telCdrListHasBeenSet;
 }
 
 

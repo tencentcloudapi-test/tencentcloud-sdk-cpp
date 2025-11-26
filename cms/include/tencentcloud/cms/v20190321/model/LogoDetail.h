@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * LogoDetail
+                * Logo命中详情
                 */
                 class LogoDetail : public AbstractModel
                 {
@@ -49,19 +49,26 @@ namespace TencentCloud
 
                     /**
                      * 获取命中的Applogo详情
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return AppLogoDetail 命中的Applogo详情
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Logo> GetAppLogoDetail() const;
 
                     /**
                      * 设置命中的Applogo详情
-                     * @param AppLogoDetail 命中的Applogo详情
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _appLogoDetail 命中的Applogo详情
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetAppLogoDetail(const std::vector<Logo>& _appLogoDetail);
 
                     /**
                      * 判断参数 AppLogoDetail 是否已赋值
                      * @return AppLogoDetail 是否已赋值
+                     * 
                      */
                     bool AppLogoDetailHasBeenSet() const;
 
@@ -69,6 +76,7 @@ namespace TencentCloud
 
                     /**
                      * 命中的Applogo详情
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Logo> m_appLogoDetail;
                     bool m_appLogoDetailHasBeenSet;

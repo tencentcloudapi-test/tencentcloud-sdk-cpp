@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * tag过滤数组多个是与的关系
+                * 标签键值过滤条件
                 */
                 class TagFilter : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取标签键
                      * @return TagKey 标签键
+                     * 
                      */
                     std::string GetTagKey() const;
 
                     /**
                      * 设置标签键
-                     * @param TagKey 标签键
+                     * @param _tagKey 标签键
+                     * 
                      */
                     void SetTagKey(const std::string& _tagKey);
 
                     /**
                      * 判断参数 TagKey 是否已赋值
                      * @return TagKey 是否已赋值
+                     * 
                      */
                     bool TagKeyHasBeenSet() const;
 
                     /**
                      * 获取标签值数组 多个值的话是或的关系
                      * @return TagValue 标签值数组 多个值的话是或的关系
+                     * 
                      */
                     std::vector<std::string> GetTagValue() const;
 
                     /**
                      * 设置标签值数组 多个值的话是或的关系
-                     * @param TagValue 标签值数组 多个值的话是或的关系
+                     * @param _tagValue 标签值数组 多个值的话是或的关系
+                     * 
                      */
                     void SetTagValue(const std::vector<std::string>& _tagValue);
 
                     /**
                      * 判断参数 TagValue 是否已赋值
                      * @return TagValue 是否已赋值
+                     * 
                      */
                     bool TagValueHasBeenSet() const;
 

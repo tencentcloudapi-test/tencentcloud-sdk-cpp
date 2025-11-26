@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取地域
                      * @return Region 地域
+                     * 
                      */
                     std::string GetRegion() const;
 
                     /**
                      * 设置地域
-                     * @param Region 地域
+                     * @param _region 地域
+                     * 
                      */
                     void SetRegion(const std::string& _region);
 
                     /**
                      * 判断参数 Region 是否已赋值
                      * @return Region 是否已赋值
+                     * 
                      */
                     bool RegionHasBeenSet() const;
 
                     /**
                      * 获取配额数据
                      * @return AccountQuota 配额数据
+                     * 
                      */
                     AccountQuota GetAccountQuota() const;
 
                     /**
                      * 设置配额数据
-                     * @param AccountQuota 配额数据
+                     * @param _accountQuota 配额数据
+                     * 
                      */
                     void SetAccountQuota(const AccountQuota& _accountQuota);
 
                     /**
                      * 判断参数 AccountQuota 是否已赋值
                      * @return AccountQuota 是否已赋值
+                     * 
                      */
                     bool AccountQuotaHasBeenSet() const;
 

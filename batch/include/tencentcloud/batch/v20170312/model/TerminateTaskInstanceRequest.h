@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,69 +43,78 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取作业ID
-                     * @return JobId 作业ID
+                     * 获取作业ID；详见[作业列表](https://cloud.tencent.com/document/product/599/15909)。
+                     * @return JobId 作业ID；详见[作业列表](https://cloud.tencent.com/document/product/599/15909)。
+                     * 
                      */
                     std::string GetJobId() const;
 
                     /**
-                     * 设置作业ID
-                     * @param JobId 作业ID
+                     * 设置作业ID；详见[作业列表](https://cloud.tencent.com/document/product/599/15909)。
+                     * @param _jobId 作业ID；详见[作业列表](https://cloud.tencent.com/document/product/599/15909)。
+                     * 
                      */
                     void SetJobId(const std::string& _jobId);
 
                     /**
                      * 判断参数 JobId 是否已赋值
                      * @return JobId 是否已赋值
+                     * 
                      */
                     bool JobIdHasBeenSet() const;
 
                     /**
-                     * 获取任务名称
-                     * @return TaskName 任务名称
+                     * 获取任务名称；详见[作业提交信息](https://cloud.tencent.com/document/product/599/15910)
+                     * @return TaskName 任务名称；详见[作业提交信息](https://cloud.tencent.com/document/product/599/15910)
+                     * 
                      */
                     std::string GetTaskName() const;
 
                     /**
-                     * 设置任务名称
-                     * @param TaskName 任务名称
+                     * 设置任务名称；详见[作业提交信息](https://cloud.tencent.com/document/product/599/15910)
+                     * @param _taskName 任务名称；详见[作业提交信息](https://cloud.tencent.com/document/product/599/15910)
+                     * 
                      */
                     void SetTaskName(const std::string& _taskName);
 
                     /**
                      * 判断参数 TaskName 是否已赋值
                      * @return TaskName 是否已赋值
+                     * 
                      */
                     bool TaskNameHasBeenSet() const;
 
                     /**
                      * 获取任务实例索引
                      * @return TaskInstanceIndex 任务实例索引
+                     * 
                      */
                     int64_t GetTaskInstanceIndex() const;
 
                     /**
                      * 设置任务实例索引
-                     * @param TaskInstanceIndex 任务实例索引
+                     * @param _taskInstanceIndex 任务实例索引
+                     * 
                      */
                     void SetTaskInstanceIndex(const int64_t& _taskInstanceIndex);
 
                     /**
                      * 判断参数 TaskInstanceIndex 是否已赋值
                      * @return TaskInstanceIndex 是否已赋值
+                     * 
                      */
                     bool TaskInstanceIndexHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 作业ID
+                     * 作业ID；详见[作业列表](https://cloud.tencent.com/document/product/599/15909)。
                      */
                     std::string m_jobId;
                     bool m_jobIdHasBeenSet;
 
                     /**
-                     * 任务名称
+                     * 任务名称；详见[作业提交信息](https://cloud.tencent.com/document/product/599/15910)
                      */
                     std::string m_taskName;
                     bool m_taskNameHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,60 +46,70 @@ namespace TencentCloud
                     /**
                      * 获取行程卡更新时间，格式为：XXXX.XX.XX XX:XX:XX
                      * @return Time 行程卡更新时间，格式为：XXXX.XX.XX XX:XX:XX
+                     * 
                      */
                     std::string GetTime() const;
 
                     /**
                      * 判断参数 Time 是否已赋值
                      * @return Time 是否已赋值
+                     * 
                      */
                     bool TimeHasBeenSet() const;
 
                     /**
                      * 获取行程卡颜色：绿色、黄色、红色
                      * @return Color 行程卡颜色：绿色、黄色、红色
+                     * 
                      */
                     std::string GetColor() const;
 
                     /**
                      * 判断参数 Color 是否已赋值
                      * @return Color 是否已赋值
+                     * 
                      */
                     bool ColorHasBeenSet() const;
 
                     /**
-                     * 获取14天内到达或途经的城市
-                     * @return ReachedCity 14天内到达或途经的城市
+                     * 获取7天内到达或途经的城市（自2022年7月8日起，通信行程卡查询结果的覆盖时间范围由“14天”调整为“7天”）
+                     * @return ReachedCity 7天内到达或途经的城市（自2022年7月8日起，通信行程卡查询结果的覆盖时间范围由“14天”调整为“7天”）
+                     * 
                      */
                     std::vector<std::string> GetReachedCity() const;
 
                     /**
                      * 判断参数 ReachedCity 是否已赋值
                      * @return ReachedCity 是否已赋值
+                     * 
                      */
                     bool ReachedCityHasBeenSet() const;
 
                     /**
-                     * 获取14天内到达或途径存在中高风险地区的城市
-                     * @return RiskArea 14天内到达或途径存在中高风险地区的城市
+                     * 获取7天内到达或途径存在中高风险地区的城市（自2022年6月29日起，通信行程卡取消“星号”标记，改字段将返回空值）
+                     * @return RiskArea 7天内到达或途径存在中高风险地区的城市（自2022年6月29日起，通信行程卡取消“星号”标记，改字段将返回空值）
+                     * 
                      */
                     std::vector<std::string> GetRiskArea() const;
 
                     /**
                      * 判断参数 RiskArea 是否已赋值
                      * @return RiskArea 是否已赋值
+                     * 
                      */
                     bool RiskAreaHasBeenSet() const;
 
                     /**
                      * 获取电话号码
                      * @return Telephone 电话号码
+                     * 
                      */
                     std::string GetTelephone() const;
 
                     /**
                      * 判断参数 Telephone 是否已赋值
                      * @return Telephone 是否已赋值
+                     * 
                      */
                     bool TelephoneHasBeenSet() const;
 
@@ -118,13 +128,13 @@ namespace TencentCloud
                     bool m_colorHasBeenSet;
 
                     /**
-                     * 14天内到达或途经的城市
+                     * 7天内到达或途经的城市（自2022年7月8日起，通信行程卡查询结果的覆盖时间范围由“14天”调整为“7天”）
                      */
                     std::vector<std::string> m_reachedCity;
                     bool m_reachedCityHasBeenSet;
 
                     /**
-                     * 14天内到达或途径存在中高风险地区的城市
+                     * 7天内到达或途径存在中高风险地区的城市（自2022年6月29日起，通信行程卡取消“星号”标记，改字段将返回空值）
                      */
                     std::vector<std::string> m_riskArea;
                     bool m_riskAreaHasBeenSet;

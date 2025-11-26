@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,40 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取媒体文件的唯一标识。
                      * @return FileId 媒体文件的唯一标识。
+                     * 
                      */
                     std::string GetFileId() const;
 
                     /**
                      * 判断参数 FileId 是否已赋值
                      * @return FileId 是否已赋值
+                     * 
                      */
                     bool FileIdHasBeenSet() const;
 
                     /**
                      * 获取媒体播放地址。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return MediaUrl 媒体播放地址。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetMediaUrl() const;
 
                     /**
                      * 判断参数 MediaUrl 是否已赋值
                      * @return MediaUrl 是否已赋值
+                     * 
                      */
                     bool MediaUrlHasBeenSet() const;
 
                     /**
                      * 获取媒体封面地址。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return CoverUrl 媒体封面地址。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetCoverUrl() const;
 
                     /**
                      * 判断参数 CoverUrl 是否已赋值
                      * @return CoverUrl 是否已赋值
+                     * 
                      */
                     bool CoverUrlHasBeenSet() const;
 
@@ -93,14 +95,12 @@ namespace TencentCloud
 
                     /**
                      * 媒体播放地址。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_mediaUrl;
                     bool m_mediaUrlHasBeenSet;
 
                     /**
                      * 媒体封面地址。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_coverUrl;
                     bool m_coverUrlHasBeenSet;

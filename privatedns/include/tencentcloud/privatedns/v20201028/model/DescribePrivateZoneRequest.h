@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取域名，格式必须是标准的TLD
-                     * @return ZoneId 域名，格式必须是标准的TLD
+                     * 获取私有域id
+                     * @return ZoneId 私有域id
+                     * 
                      */
                     std::string GetZoneId() const;
 
                     /**
-                     * 设置域名，格式必须是标准的TLD
-                     * @param ZoneId 域名，格式必须是标准的TLD
+                     * 设置私有域id
+                     * @param _zoneId 私有域id
+                     * 
                      */
                     void SetZoneId(const std::string& _zoneId);
 
                     /**
                      * 判断参数 ZoneId 是否已赋值
                      * @return ZoneId 是否已赋值
+                     * 
                      */
                     bool ZoneIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 域名，格式必须是标准的TLD
+                     * 私有域id
                      */
                     std::string m_zoneId;
                     bool m_zoneIdHasBeenSet;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,38 +51,65 @@ namespace TencentCloud
                     /**
                      * 获取特征过滤配置
                      * @return PacketFilterConfig 特征过滤配置
+                     * 
                      */
                     PacketFilterConfig GetPacketFilterConfig() const;
 
                     /**
                      * 设置特征过滤配置
-                     * @param PacketFilterConfig 特征过滤配置
+                     * @param _packetFilterConfig 特征过滤配置
+                     * 
                      */
                     void SetPacketFilterConfig(const PacketFilterConfig& _packetFilterConfig);
 
                     /**
                      * 判断参数 PacketFilterConfig 是否已赋值
                      * @return PacketFilterConfig 是否已赋值
+                     * 
                      */
                     bool PacketFilterConfigHasBeenSet() const;
 
                     /**
                      * 获取特征过滤配置所属的实例
                      * @return InstanceDetailList 特征过滤配置所属的实例
+                     * 
                      */
                     std::vector<InstanceRelation> GetInstanceDetailList() const;
 
                     /**
                      * 设置特征过滤配置所属的实例
-                     * @param InstanceDetailList 特征过滤配置所属的实例
+                     * @param _instanceDetailList 特征过滤配置所属的实例
+                     * 
                      */
                     void SetInstanceDetailList(const std::vector<InstanceRelation>& _instanceDetailList);
 
                     /**
                      * 判断参数 InstanceDetailList 是否已赋值
                      * @return InstanceDetailList 是否已赋值
+                     * 
                      */
                     bool InstanceDetailListHasBeenSet() const;
+
+                    /**
+                     * 获取修改时间
+                     * @return ModifyTime 修改时间
+                     * 
+                     */
+                    std::string GetModifyTime() const;
+
+                    /**
+                     * 设置修改时间
+                     * @param _modifyTime 修改时间
+                     * 
+                     */
+                    void SetModifyTime(const std::string& _modifyTime);
+
+                    /**
+                     * 判断参数 ModifyTime 是否已赋值
+                     * @return ModifyTime 是否已赋值
+                     * 
+                     */
+                    bool ModifyTimeHasBeenSet() const;
 
                 private:
 
@@ -97,6 +124,12 @@ namespace TencentCloud
                      */
                     std::vector<InstanceRelation> m_instanceDetailList;
                     bool m_instanceDetailListHasBeenSet;
+
+                    /**
+                     * 修改时间
+                     */
+                    std::string m_modifyTime;
+                    bool m_modifyTimeHasBeenSet;
 
                 };
             }

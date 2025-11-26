@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,27 +43,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取任务ID
-                     * @return JobId 任务ID
+                     * 获取任务ID。操作批量接口时会返回JobId
+                     * @return JobId 任务ID。操作批量接口时会返回JobId
+                     * 
                      */
                     uint64_t GetJobId() const;
 
                     /**
-                     * 设置任务ID
-                     * @param JobId 任务ID
+                     * 设置任务ID。操作批量接口时会返回JobId
+                     * @param _jobId 任务ID。操作批量接口时会返回JobId
+                     * 
                      */
                     void SetJobId(const uint64_t& _jobId);
 
                     /**
                      * 判断参数 JobId 是否已赋值
                      * @return JobId 是否已赋值
+                     * 
                      */
                     bool JobIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 任务ID
+                     * 任务ID。操作批量接口时会返回JobId
                      */
                     uint64_t m_jobId;
                     bool m_jobIdHasBeenSet;

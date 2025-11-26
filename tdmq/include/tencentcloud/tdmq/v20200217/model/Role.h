@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,92 +49,128 @@ namespace TencentCloud
                     /**
                      * 获取角色名称。
                      * @return RoleName 角色名称。
+                     * 
                      */
                     std::string GetRoleName() const;
 
                     /**
                      * 设置角色名称。
-                     * @param RoleName 角色名称。
+                     * @param _roleName 角色名称。
+                     * 
                      */
                     void SetRoleName(const std::string& _roleName);
 
                     /**
                      * 判断参数 RoleName 是否已赋值
                      * @return RoleName 是否已赋值
+                     * 
                      */
                     bool RoleNameHasBeenSet() const;
 
                     /**
                      * 获取角色token值。
                      * @return Token 角色token值。
+                     * 
                      */
                     std::string GetToken() const;
 
                     /**
                      * 设置角色token值。
-                     * @param Token 角色token值。
+                     * @param _token 角色token值。
+                     * 
                      */
                     void SetToken(const std::string& _token);
 
                     /**
                      * 判断参数 Token 是否已赋值
                      * @return Token 是否已赋值
+                     * 
                      */
                     bool TokenHasBeenSet() const;
 
                     /**
                      * 获取备注说明。
                      * @return Remark 备注说明。
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
                      * 设置备注说明。
-                     * @param Remark 备注说明。
+                     * @param _remark 备注说明。
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
 
                     /**
                      * 获取创建时间。
                      * @return CreateTime 创建时间。
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置创建时间。
-                     * @param CreateTime 创建时间。
+                     * @param _createTime 创建时间。
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
                      * 获取更新时间。
                      * @return UpdateTime 更新时间。
+                     * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
                      * 设置更新时间。
-                     * @param UpdateTime 更新时间。
+                     * @param _updateTime 更新时间。
+                     * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
 
                     /**
                      * 判断参数 UpdateTime 是否已赋值
                      * @return UpdateTime 是否已赋值
+                     * 
                      */
                     bool UpdateTimeHasBeenSet() const;
+
+                    /**
+                     * 获取授权类型（Cluster：集群；TopicAndGroup：主题或消费组）
+                     * @return PermType 授权类型（Cluster：集群；TopicAndGroup：主题或消费组）
+                     * 
+                     */
+                    std::string GetPermType() const;
+
+                    /**
+                     * 设置授权类型（Cluster：集群；TopicAndGroup：主题或消费组）
+                     * @param _permType 授权类型（Cluster：集群；TopicAndGroup：主题或消费组）
+                     * 
+                     */
+                    void SetPermType(const std::string& _permType);
+
+                    /**
+                     * 判断参数 PermType 是否已赋值
+                     * @return PermType 是否已赋值
+                     * 
+                     */
+                    bool PermTypeHasBeenSet() const;
 
                 private:
 
@@ -167,6 +203,12 @@ namespace TencentCloud
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
+
+                    /**
+                     * 授权类型（Cluster：集群；TopicAndGroup：主题或消费组）
+                     */
+                    std::string m_permType;
+                    bool m_permTypeHasBeenSet;
 
                 };
             }

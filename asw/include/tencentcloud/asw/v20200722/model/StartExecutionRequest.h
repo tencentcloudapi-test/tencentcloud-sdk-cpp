@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取状态机资源名
                      * @return StateMachineResourceName 状态机资源名
+                     * 
                      */
                     std::string GetStateMachineResourceName() const;
 
                     /**
                      * 设置状态机资源名
-                     * @param StateMachineResourceName 状态机资源名
+                     * @param _stateMachineResourceName 状态机资源名
+                     * 
                      */
                     void SetStateMachineResourceName(const std::string& _stateMachineResourceName);
 
                     /**
                      * 判断参数 StateMachineResourceName 是否已赋值
                      * @return StateMachineResourceName 是否已赋值
+                     * 
                      */
                     bool StateMachineResourceNameHasBeenSet() const;
 
                     /**
                      * 获取输入参数，内容为JsonObject，长度不大于524288字符。
                      * @return Input 输入参数，内容为JsonObject，长度不大于524288字符。
+                     * 
                      */
                     std::string GetInput() const;
 
                     /**
                      * 设置输入参数，内容为JsonObject，长度不大于524288字符。
-                     * @param Input 输入参数，内容为JsonObject，长度不大于524288字符。
+                     * @param _input 输入参数，内容为JsonObject，长度不大于524288字符。
+                     * 
                      */
                     void SetInput(const std::string& _input);
 
                     /**
                      * 判断参数 Input 是否已赋值
                      * @return Input 是否已赋值
+                     * 
                      */
                     bool InputHasBeenSet() const;
 
                     /**
                      * 获取本次执行名。如果不填，系统会自动生成。如果填，应保证状态机下唯一
                      * @return Name 本次执行名。如果不填，系统会自动生成。如果填，应保证状态机下唯一
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置本次执行名。如果不填，系统会自动生成。如果填，应保证状态机下唯一
-                     * @param Name 本次执行名。如果不填，系统会自动生成。如果填，应保证状态机下唯一
+                     * @param _name 本次执行名。如果不填，系统会自动生成。如果填，应保证状态机下唯一
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 

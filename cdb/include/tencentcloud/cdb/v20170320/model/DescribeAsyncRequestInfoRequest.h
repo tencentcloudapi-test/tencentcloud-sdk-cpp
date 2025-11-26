@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取异步任务的请求 ID。
                      * @return AsyncRequestId 异步任务的请求 ID。
+                     * 
                      */
                     std::string GetAsyncRequestId() const;
 
                     /**
                      * 设置异步任务的请求 ID。
-                     * @param AsyncRequestId 异步任务的请求 ID。
+                     * @param _asyncRequestId 异步任务的请求 ID。
+                     * 
                      */
                     void SetAsyncRequestId(const std::string& _asyncRequestId);
 
                     /**
                      * 判断参数 AsyncRequestId 是否已赋值
                      * @return AsyncRequestId 是否已赋值
+                     * 
                      */
                     bool AsyncRequestIdHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ Component::Component() :
     m_componentTypeHasBeenSet(false),
     m_componentNameHasBeenSet(false),
     m_componentRequiredHasBeenSet(false),
+    m_componentRecipientIdHasBeenSet(false),
     m_fileIndexHasBeenSet(false),
     m_generateModeHasBeenSet(false),
     m_componentWidthHasBeenSet(false),
@@ -36,7 +37,17 @@ Component::Component() :
     m_componentValueHasBeenSet(false),
     m_componentDateFontSizeHasBeenSet(false),
     m_documentIdHasBeenSet(false),
-    m_componentDescriptionHasBeenSet(false)
+    m_componentDescriptionHasBeenSet(false),
+    m_offsetXHasBeenSet(false),
+    m_offsetYHasBeenSet(false),
+    m_channelComponentIdHasBeenSet(false),
+    m_keywordOrderHasBeenSet(false),
+    m_keywordPageHasBeenSet(false),
+    m_relativeLocationHasBeenSet(false),
+    m_keywordIndexesHasBeenSet(false),
+    m_placeholderHasBeenSet(false),
+    m_lockComponentValueHasBeenSet(false),
+    m_forbidMoveAndDeleteHasBeenSet(false)
 {
 }
 
@@ -83,6 +94,16 @@ CoreInternalOutcome Component::Deserialize(const rapidjson::Value &value)
         }
         m_componentRequired = value["ComponentRequired"].GetBool();
         m_componentRequiredHasBeenSet = true;
+    }
+
+    if (value.HasMember("ComponentRecipientId") && !value["ComponentRecipientId"].IsNull())
+    {
+        if (!value["ComponentRecipientId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.ComponentRecipientId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_componentRecipientId = string(value["ComponentRecipientId"].GetString());
+        m_componentRecipientIdHasBeenSet = true;
     }
 
     if (value.HasMember("FileIndex") && !value["FileIndex"].IsNull())
@@ -205,6 +226,109 @@ CoreInternalOutcome Component::Deserialize(const rapidjson::Value &value)
         m_componentDescriptionHasBeenSet = true;
     }
 
+    if (value.HasMember("OffsetX") && !value["OffsetX"].IsNull())
+    {
+        if (!value["OffsetX"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.OffsetX` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_offsetX = value["OffsetX"].GetDouble();
+        m_offsetXHasBeenSet = true;
+    }
+
+    if (value.HasMember("OffsetY") && !value["OffsetY"].IsNull())
+    {
+        if (!value["OffsetY"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.OffsetY` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_offsetY = value["OffsetY"].GetDouble();
+        m_offsetYHasBeenSet = true;
+    }
+
+    if (value.HasMember("ChannelComponentId") && !value["ChannelComponentId"].IsNull())
+    {
+        if (!value["ChannelComponentId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.ChannelComponentId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_channelComponentId = string(value["ChannelComponentId"].GetString());
+        m_channelComponentIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("KeywordOrder") && !value["KeywordOrder"].IsNull())
+    {
+        if (!value["KeywordOrder"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.KeywordOrder` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_keywordOrder = string(value["KeywordOrder"].GetString());
+        m_keywordOrderHasBeenSet = true;
+    }
+
+    if (value.HasMember("KeywordPage") && !value["KeywordPage"].IsNull())
+    {
+        if (!value["KeywordPage"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.KeywordPage` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_keywordPage = value["KeywordPage"].GetInt64();
+        m_keywordPageHasBeenSet = true;
+    }
+
+    if (value.HasMember("RelativeLocation") && !value["RelativeLocation"].IsNull())
+    {
+        if (!value["RelativeLocation"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.RelativeLocation` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_relativeLocation = string(value["RelativeLocation"].GetString());
+        m_relativeLocationHasBeenSet = true;
+    }
+
+    if (value.HasMember("KeywordIndexes") && !value["KeywordIndexes"].IsNull())
+    {
+        if (!value["KeywordIndexes"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Component.KeywordIndexes` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["KeywordIndexes"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_keywordIndexes.push_back((*itr).GetInt64());
+        }
+        m_keywordIndexesHasBeenSet = true;
+    }
+
+    if (value.HasMember("Placeholder") && !value["Placeholder"].IsNull())
+    {
+        if (!value["Placeholder"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.Placeholder` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_placeholder = string(value["Placeholder"].GetString());
+        m_placeholderHasBeenSet = true;
+    }
+
+    if (value.HasMember("LockComponentValue") && !value["LockComponentValue"].IsNull())
+    {
+        if (!value["LockComponentValue"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.LockComponentValue` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_lockComponentValue = value["LockComponentValue"].GetBool();
+        m_lockComponentValueHasBeenSet = true;
+    }
+
+    if (value.HasMember("ForbidMoveAndDelete") && !value["ForbidMoveAndDelete"].IsNull())
+    {
+        if (!value["ForbidMoveAndDelete"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `Component.ForbidMoveAndDelete` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_forbidMoveAndDelete = value["ForbidMoveAndDelete"].GetBool();
+        m_forbidMoveAndDeleteHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -242,6 +366,14 @@ void Component::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "ComponentRequired";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_componentRequired, allocator);
+    }
+
+    if (m_componentRecipientIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ComponentRecipientId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_componentRecipientId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_fileIndexHasBeenSet)
@@ -340,6 +472,91 @@ void Component::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         value.AddMember(iKey, rapidjson::Value(m_componentDescription.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_offsetXHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OffsetX";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_offsetX, allocator);
+    }
+
+    if (m_offsetYHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OffsetY";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_offsetY, allocator);
+    }
+
+    if (m_channelComponentIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ChannelComponentId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_channelComponentId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_keywordOrderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KeywordOrder";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_keywordOrder.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_keywordPageHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KeywordPage";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_keywordPage, allocator);
+    }
+
+    if (m_relativeLocationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RelativeLocation";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_relativeLocation.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_keywordIndexesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KeywordIndexes";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_keywordIndexes.begin(); itr != m_keywordIndexes.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_placeholderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Placeholder";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_placeholder.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_lockComponentValueHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LockComponentValue";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_lockComponentValue, allocator);
+    }
+
+    if (m_forbidMoveAndDeleteHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ForbidMoveAndDelete";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_forbidMoveAndDelete, allocator);
+    }
+
 }
 
 
@@ -405,6 +622,22 @@ void Component::SetComponentRequired(const bool& _componentRequired)
 bool Component::ComponentRequiredHasBeenSet() const
 {
     return m_componentRequiredHasBeenSet;
+}
+
+string Component::GetComponentRecipientId() const
+{
+    return m_componentRecipientId;
+}
+
+void Component::SetComponentRecipientId(const string& _componentRecipientId)
+{
+    m_componentRecipientId = _componentRecipientId;
+    m_componentRecipientIdHasBeenSet = true;
+}
+
+bool Component::ComponentRecipientIdHasBeenSet() const
+{
+    return m_componentRecipientIdHasBeenSet;
 }
 
 int64_t Component::GetFileIndex() const
@@ -597,5 +830,165 @@ void Component::SetComponentDescription(const string& _componentDescription)
 bool Component::ComponentDescriptionHasBeenSet() const
 {
     return m_componentDescriptionHasBeenSet;
+}
+
+double Component::GetOffsetX() const
+{
+    return m_offsetX;
+}
+
+void Component::SetOffsetX(const double& _offsetX)
+{
+    m_offsetX = _offsetX;
+    m_offsetXHasBeenSet = true;
+}
+
+bool Component::OffsetXHasBeenSet() const
+{
+    return m_offsetXHasBeenSet;
+}
+
+double Component::GetOffsetY() const
+{
+    return m_offsetY;
+}
+
+void Component::SetOffsetY(const double& _offsetY)
+{
+    m_offsetY = _offsetY;
+    m_offsetYHasBeenSet = true;
+}
+
+bool Component::OffsetYHasBeenSet() const
+{
+    return m_offsetYHasBeenSet;
+}
+
+string Component::GetChannelComponentId() const
+{
+    return m_channelComponentId;
+}
+
+void Component::SetChannelComponentId(const string& _channelComponentId)
+{
+    m_channelComponentId = _channelComponentId;
+    m_channelComponentIdHasBeenSet = true;
+}
+
+bool Component::ChannelComponentIdHasBeenSet() const
+{
+    return m_channelComponentIdHasBeenSet;
+}
+
+string Component::GetKeywordOrder() const
+{
+    return m_keywordOrder;
+}
+
+void Component::SetKeywordOrder(const string& _keywordOrder)
+{
+    m_keywordOrder = _keywordOrder;
+    m_keywordOrderHasBeenSet = true;
+}
+
+bool Component::KeywordOrderHasBeenSet() const
+{
+    return m_keywordOrderHasBeenSet;
+}
+
+int64_t Component::GetKeywordPage() const
+{
+    return m_keywordPage;
+}
+
+void Component::SetKeywordPage(const int64_t& _keywordPage)
+{
+    m_keywordPage = _keywordPage;
+    m_keywordPageHasBeenSet = true;
+}
+
+bool Component::KeywordPageHasBeenSet() const
+{
+    return m_keywordPageHasBeenSet;
+}
+
+string Component::GetRelativeLocation() const
+{
+    return m_relativeLocation;
+}
+
+void Component::SetRelativeLocation(const string& _relativeLocation)
+{
+    m_relativeLocation = _relativeLocation;
+    m_relativeLocationHasBeenSet = true;
+}
+
+bool Component::RelativeLocationHasBeenSet() const
+{
+    return m_relativeLocationHasBeenSet;
+}
+
+vector<int64_t> Component::GetKeywordIndexes() const
+{
+    return m_keywordIndexes;
+}
+
+void Component::SetKeywordIndexes(const vector<int64_t>& _keywordIndexes)
+{
+    m_keywordIndexes = _keywordIndexes;
+    m_keywordIndexesHasBeenSet = true;
+}
+
+bool Component::KeywordIndexesHasBeenSet() const
+{
+    return m_keywordIndexesHasBeenSet;
+}
+
+string Component::GetPlaceholder() const
+{
+    return m_placeholder;
+}
+
+void Component::SetPlaceholder(const string& _placeholder)
+{
+    m_placeholder = _placeholder;
+    m_placeholderHasBeenSet = true;
+}
+
+bool Component::PlaceholderHasBeenSet() const
+{
+    return m_placeholderHasBeenSet;
+}
+
+bool Component::GetLockComponentValue() const
+{
+    return m_lockComponentValue;
+}
+
+void Component::SetLockComponentValue(const bool& _lockComponentValue)
+{
+    m_lockComponentValue = _lockComponentValue;
+    m_lockComponentValueHasBeenSet = true;
+}
+
+bool Component::LockComponentValueHasBeenSet() const
+{
+    return m_lockComponentValueHasBeenSet;
+}
+
+bool Component::GetForbidMoveAndDelete() const
+{
+    return m_forbidMoveAndDelete;
+}
+
+void Component::SetForbidMoveAndDelete(const bool& _forbidMoveAndDelete)
+{
+    m_forbidMoveAndDelete = _forbidMoveAndDelete;
+    m_forbidMoveAndDeleteHasBeenSet = true;
+}
+
+bool Component::ForbidMoveAndDeleteHasBeenSet() const
+{
+    return m_forbidMoveAndDeleteHasBeenSet;
 }
 

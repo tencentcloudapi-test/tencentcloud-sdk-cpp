@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,62 +45,71 @@ namespace TencentCloud
                     /**
                      * 获取环境ID
                      * @return EnvId 环境ID
+                     * 
                      */
                     std::string GetEnvId() const;
 
                     /**
                      * 设置环境ID
-                     * @param EnvId 环境ID
+                     * @param _envId 环境ID
+                     * 
                      */
                     void SetEnvId(const std::string& _envId);
 
                     /**
                      * 判断参数 EnvId 是否已赋值
                      * @return EnvId 是否已赋值
+                     * 
                      */
                     bool EnvIdHasBeenSet() const;
 
                     /**
                      * 获取C端用户端的唯一ID
                      * @return UUId C端用户端的唯一ID
+                     * 
                      */
                     std::string GetUUId() const;
 
                     /**
                      * 设置C端用户端的唯一ID
-                     * @param UUId C端用户端的唯一ID
+                     * @param _uUId C端用户端的唯一ID
+                     * 
                      */
                     void SetUUId(const std::string& _uUId);
 
                     /**
                      * 判断参数 UUId 是否已赋值
                      * @return UUId 是否已赋值
+                     * 
                      */
                     bool UUIdHasBeenSet() const;
 
                     /**
-                     * 获取帐号的状态
+                     * 获取账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
-                     * @return Status 帐号的状态
+                     * @return Status 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置帐号的状态
+                     * 设置账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
-                     * @param Status 帐号的状态
+                     * @param _status 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
@@ -119,7 +128,7 @@ namespace TencentCloud
                     bool m_uUIdHasBeenSet;
 
                     /**
-                     * 帐号的状态
+                     * 账号的状态
 <li>ENABLE</li>
 <li>DISABLE</li>
                      */

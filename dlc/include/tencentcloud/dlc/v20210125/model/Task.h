@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取SQL查询任务
                      * @return SQLTask SQL查询任务
+                     * 
                      */
                     SQLTask GetSQLTask() const;
 
                     /**
                      * 设置SQL查询任务
-                     * @param SQLTask SQL查询任务
+                     * @param _sQLTask SQL查询任务
+                     * 
                      */
                     void SetSQLTask(const SQLTask& _sQLTask);
 
                     /**
                      * 判断参数 SQLTask 是否已赋值
                      * @return SQLTask 是否已赋值
+                     * 
                      */
                     bool SQLTaskHasBeenSet() const;
 
                     /**
                      * 获取Spark SQL查询任务
                      * @return SparkSQLTask Spark SQL查询任务
+                     * 
                      */
                     SQLTask GetSparkSQLTask() const;
 
                     /**
                      * 设置Spark SQL查询任务
-                     * @param SparkSQLTask Spark SQL查询任务
+                     * @param _sparkSQLTask Spark SQL查询任务
+                     * 
                      */
                     void SetSparkSQLTask(const SQLTask& _sparkSQLTask);
 
                     /**
                      * 判断参数 SparkSQLTask 是否已赋值
                      * @return SparkSQLTask 是否已赋值
+                     * 
                      */
                     bool SparkSQLTaskHasBeenSet() const;
 

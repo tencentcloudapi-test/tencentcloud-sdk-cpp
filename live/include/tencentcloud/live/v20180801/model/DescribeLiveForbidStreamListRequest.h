@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取取得第几页，默认1。
                      * @return PageNum 取得第几页，默认1。
+                     * 
                      */
                     int64_t GetPageNum() const;
 
                     /**
                      * 设置取得第几页，默认1。
-                     * @param PageNum 取得第几页，默认1。
+                     * @param _pageNum 取得第几页，默认1。
+                     * 
                      */
                     void SetPageNum(const int64_t& _pageNum);
 
                     /**
                      * 判断参数 PageNum 是否已赋值
                      * @return PageNum 是否已赋值
+                     * 
                      */
                     bool PageNumHasBeenSet() const;
 
@@ -67,6 +70,7 @@ namespace TencentCloud
                      * @return PageSize 每页大小，最大100。 
 取值：1~100之前的任意整数。
 默认值：10。
+                     * 
                      */
                     int64_t GetPageSize() const;
 
@@ -74,33 +78,38 @@ namespace TencentCloud
                      * 设置每页大小，最大100。 
 取值：1~100之前的任意整数。
 默认值：10。
-                     * @param PageSize 每页大小，最大100。 
+                     * @param _pageSize 每页大小，最大100。 
 取值：1~100之前的任意整数。
 默认值：10。
+                     * 
                      */
                     void SetPageSize(const int64_t& _pageSize);
 
                     /**
                      * 判断参数 PageSize 是否已赋值
                      * @return PageSize 是否已赋值
+                     * 
                      */
                     bool PageSizeHasBeenSet() const;
 
                     /**
                      * 获取按流名称查询。
                      * @return StreamName 按流名称查询。
+                     * 
                      */
                     std::string GetStreamName() const;
 
                     /**
                      * 设置按流名称查询。
-                     * @param StreamName 按流名称查询。
+                     * @param _streamName 按流名称查询。
+                     * 
                      */
                     void SetStreamName(const std::string& _streamName);
 
                     /**
                      * 判断参数 StreamName 是否已赋值
                      * @return StreamName 是否已赋值
+                     * 
                      */
                     bool StreamNameHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,10 @@ TransmitOralProcessWithInitResponse::TransmitOralProcessWithInitResponse() :
     m_audioUrlHasBeenSet(false),
     m_sentenceInfoSetHasBeenSet(false),
     m_statusHasBeenSet(false),
-    m_suggestedScoreHasBeenSet(false)
+    m_suggestedScoreHasBeenSet(false),
+    m_refTextIdHasBeenSet(false),
+    m_keyWordHitsHasBeenSet(false),
+    m_unKeyWordHitsHasBeenSet(false)
 {
 }
 
@@ -180,6 +183,42 @@ CoreInternalOutcome TransmitOralProcessWithInitResponse::Deserialize(const strin
         m_suggestedScoreHasBeenSet = true;
     }
 
+    if (rsp.HasMember("RefTextId") && !rsp["RefTextId"].IsNull())
+    {
+        if (!rsp["RefTextId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RefTextId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_refTextId = rsp["RefTextId"].GetInt64();
+        m_refTextIdHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("KeyWordHits") && !rsp["KeyWordHits"].IsNull())
+    {
+        if (!rsp["KeyWordHits"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `KeyWordHits` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["KeyWordHits"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_keyWordHits.push_back((*itr).GetDouble());
+        }
+        m_keyWordHitsHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("UnKeyWordHits") && !rsp["UnKeyWordHits"].IsNull())
+    {
+        if (!rsp["UnKeyWordHits"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `UnKeyWordHits` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["UnKeyWordHits"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_unKeyWordHits.push_back((*itr).GetDouble());
+        }
+        m_unKeyWordHitsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -276,11 +315,45 @@ string TransmitOralProcessWithInitResponse::ToJsonString() const
         value.AddMember(iKey, m_suggestedScore, allocator);
     }
 
+    if (m_refTextIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RefTextId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_refTextId, allocator);
+    }
+
+    if (m_keyWordHitsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "KeyWordHits";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_keyWordHits.begin(); itr != m_keyWordHits.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetDouble(*itr), allocator);
+        }
+    }
+
+    if (m_unKeyWordHitsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UnKeyWordHits";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_unKeyWordHits.begin(); itr != m_unKeyWordHits.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetDouble(*itr), allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -376,6 +449,36 @@ double TransmitOralProcessWithInitResponse::GetSuggestedScore() const
 bool TransmitOralProcessWithInitResponse::SuggestedScoreHasBeenSet() const
 {
     return m_suggestedScoreHasBeenSet;
+}
+
+int64_t TransmitOralProcessWithInitResponse::GetRefTextId() const
+{
+    return m_refTextId;
+}
+
+bool TransmitOralProcessWithInitResponse::RefTextIdHasBeenSet() const
+{
+    return m_refTextIdHasBeenSet;
+}
+
+vector<double> TransmitOralProcessWithInitResponse::GetKeyWordHits() const
+{
+    return m_keyWordHits;
+}
+
+bool TransmitOralProcessWithInitResponse::KeyWordHitsHasBeenSet() const
+{
+    return m_keyWordHitsHasBeenSet;
+}
+
+vector<double> TransmitOralProcessWithInitResponse::GetUnKeyWordHits() const
+{
+    return m_unKeyWordHits;
+}
+
+bool TransmitOralProcessWithInitResponse::UnKeyWordHitsHasBeenSet() const
+{
+    return m_unKeyWordHitsHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ CreateBandwidthPackageRequest::CreateBandwidthPackageRequest() :
     m_bandwidthPackageCountHasBeenSet(false),
     m_internetMaxBandwidthHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_protocolHasBeenSet(false)
+    m_protocolHasBeenSet(false),
+    m_timeSpanHasBeenSet(false),
+    m_egressHasBeenSet(false)
 {
 }
 
@@ -101,6 +103,22 @@ string CreateBandwidthPackageRequest::ToJsonString() const
         string key = "Protocol";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_protocol.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_timeSpanHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TimeSpan";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_timeSpan, allocator);
+    }
+
+    if (m_egressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Egress";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_egress.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -221,6 +239,38 @@ void CreateBandwidthPackageRequest::SetProtocol(const string& _protocol)
 bool CreateBandwidthPackageRequest::ProtocolHasBeenSet() const
 {
     return m_protocolHasBeenSet;
+}
+
+uint64_t CreateBandwidthPackageRequest::GetTimeSpan() const
+{
+    return m_timeSpan;
+}
+
+void CreateBandwidthPackageRequest::SetTimeSpan(const uint64_t& _timeSpan)
+{
+    m_timeSpan = _timeSpan;
+    m_timeSpanHasBeenSet = true;
+}
+
+bool CreateBandwidthPackageRequest::TimeSpanHasBeenSet() const
+{
+    return m_timeSpanHasBeenSet;
+}
+
+string CreateBandwidthPackageRequest::GetEgress() const
+{
+    return m_egress;
+}
+
+void CreateBandwidthPackageRequest::SetEgress(const string& _egress)
+{
+    m_egress = _egress;
+    m_egressHasBeenSet = true;
+}
+
+bool CreateBandwidthPackageRequest::EgressHasBeenSet() const
+{
+    return m_egressHasBeenSet;
 }
 
 

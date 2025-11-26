@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,20 +47,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取微信的OpenID/UnionID 。
-                     * @return WeChatOpenId 微信的OpenID/UnionID 。
+                     * 获取微信的OpenId/UnionId。
+                     * @return WeChatOpenId 微信的OpenId/UnionId。
+                     * 
                      */
                     std::string GetWeChatOpenId() const;
 
                     /**
-                     * 设置微信的OpenID/UnionID 。
-                     * @param WeChatOpenId 微信的OpenID/UnionID 。
+                     * 设置微信的OpenId/UnionId。
+                     * @param _weChatOpenId 微信的OpenId/UnionId。
+                     * 
                      */
                     void SetWeChatOpenId(const std::string& _weChatOpenId);
 
                     /**
                      * 判断参数 WeChatOpenId 是否已赋值
                      * @return WeChatOpenId 是否已赋值
+                     * 
                      */
                     bool WeChatOpenIdHasBeenSet() const;
 
@@ -71,6 +74,7 @@ namespace TencentCloud
                      * @return WeChatSubType 微信开放账号类型：
 1：微信公众号/微信第三方登录。
 2：微信小程序。
+                     * 
                      */
                     uint64_t GetWeChatSubType() const;
 
@@ -78,112 +82,141 @@ namespace TencentCloud
                      * 设置微信开放账号类型：
 1：微信公众号/微信第三方登录。
 2：微信小程序。
-                     * @param WeChatSubType 微信开放账号类型：
+                     * @param _weChatSubType 微信开放账号类型：
 1：微信公众号/微信第三方登录。
 2：微信小程序。
+                     * 
                      */
                     void SetWeChatSubType(const uint64_t& _weChatSubType);
 
                     /**
                      * 判断参数 WeChatSubType 是否已赋值
                      * @return WeChatSubType 是否已赋值
+                     * 
                      */
                     bool WeChatSubTypeHasBeenSet() const;
 
                     /**
                      * 获取随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
                      * @return RandStr 随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
+                     * 
                      */
                     std::string GetRandStr() const;
 
                     /**
                      * 设置随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
-                     * @param RandStr 随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
+                     * @param _randStr 随机串。如果WeChatSubType是2，该字段必填。Token签名随机数，建议16个字符。
+                     * 
                      */
                     void SetRandStr(const std::string& _randStr);
 
                     /**
                      * 判断参数 RandStr 是否已赋值
                      * @return RandStr 是否已赋值
+                     * 
                      */
                     bool RandStrHasBeenSet() const;
 
                     /**
-                     * 获取token
-                     * @return WeChatAccessToken token
+                     * 获取如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+                     * @return WeChatAccessToken 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+                     * 
                      */
                     std::string GetWeChatAccessToken() const;
 
                     /**
-                     * 设置token
-                     * @param WeChatAccessToken token
+                     * 设置如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+                     * @param _weChatAccessToken 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
+                     * 
                      */
                     void SetWeChatAccessToken(const std::string& _weChatAccessToken);
 
                     /**
                      * 判断参数 WeChatAccessToken 是否已赋值
                      * @return WeChatAccessToken 是否已赋值
+                     * 
                      */
                     bool WeChatAccessTokenHasBeenSet() const;
 
                     /**
                      * 获取用于标识微信用户登录后所关联业务自身的账号ID。
                      * @return AssociateAccount 用于标识微信用户登录后所关联业务自身的账号ID。
+                     * 
                      */
                     std::string GetAssociateAccount() const;
 
                     /**
                      * 设置用于标识微信用户登录后所关联业务自身的账号ID。
-                     * @param AssociateAccount 用于标识微信用户登录后所关联业务自身的账号ID。
+                     * @param _associateAccount 用于标识微信用户登录后所关联业务自身的账号ID。
+                     * 
                      */
                     void SetAssociateAccount(const std::string& _associateAccount);
 
                     /**
                      * 判断参数 AssociateAccount 是否已赋值
                      * @return AssociateAccount 是否已赋值
+                     * 
                      */
                     bool AssociateAccountHasBeenSet() const;
 
                     /**
-                     * 获取账号绑定的手机号。
-                     * @return MobilePhone 账号绑定的手机号。
+                     * 获取账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+                     * @return MobilePhone 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+                     * 
                      */
                     std::string GetMobilePhone() const;
 
                     /**
-                     * 设置账号绑定的手机号。
-                     * @param MobilePhone 账号绑定的手机号。
+                     * 设置账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+                     * @param _mobilePhone 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
+                     * 
                      */
                     void SetMobilePhone(const std::string& _mobilePhone);
 
                     /**
                      * 判断参数 MobilePhone 是否已赋值
                      * @return MobilePhone 是否已赋值
+                     * 
                      */
                     bool MobilePhoneHasBeenSet() const;
 
                     /**
-                     * 获取用户设备号。
-                     * @return DeviceId 用户设备号。
+                     * 获取用户设备号（已不推荐使用）。
+                     * @return DeviceId 用户设备号（已不推荐使用）。
+                     * 
                      */
                     std::string GetDeviceId() const;
 
                     /**
-                     * 设置用户设备号。
-                     * @param DeviceId 用户设备号。
+                     * 设置用户设备号（已不推荐使用）。
+                     * @param _deviceId 用户设备号（已不推荐使用）。
+                     * 
                      */
                     void SetDeviceId(const std::string& _deviceId);
 
                     /**
                      * 判断参数 DeviceId 是否已赋值
                      * @return DeviceId 是否已赋值
+                     * 
                      */
                     bool DeviceIdHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 微信的OpenID/UnionID 。
+                     * 微信的OpenId/UnionId。
                      */
                     std::string m_weChatOpenId;
                     bool m_weChatOpenIdHasBeenSet;
@@ -203,7 +236,8 @@ namespace TencentCloud
                     bool m_randStrHasBeenSet;
 
                     /**
-                     * token
+                     * 如果WeChatSubType 是1，填入授权的 access_token（注意：不是普通 access_token，详情请参阅官方说明文档。获取网页版本的 access_token 时，scope 字段必需填写snsapi_userinfo
+如果WeChatSubType是2，填入以session_key 为密钥签名随机数RandStr（hmac_sha256签名算法）得到的字符串。
                      */
                     std::string m_weChatAccessToken;
                     bool m_weChatAccessTokenHasBeenSet;
@@ -215,13 +249,15 @@ namespace TencentCloud
                     bool m_associateAccountHasBeenSet;
 
                     /**
-                     * 账号绑定的手机号。
+                     * 账号绑定的MD5或SHA256加密的手机号。
+注释：支持标准中国大陆11位手机号MD5加密后位的32位小写字符串；
+     支持标准中国大陆11位手机号SHA256加密后位的64位小写字符串。
                      */
                     std::string m_mobilePhone;
                     bool m_mobilePhoneHasBeenSet;
 
                     /**
-                     * 用户设备号。
+                     * 用户设备号（已不推荐使用）。
                      */
                     std::string m_deviceId;
                     bool m_deviceIdHasBeenSet;

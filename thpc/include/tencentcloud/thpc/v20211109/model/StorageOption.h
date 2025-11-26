@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,36 +51,42 @@ namespace TencentCloud
                     /**
                      * 获取集群挂载CFS文件系统选项
                      * @return CFSOptions 集群挂载CFS文件系统选项
+                     * 
                      */
                     std::vector<CFSOption> GetCFSOptions() const;
 
                     /**
                      * 设置集群挂载CFS文件系统选项
-                     * @param CFSOptions 集群挂载CFS文件系统选项
+                     * @param _cFSOptions 集群挂载CFS文件系统选项
+                     * 
                      */
                     void SetCFSOptions(const std::vector<CFSOption>& _cFSOptions);
 
                     /**
                      * 判断参数 CFSOptions 是否已赋值
                      * @return CFSOptions 是否已赋值
+                     * 
                      */
                     bool CFSOptionsHasBeenSet() const;
 
                     /**
                      * 获取集群挂在GooseFS文件系统选项
                      * @return GooseFSOptions 集群挂在GooseFS文件系统选项
+                     * 
                      */
                     std::vector<GooseFSOption> GetGooseFSOptions() const;
 
                     /**
                      * 设置集群挂在GooseFS文件系统选项
-                     * @param GooseFSOptions 集群挂在GooseFS文件系统选项
+                     * @param _gooseFSOptions 集群挂在GooseFS文件系统选项
+                     * 
                      */
                     void SetGooseFSOptions(const std::vector<GooseFSOption>& _gooseFSOptions);
 
                     /**
                      * 判断参数 GooseFSOptions 是否已赋值
                      * @return GooseFSOptions 是否已赋值
+                     * 
                      */
                     bool GooseFSOptionsHasBeenSet() const;
 

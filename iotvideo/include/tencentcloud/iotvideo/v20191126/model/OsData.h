@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ChipId 芯片型号
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetChipId() const;
 
                     /**
                      * 设置芯片型号
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ChipId 芯片型号
+                     * @param _chipId 芯片型号
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetChipId(const std::string& _chipId);
 
                     /**
                      * 判断参数 ChipId 是否已赋值
                      * @return ChipId 是否已赋值
+                     * 
                      */
                     bool ChipIdHasBeenSet() const;
 
@@ -73,20 +76,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return ChipManufacture 芯片厂商
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetChipManufacture() const;
 
                     /**
                      * 设置芯片厂商
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ChipManufacture 芯片厂商
+                     * @param _chipManufacture 芯片厂商
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetChipManufacture(const std::string& _chipManufacture);
 
                     /**
                      * 判断参数 ChipManufacture 是否已赋值
                      * @return ChipManufacture 是否已赋值
+                     * 
                      */
                     bool ChipManufactureHasBeenSet() const;
 

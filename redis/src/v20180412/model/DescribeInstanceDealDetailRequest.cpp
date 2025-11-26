@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace TencentCloud::Redis::V20180412::Model;
 using namespace std;
 
 DescribeInstanceDealDetailRequest::DescribeInstanceDealDetailRequest() :
-    m_dealIdsHasBeenSet(false)
+    m_dealIdsHasBeenSet(false),
+    m_dealNameHasBeenSet(false)
 {
 }
 
@@ -45,6 +46,14 @@ string DescribeInstanceDealDetailRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_dealNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DealName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dealName.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -69,6 +78,22 @@ void DescribeInstanceDealDetailRequest::SetDealIds(const vector<string>& _dealId
 bool DescribeInstanceDealDetailRequest::DealIdsHasBeenSet() const
 {
     return m_dealIdsHasBeenSet;
+}
+
+string DescribeInstanceDealDetailRequest::GetDealName() const
+{
+    return m_dealName;
+}
+
+void DescribeInstanceDealDetailRequest::SetDealName(const string& _dealName)
+{
+    m_dealName = _dealName;
+    m_dealNameHasBeenSet = true;
+}
+
+bool DescribeInstanceDealDetailRequest::DealNameHasBeenSet() const
+{
+    return m_dealNameHasBeenSet;
 }
 
 

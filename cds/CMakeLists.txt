@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2025 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,8 +32,6 @@ set(cds_public_header_model
   include/tencentcloud/cds/v20180420/model/DbauditTypesInfo.h
   include/tencentcloud/cds/v20180420/model/DescribeDbauditUsedRegionsRequest.h
   include/tencentcloud/cds/v20180420/model/InquiryPriceDbauditInstanceRequest.h
-  include/tencentcloud/cds/v20180420/model/DescribeDasbImageIdsResponse.h
-  include/tencentcloud/cds/v20180420/model/DescribeDasbImageIdsRequest.h
   )
 
 set(cds_src
@@ -51,8 +49,6 @@ set(cds_src
   src/v20180420/model/DbauditTypesInfo.cpp
   src/v20180420/model/DescribeDbauditUsedRegionsRequest.cpp
   src/v20180420/model/InquiryPriceDbauditInstanceRequest.cpp
-  src/v20180420/model/DescribeDasbImageIdsResponse.cpp
-  src/v20180420/model/DescribeDasbImageIdsRequest.cpp
   )
 
 set(cds_include

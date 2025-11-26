@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,8 @@ ModifyVirusScanSettingRequest::ModifyVirusScanSettingRequest() :
     m_scanRangeTypeHasBeenSet(false),
     m_scanRangeAllHasBeenSet(false),
     m_scanIdsHasBeenSet(false),
-    m_scanPathHasBeenSet(false)
+    m_scanPathHasBeenSet(false),
+    m_scanPathModeHasBeenSet(false)
 {
 }
 
@@ -131,6 +132,14 @@ string ModifyVirusScanSettingRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_scanPathModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScanPathMode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_scanPathMode.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -299,6 +308,22 @@ void ModifyVirusScanSettingRequest::SetScanPath(const vector<string>& _scanPath)
 bool ModifyVirusScanSettingRequest::ScanPathHasBeenSet() const
 {
     return m_scanPathHasBeenSet;
+}
+
+string ModifyVirusScanSettingRequest::GetScanPathMode() const
+{
+    return m_scanPathMode;
+}
+
+void ModifyVirusScanSettingRequest::SetScanPathMode(const string& _scanPathMode)
+{
+    m_scanPathMode = _scanPathMode;
+    m_scanPathModeHasBeenSet = true;
+}
+
+bool ModifyVirusScanSettingRequest::ScanPathModeHasBeenSet() const
+{
+    return m_scanPathModeHasBeenSet;
 }
 
 

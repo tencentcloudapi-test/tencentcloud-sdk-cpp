@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,51 +47,57 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取端口
-                     * @return Port 端口
+                     * 获取端口。取值范围为 [1,65535]。作为入参时，该参数必填。
+                     * @return Port 端口。取值范围为 [1,65535]。作为入参时，该参数必填。
+                     * 
                      */
                     uint64_t GetPort() const;
 
                     /**
-                     * 设置端口
-                     * @param Port 端口
+                     * 设置端口。取值范围为 [1,65535]。作为入参时，该参数必填。
+                     * @param _port 端口。取值范围为 [1,65535]。作为入参时，该参数必填。
+                     * 
                      */
                     void SetPort(const uint64_t& _port);
 
                     /**
                      * 判断参数 Port 是否已赋值
                      * @return Port 是否已赋值
+                     * 
                      */
                     bool PortHasBeenSet() const;
 
                     /**
-                     * 获取权重
-                     * @return Weight 权重
+                     * 获取权重。取值范围为 [0,100]。作为入参时，该参数必填。
+                     * @return Weight 权重。取值范围为 [0,100]。作为入参时，该参数必填。
+                     * 
                      */
                     uint64_t GetWeight() const;
 
                     /**
-                     * 设置权重
-                     * @param Weight 权重
+                     * 设置权重。取值范围为 [0,100]。作为入参时，该参数必填。
+                     * @param _weight 权重。取值范围为 [0,100]。作为入参时，该参数必填。
+                     * 
                      */
                     void SetWeight(const uint64_t& _weight);
 
                     /**
                      * 判断参数 Weight 是否已赋值
                      * @return Weight 是否已赋值
+                     * 
                      */
                     bool WeightHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 端口
+                     * 端口。取值范围为 [1,65535]。作为入参时，该参数必填。
                      */
                     uint64_t m_port;
                     bool m_portHasBeenSet;
 
                     /**
-                     * 权重
+                     * 权重。取值范围为 [0,100]。作为入参时，该参数必填。
                      */
                     uint64_t m_weight;
                     bool m_weightHasBeenSet;

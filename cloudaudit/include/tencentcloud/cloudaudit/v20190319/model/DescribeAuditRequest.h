@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取跟踪集名称
                      * @return AuditName 跟踪集名称
+                     * 
                      */
                     std::string GetAuditName() const;
 
                     /**
                      * 设置跟踪集名称
-                     * @param AuditName 跟踪集名称
+                     * @param _auditName 跟踪集名称
+                     * 
                      */
                     void SetAuditName(const std::string& _auditName);
 
                     /**
                      * 判断参数 AuditName 是否已赋值
                      * @return AuditName 是否已赋值
+                     * 
                      */
                     bool AuditNameHasBeenSet() const;
 

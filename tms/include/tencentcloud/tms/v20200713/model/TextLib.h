@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取库id
                      * @return LibId 库id
+                     * 
                      */
                     int64_t GetLibId() const;
 
                     /**
                      * 设置库id
-                     * @param LibId 库id
+                     * @param _libId 库id
+                     * 
                      */
                     void SetLibId(const int64_t& _libId);
 
                     /**
                      * 判断参数 LibId 是否已赋值
                      * @return LibId 是否已赋值
+                     * 
                      */
                     bool LibIdHasBeenSet() const;
 
                     /**
                      * 获取库名
                      * @return LibName 库名
+                     * 
                      */
                     std::string GetLibName() const;
 
                     /**
                      * 设置库名
-                     * @param LibName 库名
+                     * @param _libName 库名
+                     * 
                      */
                     void SetLibName(const std::string& _libName);
 
                     /**
                      * 判断参数 LibName 是否已赋值
                      * @return LibName 是否已赋值
+                     * 
                      */
                     bool LibNameHasBeenSet() const;
 

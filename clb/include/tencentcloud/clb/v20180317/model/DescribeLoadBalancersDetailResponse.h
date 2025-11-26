@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,26 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取负载均衡详情列表总数。
                      * @return TotalCount 负载均衡详情列表总数。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取负载均衡详情列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LoadBalancerDetailSet 负载均衡详情列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<LoadBalancerDetail> GetLoadBalancerDetailSet() const;
 
                     /**
                      * 判断参数 LoadBalancerDetailSet 是否已赋值
                      * @return LoadBalancerDetailSet 是否已赋值
+                     * 
                      */
                     bool LoadBalancerDetailSetHasBeenSet() const;
 
@@ -80,7 +82,6 @@ namespace TencentCloud
 
                     /**
                      * 负载均衡详情列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<LoadBalancerDetail> m_loadBalancerDetailSet;
                     bool m_loadBalancerDetailSetHasBeenSet;

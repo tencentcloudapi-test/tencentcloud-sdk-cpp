@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取多个权限规则，上限为10
                      * @return AccessRules 多个权限规则，上限为10
+                     * 
                      */
                     std::vector<AccessRule> GetAccessRules() const;
 
                     /**
                      * 设置多个权限规则，上限为10
-                     * @param AccessRules 多个权限规则，上限为10
+                     * @param _accessRules 多个权限规则，上限为10
+                     * 
                      */
                     void SetAccessRules(const std::vector<AccessRule>& _accessRules);
 
                     /**
                      * 判断参数 AccessRules 是否已赋值
                      * @return AccessRules 是否已赋值
+                     * 
                      */
                     bool AccessRulesHasBeenSet() const;
 

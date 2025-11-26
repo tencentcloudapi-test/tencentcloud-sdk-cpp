@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ NodeDefine::NodeDefine() :
     m_districtHasBeenSet(false),
     m_cityHasBeenSet(false),
     m_iPTypeHasBeenSet(false),
-    m_locationHasBeenSet(false)
+    m_locationHasBeenSet(false),
+    m_codeTypeHasBeenSet(false),
+    m_nodeDefineStatusHasBeenSet(false)
 {
 }
 
@@ -117,6 +119,26 @@ CoreInternalOutcome NodeDefine::Deserialize(const rapidjson::Value &value)
         m_locationHasBeenSet = true;
     }
 
+    if (value.HasMember("CodeType") && !value["CodeType"].IsNull())
+    {
+        if (!value["CodeType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeDefine.CodeType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_codeType = string(value["CodeType"].GetString());
+        m_codeTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("NodeDefineStatus") && !value["NodeDefineStatus"].IsNull())
+    {
+        if (!value["NodeDefineStatus"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `NodeDefine.NodeDefineStatus` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_nodeDefineStatus = value["NodeDefineStatus"].GetUint64();
+        m_nodeDefineStatusHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -186,6 +208,22 @@ void NodeDefine::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "Location";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_location, allocator);
+    }
+
+    if (m_codeTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CodeType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_codeType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_nodeDefineStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NodeDefineStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_nodeDefineStatus, allocator);
     }
 
 }
@@ -317,5 +355,37 @@ void NodeDefine::SetLocation(const int64_t& _location)
 bool NodeDefine::LocationHasBeenSet() const
 {
     return m_locationHasBeenSet;
+}
+
+string NodeDefine::GetCodeType() const
+{
+    return m_codeType;
+}
+
+void NodeDefine::SetCodeType(const string& _codeType)
+{
+    m_codeType = _codeType;
+    m_codeTypeHasBeenSet = true;
+}
+
+bool NodeDefine::CodeTypeHasBeenSet() const
+{
+    return m_codeTypeHasBeenSet;
+}
+
+uint64_t NodeDefine::GetNodeDefineStatus() const
+{
+    return m_nodeDefineStatus;
+}
+
+void NodeDefine::SetNodeDefineStatus(const uint64_t& _nodeDefineStatus)
+{
+    m_nodeDefineStatus = _nodeDefineStatus;
+    m_nodeDefineStatusHasBeenSet = true;
+}
+
+bool NodeDefine::NodeDefineStatusHasBeenSet() const
+{
+    return m_nodeDefineStatusHasBeenSet;
 }
 

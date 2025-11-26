@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,30 +47,144 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取被抄送人手机号
-                     * @return Mobile 被抄送人手机号
+                     * 获取被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
+                     * @return Mobile 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
+                     * 
                      */
                     std::string GetMobile() const;
 
                     /**
-                     * 设置被抄送人手机号
-                     * @param Mobile 被抄送人手机号
+                     * 设置被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
+                     * @param _mobile 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
+                     * 
                      */
                     void SetMobile(const std::string& _mobile);
 
                     /**
                      * 判断参数 Mobile 是否已赋值
                      * @return Mobile 是否已赋值
+                     * 
                      */
                     bool MobileHasBeenSet() const;
+
+                    /**
+                     * 获取被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+                     * @return Name 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+                     * 
+                     */
+                    std::string GetName() const;
+
+                    /**
+                     * 设置被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+                     * @param _name 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+                     * 
+                     */
+                    void SetName(const std::string& _name);
+
+                    /**
+                     * 判断参数 Name 是否已赋值
+                     * @return Name 是否已赋值
+                     * 
+                     */
+                    bool NameHasBeenSet() const;
+
+                    /**
+                     * 获取被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+                     * @return CcType 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+                     * 
+                     */
+                    int64_t GetCcType() const;
+
+                    /**
+                     * 设置被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+                     * @param _ccType 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+                     * 
+                     */
+                    void SetCcType(const int64_t& _ccType);
+
+                    /**
+                     * 判断参数 CcType 是否已赋值
+                     * @return CcType 是否已赋值
+                     * 
+                     */
+                    bool CcTypeHasBeenSet() const;
+
+                    /**
+                     * 获取被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+                     * @return CcPermission 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+                     * 
+                     */
+                    int64_t GetCcPermission() const;
+
+                    /**
+                     * 设置被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+                     * @param _ccPermission 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+                     * 
+                     */
+                    void SetCcPermission(const int64_t& _ccPermission);
+
+                    /**
+                     * 判断参数 CcPermission 是否已赋值
+                     * @return CcPermission 是否已赋值
+                     * 
+                     */
+                    bool CcPermissionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 被抄送人手机号
+                     * 被抄送方手机号码， 支持国内手机号11位数字(无需加+86前缀或其他字符)。
+请确认手机号所有方为此业务通知方。
                      */
                     std::string m_mobile;
                     bool m_mobileHasBeenSet;
+
+                    /**
+                     * 被抄送方姓名。
+抄送方的姓名将用于身份认证，请确保填写的姓名为抄送方的真实姓名，而非昵称等代名。
+                     */
+                    std::string m_name;
+                    bool m_nameHasBeenSet;
+
+                    /**
+                     * 被抄送方类型, 可设置以下类型:
+<ul><li> **0** :个人抄送方</li>
+<li> **1** :企业员工抄送方</li></ul>
+                     */
+                    int64_t m_ccType;
+                    bool m_ccTypeHasBeenSet;
+
+                    /**
+                     * 被抄送方权限, 可设置如下权限:
+<ul><li> **0** :可查看合同内容</li>
+<li> **1** :可查看合同内容也可下载原文</li></ul>
+                     */
+                    int64_t m_ccPermission;
+                    bool m_ccPermissionHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取基线名称
                      * @return BaselineName 基线名称
+                     * 
                      */
                     std::string GetBaselineName() const;
 
                     /**
                      * 设置基线名称
-                     * @param BaselineName 基线名称
+                     * @param _baselineName 基线名称
+                     * 
                      */
                     void SetBaselineName(const std::string& _baselineName);
 
                     /**
                      * 判断参数 BaselineName 是否已赋值
                      * @return BaselineName 是否已赋值
+                     * 
                      */
                     bool BaselineNameHasBeenSet() const;
 

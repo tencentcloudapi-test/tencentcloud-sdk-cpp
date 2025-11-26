@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取总数
                      * @return Count 总数
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置总数
-                     * @param Count 总数
+                     * @param _count 总数
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 
                     /**
                      * 获取统计开始时间
                      * @return Timestamp 统计开始时间
+                     * 
                      */
                     int64_t GetTimestamp() const;
 
                     /**
                      * 设置统计开始时间
-                     * @param Timestamp 统计开始时间
+                     * @param _timestamp 统计开始时间
+                     * 
                      */
                     void SetTimestamp(const int64_t& _timestamp);
 
                     /**
                      * 判断参数 Timestamp 是否已赋值
                      * @return Timestamp 是否已赋值
+                     * 
                      */
                     bool TimestampHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +24,7 @@ using namespace TencentCloud::Tdmq::V20200217::Model;
 using namespace std;
 
 DescribeNamespaceBundlesOptResponse::DescribeNamespaceBundlesOptResponse() :
-    m_totalCountHasBeenSet(false),
-    m_bundleSetHasBeenSet(false)
+    m_totalCountHasBeenSet(false)
 {
 }
 
@@ -73,26 +72,6 @@ CoreInternalOutcome DescribeNamespaceBundlesOptResponse::Deserialize(const strin
         m_totalCountHasBeenSet = true;
     }
 
-    if (rsp.HasMember("BundleSet") && !rsp["BundleSet"].IsNull())
-    {
-        if (!rsp["BundleSet"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `BundleSet` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["BundleSet"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            BundleSetOpt item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_bundleSet.push_back(item);
-        }
-        m_bundleSetHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -111,26 +90,11 @@ string DescribeNamespaceBundlesOptResponse::ToJsonString() const
         value.AddMember(iKey, m_totalCount, allocator);
     }
 
-    if (m_bundleSetHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BundleSet";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_bundleSet.begin(); itr != m_bundleSet.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -146,16 +110,6 @@ int64_t DescribeNamespaceBundlesOptResponse::GetTotalCount() const
 bool DescribeNamespaceBundlesOptResponse::TotalCountHasBeenSet() const
 {
     return m_totalCountHasBeenSet;
-}
-
-vector<BundleSetOpt> DescribeNamespaceBundlesOptResponse::GetBundleSet() const
-{
-    return m_bundleSet;
-}
-
-bool DescribeNamespaceBundlesOptResponse::BundleSetHasBeenSet() const
-{
-    return m_bundleSetHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ namespace TencentCloud
             {
                 /**
                 * 别名的版本路由配置
+其中：随机权重路由附加版本和规则路由附加版本不可以同时配置
                 */
                 class RoutingConfig : public AbstractModel
                 {
@@ -51,36 +52,42 @@ namespace TencentCloud
                     /**
                      * 获取随机权重路由附加版本
                      * @return AdditionalVersionWeights 随机权重路由附加版本
+                     * 
                      */
                     std::vector<VersionWeight> GetAdditionalVersionWeights() const;
 
                     /**
                      * 设置随机权重路由附加版本
-                     * @param AdditionalVersionWeights 随机权重路由附加版本
+                     * @param _additionalVersionWeights 随机权重路由附加版本
+                     * 
                      */
                     void SetAdditionalVersionWeights(const std::vector<VersionWeight>& _additionalVersionWeights);
 
                     /**
                      * 判断参数 AdditionalVersionWeights 是否已赋值
                      * @return AdditionalVersionWeights 是否已赋值
+                     * 
                      */
                     bool AdditionalVersionWeightsHasBeenSet() const;
 
                     /**
                      * 获取规则路由附加版本
                      * @return AddtionVersionMatchs 规则路由附加版本
+                     * 
                      */
                     std::vector<VersionMatch> GetAddtionVersionMatchs() const;
 
                     /**
                      * 设置规则路由附加版本
-                     * @param AddtionVersionMatchs 规则路由附加版本
+                     * @param _addtionVersionMatchs 规则路由附加版本
+                     * 
                      */
                     void SetAddtionVersionMatchs(const std::vector<VersionMatch>& _addtionVersionMatchs);
 
                     /**
                      * 判断参数 AddtionVersionMatchs 是否已赋值
                      * @return AddtionVersionMatchs 是否已赋值
+                     * 
                      */
                     bool AddtionVersionMatchsHasBeenSet() const;
 

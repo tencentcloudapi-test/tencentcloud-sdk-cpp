@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取版本名称
                      * @return OtaVersion 版本名称
+                     * 
                      */
                     std::string GetOtaVersion() const;
 
                     /**
                      * 设置版本名称
-                     * @param OtaVersion 版本名称
+                     * @param _otaVersion 版本名称
+                     * 
                      */
                     void SetOtaVersion(const std::string& _otaVersion);
 
                     /**
                      * 判断参数 OtaVersion 是否已赋值
                      * @return OtaVersion 是否已赋值
+                     * 
                      */
                     bool OtaVersionHasBeenSet() const;
 
                     /**
                      * 获取发布时间，unix时间戳，单位：秒
                      * @return PublishTime 发布时间，unix时间戳，单位：秒
+                     * 
                      */
                     uint64_t GetPublishTime() const;
 
                     /**
                      * 设置发布时间，unix时间戳，单位：秒
-                     * @param PublishTime 发布时间，unix时间戳，单位：秒
+                     * @param _publishTime 发布时间，unix时间戳，单位：秒
+                     * 
                      */
                     void SetPublishTime(const uint64_t& _publishTime);
 
                     /**
                      * 判断参数 PublishTime 是否已赋值
                      * @return PublishTime 是否已赋值
+                     * 
                      */
                     bool PublishTimeHasBeenSet() const;
 

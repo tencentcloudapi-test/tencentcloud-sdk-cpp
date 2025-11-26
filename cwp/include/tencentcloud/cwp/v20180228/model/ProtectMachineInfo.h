@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,72 +49,84 @@ namespace TencentCloud
                     /**
                      * 获取机器名称
                      * @return HostName 机器名称
+                     * 
                      */
                     std::string GetHostName() const;
 
                     /**
                      * 设置机器名称
-                     * @param HostName 机器名称
+                     * @param _hostName 机器名称
+                     * 
                      */
                     void SetHostName(const std::string& _hostName);
 
                     /**
                      * 判断参数 HostName 是否已赋值
                      * @return HostName 是否已赋值
+                     * 
                      */
                     bool HostNameHasBeenSet() const;
 
                     /**
                      * 获取机器IP
                      * @return HostIp 机器IP
+                     * 
                      */
                     std::string GetHostIp() const;
 
                     /**
                      * 设置机器IP
-                     * @param HostIp 机器IP
+                     * @param _hostIp 机器IP
+                     * 
                      */
                     void SetHostIp(const std::string& _hostIp);
 
                     /**
                      * 判断参数 HostIp 是否已赋值
                      * @return HostIp 是否已赋值
+                     * 
                      */
                     bool HostIpHasBeenSet() const;
 
                     /**
                      * 获取开通时间
                      * @return CreateTime 开通时间
+                     * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
                      * 设置开通时间
-                     * @param CreateTime 开通时间
+                     * @param _createTime 开通时间
+                     * 
                      */
                     void SetCreateTime(const std::string& _createTime);
 
                     /**
                      * 判断参数 CreateTime 是否已赋值
                      * @return CreateTime 是否已赋值
+                     * 
                      */
                     bool CreateTimeHasBeenSet() const;
 
                     /**
                      * 获取到期时间
                      * @return ExpireTime 到期时间
+                     * 
                      */
                     std::string GetExpireTime() const;
 
                     /**
                      * 设置到期时间
-                     * @param ExpireTime 到期时间
+                     * @param _expireTime 到期时间
+                     * 
                      */
                     void SetExpireTime(const std::string& _expireTime);
 
                     /**
                      * 判断参数 ExpireTime 是否已赋值
                      * @return ExpireTime 是否已赋值
+                     * 
                      */
                     bool ExpireTimeHasBeenSet() const;
 

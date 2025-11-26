@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -65,6 +65,7 @@ Abuse	20007
 Illegal	20006	
 Spam	25001	
 Moan	26001
+                     * 
                      */
                     std::string GetEvilType() const;
 
@@ -78,7 +79,7 @@ Abuse	20007
 Illegal	20006	
 Spam	25001	
 Moan	26001
-                     * @param EvilType 违规类型：
+                     * @param _evilType 违规类型：
 Terror	24001
 Porn	20002
 Polity	20001
@@ -87,30 +88,35 @@ Abuse	20007
 Illegal	20006	
 Spam	25001	
 Moan	26001
+                     * 
                      */
                     void SetEvilType(const std::string& _evilType);
 
                     /**
                      * 判断参数 EvilType 是否已赋值
                      * @return EvilType 是否已赋值
+                     * 
                      */
                     bool EvilTypeHasBeenSet() const;
 
                     /**
                      * 获取分布类型总量
                      * @return Count 分布类型总量
+                     * 
                      */
                     int64_t GetCount() const;
 
                     /**
                      * 设置分布类型总量
-                     * @param Count 分布类型总量
+                     * @param _count 分布类型总量
+                     * 
                      */
                     void SetCount(const int64_t& _count);
 
                     /**
                      * 判断参数 Count 是否已赋值
                      * @return Count 是否已赋值
+                     * 
                      */
                     bool CountHasBeenSet() const;
 

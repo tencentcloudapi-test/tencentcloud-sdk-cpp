@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取语音识别的结果
                      * @return AsrText 语音识别的结果
+                     * 
                      */
                     std::string GetAsrText() const;
 
                     /**
                      * 判断参数 AsrText 是否已赋值
                      * @return AsrText 是否已赋值
+                     * 
                      */
                     bool AsrTextHasBeenSet() const;
 
                     /**
                      * 获取机器翻译的结果
                      * @return NmtText 机器翻译的结果
+                     * 
                      */
                     std::string GetNmtText() const;
 
                     /**
                      * 判断参数 NmtText 是否已赋值
                      * @return NmtText 是否已赋值
+                     * 
                      */
                     bool NmtTextHasBeenSet() const;
 

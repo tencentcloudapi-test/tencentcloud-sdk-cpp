@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ DescribeBillingDataRequest::DescribeBillingDataRequest() :
     m_areaHasBeenSet(false),
     m_districtHasBeenSet(false),
     m_metricHasBeenSet(false),
-    m_productHasBeenSet(false)
+    m_productHasBeenSet(false),
+    m_timeZoneHasBeenSet(false)
 {
 }
 
@@ -112,6 +113,14 @@ string DescribeBillingDataRequest::ToJsonString() const
         string key = "Product";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_product.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_timeZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TimeZone";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_timeZone.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -264,6 +273,22 @@ void DescribeBillingDataRequest::SetProduct(const string& _product)
 bool DescribeBillingDataRequest::ProductHasBeenSet() const
 {
     return m_productHasBeenSet;
+}
+
+string DescribeBillingDataRequest::GetTimeZone() const
+{
+    return m_timeZone;
+}
+
+void DescribeBillingDataRequest::SetTimeZone(const string& _timeZone)
+{
+    m_timeZone = _timeZone;
+    m_timeZoneHasBeenSet = true;
+}
+
+bool DescribeBillingDataRequest::TimeZoneHasBeenSet() const
+{
+    return m_timeZoneHasBeenSet;
 }
 
 

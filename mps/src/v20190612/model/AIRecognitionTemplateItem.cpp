@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,10 @@ AIRecognitionTemplateItem::AIRecognitionTemplateItem() :
     m_ocrWordsConfigureHasBeenSet(false),
     m_asrFullTextConfigureHasBeenSet(false),
     m_asrWordsConfigureHasBeenSet(false),
+    m_translateConfigureHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false),
+    m_typeHasBeenSet(false)
 {
 }
 
@@ -154,6 +156,23 @@ CoreInternalOutcome AIRecognitionTemplateItem::Deserialize(const rapidjson::Valu
         m_asrWordsConfigureHasBeenSet = true;
     }
 
+    if (value.HasMember("TranslateConfigure") && !value["TranslateConfigure"].IsNull())
+    {
+        if (!value["TranslateConfigure"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AIRecognitionTemplateItem.TranslateConfigure` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_translateConfigure.Deserialize(value["TranslateConfigure"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_translateConfigureHasBeenSet = true;
+    }
+
     if (value.HasMember("CreateTime") && !value["CreateTime"].IsNull())
     {
         if (!value["CreateTime"].IsString())
@@ -172,6 +191,16 @@ CoreInternalOutcome AIRecognitionTemplateItem::Deserialize(const rapidjson::Valu
         }
         m_updateTime = string(value["UpdateTime"].GetString());
         m_updateTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Type") && !value["Type"].IsNull())
+    {
+        if (!value["Type"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AIRecognitionTemplateItem.Type` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_type = string(value["Type"].GetString());
+        m_typeHasBeenSet = true;
     }
 
 
@@ -250,6 +279,15 @@ void AIRecognitionTemplateItem::ToJsonObject(rapidjson::Value &value, rapidjson:
         m_asrWordsConfigure.ToJsonObject(value[key.c_str()], allocator);
     }
 
+    if (m_translateConfigureHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TranslateConfigure";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_translateConfigure.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     if (m_createTimeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -264,6 +302,14 @@ void AIRecognitionTemplateItem::ToJsonObject(rapidjson::Value &value, rapidjson:
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_typeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Type";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -397,6 +443,22 @@ bool AIRecognitionTemplateItem::AsrWordsConfigureHasBeenSet() const
     return m_asrWordsConfigureHasBeenSet;
 }
 
+TranslateConfigureInfo AIRecognitionTemplateItem::GetTranslateConfigure() const
+{
+    return m_translateConfigure;
+}
+
+void AIRecognitionTemplateItem::SetTranslateConfigure(const TranslateConfigureInfo& _translateConfigure)
+{
+    m_translateConfigure = _translateConfigure;
+    m_translateConfigureHasBeenSet = true;
+}
+
+bool AIRecognitionTemplateItem::TranslateConfigureHasBeenSet() const
+{
+    return m_translateConfigureHasBeenSet;
+}
+
 string AIRecognitionTemplateItem::GetCreateTime() const
 {
     return m_createTime;
@@ -427,5 +489,21 @@ void AIRecognitionTemplateItem::SetUpdateTime(const string& _updateTime)
 bool AIRecognitionTemplateItem::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
+}
+
+string AIRecognitionTemplateItem::GetType() const
+{
+    return m_type;
+}
+
+void AIRecognitionTemplateItem::SetType(const string& _type)
+{
+    m_type = _type;
+    m_typeHasBeenSet = true;
+}
+
+bool AIRecognitionTemplateItem::TypeHasBeenSet() const
+{
+    return m_typeHasBeenSet;
 }
 

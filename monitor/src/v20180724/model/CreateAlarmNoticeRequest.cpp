@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ CreateAlarmNoticeRequest::CreateAlarmNoticeRequest() :
     m_noticeLanguageHasBeenSet(false),
     m_userNoticesHasBeenSet(false),
     m_uRLNoticesHasBeenSet(false),
-    m_cLSNoticesHasBeenSet(false)
+    m_cLSNoticesHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_isLoginFreeHasBeenSet(false)
 {
 }
 
@@ -115,6 +117,29 @@ string CreateAlarmNoticeRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_tagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Tags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_isLoginFreeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsLoginFree";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isLoginFree, allocator);
     }
 
 
@@ -235,6 +260,38 @@ void CreateAlarmNoticeRequest::SetCLSNotices(const vector<CLSNotice>& _cLSNotice
 bool CreateAlarmNoticeRequest::CLSNoticesHasBeenSet() const
 {
     return m_cLSNoticesHasBeenSet;
+}
+
+vector<Tag> CreateAlarmNoticeRequest::GetTags() const
+{
+    return m_tags;
+}
+
+void CreateAlarmNoticeRequest::SetTags(const vector<Tag>& _tags)
+{
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
+}
+
+bool CreateAlarmNoticeRequest::TagsHasBeenSet() const
+{
+    return m_tagsHasBeenSet;
+}
+
+int64_t CreateAlarmNoticeRequest::GetIsLoginFree() const
+{
+    return m_isLoginFree;
+}
+
+void CreateAlarmNoticeRequest::SetIsLoginFree(const int64_t& _isLoginFree)
+{
+    m_isLoginFree = _isLoginFree;
+    m_isLoginFreeHasBeenSet = true;
+}
+
+bool CreateAlarmNoticeRequest::IsLoginFreeHasBeenSet() const
+{
+    return m_isLoginFreeHasBeenSet;
 }
 
 

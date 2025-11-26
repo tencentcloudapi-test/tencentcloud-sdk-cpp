@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,11 @@ EnvInfo::EnvInfo() :
     m_configInternetServiceIpHasBeenSet(false),
     m_specIdHasBeenSet(false),
     m_envReplicaHasBeenSet(false),
-    m_runningCountHasBeenSet(false)
+    m_runningCountHasBeenSet(false),
+    m_aliasEnvNameHasBeenSet(false),
+    m_envDescHasBeenSet(false),
+    m_clientBandWidthHasBeenSet(false),
+    m_enableConfigIntranetHasBeenSet(false)
 {
 }
 
@@ -160,6 +164,46 @@ CoreInternalOutcome EnvInfo::Deserialize(const rapidjson::Value &value)
         m_runningCountHasBeenSet = true;
     }
 
+    if (value.HasMember("AliasEnvName") && !value["AliasEnvName"].IsNull())
+    {
+        if (!value["AliasEnvName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.AliasEnvName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_aliasEnvName = string(value["AliasEnvName"].GetString());
+        m_aliasEnvNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnvDesc") && !value["EnvDesc"].IsNull())
+    {
+        if (!value["EnvDesc"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.EnvDesc` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_envDesc = string(value["EnvDesc"].GetString());
+        m_envDescHasBeenSet = true;
+    }
+
+    if (value.HasMember("ClientBandWidth") && !value["ClientBandWidth"].IsNull())
+    {
+        if (!value["ClientBandWidth"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.ClientBandWidth` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_clientBandWidth = value["ClientBandWidth"].GetUint64();
+        m_clientBandWidthHasBeenSet = true;
+    }
+
+    if (value.HasMember("EnableConfigIntranet") && !value["EnableConfigIntranet"].IsNull())
+    {
+        if (!value["EnableConfigIntranet"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `EnvInfo.EnableConfigIntranet` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_enableConfigIntranet = value["EnableConfigIntranet"].GetBool();
+        m_enableConfigIntranetHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -260,6 +304,38 @@ void EnvInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "RunningCount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_runningCount, allocator);
+    }
+
+    if (m_aliasEnvNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AliasEnvName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_aliasEnvName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_envDescHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnvDesc";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_envDesc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_clientBandWidthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClientBandWidth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_clientBandWidth, allocator);
+    }
+
+    if (m_enableConfigIntranetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableConfigIntranet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enableConfigIntranet, allocator);
     }
 
 }
@@ -439,5 +515,69 @@ void EnvInfo::SetRunningCount(const int64_t& _runningCount)
 bool EnvInfo::RunningCountHasBeenSet() const
 {
     return m_runningCountHasBeenSet;
+}
+
+string EnvInfo::GetAliasEnvName() const
+{
+    return m_aliasEnvName;
+}
+
+void EnvInfo::SetAliasEnvName(const string& _aliasEnvName)
+{
+    m_aliasEnvName = _aliasEnvName;
+    m_aliasEnvNameHasBeenSet = true;
+}
+
+bool EnvInfo::AliasEnvNameHasBeenSet() const
+{
+    return m_aliasEnvNameHasBeenSet;
+}
+
+string EnvInfo::GetEnvDesc() const
+{
+    return m_envDesc;
+}
+
+void EnvInfo::SetEnvDesc(const string& _envDesc)
+{
+    m_envDesc = _envDesc;
+    m_envDescHasBeenSet = true;
+}
+
+bool EnvInfo::EnvDescHasBeenSet() const
+{
+    return m_envDescHasBeenSet;
+}
+
+uint64_t EnvInfo::GetClientBandWidth() const
+{
+    return m_clientBandWidth;
+}
+
+void EnvInfo::SetClientBandWidth(const uint64_t& _clientBandWidth)
+{
+    m_clientBandWidth = _clientBandWidth;
+    m_clientBandWidthHasBeenSet = true;
+}
+
+bool EnvInfo::ClientBandWidthHasBeenSet() const
+{
+    return m_clientBandWidthHasBeenSet;
+}
+
+bool EnvInfo::GetEnableConfigIntranet() const
+{
+    return m_enableConfigIntranet;
+}
+
+void EnvInfo::SetEnableConfigIntranet(const bool& _enableConfigIntranet)
+{
+    m_enableConfigIntranet = _enableConfigIntranet;
+    m_enableConfigIntranetHasBeenSet = true;
+}
+
+bool EnvInfo::EnableConfigIntranetHasBeenSet() const
+{
+    return m_enableConfigIntranetHasBeenSet;
 }
 

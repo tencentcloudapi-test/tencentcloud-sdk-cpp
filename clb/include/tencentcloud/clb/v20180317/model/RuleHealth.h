@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取转发规则ID
                      * @return LocationId 转发规则ID
+                     * 
                      */
                     std::string GetLocationId() const;
 
                     /**
                      * 设置转发规则ID
-                     * @param LocationId 转发规则ID
+                     * @param _locationId 转发规则ID
+                     * 
                      */
                     void SetLocationId(const std::string& _locationId);
 
                     /**
                      * 判断参数 LocationId 是否已赋值
                      * @return LocationId 是否已赋值
+                     * 
                      */
                     bool LocationIdHasBeenSet() const;
 
@@ -70,20 +73,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Domain 转发规则的域名
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置转发规则的域名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Domain 转发规则的域名
+                     * @param _domain 转发规则的域名
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
@@ -92,42 +98,65 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Url 转发规则的Url
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetUrl() const;
 
                     /**
                      * 设置转发规则的Url
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Url 转发规则的Url
+                     * @param _url 转发规则的Url
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetUrl(const std::string& _url);
 
                     /**
                      * 判断参数 Url 是否已赋值
                      * @return Url 是否已赋值
+                     * 
                      */
                     bool UrlHasBeenSet() const;
 
                     /**
+                     * 获取高级路由规则ID
+                     * @return RuleId 高级路由规则ID
+                     * 
+                     */
+                    std::string GetRuleId() const;
+
+                    /**
+                     * 设置高级路由规则ID
+                     * @param _ruleId 高级路由规则ID
+                     * 
+                     */
+                    void SetRuleId(const std::string& _ruleId);
+
+                    /**
+                     * 判断参数 RuleId 是否已赋值
+                     * @return RuleId 是否已赋值
+                     * 
+                     */
+                    bool RuleIdHasBeenSet() const;
+
+                    /**
                      * 获取本规则上绑定的后端服务的健康检查状态
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Targets 本规则上绑定的后端服务的健康检查状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<TargetHealth> GetTargets() const;
 
                     /**
                      * 设置本规则上绑定的后端服务的健康检查状态
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Targets 本规则上绑定的后端服务的健康检查状态
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _targets 本规则上绑定的后端服务的健康检查状态
+                     * 
                      */
                     void SetTargets(const std::vector<TargetHealth>& _targets);
 
                     /**
                      * 判断参数 Targets 是否已赋值
                      * @return Targets 是否已赋值
+                     * 
                      */
                     bool TargetsHasBeenSet() const;
 
@@ -154,8 +183,13 @@ namespace TencentCloud
                     bool m_urlHasBeenSet;
 
                     /**
+                     * 高级路由规则ID
+                     */
+                    std::string m_ruleId;
+                    bool m_ruleIdHasBeenSet;
+
+                    /**
                      * 本规则上绑定的后端服务的健康检查状态
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<TargetHealth> m_targets;
                     bool m_targetsHasBeenSet;

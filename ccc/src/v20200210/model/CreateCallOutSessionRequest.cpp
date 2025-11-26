@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,8 +27,10 @@ CreateCallOutSessionRequest::CreateCallOutSessionRequest() :
     m_userIdHasBeenSet(false),
     m_calleeHasBeenSet(false),
     m_callerHasBeenSet(false),
+    m_callersHasBeenSet(false),
     m_isForceUseMobileHasBeenSet(false),
-    m_uuiHasBeenSet(false)
+    m_uuiHasBeenSet(false),
+    m_uUIHasBeenSet(false)
 {
 }
 
@@ -71,6 +73,19 @@ string CreateCallOutSessionRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_caller.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_callersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Callers";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_callers.begin(); itr != m_callers.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
     if (m_isForceUseMobileHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -85,6 +100,14 @@ string CreateCallOutSessionRequest::ToJsonString() const
         string key = "Uui";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_uui.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_uUIHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UUI";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_uUI.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -159,6 +182,22 @@ bool CreateCallOutSessionRequest::CallerHasBeenSet() const
     return m_callerHasBeenSet;
 }
 
+vector<string> CreateCallOutSessionRequest::GetCallers() const
+{
+    return m_callers;
+}
+
+void CreateCallOutSessionRequest::SetCallers(const vector<string>& _callers)
+{
+    m_callers = _callers;
+    m_callersHasBeenSet = true;
+}
+
+bool CreateCallOutSessionRequest::CallersHasBeenSet() const
+{
+    return m_callersHasBeenSet;
+}
+
 bool CreateCallOutSessionRequest::GetIsForceUseMobile() const
 {
     return m_isForceUseMobile;
@@ -189,6 +228,22 @@ void CreateCallOutSessionRequest::SetUui(const string& _uui)
 bool CreateCallOutSessionRequest::UuiHasBeenSet() const
 {
     return m_uuiHasBeenSet;
+}
+
+string CreateCallOutSessionRequest::GetUUI() const
+{
+    return m_uUI;
+}
+
+void CreateCallOutSessionRequest::SetUUI(const string& _uUI)
+{
+    m_uUI = _uUI;
+    m_uUIHasBeenSet = true;
+}
+
+bool CreateCallOutSessionRequest::UUIHasBeenSet() const
+{
+    return m_uUIHasBeenSet;
 }
 
 

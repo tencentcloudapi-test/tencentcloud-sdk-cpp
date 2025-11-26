@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取查询条件地域
                      * @return SearchRegion 查询条件地域
+                     * 
                      */
                     std::string GetSearchRegion() const;
 
                     /**
                      * 设置查询条件地域
-                     * @param SearchRegion 查询条件地域
+                     * @param _searchRegion 查询条件地域
+                     * 
                      */
                     void SetSearchRegion(const std::string& _searchRegion);
 
                     /**
                      * 判断参数 SearchRegion 是否已赋值
                      * @return SearchRegion 是否已赋值
+                     * 
                      */
                     bool SearchRegionHasBeenSet() const;
 
                     /**
                      * 获取限制数目，默认10， 最大50
                      * @return Limit 限制数目，默认10， 最大50
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置限制数目，默认10， 最大50
-                     * @param Limit 限制数目，默认10， 最大50
+                     * @param _limit 限制数目，默认10， 最大50
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取偏移量，默认1
                      * @return Offset 偏移量，默认1
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置偏移量，默认1
-                     * @param Offset 偏移量，默认1
+                     * @param _offset 偏移量，默认1
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 

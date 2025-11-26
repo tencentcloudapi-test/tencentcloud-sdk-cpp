@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,10 @@ SkillGroupInfoItem::SkillGroupInfoItem() :
     m_routePolicyHasBeenSet(false),
     m_usingLastSeatHasBeenSet(false),
     m_maxConcurrencyHasBeenSet(false),
-    m_lastModifyTimestampHasBeenSet(false)
+    m_lastModifyTimestampHasBeenSet(false),
+    m_skillGroupTypeHasBeenSet(false),
+    m_aliasHasBeenSet(false),
+    m_ringAllHasBeenSet(false)
 {
 }
 
@@ -106,6 +109,36 @@ CoreInternalOutcome SkillGroupInfoItem::Deserialize(const rapidjson::Value &valu
         m_lastModifyTimestampHasBeenSet = true;
     }
 
+    if (value.HasMember("SkillGroupType") && !value["SkillGroupType"].IsNull())
+    {
+        if (!value["SkillGroupType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `SkillGroupInfoItem.SkillGroupType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_skillGroupType = value["SkillGroupType"].GetInt64();
+        m_skillGroupTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("Alias") && !value["Alias"].IsNull())
+    {
+        if (!value["Alias"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SkillGroupInfoItem.Alias` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_alias = string(value["Alias"].GetString());
+        m_aliasHasBeenSet = true;
+    }
+
+    if (value.HasMember("RingAll") && !value["RingAll"].IsNull())
+    {
+        if (!value["RingAll"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `SkillGroupInfoItem.RingAll` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_ringAll = value["RingAll"].GetBool();
+        m_ringAllHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -167,6 +200,30 @@ void SkillGroupInfoItem::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "LastModifyTimestamp";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_lastModifyTimestamp, allocator);
+    }
+
+    if (m_skillGroupTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SkillGroupType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_skillGroupType, allocator);
+    }
+
+    if (m_aliasHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Alias";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_alias.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ringAllHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RingAll";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_ringAll, allocator);
     }
 
 }
@@ -282,5 +339,53 @@ void SkillGroupInfoItem::SetLastModifyTimestamp(const int64_t& _lastModifyTimest
 bool SkillGroupInfoItem::LastModifyTimestampHasBeenSet() const
 {
     return m_lastModifyTimestampHasBeenSet;
+}
+
+int64_t SkillGroupInfoItem::GetSkillGroupType() const
+{
+    return m_skillGroupType;
+}
+
+void SkillGroupInfoItem::SetSkillGroupType(const int64_t& _skillGroupType)
+{
+    m_skillGroupType = _skillGroupType;
+    m_skillGroupTypeHasBeenSet = true;
+}
+
+bool SkillGroupInfoItem::SkillGroupTypeHasBeenSet() const
+{
+    return m_skillGroupTypeHasBeenSet;
+}
+
+string SkillGroupInfoItem::GetAlias() const
+{
+    return m_alias;
+}
+
+void SkillGroupInfoItem::SetAlias(const string& _alias)
+{
+    m_alias = _alias;
+    m_aliasHasBeenSet = true;
+}
+
+bool SkillGroupInfoItem::AliasHasBeenSet() const
+{
+    return m_aliasHasBeenSet;
+}
+
+bool SkillGroupInfoItem::GetRingAll() const
+{
+    return m_ringAll;
+}
+
+void SkillGroupInfoItem::SetRingAll(const bool& _ringAll)
+{
+    m_ringAll = _ringAll;
+    m_ringAllHasBeenSet = true;
+}
+
+bool SkillGroupInfoItem::RingAllHasBeenSet() const
+{
+    return m_ringAllHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,20 +52,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return GroupList 消息组列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<Group> GetGroupList() const;
 
                     /**
                      * 设置消息组列表。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param GroupList 消息组列表。
+                     * @param _groupList 消息组列表。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetGroupList(const std::vector<Group>& _groupList);
 
                     /**
                      * 判断参数 GroupList 是否已赋值
                      * @return GroupList 是否已赋值
+                     * 
                      */
                     bool GroupListHasBeenSet() const;
 

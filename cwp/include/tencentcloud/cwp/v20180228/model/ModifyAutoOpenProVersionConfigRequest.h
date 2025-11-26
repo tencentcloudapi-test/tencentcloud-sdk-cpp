@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@ namespace TencentCloud
                      * @return Status 设置自动开通状态。
 <li>CLOSE：关闭</li>
 <li>OPEN：打开</li>
+                     * 
                      */
                     std::string GetStatus() const;
 
@@ -56,17 +57,124 @@ namespace TencentCloud
                      * 设置设置自动开通状态。
 <li>CLOSE：关闭</li>
 <li>OPEN：打开</li>
-                     * @param Status 设置自动开通状态。
+                     * @param _status 设置自动开通状态。
 <li>CLOSE：关闭</li>
 <li>OPEN：打开</li>
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取自动加购/扩容授权开关,默认 1, 0关闭, 1开启
+                     * @return AutoRepurchaseSwitch 自动加购/扩容授权开关,默认 1, 0关闭, 1开启
+                     * 
+                     */
+                    uint64_t GetAutoRepurchaseSwitch() const;
+
+                    /**
+                     * 设置自动加购/扩容授权开关,默认 1, 0关闭, 1开启
+                     * @param _autoRepurchaseSwitch 自动加购/扩容授权开关,默认 1, 0关闭, 1开启
+                     * 
+                     */
+                    void SetAutoRepurchaseSwitch(const uint64_t& _autoRepurchaseSwitch);
+
+                    /**
+                     * 判断参数 AutoRepurchaseSwitch 是否已赋值
+                     * @return AutoRepurchaseSwitch 是否已赋值
+                     * 
+                     */
+                    bool AutoRepurchaseSwitchHasBeenSet() const;
+
+                    /**
+                     * 获取自动加购的订单是否自动续费,默认0 ,0关闭, 1开启
+                     * @return AutoRepurchaseRenewSwitch 自动加购的订单是否自动续费,默认0 ,0关闭, 1开启
+                     * 
+                     */
+                    uint64_t GetAutoRepurchaseRenewSwitch() const;
+
+                    /**
+                     * 设置自动加购的订单是否自动续费,默认0 ,0关闭, 1开启
+                     * @param _autoRepurchaseRenewSwitch 自动加购的订单是否自动续费,默认0 ,0关闭, 1开启
+                     * 
+                     */
+                    void SetAutoRepurchaseRenewSwitch(const uint64_t& _autoRepurchaseRenewSwitch);
+
+                    /**
+                     * 判断参数 AutoRepurchaseRenewSwitch 是否已赋值
+                     * @return AutoRepurchaseRenewSwitch 是否已赋值
+                     * 
+                     */
+                    bool AutoRepurchaseRenewSwitchHasBeenSet() const;
+
+                    /**
+                     * 获取手动购买的订单是否自动续费,默认0, 0关闭 ,1 开启
+                     * @return RepurchaseRenewSwitch 手动购买的订单是否自动续费,默认0, 0关闭 ,1 开启
+                     * 
+                     */
+                    uint64_t GetRepurchaseRenewSwitch() const;
+
+                    /**
+                     * 设置手动购买的订单是否自动续费,默认0, 0关闭 ,1 开启
+                     * @param _repurchaseRenewSwitch 手动购买的订单是否自动续费,默认0, 0关闭 ,1 开启
+                     * 
+                     */
+                    void SetRepurchaseRenewSwitch(const uint64_t& _repurchaseRenewSwitch);
+
+                    /**
+                     * 判断参数 RepurchaseRenewSwitch 是否已赋值
+                     * @return RepurchaseRenewSwitch 是否已赋值
+                     * 
+                     */
+                    bool RepurchaseRenewSwitchHasBeenSet() const;
+
+                    /**
+                     * 获取新增机器自动绑定rasp,0 关闭 1开启
+                     * @return AutoBindRaspSwitch 新增机器自动绑定rasp,0 关闭 1开启
+                     * 
+                     */
+                    uint64_t GetAutoBindRaspSwitch() const;
+
+                    /**
+                     * 设置新增机器自动绑定rasp,0 关闭 1开启
+                     * @param _autoBindRaspSwitch 新增机器自动绑定rasp,0 关闭 1开启
+                     * 
+                     */
+                    void SetAutoBindRaspSwitch(const uint64_t& _autoBindRaspSwitch);
+
+                    /**
+                     * 判断参数 AutoBindRaspSwitch 是否已赋值
+                     * @return AutoBindRaspSwitch 是否已赋值
+                     * 
+                     */
+                    bool AutoBindRaspSwitchHasBeenSet() const;
+
+                    /**
+                     * 获取新增机器自动开启rasp防护,默认关闭,0 关闭 1开启
+                     * @return AutoOpenRaspSwitch 新增机器自动开启rasp防护,默认关闭,0 关闭 1开启
+                     * 
+                     */
+                    uint64_t GetAutoOpenRaspSwitch() const;
+
+                    /**
+                     * 设置新增机器自动开启rasp防护,默认关闭,0 关闭 1开启
+                     * @param _autoOpenRaspSwitch 新增机器自动开启rasp防护,默认关闭,0 关闭 1开启
+                     * 
+                     */
+                    void SetAutoOpenRaspSwitch(const uint64_t& _autoOpenRaspSwitch);
+
+                    /**
+                     * 判断参数 AutoOpenRaspSwitch 是否已赋值
+                     * @return AutoOpenRaspSwitch 是否已赋值
+                     * 
+                     */
+                    bool AutoOpenRaspSwitchHasBeenSet() const;
 
                 private:
 
@@ -77,6 +185,36 @@ namespace TencentCloud
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 自动加购/扩容授权开关,默认 1, 0关闭, 1开启
+                     */
+                    uint64_t m_autoRepurchaseSwitch;
+                    bool m_autoRepurchaseSwitchHasBeenSet;
+
+                    /**
+                     * 自动加购的订单是否自动续费,默认0 ,0关闭, 1开启
+                     */
+                    uint64_t m_autoRepurchaseRenewSwitch;
+                    bool m_autoRepurchaseRenewSwitchHasBeenSet;
+
+                    /**
+                     * 手动购买的订单是否自动续费,默认0, 0关闭 ,1 开启
+                     */
+                    uint64_t m_repurchaseRenewSwitch;
+                    bool m_repurchaseRenewSwitchHasBeenSet;
+
+                    /**
+                     * 新增机器自动绑定rasp,0 关闭 1开启
+                     */
+                    uint64_t m_autoBindRaspSwitch;
+                    bool m_autoBindRaspSwitchHasBeenSet;
+
+                    /**
+                     * 新增机器自动开启rasp防护,默认关闭,0 关闭 1开启
+                     */
+                    uint64_t m_autoOpenRaspSwitch;
+                    bool m_autoOpenRaspSwitchHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeRollbackTimeRangeResponse::DescribeRollbackTimeRangeResponse() :
     m_timeRangeStartHasBeenSet(false),
-    m_timeRangeEndHasBeenSet(false)
+    m_timeRangeEndHasBeenSet(false),
+    m_rollbackTimeRangesHasBeenSet(false)
 {
 }
 
@@ -83,6 +84,26 @@ CoreInternalOutcome DescribeRollbackTimeRangeResponse::Deserialize(const string 
         m_timeRangeEndHasBeenSet = true;
     }
 
+    if (rsp.HasMember("RollbackTimeRanges") && !rsp["RollbackTimeRanges"].IsNull())
+    {
+        if (!rsp["RollbackTimeRanges"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `RollbackTimeRanges` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["RollbackTimeRanges"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            RollbackTimeRange item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_rollbackTimeRanges.push_back(item);
+        }
+        m_rollbackTimeRangesHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +130,26 @@ string DescribeRollbackTimeRangeResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_timeRangeEnd.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_rollbackTimeRangesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RollbackTimeRanges";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_rollbackTimeRanges.begin(); itr != m_rollbackTimeRanges.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +175,16 @@ string DescribeRollbackTimeRangeResponse::GetTimeRangeEnd() const
 bool DescribeRollbackTimeRangeResponse::TimeRangeEndHasBeenSet() const
 {
     return m_timeRangeEndHasBeenSet;
+}
+
+vector<RollbackTimeRange> DescribeRollbackTimeRangeResponse::GetRollbackTimeRanges() const
+{
+    return m_rollbackTimeRanges;
+}
+
+bool DescribeRollbackTimeRangeResponse::RollbackTimeRangesHasBeenSet() const
+{
+    return m_rollbackTimeRangesHasBeenSet;
 }
 
 

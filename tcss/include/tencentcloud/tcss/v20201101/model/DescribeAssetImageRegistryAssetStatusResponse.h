@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,28 +46,44 @@ namespace TencentCloud
                     /**
                      * 获取更新进度状态,doing更新中，success更新成功，failed失败
                      * @return Status 更新进度状态,doing更新中，success更新成功，failed失败
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取错误信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Err 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetErr() const;
 
                     /**
                      * 判断参数 Err 是否已赋值
                      * @return Err 是否已赋值
+                     * 
                      */
                     bool ErrHasBeenSet() const;
+
+                    /**
+                     * 获取最后一次同步成功时间
+                     * @return LatestSyncSuccessTime 最后一次同步成功时间
+                     * 
+                     */
+                    std::string GetLatestSyncSuccessTime() const;
+
+                    /**
+                     * 判断参数 LatestSyncSuccessTime 是否已赋值
+                     * @return LatestSyncSuccessTime 是否已赋值
+                     * 
+                     */
+                    bool LatestSyncSuccessTimeHasBeenSet() const;
 
                 private:
 
@@ -79,10 +95,15 @@ namespace TencentCloud
 
                     /**
                      * 错误信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_err;
                     bool m_errHasBeenSet;
+
+                    /**
+                     * 最后一次同步成功时间
+                     */
+                    std::string m_latestSyncSuccessTime;
+                    bool m_latestSyncSuccessTimeHasBeenSet;
 
                 };
             }

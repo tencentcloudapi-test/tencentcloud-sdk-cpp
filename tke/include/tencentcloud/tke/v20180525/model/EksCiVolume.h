@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,20 +53,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return CbsVolumes Cbs Volume
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<CbsVolume> GetCbsVolumes() const;
 
                     /**
                      * 设置Cbs Volume
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param CbsVolumes Cbs Volume
+                     * @param _cbsVolumes Cbs Volume
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCbsVolumes(const std::vector<CbsVolume>& _cbsVolumes);
 
                     /**
                      * 判断参数 CbsVolumes 是否已赋值
                      * @return CbsVolumes 是否已赋值
+                     * 
                      */
                     bool CbsVolumesHasBeenSet() const;
 
@@ -75,20 +78,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return NfsVolumes Nfs Volume
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<NfsVolume> GetNfsVolumes() const;
 
                     /**
                      * 设置Nfs Volume
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param NfsVolumes Nfs Volume
+                     * @param _nfsVolumes Nfs Volume
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetNfsVolumes(const std::vector<NfsVolume>& _nfsVolumes);
 
                     /**
                      * 判断参数 NfsVolumes 是否已赋值
                      * @return NfsVolumes 是否已赋值
+                     * 
                      */
                     bool NfsVolumesHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@ using namespace std;
 TranscodeTaskInput::TranscodeTaskInput() :
     m_definitionHasBeenSet(false),
     m_watermarkSetHasBeenSet(false),
+    m_traceWatermarkHasBeenSet(false),
+    m_copyRightWatermarkHasBeenSet(false),
     m_mosaicSetHasBeenSet(false),
     m_headTailSetHasBeenSet(false),
     m_startTimeOffsetHasBeenSet(false),
@@ -63,6 +65,40 @@ CoreInternalOutcome TranscodeTaskInput::Deserialize(const rapidjson::Value &valu
             m_watermarkSet.push_back(item);
         }
         m_watermarkSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("TraceWatermark") && !value["TraceWatermark"].IsNull())
+    {
+        if (!value["TraceWatermark"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TranscodeTaskInput.TraceWatermark` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_traceWatermark.Deserialize(value["TraceWatermark"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_traceWatermarkHasBeenSet = true;
+    }
+
+    if (value.HasMember("CopyRightWatermark") && !value["CopyRightWatermark"].IsNull())
+    {
+        if (!value["CopyRightWatermark"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `TranscodeTaskInput.CopyRightWatermark` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_copyRightWatermark.Deserialize(value["CopyRightWatermark"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_copyRightWatermarkHasBeenSet = true;
     }
 
     if (value.HasMember("MosaicSet") && !value["MosaicSet"].IsNull())
@@ -155,6 +191,24 @@ void TranscodeTaskInput::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         }
     }
 
+    if (m_traceWatermarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TraceWatermark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_traceWatermark.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_copyRightWatermarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CopyRightWatermark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_copyRightWatermark.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     if (m_mosaicSetHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -234,6 +288,38 @@ void TranscodeTaskInput::SetWatermarkSet(const vector<WatermarkInput>& _watermar
 bool TranscodeTaskInput::WatermarkSetHasBeenSet() const
 {
     return m_watermarkSetHasBeenSet;
+}
+
+TraceWatermarkInput TranscodeTaskInput::GetTraceWatermark() const
+{
+    return m_traceWatermark;
+}
+
+void TranscodeTaskInput::SetTraceWatermark(const TraceWatermarkInput& _traceWatermark)
+{
+    m_traceWatermark = _traceWatermark;
+    m_traceWatermarkHasBeenSet = true;
+}
+
+bool TranscodeTaskInput::TraceWatermarkHasBeenSet() const
+{
+    return m_traceWatermarkHasBeenSet;
+}
+
+CopyRightWatermarkInput TranscodeTaskInput::GetCopyRightWatermark() const
+{
+    return m_copyRightWatermark;
+}
+
+void TranscodeTaskInput::SetCopyRightWatermark(const CopyRightWatermarkInput& _copyRightWatermark)
+{
+    m_copyRightWatermark = _copyRightWatermark;
+    m_copyRightWatermarkHasBeenSet = true;
+}
+
+bool TranscodeTaskInput::CopyRightWatermarkHasBeenSet() const
+{
+    return m_copyRightWatermarkHasBeenSet;
 }
 
 vector<MosaicInput> TranscodeTaskInput::GetMosaicSet() const

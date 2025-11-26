@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,34 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+                     * @return HsmType Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+                     * 
+                     */
+                    std::string GetHsmType() const;
+
+                    /**
+                     * 设置Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+                     * @param _hsmType Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+                     * 
+                     */
+                    void SetHsmType(const std::string& _hsmType);
+
+                    /**
+                     * 判断参数 HsmType 是否已赋值
+                     * @return HsmType 是否已赋值
+                     * 
+                     */
+                    bool HsmTypeHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * Hsm类型，可选值all、virtulization、GHSM、EHSM、SHSM
+                     */
+                    std::string m_hsmType;
+                    bool m_hsmTypeHasBeenSet;
 
                 };
             }

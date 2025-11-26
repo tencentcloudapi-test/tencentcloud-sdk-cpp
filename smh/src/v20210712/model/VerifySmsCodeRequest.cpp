@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,10 @@ using namespace std;
 
 VerifySmsCodeRequest::VerifySmsCodeRequest() :
     m_purposeHasBeenSet(false),
-    m_instanceIdHasBeenSet(false),
     m_phoneNumberHasBeenSet(false),
-    m_codeHasBeenSet(false)
+    m_codeHasBeenSet(false),
+    m_instanceIdHasBeenSet(false),
+    m_countryCodeHasBeenSet(false)
 {
 }
 
@@ -45,14 +46,6 @@ string VerifySmsCodeRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_purpose.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_instanceIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "InstanceId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_phoneNumberHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -67,6 +60,22 @@ string VerifySmsCodeRequest::ToJsonString() const
         string key = "Code";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_code.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_instanceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_countryCodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CountryCode";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_countryCode.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -91,22 +100,6 @@ void VerifySmsCodeRequest::SetPurpose(const string& _purpose)
 bool VerifySmsCodeRequest::PurposeHasBeenSet() const
 {
     return m_purposeHasBeenSet;
-}
-
-string VerifySmsCodeRequest::GetInstanceId() const
-{
-    return m_instanceId;
-}
-
-void VerifySmsCodeRequest::SetInstanceId(const string& _instanceId)
-{
-    m_instanceId = _instanceId;
-    m_instanceIdHasBeenSet = true;
-}
-
-bool VerifySmsCodeRequest::InstanceIdHasBeenSet() const
-{
-    return m_instanceIdHasBeenSet;
 }
 
 string VerifySmsCodeRequest::GetPhoneNumber() const
@@ -139,6 +132,38 @@ void VerifySmsCodeRequest::SetCode(const string& _code)
 bool VerifySmsCodeRequest::CodeHasBeenSet() const
 {
     return m_codeHasBeenSet;
+}
+
+string VerifySmsCodeRequest::GetInstanceId() const
+{
+    return m_instanceId;
+}
+
+void VerifySmsCodeRequest::SetInstanceId(const string& _instanceId)
+{
+    m_instanceId = _instanceId;
+    m_instanceIdHasBeenSet = true;
+}
+
+bool VerifySmsCodeRequest::InstanceIdHasBeenSet() const
+{
+    return m_instanceIdHasBeenSet;
+}
+
+string VerifySmsCodeRequest::GetCountryCode() const
+{
+    return m_countryCode;
+}
+
+void VerifySmsCodeRequest::SetCountryCode(const string& _countryCode)
+{
+    m_countryCode = _countryCode;
+    m_countryCodeHasBeenSet = true;
+}
+
+bool VerifySmsCodeRequest::CountryCodeHasBeenSet() const
+{
+    return m_countryCodeHasBeenSet;
 }
 
 

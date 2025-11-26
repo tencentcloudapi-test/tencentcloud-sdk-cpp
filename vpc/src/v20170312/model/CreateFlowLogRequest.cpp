@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ CreateFlowLogRequest::CreateFlowLogRequest() :
     m_cloudLogIdHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_storageTypeHasBeenSet(false),
-    m_flowLogStorageHasBeenSet(false)
+    m_flowLogStorageHasBeenSet(false),
+    m_cloudLogRegionHasBeenSet(false),
+    m_periodHasBeenSet(false)
 {
 }
 
@@ -129,6 +131,22 @@ string CreateFlowLogRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_flowLogStorage.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_cloudLogRegionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CloudLogRegion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_cloudLogRegion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_periodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Period";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_period, allocator);
     }
 
 
@@ -297,6 +315,38 @@ void CreateFlowLogRequest::SetFlowLogStorage(const FlowLogStorage& _flowLogStora
 bool CreateFlowLogRequest::FlowLogStorageHasBeenSet() const
 {
     return m_flowLogStorageHasBeenSet;
+}
+
+string CreateFlowLogRequest::GetCloudLogRegion() const
+{
+    return m_cloudLogRegion;
+}
+
+void CreateFlowLogRequest::SetCloudLogRegion(const string& _cloudLogRegion)
+{
+    m_cloudLogRegion = _cloudLogRegion;
+    m_cloudLogRegionHasBeenSet = true;
+}
+
+bool CreateFlowLogRequest::CloudLogRegionHasBeenSet() const
+{
+    return m_cloudLogRegionHasBeenSet;
+}
+
+uint64_t CreateFlowLogRequest::GetPeriod() const
+{
+    return m_period;
+}
+
+void CreateFlowLogRequest::SetPeriod(const uint64_t& _period)
+{
+    m_period = _period;
+    m_periodHasBeenSet = true;
+}
+
+bool CreateFlowLogRequest::PeriodHasBeenSet() const
+{
+    return m_periodHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,8 @@ Trigger::Trigger() :
     m_resourceIdHasBeenSet(false),
     m_bindStatusHasBeenSet(false),
     m_triggerAttributeHasBeenSet(false),
-    m_qualifierHasBeenSet(false)
+    m_qualifierHasBeenSet(false),
+    m_descriptionHasBeenSet(false)
 {
 }
 
@@ -161,6 +162,16 @@ CoreInternalOutcome Trigger::Deserialize(const rapidjson::Value &value)
         m_qualifierHasBeenSet = true;
     }
 
+    if (value.HasMember("Description") && !value["Description"].IsNull())
+    {
+        if (!value["Description"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Trigger.Description` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_description = string(value["Description"].GetString());
+        m_descriptionHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -262,6 +273,14 @@ void Trigger::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "Qualifier";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_qualifier.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_descriptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Description";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -457,5 +476,21 @@ void Trigger::SetQualifier(const string& _qualifier)
 bool Trigger::QualifierHasBeenSet() const
 {
     return m_qualifierHasBeenSet;
+}
+
+string Trigger::GetDescription() const
+{
+    return m_description;
+}
+
+void Trigger::SetDescription(const string& _description)
+{
+    m_description = _description;
+    m_descriptionHasBeenSet = true;
+}
+
+bool Trigger::DescriptionHasBeenSet() const
+{
+    return m_descriptionHasBeenSet;
 }
 

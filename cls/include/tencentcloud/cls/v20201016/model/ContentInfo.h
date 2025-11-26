@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cls/v20201016/model/CsvInfo.h>
 #include <tencentcloud/cls/v20201016/model/JsonInfo.h>
+#include <tencentcloud/cls/v20201016/model/ParquetInfo.h>
 
 
 namespace TencentCloud
@@ -49,20 +50,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取内容格式，支持json、csv
-                     * @return Format 内容格式，支持json、csv
+                     * 获取内容格式，支持json，csv，parquet
+                     * @return Format 内容格式，支持json，csv，parquet
+                     * 
                      */
                     std::string GetFormat() const;
 
                     /**
-                     * 设置内容格式，支持json、csv
-                     * @param Format 内容格式，支持json、csv
+                     * 设置内容格式，支持json，csv，parquet
+                     * @param _format 内容格式，支持json，csv，parquet
+                     * 
                      */
                     void SetFormat(const std::string& _format);
 
                     /**
                      * 判断参数 Format 是否已赋值
                      * @return Format 是否已赋值
+                     * 
                      */
                     bool FormatHasBeenSet() const;
 
@@ -71,20 +75,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Csv csv格式内容描述
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     CsvInfo GetCsv() const;
 
                     /**
                      * 设置csv格式内容描述
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Csv csv格式内容描述
+                     * @param _csv csv格式内容描述
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCsv(const CsvInfo& _csv);
 
                     /**
                      * 判断参数 Csv 是否已赋值
                      * @return Csv 是否已赋值
+                     * 
                      */
                     bool CsvHasBeenSet() const;
 
@@ -93,27 +100,55 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Json json格式内容描述
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     JsonInfo GetJson() const;
 
                     /**
                      * 设置json格式内容描述
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Json json格式内容描述
+                     * @param _json json格式内容描述
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetJson(const JsonInfo& _json);
 
                     /**
                      * 判断参数 Json 是否已赋值
                      * @return Json 是否已赋值
+                     * 
                      */
                     bool JsonHasBeenSet() const;
+
+                    /**
+                     * 获取parquet格式内容描述
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Parquet parquet格式内容描述
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    ParquetInfo GetParquet() const;
+
+                    /**
+                     * 设置parquet格式内容描述
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _parquet parquet格式内容描述
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetParquet(const ParquetInfo& _parquet);
+
+                    /**
+                     * 判断参数 Parquet 是否已赋值
+                     * @return Parquet 是否已赋值
+                     * 
+                     */
+                    bool ParquetHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 内容格式，支持json、csv
+                     * 内容格式，支持json，csv，parquet
                      */
                     std::string m_format;
                     bool m_formatHasBeenSet;
@@ -131,6 +166,13 @@ namespace TencentCloud
                      */
                     JsonInfo m_json;
                     bool m_jsonHasBeenSet;
+
+                    /**
+                     * parquet格式内容描述
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    ParquetInfo m_parquet;
+                    bool m_parquetHasBeenSet;
 
                 };
             }

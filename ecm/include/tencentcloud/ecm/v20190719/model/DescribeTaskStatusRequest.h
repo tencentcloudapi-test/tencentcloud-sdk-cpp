@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取任务描述
                      * @return TaskSet 任务描述
+                     * 
                      */
                     std::vector<TaskInput> GetTaskSet() const;
 
                     /**
                      * 设置任务描述
-                     * @param TaskSet 任务描述
+                     * @param _taskSet 任务描述
+                     * 
                      */
                     void SetTaskSet(const std::vector<TaskInput>& _taskSet);
 
                     /**
                      * 判断参数 TaskSet 是否已赋值
                      * @return TaskSet 是否已赋值
+                     * 
                      */
                     bool TaskSetHasBeenSet() const;
 

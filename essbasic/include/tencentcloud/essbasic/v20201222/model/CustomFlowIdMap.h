@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取自定义id
                      * @return CustomId 自定义id
+                     * 
                      */
                     std::string GetCustomId() const;
 
                     /**
                      * 设置自定义id
-                     * @param CustomId 自定义id
+                     * @param _customId 自定义id
+                     * 
                      */
                     void SetCustomId(const std::string& _customId);
 
                     /**
                      * 判断参数 CustomId 是否已赋值
                      * @return CustomId 是否已赋值
+                     * 
                      */
                     bool CustomIdHasBeenSet() const;
 
                     /**
                      * 获取流程id
                      * @return FlowId 流程id
+                     * 
                      */
                     std::string GetFlowId() const;
 
                     /**
                      * 设置流程id
-                     * @param FlowId 流程id
+                     * @param _flowId 流程id
+                     * 
                      */
                     void SetFlowId(const std::string& _flowId);
 
                     /**
                      * 判断参数 FlowId 是否已赋值
                      * @return FlowId 是否已赋值
+                     * 
                      */
                     bool FlowIdHasBeenSet() const;
 

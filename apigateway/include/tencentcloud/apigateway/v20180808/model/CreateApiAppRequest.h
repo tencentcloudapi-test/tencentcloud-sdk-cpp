@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取用户自定义应用名称。
                      * @return ApiAppName 用户自定义应用名称。
+                     * 
                      */
                     std::string GetApiAppName() const;
 
                     /**
                      * 设置用户自定义应用名称。
-                     * @param ApiAppName 用户自定义应用名称。
+                     * @param _apiAppName 用户自定义应用名称。
+                     * 
                      */
                     void SetApiAppName(const std::string& _apiAppName);
 
                     /**
                      * 判断参数 ApiAppName 是否已赋值
                      * @return ApiAppName 是否已赋值
+                     * 
                      */
                     bool ApiAppNameHasBeenSet() const;
 
                     /**
                      * 获取应用描述
                      * @return ApiAppDesc 应用描述
+                     * 
                      */
                     std::string GetApiAppDesc() const;
 
                     /**
                      * 设置应用描述
-                     * @param ApiAppDesc 应用描述
+                     * @param _apiAppDesc 应用描述
+                     * 
                      */
                     void SetApiAppDesc(const std::string& _apiAppDesc);
 
                     /**
                      * 判断参数 ApiAppDesc 是否已赋值
                      * @return ApiAppDesc 是否已赋值
+                     * 
                      */
                     bool ApiAppDescHasBeenSet() const;
 

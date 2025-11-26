@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,9 @@ ModifyMachineGroupRequest::ModifyMachineGroupRequest() :
     m_autoUpdateHasBeenSet(false),
     m_updateStartTimeHasBeenSet(false),
     m_updateEndTimeHasBeenSet(false),
-    m_serviceLoggingHasBeenSet(false)
+    m_serviceLoggingHasBeenSet(false),
+    m_delayCleanupTimeHasBeenSet(false),
+    m_metaTagsHasBeenSet(false)
 {
 }
 
@@ -111,6 +113,29 @@ string ModifyMachineGroupRequest::ToJsonString() const
         string key = "ServiceLogging";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_serviceLogging, allocator);
+    }
+
+    if (m_delayCleanupTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DelayCleanupTime";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_delayCleanupTime, allocator);
+    }
+
+    if (m_metaTagsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MetaTags";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_metaTags.begin(); itr != m_metaTags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
 
@@ -247,6 +272,38 @@ void ModifyMachineGroupRequest::SetServiceLogging(const bool& _serviceLogging)
 bool ModifyMachineGroupRequest::ServiceLoggingHasBeenSet() const
 {
     return m_serviceLoggingHasBeenSet;
+}
+
+int64_t ModifyMachineGroupRequest::GetDelayCleanupTime() const
+{
+    return m_delayCleanupTime;
+}
+
+void ModifyMachineGroupRequest::SetDelayCleanupTime(const int64_t& _delayCleanupTime)
+{
+    m_delayCleanupTime = _delayCleanupTime;
+    m_delayCleanupTimeHasBeenSet = true;
+}
+
+bool ModifyMachineGroupRequest::DelayCleanupTimeHasBeenSet() const
+{
+    return m_delayCleanupTimeHasBeenSet;
+}
+
+vector<MetaTagInfo> ModifyMachineGroupRequest::GetMetaTags() const
+{
+    return m_metaTags;
+}
+
+void ModifyMachineGroupRequest::SetMetaTags(const vector<MetaTagInfo>& _metaTags)
+{
+    m_metaTags = _metaTags;
+    m_metaTagsHasBeenSet = true;
+}
+
+bool ModifyMachineGroupRequest::MetaTagsHasBeenSet() const
+{
+    return m_metaTagsHasBeenSet;
 }
 
 

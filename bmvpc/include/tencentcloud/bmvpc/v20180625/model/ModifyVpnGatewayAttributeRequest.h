@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取VPN网关实例ID。
                      * @return VpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     std::string GetVpnGatewayId() const;
 
                     /**
                      * 设置VPN网关实例ID。
-                     * @param VpnGatewayId VPN网关实例ID。
+                     * @param _vpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     void SetVpnGatewayId(const std::string& _vpnGatewayId);
 
                     /**
                      * 判断参数 VpnGatewayId 是否已赋值
                      * @return VpnGatewayId 是否已赋值
+                     * 
                      */
                     bool VpnGatewayIdHasBeenSet() const;
 
                     /**
                      * 获取VPN网关名称，最大长度不能超过60个字节。
                      * @return VpnGatewayName VPN网关名称，最大长度不能超过60个字节。
+                     * 
                      */
                     std::string GetVpnGatewayName() const;
 
                     /**
                      * 设置VPN网关名称，最大长度不能超过60个字节。
-                     * @param VpnGatewayName VPN网关名称，最大长度不能超过60个字节。
+                     * @param _vpnGatewayName VPN网关名称，最大长度不能超过60个字节。
+                     * 
                      */
                     void SetVpnGatewayName(const std::string& _vpnGatewayName);
 
                     /**
                      * 判断参数 VpnGatewayName 是否已赋值
                      * @return VpnGatewayName 是否已赋值
+                     * 
                      */
                     bool VpnGatewayNameHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using namespace std;
 Quota::Quota() :
     m_quotaIdHasBeenSet(false),
     m_quotaCurrentHasBeenSet(false),
-    m_quotaLimitHasBeenSet(false)
+    m_quotaLimitHasBeenSet(false),
+    m_quotaGroupHasBeenSet(false)
 {
 }
 
@@ -62,6 +63,16 @@ CoreInternalOutcome Quota::Deserialize(const rapidjson::Value &value)
         m_quotaLimitHasBeenSet = true;
     }
 
+    if (value.HasMember("QuotaGroup") && !value["QuotaGroup"].IsNull())
+    {
+        if (!value["QuotaGroup"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Quota.QuotaGroup` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_quotaGroup = string(value["QuotaGroup"].GetString());
+        m_quotaGroupHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -91,6 +102,14 @@ void Quota::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocator
         string key = "QuotaLimit";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_quotaLimit, allocator);
+    }
+
+    if (m_quotaGroupHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QuotaGroup";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_quotaGroup.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -142,5 +161,21 @@ void Quota::SetQuotaLimit(const int64_t& _quotaLimit)
 bool Quota::QuotaLimitHasBeenSet() const
 {
     return m_quotaLimitHasBeenSet;
+}
+
+string Quota::GetQuotaGroup() const
+{
+    return m_quotaGroup;
+}
+
+void Quota::SetQuotaGroup(const string& _quotaGroup)
+{
+    m_quotaGroup = _quotaGroup;
+    m_quotaGroupHasBeenSet = true;
+}
+
+bool Quota::QuotaGroupHasBeenSet() const
+{
+    return m_quotaGroupHasBeenSet;
 }
 

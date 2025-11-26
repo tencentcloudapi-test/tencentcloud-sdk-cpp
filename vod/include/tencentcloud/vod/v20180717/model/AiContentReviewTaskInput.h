@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 智能识别任务类型
+                * 音视频审核任务类型
                 */
                 class AiContentReviewTaskInput : public AbstractModel
                 {
@@ -47,27 +47,30 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取智能识别模板 ID。
-                     * @return Definition 智能识别模板 ID。
+                     * 获取音视频审核模板 ID。
+                     * @return Definition 音视频审核模板 ID。
+                     * 
                      */
                     uint64_t GetDefinition() const;
 
                     /**
-                     * 设置智能识别模板 ID。
-                     * @param Definition 智能识别模板 ID。
+                     * 设置音视频审核模板 ID。
+                     * @param _definition 音视频审核模板 ID。
+                     * 
                      */
                     void SetDefinition(const uint64_t& _definition);
 
                     /**
                      * 判断参数 Definition 是否已赋值
                      * @return Definition 是否已赋值
+                     * 
                      */
                     bool DefinitionHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 智能识别模板 ID。
+                     * 音视频审核模板 ID。
                      */
                     uint64_t m_definition;
                     bool m_definitionHasBeenSet;

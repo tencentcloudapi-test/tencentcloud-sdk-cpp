@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,23 +50,22 @@ namespace TencentCloud
 
                     /**
                      * 获取存储类型，可为"pvc"，"hostpath"。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VolumeType 存储类型，可为"pvc"，"hostpath"。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetVolumeType() const;
 
                     /**
                      * 设置存储类型，可为"pvc"，"hostpath"。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param VolumeType 存储类型，可为"pvc"，"hostpath"。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _volumeType 存储类型，可为"pvc"，"hostpath"。
+                     * 
                      */
                     void SetVolumeType(const std::string& _volumeType);
 
                     /**
                      * 判断参数 VolumeType 是否已赋值
                      * @return VolumeType 是否已赋值
+                     * 
                      */
                     bool VolumeTypeHasBeenSet() const;
 
@@ -75,20 +74,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PVCVolume 当VolumeType为"pvc"时，该字段生效。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     PersistentVolumeContext GetPVCVolume() const;
 
                     /**
                      * 设置当VolumeType为"pvc"时，该字段生效。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PVCVolume 当VolumeType为"pvc"时，该字段生效。
+                     * @param _pVCVolume 当VolumeType为"pvc"时，该字段生效。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPVCVolume(const PersistentVolumeContext& _pVCVolume);
 
                     /**
                      * 判断参数 PVCVolume 是否已赋值
                      * @return PVCVolume 是否已赋值
+                     * 
                      */
                     bool PVCVolumeHasBeenSet() const;
 
@@ -97,20 +99,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return HostVolume 当VolumeType为"hostpath"时，该字段生效。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     HostVolumeContext GetHostVolume() const;
 
                     /**
                      * 设置当VolumeType为"hostpath"时，该字段生效。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param HostVolume 当VolumeType为"hostpath"时，该字段生效。
+                     * @param _hostVolume 当VolumeType为"hostpath"时，该字段生效。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetHostVolume(const HostVolumeContext& _hostVolume);
 
                     /**
                      * 判断参数 HostVolume 是否已赋值
                      * @return HostVolume 是否已赋值
+                     * 
                      */
                     bool HostVolumeHasBeenSet() const;
 
@@ -118,7 +123,6 @@ namespace TencentCloud
 
                     /**
                      * 存储类型，可为"pvc"，"hostpath"。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_volumeType;
                     bool m_volumeTypeHasBeenSet;

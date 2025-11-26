@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取处理事件ids
                      * @return EventIdSet 处理事件ids
+                     * 
                      */
                     std::vector<std::string> GetEventIdSet() const;
 
                     /**
                      * 设置处理事件ids
-                     * @param EventIdSet 处理事件ids
+                     * @param _eventIdSet 处理事件ids
+                     * 
                      */
                     void SetEventIdSet(const std::vector<std::string>& _eventIdSet);
 
                     /**
                      * 判断参数 EventIdSet 是否已赋值
                      * @return EventIdSet 是否已赋值
+                     * 
                      */
                     bool EventIdSetHasBeenSet() const;
 
@@ -71,6 +74,7 @@ EVENT_DEALED:事件已经处理
      EVENT_INGNORE：事件忽略
      EVENT_DEL:事件删除
      EVENT_ADD_WHITE:事件加白
+                     * 
                      */
                     std::string GetStatus() const;
 
@@ -80,35 +84,40 @@ EVENT_DEALED:事件已经处理
      EVENT_INGNORE：事件忽略
      EVENT_DEL:事件删除
      EVENT_ADD_WHITE:事件加白
-                     * @param Status 标记事件的状态，     
+                     * @param _status 标记事件的状态，     
 EVENT_DEALED:事件已经处理
      EVENT_INGNORE：事件忽略
      EVENT_DEL:事件删除
      EVENT_ADD_WHITE:事件加白
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
                      * 获取备注事件信息
                      * @return Remark 备注事件信息
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
                      * 设置备注事件信息
-                     * @param Remark 备注事件信息
+                     * @param _remark 备注事件信息
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
 

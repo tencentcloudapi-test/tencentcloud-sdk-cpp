@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取产品id
                      * @return ProductId 产品id
+                     * 
                      */
                     std::string GetProductId() const;
 
                     /**
                      * 设置产品id
-                     * @param ProductId 产品id
+                     * @param _productId 产品id
+                     * 
                      */
                     void SetProductId(const std::string& _productId);
 
                     /**
                      * 判断参数 ProductId 是否已赋值
                      * @return ProductId 是否已赋值
+                     * 
                      */
                     bool ProductIdHasBeenSet() const;
 
                     /**
                      * 获取修改的产品名称 （支持中文、英文、数字、下划线组合，最多不超过20个字符）
                      * @return ProductName 修改的产品名称 （支持中文、英文、数字、下划线组合，最多不超过20个字符）
+                     * 
                      */
                     std::string GetProductName() const;
 
                     /**
                      * 设置修改的产品名称 （支持中文、英文、数字、下划线组合，最多不超过20个字符）
-                     * @param ProductName 修改的产品名称 （支持中文、英文、数字、下划线组合，最多不超过20个字符）
+                     * @param _productName 修改的产品名称 （支持中文、英文、数字、下划线组合，最多不超过20个字符）
+                     * 
                      */
                     void SetProductName(const std::string& _productName);
 
                     /**
                      * 判断参数 ProductName 是否已赋值
                      * @return ProductName 是否已赋值
+                     * 
                      */
                     bool ProductNameHasBeenSet() const;
 
                     /**
                      * 获取修改的产品描述 （最多不超过128个字符）
                      * @return ProductDescription 修改的产品描述 （最多不超过128个字符）
+                     * 
                      */
                     std::string GetProductDescription() const;
 
                     /**
                      * 设置修改的产品描述 （最多不超过128个字符）
-                     * @param ProductDescription 修改的产品描述 （最多不超过128个字符）
+                     * @param _productDescription 修改的产品描述 （最多不超过128个字符）
+                     * 
                      */
                     void SetProductDescription(const std::string& _productDescription);
 
                     /**
                      * 判断参数 ProductDescription 是否已赋值
                      * @return ProductDescription 是否已赋值
+                     * 
                      */
                     bool ProductDescriptionHasBeenSet() const;
 

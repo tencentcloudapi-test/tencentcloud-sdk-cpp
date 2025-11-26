@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取指定需要获取凭据详细信息的凭据名称。
                      * @return SecretName 指定需要获取凭据详细信息的凭据名称。
+                     * 
                      */
                     std::string GetSecretName() const;
 
                     /**
                      * 设置指定需要获取凭据详细信息的凭据名称。
-                     * @param SecretName 指定需要获取凭据详细信息的凭据名称。
+                     * @param _secretName 指定需要获取凭据详细信息的凭据名称。
+                     * 
                      */
                     void SetSecretName(const std::string& _secretName);
 
                     /**
                      * 判断参数 SecretName 是否已赋值
                      * @return SecretName 是否已赋值
+                     * 
                      */
                     bool SecretNameHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ IPSECOptionsSpecification::IPSECOptionsSpecification() :
     m_integrityAlgorithHasBeenSet(false),
     m_iPSECSaLifetimeSecondsHasBeenSet(false),
     m_pfsDhGroupHasBeenSet(false),
-    m_iPSECSaLifetimeTrafficHasBeenSet(false)
+    m_iPSECSaLifetimeTrafficHasBeenSet(false),
+    m_integrityAlgorithmHasBeenSet(false)
 {
 }
 
@@ -84,6 +85,16 @@ CoreInternalOutcome IPSECOptionsSpecification::Deserialize(const rapidjson::Valu
         m_iPSECSaLifetimeTrafficHasBeenSet = true;
     }
 
+    if (value.HasMember("IntegrityAlgorithm") && !value["IntegrityAlgorithm"].IsNull())
+    {
+        if (!value["IntegrityAlgorithm"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `IPSECOptionsSpecification.IntegrityAlgorithm` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_integrityAlgorithm = string(value["IntegrityAlgorithm"].GetString());
+        m_integrityAlgorithmHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -129,6 +140,14 @@ void IPSECOptionsSpecification::ToJsonObject(rapidjson::Value &value, rapidjson:
         string key = "IPSECSaLifetimeTraffic";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_iPSECSaLifetimeTraffic, allocator);
+    }
+
+    if (m_integrityAlgorithmHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntegrityAlgorithm";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_integrityAlgorithm.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -212,5 +231,21 @@ void IPSECOptionsSpecification::SetIPSECSaLifetimeTraffic(const uint64_t& _iPSEC
 bool IPSECOptionsSpecification::IPSECSaLifetimeTrafficHasBeenSet() const
 {
     return m_iPSECSaLifetimeTrafficHasBeenSet;
+}
+
+string IPSECOptionsSpecification::GetIntegrityAlgorithm() const
+{
+    return m_integrityAlgorithm;
+}
+
+void IPSECOptionsSpecification::SetIntegrityAlgorithm(const string& _integrityAlgorithm)
+{
+    m_integrityAlgorithm = _integrityAlgorithm;
+    m_integrityAlgorithmHasBeenSet = true;
+}
+
+bool IPSECOptionsSpecification::IntegrityAlgorithmHasBeenSet() const
+{
+    return m_integrityAlgorithmHasBeenSet;
 }
 

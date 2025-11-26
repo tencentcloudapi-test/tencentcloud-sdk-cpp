@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,63 +43,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例ID
-                     * @return SdkAppId 实例ID
+                     * 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
                      */
                     int64_t GetSdkAppId() const;
 
                     /**
-                     * 设置实例ID
-                     * @param SdkAppId 实例ID
+                     * 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @param _sdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
                      */
                     void SetSdkAppId(const int64_t& _sdkAppId);
 
                     /**
                      * 判断参数 SdkAppId 是否已赋值
                      * @return SdkAppId 是否已赋值
+                     * 
                      */
                     bool SdkAppIdHasBeenSet() const;
 
                     /**
                      * 获取客服邮箱
                      * @return StaffEmail 客服邮箱
+                     * 
                      */
                     std::string GetStaffEmail() const;
 
                     /**
                      * 设置客服邮箱
-                     * @param StaffEmail 客服邮箱
+                     * @param _staffEmail 客服邮箱
+                     * 
                      */
                     void SetStaffEmail(const std::string& _staffEmail);
 
                     /**
                      * 判断参数 StaffEmail 是否已赋值
                      * @return StaffEmail 是否已赋值
+                     * 
                      */
                     bool StaffEmailHasBeenSet() const;
 
                     /**
                      * 获取解绑技能组列表
                      * @return SkillGroupList 解绑技能组列表
+                     * 
                      */
                     std::vector<int64_t> GetSkillGroupList() const;
 
                     /**
                      * 设置解绑技能组列表
-                     * @param SkillGroupList 解绑技能组列表
+                     * @param _skillGroupList 解绑技能组列表
+                     * 
                      */
                     void SetSkillGroupList(const std::vector<int64_t>& _skillGroupList);
 
                     /**
                      * 判断参数 SkillGroupList 是否已赋值
                      * @return SkillGroupList 是否已赋值
+                     * 
                      */
                     bool SkillGroupListHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例ID
+                     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      */
                     int64_t m_sdkAppId;
                     bool m_sdkAppIdHasBeenSet;

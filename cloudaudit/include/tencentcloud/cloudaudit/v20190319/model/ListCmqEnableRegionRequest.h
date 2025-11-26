@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取站点类型。zh表示中国区，en表示国际区。默认中国区。
                      * @return WebsiteType 站点类型。zh表示中国区，en表示国际区。默认中国区。
+                     * 
                      */
                     std::string GetWebsiteType() const;
 
                     /**
                      * 设置站点类型。zh表示中国区，en表示国际区。默认中国区。
-                     * @param WebsiteType 站点类型。zh表示中国区，en表示国际区。默认中国区。
+                     * @param _websiteType 站点类型。zh表示中国区，en表示国际区。默认中国区。
+                     * 
                      */
                     void SetWebsiteType(const std::string& _websiteType);
 
                     /**
                      * 判断参数 WebsiteType 是否已赋值
                      * @return WebsiteType 是否已赋值
+                     * 
                      */
                     bool WebsiteTypeHasBeenSet() const;
 

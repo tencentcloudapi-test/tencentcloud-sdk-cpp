@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ CoreInternalOutcome ServiceReleaseVersion::Deserialize(const rapidjson::Value &v
         const rapidjson::Value &tmpValue = value["VersionList"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            ServiceReleaseHistoryInfo item;
+            DescribeServiceReleaseVersionResultVersionListInfo item;
             CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
@@ -110,12 +110,12 @@ bool ServiceReleaseVersion::TotalCountHasBeenSet() const
     return m_totalCountHasBeenSet;
 }
 
-vector<ServiceReleaseHistoryInfo> ServiceReleaseVersion::GetVersionList() const
+vector<DescribeServiceReleaseVersionResultVersionListInfo> ServiceReleaseVersion::GetVersionList() const
 {
     return m_versionList;
 }
 
-void ServiceReleaseVersion::SetVersionList(const vector<ServiceReleaseHistoryInfo>& _versionList)
+void ServiceReleaseVersion::SetVersionList(const vector<DescribeServiceReleaseVersionResultVersionListInfo>& _versionList)
 {
     m_versionList = _versionList;
     m_versionListHasBeenSet = true;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,9 @@ DescribeFileSystemResponse::DescribeFileSystemResponse() :
     m_capacityUsedHasBeenSet(false),
     m_archiveCapacityUsedHasBeenSet(false),
     m_standardCapacityUsedHasBeenSet(false),
-    m_degradeCapacityUsedHasBeenSet(false)
+    m_degradeCapacityUsedHasBeenSet(false),
+    m_deepArchiveCapacityUsedHasBeenSet(false),
+    m_intelligentCapacityUsedHasBeenSet(false)
 {
 }
 
@@ -123,6 +125,26 @@ CoreInternalOutcome DescribeFileSystemResponse::Deserialize(const string &payloa
         m_degradeCapacityUsedHasBeenSet = true;
     }
 
+    if (rsp.HasMember("DeepArchiveCapacityUsed") && !rsp["DeepArchiveCapacityUsed"].IsNull())
+    {
+        if (!rsp["DeepArchiveCapacityUsed"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DeepArchiveCapacityUsed` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_deepArchiveCapacityUsed = rsp["DeepArchiveCapacityUsed"].GetUint64();
+        m_deepArchiveCapacityUsedHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("IntelligentCapacityUsed") && !rsp["IntelligentCapacityUsed"].IsNull())
+    {
+        if (!rsp["IntelligentCapacityUsed"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `IntelligentCapacityUsed` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_intelligentCapacityUsed = rsp["IntelligentCapacityUsed"].GetUint64();
+        m_intelligentCapacityUsedHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -174,11 +196,27 @@ string DescribeFileSystemResponse::ToJsonString() const
         value.AddMember(iKey, m_degradeCapacityUsed, allocator);
     }
 
+    if (m_deepArchiveCapacityUsedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DeepArchiveCapacityUsed";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_deepArchiveCapacityUsed, allocator);
+    }
+
+    if (m_intelligentCapacityUsedHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IntelligentCapacityUsed";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_intelligentCapacityUsed, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -234,6 +272,26 @@ uint64_t DescribeFileSystemResponse::GetDegradeCapacityUsed() const
 bool DescribeFileSystemResponse::DegradeCapacityUsedHasBeenSet() const
 {
     return m_degradeCapacityUsedHasBeenSet;
+}
+
+uint64_t DescribeFileSystemResponse::GetDeepArchiveCapacityUsed() const
+{
+    return m_deepArchiveCapacityUsed;
+}
+
+bool DescribeFileSystemResponse::DeepArchiveCapacityUsedHasBeenSet() const
+{
+    return m_deepArchiveCapacityUsedHasBeenSet;
+}
+
+uint64_t DescribeFileSystemResponse::GetIntelligentCapacityUsed() const
+{
+    return m_intelligentCapacityUsed;
+}
+
+bool DescribeFileSystemResponse::IntelligentCapacityUsedHasBeenSet() const
+{
+    return m_intelligentCapacityUsedHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -58,7 +58,11 @@ AddCdnDomainRequest::AddCdnDomainRequest() :
     m_offlineCacheHasBeenSet(false),
     m_quicHasBeenSet(false),
     m_awsPrivateAccessHasBeenSet(false),
-    m_ossPrivateAccessHasBeenSet(false)
+    m_ossPrivateAccessHasBeenSet(false),
+    m_hwPrivateAccessHasBeenSet(false),
+    m_qnPrivateAccessHasBeenSet(false),
+    m_othersPrivateAccessHasBeenSet(false),
+    m_httpsBillingHasBeenSet(false)
 {
 }
 
@@ -393,6 +397,42 @@ string AddCdnDomainRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_ossPrivateAccess.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_hwPrivateAccessHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HwPrivateAccess";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_hwPrivateAccess.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_qnPrivateAccessHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "QnPrivateAccess";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_qnPrivateAccess.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_othersPrivateAccessHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OthersPrivateAccess";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_othersPrivateAccess.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_httpsBillingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HttpsBilling";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_httpsBilling.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -977,6 +1017,70 @@ void AddCdnDomainRequest::SetOssPrivateAccess(const OssPrivateAccess& _ossPrivat
 bool AddCdnDomainRequest::OssPrivateAccessHasBeenSet() const
 {
     return m_ossPrivateAccessHasBeenSet;
+}
+
+HwPrivateAccess AddCdnDomainRequest::GetHwPrivateAccess() const
+{
+    return m_hwPrivateAccess;
+}
+
+void AddCdnDomainRequest::SetHwPrivateAccess(const HwPrivateAccess& _hwPrivateAccess)
+{
+    m_hwPrivateAccess = _hwPrivateAccess;
+    m_hwPrivateAccessHasBeenSet = true;
+}
+
+bool AddCdnDomainRequest::HwPrivateAccessHasBeenSet() const
+{
+    return m_hwPrivateAccessHasBeenSet;
+}
+
+QnPrivateAccess AddCdnDomainRequest::GetQnPrivateAccess() const
+{
+    return m_qnPrivateAccess;
+}
+
+void AddCdnDomainRequest::SetQnPrivateAccess(const QnPrivateAccess& _qnPrivateAccess)
+{
+    m_qnPrivateAccess = _qnPrivateAccess;
+    m_qnPrivateAccessHasBeenSet = true;
+}
+
+bool AddCdnDomainRequest::QnPrivateAccessHasBeenSet() const
+{
+    return m_qnPrivateAccessHasBeenSet;
+}
+
+OthersPrivateAccess AddCdnDomainRequest::GetOthersPrivateAccess() const
+{
+    return m_othersPrivateAccess;
+}
+
+void AddCdnDomainRequest::SetOthersPrivateAccess(const OthersPrivateAccess& _othersPrivateAccess)
+{
+    m_othersPrivateAccess = _othersPrivateAccess;
+    m_othersPrivateAccessHasBeenSet = true;
+}
+
+bool AddCdnDomainRequest::OthersPrivateAccessHasBeenSet() const
+{
+    return m_othersPrivateAccessHasBeenSet;
+}
+
+HttpsBilling AddCdnDomainRequest::GetHttpsBilling() const
+{
+    return m_httpsBilling;
+}
+
+void AddCdnDomainRequest::SetHttpsBilling(const HttpsBilling& _httpsBilling)
+{
+    m_httpsBilling = _httpsBilling;
+    m_httpsBillingHasBeenSet = true;
+}
+
+bool AddCdnDomainRequest::HttpsBillingHasBeenSet() const
+{
+    return m_httpsBillingHasBeenSet;
 }
 
 

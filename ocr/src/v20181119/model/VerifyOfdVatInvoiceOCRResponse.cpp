@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,10 @@ VerifyOfdVatInvoiceOCRResponse::VerifyOfdVatInvoiceOCRResponse() :
     m_taxTotalAmountHasBeenSet(false),
     m_taxExclusiveTotalAmountHasBeenSet(false),
     m_noteHasBeenSet(false),
-    m_goodsInfosHasBeenSet(false)
+    m_goodsInfosHasBeenSet(false),
+    m_airTicketInfoHasBeenSet(false),
+    m_railwayTicketInfoHasBeenSet(false),
+    m_invoiceTitleHasBeenSet(false)
 {
 }
 
@@ -272,6 +275,50 @@ CoreInternalOutcome VerifyOfdVatInvoiceOCRResponse::Deserialize(const string &pa
         m_goodsInfosHasBeenSet = true;
     }
 
+    if (rsp.HasMember("AirTicketInfo") && !rsp["AirTicketInfo"].IsNull())
+    {
+        if (!rsp["AirTicketInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `AirTicketInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_airTicketInfo.Deserialize(rsp["AirTicketInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_airTicketInfoHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("RailwayTicketInfo") && !rsp["RailwayTicketInfo"].IsNull())
+    {
+        if (!rsp["RailwayTicketInfo"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `RailwayTicketInfo` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_railwayTicketInfo.Deserialize(rsp["RailwayTicketInfo"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_railwayTicketInfoHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("InvoiceTitle") && !rsp["InvoiceTitle"].IsNull())
+    {
+        if (!rsp["InvoiceTitle"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InvoiceTitle` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_invoiceTitle = string(rsp["InvoiceTitle"].GetString());
+        m_invoiceTitleHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -427,11 +474,37 @@ string VerifyOfdVatInvoiceOCRResponse::ToJsonString() const
         }
     }
 
+    if (m_airTicketInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AirTicketInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_airTicketInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_railwayTicketInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RailwayTicketInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_railwayTicketInfo.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_invoiceTitleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InvoiceTitle";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_invoiceTitle.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -607,6 +680,36 @@ vector<VatInvoiceGoodsInfo> VerifyOfdVatInvoiceOCRResponse::GetGoodsInfos() cons
 bool VerifyOfdVatInvoiceOCRResponse::GoodsInfosHasBeenSet() const
 {
     return m_goodsInfosHasBeenSet;
+}
+
+AirTicketInfo VerifyOfdVatInvoiceOCRResponse::GetAirTicketInfo() const
+{
+    return m_airTicketInfo;
+}
+
+bool VerifyOfdVatInvoiceOCRResponse::AirTicketInfoHasBeenSet() const
+{
+    return m_airTicketInfoHasBeenSet;
+}
+
+RailwayTicketInfo VerifyOfdVatInvoiceOCRResponse::GetRailwayTicketInfo() const
+{
+    return m_railwayTicketInfo;
+}
+
+bool VerifyOfdVatInvoiceOCRResponse::RailwayTicketInfoHasBeenSet() const
+{
+    return m_railwayTicketInfoHasBeenSet;
+}
+
+string VerifyOfdVatInvoiceOCRResponse::GetInvoiceTitle() const
+{
+    return m_invoiceTitle;
+}
+
+bool VerifyOfdVatInvoiceOCRResponse::InvoiceTitleHasBeenSet() const
+{
+    return m_invoiceTitleHasBeenSet;
 }
 
 

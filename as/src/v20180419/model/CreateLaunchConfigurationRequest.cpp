@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,13 +37,20 @@ CreateLaunchConfigurationRequest::CreateLaunchConfigurationRequest() :
     m_instanceChargeTypeHasBeenSet(false),
     m_instanceMarketOptionsHasBeenSet(false),
     m_instanceTypesHasBeenSet(false),
+    m_camRoleNameHasBeenSet(false),
     m_instanceTypesCheckPolicyHasBeenSet(false),
     m_instanceTagsHasBeenSet(false),
-    m_camRoleNameHasBeenSet(false),
+    m_tagsHasBeenSet(false),
     m_hostNameSettingsHasBeenSet(false),
     m_instanceNameSettingsHasBeenSet(false),
     m_instanceChargePrepaidHasBeenSet(false),
-    m_diskTypePolicyHasBeenSet(false)
+    m_diskTypePolicyHasBeenSet(false),
+    m_hpcClusterIdHasBeenSet(false),
+    m_iPv6InternetAccessibleHasBeenSet(false),
+    m_disasterRecoverGroupIdsHasBeenSet(false),
+    m_imageFamilyHasBeenSet(false),
+    m_dedicatedClusterIdHasBeenSet(false),
+    m_metadataHasBeenSet(false)
 {
 }
 
@@ -188,6 +195,14 @@ string CreateLaunchConfigurationRequest::ToJsonString() const
         }
     }
 
+    if (m_camRoleNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CamRoleName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_camRoleName.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_instanceTypesCheckPolicyHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -211,12 +226,19 @@ string CreateLaunchConfigurationRequest::ToJsonString() const
         }
     }
 
-    if (m_camRoleNameHasBeenSet)
+    if (m_tagsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CamRoleName";
+        string key = "Tags";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_camRoleName.c_str(), allocator).Move(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
     }
 
     if (m_hostNameSettingsHasBeenSet)
@@ -252,6 +274,61 @@ string CreateLaunchConfigurationRequest::ToJsonString() const
         string key = "DiskTypePolicy";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_diskTypePolicy.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hpcClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HpcClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_hpcClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iPv6InternetAccessibleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IPv6InternetAccessible";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_iPv6InternetAccessible.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_disasterRecoverGroupIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DisasterRecoverGroupIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_disasterRecoverGroupIds.begin(); itr != m_disasterRecoverGroupIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_imageFamilyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ImageFamily";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_imageFamily.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dedicatedClusterIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DedicatedClusterId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dedicatedClusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_metadataHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Metadata";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_metadata.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -486,6 +563,22 @@ bool CreateLaunchConfigurationRequest::InstanceTypesHasBeenSet() const
     return m_instanceTypesHasBeenSet;
 }
 
+string CreateLaunchConfigurationRequest::GetCamRoleName() const
+{
+    return m_camRoleName;
+}
+
+void CreateLaunchConfigurationRequest::SetCamRoleName(const string& _camRoleName)
+{
+    m_camRoleName = _camRoleName;
+    m_camRoleNameHasBeenSet = true;
+}
+
+bool CreateLaunchConfigurationRequest::CamRoleNameHasBeenSet() const
+{
+    return m_camRoleNameHasBeenSet;
+}
+
 string CreateLaunchConfigurationRequest::GetInstanceTypesCheckPolicy() const
 {
     return m_instanceTypesCheckPolicy;
@@ -518,20 +611,20 @@ bool CreateLaunchConfigurationRequest::InstanceTagsHasBeenSet() const
     return m_instanceTagsHasBeenSet;
 }
 
-string CreateLaunchConfigurationRequest::GetCamRoleName() const
+vector<Tag> CreateLaunchConfigurationRequest::GetTags() const
 {
-    return m_camRoleName;
+    return m_tags;
 }
 
-void CreateLaunchConfigurationRequest::SetCamRoleName(const string& _camRoleName)
+void CreateLaunchConfigurationRequest::SetTags(const vector<Tag>& _tags)
 {
-    m_camRoleName = _camRoleName;
-    m_camRoleNameHasBeenSet = true;
+    m_tags = _tags;
+    m_tagsHasBeenSet = true;
 }
 
-bool CreateLaunchConfigurationRequest::CamRoleNameHasBeenSet() const
+bool CreateLaunchConfigurationRequest::TagsHasBeenSet() const
 {
-    return m_camRoleNameHasBeenSet;
+    return m_tagsHasBeenSet;
 }
 
 HostNameSettings CreateLaunchConfigurationRequest::GetHostNameSettings() const
@@ -596,6 +689,102 @@ void CreateLaunchConfigurationRequest::SetDiskTypePolicy(const string& _diskType
 bool CreateLaunchConfigurationRequest::DiskTypePolicyHasBeenSet() const
 {
     return m_diskTypePolicyHasBeenSet;
+}
+
+string CreateLaunchConfigurationRequest::GetHpcClusterId() const
+{
+    return m_hpcClusterId;
+}
+
+void CreateLaunchConfigurationRequest::SetHpcClusterId(const string& _hpcClusterId)
+{
+    m_hpcClusterId = _hpcClusterId;
+    m_hpcClusterIdHasBeenSet = true;
+}
+
+bool CreateLaunchConfigurationRequest::HpcClusterIdHasBeenSet() const
+{
+    return m_hpcClusterIdHasBeenSet;
+}
+
+IPv6InternetAccessible CreateLaunchConfigurationRequest::GetIPv6InternetAccessible() const
+{
+    return m_iPv6InternetAccessible;
+}
+
+void CreateLaunchConfigurationRequest::SetIPv6InternetAccessible(const IPv6InternetAccessible& _iPv6InternetAccessible)
+{
+    m_iPv6InternetAccessible = _iPv6InternetAccessible;
+    m_iPv6InternetAccessibleHasBeenSet = true;
+}
+
+bool CreateLaunchConfigurationRequest::IPv6InternetAccessibleHasBeenSet() const
+{
+    return m_iPv6InternetAccessibleHasBeenSet;
+}
+
+vector<string> CreateLaunchConfigurationRequest::GetDisasterRecoverGroupIds() const
+{
+    return m_disasterRecoverGroupIds;
+}
+
+void CreateLaunchConfigurationRequest::SetDisasterRecoverGroupIds(const vector<string>& _disasterRecoverGroupIds)
+{
+    m_disasterRecoverGroupIds = _disasterRecoverGroupIds;
+    m_disasterRecoverGroupIdsHasBeenSet = true;
+}
+
+bool CreateLaunchConfigurationRequest::DisasterRecoverGroupIdsHasBeenSet() const
+{
+    return m_disasterRecoverGroupIdsHasBeenSet;
+}
+
+string CreateLaunchConfigurationRequest::GetImageFamily() const
+{
+    return m_imageFamily;
+}
+
+void CreateLaunchConfigurationRequest::SetImageFamily(const string& _imageFamily)
+{
+    m_imageFamily = _imageFamily;
+    m_imageFamilyHasBeenSet = true;
+}
+
+bool CreateLaunchConfigurationRequest::ImageFamilyHasBeenSet() const
+{
+    return m_imageFamilyHasBeenSet;
+}
+
+string CreateLaunchConfigurationRequest::GetDedicatedClusterId() const
+{
+    return m_dedicatedClusterId;
+}
+
+void CreateLaunchConfigurationRequest::SetDedicatedClusterId(const string& _dedicatedClusterId)
+{
+    m_dedicatedClusterId = _dedicatedClusterId;
+    m_dedicatedClusterIdHasBeenSet = true;
+}
+
+bool CreateLaunchConfigurationRequest::DedicatedClusterIdHasBeenSet() const
+{
+    return m_dedicatedClusterIdHasBeenSet;
+}
+
+Metadata CreateLaunchConfigurationRequest::GetMetadata() const
+{
+    return m_metadata;
+}
+
+void CreateLaunchConfigurationRequest::SetMetadata(const Metadata& _metadata)
+{
+    m_metadata = _metadata;
+    m_metadataHasBeenSet = true;
+}
+
+bool CreateLaunchConfigurationRequest::MetadataHasBeenSet() const
+{
+    return m_metadataHasBeenSet;
 }
 
 

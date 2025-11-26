@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,98 +49,105 @@ namespace TencentCloud
                     /**
                      * 获取描述信息
                      * @return Description 描述信息
+                     * 
                      */
                     std::string GetDescription() const;
 
                     /**
                      * 设置描述信息
-                     * @param Description 描述信息
+                     * @param _description 描述信息
+                     * 
                      */
                     void SetDescription(const std::string& _description);
 
                     /**
                      * 判断参数 Description 是否已赋值
                      * @return Description 是否已赋值
+                     * 
                      */
                     bool DescriptionHasBeenSet() const;
 
                     /**
                      * 获取解决方案
                      * @return Solution 解决方案
+                     * 
                      */
                     std::string GetSolution() const;
 
                     /**
                      * 设置解决方案
-                     * @param Solution 解决方案
+                     * @param _solution 解决方案
+                     * 
                      */
                     void SetSolution(const std::string& _solution);
 
                     /**
                      * 判断参数 Solution 是否已赋值
                      * @return Solution 是否已赋值
+                     * 
                      */
                     bool SolutionHasBeenSet() const;
 
                     /**
                      * 获取事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Remark 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRemark() const;
 
                     /**
                      * 设置事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Remark 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _remark 事件备注信息
+                     * 
                      */
                     void SetRemark(const std::string& _remark);
 
                     /**
                      * 判断参数 Remark 是否已赋值
                      * @return Remark 是否已赋值
+                     * 
                      */
                     bool RemarkHasBeenSet() const;
 
                     /**
                      * 获取系统调用名称
                      * @return SyscallName 系统调用名称
+                     * 
                      */
                     std::string GetSyscallName() const;
 
                     /**
                      * 设置系统调用名称
-                     * @param SyscallName 系统调用名称
+                     * @param _syscallName 系统调用名称
+                     * 
                      */
                     void SetSyscallName(const std::string& _syscallName);
 
                     /**
                      * 判断参数 SyscallName 是否已赋值
                      * @return SyscallName 是否已赋值
+                     * 
                      */
                     bool SyscallNameHasBeenSet() const;
 
                     /**
                      * 获取事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return OperationTime 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetOperationTime() const;
 
                     /**
                      * 设置事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param OperationTime 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _operationTime 事件最后一次处理的时间
+                     * 
                      */
                     void SetOperationTime(const std::string& _operationTime);
 
                     /**
                      * 判断参数 OperationTime 是否已赋值
                      * @return OperationTime 是否已赋值
+                     * 
                      */
                     bool OperationTimeHasBeenSet() const;
 
@@ -160,7 +167,6 @@ namespace TencentCloud
 
                     /**
                      * 事件备注信息
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
@@ -173,7 +179,6 @@ namespace TencentCloud
 
                     /**
                      * 事件最后一次处理的时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_operationTime;
                     bool m_operationTimeHasBeenSet;

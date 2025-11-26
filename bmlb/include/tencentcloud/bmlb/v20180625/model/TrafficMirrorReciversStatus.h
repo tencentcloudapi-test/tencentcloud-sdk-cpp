@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,36 +50,42 @@ namespace TencentCloud
                     /**
                      * 获取内网IP。
                      * @return LanIp 内网IP。
+                     * 
                      */
                     std::string GetLanIp() const;
 
                     /**
                      * 设置内网IP。
-                     * @param LanIp 内网IP。
+                     * @param _lanIp 内网IP。
+                     * 
                      */
                     void SetLanIp(const std::string& _lanIp);
 
                     /**
                      * 判断参数 LanIp 是否已赋值
                      * @return LanIp 是否已赋值
+                     * 
                      */
                     bool LanIpHasBeenSet() const;
 
                     /**
                      * 获取端口及对应的状态。
                      * @return ReceiversPortStatusSet 端口及对应的状态。
+                     * 
                      */
                     std::vector<TrafficMirrorPortStatus> GetReceiversPortStatusSet() const;
 
                     /**
                      * 设置端口及对应的状态。
-                     * @param ReceiversPortStatusSet 端口及对应的状态。
+                     * @param _receiversPortStatusSet 端口及对应的状态。
+                     * 
                      */
                     void SetReceiversPortStatusSet(const std::vector<TrafficMirrorPortStatus>& _receiversPortStatusSet);
 
                     /**
                      * 判断参数 ReceiversPortStatusSet 是否已赋值
                      * @return ReceiversPortStatusSet 是否已赋值
+                     * 
                      */
                     bool ReceiversPortStatusSetHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,56 +46,86 @@ namespace TencentCloud
                     /**
                      * 获取对端网关名称，可任意命名，但不得超过60个字符。
                      * @return CustomerGatewayName 对端网关名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     std::string GetCustomerGatewayName() const;
 
                     /**
                      * 设置对端网关名称，可任意命名，但不得超过60个字符。
-                     * @param CustomerGatewayName 对端网关名称，可任意命名，但不得超过60个字符。
+                     * @param _customerGatewayName 对端网关名称，可任意命名，但不得超过60个字符。
+                     * 
                      */
                     void SetCustomerGatewayName(const std::string& _customerGatewayName);
 
                     /**
                      * 判断参数 CustomerGatewayName 是否已赋值
                      * @return CustomerGatewayName 是否已赋值
+                     * 
                      */
                     bool CustomerGatewayNameHasBeenSet() const;
 
                     /**
                      * 获取对端网关公网IP。
                      * @return IpAddress 对端网关公网IP。
+                     * 
                      */
                     std::string GetIpAddress() const;
 
                     /**
                      * 设置对端网关公网IP。
-                     * @param IpAddress 对端网关公网IP。
+                     * @param _ipAddress 对端网关公网IP。
+                     * 
                      */
                     void SetIpAddress(const std::string& _ipAddress);
 
                     /**
                      * 判断参数 IpAddress 是否已赋值
                      * @return IpAddress 是否已赋值
+                     * 
                      */
                     bool IpAddressHasBeenSet() const;
 
                     /**
                      * 获取指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
                      * @return Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+                     * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
                      * 设置指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
-                     * @param Tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+                     * @param _tags 指定绑定的标签列表，例如：[{"Key": "city", "Value": "shanghai"}]
+                     * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
+
+                    /**
+                     * 获取BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+                     * @return BgpAsn BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+                     * 
+                     */
+                    int64_t GetBgpAsn() const;
+
+                    /**
+                     * 设置BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+                     * @param _bgpAsn BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+                     * 
+                     */
+                    void SetBgpAsn(const int64_t& _bgpAsn);
+
+                    /**
+                     * 判断参数 BgpAsn 是否已赋值
+                     * @return BgpAsn 是否已赋值
+                     * 
+                     */
+                    bool BgpAsnHasBeenSet() const;
 
                 private:
 
@@ -116,6 +146,12 @@ namespace TencentCloud
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
+
+                    /**
+                     * BGP ASN。ASN取值范围为1- 4294967295，其中139341、45090和58835不可用。
+                     */
+                    int64_t m_bgpAsn;
+                    bool m_bgpAsnHasBeenSet;
 
                 };
             }

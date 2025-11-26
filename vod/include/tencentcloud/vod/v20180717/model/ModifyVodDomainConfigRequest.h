@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/vod/v20180717/model/RefererAuthPolicy.h>
 #include <tencentcloud/vod/v20180717/model/UrlSignatureAuthPolicy.h>
+#include <tencentcloud/vod/v20180717/model/DomainQUICConfig.h>
+#include <tencentcloud/vod/v20180717/model/IPFilterPolicy.h>
 
 
 namespace TencentCloud
@@ -47,74 +49,128 @@ namespace TencentCloud
                     /**
                      * 获取域名。
                      * @return Domain 域名。
+                     * 
                      */
                     std::string GetDomain() const;
 
                     /**
                      * 设置域名。
-                     * @param Domain 域名。
+                     * @param _domain 域名。
+                     * 
                      */
                     void SetDomain(const std::string& _domain);
 
                     /**
                      * 判断参数 Domain 是否已赋值
                      * @return Domain 是否已赋值
+                     * 
                      */
                     bool DomainHasBeenSet() const;
 
                     /**
-                     * 获取[Referer 防盗链](/document/product/266/14046)规则。
-                     * @return RefererAuthPolicy [Referer 防盗链](/document/product/266/14046)规则。
-                     */
-                    RefererAuthPolicy GetRefererAuthPolicy() const;
-
-                    /**
-                     * 设置[Referer 防盗链](/document/product/266/14046)规则。
-                     * @param RefererAuthPolicy [Referer 防盗链](/document/product/266/14046)规则。
-                     */
-                    void SetRefererAuthPolicy(const RefererAuthPolicy& _refererAuthPolicy);
-
-                    /**
-                     * 判断参数 RefererAuthPolicy 是否已赋值
-                     * @return RefererAuthPolicy 是否已赋值
-                     */
-                    bool RefererAuthPolicyHasBeenSet() const;
-
-                    /**
-                     * 获取[Key 防盗链](/document/product/266/14047)规则。
-                     * @return UrlSignatureAuthPolicy [Key 防盗链](/document/product/266/14047)规则。
-                     */
-                    UrlSignatureAuthPolicy GetUrlSignatureAuthPolicy() const;
-
-                    /**
-                     * 设置[Key 防盗链](/document/product/266/14047)规则。
-                     * @param UrlSignatureAuthPolicy [Key 防盗链](/document/product/266/14047)规则。
-                     */
-                    void SetUrlSignatureAuthPolicy(const UrlSignatureAuthPolicy& _urlSignatureAuthPolicy);
-
-                    /**
-                     * 判断参数 UrlSignatureAuthPolicy 是否已赋值
-                     * @return UrlSignatureAuthPolicy 是否已赋值
-                     */
-                    bool UrlSignatureAuthPolicyHasBeenSet() const;
-
-                    /**
-                     * 获取点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     * @return SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+                     * 获取<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * 
                      */
                     uint64_t GetSubAppId() const;
 
                     /**
-                     * 设置点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
-                     * @param SubAppId 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+                     * 设置<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @param _subAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * 
                      */
                     void SetSubAppId(const uint64_t& _subAppId);
 
                     /**
                      * 判断参数 SubAppId 是否已赋值
                      * @return SubAppId 是否已赋值
+                     * 
                      */
                     bool SubAppIdHasBeenSet() const;
+
+                    /**
+                     * 获取[Referer 防盗链](/document/product/266/14046)规则。
+                     * @return RefererAuthPolicy [Referer 防盗链](/document/product/266/14046)规则。
+                     * 
+                     */
+                    RefererAuthPolicy GetRefererAuthPolicy() const;
+
+                    /**
+                     * 设置[Referer 防盗链](/document/product/266/14046)规则。
+                     * @param _refererAuthPolicy [Referer 防盗链](/document/product/266/14046)规则。
+                     * 
+                     */
+                    void SetRefererAuthPolicy(const RefererAuthPolicy& _refererAuthPolicy);
+
+                    /**
+                     * 判断参数 RefererAuthPolicy 是否已赋值
+                     * @return RefererAuthPolicy 是否已赋值
+                     * 
+                     */
+                    bool RefererAuthPolicyHasBeenSet() const;
+
+                    /**
+                     * 获取[Key 防盗链](/document/product/266/14047)规则。
+                     * @return UrlSignatureAuthPolicy [Key 防盗链](/document/product/266/14047)规则。
+                     * 
+                     */
+                    UrlSignatureAuthPolicy GetUrlSignatureAuthPolicy() const;
+
+                    /**
+                     * 设置[Key 防盗链](/document/product/266/14047)规则。
+                     * @param _urlSignatureAuthPolicy [Key 防盗链](/document/product/266/14047)规则。
+                     * 
+                     */
+                    void SetUrlSignatureAuthPolicy(const UrlSignatureAuthPolicy& _urlSignatureAuthPolicy);
+
+                    /**
+                     * 判断参数 UrlSignatureAuthPolicy 是否已赋值
+                     * @return UrlSignatureAuthPolicy 是否已赋值
+                     * 
+                     */
+                    bool UrlSignatureAuthPolicyHasBeenSet() const;
+
+                    /**
+                     * 获取QUIC 配置。
+                     * @return QUICConfig QUIC 配置。
+                     * 
+                     */
+                    DomainQUICConfig GetQUICConfig() const;
+
+                    /**
+                     * 设置QUIC 配置。
+                     * @param _qUICConfig QUIC 配置。
+                     * 
+                     */
+                    void SetQUICConfig(const DomainQUICConfig& _qUICConfig);
+
+                    /**
+                     * 判断参数 QUICConfig 是否已赋值
+                     * @return QUICConfig 是否已赋值
+                     * 
+                     */
+                    bool QUICConfigHasBeenSet() const;
+
+                    /**
+                     * 获取IP 访问限制规则。
+                     * @return IPFilterPolicy IP 访问限制规则。
+                     * 
+                     */
+                    IPFilterPolicy GetIPFilterPolicy() const;
+
+                    /**
+                     * 设置IP 访问限制规则。
+                     * @param _iPFilterPolicy IP 访问限制规则。
+                     * 
+                     */
+                    void SetIPFilterPolicy(const IPFilterPolicy& _iPFilterPolicy);
+
+                    /**
+                     * 判断参数 IPFilterPolicy 是否已赋值
+                     * @return IPFilterPolicy 是否已赋值
+                     * 
+                     */
+                    bool IPFilterPolicyHasBeenSet() const;
 
                 private:
 
@@ -123,6 +179,12 @@ namespace TencentCloud
                      */
                     std::string m_domain;
                     bool m_domainHasBeenSet;
+
+                    /**
+                     * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     */
+                    uint64_t m_subAppId;
+                    bool m_subAppIdHasBeenSet;
 
                     /**
                      * [Referer 防盗链](/document/product/266/14046)规则。
@@ -137,10 +199,16 @@ namespace TencentCloud
                     bool m_urlSignatureAuthPolicyHasBeenSet;
 
                     /**
-                     * 点播[子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。
+                     * QUIC 配置。
                      */
-                    uint64_t m_subAppId;
-                    bool m_subAppIdHasBeenSet;
+                    DomainQUICConfig m_qUICConfig;
+                    bool m_qUICConfigHasBeenSet;
+
+                    /**
+                     * IP 访问限制规则。
+                     */
+                    IPFilterPolicy m_iPFilterPolicy;
+                    bool m_iPFilterPolicyHasBeenSet;
 
                 };
             }

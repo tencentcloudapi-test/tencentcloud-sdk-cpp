@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,93 +48,103 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取值为枚举类型参数集合
-                     * @return InstanceEnumParam 值为枚举类型参数集合
+                     * 获取参数值为枚举类型的参数集合。
+                     * @return InstanceEnumParam 参数值为枚举类型的参数集合。
+                     * 
                      */
                     std::vector<InstanceEnumParam> GetInstanceEnumParam() const;
 
                     /**
                      * 判断参数 InstanceEnumParam 是否已赋值
                      * @return InstanceEnumParam 是否已赋值
+                     * 
                      */
                     bool InstanceEnumParamHasBeenSet() const;
 
                     /**
-                     * 获取值为integer类型参数集合
-                     * @return InstanceIntegerParam 值为integer类型参数集合
+                     * 获取参数值为 Integer 类型的参数集合。
+                     * @return InstanceIntegerParam 参数值为 Integer 类型的参数集合。
+                     * 
                      */
                     std::vector<InstanceIntegerParam> GetInstanceIntegerParam() const;
 
                     /**
                      * 判断参数 InstanceIntegerParam 是否已赋值
                      * @return InstanceIntegerParam 是否已赋值
+                     * 
                      */
                     bool InstanceIntegerParamHasBeenSet() const;
 
                     /**
-                     * 获取值为text类型的参数集合
-                     * @return InstanceTextParam 值为text类型的参数集合
+                     * 获取参数值为 Text 类型的参数集合。
+                     * @return InstanceTextParam 参数值为 Text 类型的参数集合。
+                     * 
                      */
                     std::vector<InstanceTextParam> GetInstanceTextParam() const;
 
                     /**
                      * 判断参数 InstanceTextParam 是否已赋值
                      * @return InstanceTextParam 是否已赋值
+                     * 
                      */
                     bool InstanceTextParamHasBeenSet() const;
 
                     /**
-                     * 获取值为混合类型的参数集合
-                     * @return InstanceMultiParam 值为混合类型的参数集合
+                     * 获取参数值为混合类型的参数集合。
+                     * @return InstanceMultiParam 参数值为混合类型的参数集合。
+                     * 
                      */
                     std::vector<InstanceMultiParam> GetInstanceMultiParam() const;
 
                     /**
                      * 判断参数 InstanceMultiParam 是否已赋值
                      * @return InstanceMultiParam 是否已赋值
+                     * 
                      */
                     bool InstanceMultiParamHasBeenSet() const;
 
                     /**
-                     * 获取当前实例支持修改的参数个数统计 如0
-                     * @return TotalCount 当前实例支持修改的参数个数统计 如0
+                     * 获取当前实例支持修改的参数数量。
+                     * @return TotalCount 当前实例支持修改的参数数量。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 值为枚举类型参数集合
+                     * 参数值为枚举类型的参数集合。
                      */
                     std::vector<InstanceEnumParam> m_instanceEnumParam;
                     bool m_instanceEnumParamHasBeenSet;
 
                     /**
-                     * 值为integer类型参数集合
+                     * 参数值为 Integer 类型的参数集合。
                      */
                     std::vector<InstanceIntegerParam> m_instanceIntegerParam;
                     bool m_instanceIntegerParamHasBeenSet;
 
                     /**
-                     * 值为text类型的参数集合
+                     * 参数值为 Text 类型的参数集合。
                      */
                     std::vector<InstanceTextParam> m_instanceTextParam;
                     bool m_instanceTextParamHasBeenSet;
 
                     /**
-                     * 值为混合类型的参数集合
+                     * 参数值为混合类型的参数集合。
                      */
                     std::vector<InstanceMultiParam> m_instanceMultiParam;
                     bool m_instanceMultiParamHasBeenSet;
 
                     /**
-                     * 当前实例支持修改的参数个数统计 如0
+                     * 当前实例支持修改的参数数量。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

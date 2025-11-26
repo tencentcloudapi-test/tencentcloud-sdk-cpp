@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取集群实例ID
                      * @return ClusterId 集群实例ID
+                     * 
                      */
                     std::string GetClusterId() const;
 
                     /**
                      * 设置集群实例ID
-                     * @param ClusterId 集群实例ID
+                     * @param _clusterId 集群实例ID
+                     * 
                      */
                     void SetClusterId(const std::string& _clusterId);
 
                     /**
                      * 判断参数 ClusterId 是否已赋值
                      * @return ClusterId 是否已赋值
+                     * 
                      */
                     bool ClusterIdHasBeenSet() const;
 
                     /**
                      * 获取master缩容选项
                      * @return ScaleInMasters master缩容选项
+                     * 
                      */
                     std::vector<ScaleInMaster> GetScaleInMasters() const;
 
                     /**
                      * 设置master缩容选项
-                     * @param ScaleInMasters master缩容选项
+                     * @param _scaleInMasters master缩容选项
+                     * 
                      */
                     void SetScaleInMasters(const std::vector<ScaleInMaster>& _scaleInMasters);
 
                     /**
                      * 判断参数 ScaleInMasters 是否已赋值
                      * @return ScaleInMasters 是否已赋值
+                     * 
                      */
                     bool ScaleInMastersHasBeenSet() const;
 

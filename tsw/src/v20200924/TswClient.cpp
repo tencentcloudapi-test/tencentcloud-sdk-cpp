@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,24 +62,31 @@ TswClient::DescribeAgentShellOutcome TswClient::DescribeAgentShell(const Describ
 
 void TswClient::DescribeAgentShellAsync(const DescribeAgentShellRequest& request, const DescribeAgentShellAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAgentShell(request), context);
-    };
+    using Req = const DescribeAgentShellRequest&;
+    using Resp = DescribeAgentShellResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeAgentShell", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 TswClient::DescribeAgentShellOutcomeCallable TswClient::DescribeAgentShellCallable(const DescribeAgentShellRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeAgentShellOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAgentShell(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeAgentShellOutcome>>();
+    DescribeAgentShellAsync(
+    request,
+    [prom](
+        const TswClient*,
+        const DescribeAgentShellRequest&,
+        DescribeAgentShellOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

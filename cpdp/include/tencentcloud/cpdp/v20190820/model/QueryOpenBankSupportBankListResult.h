@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,18 +50,21 @@ namespace TencentCloud
                     /**
                      * 获取支持的银行列表
                      * @return SupportBankList 支持的银行列表
+                     * 
                      */
                     std::vector<SupportBankInfo> GetSupportBankList() const;
 
                     /**
                      * 设置支持的银行列表
-                     * @param SupportBankList 支持的银行列表
+                     * @param _supportBankList 支持的银行列表
+                     * 
                      */
                     void SetSupportBankList(const std::vector<SupportBankInfo>& _supportBankList);
 
                     /**
                      * 判断参数 SupportBankList 是否已赋值
                      * @return SupportBankList 是否已赋值
+                     * 
                      */
                     bool SupportBankListHasBeenSet() const;
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeBasicAlarmListResponse::DescribeBasicAlarmListResponse() :
     m_alarmsHasBeenSet(false),
-    m_totalHasBeenSet(false)
+    m_totalHasBeenSet(false),
+    m_warningHasBeenSet(false)
 {
 }
 
@@ -93,6 +94,16 @@ CoreInternalOutcome DescribeBasicAlarmListResponse::Deserialize(const string &pa
         m_totalHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Warning") && !rsp["Warning"].IsNull())
+    {
+        if (!rsp["Warning"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Warning` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_warning = string(rsp["Warning"].GetString());
+        m_warningHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,11 +137,19 @@ string DescribeBasicAlarmListResponse::ToJsonString() const
         value.AddMember(iKey, m_total, allocator);
     }
 
+    if (m_warningHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Warning";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_warning.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -156,6 +175,16 @@ int64_t DescribeBasicAlarmListResponse::GetTotal() const
 bool DescribeBasicAlarmListResponse::TotalHasBeenSet() const
 {
     return m_totalHasBeenSet;
+}
+
+string DescribeBasicAlarmListResponse::GetWarning() const
+{
+    return m_warning;
+}
+
+bool DescribeBasicAlarmListResponse::WarningHasBeenSet() const
+{
+    return m_warningHasBeenSet;
 }
 
 

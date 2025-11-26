@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +47,9 @@ DescribeDeviceResponse::DescribeDeviceResponse() :
     m_enableStateHasBeenSet(false),
     m_labelsHasBeenSet(false),
     m_clientIPHasBeenSet(false),
-    m_firmwareUpdateTimeHasBeenSet(false)
+    m_firmwareUpdateTimeHasBeenSet(false),
+    m_createUserIdHasBeenSet(false),
+    m_nBIoTDeviceIDHasBeenSet(false)
 {
 }
 
@@ -345,6 +347,26 @@ CoreInternalOutcome DescribeDeviceResponse::Deserialize(const string &payload)
         m_firmwareUpdateTimeHasBeenSet = true;
     }
 
+    if (rsp.HasMember("CreateUserId") && !rsp["CreateUserId"].IsNull())
+    {
+        if (!rsp["CreateUserId"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CreateUserId` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_createUserId = rsp["CreateUserId"].GetUint64();
+        m_createUserIdHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("NBIoTDeviceID") && !rsp["NBIoTDeviceID"].IsNull())
+    {
+        if (!rsp["NBIoTDeviceID"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NBIoTDeviceID` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_nBIoTDeviceID = string(rsp["NBIoTDeviceID"].GetString());
+        m_nBIoTDeviceIDHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -561,11 +583,27 @@ string DescribeDeviceResponse::ToJsonString() const
         value.AddMember(iKey, m_firmwareUpdateTime, allocator);
     }
 
+    if (m_createUserIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CreateUserId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_createUserId, allocator);
+    }
+
+    if (m_nBIoTDeviceIDHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NBIoTDeviceID";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_nBIoTDeviceID.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -811,6 +849,26 @@ uint64_t DescribeDeviceResponse::GetFirmwareUpdateTime() const
 bool DescribeDeviceResponse::FirmwareUpdateTimeHasBeenSet() const
 {
     return m_firmwareUpdateTimeHasBeenSet;
+}
+
+uint64_t DescribeDeviceResponse::GetCreateUserId() const
+{
+    return m_createUserId;
+}
+
+bool DescribeDeviceResponse::CreateUserIdHasBeenSet() const
+{
+    return m_createUserIdHasBeenSet;
+}
+
+string DescribeDeviceResponse::GetNBIoTDeviceID() const
+{
+    return m_nBIoTDeviceID;
+}
+
+bool DescribeDeviceResponse::NBIoTDeviceIDHasBeenSet() const
+{
+    return m_nBIoTDeviceIDHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ TextWatermarkTemplateInput::TextWatermarkTemplateInput() :
     m_fontTypeHasBeenSet(false),
     m_fontSizeHasBeenSet(false),
     m_fontColorHasBeenSet(false),
-    m_fontAlphaHasBeenSet(false)
+    m_fontAlphaHasBeenSet(false),
+    m_textContentHasBeenSet(false)
 {
 }
 
@@ -73,6 +74,16 @@ CoreInternalOutcome TextWatermarkTemplateInput::Deserialize(const rapidjson::Val
         m_fontAlphaHasBeenSet = true;
     }
 
+    if (value.HasMember("TextContent") && !value["TextContent"].IsNull())
+    {
+        if (!value["TextContent"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TextWatermarkTemplateInput.TextContent` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_textContent = string(value["TextContent"].GetString());
+        m_textContentHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -110,6 +121,14 @@ void TextWatermarkTemplateInput::ToJsonObject(rapidjson::Value &value, rapidjson
         string key = "FontAlpha";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_fontAlpha, allocator);
+    }
+
+    if (m_textContentHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TextContent";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_textContent.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -177,5 +196,21 @@ void TextWatermarkTemplateInput::SetFontAlpha(const double& _fontAlpha)
 bool TextWatermarkTemplateInput::FontAlphaHasBeenSet() const
 {
     return m_fontAlphaHasBeenSet;
+}
+
+string TextWatermarkTemplateInput::GetTextContent() const
+{
+    return m_textContent;
+}
+
+void TextWatermarkTemplateInput::SetTextContent(const string& _textContent)
+{
+    m_textContent = _textContent;
+    m_textContentHasBeenSet = true;
+}
+
+bool TextWatermarkTemplateInput::TextContentHasBeenSet() const
+{
+    return m_textContentHasBeenSet;
 }
 

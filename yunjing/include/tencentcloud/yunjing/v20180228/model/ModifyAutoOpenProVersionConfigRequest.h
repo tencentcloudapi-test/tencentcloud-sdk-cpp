@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@ namespace TencentCloud
                      * @return Status 设置自动开通状态。
 <li>CLOSE：关闭</li>
 <li>OPEN：打开</li>
+                     * 
                      */
                     std::string GetStatus() const;
 
@@ -56,15 +57,17 @@ namespace TencentCloud
                      * 设置设置自动开通状态。
 <li>CLOSE：关闭</li>
 <li>OPEN：打开</li>
-                     * @param Status 设置自动开通状态。
+                     * @param _status 设置自动开通状态。
 <li>CLOSE：关闭</li>
 <li>OPEN：打开</li>
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 

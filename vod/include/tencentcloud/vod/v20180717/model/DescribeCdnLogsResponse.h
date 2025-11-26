@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,43 +46,43 @@ namespace TencentCloud
 
                     /**
                      * 获取日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TotalCount 日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return OverseaCdnLogs 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<CdnLogInfo> GetOverseaCdnLogs() const;
 
                     /**
                      * 判断参数 OverseaCdnLogs 是否已赋值
                      * @return OverseaCdnLogs 是否已赋值
+                     * 
                      */
                     bool OverseaCdnLogsHasBeenSet() const;
 
                     /**
                      * 获取国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return DomesticCdnLogs 国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<CdnLogInfo> GetDomesticCdnLogs() const;
 
                     /**
                      * 判断参数 DomesticCdnLogs 是否已赋值
                      * @return DomesticCdnLogs 是否已赋值
+                     * 
                      */
                     bool DomesticCdnLogsHasBeenSet() const;
 
@@ -90,21 +90,18 @@ namespace TencentCloud
 
                     /**
                      * 日志下载链接总数量。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
                      * 海外CDN节点的日志下载列表。如果域名没有开启海外加速，忽略该参数。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<CdnLogInfo> m_overseaCdnLogs;
                     bool m_overseaCdnLogsHasBeenSet;
 
                     /**
                      * 国内CDN节点的日志下载列表。
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<CdnLogInfo> m_domesticCdnLogs;
                     bool m_domesticCdnLogsHasBeenSet;

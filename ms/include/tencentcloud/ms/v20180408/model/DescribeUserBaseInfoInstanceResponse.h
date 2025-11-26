@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取用户uin信息
                      * @return UserUin 用户uin信息
+                     * 
                      */
                     uint64_t GetUserUin() const;
 
                     /**
                      * 判断参数 UserUin 是否已赋值
                      * @return UserUin 是否已赋值
+                     * 
                      */
                     bool UserUinHasBeenSet() const;
 
                     /**
                      * 获取用户APPID信息
                      * @return UserAppid 用户APPID信息
+                     * 
                      */
                     uint64_t GetUserAppid() const;
 
                     /**
                      * 判断参数 UserAppid 是否已赋值
                      * @return UserAppid 是否已赋值
+                     * 
                      */
                     bool UserAppidHasBeenSet() const;
 
                     /**
                      * 获取系统时间戳
                      * @return TimeStamp 系统时间戳
+                     * 
                      */
                     uint64_t GetTimeStamp() const;
 
                     /**
                      * 判断参数 TimeStamp 是否已赋值
                      * @return TimeStamp 是否已赋值
+                     * 
                      */
                     bool TimeStampHasBeenSet() const;
 

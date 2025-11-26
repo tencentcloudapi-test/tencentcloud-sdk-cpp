@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,54 +43,107 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取购买时长，单位：月
-                     * @return Period 购买时长，单位：月
+                     * 获取购买时长。
+- 单位：月。
+- 取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+                     * @return Period 购买时长。
+- 单位：月。
+- 取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+                     * 
                      */
                     uint64_t GetPeriod() const;
 
                     /**
-                     * 设置购买时长，单位：月
-                     * @param Period 购买时长，单位：月
+                     * 设置购买时长。
+- 单位：月。
+- 取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+                     * @param _period 购买时长。
+- 单位：月。
+- 取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+                     * 
                      */
                     void SetPeriod(const uint64_t& _period);
 
                     /**
                      * 判断参数 Period 是否已赋值
                      * @return Period 是否已赋值
+                     * 
                      */
                     bool PeriodHasBeenSet() const;
 
                     /**
-                     * 获取实例ID
-                     * @return InstanceId 实例ID
+                     * 获取实例 ID，请登录 [Redis 控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * @return InstanceId 实例 ID，请登录 [Redis 控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例ID
-                     * @param InstanceId 实例ID
+                     * 设置实例 ID，请登录 [Redis 控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * @param _instanceId 实例 ID，请登录 [Redis 控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
+
+                    /**
+                     * 获取标识是否修改计费模式。
+- 当前实例计费模式为按量计费方式，预转换为包年包月而续费，请指定该参数为 <b>prepaid</b>。
+- 当前实例计费模式为包年包月方式，可不设置该参数。
+                     * @return ModifyPayMode 标识是否修改计费模式。
+- 当前实例计费模式为按量计费方式，预转换为包年包月而续费，请指定该参数为 <b>prepaid</b>。
+- 当前实例计费模式为包年包月方式，可不设置该参数。
+                     * 
+                     */
+                    std::string GetModifyPayMode() const;
+
+                    /**
+                     * 设置标识是否修改计费模式。
+- 当前实例计费模式为按量计费方式，预转换为包年包月而续费，请指定该参数为 <b>prepaid</b>。
+- 当前实例计费模式为包年包月方式，可不设置该参数。
+                     * @param _modifyPayMode 标识是否修改计费模式。
+- 当前实例计费模式为按量计费方式，预转换为包年包月而续费，请指定该参数为 <b>prepaid</b>。
+- 当前实例计费模式为包年包月方式，可不设置该参数。
+                     * 
+                     */
+                    void SetModifyPayMode(const std::string& _modifyPayMode);
+
+                    /**
+                     * 判断参数 ModifyPayMode 是否已赋值
+                     * @return ModifyPayMode 是否已赋值
+                     * 
+                     */
+                    bool ModifyPayModeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 购买时长，单位：月
+                     * 购买时长。
+- 单位：月。
+- 取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
                      */
                     uint64_t m_period;
                     bool m_periodHasBeenSet;
 
                     /**
-                     * 实例ID
+                     * 实例 ID，请登录 [Redis 控制台](https://console.cloud.tencent.com/redis/instance/list)在实例列表复制实例 ID。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
+
+                    /**
+                     * 标识是否修改计费模式。
+- 当前实例计费模式为按量计费方式，预转换为包年包月而续费，请指定该参数为 <b>prepaid</b>。
+- 当前实例计费模式为包年包月方式，可不设置该参数。
+                     */
+                    std::string m_modifyPayMode;
+                    bool m_modifyPayModeHasBeenSet;
 
                 };
             }

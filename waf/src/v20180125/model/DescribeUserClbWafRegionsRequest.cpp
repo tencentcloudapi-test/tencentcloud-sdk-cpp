@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@
 using namespace TencentCloud::Waf::V20180125::Model;
 using namespace std;
 
-DescribeUserClbWafRegionsRequest::DescribeUserClbWafRegionsRequest()
+DescribeUserClbWafRegionsRequest::DescribeUserClbWafRegionsRequest() :
+    m_albTypeHasBeenSet(false)
 {
 }
 
@@ -33,6 +34,14 @@ string DescribeUserClbWafRegionsRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
+    if (m_albTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlbType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_albType.c_str(), allocator).Move(), allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -40,5 +49,21 @@ string DescribeUserClbWafRegionsRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+string DescribeUserClbWafRegionsRequest::GetAlbType() const
+{
+    return m_albType;
+}
+
+void DescribeUserClbWafRegionsRequest::SetAlbType(const string& _albType)
+{
+    m_albType = _albType;
+    m_albTypeHasBeenSet = true;
+}
+
+bool DescribeUserClbWafRegionsRequest::AlbTypeHasBeenSet() const
+{
+    return m_albTypeHasBeenSet;
+}
 
 

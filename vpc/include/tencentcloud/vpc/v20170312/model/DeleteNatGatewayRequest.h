@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,20 +45,44 @@ namespace TencentCloud
                     /**
                      * 获取NAT网关的ID，形如：`nat-df45454`。
                      * @return NatGatewayId NAT网关的ID，形如：`nat-df45454`。
+                     * 
                      */
                     std::string GetNatGatewayId() const;
 
                     /**
                      * 设置NAT网关的ID，形如：`nat-df45454`。
-                     * @param NatGatewayId NAT网关的ID，形如：`nat-df45454`。
+                     * @param _natGatewayId NAT网关的ID，形如：`nat-df45454`。
+                     * 
                      */
                     void SetNatGatewayId(const std::string& _natGatewayId);
 
                     /**
                      * 判断参数 NatGatewayId 是否已赋值
                      * @return NatGatewayId 是否已赋值
+                     * 
                      */
                     bool NatGatewayIdHasBeenSet() const;
+
+                    /**
+                     * 获取忽略操作风险
+                     * @return IgnoreOperationRisk 忽略操作风险
+                     * 
+                     */
+                    bool GetIgnoreOperationRisk() const;
+
+                    /**
+                     * 设置忽略操作风险
+                     * @param _ignoreOperationRisk 忽略操作风险
+                     * 
+                     */
+                    void SetIgnoreOperationRisk(const bool& _ignoreOperationRisk);
+
+                    /**
+                     * 判断参数 IgnoreOperationRisk 是否已赋值
+                     * @return IgnoreOperationRisk 是否已赋值
+                     * 
+                     */
+                    bool IgnoreOperationRiskHasBeenSet() const;
 
                 private:
 
@@ -67,6 +91,12 @@ namespace TencentCloud
                      */
                     std::string m_natGatewayId;
                     bool m_natGatewayIdHasBeenSet;
+
+                    /**
+                     * 忽略操作风险
+                     */
+                    bool m_ignoreOperationRisk;
+                    bool m_ignoreOperationRiskHasBeenSet;
 
                 };
             }

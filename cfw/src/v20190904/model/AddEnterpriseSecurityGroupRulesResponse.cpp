@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ using namespace TencentCloud::Cfw::V20190904::Model;
 using namespace std;
 
 AddEnterpriseSecurityGroupRulesResponse::AddEnterpriseSecurityGroupRulesResponse() :
-    m_statusHasBeenSet(false)
+    m_statusHasBeenSet(false),
+    m_rulesHasBeenSet(false)
 {
 }
 
@@ -72,6 +73,26 @@ CoreInternalOutcome AddEnterpriseSecurityGroupRulesResponse::Deserialize(const s
         m_statusHasBeenSet = true;
     }
 
+    if (rsp.HasMember("Rules") && !rsp["Rules"].IsNull())
+    {
+        if (!rsp["Rules"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `Rules` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["Rules"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            SecurityGroupSimplifyRule item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_rules.push_back(item);
+        }
+        m_rulesHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -90,11 +111,26 @@ string AddEnterpriseSecurityGroupRulesResponse::ToJsonString() const
         value.AddMember(iKey, m_status, allocator);
     }
 
+    if (m_rulesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Rules";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_rules.begin(); itr != m_rules.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -110,6 +146,16 @@ uint64_t AddEnterpriseSecurityGroupRulesResponse::GetStatus() const
 bool AddEnterpriseSecurityGroupRulesResponse::StatusHasBeenSet() const
 {
     return m_statusHasBeenSet;
+}
+
+vector<SecurityGroupSimplifyRule> AddEnterpriseSecurityGroupRulesResponse::GetRules() const
+{
+    return m_rules;
+}
+
+bool AddEnterpriseSecurityGroupRulesResponse::RulesHasBeenSet() const
+{
+    return m_rulesHasBeenSet;
 }
 
 

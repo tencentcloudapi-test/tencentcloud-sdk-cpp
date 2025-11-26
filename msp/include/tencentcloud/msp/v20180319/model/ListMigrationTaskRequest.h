@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取记录起始数，默认值为0
                      * @return Offset 记录起始数，默认值为0
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置记录起始数，默认值为0
-                     * @param Offset 记录起始数，默认值为0
+                     * @param _offset 记录起始数，默认值为0
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取记录条数，默认值为10
                      * @return Limit 记录条数，默认值为10
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置记录条数，默认值为10
-                     * @param Limit 记录条数，默认值为10
+                     * @param _limit 记录条数，默认值为10
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取项目ID，默认值为空
                      * @return ProjectId 项目ID，默认值为空
+                     * 
                      */
                     uint64_t GetProjectId() const;
 
                     /**
                      * 设置项目ID，默认值为空
-                     * @param ProjectId 项目ID，默认值为空
+                     * @param _projectId 项目ID，默认值为空
+                     * 
                      */
                     void SetProjectId(const uint64_t& _projectId);
 
                     /**
                      * 判断参数 ProjectId 是否已赋值
                      * @return ProjectId 是否已赋值
+                     * 
                      */
                     bool ProjectIdHasBeenSet() const;
 

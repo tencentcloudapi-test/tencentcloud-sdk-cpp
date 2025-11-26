@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取镜像id
                      * @return ImageID 镜像id
+                     * 
                      */
                     std::string GetImageID() const;
 
                     /**
                      * 设置镜像id
-                     * @param ImageID 镜像id
+                     * @param _imageID 镜像id
+                     * 
                      */
                     void SetImageID(const std::string& _imageID);
 
                     /**
                      * 判断参数 ImageID 是否已赋值
                      * @return ImageID 是否已赋值
+                     * 
                      */
                     bool ImageIDHasBeenSet() const;
 
                     /**
                      * 获取主机id
                      * @return HostID 主机id
+                     * 
                      */
                     std::string GetHostID() const;
 
                     /**
                      * 设置主机id
-                     * @param HostID 主机id
+                     * @param _hostID 主机id
+                     * 
                      */
                     void SetHostID(const std::string& _hostID);
 
                     /**
                      * 判断参数 HostID 是否已赋值
                      * @return HostID 是否已赋值
+                     * 
                      */
                     bool HostIDHasBeenSet() const;
 

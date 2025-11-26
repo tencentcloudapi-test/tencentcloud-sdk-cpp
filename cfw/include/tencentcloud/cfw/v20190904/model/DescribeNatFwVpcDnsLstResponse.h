@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,43 +46,43 @@ namespace TencentCloud
 
                     /**
                      * 获取nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return VpcDnsSwitchLst nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<VpcDnsInfo> GetVpcDnsSwitchLst() const;
 
                     /**
                      * 判断参数 VpcDnsSwitchLst 是否已赋值
                      * @return VpcDnsSwitchLst 是否已赋值
+                     * 
                      */
                     bool VpcDnsSwitchLstHasBeenSet() const;
 
                     /**
-                     * 获取返回参数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ReturnMsg 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取返回参数 success成功 failed 失败
+                     * @return ReturnMsg 返回参数 success成功 failed 失败
+                     * 
                      */
                     std::string GetReturnMsg() const;
 
                     /**
                      * 判断参数 ReturnMsg 是否已赋值
                      * @return ReturnMsg 是否已赋值
+                     * 
                      */
                     bool ReturnMsgHasBeenSet() const;
 
                     /**
                      * 获取开关总条数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Total 开关总条数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetTotal() const;
 
                     /**
                      * 判断参数 Total 是否已赋值
                      * @return Total 是否已赋值
+                     * 
                      */
                     bool TotalHasBeenSet() const;
 
@@ -90,21 +90,18 @@ namespace TencentCloud
 
                     /**
                      * nat防火墙vpc dns 信息数组
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<VpcDnsInfo> m_vpcDnsSwitchLst;
                     bool m_vpcDnsSwitchLstHasBeenSet;
 
                     /**
-                     * 返回参数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 返回参数 success成功 failed 失败
                      */
                     std::string m_returnMsg;
                     bool m_returnMsgHasBeenSet;
 
                     /**
                      * 开关总条数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_total;
                     bool m_totalHasBeenSet;

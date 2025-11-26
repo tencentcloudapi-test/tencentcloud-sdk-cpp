@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,18 +46,21 @@ namespace TencentCloud
                     /**
                      * 获取告警开关策略
                      * @return WarningRules 告警开关策略
+                     * 
                      */
                     std::vector<WarningRule> GetWarningRules() const;
 
                     /**
                      * 设置告警开关策略
-                     * @param WarningRules 告警开关策略
+                     * @param _warningRules 告警开关策略
+                     * 
                      */
                     void SetWarningRules(const std::vector<WarningRule>& _warningRules);
 
                     /**
                      * 判断参数 WarningRules 是否已赋值
                      * @return WarningRules 是否已赋值
+                     * 
                      */
                     bool WarningRulesHasBeenSet() const;
 

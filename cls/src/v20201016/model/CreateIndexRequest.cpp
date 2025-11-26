@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,9 @@ using namespace std;
 CreateIndexRequest::CreateIndexRequest() :
     m_topicIdHasBeenSet(false),
     m_ruleHasBeenSet(false),
-    m_statusHasBeenSet(false)
+    m_statusHasBeenSet(false),
+    m_includeInternalFieldsHasBeenSet(false),
+    m_metadataFlagHasBeenSet(false)
 {
 }
 
@@ -59,6 +61,22 @@ string CreateIndexRequest::ToJsonString() const
         string key = "Status";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_status, allocator);
+    }
+
+    if (m_includeInternalFieldsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IncludeInternalFields";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_includeInternalFields, allocator);
+    }
+
+    if (m_metadataFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MetadataFlag";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_metadataFlag, allocator);
     }
 
 
@@ -115,6 +133,38 @@ void CreateIndexRequest::SetStatus(const bool& _status)
 bool CreateIndexRequest::StatusHasBeenSet() const
 {
     return m_statusHasBeenSet;
+}
+
+bool CreateIndexRequest::GetIncludeInternalFields() const
+{
+    return m_includeInternalFields;
+}
+
+void CreateIndexRequest::SetIncludeInternalFields(const bool& _includeInternalFields)
+{
+    m_includeInternalFields = _includeInternalFields;
+    m_includeInternalFieldsHasBeenSet = true;
+}
+
+bool CreateIndexRequest::IncludeInternalFieldsHasBeenSet() const
+{
+    return m_includeInternalFieldsHasBeenSet;
+}
+
+uint64_t CreateIndexRequest::GetMetadataFlag() const
+{
+    return m_metadataFlag;
+}
+
+void CreateIndexRequest::SetMetadataFlag(const uint64_t& _metadataFlag)
+{
+    m_metadataFlag = _metadataFlag;
+    m_metadataFlagHasBeenSet = true;
+}
+
+bool CreateIndexRequest::MetadataFlagHasBeenSet() const
+{
+    return m_metadataFlagHasBeenSet;
 }
 
 

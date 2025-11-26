@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,69 +44,78 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取部署组ID
-                     * @return GroupId 部署组ID
+                     * 获取部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
+                     * @return GroupId 部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
-                     * 设置部署组ID
-                     * @param GroupId 部署组ID
+                     * 设置部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
+                     * @param _groupId 部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取是否能使健康检查
-                     * @return EnableHealthCheck 是否能使健康检查
+                     * 获取是否开启健康检查
+                     * @return EnableHealthCheck 是否开启健康检查
+                     * 
                      */
                     bool GetEnableHealthCheck() const;
 
                     /**
-                     * 设置是否能使健康检查
-                     * @param EnableHealthCheck 是否能使健康检查
+                     * 设置是否开启健康检查
+                     * @param _enableHealthCheck 是否开启健康检查
+                     * 
                      */
                     void SetEnableHealthCheck(const bool& _enableHealthCheck);
 
                     /**
                      * 判断参数 EnableHealthCheck 是否已赋值
                      * @return EnableHealthCheck 是否已赋值
+                     * 
                      */
                     bool EnableHealthCheckHasBeenSet() const;
 
                     /**
                      * 获取健康检查配置
                      * @return HealthCheckSettings 健康检查配置
+                     * 
                      */
                     HealthCheckSettings GetHealthCheckSettings() const;
 
                     /**
                      * 设置健康检查配置
-                     * @param HealthCheckSettings 健康检查配置
+                     * @param _healthCheckSettings 健康检查配置
+                     * 
                      */
                     void SetHealthCheckSettings(const HealthCheckSettings& _healthCheckSettings);
 
                     /**
                      * 判断参数 HealthCheckSettings 是否已赋值
                      * @return HealthCheckSettings 是否已赋值
+                     * 
                      */
                     bool HealthCheckSettingsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 部署组ID
+                     * 部署组ID，可通过调用[DescribeContainerGroups](https://cloud.tencent.com/document/api/649/36068)查询已创建的部署组列表或登录控制台进行查看；也可以调用[CreateContainGroup](https://cloud.tencent.com/document/api/649/36075)创建新的部署组。
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * 是否能使健康检查
+                     * 是否开启健康检查
                      */
                     bool m_enableHealthCheck;
                     bool m_enableHealthCheckHasBeenSet;

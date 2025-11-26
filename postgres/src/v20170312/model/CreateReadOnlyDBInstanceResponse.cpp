@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ using namespace std;
 CreateReadOnlyDBInstanceResponse::CreateReadOnlyDBInstanceResponse() :
     m_dealNamesHasBeenSet(false),
     m_billIdHasBeenSet(false),
-    m_dBInstanceIdSetHasBeenSet(false)
+    m_dBInstanceIdSetHasBeenSet(false),
+    m_billingParametersHasBeenSet(false)
 {
 }
 
@@ -100,6 +101,16 @@ CoreInternalOutcome CreateReadOnlyDBInstanceResponse::Deserialize(const string &
         m_dBInstanceIdSetHasBeenSet = true;
     }
 
+    if (rsp.HasMember("BillingParameters") && !rsp["BillingParameters"].IsNull())
+    {
+        if (!rsp["BillingParameters"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillingParameters` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_billingParameters = string(rsp["BillingParameters"].GetString());
+        m_billingParametersHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -144,11 +155,19 @@ string CreateReadOnlyDBInstanceResponse::ToJsonString() const
         }
     }
 
+    if (m_billingParametersHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BillingParameters";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_billingParameters.c_str(), allocator).Move(), allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -184,6 +203,16 @@ vector<string> CreateReadOnlyDBInstanceResponse::GetDBInstanceIdSet() const
 bool CreateReadOnlyDBInstanceResponse::DBInstanceIdSetHasBeenSet() const
 {
     return m_dBInstanceIdSetHasBeenSet;
+}
+
+string CreateReadOnlyDBInstanceResponse::GetBillingParameters() const
+{
+    return m_billingParameters;
+}
+
+bool CreateReadOnlyDBInstanceResponse::BillingParametersHasBeenSet() const
+{
+    return m_billingParametersHasBeenSet;
 }
 
 

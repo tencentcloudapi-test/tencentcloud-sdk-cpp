@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,25 +62,32 @@ WavClient::CreateChannelCodeOutcome WavClient::CreateChannelCode(const CreateCha
 
 void WavClient::CreateChannelCodeAsync(const CreateChannelCodeRequest& request, const CreateChannelCodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateChannelCode(request), context);
-    };
+    using Req = const CreateChannelCodeRequest&;
+    using Resp = CreateChannelCodeResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateChannelCode", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::CreateChannelCodeOutcomeCallable WavClient::CreateChannelCodeCallable(const CreateChannelCodeRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateChannelCodeOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateChannelCode(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateChannelCodeOutcome>>();
+    CreateChannelCodeAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const CreateChannelCodeRequest&,
+        CreateChannelCodeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::CreateCorpTagOutcome WavClient::CreateCorpTag(const CreateCorpTagRequest &request)
@@ -105,25 +112,32 @@ WavClient::CreateCorpTagOutcome WavClient::CreateCorpTag(const CreateCorpTagRequ
 
 void WavClient::CreateCorpTagAsync(const CreateCorpTagRequest& request, const CreateCorpTagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateCorpTag(request), context);
-    };
+    using Req = const CreateCorpTagRequest&;
+    using Resp = CreateCorpTagResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateCorpTag", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::CreateCorpTagOutcomeCallable WavClient::CreateCorpTagCallable(const CreateCorpTagRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateCorpTagOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateCorpTag(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateCorpTagOutcome>>();
+    CreateCorpTagAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const CreateCorpTagRequest&,
+        CreateCorpTagOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::CreateLeadOutcome WavClient::CreateLead(const CreateLeadRequest &request)
@@ -148,25 +162,32 @@ WavClient::CreateLeadOutcome WavClient::CreateLead(const CreateLeadRequest &requ
 
 void WavClient::CreateLeadAsync(const CreateLeadRequest& request, const CreateLeadAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateLead(request), context);
-    };
+    using Req = const CreateLeadRequest&;
+    using Resp = CreateLeadResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateLead", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::CreateLeadOutcomeCallable WavClient::CreateLeadCallable(const CreateLeadRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateLeadOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateLead(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateLeadOutcome>>();
+    CreateLeadAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const CreateLeadRequest&,
+        CreateLeadOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryActivityJoinListOutcome WavClient::QueryActivityJoinList(const QueryActivityJoinListRequest &request)
@@ -191,25 +212,32 @@ WavClient::QueryActivityJoinListOutcome WavClient::QueryActivityJoinList(const Q
 
 void WavClient::QueryActivityJoinListAsync(const QueryActivityJoinListRequest& request, const QueryActivityJoinListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryActivityJoinList(request), context);
-    };
+    using Req = const QueryActivityJoinListRequest&;
+    using Resp = QueryActivityJoinListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryActivityJoinList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryActivityJoinListOutcomeCallable WavClient::QueryActivityJoinListCallable(const QueryActivityJoinListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryActivityJoinListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryActivityJoinList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryActivityJoinListOutcome>>();
+    QueryActivityJoinListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryActivityJoinListRequest&,
+        QueryActivityJoinListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryActivityListOutcome WavClient::QueryActivityList(const QueryActivityListRequest &request)
@@ -234,25 +262,32 @@ WavClient::QueryActivityListOutcome WavClient::QueryActivityList(const QueryActi
 
 void WavClient::QueryActivityListAsync(const QueryActivityListRequest& request, const QueryActivityListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryActivityList(request), context);
-    };
+    using Req = const QueryActivityListRequest&;
+    using Resp = QueryActivityListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryActivityList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryActivityListOutcomeCallable WavClient::QueryActivityListCallable(const QueryActivityListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryActivityListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryActivityList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryActivityListOutcome>>();
+    QueryActivityListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryActivityListRequest&,
+        QueryActivityListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryActivityLiveCodeListOutcome WavClient::QueryActivityLiveCodeList(const QueryActivityLiveCodeListRequest &request)
@@ -277,25 +312,82 @@ WavClient::QueryActivityLiveCodeListOutcome WavClient::QueryActivityLiveCodeList
 
 void WavClient::QueryActivityLiveCodeListAsync(const QueryActivityLiveCodeListRequest& request, const QueryActivityLiveCodeListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryActivityLiveCodeList(request), context);
-    };
+    using Req = const QueryActivityLiveCodeListRequest&;
+    using Resp = QueryActivityLiveCodeListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryActivityLiveCodeList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryActivityLiveCodeListOutcomeCallable WavClient::QueryActivityLiveCodeListCallable(const QueryActivityLiveCodeListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryActivityLiveCodeListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryActivityLiveCodeList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryActivityLiveCodeListOutcome>>();
+    QueryActivityLiveCodeListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryActivityLiveCodeListRequest&,
+        QueryActivityLiveCodeListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+WavClient::QueryArrivalListOutcome WavClient::QueryArrivalList(const QueryArrivalListRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryArrivalList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryArrivalListResponse rsp = QueryArrivalListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryArrivalListOutcome(rsp);
+        else
+            return QueryArrivalListOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryArrivalListOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryArrivalListAsync(const QueryArrivalListRequest& request, const QueryArrivalListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryArrivalListRequest&;
+    using Resp = QueryArrivalListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryArrivalList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryArrivalListOutcomeCallable WavClient::QueryArrivalListCallable(const QueryArrivalListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryArrivalListOutcome>>();
+    QueryArrivalListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryArrivalListRequest&,
+        QueryArrivalListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryChannelCodeListOutcome WavClient::QueryChannelCodeList(const QueryChannelCodeListRequest &request)
@@ -320,25 +412,32 @@ WavClient::QueryChannelCodeListOutcome WavClient::QueryChannelCodeList(const Que
 
 void WavClient::QueryChannelCodeListAsync(const QueryChannelCodeListRequest& request, const QueryChannelCodeListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryChannelCodeList(request), context);
-    };
+    using Req = const QueryChannelCodeListRequest&;
+    using Resp = QueryChannelCodeListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryChannelCodeList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryChannelCodeListOutcomeCallable WavClient::QueryChannelCodeListCallable(const QueryChannelCodeListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryChannelCodeListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryChannelCodeList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryChannelCodeListOutcome>>();
+    QueryChannelCodeListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryChannelCodeListRequest&,
+        QueryChannelCodeListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryChatArchivingListOutcome WavClient::QueryChatArchivingList(const QueryChatArchivingListRequest &request)
@@ -363,25 +462,32 @@ WavClient::QueryChatArchivingListOutcome WavClient::QueryChatArchivingList(const
 
 void WavClient::QueryChatArchivingListAsync(const QueryChatArchivingListRequest& request, const QueryChatArchivingListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryChatArchivingList(request), context);
-    };
+    using Req = const QueryChatArchivingListRequest&;
+    using Resp = QueryChatArchivingListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryChatArchivingList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryChatArchivingListOutcomeCallable WavClient::QueryChatArchivingListCallable(const QueryChatArchivingListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryChatArchivingListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryChatArchivingList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryChatArchivingListOutcome>>();
+    QueryChatArchivingListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryChatArchivingListRequest&,
+        QueryChatArchivingListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryClueInfoListOutcome WavClient::QueryClueInfoList(const QueryClueInfoListRequest &request)
@@ -406,25 +512,182 @@ WavClient::QueryClueInfoListOutcome WavClient::QueryClueInfoList(const QueryClue
 
 void WavClient::QueryClueInfoListAsync(const QueryClueInfoListRequest& request, const QueryClueInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryClueInfoList(request), context);
-    };
+    using Req = const QueryClueInfoListRequest&;
+    using Resp = QueryClueInfoListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryClueInfoList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryClueInfoListOutcomeCallable WavClient::QueryClueInfoListCallable(const QueryClueInfoListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryClueInfoListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryClueInfoList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryClueInfoListOutcome>>();
+    QueryClueInfoListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryClueInfoListRequest&,
+        QueryClueInfoListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+WavClient::QueryCrmStatisticsOutcome WavClient::QueryCrmStatistics(const QueryCrmStatisticsRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryCrmStatistics");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryCrmStatisticsResponse rsp = QueryCrmStatisticsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryCrmStatisticsOutcome(rsp);
+        else
+            return QueryCrmStatisticsOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryCrmStatisticsOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryCrmStatisticsAsync(const QueryCrmStatisticsRequest& request, const QueryCrmStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryCrmStatisticsRequest&;
+    using Resp = QueryCrmStatisticsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryCrmStatistics", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryCrmStatisticsOutcomeCallable WavClient::QueryCrmStatisticsCallable(const QueryCrmStatisticsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryCrmStatisticsOutcome>>();
+    QueryCrmStatisticsAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryCrmStatisticsRequest&,
+        QueryCrmStatisticsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+WavClient::QueryCustomerEventDetailStatisticsOutcome WavClient::QueryCustomerEventDetailStatistics(const QueryCustomerEventDetailStatisticsRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryCustomerEventDetailStatistics");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryCustomerEventDetailStatisticsResponse rsp = QueryCustomerEventDetailStatisticsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryCustomerEventDetailStatisticsOutcome(rsp);
+        else
+            return QueryCustomerEventDetailStatisticsOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryCustomerEventDetailStatisticsOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryCustomerEventDetailStatisticsAsync(const QueryCustomerEventDetailStatisticsRequest& request, const QueryCustomerEventDetailStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryCustomerEventDetailStatisticsRequest&;
+    using Resp = QueryCustomerEventDetailStatisticsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryCustomerEventDetailStatistics", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryCustomerEventDetailStatisticsOutcomeCallable WavClient::QueryCustomerEventDetailStatisticsCallable(const QueryCustomerEventDetailStatisticsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryCustomerEventDetailStatisticsOutcome>>();
+    QueryCustomerEventDetailStatisticsAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryCustomerEventDetailStatisticsRequest&,
+        QueryCustomerEventDetailStatisticsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+WavClient::QueryCustomerProfileListOutcome WavClient::QueryCustomerProfileList(const QueryCustomerProfileListRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryCustomerProfileList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryCustomerProfileListResponse rsp = QueryCustomerProfileListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryCustomerProfileListOutcome(rsp);
+        else
+            return QueryCustomerProfileListOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryCustomerProfileListOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryCustomerProfileListAsync(const QueryCustomerProfileListRequest& request, const QueryCustomerProfileListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryCustomerProfileListRequest&;
+    using Resp = QueryCustomerProfileListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryCustomerProfileList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryCustomerProfileListOutcomeCallable WavClient::QueryCustomerProfileListCallable(const QueryCustomerProfileListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryCustomerProfileListOutcome>>();
+    QueryCustomerProfileListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryCustomerProfileListRequest&,
+        QueryCustomerProfileListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryDealerInfoListOutcome WavClient::QueryDealerInfoList(const QueryDealerInfoListRequest &request)
@@ -449,25 +712,32 @@ WavClient::QueryDealerInfoListOutcome WavClient::QueryDealerInfoList(const Query
 
 void WavClient::QueryDealerInfoListAsync(const QueryDealerInfoListRequest& request, const QueryDealerInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryDealerInfoList(request), context);
-    };
+    using Req = const QueryDealerInfoListRequest&;
+    using Resp = QueryDealerInfoListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryDealerInfoList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryDealerInfoListOutcomeCallable WavClient::QueryDealerInfoListCallable(const QueryDealerInfoListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryDealerInfoListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryDealerInfoList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryDealerInfoListOutcome>>();
+    QueryDealerInfoListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryDealerInfoListRequest&,
+        QueryDealerInfoListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryExternalContactDetailOutcome WavClient::QueryExternalContactDetail(const QueryExternalContactDetailRequest &request)
@@ -492,25 +762,82 @@ WavClient::QueryExternalContactDetailOutcome WavClient::QueryExternalContactDeta
 
 void WavClient::QueryExternalContactDetailAsync(const QueryExternalContactDetailRequest& request, const QueryExternalContactDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryExternalContactDetail(request), context);
-    };
+    using Req = const QueryExternalContactDetailRequest&;
+    using Resp = QueryExternalContactDetailResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryExternalContactDetail", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryExternalContactDetailOutcomeCallable WavClient::QueryExternalContactDetailCallable(const QueryExternalContactDetailRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryExternalContactDetailOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryExternalContactDetail(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryExternalContactDetailOutcome>>();
+    QueryExternalContactDetailAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryExternalContactDetailRequest&,
+        QueryExternalContactDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+WavClient::QueryExternalContactDetailByDateOutcome WavClient::QueryExternalContactDetailByDate(const QueryExternalContactDetailByDateRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryExternalContactDetailByDate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryExternalContactDetailByDateResponse rsp = QueryExternalContactDetailByDateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryExternalContactDetailByDateOutcome(rsp);
+        else
+            return QueryExternalContactDetailByDateOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryExternalContactDetailByDateOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryExternalContactDetailByDateAsync(const QueryExternalContactDetailByDateRequest& request, const QueryExternalContactDetailByDateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryExternalContactDetailByDateRequest&;
+    using Resp = QueryExternalContactDetailByDateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryExternalContactDetailByDate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryExternalContactDetailByDateOutcomeCallable WavClient::QueryExternalContactDetailByDateCallable(const QueryExternalContactDetailByDateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryExternalContactDetailByDateOutcome>>();
+    QueryExternalContactDetailByDateAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryExternalContactDetailByDateRequest&,
+        QueryExternalContactDetailByDateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryExternalContactListOutcome WavClient::QueryExternalContactList(const QueryExternalContactListRequest &request)
@@ -535,25 +862,82 @@ WavClient::QueryExternalContactListOutcome WavClient::QueryExternalContactList(c
 
 void WavClient::QueryExternalContactListAsync(const QueryExternalContactListRequest& request, const QueryExternalContactListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryExternalContactList(request), context);
-    };
+    using Req = const QueryExternalContactListRequest&;
+    using Resp = QueryExternalContactListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryExternalContactList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryExternalContactListOutcomeCallable WavClient::QueryExternalContactListCallable(const QueryExternalContactListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryExternalContactListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryExternalContactList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryExternalContactListOutcome>>();
+    QueryExternalContactListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryExternalContactListRequest&,
+        QueryExternalContactListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+WavClient::QueryExternalUserEventListOutcome WavClient::QueryExternalUserEventList(const QueryExternalUserEventListRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryExternalUserEventList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryExternalUserEventListResponse rsp = QueryExternalUserEventListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryExternalUserEventListOutcome(rsp);
+        else
+            return QueryExternalUserEventListOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryExternalUserEventListOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryExternalUserEventListAsync(const QueryExternalUserEventListRequest& request, const QueryExternalUserEventListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryExternalUserEventListRequest&;
+    using Resp = QueryExternalUserEventListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryExternalUserEventList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryExternalUserEventListOutcomeCallable WavClient::QueryExternalUserEventListCallable(const QueryExternalUserEventListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryExternalUserEventListOutcome>>();
+    QueryExternalUserEventListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryExternalUserEventListRequest&,
+        QueryExternalUserEventListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryExternalUserMappingInfoOutcome WavClient::QueryExternalUserMappingInfo(const QueryExternalUserMappingInfoRequest &request)
@@ -578,25 +962,82 @@ WavClient::QueryExternalUserMappingInfoOutcome WavClient::QueryExternalUserMappi
 
 void WavClient::QueryExternalUserMappingInfoAsync(const QueryExternalUserMappingInfoRequest& request, const QueryExternalUserMappingInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryExternalUserMappingInfo(request), context);
-    };
+    using Req = const QueryExternalUserMappingInfoRequest&;
+    using Resp = QueryExternalUserMappingInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryExternalUserMappingInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryExternalUserMappingInfoOutcomeCallable WavClient::QueryExternalUserMappingInfoCallable(const QueryExternalUserMappingInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryExternalUserMappingInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryExternalUserMappingInfo(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryExternalUserMappingInfoOutcome>>();
+    QueryExternalUserMappingInfoAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryExternalUserMappingInfoRequest&,
+        QueryExternalUserMappingInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+WavClient::QueryFollowListOutcome WavClient::QueryFollowList(const QueryFollowListRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryFollowList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryFollowListResponse rsp = QueryFollowListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryFollowListOutcome(rsp);
+        else
+            return QueryFollowListOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryFollowListOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryFollowListAsync(const QueryFollowListRequest& request, const QueryFollowListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryFollowListRequest&;
+    using Resp = QueryFollowListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryFollowList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryFollowListOutcomeCallable WavClient::QueryFollowListCallable(const QueryFollowListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryFollowListOutcome>>();
+    QueryFollowListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryFollowListRequest&,
+        QueryFollowListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryLicenseInfoOutcome WavClient::QueryLicenseInfo(const QueryLicenseInfoRequest &request)
@@ -621,25 +1062,82 @@ WavClient::QueryLicenseInfoOutcome WavClient::QueryLicenseInfo(const QueryLicens
 
 void WavClient::QueryLicenseInfoAsync(const QueryLicenseInfoRequest& request, const QueryLicenseInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryLicenseInfo(request), context);
-    };
+    using Req = const QueryLicenseInfoRequest&;
+    using Resp = QueryLicenseInfoResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryLicenseInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryLicenseInfoOutcomeCallable WavClient::QueryLicenseInfoCallable(const QueryLicenseInfoRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryLicenseInfoOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryLicenseInfo(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryLicenseInfoOutcome>>();
+    QueryLicenseInfoAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryLicenseInfoRequest&,
+        QueryLicenseInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+WavClient::QueryMaterialListOutcome WavClient::QueryMaterialList(const QueryMaterialListRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryMaterialList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryMaterialListResponse rsp = QueryMaterialListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryMaterialListOutcome(rsp);
+        else
+            return QueryMaterialListOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryMaterialListOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryMaterialListAsync(const QueryMaterialListRequest& request, const QueryMaterialListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryMaterialListRequest&;
+    using Resp = QueryMaterialListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryMaterialList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryMaterialListOutcomeCallable WavClient::QueryMaterialListCallable(const QueryMaterialListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryMaterialListOutcome>>();
+    QueryMaterialListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryMaterialListRequest&,
+        QueryMaterialListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryMiniAppCodeListOutcome WavClient::QueryMiniAppCodeList(const QueryMiniAppCodeListRequest &request)
@@ -664,25 +1162,132 @@ WavClient::QueryMiniAppCodeListOutcome WavClient::QueryMiniAppCodeList(const Que
 
 void WavClient::QueryMiniAppCodeListAsync(const QueryMiniAppCodeListRequest& request, const QueryMiniAppCodeListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryMiniAppCodeList(request), context);
-    };
+    using Req = const QueryMiniAppCodeListRequest&;
+    using Resp = QueryMiniAppCodeListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryMiniAppCodeList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryMiniAppCodeListOutcomeCallable WavClient::QueryMiniAppCodeListCallable(const QueryMiniAppCodeListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryMiniAppCodeListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryMiniAppCodeList(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<QueryMiniAppCodeListOutcome>>();
+    QueryMiniAppCodeListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryMiniAppCodeListRequest&,
+        QueryMiniAppCodeListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+WavClient::QueryStaffEventDetailStatisticsOutcome WavClient::QueryStaffEventDetailStatistics(const QueryStaffEventDetailStatisticsRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryStaffEventDetailStatistics");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryStaffEventDetailStatisticsResponse rsp = QueryStaffEventDetailStatisticsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryStaffEventDetailStatisticsOutcome(rsp);
+        else
+            return QueryStaffEventDetailStatisticsOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryStaffEventDetailStatisticsOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryStaffEventDetailStatisticsAsync(const QueryStaffEventDetailStatisticsRequest& request, const QueryStaffEventDetailStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryStaffEventDetailStatisticsRequest&;
+    using Resp = QueryStaffEventDetailStatisticsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryStaffEventDetailStatistics", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryStaffEventDetailStatisticsOutcomeCallable WavClient::QueryStaffEventDetailStatisticsCallable(const QueryStaffEventDetailStatisticsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryStaffEventDetailStatisticsOutcome>>();
+    QueryStaffEventDetailStatisticsAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryStaffEventDetailStatisticsRequest&,
+        QueryStaffEventDetailStatisticsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+WavClient::QueryUserInfoListOutcome WavClient::QueryUserInfoList(const QueryUserInfoListRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryUserInfoList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryUserInfoListResponse rsp = QueryUserInfoListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryUserInfoListOutcome(rsp);
+        else
+            return QueryUserInfoListOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryUserInfoListOutcome(outcome.GetError());
+    }
+}
+
+void WavClient::QueryUserInfoListAsync(const QueryUserInfoListRequest& request, const QueryUserInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryUserInfoListRequest&;
+    using Resp = QueryUserInfoListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryUserInfoList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WavClient::QueryUserInfoListOutcomeCallable WavClient::QueryUserInfoListCallable(const QueryUserInfoListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryUserInfoListOutcome>>();
+    QueryUserInfoListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryUserInfoListRequest&,
+        QueryUserInfoListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 WavClient::QueryVehicleInfoListOutcome WavClient::QueryVehicleInfoList(const QueryVehicleInfoListRequest &request)
@@ -707,24 +1312,31 @@ WavClient::QueryVehicleInfoListOutcome WavClient::QueryVehicleInfoList(const Que
 
 void WavClient::QueryVehicleInfoListAsync(const QueryVehicleInfoListRequest& request, const QueryVehicleInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->QueryVehicleInfoList(request), context);
-    };
+    using Req = const QueryVehicleInfoListRequest&;
+    using Resp = QueryVehicleInfoListResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "QueryVehicleInfoList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 WavClient::QueryVehicleInfoListOutcomeCallable WavClient::QueryVehicleInfoListCallable(const QueryVehicleInfoListRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<QueryVehicleInfoListOutcome()>>(
-        [this, request]()
-        {
-            return this->QueryVehicleInfoList(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<QueryVehicleInfoListOutcome>>();
+    QueryVehicleInfoListAsync(
+    request,
+    [prom](
+        const WavClient*,
+        const QueryVehicleInfoListRequest&,
+        QueryVehicleInfoListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

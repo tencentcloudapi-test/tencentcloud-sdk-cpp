@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,13 @@ using namespace std;
 
 DescribeBinlogBackupOverviewResponse::DescribeBinlogBackupOverviewResponse() :
     m_binlogBackupVolumeHasBeenSet(false),
-    m_binlogBackupCountHasBeenSet(false)
+    m_binlogBackupCountHasBeenSet(false),
+    m_remoteBinlogVolumeHasBeenSet(false),
+    m_remoteBinlogCountHasBeenSet(false),
+    m_binlogArchiveVolumeHasBeenSet(false),
+    m_binlogArchiveCountHasBeenSet(false),
+    m_binlogStandbyVolumeHasBeenSet(false),
+    m_binlogStandbyCountHasBeenSet(false)
 {
 }
 
@@ -83,6 +89,66 @@ CoreInternalOutcome DescribeBinlogBackupOverviewResponse::Deserialize(const stri
         m_binlogBackupCountHasBeenSet = true;
     }
 
+    if (rsp.HasMember("RemoteBinlogVolume") && !rsp["RemoteBinlogVolume"].IsNull())
+    {
+        if (!rsp["RemoteBinlogVolume"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RemoteBinlogVolume` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_remoteBinlogVolume = rsp["RemoteBinlogVolume"].GetInt64();
+        m_remoteBinlogVolumeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("RemoteBinlogCount") && !rsp["RemoteBinlogCount"].IsNull())
+    {
+        if (!rsp["RemoteBinlogCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RemoteBinlogCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_remoteBinlogCount = rsp["RemoteBinlogCount"].GetInt64();
+        m_remoteBinlogCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BinlogArchiveVolume") && !rsp["BinlogArchiveVolume"].IsNull())
+    {
+        if (!rsp["BinlogArchiveVolume"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BinlogArchiveVolume` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_binlogArchiveVolume = rsp["BinlogArchiveVolume"].GetInt64();
+        m_binlogArchiveVolumeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BinlogArchiveCount") && !rsp["BinlogArchiveCount"].IsNull())
+    {
+        if (!rsp["BinlogArchiveCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BinlogArchiveCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_binlogArchiveCount = rsp["BinlogArchiveCount"].GetInt64();
+        m_binlogArchiveCountHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BinlogStandbyVolume") && !rsp["BinlogStandbyVolume"].IsNull())
+    {
+        if (!rsp["BinlogStandbyVolume"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BinlogStandbyVolume` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_binlogStandbyVolume = rsp["BinlogStandbyVolume"].GetInt64();
+        m_binlogStandbyVolumeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("BinlogStandbyCount") && !rsp["BinlogStandbyCount"].IsNull())
+    {
+        if (!rsp["BinlogStandbyCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BinlogStandbyCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_binlogStandbyCount = rsp["BinlogStandbyCount"].GetInt64();
+        m_binlogStandbyCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -109,11 +175,59 @@ string DescribeBinlogBackupOverviewResponse::ToJsonString() const
         value.AddMember(iKey, m_binlogBackupCount, allocator);
     }
 
+    if (m_remoteBinlogVolumeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RemoteBinlogVolume";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_remoteBinlogVolume, allocator);
+    }
+
+    if (m_remoteBinlogCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RemoteBinlogCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_remoteBinlogCount, allocator);
+    }
+
+    if (m_binlogArchiveVolumeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BinlogArchiveVolume";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_binlogArchiveVolume, allocator);
+    }
+
+    if (m_binlogArchiveCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BinlogArchiveCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_binlogArchiveCount, allocator);
+    }
+
+    if (m_binlogStandbyVolumeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BinlogStandbyVolume";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_binlogStandbyVolume, allocator);
+    }
+
+    if (m_binlogStandbyCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BinlogStandbyCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_binlogStandbyCount, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -139,6 +253,66 @@ int64_t DescribeBinlogBackupOverviewResponse::GetBinlogBackupCount() const
 bool DescribeBinlogBackupOverviewResponse::BinlogBackupCountHasBeenSet() const
 {
     return m_binlogBackupCountHasBeenSet;
+}
+
+int64_t DescribeBinlogBackupOverviewResponse::GetRemoteBinlogVolume() const
+{
+    return m_remoteBinlogVolume;
+}
+
+bool DescribeBinlogBackupOverviewResponse::RemoteBinlogVolumeHasBeenSet() const
+{
+    return m_remoteBinlogVolumeHasBeenSet;
+}
+
+int64_t DescribeBinlogBackupOverviewResponse::GetRemoteBinlogCount() const
+{
+    return m_remoteBinlogCount;
+}
+
+bool DescribeBinlogBackupOverviewResponse::RemoteBinlogCountHasBeenSet() const
+{
+    return m_remoteBinlogCountHasBeenSet;
+}
+
+int64_t DescribeBinlogBackupOverviewResponse::GetBinlogArchiveVolume() const
+{
+    return m_binlogArchiveVolume;
+}
+
+bool DescribeBinlogBackupOverviewResponse::BinlogArchiveVolumeHasBeenSet() const
+{
+    return m_binlogArchiveVolumeHasBeenSet;
+}
+
+int64_t DescribeBinlogBackupOverviewResponse::GetBinlogArchiveCount() const
+{
+    return m_binlogArchiveCount;
+}
+
+bool DescribeBinlogBackupOverviewResponse::BinlogArchiveCountHasBeenSet() const
+{
+    return m_binlogArchiveCountHasBeenSet;
+}
+
+int64_t DescribeBinlogBackupOverviewResponse::GetBinlogStandbyVolume() const
+{
+    return m_binlogStandbyVolume;
+}
+
+bool DescribeBinlogBackupOverviewResponse::BinlogStandbyVolumeHasBeenSet() const
+{
+    return m_binlogStandbyVolumeHasBeenSet;
+}
+
+int64_t DescribeBinlogBackupOverviewResponse::GetBinlogStandbyCount() const
+{
+    return m_binlogStandbyCount;
+}
+
+bool DescribeBinlogBackupOverviewResponse::BinlogStandbyCountHasBeenSet() const
+{
+    return m_binlogStandbyCountHasBeenSet;
 }
 
 

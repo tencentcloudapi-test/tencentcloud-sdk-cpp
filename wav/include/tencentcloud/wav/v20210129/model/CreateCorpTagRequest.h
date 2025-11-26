@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,54 +46,63 @@ namespace TencentCloud
                     /**
                      * 获取标签组名称，最长为15个字符
                      * @return GroupName 标签组名称，最长为15个字符
+                     * 
                      */
                     std::string GetGroupName() const;
 
                     /**
                      * 设置标签组名称，最长为15个字符
-                     * @param GroupName 标签组名称，最长为15个字符
+                     * @param _groupName 标签组名称，最长为15个字符
+                     * 
                      */
                     void SetGroupName(const std::string& _groupName);
 
                     /**
                      * 判断参数 GroupName 是否已赋值
                      * @return GroupName 是否已赋值
+                     * 
                      */
                     bool GroupNameHasBeenSet() const;
 
                     /**
                      * 获取标签信息数组
                      * @return Tags 标签信息数组
+                     * 
                      */
                     std::vector<TagInfo> GetTags() const;
 
                     /**
                      * 设置标签信息数组
-                     * @param Tags 标签信息数组
+                     * @param _tags 标签信息数组
+                     * 
                      */
                     void SetTags(const std::vector<TagInfo>& _tags);
 
                     /**
                      * 判断参数 Tags 是否已赋值
                      * @return Tags 是否已赋值
+                     * 
                      */
                     bool TagsHasBeenSet() const;
 
                     /**
                      * 获取标签组次序值。sort值大的排序靠前。有效的值范围是[0, 2^32)
                      * @return Sort 标签组次序值。sort值大的排序靠前。有效的值范围是[0, 2^32)
+                     * 
                      */
                     uint64_t GetSort() const;
 
                     /**
                      * 设置标签组次序值。sort值大的排序靠前。有效的值范围是[0, 2^32)
-                     * @param Sort 标签组次序值。sort值大的排序靠前。有效的值范围是[0, 2^32)
+                     * @param _sort 标签组次序值。sort值大的排序靠前。有效的值范围是[0, 2^32)
+                     * 
                      */
                     void SetSort(const uint64_t& _sort);
 
                     /**
                      * 判断参数 Sort 是否已赋值
                      * @return Sort 是否已赋值
+                     * 
                      */
                     bool SortHasBeenSet() const;
 

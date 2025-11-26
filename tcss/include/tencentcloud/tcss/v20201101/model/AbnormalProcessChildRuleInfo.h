@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,6 +53,7 @@ namespace TencentCloud
                      * @return RuleMode 策略模式，   RULE_MODE_RELEASE: 放行
    RULE_MODE_ALERT: 告警
    RULE_MODE_HOLDUP:拦截
+                     * 
                      */
                     std::string GetRuleMode() const;
 
@@ -60,57 +61,82 @@ namespace TencentCloud
                      * 设置策略模式，   RULE_MODE_RELEASE: 放行
    RULE_MODE_ALERT: 告警
    RULE_MODE_HOLDUP:拦截
-                     * @param RuleMode 策略模式，   RULE_MODE_RELEASE: 放行
+                     * @param _ruleMode 策略模式，   RULE_MODE_RELEASE: 放行
    RULE_MODE_ALERT: 告警
    RULE_MODE_HOLDUP:拦截
+                     * 
                      */
                     void SetRuleMode(const std::string& _ruleMode);
 
                     /**
                      * 判断参数 RuleMode 是否已赋值
                      * @return RuleMode 是否已赋值
+                     * 
                      */
                     bool RuleModeHasBeenSet() const;
 
                     /**
                      * 获取进程路径
                      * @return ProcessPath 进程路径
+                     * 
                      */
                     std::string GetProcessPath() const;
 
                     /**
                      * 设置进程路径
-                     * @param ProcessPath 进程路径
+                     * @param _processPath 进程路径
+                     * 
                      */
                     void SetProcessPath(const std::string& _processPath);
 
                     /**
                      * 判断参数 ProcessPath 是否已赋值
                      * @return ProcessPath 是否已赋值
+                     * 
                      */
                     bool ProcessPathHasBeenSet() const;
 
                     /**
                      * 获取子策略id
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RuleId 子策略id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetRuleId() const;
 
                     /**
                      * 设置子策略id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RuleId 子策略id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _ruleId 子策略id
+                     * 
                      */
                     void SetRuleId(const std::string& _ruleId);
 
                     /**
                      * 判断参数 RuleId 是否已赋值
                      * @return RuleId 是否已赋值
+                     * 
                      */
                     bool RuleIdHasBeenSet() const;
+
+                    /**
+                     * 获取威胁等级，HIGH:高，MIDDLE:中，LOW:低
+                     * @return RuleLevel 威胁等级，HIGH:高，MIDDLE:中，LOW:低
+                     * 
+                     */
+                    std::string GetRuleLevel() const;
+
+                    /**
+                     * 设置威胁等级，HIGH:高，MIDDLE:中，LOW:低
+                     * @param _ruleLevel 威胁等级，HIGH:高，MIDDLE:中，LOW:低
+                     * 
+                     */
+                    void SetRuleLevel(const std::string& _ruleLevel);
+
+                    /**
+                     * 判断参数 RuleLevel 是否已赋值
+                     * @return RuleLevel 是否已赋值
+                     * 
+                     */
+                    bool RuleLevelHasBeenSet() const;
 
                 private:
 
@@ -130,10 +156,15 @@ namespace TencentCloud
 
                     /**
                      * 子策略id
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_ruleId;
                     bool m_ruleIdHasBeenSet;
+
+                    /**
+                     * 威胁等级，HIGH:高，MIDDLE:中，LOW:低
+                     */
+                    std::string m_ruleLevel;
+                    bool m_ruleLevelHasBeenSet;
 
                 };
             }

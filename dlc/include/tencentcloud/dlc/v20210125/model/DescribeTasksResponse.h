@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/dlc/v20210125/model/TaskResponseInfo.h>
+#include <tencentcloud/dlc/v20210125/model/TasksOverview.h>
 
 
 namespace TencentCloud
@@ -47,26 +48,46 @@ namespace TencentCloud
                     /**
                      * 获取任务对象列表。
                      * @return TaskList 任务对象列表。
+                     * 
                      */
                     std::vector<TaskResponseInfo> GetTaskList() const;
 
                     /**
                      * 判断参数 TaskList 是否已赋值
                      * @return TaskList 是否已赋值
+                     * 
                      */
                     bool TaskListHasBeenSet() const;
 
                     /**
                      * 获取实例总数。
                      * @return TotalCount 实例总数。
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
+
+                    /**
+                     * 获取任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return TasksOverview 任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    TasksOverview GetTasksOverview() const;
+
+                    /**
+                     * 判断参数 TasksOverview 是否已赋值
+                     * @return TasksOverview 是否已赋值
+                     * 
+                     */
+                    bool TasksOverviewHasBeenSet() const;
 
                 private:
 
@@ -81,6 +102,13 @@ namespace TencentCloud
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
+
+                    /**
+                     * 任务概览信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    TasksOverview m_tasksOverview;
+                    bool m_tasksOverviewHasBeenSet;
 
                 };
             }

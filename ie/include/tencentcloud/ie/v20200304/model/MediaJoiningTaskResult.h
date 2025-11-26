@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,20 +52,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return File 拼接结果文件。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     TaskResultFile GetFile() const;
 
                     /**
                      * 设置拼接结果文件。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param File 拼接结果文件。
+                     * @param _file 拼接结果文件。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFile(const TaskResultFile& _file);
 
                     /**
                      * 判断参数 File 是否已赋值
                      * @return File 是否已赋值
+                     * 
                      */
                     bool FileHasBeenSet() const;
 

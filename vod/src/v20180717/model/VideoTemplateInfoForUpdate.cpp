@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ VideoTemplateInfoForUpdate::VideoTemplateInfoForUpdate() :
     m_heightHasBeenSet(false),
     m_fillTypeHasBeenSet(false),
     m_vcrfHasBeenSet(false),
-    m_gopHasBeenSet(false)
+    m_gopHasBeenSet(false),
+    m_preserveHDRSwitchHasBeenSet(false),
+    m_codecTagHasBeenSet(false)
 {
 }
 
@@ -128,6 +130,26 @@ CoreInternalOutcome VideoTemplateInfoForUpdate::Deserialize(const rapidjson::Val
         m_gopHasBeenSet = true;
     }
 
+    if (value.HasMember("PreserveHDRSwitch") && !value["PreserveHDRSwitch"].IsNull())
+    {
+        if (!value["PreserveHDRSwitch"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VideoTemplateInfoForUpdate.PreserveHDRSwitch` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_preserveHDRSwitch = string(value["PreserveHDRSwitch"].GetString());
+        m_preserveHDRSwitchHasBeenSet = true;
+    }
+
+    if (value.HasMember("CodecTag") && !value["CodecTag"].IsNull())
+    {
+        if (!value["CodecTag"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `VideoTemplateInfoForUpdate.CodecTag` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_codecTag = string(value["CodecTag"].GetString());
+        m_codecTagHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -205,6 +227,22 @@ void VideoTemplateInfoForUpdate::ToJsonObject(rapidjson::Value &value, rapidjson
         string key = "Gop";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_gop, allocator);
+    }
+
+    if (m_preserveHDRSwitchHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PreserveHDRSwitch";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_preserveHDRSwitch.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_codecTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CodecTag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_codecTag.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -352,5 +390,37 @@ void VideoTemplateInfoForUpdate::SetGop(const uint64_t& _gop)
 bool VideoTemplateInfoForUpdate::GopHasBeenSet() const
 {
     return m_gopHasBeenSet;
+}
+
+string VideoTemplateInfoForUpdate::GetPreserveHDRSwitch() const
+{
+    return m_preserveHDRSwitch;
+}
+
+void VideoTemplateInfoForUpdate::SetPreserveHDRSwitch(const string& _preserveHDRSwitch)
+{
+    m_preserveHDRSwitch = _preserveHDRSwitch;
+    m_preserveHDRSwitchHasBeenSet = true;
+}
+
+bool VideoTemplateInfoForUpdate::PreserveHDRSwitchHasBeenSet() const
+{
+    return m_preserveHDRSwitchHasBeenSet;
+}
+
+string VideoTemplateInfoForUpdate::GetCodecTag() const
+{
+    return m_codecTag;
+}
+
+void VideoTemplateInfoForUpdate::SetCodecTag(const string& _codecTag)
+{
+    m_codecTag = _codecTag;
+    m_codecTagHasBeenSet = true;
+}
+
+bool VideoTemplateInfoForUpdate::CodecTagHasBeenSet() const
+{
+    return m_codecTagHasBeenSet;
 }
 

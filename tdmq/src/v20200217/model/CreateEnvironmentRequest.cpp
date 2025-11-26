@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,10 @@ using namespace std;
 CreateEnvironmentRequest::CreateEnvironmentRequest() :
     m_environmentIdHasBeenSet(false),
     m_msgTTLHasBeenSet(false),
-    m_remarkHasBeenSet(false),
     m_clusterIdHasBeenSet(false),
-    m_retentionPolicyHasBeenSet(false)
+    m_remarkHasBeenSet(false),
+    m_retentionPolicyHasBeenSet(false),
+    m_autoSubscriptionCreationHasBeenSet(false)
 {
 }
 
@@ -54,20 +55,20 @@ string CreateEnvironmentRequest::ToJsonString() const
         d.AddMember(iKey, m_msgTTL, allocator);
     }
 
-    if (m_remarkHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Remark";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_clusterIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "ClusterId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_clusterId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
     }
 
     if (m_retentionPolicyHasBeenSet)
@@ -77,6 +78,14 @@ string CreateEnvironmentRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_retentionPolicy.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_autoSubscriptionCreationHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoSubscriptionCreation";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoSubscriptionCreation, allocator);
     }
 
 
@@ -119,22 +128,6 @@ bool CreateEnvironmentRequest::MsgTTLHasBeenSet() const
     return m_msgTTLHasBeenSet;
 }
 
-string CreateEnvironmentRequest::GetRemark() const
-{
-    return m_remark;
-}
-
-void CreateEnvironmentRequest::SetRemark(const string& _remark)
-{
-    m_remark = _remark;
-    m_remarkHasBeenSet = true;
-}
-
-bool CreateEnvironmentRequest::RemarkHasBeenSet() const
-{
-    return m_remarkHasBeenSet;
-}
-
 string CreateEnvironmentRequest::GetClusterId() const
 {
     return m_clusterId;
@@ -151,6 +144,22 @@ bool CreateEnvironmentRequest::ClusterIdHasBeenSet() const
     return m_clusterIdHasBeenSet;
 }
 
+string CreateEnvironmentRequest::GetRemark() const
+{
+    return m_remark;
+}
+
+void CreateEnvironmentRequest::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool CreateEnvironmentRequest::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
+}
+
 RetentionPolicy CreateEnvironmentRequest::GetRetentionPolicy() const
 {
     return m_retentionPolicy;
@@ -165,6 +174,22 @@ void CreateEnvironmentRequest::SetRetentionPolicy(const RetentionPolicy& _retent
 bool CreateEnvironmentRequest::RetentionPolicyHasBeenSet() const
 {
     return m_retentionPolicyHasBeenSet;
+}
+
+bool CreateEnvironmentRequest::GetAutoSubscriptionCreation() const
+{
+    return m_autoSubscriptionCreation;
+}
+
+void CreateEnvironmentRequest::SetAutoSubscriptionCreation(const bool& _autoSubscriptionCreation)
+{
+    m_autoSubscriptionCreation = _autoSubscriptionCreation;
+    m_autoSubscriptionCreationHasBeenSet = true;
+}
+
+bool CreateEnvironmentRequest::AutoSubscriptionCreationHasBeenSet() const
+{
+    return m_autoSubscriptionCreationHasBeenSet;
 }
 
 

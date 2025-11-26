@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取联系人信息
                      * @return ContactInfo 联系人信息
+                     * 
                      */
                     ContactInfo GetContactInfo() const;
 
                     /**
                      * 设置联系人信息
-                     * @param ContactInfo 联系人信息
+                     * @param _contactInfo 联系人信息
+                     * 
                      */
                     void SetContactInfo(const ContactInfo& _contactInfo);
 
                     /**
                      * 判断参数 ContactInfo 是否已赋值
                      * @return ContactInfo 是否已赋值
+                     * 
                      */
                     bool ContactInfoHasBeenSet() const;
 
                     /**
                      * 获取证件信息
                      * @return CertificateInfo 证件信息
+                     * 
                      */
                     CertificateInfo GetCertificateInfo() const;
 
                     /**
                      * 设置证件信息
-                     * @param CertificateInfo 证件信息
+                     * @param _certificateInfo 证件信息
+                     * 
                      */
                     void SetCertificateInfo(const CertificateInfo& _certificateInfo);
 
                     /**
                      * 判断参数 CertificateInfo 是否已赋值
                      * @return CertificateInfo 是否已赋值
+                     * 
                      */
                     bool CertificateInfoHasBeenSet() const;
 

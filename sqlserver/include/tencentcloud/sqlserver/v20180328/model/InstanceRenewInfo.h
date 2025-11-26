@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取实例ID，形如mssql-j8kv137v
                      * @return InstanceId 实例ID，形如mssql-j8kv137v
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例ID，形如mssql-j8kv137v
-                     * @param InstanceId 实例ID，形如mssql-j8kv137v
+                     * @param _instanceId 实例ID，形如mssql-j8kv137v
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取实例续费标记。0：正常续费，1：自动续费，2：到期不续
                      * @return RenewFlag 实例续费标记。0：正常续费，1：自动续费，2：到期不续
+                     * 
                      */
                     int64_t GetRenewFlag() const;
 
                     /**
                      * 设置实例续费标记。0：正常续费，1：自动续费，2：到期不续
-                     * @param RenewFlag 实例续费标记。0：正常续费，1：自动续费，2：到期不续
+                     * @param _renewFlag 实例续费标记。0：正常续费，1：自动续费，2：到期不续
+                     * 
                      */
                     void SetRenewFlag(const int64_t& _renewFlag);
 
                     /**
                      * 判断参数 RenewFlag 是否已赋值
                      * @return RenewFlag 是否已赋值
+                     * 
                      */
                     bool RenewFlagHasBeenSet() const;
 

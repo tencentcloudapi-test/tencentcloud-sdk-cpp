@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,7 @@ insurance：保险套餐包
 staticpack：高防IP三网套餐包
 insurance：保险套餐包
 ]
+                     * 
                      */
                     std::string GetPackType() const;
 
@@ -63,34 +64,39 @@ insurance：保险套餐包
 staticpack：高防IP三网套餐包
 insurance：保险套餐包
 ]
-                     * @param PackType 套餐包的类型，取值[
+                     * @param _packType 套餐包的类型，取值[
 staticpack：高防IP三网套餐包
 insurance：保险套餐包
 ]
+                     * 
                      */
                     void SetPackType(const std::string& _packType);
 
                     /**
                      * 判断参数 PackType 是否已赋值
                      * @return PackType 是否已赋值
+                     * 
                      */
                     bool PackTypeHasBeenSet() const;
 
                     /**
                      * 获取套餐包的ID
                      * @return PackId 套餐包的ID
+                     * 
                      */
                     std::string GetPackId() const;
 
                     /**
                      * 设置套餐包的ID
-                     * @param PackId 套餐包的ID
+                     * @param _packId 套餐包的ID
+                     * 
                      */
                     void SetPackId(const std::string& _packId);
 
                     /**
                      * 判断参数 PackId 是否已赋值
                      * @return PackId 是否已赋值
+                     * 
                      */
                     bool PackIdHasBeenSet() const;
 

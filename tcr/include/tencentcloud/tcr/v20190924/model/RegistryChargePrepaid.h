@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取购买实例的时长，单位：月
                      * @return Period 购买实例的时长，单位：月
+                     * 
                      */
                     int64_t GetPeriod() const;
 
                     /**
                      * 设置购买实例的时长，单位：月
-                     * @param Period 购买实例的时长，单位：月
+                     * @param _period 购买实例的时长，单位：月
+                     * 
                      */
                     void SetPeriod(const int64_t& _period);
 
                     /**
                      * 判断参数 Period 是否已赋值
                      * @return Period 是否已赋值
+                     * 
                      */
                     bool PeriodHasBeenSet() const;
 
                     /**
                      * 获取自动续费标识，0：手动续费，1：自动续费，2：不续费并且不通知
                      * @return RenewFlag 自动续费标识，0：手动续费，1：自动续费，2：不续费并且不通知
+                     * 
                      */
                     int64_t GetRenewFlag() const;
 
                     /**
                      * 设置自动续费标识，0：手动续费，1：自动续费，2：不续费并且不通知
-                     * @param RenewFlag 自动续费标识，0：手动续费，1：自动续费，2：不续费并且不通知
+                     * @param _renewFlag 自动续费标识，0：手动续费，1：自动续费，2：不续费并且不通知
+                     * 
                      */
                     void SetRenewFlag(const int64_t& _renewFlag);
 
                     /**
                      * 判断参数 RenewFlag 是否已赋值
                      * @return RenewFlag 是否已赋值
+                     * 
                      */
                     bool RenewFlagHasBeenSet() const;
 

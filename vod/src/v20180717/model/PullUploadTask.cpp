@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,8 +30,10 @@ PullUploadTask::PullUploadTask() :
     m_metaDataHasBeenSet(false),
     m_fileUrlHasBeenSet(false),
     m_procedureTaskIdHasBeenSet(false),
+    m_reviewAudioVideoTaskIdHasBeenSet(false),
     m_sessionContextHasBeenSet(false),
-    m_sessionIdHasBeenSet(false)
+    m_sessionIdHasBeenSet(false),
+    m_progressHasBeenSet(false)
 {
 }
 
@@ -144,6 +146,16 @@ CoreInternalOutcome PullUploadTask::Deserialize(const rapidjson::Value &value)
         m_procedureTaskIdHasBeenSet = true;
     }
 
+    if (value.HasMember("ReviewAudioVideoTaskId") && !value["ReviewAudioVideoTaskId"].IsNull())
+    {
+        if (!value["ReviewAudioVideoTaskId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `PullUploadTask.ReviewAudioVideoTaskId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_reviewAudioVideoTaskId = string(value["ReviewAudioVideoTaskId"].GetString());
+        m_reviewAudioVideoTaskIdHasBeenSet = true;
+    }
+
     if (value.HasMember("SessionContext") && !value["SessionContext"].IsNull())
     {
         if (!value["SessionContext"].IsString())
@@ -162,6 +174,16 @@ CoreInternalOutcome PullUploadTask::Deserialize(const rapidjson::Value &value)
         }
         m_sessionId = string(value["SessionId"].GetString());
         m_sessionIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Progress") && !value["Progress"].IsNull())
+    {
+        if (!value["Progress"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `PullUploadTask.Progress` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_progress = value["Progress"].GetInt64();
+        m_progressHasBeenSet = true;
     }
 
 
@@ -245,6 +267,14 @@ void PullUploadTask::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         value.AddMember(iKey, rapidjson::Value(m_procedureTaskId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_reviewAudioVideoTaskIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReviewAudioVideoTaskId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_reviewAudioVideoTaskId.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_sessionContextHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -259,6 +289,14 @@ void PullUploadTask::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "SessionId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_sessionId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_progressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Progress";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_progress, allocator);
     }
 
 }
@@ -408,6 +446,22 @@ bool PullUploadTask::ProcedureTaskIdHasBeenSet() const
     return m_procedureTaskIdHasBeenSet;
 }
 
+string PullUploadTask::GetReviewAudioVideoTaskId() const
+{
+    return m_reviewAudioVideoTaskId;
+}
+
+void PullUploadTask::SetReviewAudioVideoTaskId(const string& _reviewAudioVideoTaskId)
+{
+    m_reviewAudioVideoTaskId = _reviewAudioVideoTaskId;
+    m_reviewAudioVideoTaskIdHasBeenSet = true;
+}
+
+bool PullUploadTask::ReviewAudioVideoTaskIdHasBeenSet() const
+{
+    return m_reviewAudioVideoTaskIdHasBeenSet;
+}
+
 string PullUploadTask::GetSessionContext() const
 {
     return m_sessionContext;
@@ -438,5 +492,21 @@ void PullUploadTask::SetSessionId(const string& _sessionId)
 bool PullUploadTask::SessionIdHasBeenSet() const
 {
     return m_sessionIdHasBeenSet;
+}
+
+int64_t PullUploadTask::GetProgress() const
+{
+    return m_progress;
+}
+
+void PullUploadTask::SetProgress(const int64_t& _progress)
+{
+    m_progress = _progress;
+    m_progressHasBeenSet = true;
+}
+
+bool PullUploadTask::ProgressHasBeenSet() const
+{
+    return m_progressHasBeenSet;
 }
 

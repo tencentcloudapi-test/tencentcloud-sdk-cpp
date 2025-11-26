@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取发信统计报告，按天
                      * @return DailyVolumes 发信统计报告，按天
+                     * 
                      */
                     std::vector<Volume> GetDailyVolumes() const;
 
                     /**
                      * 判断参数 DailyVolumes 是否已赋值
                      * @return DailyVolumes 是否已赋值
+                     * 
                      */
                     bool DailyVolumesHasBeenSet() const;
 
                     /**
                      * 获取发信统计报告，总览
                      * @return OverallVolume 发信统计报告，总览
+                     * 
                      */
                     Volume GetOverallVolume() const;
 
                     /**
                      * 判断参数 OverallVolume 是否已赋值
                      * @return OverallVolume 是否已赋值
+                     * 
                      */
                     bool OverallVolumeHasBeenSet() const;
 

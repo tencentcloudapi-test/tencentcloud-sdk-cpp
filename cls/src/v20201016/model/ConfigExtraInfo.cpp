@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,9 @@ ConfigExtraInfo::ConfigExtraInfo() :
     m_configFlagHasBeenSet(false),
     m_logsetIdHasBeenSet(false),
     m_logsetNameHasBeenSet(false),
-    m_topicNameHasBeenSet(false)
+    m_topicNameHasBeenSet(false),
+    m_collectInfosHasBeenSet(false),
+    m_advancedConfigHasBeenSet(false)
 {
 }
 
@@ -276,6 +278,36 @@ CoreInternalOutcome ConfigExtraInfo::Deserialize(const rapidjson::Value &value)
         m_topicNameHasBeenSet = true;
     }
 
+    if (value.HasMember("CollectInfos") && !value["CollectInfos"].IsNull())
+    {
+        if (!value["CollectInfos"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ConfigExtraInfo.CollectInfos` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["CollectInfos"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            CollectInfo item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_collectInfos.push_back(item);
+        }
+        m_collectInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("AdvancedConfig") && !value["AdvancedConfig"].IsNull())
+    {
+        if (!value["AdvancedConfig"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ConfigExtraInfo.AdvancedConfig` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_advancedConfig = string(value["AdvancedConfig"].GetString());
+        m_advancedConfigHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -444,6 +476,29 @@ void ConfigExtraInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "TopicName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_topicName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_collectInfosHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CollectInfos";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_collectInfos.begin(); itr != m_collectInfos.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_advancedConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AdvancedConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_advancedConfig.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -751,5 +806,37 @@ void ConfigExtraInfo::SetTopicName(const string& _topicName)
 bool ConfigExtraInfo::TopicNameHasBeenSet() const
 {
     return m_topicNameHasBeenSet;
+}
+
+vector<CollectInfo> ConfigExtraInfo::GetCollectInfos() const
+{
+    return m_collectInfos;
+}
+
+void ConfigExtraInfo::SetCollectInfos(const vector<CollectInfo>& _collectInfos)
+{
+    m_collectInfos = _collectInfos;
+    m_collectInfosHasBeenSet = true;
+}
+
+bool ConfigExtraInfo::CollectInfosHasBeenSet() const
+{
+    return m_collectInfosHasBeenSet;
+}
+
+string ConfigExtraInfo::GetAdvancedConfig() const
+{
+    return m_advancedConfig;
+}
+
+void ConfigExtraInfo::SetAdvancedConfig(const string& _advancedConfig)
+{
+    m_advancedConfig = _advancedConfig;
+    m_advancedConfigHasBeenSet = true;
+}
+
+bool ConfigExtraInfo::AdvancedConfigHasBeenSet() const
+{
+    return m_advancedConfigHasBeenSet;
 }
 

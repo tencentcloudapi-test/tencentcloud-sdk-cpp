@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@ DescribeTKEEdgeScriptRequest::DescribeTKEEdgeScriptRequest() :
     m_clusterIdHasBeenSet(false),
     m_interfaceHasBeenSet(false),
     m_nodeNameHasBeenSet(false),
-    m_configHasBeenSet(false)
+    m_configHasBeenSet(false),
+    m_scriptVersionHasBeenSet(false)
 {
 }
 
@@ -67,6 +68,14 @@ string DescribeTKEEdgeScriptRequest::ToJsonString() const
         string key = "Config";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_config.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_scriptVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ScriptVersion";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_scriptVersion.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -139,6 +148,22 @@ void DescribeTKEEdgeScriptRequest::SetConfig(const string& _config)
 bool DescribeTKEEdgeScriptRequest::ConfigHasBeenSet() const
 {
     return m_configHasBeenSet;
+}
+
+string DescribeTKEEdgeScriptRequest::GetScriptVersion() const
+{
+    return m_scriptVersion;
+}
+
+void DescribeTKEEdgeScriptRequest::SetScriptVersion(const string& _scriptVersion)
+{
+    m_scriptVersion = _scriptVersion;
+    m_scriptVersionHasBeenSet = true;
+}
+
+bool DescribeTKEEdgeScriptRequest::ScriptVersionHasBeenSet() const
+{
+    return m_scriptVersionHasBeenSet;
 }
 
 

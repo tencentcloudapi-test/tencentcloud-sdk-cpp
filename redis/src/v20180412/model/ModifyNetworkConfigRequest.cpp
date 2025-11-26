@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,8 @@ ModifyNetworkConfigRequest::ModifyNetworkConfigRequest() :
     m_vipHasBeenSet(false),
     m_vpcIdHasBeenSet(false),
     m_subnetIdHasBeenSet(false),
-    m_recycleHasBeenSet(false)
+    m_recycleHasBeenSet(false),
+    m_vPortHasBeenSet(false)
 {
 }
 
@@ -85,6 +86,14 @@ string ModifyNetworkConfigRequest::ToJsonString() const
         string key = "Recycle";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_recycle, allocator);
+    }
+
+    if (m_vPortHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VPort";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_vPort, allocator);
     }
 
 
@@ -189,6 +198,22 @@ void ModifyNetworkConfigRequest::SetRecycle(const int64_t& _recycle)
 bool ModifyNetworkConfigRequest::RecycleHasBeenSet() const
 {
     return m_recycleHasBeenSet;
+}
+
+int64_t ModifyNetworkConfigRequest::GetVPort() const
+{
+    return m_vPort;
+}
+
+void ModifyNetworkConfigRequest::SetVPort(const int64_t& _vPort)
+{
+    m_vPort = _vPort;
+    m_vPortHasBeenSet = true;
+}
+
+bool ModifyNetworkConfigRequest::VPortHasBeenSet() const
+{
+    return m_vPortHasBeenSet;
 }
 
 

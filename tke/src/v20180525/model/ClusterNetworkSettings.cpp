@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,13 @@ ClusterNetworkSettings::ClusterNetworkSettings() :
     m_cniHasBeenSet(false),
     m_kubeProxyModeHasBeenSet(false),
     m_serviceCIDRHasBeenSet(false),
-    m_subnetsHasBeenSet(false)
+    m_subnetsHasBeenSet(false),
+    m_ignoreServiceCIDRConflictHasBeenSet(false),
+    m_isDualStackHasBeenSet(false),
+    m_ipv6ServiceCIDRHasBeenSet(false),
+    m_ciliumModeHasBeenSet(false),
+    m_subnetIdHasBeenSet(false),
+    m_dataPlaneV2HasBeenSet(false)
 {
 }
 
@@ -142,6 +148,66 @@ CoreInternalOutcome ClusterNetworkSettings::Deserialize(const rapidjson::Value &
         m_subnetsHasBeenSet = true;
     }
 
+    if (value.HasMember("IgnoreServiceCIDRConflict") && !value["IgnoreServiceCIDRConflict"].IsNull())
+    {
+        if (!value["IgnoreServiceCIDRConflict"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterNetworkSettings.IgnoreServiceCIDRConflict` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_ignoreServiceCIDRConflict = value["IgnoreServiceCIDRConflict"].GetBool();
+        m_ignoreServiceCIDRConflictHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsDualStack") && !value["IsDualStack"].IsNull())
+    {
+        if (!value["IsDualStack"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterNetworkSettings.IsDualStack` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_isDualStack = value["IsDualStack"].GetBool();
+        m_isDualStackHasBeenSet = true;
+    }
+
+    if (value.HasMember("Ipv6ServiceCIDR") && !value["Ipv6ServiceCIDR"].IsNull())
+    {
+        if (!value["Ipv6ServiceCIDR"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterNetworkSettings.Ipv6ServiceCIDR` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_ipv6ServiceCIDR = string(value["Ipv6ServiceCIDR"].GetString());
+        m_ipv6ServiceCIDRHasBeenSet = true;
+    }
+
+    if (value.HasMember("CiliumMode") && !value["CiliumMode"].IsNull())
+    {
+        if (!value["CiliumMode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterNetworkSettings.CiliumMode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_ciliumMode = string(value["CiliumMode"].GetString());
+        m_ciliumModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("SubnetId") && !value["SubnetId"].IsNull())
+    {
+        if (!value["SubnetId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterNetworkSettings.SubnetId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_subnetId = string(value["SubnetId"].GetString());
+        m_subnetIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("DataPlaneV2") && !value["DataPlaneV2"].IsNull())
+    {
+        if (!value["DataPlaneV2"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ClusterNetworkSettings.DataPlaneV2` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_dataPlaneV2 = value["DataPlaneV2"].GetBool();
+        m_dataPlaneV2HasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -232,6 +298,54 @@ void ClusterNetworkSettings::ToJsonObject(rapidjson::Value &value, rapidjson::Do
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_ignoreServiceCIDRConflictHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IgnoreServiceCIDRConflict";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_ignoreServiceCIDRConflict, allocator);
+    }
+
+    if (m_isDualStackHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsDualStack";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isDualStack, allocator);
+    }
+
+    if (m_ipv6ServiceCIDRHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ipv6ServiceCIDR";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_ipv6ServiceCIDR.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_ciliumModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CiliumMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_ciliumMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_subnetIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubnetId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_subnetId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dataPlaneV2HasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DataPlaneV2";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_dataPlaneV2, allocator);
     }
 
 }
@@ -395,5 +509,101 @@ void ClusterNetworkSettings::SetSubnets(const vector<string>& _subnets)
 bool ClusterNetworkSettings::SubnetsHasBeenSet() const
 {
     return m_subnetsHasBeenSet;
+}
+
+bool ClusterNetworkSettings::GetIgnoreServiceCIDRConflict() const
+{
+    return m_ignoreServiceCIDRConflict;
+}
+
+void ClusterNetworkSettings::SetIgnoreServiceCIDRConflict(const bool& _ignoreServiceCIDRConflict)
+{
+    m_ignoreServiceCIDRConflict = _ignoreServiceCIDRConflict;
+    m_ignoreServiceCIDRConflictHasBeenSet = true;
+}
+
+bool ClusterNetworkSettings::IgnoreServiceCIDRConflictHasBeenSet() const
+{
+    return m_ignoreServiceCIDRConflictHasBeenSet;
+}
+
+bool ClusterNetworkSettings::GetIsDualStack() const
+{
+    return m_isDualStack;
+}
+
+void ClusterNetworkSettings::SetIsDualStack(const bool& _isDualStack)
+{
+    m_isDualStack = _isDualStack;
+    m_isDualStackHasBeenSet = true;
+}
+
+bool ClusterNetworkSettings::IsDualStackHasBeenSet() const
+{
+    return m_isDualStackHasBeenSet;
+}
+
+string ClusterNetworkSettings::GetIpv6ServiceCIDR() const
+{
+    return m_ipv6ServiceCIDR;
+}
+
+void ClusterNetworkSettings::SetIpv6ServiceCIDR(const string& _ipv6ServiceCIDR)
+{
+    m_ipv6ServiceCIDR = _ipv6ServiceCIDR;
+    m_ipv6ServiceCIDRHasBeenSet = true;
+}
+
+bool ClusterNetworkSettings::Ipv6ServiceCIDRHasBeenSet() const
+{
+    return m_ipv6ServiceCIDRHasBeenSet;
+}
+
+string ClusterNetworkSettings::GetCiliumMode() const
+{
+    return m_ciliumMode;
+}
+
+void ClusterNetworkSettings::SetCiliumMode(const string& _ciliumMode)
+{
+    m_ciliumMode = _ciliumMode;
+    m_ciliumModeHasBeenSet = true;
+}
+
+bool ClusterNetworkSettings::CiliumModeHasBeenSet() const
+{
+    return m_ciliumModeHasBeenSet;
+}
+
+string ClusterNetworkSettings::GetSubnetId() const
+{
+    return m_subnetId;
+}
+
+void ClusterNetworkSettings::SetSubnetId(const string& _subnetId)
+{
+    m_subnetId = _subnetId;
+    m_subnetIdHasBeenSet = true;
+}
+
+bool ClusterNetworkSettings::SubnetIdHasBeenSet() const
+{
+    return m_subnetIdHasBeenSet;
+}
+
+bool ClusterNetworkSettings::GetDataPlaneV2() const
+{
+    return m_dataPlaneV2;
+}
+
+void ClusterNetworkSettings::SetDataPlaneV2(const bool& _dataPlaneV2)
+{
+    m_dataPlaneV2 = _dataPlaneV2;
+    m_dataPlaneV2HasBeenSet = true;
+}
+
+bool ClusterNetworkSettings::DataPlaneV2HasBeenSet() const
+{
+    return m_dataPlaneV2HasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取启用emptydir数据卷
                      * @return EnableEmptyDirVolume 启用emptydir数据卷
+                     * 
                      */
                     bool GetEnableEmptyDirVolume() const;
 
                     /**
                      * 设置启用emptydir数据卷
-                     * @param EnableEmptyDirVolume 启用emptydir数据卷
+                     * @param _enableEmptyDirVolume 启用emptydir数据卷
+                     * 
                      */
                     void SetEnableEmptyDirVolume(const bool& _enableEmptyDirVolume);
 
                     /**
                      * 判断参数 EnableEmptyDirVolume 是否已赋值
                      * @return EnableEmptyDirVolume 是否已赋值
+                     * 
                      */
                     bool EnableEmptyDirVolumeHasBeenSet() const;
 
                     /**
                      * 获取"","Memory","HugePages"
                      * @return Medium "","Memory","HugePages"
+                     * 
                      */
                     std::string GetMedium() const;
 
                     /**
                      * 设置"","Memory","HugePages"
-                     * @param Medium "","Memory","HugePages"
+                     * @param _medium "","Memory","HugePages"
+                     * 
                      */
                     void SetMedium(const std::string& _medium);
 
                     /**
                      * 判断参数 Medium 是否已赋值
                      * @return Medium 是否已赋值
+                     * 
                      */
                     bool MediumHasBeenSet() const;
 
                     /**
                      * 获取emptydir数据卷大小
                      * @return SizeLimit emptydir数据卷大小
+                     * 
                      */
                     std::string GetSizeLimit() const;
 
                     /**
                      * 设置emptydir数据卷大小
-                     * @param SizeLimit emptydir数据卷大小
+                     * @param _sizeLimit emptydir数据卷大小
+                     * 
                      */
                     void SetSizeLimit(const std::string& _sizeLimit);
 
                     /**
                      * 判断参数 SizeLimit 是否已赋值
                      * @return SizeLimit 是否已赋值
+                     * 
                      */
                     bool SizeLimitHasBeenSet() const;
 

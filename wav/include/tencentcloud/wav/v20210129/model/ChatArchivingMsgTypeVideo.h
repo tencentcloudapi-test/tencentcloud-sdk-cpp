@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,20 +51,23 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return PlayLength 视频时长，单位秒
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetPlayLength() const;
 
                     /**
                      * 设置视频时长，单位秒
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param PlayLength 视频时长，单位秒
+                     * @param _playLength 视频时长，单位秒
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetPlayLength(const uint64_t& _playLength);
 
                     /**
                      * 判断参数 PlayLength 是否已赋值
                      * @return PlayLength 是否已赋值
+                     * 
                      */
                     bool PlayLengthHasBeenSet() const;
 
@@ -73,38 +76,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return FileSize 文件大小
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetFileSize() const;
 
                     /**
                      * 设置文件大小
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param FileSize 文件大小
+                     * @param _fileSize 文件大小
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetFileSize(const uint64_t& _fileSize);
 
                     /**
                      * 判断参数 FileSize 是否已赋值
                      * @return FileSize 是否已赋值
+                     * 
                      */
                     bool FileSizeHasBeenSet() const;
 
                     /**
                      * 获取视频资源对象Cos下载地址
                      * @return CosKey 视频资源对象Cos下载地址
+                     * 
                      */
                     std::string GetCosKey() const;
 
                     /**
                      * 设置视频资源对象Cos下载地址
-                     * @param CosKey 视频资源对象Cos下载地址
+                     * @param _cosKey 视频资源对象Cos下载地址
+                     * 
                      */
                     void SetCosKey(const std::string& _cosKey);
 
                     /**
                      * 判断参数 CosKey 是否已赋值
                      * @return CosKey 是否已赋值
+                     * 
                      */
                     bool CosKeyHasBeenSet() const;
 

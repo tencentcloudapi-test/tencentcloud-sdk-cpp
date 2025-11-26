@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,87 +43,99 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例Id
-                     * @return InstanceId 实例Id
+                     * 获取ckafka集群实例Id
+                     * @return InstanceId ckafka集群实例Id
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例Id
-                     * @param InstanceId 实例Id
+                     * 设置ckafka集群实例Id
+                     * @param _instanceId ckafka集群实例Id
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取主题名称
-                     * @return TopicName 主题名称
+                     * 获取主题名
+                     * @return TopicName 主题名
+                     * 
                      */
                     std::string GetTopicName() const;
 
                     /**
-                     * 设置主题名称
-                     * @param TopicName 主题名称
+                     * 设置主题名
+                     * @param _topicName 主题名
+                     * 
                      */
                     void SetTopicName(const std::string& _topicName);
 
                     /**
                      * 判断参数 TopicName 是否已赋值
                      * @return TopicName 是否已赋值
+                     * 
                      */
                     bool TopicNameHasBeenSet() const;
 
                     /**
                      * 获取分页时的起始位置
                      * @return Offset 分页时的起始位置
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置分页时的起始位置
-                     * @param Offset 分页时的起始位置
+                     * @param _offset 分页时的起始位置
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取分页时的个数
                      * @return Limit 分页时的个数
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置分页时的个数
-                     * @param Limit 分页时的个数
+                     * @param _limit 分页时的个数
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例Id
+                     * ckafka集群实例Id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 主题名称
+                     * 主题名
                      */
                     std::string m_topicName;
                     bool m_topicNameHasBeenSet;

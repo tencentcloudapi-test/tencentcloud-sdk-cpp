@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ DetectInfoText::DetectInfoText() :
     m_errCodeHasBeenSet(false),
     m_errMsgHasBeenSet(false),
     m_idCardHasBeenSet(false),
+    m_useIDTypeHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_ocrNationHasBeenSet(false),
     m_ocrAddressHasBeenSet(false),
@@ -33,6 +34,7 @@ DetectInfoText::DetectInfoText() :
     m_ocrNameHasBeenSet(false),
     m_ocrIdCardHasBeenSet(false),
     m_ocrGenderHasBeenSet(false),
+    m_idInfoFromHasBeenSet(false),
     m_liveStatusHasBeenSet(false),
     m_liveMsgHasBeenSet(false),
     m_comparestatusHasBeenSet(false),
@@ -41,8 +43,15 @@ DetectInfoText::DetectInfoText() :
     m_locationHasBeenSet(false),
     m_extraHasBeenSet(false),
     m_livenessDetailHasBeenSet(false),
+    m_livenessInfoTagHasBeenSet(false),
     m_mobileHasBeenSet(false),
-    m_compareLibTypeHasBeenSet(false)
+    m_compareLibTypeHasBeenSet(false),
+    m_livenessModeHasBeenSet(false),
+    m_nFCRequestIdsHasBeenSet(false),
+    m_nFCBillingCountsHasBeenSet(false),
+    m_passNoHasBeenSet(false),
+    m_visaNumHasBeenSet(false),
+    m_livenessActionSequenceHasBeenSet(false)
 {
 }
 
@@ -79,6 +88,16 @@ CoreInternalOutcome DetectInfoText::Deserialize(const rapidjson::Value &value)
         }
         m_idCard = string(value["IdCard"].GetString());
         m_idCardHasBeenSet = true;
+    }
+
+    if (value.HasMember("UseIDType") && !value["UseIDType"].IsNull())
+    {
+        if (!value["UseIDType"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.UseIDType` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_useIDType = value["UseIDType"].GetUint64();
+        m_useIDTypeHasBeenSet = true;
     }
 
     if (value.HasMember("Name") && !value["Name"].IsNull())
@@ -171,6 +190,16 @@ CoreInternalOutcome DetectInfoText::Deserialize(const rapidjson::Value &value)
         m_ocrGenderHasBeenSet = true;
     }
 
+    if (value.HasMember("IdInfoFrom") && !value["IdInfoFrom"].IsNull())
+    {
+        if (!value["IdInfoFrom"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.IdInfoFrom` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_idInfoFrom = string(value["IdInfoFrom"].GetString());
+        m_idInfoFromHasBeenSet = true;
+    }
+
     if (value.HasMember("LiveStatus") && !value["LiveStatus"].IsNull())
     {
         if (!value["LiveStatus"].IsInt64())
@@ -261,6 +290,19 @@ CoreInternalOutcome DetectInfoText::Deserialize(const rapidjson::Value &value)
         m_livenessDetailHasBeenSet = true;
     }
 
+    if (value.HasMember("LivenessInfoTag") && !value["LivenessInfoTag"].IsNull())
+    {
+        if (!value["LivenessInfoTag"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.LivenessInfoTag` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["LivenessInfoTag"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_livenessInfoTag.push_back((*itr).GetString());
+        }
+        m_livenessInfoTagHasBeenSet = true;
+    }
+
     if (value.HasMember("Mobile") && !value["Mobile"].IsNull())
     {
         if (!value["Mobile"].IsString())
@@ -279,6 +321,69 @@ CoreInternalOutcome DetectInfoText::Deserialize(const rapidjson::Value &value)
         }
         m_compareLibType = string(value["CompareLibType"].GetString());
         m_compareLibTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("LivenessMode") && !value["LivenessMode"].IsNull())
+    {
+        if (!value["LivenessMode"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.LivenessMode` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_livenessMode = value["LivenessMode"].GetUint64();
+        m_livenessModeHasBeenSet = true;
+    }
+
+    if (value.HasMember("NFCRequestIds") && !value["NFCRequestIds"].IsNull())
+    {
+        if (!value["NFCRequestIds"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.NFCRequestIds` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["NFCRequestIds"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_nFCRequestIds.push_back((*itr).GetString());
+        }
+        m_nFCRequestIdsHasBeenSet = true;
+    }
+
+    if (value.HasMember("NFCBillingCounts") && !value["NFCBillingCounts"].IsNull())
+    {
+        if (!value["NFCBillingCounts"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.NFCBillingCounts` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_nFCBillingCounts = value["NFCBillingCounts"].GetInt64();
+        m_nFCBillingCountsHasBeenSet = true;
+    }
+
+    if (value.HasMember("PassNo") && !value["PassNo"].IsNull())
+    {
+        if (!value["PassNo"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.PassNo` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_passNo = string(value["PassNo"].GetString());
+        m_passNoHasBeenSet = true;
+    }
+
+    if (value.HasMember("VisaNum") && !value["VisaNum"].IsNull())
+    {
+        if (!value["VisaNum"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.VisaNum` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_visaNum = string(value["VisaNum"].GetString());
+        m_visaNumHasBeenSet = true;
+    }
+
+    if (value.HasMember("LivenessActionSequence") && !value["LivenessActionSequence"].IsNull())
+    {
+        if (!value["LivenessActionSequence"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `DetectInfoText.LivenessActionSequence` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_livenessActionSequence = string(value["LivenessActionSequence"].GetString());
+        m_livenessActionSequenceHasBeenSet = true;
     }
 
 
@@ -310,6 +415,14 @@ void DetectInfoText::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "IdCard";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_idCard.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_useIDTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UseIDType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_useIDType, allocator);
     }
 
     if (m_nameHasBeenSet)
@@ -384,6 +497,14 @@ void DetectInfoText::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         value.AddMember(iKey, rapidjson::Value(m_ocrGender.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_idInfoFromHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IdInfoFrom";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_idInfoFrom.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_liveStatusHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -455,6 +576,19 @@ void DetectInfoText::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         }
     }
 
+    if (m_livenessInfoTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LivenessInfoTag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_livenessInfoTag.begin(); itr != m_livenessInfoTag.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
     if (m_mobileHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -469,6 +603,59 @@ void DetectInfoText::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "CompareLibType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_compareLibType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_livenessModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LivenessMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_livenessMode, allocator);
+    }
+
+    if (m_nFCRequestIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NFCRequestIds";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_nFCRequestIds.begin(); itr != m_nFCRequestIds.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_nFCBillingCountsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NFCBillingCounts";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_nFCBillingCounts, allocator);
+    }
+
+    if (m_passNoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PassNo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_passNo.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_visaNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "VisaNum";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_visaNum.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_livenessActionSequenceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LivenessActionSequence";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_livenessActionSequence.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -520,6 +707,22 @@ void DetectInfoText::SetIdCard(const string& _idCard)
 bool DetectInfoText::IdCardHasBeenSet() const
 {
     return m_idCardHasBeenSet;
+}
+
+uint64_t DetectInfoText::GetUseIDType() const
+{
+    return m_useIDType;
+}
+
+void DetectInfoText::SetUseIDType(const uint64_t& _useIDType)
+{
+    m_useIDType = _useIDType;
+    m_useIDTypeHasBeenSet = true;
+}
+
+bool DetectInfoText::UseIDTypeHasBeenSet() const
+{
+    return m_useIDTypeHasBeenSet;
 }
 
 string DetectInfoText::GetName() const
@@ -666,6 +869,22 @@ bool DetectInfoText::OcrGenderHasBeenSet() const
     return m_ocrGenderHasBeenSet;
 }
 
+string DetectInfoText::GetIdInfoFrom() const
+{
+    return m_idInfoFrom;
+}
+
+void DetectInfoText::SetIdInfoFrom(const string& _idInfoFrom)
+{
+    m_idInfoFrom = _idInfoFrom;
+    m_idInfoFromHasBeenSet = true;
+}
+
+bool DetectInfoText::IdInfoFromHasBeenSet() const
+{
+    return m_idInfoFromHasBeenSet;
+}
+
 int64_t DetectInfoText::GetLiveStatus() const
 {
     return m_liveStatus;
@@ -794,6 +1013,22 @@ bool DetectInfoText::LivenessDetailHasBeenSet() const
     return m_livenessDetailHasBeenSet;
 }
 
+vector<string> DetectInfoText::GetLivenessInfoTag() const
+{
+    return m_livenessInfoTag;
+}
+
+void DetectInfoText::SetLivenessInfoTag(const vector<string>& _livenessInfoTag)
+{
+    m_livenessInfoTag = _livenessInfoTag;
+    m_livenessInfoTagHasBeenSet = true;
+}
+
+bool DetectInfoText::LivenessInfoTagHasBeenSet() const
+{
+    return m_livenessInfoTagHasBeenSet;
+}
+
 string DetectInfoText::GetMobile() const
 {
     return m_mobile;
@@ -824,5 +1059,101 @@ void DetectInfoText::SetCompareLibType(const string& _compareLibType)
 bool DetectInfoText::CompareLibTypeHasBeenSet() const
 {
     return m_compareLibTypeHasBeenSet;
+}
+
+uint64_t DetectInfoText::GetLivenessMode() const
+{
+    return m_livenessMode;
+}
+
+void DetectInfoText::SetLivenessMode(const uint64_t& _livenessMode)
+{
+    m_livenessMode = _livenessMode;
+    m_livenessModeHasBeenSet = true;
+}
+
+bool DetectInfoText::LivenessModeHasBeenSet() const
+{
+    return m_livenessModeHasBeenSet;
+}
+
+vector<string> DetectInfoText::GetNFCRequestIds() const
+{
+    return m_nFCRequestIds;
+}
+
+void DetectInfoText::SetNFCRequestIds(const vector<string>& _nFCRequestIds)
+{
+    m_nFCRequestIds = _nFCRequestIds;
+    m_nFCRequestIdsHasBeenSet = true;
+}
+
+bool DetectInfoText::NFCRequestIdsHasBeenSet() const
+{
+    return m_nFCRequestIdsHasBeenSet;
+}
+
+int64_t DetectInfoText::GetNFCBillingCounts() const
+{
+    return m_nFCBillingCounts;
+}
+
+void DetectInfoText::SetNFCBillingCounts(const int64_t& _nFCBillingCounts)
+{
+    m_nFCBillingCounts = _nFCBillingCounts;
+    m_nFCBillingCountsHasBeenSet = true;
+}
+
+bool DetectInfoText::NFCBillingCountsHasBeenSet() const
+{
+    return m_nFCBillingCountsHasBeenSet;
+}
+
+string DetectInfoText::GetPassNo() const
+{
+    return m_passNo;
+}
+
+void DetectInfoText::SetPassNo(const string& _passNo)
+{
+    m_passNo = _passNo;
+    m_passNoHasBeenSet = true;
+}
+
+bool DetectInfoText::PassNoHasBeenSet() const
+{
+    return m_passNoHasBeenSet;
+}
+
+string DetectInfoText::GetVisaNum() const
+{
+    return m_visaNum;
+}
+
+void DetectInfoText::SetVisaNum(const string& _visaNum)
+{
+    m_visaNum = _visaNum;
+    m_visaNumHasBeenSet = true;
+}
+
+bool DetectInfoText::VisaNumHasBeenSet() const
+{
+    return m_visaNumHasBeenSet;
+}
+
+string DetectInfoText::GetLivenessActionSequence() const
+{
+    return m_livenessActionSequence;
+}
+
+void DetectInfoText::SetLivenessActionSequence(const string& _livenessActionSequence)
+{
+    m_livenessActionSequence = _livenessActionSequence;
+    m_livenessActionSequenceHasBeenSet = true;
+}
+
+bool DetectInfoText::LivenessActionSequenceHasBeenSet() const
+{
+    return m_livenessActionSequenceHasBeenSet;
 }
 

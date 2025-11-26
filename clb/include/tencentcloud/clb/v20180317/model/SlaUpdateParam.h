@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 性能容量型变配参数
+                * 升级为性能容量型参数
                 */
                 class SlaUpdateParam : public AbstractModel
                 {
@@ -47,51 +47,97 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取lb的字符串ID
-                     * @return LoadBalancerId lb的字符串ID
+                     * 获取负载均衡实例 ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * @return LoadBalancerId 负载均衡实例 ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * 
                      */
                     std::string GetLoadBalancerId() const;
 
                     /**
-                     * 设置lb的字符串ID
-                     * @param LoadBalancerId lb的字符串ID
+                     * 设置负载均衡实例 ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * @param _loadBalancerId 负载均衡实例 ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
+                     * 
                      */
                     void SetLoadBalancerId(const std::string& _loadBalancerId);
 
                     /**
                      * 判断参数 LoadBalancerId 是否已赋值
                      * @return LoadBalancerId 是否已赋值
+                     * 
                      */
                     bool LoadBalancerIdHasBeenSet() const;
 
                     /**
-                     * 获取变更为性能容量型，固定为SLA
-                     * @return SlaType 变更为性能容量型，固定为SLA
+                     * 获取性能容量型规格，取值范围：
+<li> clb.c2.medium：标准型规格 </li>
+<li> clb.c3.small：高阶型1规格 </li>
+<li> clb.c3.medium：高阶型2规格 </li>
+<li> clb.c4.small：超强型1规格 </li>
+<li> clb.c4.medium：超强型2规格 </li>
+<li> clb.c4.large：超强型3规格 </li>
+<li> clb.c4.xlarge：超强型4规格 </li>如需了解规格详情，请参见[实例规格对比](https://cloud.tencent.com/document/product/214/84689)
+                     * @return SlaType 性能容量型规格，取值范围：
+<li> clb.c2.medium：标准型规格 </li>
+<li> clb.c3.small：高阶型1规格 </li>
+<li> clb.c3.medium：高阶型2规格 </li>
+<li> clb.c4.small：超强型1规格 </li>
+<li> clb.c4.medium：超强型2规格 </li>
+<li> clb.c4.large：超强型3规格 </li>
+<li> clb.c4.xlarge：超强型4规格 </li>如需了解规格详情，请参见[实例规格对比](https://cloud.tencent.com/document/product/214/84689)
+                     * 
                      */
                     std::string GetSlaType() const;
 
                     /**
-                     * 设置变更为性能容量型，固定为SLA
-                     * @param SlaType 变更为性能容量型，固定为SLA
+                     * 设置性能容量型规格，取值范围：
+<li> clb.c2.medium：标准型规格 </li>
+<li> clb.c3.small：高阶型1规格 </li>
+<li> clb.c3.medium：高阶型2规格 </li>
+<li> clb.c4.small：超强型1规格 </li>
+<li> clb.c4.medium：超强型2规格 </li>
+<li> clb.c4.large：超强型3规格 </li>
+<li> clb.c4.xlarge：超强型4规格 </li>如需了解规格详情，请参见[实例规格对比](https://cloud.tencent.com/document/product/214/84689)
+                     * @param _slaType 性能容量型规格，取值范围：
+<li> clb.c2.medium：标准型规格 </li>
+<li> clb.c3.small：高阶型1规格 </li>
+<li> clb.c3.medium：高阶型2规格 </li>
+<li> clb.c4.small：超强型1规格 </li>
+<li> clb.c4.medium：超强型2规格 </li>
+<li> clb.c4.large：超强型3规格 </li>
+<li> clb.c4.xlarge：超强型4规格 </li>如需了解规格详情，请参见[实例规格对比](https://cloud.tencent.com/document/product/214/84689)
+                     * 
                      */
                     void SetSlaType(const std::string& _slaType);
 
                     /**
                      * 判断参数 SlaType 是否已赋值
                      * @return SlaType 是否已赋值
+                     * 
                      */
                     bool SlaTypeHasBeenSet() const;
 
                 private:
 
                     /**
-                     * lb的字符串ID
+                     * 负载均衡实例 ID。
+可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/1108/48459) 接口查询。
                      */
                     std::string m_loadBalancerId;
                     bool m_loadBalancerIdHasBeenSet;
 
                     /**
-                     * 变更为性能容量型，固定为SLA
+                     * 性能容量型规格，取值范围：
+<li> clb.c2.medium：标准型规格 </li>
+<li> clb.c3.small：高阶型1规格 </li>
+<li> clb.c3.medium：高阶型2规格 </li>
+<li> clb.c4.small：超强型1规格 </li>
+<li> clb.c4.medium：超强型2规格 </li>
+<li> clb.c4.large：超强型3规格 </li>
+<li> clb.c4.xlarge：超强型4规格 </li>如需了解规格详情，请参见[实例规格对比](https://cloud.tencent.com/document/product/214/84689)
                      */
                     std::string m_slaType;
                     bool m_slaTypeHasBeenSet;

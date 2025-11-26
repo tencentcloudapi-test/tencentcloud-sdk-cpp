@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,18 @@ ResourceItem::ResourceItem() :
     m_latestResourceConfigVersionHasBeenSet(false),
     m_remarkHasBeenSet(false),
     m_versionCountHasBeenSet(false),
-    m_refJobCountHasBeenSet(false)
+    m_refJobCountHasBeenSet(false),
+    m_isJobRunHasBeenSet(false),
+    m_fileNameHasBeenSet(false),
+    m_workSpaceIdHasBeenSet(false),
+    m_refJobStatusCountSetHasBeenSet(false),
+    m_connectorHasBeenSet(false),
+    m_connectorVersionHasBeenSet(false),
+    m_connectionMethodHasBeenSet(false),
+    m_relatedResourceIdHasBeenSet(false),
+    m_iconHasBeenSet(false),
+    m_connectorNameHasBeenSet(false),
+    m_connectorUrlHasBeenSet(false)
 {
 }
 
@@ -190,6 +201,126 @@ CoreInternalOutcome ResourceItem::Deserialize(const rapidjson::Value &value)
         m_refJobCountHasBeenSet = true;
     }
 
+    if (value.HasMember("IsJobRun") && !value["IsJobRun"].IsNull())
+    {
+        if (!value["IsJobRun"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.IsJobRun` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_isJobRun = value["IsJobRun"].GetInt64();
+        m_isJobRunHasBeenSet = true;
+    }
+
+    if (value.HasMember("FileName") && !value["FileName"].IsNull())
+    {
+        if (!value["FileName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.FileName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_fileName = string(value["FileName"].GetString());
+        m_fileNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("WorkSpaceId") && !value["WorkSpaceId"].IsNull())
+    {
+        if (!value["WorkSpaceId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.WorkSpaceId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_workSpaceId = value["WorkSpaceId"].GetInt64();
+        m_workSpaceIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("RefJobStatusCountSet") && !value["RefJobStatusCountSet"].IsNull())
+    {
+        if (!value["RefJobStatusCountSet"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.RefJobStatusCountSet` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["RefJobStatusCountSet"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            RefJobStatusCountItem item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_refJobStatusCountSet.push_back(item);
+        }
+        m_refJobStatusCountSetHasBeenSet = true;
+    }
+
+    if (value.HasMember("Connector") && !value["Connector"].IsNull())
+    {
+        if (!value["Connector"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.Connector` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_connector = string(value["Connector"].GetString());
+        m_connectorHasBeenSet = true;
+    }
+
+    if (value.HasMember("ConnectorVersion") && !value["ConnectorVersion"].IsNull())
+    {
+        if (!value["ConnectorVersion"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.ConnectorVersion` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_connectorVersion = string(value["ConnectorVersion"].GetString());
+        m_connectorVersionHasBeenSet = true;
+    }
+
+    if (value.HasMember("ConnectionMethod") && !value["ConnectionMethod"].IsNull())
+    {
+        if (!value["ConnectionMethod"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.ConnectionMethod` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_connectionMethod = string(value["ConnectionMethod"].GetString());
+        m_connectionMethodHasBeenSet = true;
+    }
+
+    if (value.HasMember("RelatedResourceId") && !value["RelatedResourceId"].IsNull())
+    {
+        if (!value["RelatedResourceId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.RelatedResourceId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_relatedResourceId = string(value["RelatedResourceId"].GetString());
+        m_relatedResourceIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Icon") && !value["Icon"].IsNull())
+    {
+        if (!value["Icon"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.Icon` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_icon = string(value["Icon"].GetString());
+        m_iconHasBeenSet = true;
+    }
+
+    if (value.HasMember("ConnectorName") && !value["ConnectorName"].IsNull())
+    {
+        if (!value["ConnectorName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.ConnectorName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_connectorName = string(value["ConnectorName"].GetString());
+        m_connectorNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("ConnectorUrl") && !value["ConnectorUrl"].IsNull())
+    {
+        if (!value["ConnectorUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ResourceItem.ConnectorUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_connectorUrl = string(value["ConnectorUrl"].GetString());
+        m_connectorUrlHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -308,6 +439,101 @@ void ResourceItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "RefJobCount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_refJobCount, allocator);
+    }
+
+    if (m_isJobRunHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsJobRun";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_isJobRun, allocator);
+    }
+
+    if (m_fileNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FileName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_fileName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_workSpaceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "WorkSpaceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_workSpaceId, allocator);
+    }
+
+    if (m_refJobStatusCountSetHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RefJobStatusCountSet";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_refJobStatusCountSet.begin(); itr != m_refJobStatusCountSet.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_connectorHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Connector";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_connector.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_connectorVersionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConnectorVersion";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_connectorVersion.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_connectionMethodHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConnectionMethod";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_connectionMethod.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_relatedResourceIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RelatedResourceId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_relatedResourceId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_iconHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Icon";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_icon.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_connectorNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConnectorName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_connectorName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_connectorUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConnectorUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_connectorUrl.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -535,5 +761,181 @@ void ResourceItem::SetRefJobCount(const int64_t& _refJobCount)
 bool ResourceItem::RefJobCountHasBeenSet() const
 {
     return m_refJobCountHasBeenSet;
+}
+
+int64_t ResourceItem::GetIsJobRun() const
+{
+    return m_isJobRun;
+}
+
+void ResourceItem::SetIsJobRun(const int64_t& _isJobRun)
+{
+    m_isJobRun = _isJobRun;
+    m_isJobRunHasBeenSet = true;
+}
+
+bool ResourceItem::IsJobRunHasBeenSet() const
+{
+    return m_isJobRunHasBeenSet;
+}
+
+string ResourceItem::GetFileName() const
+{
+    return m_fileName;
+}
+
+void ResourceItem::SetFileName(const string& _fileName)
+{
+    m_fileName = _fileName;
+    m_fileNameHasBeenSet = true;
+}
+
+bool ResourceItem::FileNameHasBeenSet() const
+{
+    return m_fileNameHasBeenSet;
+}
+
+int64_t ResourceItem::GetWorkSpaceId() const
+{
+    return m_workSpaceId;
+}
+
+void ResourceItem::SetWorkSpaceId(const int64_t& _workSpaceId)
+{
+    m_workSpaceId = _workSpaceId;
+    m_workSpaceIdHasBeenSet = true;
+}
+
+bool ResourceItem::WorkSpaceIdHasBeenSet() const
+{
+    return m_workSpaceIdHasBeenSet;
+}
+
+vector<RefJobStatusCountItem> ResourceItem::GetRefJobStatusCountSet() const
+{
+    return m_refJobStatusCountSet;
+}
+
+void ResourceItem::SetRefJobStatusCountSet(const vector<RefJobStatusCountItem>& _refJobStatusCountSet)
+{
+    m_refJobStatusCountSet = _refJobStatusCountSet;
+    m_refJobStatusCountSetHasBeenSet = true;
+}
+
+bool ResourceItem::RefJobStatusCountSetHasBeenSet() const
+{
+    return m_refJobStatusCountSetHasBeenSet;
+}
+
+string ResourceItem::GetConnector() const
+{
+    return m_connector;
+}
+
+void ResourceItem::SetConnector(const string& _connector)
+{
+    m_connector = _connector;
+    m_connectorHasBeenSet = true;
+}
+
+bool ResourceItem::ConnectorHasBeenSet() const
+{
+    return m_connectorHasBeenSet;
+}
+
+string ResourceItem::GetConnectorVersion() const
+{
+    return m_connectorVersion;
+}
+
+void ResourceItem::SetConnectorVersion(const string& _connectorVersion)
+{
+    m_connectorVersion = _connectorVersion;
+    m_connectorVersionHasBeenSet = true;
+}
+
+bool ResourceItem::ConnectorVersionHasBeenSet() const
+{
+    return m_connectorVersionHasBeenSet;
+}
+
+string ResourceItem::GetConnectionMethod() const
+{
+    return m_connectionMethod;
+}
+
+void ResourceItem::SetConnectionMethod(const string& _connectionMethod)
+{
+    m_connectionMethod = _connectionMethod;
+    m_connectionMethodHasBeenSet = true;
+}
+
+bool ResourceItem::ConnectionMethodHasBeenSet() const
+{
+    return m_connectionMethodHasBeenSet;
+}
+
+string ResourceItem::GetRelatedResourceId() const
+{
+    return m_relatedResourceId;
+}
+
+void ResourceItem::SetRelatedResourceId(const string& _relatedResourceId)
+{
+    m_relatedResourceId = _relatedResourceId;
+    m_relatedResourceIdHasBeenSet = true;
+}
+
+bool ResourceItem::RelatedResourceIdHasBeenSet() const
+{
+    return m_relatedResourceIdHasBeenSet;
+}
+
+string ResourceItem::GetIcon() const
+{
+    return m_icon;
+}
+
+void ResourceItem::SetIcon(const string& _icon)
+{
+    m_icon = _icon;
+    m_iconHasBeenSet = true;
+}
+
+bool ResourceItem::IconHasBeenSet() const
+{
+    return m_iconHasBeenSet;
+}
+
+string ResourceItem::GetConnectorName() const
+{
+    return m_connectorName;
+}
+
+void ResourceItem::SetConnectorName(const string& _connectorName)
+{
+    m_connectorName = _connectorName;
+    m_connectorNameHasBeenSet = true;
+}
+
+bool ResourceItem::ConnectorNameHasBeenSet() const
+{
+    return m_connectorNameHasBeenSet;
+}
+
+string ResourceItem::GetConnectorUrl() const
+{
+    return m_connectorUrl;
+}
+
+void ResourceItem::SetConnectorUrl(const string& _connectorUrl)
+{
+    m_connectorUrl = _connectorUrl;
+    m_connectorUrlHasBeenSet = true;
+}
+
+bool ResourceItem::ConnectorUrlHasBeenSet() const
+{
+    return m_connectorUrlHasBeenSet;
 }
 

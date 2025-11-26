@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,13 +26,17 @@ LiveRealTimeClipRequest::LiveRealTimeClipRequest() :
     m_streamIdHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_isPersistenceHasBeenSet(false),
     m_expireTimeHasBeenSet(false),
     m_procedureHasBeenSet(false),
+    m_classIdHasBeenSet(false),
+    m_sourceContextHasBeenSet(false),
+    m_sessionContextHasBeenSet(false),
     m_metaDataRequiredHasBeenSet(false),
     m_hostHasBeenSet(false),
-    m_extInfoHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_streamInfoHasBeenSet(false),
+    m_extInfoHasBeenSet(false)
 {
 }
 
@@ -67,6 +71,14 @@ string LiveRealTimeClipRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_endTime.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
+    }
+
     if (m_isPersistenceHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -91,6 +103,30 @@ string LiveRealTimeClipRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_procedure.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_classIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ClassId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_classId, allocator);
+    }
+
+    if (m_sourceContextHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SourceContext";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_sourceContext.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_sessionContextHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SessionContext";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_sessionContext.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_metaDataRequiredHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -107,20 +143,21 @@ string LiveRealTimeClipRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_host.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_streamInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StreamInfo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_streamInfo.ToJsonObject(d[key.c_str()], allocator);
+    }
+
     if (m_extInfoHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "ExtInfo";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_extInfo.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_subAppIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
     }
 
 
@@ -179,6 +216,22 @@ bool LiveRealTimeClipRequest::EndTimeHasBeenSet() const
     return m_endTimeHasBeenSet;
 }
 
+uint64_t LiveRealTimeClipRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void LiveRealTimeClipRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool LiveRealTimeClipRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
+}
+
 int64_t LiveRealTimeClipRequest::GetIsPersistence() const
 {
     return m_isPersistence;
@@ -227,6 +280,54 @@ bool LiveRealTimeClipRequest::ProcedureHasBeenSet() const
     return m_procedureHasBeenSet;
 }
 
+int64_t LiveRealTimeClipRequest::GetClassId() const
+{
+    return m_classId;
+}
+
+void LiveRealTimeClipRequest::SetClassId(const int64_t& _classId)
+{
+    m_classId = _classId;
+    m_classIdHasBeenSet = true;
+}
+
+bool LiveRealTimeClipRequest::ClassIdHasBeenSet() const
+{
+    return m_classIdHasBeenSet;
+}
+
+string LiveRealTimeClipRequest::GetSourceContext() const
+{
+    return m_sourceContext;
+}
+
+void LiveRealTimeClipRequest::SetSourceContext(const string& _sourceContext)
+{
+    m_sourceContext = _sourceContext;
+    m_sourceContextHasBeenSet = true;
+}
+
+bool LiveRealTimeClipRequest::SourceContextHasBeenSet() const
+{
+    return m_sourceContextHasBeenSet;
+}
+
+string LiveRealTimeClipRequest::GetSessionContext() const
+{
+    return m_sessionContext;
+}
+
+void LiveRealTimeClipRequest::SetSessionContext(const string& _sessionContext)
+{
+    m_sessionContext = _sessionContext;
+    m_sessionContextHasBeenSet = true;
+}
+
+bool LiveRealTimeClipRequest::SessionContextHasBeenSet() const
+{
+    return m_sessionContextHasBeenSet;
+}
+
 uint64_t LiveRealTimeClipRequest::GetMetaDataRequired() const
 {
     return m_metaDataRequired;
@@ -259,6 +360,22 @@ bool LiveRealTimeClipRequest::HostHasBeenSet() const
     return m_hostHasBeenSet;
 }
 
+LiveRealTimeClipStreamInfo LiveRealTimeClipRequest::GetStreamInfo() const
+{
+    return m_streamInfo;
+}
+
+void LiveRealTimeClipRequest::SetStreamInfo(const LiveRealTimeClipStreamInfo& _streamInfo)
+{
+    m_streamInfo = _streamInfo;
+    m_streamInfoHasBeenSet = true;
+}
+
+bool LiveRealTimeClipRequest::StreamInfoHasBeenSet() const
+{
+    return m_streamInfoHasBeenSet;
+}
+
 string LiveRealTimeClipRequest::GetExtInfo() const
 {
     return m_extInfo;
@@ -273,22 +390,6 @@ void LiveRealTimeClipRequest::SetExtInfo(const string& _extInfo)
 bool LiveRealTimeClipRequest::ExtInfoHasBeenSet() const
 {
     return m_extInfoHasBeenSet;
-}
-
-uint64_t LiveRealTimeClipRequest::GetSubAppId() const
-{
-    return m_subAppId;
-}
-
-void LiveRealTimeClipRequest::SetSubAppId(const uint64_t& _subAppId)
-{
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
-}
-
-bool LiveRealTimeClipRequest::SubAppIdHasBeenSet() const
-{
-    return m_subAppIdHasBeenSet;
 }
 
 

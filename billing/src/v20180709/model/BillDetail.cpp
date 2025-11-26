@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,20 @@ BillDetail::BillDetail() :
     m_productCodeHasBeenSet(false),
     m_actionTypeHasBeenSet(false),
     m_regionIdHasBeenSet(false),
-    m_projectIdHasBeenSet(false)
+    m_projectIdHasBeenSet(false),
+    m_priceInfoHasBeenSet(false),
+    m_associatedOrderHasBeenSet(false),
+    m_formulaHasBeenSet(false),
+    m_formulaUrlHasBeenSet(false),
+    m_billDayHasBeenSet(false),
+    m_billMonthHasBeenSet(false),
+    m_idHasBeenSet(false),
+    m_regionTypeHasBeenSet(false),
+    m_regionTypeNameHasBeenSet(false),
+    m_reserveDetailHasBeenSet(false),
+    m_discountObjectHasBeenSet(false),
+    m_discountTypeHasBeenSet(false),
+    m_discountContentHasBeenSet(false)
 {
 }
 
@@ -313,6 +326,146 @@ CoreInternalOutcome BillDetail::Deserialize(const rapidjson::Value &value)
         m_projectIdHasBeenSet = true;
     }
 
+    if (value.HasMember("PriceInfo") && !value["PriceInfo"].IsNull())
+    {
+        if (!value["PriceInfo"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `BillDetail.PriceInfo` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["PriceInfo"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_priceInfo.push_back((*itr).GetString());
+        }
+        m_priceInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("AssociatedOrder") && !value["AssociatedOrder"].IsNull())
+    {
+        if (!value["AssociatedOrder"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.AssociatedOrder` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_associatedOrder.Deserialize(value["AssociatedOrder"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_associatedOrderHasBeenSet = true;
+    }
+
+    if (value.HasMember("Formula") && !value["Formula"].IsNull())
+    {
+        if (!value["Formula"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.Formula` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_formula = string(value["Formula"].GetString());
+        m_formulaHasBeenSet = true;
+    }
+
+    if (value.HasMember("FormulaUrl") && !value["FormulaUrl"].IsNull())
+    {
+        if (!value["FormulaUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.FormulaUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_formulaUrl = string(value["FormulaUrl"].GetString());
+        m_formulaUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("BillDay") && !value["BillDay"].IsNull())
+    {
+        if (!value["BillDay"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.BillDay` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_billDay = string(value["BillDay"].GetString());
+        m_billDayHasBeenSet = true;
+    }
+
+    if (value.HasMember("BillMonth") && !value["BillMonth"].IsNull())
+    {
+        if (!value["BillMonth"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.BillMonth` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_billMonth = string(value["BillMonth"].GetString());
+        m_billMonthHasBeenSet = true;
+    }
+
+    if (value.HasMember("Id") && !value["Id"].IsNull())
+    {
+        if (!value["Id"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.Id` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_id = string(value["Id"].GetString());
+        m_idHasBeenSet = true;
+    }
+
+    if (value.HasMember("RegionType") && !value["RegionType"].IsNull())
+    {
+        if (!value["RegionType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.RegionType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_regionType = string(value["RegionType"].GetString());
+        m_regionTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("RegionTypeName") && !value["RegionTypeName"].IsNull())
+    {
+        if (!value["RegionTypeName"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.RegionTypeName` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_regionTypeName = string(value["RegionTypeName"].GetString());
+        m_regionTypeNameHasBeenSet = true;
+    }
+
+    if (value.HasMember("ReserveDetail") && !value["ReserveDetail"].IsNull())
+    {
+        if (!value["ReserveDetail"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.ReserveDetail` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_reserveDetail = string(value["ReserveDetail"].GetString());
+        m_reserveDetailHasBeenSet = true;
+    }
+
+    if (value.HasMember("DiscountObject") && !value["DiscountObject"].IsNull())
+    {
+        if (!value["DiscountObject"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.DiscountObject` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_discountObject = string(value["DiscountObject"].GetString());
+        m_discountObjectHasBeenSet = true;
+    }
+
+    if (value.HasMember("DiscountType") && !value["DiscountType"].IsNull())
+    {
+        if (!value["DiscountType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.DiscountType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_discountType = string(value["DiscountType"].GetString());
+        m_discountTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("DiscountContent") && !value["DiscountContent"].IsNull())
+    {
+        if (!value["DiscountContent"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BillDetail.DiscountContent` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_discountContent = string(value["DiscountContent"].GetString());
+        m_discountContentHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -524,6 +677,116 @@ void BillDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "ProjectId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_projectId, allocator);
+    }
+
+    if (m_priceInfoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PriceInfo";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_priceInfo.begin(); itr != m_priceInfo.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_associatedOrderHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssociatedOrder";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_associatedOrder.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_formulaHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Formula";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_formula.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_formulaUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FormulaUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_formulaUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_billDayHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BillDay";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_billDay.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_billMonthHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BillMonth";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_billMonth.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_idHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Id";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_id.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regionTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegionType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_regionType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_regionTypeNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RegionTypeName";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_regionTypeName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_reserveDetailHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ReserveDetail";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_reserveDetail.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_discountObjectHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiscountObject";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_discountObject.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_discountTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiscountType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_discountType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_discountContentHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DiscountContent";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_discountContent.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -911,5 +1174,213 @@ void BillDetail::SetProjectId(const int64_t& _projectId)
 bool BillDetail::ProjectIdHasBeenSet() const
 {
     return m_projectIdHasBeenSet;
+}
+
+vector<string> BillDetail::GetPriceInfo() const
+{
+    return m_priceInfo;
+}
+
+void BillDetail::SetPriceInfo(const vector<string>& _priceInfo)
+{
+    m_priceInfo = _priceInfo;
+    m_priceInfoHasBeenSet = true;
+}
+
+bool BillDetail::PriceInfoHasBeenSet() const
+{
+    return m_priceInfoHasBeenSet;
+}
+
+BillDetailAssociatedOrder BillDetail::GetAssociatedOrder() const
+{
+    return m_associatedOrder;
+}
+
+void BillDetail::SetAssociatedOrder(const BillDetailAssociatedOrder& _associatedOrder)
+{
+    m_associatedOrder = _associatedOrder;
+    m_associatedOrderHasBeenSet = true;
+}
+
+bool BillDetail::AssociatedOrderHasBeenSet() const
+{
+    return m_associatedOrderHasBeenSet;
+}
+
+string BillDetail::GetFormula() const
+{
+    return m_formula;
+}
+
+void BillDetail::SetFormula(const string& _formula)
+{
+    m_formula = _formula;
+    m_formulaHasBeenSet = true;
+}
+
+bool BillDetail::FormulaHasBeenSet() const
+{
+    return m_formulaHasBeenSet;
+}
+
+string BillDetail::GetFormulaUrl() const
+{
+    return m_formulaUrl;
+}
+
+void BillDetail::SetFormulaUrl(const string& _formulaUrl)
+{
+    m_formulaUrl = _formulaUrl;
+    m_formulaUrlHasBeenSet = true;
+}
+
+bool BillDetail::FormulaUrlHasBeenSet() const
+{
+    return m_formulaUrlHasBeenSet;
+}
+
+string BillDetail::GetBillDay() const
+{
+    return m_billDay;
+}
+
+void BillDetail::SetBillDay(const string& _billDay)
+{
+    m_billDay = _billDay;
+    m_billDayHasBeenSet = true;
+}
+
+bool BillDetail::BillDayHasBeenSet() const
+{
+    return m_billDayHasBeenSet;
+}
+
+string BillDetail::GetBillMonth() const
+{
+    return m_billMonth;
+}
+
+void BillDetail::SetBillMonth(const string& _billMonth)
+{
+    m_billMonth = _billMonth;
+    m_billMonthHasBeenSet = true;
+}
+
+bool BillDetail::BillMonthHasBeenSet() const
+{
+    return m_billMonthHasBeenSet;
+}
+
+string BillDetail::GetId() const
+{
+    return m_id;
+}
+
+void BillDetail::SetId(const string& _id)
+{
+    m_id = _id;
+    m_idHasBeenSet = true;
+}
+
+bool BillDetail::IdHasBeenSet() const
+{
+    return m_idHasBeenSet;
+}
+
+string BillDetail::GetRegionType() const
+{
+    return m_regionType;
+}
+
+void BillDetail::SetRegionType(const string& _regionType)
+{
+    m_regionType = _regionType;
+    m_regionTypeHasBeenSet = true;
+}
+
+bool BillDetail::RegionTypeHasBeenSet() const
+{
+    return m_regionTypeHasBeenSet;
+}
+
+string BillDetail::GetRegionTypeName() const
+{
+    return m_regionTypeName;
+}
+
+void BillDetail::SetRegionTypeName(const string& _regionTypeName)
+{
+    m_regionTypeName = _regionTypeName;
+    m_regionTypeNameHasBeenSet = true;
+}
+
+bool BillDetail::RegionTypeNameHasBeenSet() const
+{
+    return m_regionTypeNameHasBeenSet;
+}
+
+string BillDetail::GetReserveDetail() const
+{
+    return m_reserveDetail;
+}
+
+void BillDetail::SetReserveDetail(const string& _reserveDetail)
+{
+    m_reserveDetail = _reserveDetail;
+    m_reserveDetailHasBeenSet = true;
+}
+
+bool BillDetail::ReserveDetailHasBeenSet() const
+{
+    return m_reserveDetailHasBeenSet;
+}
+
+string BillDetail::GetDiscountObject() const
+{
+    return m_discountObject;
+}
+
+void BillDetail::SetDiscountObject(const string& _discountObject)
+{
+    m_discountObject = _discountObject;
+    m_discountObjectHasBeenSet = true;
+}
+
+bool BillDetail::DiscountObjectHasBeenSet() const
+{
+    return m_discountObjectHasBeenSet;
+}
+
+string BillDetail::GetDiscountType() const
+{
+    return m_discountType;
+}
+
+void BillDetail::SetDiscountType(const string& _discountType)
+{
+    m_discountType = _discountType;
+    m_discountTypeHasBeenSet = true;
+}
+
+bool BillDetail::DiscountTypeHasBeenSet() const
+{
+    return m_discountTypeHasBeenSet;
+}
+
+string BillDetail::GetDiscountContent() const
+{
+    return m_discountContent;
+}
+
+void BillDetail::SetDiscountContent(const string& _discountContent)
+{
+    m_discountContent = _discountContent;
+    m_discountContentHasBeenSet = true;
+}
+
+bool BillDetail::DiscountContentHasBeenSet() const
+{
+    return m_discountContentHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,69 +43,83 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取实例组ID
-                     * @return InstanceId 实例组ID
+                     * 获取网络组id(cynosdbmysql-grp-前缀开头)或集群id
+                     * @return InstanceId 网络组id(cynosdbmysql-grp-前缀开头)或集群id
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置实例组ID
-                     * @param InstanceId 实例组ID
+                     * 设置网络组id(cynosdbmysql-grp-前缀开头)或集群id
+                     * @param _instanceId 网络组id(cynosdbmysql-grp-前缀开头)或集群id
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取要修改的安全组ID列表，一个或者多个安全组Id组成的数组。
-                     * @return SecurityGroupIds 要修改的安全组ID列表，一个或者多个安全组Id组成的数组。
+                     * 获取要修改的安全组ID列表，一个或者多个安全组ID组成的数组。
+注意：该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
+                     * @return SecurityGroupIds 要修改的安全组ID列表，一个或者多个安全组ID组成的数组。
+注意：该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
+                     * 
                      */
                     std::vector<std::string> GetSecurityGroupIds() const;
 
                     /**
-                     * 设置要修改的安全组ID列表，一个或者多个安全组Id组成的数组。
-                     * @param SecurityGroupIds 要修改的安全组ID列表，一个或者多个安全组Id组成的数组。
+                     * 设置要修改的安全组ID列表，一个或者多个安全组ID组成的数组。
+注意：该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
+                     * @param _securityGroupIds 要修改的安全组ID列表，一个或者多个安全组ID组成的数组。
+注意：该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
+                     * 
                      */
                     void SetSecurityGroupIds(const std::vector<std::string>& _securityGroupIds);
 
                     /**
                      * 判断参数 SecurityGroupIds 是否已赋值
                      * @return SecurityGroupIds 是否已赋值
+                     * 
                      */
                     bool SecurityGroupIdsHasBeenSet() const;
 
                     /**
                      * 获取可用区
                      * @return Zone 可用区
+                     * 
                      */
                     std::string GetZone() const;
 
                     /**
                      * 设置可用区
-                     * @param Zone 可用区
+                     * @param _zone 可用区
+                     * 
                      */
                     void SetZone(const std::string& _zone);
 
                     /**
                      * 判断参数 Zone 是否已赋值
                      * @return Zone 是否已赋值
+                     * 
                      */
                     bool ZoneHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 实例组ID
+                     * 网络组id(cynosdbmysql-grp-前缀开头)或集群id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 要修改的安全组ID列表，一个或者多个安全组Id组成的数组。
+                     * 要修改的安全组ID列表，一个或者多个安全组ID组成的数组。
+注意：该入参会全量替换存量已有集合，非增量更新。修改需传入预期的全量集合。
                      */
                     std::vector<std::string> m_securityGroupIds;
                     bool m_securityGroupIdsHasBeenSet;

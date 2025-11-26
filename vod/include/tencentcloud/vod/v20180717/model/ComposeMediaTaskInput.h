@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,18 +52,21 @@ namespace TencentCloud
                     /**
                      * 获取输入的媒体轨道列表，包括视频、音频、图片等素材组成的多个轨道信息。
                      * @return Tracks 输入的媒体轨道列表，包括视频、音频、图片等素材组成的多个轨道信息。
+                     * 
                      */
                     std::vector<MediaTrack> GetTracks() const;
 
                     /**
                      * 设置输入的媒体轨道列表，包括视频、音频、图片等素材组成的多个轨道信息。
-                     * @param Tracks 输入的媒体轨道列表，包括视频、音频、图片等素材组成的多个轨道信息。
+                     * @param _tracks 输入的媒体轨道列表，包括视频、音频、图片等素材组成的多个轨道信息。
+                     * 
                      */
                     void SetTracks(const std::vector<MediaTrack>& _tracks);
 
                     /**
                      * 判断参数 Tracks 是否已赋值
                      * @return Tracks 是否已赋值
+                     * 
                      */
                     bool TracksHasBeenSet() const;
 
@@ -72,38 +75,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Canvas 制作视频文件时使用的画布。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     Canvas GetCanvas() const;
 
                     /**
                      * 设置制作视频文件时使用的画布。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Canvas 制作视频文件时使用的画布。
+                     * @param _canvas 制作视频文件时使用的画布。
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetCanvas(const Canvas& _canvas);
 
                     /**
                      * 判断参数 Canvas 是否已赋值
                      * @return Canvas 是否已赋值
+                     * 
                      */
                     bool CanvasHasBeenSet() const;
 
                     /**
                      * 获取输出的媒体文件信息。
                      * @return Output 输出的媒体文件信息。
+                     * 
                      */
                     ComposeMediaOutput GetOutput() const;
 
                     /**
                      * 设置输出的媒体文件信息。
-                     * @param Output 输出的媒体文件信息。
+                     * @param _output 输出的媒体文件信息。
+                     * 
                      */
                     void SetOutput(const ComposeMediaOutput& _output);
 
                     /**
                      * 判断参数 Output 是否已赋值
                      * @return Output 是否已赋值
+                     * 
                      */
                     bool OutputHasBeenSet() const;
 

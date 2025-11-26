@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,9 +27,26 @@ CreateConsoleLoginUrlRequest::CreateConsoleLoginUrlRequest() :
     m_proxyOrganizationNameHasBeenSet(false),
     m_uniformSocialCreditCodeHasBeenSet(false),
     m_proxyOperatorNameHasBeenSet(false),
-    m_operatorHasBeenSet(false),
+    m_proxyOperatorMobileHasBeenSet(false),
     m_moduleHasBeenSet(false),
-    m_moduleIdHasBeenSet(false)
+    m_moduleIdHasBeenSet(false),
+    m_menuStatusHasBeenSet(false),
+    m_endpointHasBeenSet(false),
+    m_autoJumpBackEventHasBeenSet(false),
+    m_authorizationTypesHasBeenSet(false),
+    m_proxyOperatorIdCardNumberHasBeenSet(false),
+    m_autoJumpUrlHasBeenSet(false),
+    m_topNavigationStatusHasBeenSet(false),
+    m_autoActiveHasBeenSet(false),
+    m_businessLicenseHasBeenSet(false),
+    m_proxyAddressHasBeenSet(false),
+    m_proxyLegalNameHasBeenSet(false),
+    m_powerOfAttorneysHasBeenSet(false),
+    m_organizationAuthorizationOptionsHasBeenSet(false),
+    m_bankAccountNumberHasBeenSet(false),
+    m_operatorHasBeenSet(false),
+    m_jumpEventsHasBeenSet(false),
+    m_proxyOrganizationIdCardTypeHasBeenSet(false)
 {
 }
 
@@ -73,13 +90,12 @@ string CreateConsoleLoginUrlRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_proxyOperatorName.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_operatorHasBeenSet)
+    if (m_proxyOperatorMobileHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Operator";
+        string key = "ProxyOperatorMobile";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_operator.ToJsonObject(d[key.c_str()], allocator);
+        d.AddMember(iKey, rapidjson::Value(m_proxyOperatorMobile.c_str(), allocator).Move(), allocator);
     }
 
     if (m_moduleHasBeenSet)
@@ -96,6 +112,161 @@ string CreateConsoleLoginUrlRequest::ToJsonString() const
         string key = "ModuleId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_moduleId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_menuStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MenuStatus";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_menuStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_endpointHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Endpoint";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_endpoint.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoJumpBackEventHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoJumpBackEvent";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_autoJumpBackEvent.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_authorizationTypesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AuthorizationTypes";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_authorizationTypes.begin(); itr != m_authorizationTypes.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
+    if (m_proxyOperatorIdCardNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyOperatorIdCardNumber";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_proxyOperatorIdCardNumber.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoJumpUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoJumpUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_autoJumpUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_topNavigationStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TopNavigationStatus";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_topNavigationStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoActiveHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoActive";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoActive, allocator);
+    }
+
+    if (m_businessLicenseHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BusinessLicense";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_businessLicense.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_proxyAddressHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyAddress";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_proxyAddress.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_proxyLegalNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyLegalName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_proxyLegalName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_powerOfAttorneysHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PowerOfAttorneys";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_powerOfAttorneys.begin(); itr != m_powerOfAttorneys.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_organizationAuthorizationOptionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrganizationAuthorizationOptions";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_organizationAuthorizationOptions.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_bankAccountNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BankAccountNumber";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_bankAccountNumber.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_operatorHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Operator";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_operator.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_jumpEventsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "JumpEvents";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_jumpEvents.begin(); itr != m_jumpEvents.end(); ++itr, ++i)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_proxyOrganizationIdCardTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProxyOrganizationIdCardType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_proxyOrganizationIdCardType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -170,20 +341,20 @@ bool CreateConsoleLoginUrlRequest::ProxyOperatorNameHasBeenSet() const
     return m_proxyOperatorNameHasBeenSet;
 }
 
-UserInfo CreateConsoleLoginUrlRequest::GetOperator() const
+string CreateConsoleLoginUrlRequest::GetProxyOperatorMobile() const
 {
-    return m_operator;
+    return m_proxyOperatorMobile;
 }
 
-void CreateConsoleLoginUrlRequest::SetOperator(const UserInfo& _operator)
+void CreateConsoleLoginUrlRequest::SetProxyOperatorMobile(const string& _proxyOperatorMobile)
 {
-    m_operator = _operator;
-    m_operatorHasBeenSet = true;
+    m_proxyOperatorMobile = _proxyOperatorMobile;
+    m_proxyOperatorMobileHasBeenSet = true;
 }
 
-bool CreateConsoleLoginUrlRequest::OperatorHasBeenSet() const
+bool CreateConsoleLoginUrlRequest::ProxyOperatorMobileHasBeenSet() const
 {
-    return m_operatorHasBeenSet;
+    return m_proxyOperatorMobileHasBeenSet;
 }
 
 string CreateConsoleLoginUrlRequest::GetModule() const
@@ -216,6 +387,278 @@ void CreateConsoleLoginUrlRequest::SetModuleId(const string& _moduleId)
 bool CreateConsoleLoginUrlRequest::ModuleIdHasBeenSet() const
 {
     return m_moduleIdHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetMenuStatus() const
+{
+    return m_menuStatus;
+}
+
+void CreateConsoleLoginUrlRequest::SetMenuStatus(const string& _menuStatus)
+{
+    m_menuStatus = _menuStatus;
+    m_menuStatusHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::MenuStatusHasBeenSet() const
+{
+    return m_menuStatusHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetEndpoint() const
+{
+    return m_endpoint;
+}
+
+void CreateConsoleLoginUrlRequest::SetEndpoint(const string& _endpoint)
+{
+    m_endpoint = _endpoint;
+    m_endpointHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::EndpointHasBeenSet() const
+{
+    return m_endpointHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetAutoJumpBackEvent() const
+{
+    return m_autoJumpBackEvent;
+}
+
+void CreateConsoleLoginUrlRequest::SetAutoJumpBackEvent(const string& _autoJumpBackEvent)
+{
+    m_autoJumpBackEvent = _autoJumpBackEvent;
+    m_autoJumpBackEventHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::AutoJumpBackEventHasBeenSet() const
+{
+    return m_autoJumpBackEventHasBeenSet;
+}
+
+vector<int64_t> CreateConsoleLoginUrlRequest::GetAuthorizationTypes() const
+{
+    return m_authorizationTypes;
+}
+
+void CreateConsoleLoginUrlRequest::SetAuthorizationTypes(const vector<int64_t>& _authorizationTypes)
+{
+    m_authorizationTypes = _authorizationTypes;
+    m_authorizationTypesHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::AuthorizationTypesHasBeenSet() const
+{
+    return m_authorizationTypesHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetProxyOperatorIdCardNumber() const
+{
+    return m_proxyOperatorIdCardNumber;
+}
+
+void CreateConsoleLoginUrlRequest::SetProxyOperatorIdCardNumber(const string& _proxyOperatorIdCardNumber)
+{
+    m_proxyOperatorIdCardNumber = _proxyOperatorIdCardNumber;
+    m_proxyOperatorIdCardNumberHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::ProxyOperatorIdCardNumberHasBeenSet() const
+{
+    return m_proxyOperatorIdCardNumberHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetAutoJumpUrl() const
+{
+    return m_autoJumpUrl;
+}
+
+void CreateConsoleLoginUrlRequest::SetAutoJumpUrl(const string& _autoJumpUrl)
+{
+    m_autoJumpUrl = _autoJumpUrl;
+    m_autoJumpUrlHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::AutoJumpUrlHasBeenSet() const
+{
+    return m_autoJumpUrlHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetTopNavigationStatus() const
+{
+    return m_topNavigationStatus;
+}
+
+void CreateConsoleLoginUrlRequest::SetTopNavigationStatus(const string& _topNavigationStatus)
+{
+    m_topNavigationStatus = _topNavigationStatus;
+    m_topNavigationStatusHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::TopNavigationStatusHasBeenSet() const
+{
+    return m_topNavigationStatusHasBeenSet;
+}
+
+bool CreateConsoleLoginUrlRequest::GetAutoActive() const
+{
+    return m_autoActive;
+}
+
+void CreateConsoleLoginUrlRequest::SetAutoActive(const bool& _autoActive)
+{
+    m_autoActive = _autoActive;
+    m_autoActiveHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::AutoActiveHasBeenSet() const
+{
+    return m_autoActiveHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetBusinessLicense() const
+{
+    return m_businessLicense;
+}
+
+void CreateConsoleLoginUrlRequest::SetBusinessLicense(const string& _businessLicense)
+{
+    m_businessLicense = _businessLicense;
+    m_businessLicenseHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::BusinessLicenseHasBeenSet() const
+{
+    return m_businessLicenseHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetProxyAddress() const
+{
+    return m_proxyAddress;
+}
+
+void CreateConsoleLoginUrlRequest::SetProxyAddress(const string& _proxyAddress)
+{
+    m_proxyAddress = _proxyAddress;
+    m_proxyAddressHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::ProxyAddressHasBeenSet() const
+{
+    return m_proxyAddressHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetProxyLegalName() const
+{
+    return m_proxyLegalName;
+}
+
+void CreateConsoleLoginUrlRequest::SetProxyLegalName(const string& _proxyLegalName)
+{
+    m_proxyLegalName = _proxyLegalName;
+    m_proxyLegalNameHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::ProxyLegalNameHasBeenSet() const
+{
+    return m_proxyLegalNameHasBeenSet;
+}
+
+vector<string> CreateConsoleLoginUrlRequest::GetPowerOfAttorneys() const
+{
+    return m_powerOfAttorneys;
+}
+
+void CreateConsoleLoginUrlRequest::SetPowerOfAttorneys(const vector<string>& _powerOfAttorneys)
+{
+    m_powerOfAttorneys = _powerOfAttorneys;
+    m_powerOfAttorneysHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::PowerOfAttorneysHasBeenSet() const
+{
+    return m_powerOfAttorneysHasBeenSet;
+}
+
+OrganizationAuthorizationOptions CreateConsoleLoginUrlRequest::GetOrganizationAuthorizationOptions() const
+{
+    return m_organizationAuthorizationOptions;
+}
+
+void CreateConsoleLoginUrlRequest::SetOrganizationAuthorizationOptions(const OrganizationAuthorizationOptions& _organizationAuthorizationOptions)
+{
+    m_organizationAuthorizationOptions = _organizationAuthorizationOptions;
+    m_organizationAuthorizationOptionsHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::OrganizationAuthorizationOptionsHasBeenSet() const
+{
+    return m_organizationAuthorizationOptionsHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetBankAccountNumber() const
+{
+    return m_bankAccountNumber;
+}
+
+void CreateConsoleLoginUrlRequest::SetBankAccountNumber(const string& _bankAccountNumber)
+{
+    m_bankAccountNumber = _bankAccountNumber;
+    m_bankAccountNumberHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::BankAccountNumberHasBeenSet() const
+{
+    return m_bankAccountNumberHasBeenSet;
+}
+
+UserInfo CreateConsoleLoginUrlRequest::GetOperator() const
+{
+    return m_operator;
+}
+
+void CreateConsoleLoginUrlRequest::SetOperator(const UserInfo& _operator)
+{
+    m_operator = _operator;
+    m_operatorHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::OperatorHasBeenSet() const
+{
+    return m_operatorHasBeenSet;
+}
+
+vector<JumpEvent> CreateConsoleLoginUrlRequest::GetJumpEvents() const
+{
+    return m_jumpEvents;
+}
+
+void CreateConsoleLoginUrlRequest::SetJumpEvents(const vector<JumpEvent>& _jumpEvents)
+{
+    m_jumpEvents = _jumpEvents;
+    m_jumpEventsHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::JumpEventsHasBeenSet() const
+{
+    return m_jumpEventsHasBeenSet;
+}
+
+string CreateConsoleLoginUrlRequest::GetProxyOrganizationIdCardType() const
+{
+    return m_proxyOrganizationIdCardType;
+}
+
+void CreateConsoleLoginUrlRequest::SetProxyOrganizationIdCardType(const string& _proxyOrganizationIdCardType)
+{
+    m_proxyOrganizationIdCardType = _proxyOrganizationIdCardType;
+    m_proxyOrganizationIdCardTypeHasBeenSet = true;
+}
+
+bool CreateConsoleLoginUrlRequest::ProxyOrganizationIdCardTypeHasBeenSet() const
+{
+    return m_proxyOrganizationIdCardTypeHasBeenSet;
 }
 
 

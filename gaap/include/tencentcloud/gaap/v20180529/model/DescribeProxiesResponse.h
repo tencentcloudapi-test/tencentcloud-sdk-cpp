@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,36 +47,42 @@ namespace TencentCloud
                     /**
                      * 获取通道个数。
                      * @return TotalCount 通道个数。
+                     * 
                      */
                     int64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取（旧参数，请切换到ProxySet）通道实例信息列表。
                      * @return InstanceSet （旧参数，请切换到ProxySet）通道实例信息列表。
+                     * 
                      */
                     std::vector<ProxyInfo> GetInstanceSet() const;
 
                     /**
                      * 判断参数 InstanceSet 是否已赋值
                      * @return InstanceSet 是否已赋值
+                     * 
                      */
                     bool InstanceSetHasBeenSet() const;
 
                     /**
                      * 获取（新参数）通道实例信息列表。
                      * @return ProxySet （新参数）通道实例信息列表。
+                     * 
                      */
                     std::vector<ProxyInfo> GetProxySet() const;
 
                     /**
                      * 判断参数 ProxySet 是否已赋值
                      * @return ProxySet 是否已赋值
+                     * 
                      */
                     bool ProxySetHasBeenSet() const;
 

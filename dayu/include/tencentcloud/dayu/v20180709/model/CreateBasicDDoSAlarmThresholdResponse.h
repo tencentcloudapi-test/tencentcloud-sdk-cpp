@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,24 +46,28 @@ namespace TencentCloud
                     /**
                      * 获取当存在告警阈值配置时，返回告警阈值大于0，当不存在告警配置时，返回告警阈值为0；
                      * @return AlarmThreshold 当存在告警阈值配置时，返回告警阈值大于0，当不存在告警配置时，返回告警阈值为0；
+                     * 
                      */
                     uint64_t GetAlarmThreshold() const;
 
                     /**
                      * 判断参数 AlarmThreshold 是否已赋值
                      * @return AlarmThreshold 是否已赋值
+                     * 
                      */
                     bool AlarmThresholdHasBeenSet() const;
 
                     /**
                      * 获取告警阈值类型，1-入流量，2-清洗流量；当AlarmThreshold大于0时有效；
                      * @return AlarmType 告警阈值类型，1-入流量，2-清洗流量；当AlarmThreshold大于0时有效；
+                     * 
                      */
                     uint64_t GetAlarmType() const;
 
                     /**
                      * 判断参数 AlarmType 是否已赋值
                      * @return AlarmType 是否已赋值
+                     * 
                      */
                     bool AlarmTypeHasBeenSet() const;
 

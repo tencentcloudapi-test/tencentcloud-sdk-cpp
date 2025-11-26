@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取资源名称 cpu/memory
                      * @return Name 资源名称 cpu/memory
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置资源名称 cpu/memory
-                     * @param Name 资源名称 cpu/memory
+                     * @param _name 资源名称 cpu/memory
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取目标平均利用率
                      * @return TargetAverageUtilization 目标平均利用率
+                     * 
                      */
                     int64_t GetTargetAverageUtilization() const;
 
                     /**
                      * 设置目标平均利用率
-                     * @param TargetAverageUtilization 目标平均利用率
+                     * @param _targetAverageUtilization 目标平均利用率
+                     * 
                      */
                     void SetTargetAverageUtilization(const int64_t& _targetAverageUtilization);
 
                     /**
                      * 判断参数 TargetAverageUtilization 是否已赋值
                      * @return TargetAverageUtilization 是否已赋值
+                     * 
                      */
                     bool TargetAverageUtilizationHasBeenSet() const;
 
                     /**
                      * 获取目标平均值
                      * @return TargetAverageValue 目标平均值
+                     * 
                      */
                     std::string GetTargetAverageValue() const;
 
                     /**
                      * 设置目标平均值
-                     * @param TargetAverageValue 目标平均值
+                     * @param _targetAverageValue 目标平均值
+                     * 
                      */
                     void SetTargetAverageValue(const std::string& _targetAverageValue);
 
                     /**
                      * 判断参数 TargetAverageValue 是否已赋值
                      * @return TargetAverageValue 是否已赋值
+                     * 
                      */
                     bool TargetAverageValueHasBeenSet() const;
 

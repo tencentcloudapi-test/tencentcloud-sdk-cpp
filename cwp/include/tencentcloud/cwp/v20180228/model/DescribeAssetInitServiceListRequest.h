@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,46 +44,55 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取需要返回的数量，默认为10，最大值为100
-                     * @return Limit 需要返回的数量，默认为10，最大值为100
+                     * 获取服务器Uuid
+                     * @return Uuid 服务器Uuid
+                     * 
                      */
-                    uint64_t GetLimit() const;
+                    std::string GetUuid() const;
 
                     /**
-                     * 设置需要返回的数量，默认为10，最大值为100
-                     * @param Limit 需要返回的数量，默认为10，最大值为100
+                     * 设置服务器Uuid
+                     * @param _uuid 服务器Uuid
+                     * 
                      */
-                    void SetLimit(const uint64_t& _limit);
+                    void SetUuid(const std::string& _uuid);
 
                     /**
-                     * 判断参数 Limit 是否已赋值
-                     * @return Limit 是否已赋值
+                     * 判断参数 Uuid 是否已赋值
+                     * @return Uuid 是否已赋值
+                     * 
                      */
-                    bool LimitHasBeenSet() const;
+                    bool UuidHasBeenSet() const;
 
                     /**
-                     * 获取偏移量，默认为0。
-                     * @return Offset 偏移量，默认为0。
+                     * 获取服务器Quuid
+                     * @return Quuid 服务器Quuid
+                     * 
                      */
-                    uint64_t GetOffset() const;
+                    std::string GetQuuid() const;
 
                     /**
-                     * 设置偏移量，默认为0。
-                     * @param Offset 偏移量，默认为0。
+                     * 设置服务器Quuid
+                     * @param _quuid 服务器Quuid
+                     * 
                      */
-                    void SetOffset(const uint64_t& _offset);
+                    void SetQuuid(const std::string& _quuid);
 
                     /**
-                     * 判断参数 Offset 是否已赋值
-                     * @return Offset 是否已赋值
+                     * 判断参数 Quuid 是否已赋值
+                     * @return Quuid 是否已赋值
+                     * 
                      */
-                    bool OffsetHasBeenSet() const;
+                    bool QuuidHasBeenSet() const;
 
                     /**
                      * 获取过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -101,9 +110,12 @@ namespace TencentCloud
 13:驱动服务
 14:登录</li>
                      * @return Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -120,14 +132,18 @@ namespace TencentCloud
 12:资源管理器
 13:驱动服务
 14:登录</li>
+                     * 
                      */
                     std::vector<AssetFilters> GetFilters() const;
 
                     /**
                      * 设置过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -144,10 +160,13 @@ namespace TencentCloud
 12:资源管理器
 13:驱动服务
 14:登录</li>
-                     * @param Filters 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+                     * @param _filters 过滤条件。
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -164,70 +183,123 @@ namespace TencentCloud
 12:资源管理器
 13:驱动服务
 14:登录</li>
+                     * 
                      */
                     void SetFilters(const std::vector<AssetFilters>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取服务器Uuid
-                     * @return Uuid 服务器Uuid
+                     * 获取偏移量，默认为0。
+                     * @return Offset 偏移量，默认为0。
+                     * 
                      */
-                    std::string GetUuid() const;
+                    uint64_t GetOffset() const;
 
                     /**
-                     * 设置服务器Uuid
-                     * @param Uuid 服务器Uuid
+                     * 设置偏移量，默认为0。
+                     * @param _offset 偏移量，默认为0。
+                     * 
                      */
-                    void SetUuid(const std::string& _uuid);
+                    void SetOffset(const uint64_t& _offset);
 
                     /**
-                     * 判断参数 Uuid 是否已赋值
-                     * @return Uuid 是否已赋值
+                     * 判断参数 Offset 是否已赋值
+                     * @return Offset 是否已赋值
+                     * 
                      */
-                    bool UuidHasBeenSet() const;
+                    bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取服务器Quuid
-                     * @return Quuid 服务器Quuid
+                     * 获取需要返回的数量，默认为10，最大值为100
+                     * @return Limit 需要返回的数量，默认为10，最大值为100
+                     * 
                      */
-                    std::string GetQuuid() const;
+                    uint64_t GetLimit() const;
 
                     /**
-                     * 设置服务器Quuid
-                     * @param Quuid 服务器Quuid
+                     * 设置需要返回的数量，默认为10，最大值为100
+                     * @param _limit 需要返回的数量，默认为10，最大值为100
+                     * 
                      */
-                    void SetQuuid(const std::string& _quuid);
+                    void SetLimit(const uint64_t& _limit);
 
                     /**
-                     * 判断参数 Quuid 是否已赋值
-                     * @return Quuid 是否已赋值
+                     * 判断参数 Limit 是否已赋值
+                     * @return Limit 是否已赋值
+                     * 
                      */
-                    bool QuuidHasBeenSet() const;
+                    bool LimitHasBeenSet() const;
+
+                    /**
+                     * 获取排序方式，asc升序 或 desc降序
+                     * @return Order 排序方式，asc升序 或 desc降序
+                     * 
+                     */
+                    std::string GetOrder() const;
+
+                    /**
+                     * 设置排序方式，asc升序 或 desc降序
+                     * @param _order 排序方式，asc升序 或 desc降序
+                     * 
+                     */
+                    void SetOrder(const std::string& _order);
+
+                    /**
+                     * 判断参数 Order 是否已赋值
+                     * @return Order 是否已赋值
+                     * 
+                     */
+                    bool OrderHasBeenSet() const;
+
+                    /**
+                     * 获取排序方式：[FirstTime]
+                     * @return By 排序方式：[FirstTime]
+                     * 
+                     */
+                    std::string GetBy() const;
+
+                    /**
+                     * 设置排序方式：[FirstTime]
+                     * @param _by 排序方式：[FirstTime]
+                     * 
+                     */
+                    void SetBy(const std::string& _by);
+
+                    /**
+                     * 判断参数 By 是否已赋值
+                     * @return By 是否已赋值
+                     * 
+                     */
+                    bool ByHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 需要返回的数量，默认为10，最大值为100
+                     * 服务器Uuid
                      */
-                    uint64_t m_limit;
-                    bool m_limitHasBeenSet;
+                    std::string m_uuid;
+                    bool m_uuidHasBeenSet;
 
                     /**
-                     * 偏移量，默认为0。
+                     * 服务器Quuid
                      */
-                    uint64_t m_offset;
-                    bool m_offsetHasBeenSet;
+                    std::string m_quuid;
+                    bool m_quuidHasBeenSet;
 
                     /**
                      * 过滤条件。
-<li>IpOrAlias - String - 是否必填：否 - 主机ip或别名筛选</li>
+<li>IP - String - 是否必填：否 - 主机ip</li>
+<li>MachineName - String - 是否必填：否 - 主机名称</li>
+<li>InstanceID - string - 是否必填：否 - 实例ID</li>
 <li>Name- string - 是否必填：否 - 包名</li>
 <li>User- string - 是否必填：否 - 用户</li>
+<li>IsAutoRun - string - 是否必填：否 - 是否开机自启动：0否，1是</li>
 <li>Status- string - 是否必填：否 - 默认启用状态：0未启用， 1启用 仅linux</li>
 <li>Type- string - 是否必填：否 - 类型：类型 仅windows：
 1:编码器
@@ -249,16 +321,28 @@ namespace TencentCloud
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * 服务器Uuid
+                     * 偏移量，默认为0。
                      */
-                    std::string m_uuid;
-                    bool m_uuidHasBeenSet;
+                    uint64_t m_offset;
+                    bool m_offsetHasBeenSet;
 
                     /**
-                     * 服务器Quuid
+                     * 需要返回的数量，默认为10，最大值为100
                      */
-                    std::string m_quuid;
-                    bool m_quuidHasBeenSet;
+                    uint64_t m_limit;
+                    bool m_limitHasBeenSet;
+
+                    /**
+                     * 排序方式，asc升序 或 desc降序
+                     */
+                    std::string m_order;
+                    bool m_orderHasBeenSet;
+
+                    /**
+                     * 排序方式：[FirstTime]
+                     */
+                    std::string m_by;
+                    bool m_byHasBeenSet;
 
                 };
             }

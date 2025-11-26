@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,64 +47,97 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取路由信息ID
-                     * @return RouteId 路由信息ID
+                     * 获取路由信息ID。
+                     * @return RouteId 路由信息ID。
+                     * 
                      */
                     std::string GetRouteId() const;
 
                     /**
-                     * 设置路由信息ID
-                     * @param RouteId 路由信息ID
+                     * 设置路由信息ID。
+                     * @param _routeId 路由信息ID。
+                     * 
                      */
                     void SetRouteId(const std::string& _routeId);
 
                     /**
                      * 判断参数 RouteId 是否已赋值
                      * @return RouteId 是否已赋值
+                     * 
                      */
                     bool RouteIdHasBeenSet() const;
 
                     /**
-                     * 获取路由信息是否启用
+                     * 获取路由信息是否启用。
 ENABLE：启用该路由
 DISABLE：不启用该路由
-                     * @return Status 路由信息是否启用
+                     * @return Status 路由信息是否启用。
 ENABLE：启用该路由
 DISABLE：不启用该路由
+                     * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置路由信息是否启用
+                     * 设置路由信息是否启用。
 ENABLE：启用该路由
 DISABLE：不启用该路由
-                     * @param Status 路由信息是否启用
+                     * @param _status 路由信息是否启用。
 ENABLE：启用该路由
 DISABLE：不启用该路由
+                     * 
                      */
                     void SetStatus(const std::string& _status);
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取路由CIDR。
+                     * @return DestinationCidrBlock 路由CIDR。
+                     * 
+                     */
+                    std::string GetDestinationCidrBlock() const;
+
+                    /**
+                     * 设置路由CIDR。
+                     * @param _destinationCidrBlock 路由CIDR。
+                     * 
+                     */
+                    void SetDestinationCidrBlock(const std::string& _destinationCidrBlock);
+
+                    /**
+                     * 判断参数 DestinationCidrBlock 是否已赋值
+                     * @return DestinationCidrBlock 是否已赋值
+                     * 
+                     */
+                    bool DestinationCidrBlockHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 路由信息ID
+                     * 路由信息ID。
                      */
                     std::string m_routeId;
                     bool m_routeIdHasBeenSet;
 
                     /**
-                     * 路由信息是否启用
+                     * 路由信息是否启用。
 ENABLE：启用该路由
 DISABLE：不启用该路由
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
+
+                    /**
+                     * 路由CIDR。
+                     */
+                    std::string m_destinationCidrBlock;
+                    bool m_destinationCidrBlockHasBeenSet;
 
                 };
             }

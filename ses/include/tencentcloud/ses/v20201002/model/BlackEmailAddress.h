@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 邮箱黑名单结构，包含被拉黑的邮箱地址和被拉黑时间
+                * 邮箱黑名单结构，包含被拉黑的邮箱地址和被拉黑时间，以及被拉黑的理由
                 */
                 class BlackEmailAddress : public AbstractModel
                 {
@@ -49,38 +49,65 @@ namespace TencentCloud
                     /**
                      * 获取邮箱被拉黑时间
                      * @return BounceTime 邮箱被拉黑时间
+                     * 
                      */
                     std::string GetBounceTime() const;
 
                     /**
                      * 设置邮箱被拉黑时间
-                     * @param BounceTime 邮箱被拉黑时间
+                     * @param _bounceTime 邮箱被拉黑时间
+                     * 
                      */
                     void SetBounceTime(const std::string& _bounceTime);
 
                     /**
                      * 判断参数 BounceTime 是否已赋值
                      * @return BounceTime 是否已赋值
+                     * 
                      */
                     bool BounceTimeHasBeenSet() const;
 
                     /**
                      * 获取被拉黑的邮箱地址
                      * @return EmailAddress 被拉黑的邮箱地址
+                     * 
                      */
                     std::string GetEmailAddress() const;
 
                     /**
                      * 设置被拉黑的邮箱地址
-                     * @param EmailAddress 被拉黑的邮箱地址
+                     * @param _emailAddress 被拉黑的邮箱地址
+                     * 
                      */
                     void SetEmailAddress(const std::string& _emailAddress);
 
                     /**
                      * 判断参数 EmailAddress 是否已赋值
                      * @return EmailAddress 是否已赋值
+                     * 
                      */
                     bool EmailAddressHasBeenSet() const;
+
+                    /**
+                     * 获取被拉黑的理由
+                     * @return IspDesc 被拉黑的理由
+                     * 
+                     */
+                    std::string GetIspDesc() const;
+
+                    /**
+                     * 设置被拉黑的理由
+                     * @param _ispDesc 被拉黑的理由
+                     * 
+                     */
+                    void SetIspDesc(const std::string& _ispDesc);
+
+                    /**
+                     * 判断参数 IspDesc 是否已赋值
+                     * @return IspDesc 是否已赋值
+                     * 
+                     */
+                    bool IspDescHasBeenSet() const;
 
                 private:
 
@@ -95,6 +122,12 @@ namespace TencentCloud
                      */
                     std::string m_emailAddress;
                     bool m_emailAddressHasBeenSet;
+
+                    /**
+                     * 被拉黑的理由
+                     */
+                    std::string m_ispDesc;
+                    bool m_ispDescHasBeenSet;
 
                 };
             }

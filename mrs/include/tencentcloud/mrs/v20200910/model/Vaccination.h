@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,266 +48,275 @@ namespace TencentCloud
 
                     /**
                      * 获取序号
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Id 序号
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetId() const;
 
                     /**
                      * 设置序号
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Id 序号
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _id 序号
+                     * 
                      */
                     void SetId(const std::string& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
                      * 获取疫苗名称
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Vaccine 疫苗名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetVaccine() const;
 
                     /**
                      * 设置疫苗名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Vaccine 疫苗名称
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _vaccine 疫苗名称
+                     * 
                      */
                     void SetVaccine(const std::string& _vaccine);
 
                     /**
                      * 判断参数 Vaccine 是否已赋值
                      * @return Vaccine 是否已赋值
+                     * 
                      */
                     bool VaccineHasBeenSet() const;
 
                     /**
                      * 获取剂次
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Dose 剂次
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDose() const;
 
                     /**
                      * 设置剂次
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Dose 剂次
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _dose 剂次
+                     * 
                      */
                     void SetDose(const std::string& _dose);
 
                     /**
                      * 判断参数 Dose 是否已赋值
                      * @return Dose 是否已赋值
+                     * 
                      */
                     bool DoseHasBeenSet() const;
 
                     /**
                      * 获取接种日期
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Date 接种日期
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetDate() const;
 
                     /**
                      * 设置接种日期
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Date 接种日期
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _date 接种日期
+                     * 
                      */
                     void SetDate(const std::string& _date);
 
                     /**
                      * 判断参数 Date 是否已赋值
                      * @return Date 是否已赋值
+                     * 
                      */
                     bool DateHasBeenSet() const;
 
                     /**
                      * 获取疫苗批号
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LotNumber 疫苗批号
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLotNumber() const;
 
                     /**
                      * 设置疫苗批号
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param LotNumber 疫苗批号
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _lotNumber 疫苗批号
+                     * 
                      */
                     void SetLotNumber(const std::string& _lotNumber);
 
                     /**
                      * 判断参数 LotNumber 是否已赋值
                      * @return LotNumber 是否已赋值
+                     * 
                      */
                     bool LotNumberHasBeenSet() const;
 
                     /**
                      * 获取生产企业
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Manufacturer 生产企业
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetManufacturer() const;
 
                     /**
                      * 设置生产企业
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Manufacturer 生产企业
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _manufacturer 生产企业
+                     * 
                      */
                     void SetManufacturer(const std::string& _manufacturer);
 
                     /**
                      * 判断参数 Manufacturer 是否已赋值
                      * @return Manufacturer 是否已赋值
+                     * 
                      */
                     bool ManufacturerHasBeenSet() const;
 
                     /**
                      * 获取接种单位
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Clinic 接种单位
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetClinic() const;
 
                     /**
                      * 设置接种单位
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Clinic 接种单位
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _clinic 接种单位
+                     * 
                      */
                     void SetClinic(const std::string& _clinic);
 
                     /**
                      * 判断参数 Clinic 是否已赋值
                      * @return Clinic 是否已赋值
+                     * 
                      */
                     bool ClinicHasBeenSet() const;
 
                     /**
                      * 获取接种部位
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Site 接种部位
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSite() const;
 
                     /**
                      * 设置接种部位
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Site 接种部位
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _site 接种部位
+                     * 
                      */
                     void SetSite(const std::string& _site);
 
                     /**
                      * 判断参数 Site 是否已赋值
                      * @return Site 是否已赋值
+                     * 
                      */
                     bool SiteHasBeenSet() const;
 
                     /**
                      * 获取接种者
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return Provider 接种者
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetProvider() const;
 
                     /**
                      * 设置接种者
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Provider 接种者
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _provider 接种者
+                     * 
                      */
                     void SetProvider(const std::string& _provider);
 
                     /**
                      * 判断参数 Provider 是否已赋值
                      * @return Provider 是否已赋值
+                     * 
                      */
                     bool ProviderHasBeenSet() const;
+
+                    /**
+                     * 获取疫苗批号
+                     * @return Lot 疫苗批号
+                     * 
+                     */
+                    std::string GetLot() const;
+
+                    /**
+                     * 设置疫苗批号
+                     * @param _lot 疫苗批号
+                     * 
+                     */
+                    void SetLot(const std::string& _lot);
+
+                    /**
+                     * 判断参数 Lot 是否已赋值
+                     * @return Lot 是否已赋值
+                     * 
+                     */
+                    bool LotHasBeenSet() const;
 
                 private:
 
                     /**
                      * 序号
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_id;
                     bool m_idHasBeenSet;
 
                     /**
                      * 疫苗名称
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_vaccine;
                     bool m_vaccineHasBeenSet;
 
                     /**
                      * 剂次
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_dose;
                     bool m_doseHasBeenSet;
 
                     /**
                      * 接种日期
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_date;
                     bool m_dateHasBeenSet;
 
                     /**
                      * 疫苗批号
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_lotNumber;
                     bool m_lotNumberHasBeenSet;
 
                     /**
                      * 生产企业
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_manufacturer;
                     bool m_manufacturerHasBeenSet;
 
                     /**
                      * 接种单位
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_clinic;
                     bool m_clinicHasBeenSet;
 
                     /**
                      * 接种部位
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_site;
                     bool m_siteHasBeenSet;
 
                     /**
                      * 接种者
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_provider;
                     bool m_providerHasBeenSet;
+
+                    /**
+                     * 疫苗批号
+                     */
+                    std::string m_lot;
+                    bool m_lotHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,347 +40,903 @@ TdidClient::TdidClient(const Credential &credential, const string &region, const
 }
 
 
-TdidClient::CreateCredentialOutcome TdidClient::CreateCredential(const CreateCredentialRequest &request)
+TdidClient::CreateDisclosedCredentialOutcome TdidClient::CreateDisclosedCredential(const CreateDisclosedCredentialRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateCredential");
+    auto outcome = MakeRequest(request, "CreateDisclosedCredential");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateCredentialResponse rsp = CreateCredentialResponse();
+        CreateDisclosedCredentialResponse rsp = CreateDisclosedCredentialResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateCredentialOutcome(rsp);
+            return CreateDisclosedCredentialOutcome(rsp);
         else
-            return CreateCredentialOutcome(o.GetError());
+            return CreateDisclosedCredentialOutcome(o.GetError());
     }
     else
     {
-        return CreateCredentialOutcome(outcome.GetError());
+        return CreateDisclosedCredentialOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::CreateCredentialAsync(const CreateCredentialRequest& request, const CreateCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::CreateDisclosedCredentialAsync(const CreateDisclosedCredentialRequest& request, const CreateDisclosedCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateCredential(request), context);
-    };
+    using Req = const CreateDisclosedCredentialRequest&;
+    using Resp = CreateDisclosedCredentialResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TdidClient::CreateCredentialOutcomeCallable TdidClient::CreateCredentialCallable(const CreateCredentialRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateCredentialOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "CreateDisclosedCredential", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->CreateCredential(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::CreateSelectiveCredentialOutcome TdidClient::CreateSelectiveCredential(const CreateSelectiveCredentialRequest &request)
+TdidClient::CreateDisclosedCredentialOutcomeCallable TdidClient::CreateDisclosedCredentialCallable(const CreateDisclosedCredentialRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateSelectiveCredential");
+    const auto prom = std::make_shared<std::promise<CreateDisclosedCredentialOutcome>>();
+    CreateDisclosedCredentialAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const CreateDisclosedCredentialRequest&,
+        CreateDisclosedCredentialOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::CreatePresentationOutcome TdidClient::CreatePresentation(const CreatePresentationRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreatePresentation");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateSelectiveCredentialResponse rsp = CreateSelectiveCredentialResponse();
+        CreatePresentationResponse rsp = CreatePresentationResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateSelectiveCredentialOutcome(rsp);
+            return CreatePresentationOutcome(rsp);
         else
-            return CreateSelectiveCredentialOutcome(o.GetError());
+            return CreatePresentationOutcome(o.GetError());
     }
     else
     {
-        return CreateSelectiveCredentialOutcome(outcome.GetError());
+        return CreatePresentationOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::CreateSelectiveCredentialAsync(const CreateSelectiveCredentialRequest& request, const CreateSelectiveCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::CreatePresentationAsync(const CreatePresentationRequest& request, const CreatePresentationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateSelectiveCredential(request), context);
-    };
+    using Req = const CreatePresentationRequest&;
+    using Resp = CreatePresentationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TdidClient::CreateSelectiveCredentialOutcomeCallable TdidClient::CreateSelectiveCredentialCallable(const CreateSelectiveCredentialRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateSelectiveCredentialOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "CreatePresentation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->CreateSelectiveCredential(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::CreateTDidOutcome TdidClient::CreateTDid(const CreateTDidRequest &request)
+TdidClient::CreatePresentationOutcomeCallable TdidClient::CreatePresentationCallable(const CreatePresentationRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateTDid");
+    const auto prom = std::make_shared<std::promise<CreatePresentationOutcome>>();
+    CreatePresentationAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const CreatePresentationRequest&,
+        CreatePresentationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::CreateTDidByHostOutcome TdidClient::CreateTDidByHost(const CreateTDidByHostRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateTDidByHost");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateTDidResponse rsp = CreateTDidResponse();
+        CreateTDidByHostResponse rsp = CreateTDidByHostResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateTDidOutcome(rsp);
+            return CreateTDidByHostOutcome(rsp);
         else
-            return CreateTDidOutcome(o.GetError());
+            return CreateTDidByHostOutcome(o.GetError());
     }
     else
     {
-        return CreateTDidOutcome(outcome.GetError());
+        return CreateTDidByHostOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::CreateTDidAsync(const CreateTDidRequest& request, const CreateTDidAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::CreateTDidByHostAsync(const CreateTDidByHostRequest& request, const CreateTDidByHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTDid(request), context);
-    };
+    using Req = const CreateTDidByHostRequest&;
+    using Resp = CreateTDidByHostResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TdidClient::CreateTDidOutcomeCallable TdidClient::CreateTDidCallable(const CreateTDidRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateTDidOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "CreateTDidByHost", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->CreateTDid(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::CreateTDidByPublicKeyOutcome TdidClient::CreateTDidByPublicKey(const CreateTDidByPublicKeyRequest &request)
+TdidClient::CreateTDidByHostOutcomeCallable TdidClient::CreateTDidByHostCallable(const CreateTDidByHostRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateTDidByPublicKey");
+    const auto prom = std::make_shared<std::promise<CreateTDidByHostOutcome>>();
+    CreateTDidByHostAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const CreateTDidByHostRequest&,
+        CreateTDidByHostOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::CreateTDidByPubKeyOutcome TdidClient::CreateTDidByPubKey(const CreateTDidByPubKeyRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateTDidByPubKey");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateTDidByPublicKeyResponse rsp = CreateTDidByPublicKeyResponse();
+        CreateTDidByPubKeyResponse rsp = CreateTDidByPubKeyResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateTDidByPublicKeyOutcome(rsp);
+            return CreateTDidByPubKeyOutcome(rsp);
         else
-            return CreateTDidByPublicKeyOutcome(o.GetError());
+            return CreateTDidByPubKeyOutcome(o.GetError());
     }
     else
     {
-        return CreateTDidByPublicKeyOutcome(outcome.GetError());
+        return CreateTDidByPubKeyOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::CreateTDidByPublicKeyAsync(const CreateTDidByPublicKeyRequest& request, const CreateTDidByPublicKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::CreateTDidByPubKeyAsync(const CreateTDidByPubKeyRequest& request, const CreateTDidByPubKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateTDidByPublicKey(request), context);
-    };
+    using Req = const CreateTDidByPubKeyRequest&;
+    using Resp = CreateTDidByPubKeyResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TdidClient::CreateTDidByPublicKeyOutcomeCallable TdidClient::CreateTDidByPublicKeyCallable(const CreateTDidByPublicKeyRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<CreateTDidByPublicKeyOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "CreateTDidByPubKey", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->CreateTDidByPublicKey(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::GetAuthorityIssuerOutcome TdidClient::GetAuthorityIssuer(const GetAuthorityIssuerRequest &request)
+TdidClient::CreateTDidByPubKeyOutcomeCallable TdidClient::CreateTDidByPubKeyCallable(const CreateTDidByPubKeyRequest &request)
 {
-    auto outcome = MakeRequest(request, "GetAuthorityIssuer");
+    const auto prom = std::make_shared<std::promise<CreateTDidByPubKeyOutcome>>();
+    CreateTDidByPubKeyAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const CreateTDidByPubKeyRequest&,
+        CreateTDidByPubKeyOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::DeactivateTDidOutcome TdidClient::DeactivateTDid(const DeactivateTDidRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeactivateTDid");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        GetAuthorityIssuerResponse rsp = GetAuthorityIssuerResponse();
+        DeactivateTDidResponse rsp = DeactivateTDidResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return GetAuthorityIssuerOutcome(rsp);
+            return DeactivateTDidOutcome(rsp);
         else
-            return GetAuthorityIssuerOutcome(o.GetError());
+            return DeactivateTDidOutcome(o.GetError());
     }
     else
     {
-        return GetAuthorityIssuerOutcome(outcome.GetError());
+        return DeactivateTDidOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::GetAuthorityIssuerAsync(const GetAuthorityIssuerRequest& request, const GetAuthorityIssuerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::DeactivateTDidAsync(const DeactivateTDidRequest& request, const DeactivateTDidAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetAuthorityIssuer(request), context);
-    };
+    using Req = const DeactivateTDidRequest&;
+    using Resp = DeactivateTDidResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TdidClient::GetAuthorityIssuerOutcomeCallable TdidClient::GetAuthorityIssuerCallable(const GetAuthorityIssuerRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetAuthorityIssuerOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "DeactivateTDid", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->GetAuthorityIssuer(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::GetDidDocumentOutcome TdidClient::GetDidDocument(const GetDidDocumentRequest &request)
+TdidClient::DeactivateTDidOutcomeCallable TdidClient::DeactivateTDidCallable(const DeactivateTDidRequest &request)
 {
-    auto outcome = MakeRequest(request, "GetDidDocument");
+    const auto prom = std::make_shared<std::promise<DeactivateTDidOutcome>>();
+    DeactivateTDidAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const DeactivateTDidRequest&,
+        DeactivateTDidOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::GetAppSummaryOutcome TdidClient::GetAppSummary(const GetAppSummaryRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetAppSummary");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        GetDidDocumentResponse rsp = GetDidDocumentResponse();
+        GetAppSummaryResponse rsp = GetAppSummaryResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return GetDidDocumentOutcome(rsp);
+            return GetAppSummaryOutcome(rsp);
         else
-            return GetDidDocumentOutcome(o.GetError());
+            return GetAppSummaryOutcome(o.GetError());
     }
     else
     {
-        return GetDidDocumentOutcome(outcome.GetError());
+        return GetAppSummaryOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::GetDidDocumentAsync(const GetDidDocumentRequest& request, const GetDidDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::GetAppSummaryAsync(const GetAppSummaryRequest& request, const GetAppSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->GetDidDocument(request), context);
-    };
+    using Req = const GetAppSummaryRequest&;
+    using Resp = GetAppSummaryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TdidClient::GetDidDocumentOutcomeCallable TdidClient::GetDidDocumentCallable(const GetDidDocumentRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<GetDidDocumentOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "GetAppSummary", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->GetDidDocument(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::SetCredentialStatusOutcome TdidClient::SetCredentialStatus(const SetCredentialStatusRequest &request)
+TdidClient::GetAppSummaryOutcomeCallable TdidClient::GetAppSummaryCallable(const GetAppSummaryRequest &request)
 {
-    auto outcome = MakeRequest(request, "SetCredentialStatus");
+    const auto prom = std::make_shared<std::promise<GetAppSummaryOutcome>>();
+    GetAppSummaryAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const GetAppSummaryRequest&,
+        GetAppSummaryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::GetCredentialStateOutcome TdidClient::GetCredentialState(const GetCredentialStateRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetCredentialState");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        SetCredentialStatusResponse rsp = SetCredentialStatusResponse();
+        GetCredentialStateResponse rsp = GetCredentialStateResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return SetCredentialStatusOutcome(rsp);
+            return GetCredentialStateOutcome(rsp);
         else
-            return SetCredentialStatusOutcome(o.GetError());
+            return GetCredentialStateOutcome(o.GetError());
     }
     else
     {
-        return SetCredentialStatusOutcome(outcome.GetError());
+        return GetCredentialStateOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::SetCredentialStatusAsync(const SetCredentialStatusRequest& request, const SetCredentialStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::GetCredentialStateAsync(const GetCredentialStateRequest& request, const GetCredentialStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->SetCredentialStatus(request), context);
-    };
+    using Req = const GetCredentialStateRequest&;
+    using Resp = GetCredentialStateResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
-}
-
-TdidClient::SetCredentialStatusOutcomeCallable TdidClient::SetCredentialStatusCallable(const SetCredentialStatusRequest &request)
-{
-    auto task = std::make_shared<std::packaged_task<SetCredentialStatusOutcome()>>(
-        [this, request]()
+    DoRequestAsync<Req, Resp>(
+        "GetCredentialState", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
-            return this->SetCredentialStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::VerifyCredentialOutcome TdidClient::VerifyCredential(const VerifyCredentialRequest &request)
+TdidClient::GetCredentialStateOutcomeCallable TdidClient::GetCredentialStateCallable(const GetCredentialStateRequest &request)
 {
-    auto outcome = MakeRequest(request, "VerifyCredential");
+    const auto prom = std::make_shared<std::promise<GetCredentialStateOutcome>>();
+    GetCredentialStateAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const GetCredentialStateRequest&,
+        GetCredentialStateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::GetOverSummaryOutcome TdidClient::GetOverSummary(const GetOverSummaryRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetOverSummary");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        VerifyCredentialResponse rsp = VerifyCredentialResponse();
+        GetOverSummaryResponse rsp = GetOverSummaryResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return VerifyCredentialOutcome(rsp);
+            return GetOverSummaryOutcome(rsp);
         else
-            return VerifyCredentialOutcome(o.GetError());
+            return GetOverSummaryOutcome(o.GetError());
     }
     else
     {
-        return VerifyCredentialOutcome(outcome.GetError());
+        return GetOverSummaryOutcome(outcome.GetError());
     }
 }
 
-void TdidClient::VerifyCredentialAsync(const VerifyCredentialRequest& request, const VerifyCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TdidClient::GetOverSummaryAsync(const GetOverSummaryRequest& request, const GetOverSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->VerifyCredential(request), context);
-    };
+    using Req = const GetOverSummaryRequest&;
+    using Resp = GetOverSummaryResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "GetOverSummary", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
-TdidClient::VerifyCredentialOutcomeCallable TdidClient::VerifyCredentialCallable(const VerifyCredentialRequest &request)
+TdidClient::GetOverSummaryOutcomeCallable TdidClient::GetOverSummaryCallable(const GetOverSummaryRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<VerifyCredentialOutcome()>>(
-        [this, request]()
-        {
-            return this->VerifyCredential(request);
-        }
-    );
+    const auto prom = std::make_shared<std::promise<GetOverSummaryOutcome>>();
+    GetOverSummaryAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const GetOverSummaryRequest&,
+        GetOverSummaryOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
 
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+TdidClient::GetTDidByObjectIdOutcome TdidClient::GetTDidByObjectId(const GetTDidByObjectIdRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetTDidByObjectId");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetTDidByObjectIdResponse rsp = GetTDidByObjectIdResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetTDidByObjectIdOutcome(rsp);
+        else
+            return GetTDidByObjectIdOutcome(o.GetError());
+    }
+    else
+    {
+        return GetTDidByObjectIdOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::GetTDidByObjectIdAsync(const GetTDidByObjectIdRequest& request, const GetTDidByObjectIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetTDidByObjectIdRequest&;
+    using Resp = GetTDidByObjectIdResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetTDidByObjectId", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::GetTDidByObjectIdOutcomeCallable TdidClient::GetTDidByObjectIdCallable(const GetTDidByObjectIdRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetTDidByObjectIdOutcome>>();
+    GetTDidByObjectIdAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const GetTDidByObjectIdRequest&,
+        GetTDidByObjectIdOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::GetTDidDocumentOutcome TdidClient::GetTDidDocument(const GetTDidDocumentRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetTDidDocument");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetTDidDocumentResponse rsp = GetTDidDocumentResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetTDidDocumentOutcome(rsp);
+        else
+            return GetTDidDocumentOutcome(o.GetError());
+    }
+    else
+    {
+        return GetTDidDocumentOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::GetTDidDocumentAsync(const GetTDidDocumentRequest& request, const GetTDidDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetTDidDocumentRequest&;
+    using Resp = GetTDidDocumentResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetTDidDocument", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::GetTDidDocumentOutcomeCallable TdidClient::GetTDidDocumentCallable(const GetTDidDocumentRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetTDidDocumentOutcome>>();
+    GetTDidDocumentAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const GetTDidDocumentRequest&,
+        GetTDidDocumentOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::GetTDidPubKeyOutcome TdidClient::GetTDidPubKey(const GetTDidPubKeyRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetTDidPubKey");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetTDidPubKeyResponse rsp = GetTDidPubKeyResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetTDidPubKeyOutcome(rsp);
+        else
+            return GetTDidPubKeyOutcome(o.GetError());
+    }
+    else
+    {
+        return GetTDidPubKeyOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::GetTDidPubKeyAsync(const GetTDidPubKeyRequest& request, const GetTDidPubKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetTDidPubKeyRequest&;
+    using Resp = GetTDidPubKeyResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetTDidPubKey", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::GetTDidPubKeyOutcomeCallable TdidClient::GetTDidPubKeyCallable(const GetTDidPubKeyRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetTDidPubKeyOutcome>>();
+    GetTDidPubKeyAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const GetTDidPubKeyRequest&,
+        GetTDidPubKeyOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::IssueCredentialOutcome TdidClient::IssueCredential(const IssueCredentialRequest &request)
+{
+    auto outcome = MakeRequest(request, "IssueCredential");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        IssueCredentialResponse rsp = IssueCredentialResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return IssueCredentialOutcome(rsp);
+        else
+            return IssueCredentialOutcome(o.GetError());
+    }
+    else
+    {
+        return IssueCredentialOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::IssueCredentialAsync(const IssueCredentialRequest& request, const IssueCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const IssueCredentialRequest&;
+    using Resp = IssueCredentialResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "IssueCredential", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::IssueCredentialOutcomeCallable TdidClient::IssueCredentialCallable(const IssueCredentialRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<IssueCredentialOutcome>>();
+    IssueCredentialAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const IssueCredentialRequest&,
+        IssueCredentialOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::QueryAuthorityInfoOutcome TdidClient::QueryAuthorityInfo(const QueryAuthorityInfoRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryAuthorityInfo");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryAuthorityInfoResponse rsp = QueryAuthorityInfoResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryAuthorityInfoOutcome(rsp);
+        else
+            return QueryAuthorityInfoOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryAuthorityInfoOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::QueryAuthorityInfoAsync(const QueryAuthorityInfoRequest& request, const QueryAuthorityInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryAuthorityInfoRequest&;
+    using Resp = QueryAuthorityInfoResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryAuthorityInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::QueryAuthorityInfoOutcomeCallable TdidClient::QueryAuthorityInfoCallable(const QueryAuthorityInfoRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryAuthorityInfoOutcome>>();
+    QueryAuthorityInfoAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const QueryAuthorityInfoRequest&,
+        QueryAuthorityInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::QueryCPTOutcome TdidClient::QueryCPT(const QueryCPTRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryCPT");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryCPTResponse rsp = QueryCPTResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryCPTOutcome(rsp);
+        else
+            return QueryCPTOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryCPTOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::QueryCPTAsync(const QueryCPTRequest& request, const QueryCPTAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryCPTRequest&;
+    using Resp = QueryCPTResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryCPT", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::QueryCPTOutcomeCallable TdidClient::QueryCPTCallable(const QueryCPTRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryCPTOutcome>>();
+    QueryCPTAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const QueryCPTRequest&,
+        QueryCPTOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::SetTDidAttributeOutcome TdidClient::SetTDidAttribute(const SetTDidAttributeRequest &request)
+{
+    auto outcome = MakeRequest(request, "SetTDidAttribute");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        SetTDidAttributeResponse rsp = SetTDidAttributeResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return SetTDidAttributeOutcome(rsp);
+        else
+            return SetTDidAttributeOutcome(o.GetError());
+    }
+    else
+    {
+        return SetTDidAttributeOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::SetTDidAttributeAsync(const SetTDidAttributeRequest& request, const SetTDidAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const SetTDidAttributeRequest&;
+    using Resp = SetTDidAttributeResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "SetTDidAttribute", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::SetTDidAttributeOutcomeCallable TdidClient::SetTDidAttributeCallable(const SetTDidAttributeRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<SetTDidAttributeOutcome>>();
+    SetTDidAttributeAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const SetTDidAttributeRequest&,
+        SetTDidAttributeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::UpdateCredentialStateOutcome TdidClient::UpdateCredentialState(const UpdateCredentialStateRequest &request)
+{
+    auto outcome = MakeRequest(request, "UpdateCredentialState");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        UpdateCredentialStateResponse rsp = UpdateCredentialStateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return UpdateCredentialStateOutcome(rsp);
+        else
+            return UpdateCredentialStateOutcome(o.GetError());
+    }
+    else
+    {
+        return UpdateCredentialStateOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::UpdateCredentialStateAsync(const UpdateCredentialStateRequest& request, const UpdateCredentialStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const UpdateCredentialStateRequest&;
+    using Resp = UpdateCredentialStateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "UpdateCredentialState", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::UpdateCredentialStateOutcomeCallable TdidClient::UpdateCredentialStateCallable(const UpdateCredentialStateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<UpdateCredentialStateOutcome>>();
+    UpdateCredentialStateAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const UpdateCredentialStateRequest&,
+        UpdateCredentialStateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::VerifyCredentialsOutcome TdidClient::VerifyCredentials(const VerifyCredentialsRequest &request)
+{
+    auto outcome = MakeRequest(request, "VerifyCredentials");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        VerifyCredentialsResponse rsp = VerifyCredentialsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return VerifyCredentialsOutcome(rsp);
+        else
+            return VerifyCredentialsOutcome(o.GetError());
+    }
+    else
+    {
+        return VerifyCredentialsOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::VerifyCredentialsAsync(const VerifyCredentialsRequest& request, const VerifyCredentialsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const VerifyCredentialsRequest&;
+    using Resp = VerifyCredentialsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "VerifyCredentials", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::VerifyCredentialsOutcomeCallable TdidClient::VerifyCredentialsCallable(const VerifyCredentialsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<VerifyCredentialsOutcome>>();
+    VerifyCredentialsAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const VerifyCredentialsRequest&,
+        VerifyCredentialsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TdidClient::VerifyPresentationOutcome TdidClient::VerifyPresentation(const VerifyPresentationRequest &request)
+{
+    auto outcome = MakeRequest(request, "VerifyPresentation");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        VerifyPresentationResponse rsp = VerifyPresentationResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return VerifyPresentationOutcome(rsp);
+        else
+            return VerifyPresentationOutcome(o.GetError());
+    }
+    else
+    {
+        return VerifyPresentationOutcome(outcome.GetError());
+    }
+}
+
+void TdidClient::VerifyPresentationAsync(const VerifyPresentationRequest& request, const VerifyPresentationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const VerifyPresentationRequest&;
+    using Resp = VerifyPresentationResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "VerifyPresentation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TdidClient::VerifyPresentationOutcomeCallable TdidClient::VerifyPresentationCallable(const VerifyPresentationRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<VerifyPresentationOutcome>>();
+    VerifyPresentationAsync(
+    request,
+    [prom](
+        const TdidClient*,
+        const VerifyPresentationRequest&,
+        VerifyPresentationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

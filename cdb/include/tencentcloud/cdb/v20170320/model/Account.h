@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,51 +47,72 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取新账户的名称
-                     * @return User 新账户的名称
+                     * 获取账号名，可输入1 - 32个字符。
+                     * @return User 账号名，可输入1 - 32个字符。
+                     * 
                      */
                     std::string GetUser() const;
 
                     /**
-                     * 设置新账户的名称
-                     * @param User 新账户的名称
+                     * 设置账号名，可输入1 - 32个字符。
+                     * @param _user 账号名，可输入1 - 32个字符。
+                     * 
                      */
                     void SetUser(const std::string& _user);
 
                     /**
                      * 判断参数 User 是否已赋值
                      * @return User 是否已赋值
+                     * 
                      */
                     bool UserHasBeenSet() const;
 
                     /**
-                     * 获取新账户的域名
-                     * @return Host 新账户的域名
+                     * 获取账号的主机。
+说明：
+1. IP 形式，支持填入%。
+2. 多个主机以分隔符分隔，分隔符支持;,|换行符和空格。
+                     * @return Host 账号的主机。
+说明：
+1. IP 形式，支持填入%。
+2. 多个主机以分隔符分隔，分隔符支持;,|换行符和空格。
+                     * 
                      */
                     std::string GetHost() const;
 
                     /**
-                     * 设置新账户的域名
-                     * @param Host 新账户的域名
+                     * 设置账号的主机。
+说明：
+1. IP 形式，支持填入%。
+2. 多个主机以分隔符分隔，分隔符支持;,|换行符和空格。
+                     * @param _host 账号的主机。
+说明：
+1. IP 形式，支持填入%。
+2. 多个主机以分隔符分隔，分隔符支持;,|换行符和空格。
+                     * 
                      */
                     void SetHost(const std::string& _host);
 
                     /**
                      * 判断参数 Host 是否已赋值
                      * @return Host 是否已赋值
+                     * 
                      */
                     bool HostHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 新账户的名称
+                     * 账号名，可输入1 - 32个字符。
                      */
                     std::string m_user;
                     bool m_userHasBeenSet;
 
                     /**
-                     * 新账户的域名
+                     * 账号的主机。
+说明：
+1. IP 形式，支持填入%。
+2. 多个主机以分隔符分隔，分隔符支持;,|换行符和空格。
                      */
                     std::string m_host;
                     bool m_hostHasBeenSet;

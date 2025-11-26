@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <tencentcloud/keewidb/v20220308/model/DescribeInstanceDealDetailRequest.h>
+#include <tencentcloud/core/utils/rapidjson/document.h>
+#include <tencentcloud/core/utils/rapidjson/writer.h>
+#include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
+
+using namespace TencentCloud::Keewidb::V20220308::Model;
+using namespace std;
+
+DescribeInstanceDealDetailRequest::DescribeInstanceDealDetailRequest() :
+    m_dealIdsHasBeenSet(false),
+    m_dealNameHasBeenSet(false)
+{
+}
+
+string DescribeInstanceDealDetailRequest::ToJsonString() const
+{
+    rapidjson::Document d;
+    d.SetObject();
+    rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
+
+
+    if (m_dealIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DealIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_dealIds.begin(); itr != m_dealIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_dealNameHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DealName";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_dealName.c_str(), allocator).Move(), allocator);
+    }
+
+
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    d.Accept(writer);
+    return buffer.GetString();
+}
+
+
+vector<string> DescribeInstanceDealDetailRequest::GetDealIds() const
+{
+    return m_dealIds;
+}
+
+void DescribeInstanceDealDetailRequest::SetDealIds(const vector<string>& _dealIds)
+{
+    m_dealIds = _dealIds;
+    m_dealIdsHasBeenSet = true;
+}
+
+bool DescribeInstanceDealDetailRequest::DealIdsHasBeenSet() const
+{
+    return m_dealIdsHasBeenSet;
+}
+
+string DescribeInstanceDealDetailRequest::GetDealName() const
+{
+    return m_dealName;
+}
+
+void DescribeInstanceDealDetailRequest::SetDealName(const string& _dealName)
+{
+    m_dealName = _dealName;
+    m_dealNameHasBeenSet = true;
+}
+
+bool DescribeInstanceDealDetailRequest::DealNameHasBeenSet() const
+{
+    return m_dealNameHasBeenSet;
+}
+
+

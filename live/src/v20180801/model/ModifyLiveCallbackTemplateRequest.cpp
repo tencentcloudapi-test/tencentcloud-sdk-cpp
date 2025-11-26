@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,9 +29,14 @@ ModifyLiveCallbackTemplateRequest::ModifyLiveCallbackTemplateRequest() :
     m_streamBeginNotifyUrlHasBeenSet(false),
     m_streamEndNotifyUrlHasBeenSet(false),
     m_recordNotifyUrlHasBeenSet(false),
+    m_recordStatusNotifyUrlHasBeenSet(false),
     m_snapshotNotifyUrlHasBeenSet(false),
     m_pornCensorshipNotifyUrlHasBeenSet(false),
-    m_callbackKeyHasBeenSet(false)
+    m_callbackKeyHasBeenSet(false),
+    m_pushExceptionNotifyUrlHasBeenSet(false),
+    m_audioAuditNotifyUrlHasBeenSet(false),
+    m_recordExceptionNotifyUrlHasBeenSet(false),
+    m_recordExceptionLevelsHasBeenSet(false)
 {
 }
 
@@ -90,6 +95,14 @@ string ModifyLiveCallbackTemplateRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_recordNotifyUrl.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_recordStatusNotifyUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecordStatusNotifyUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_recordStatusNotifyUrl.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_snapshotNotifyUrlHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -112,6 +125,43 @@ string ModifyLiveCallbackTemplateRequest::ToJsonString() const
         string key = "CallbackKey";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_callbackKey.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_pushExceptionNotifyUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PushExceptionNotifyUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_pushExceptionNotifyUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_audioAuditNotifyUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AudioAuditNotifyUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_audioAuditNotifyUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_recordExceptionNotifyUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecordExceptionNotifyUrl";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_recordExceptionNotifyUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_recordExceptionLevelsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RecordExceptionLevels";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_recordExceptionLevels.begin(); itr != m_recordExceptionLevels.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
 
@@ -218,6 +268,22 @@ bool ModifyLiveCallbackTemplateRequest::RecordNotifyUrlHasBeenSet() const
     return m_recordNotifyUrlHasBeenSet;
 }
 
+string ModifyLiveCallbackTemplateRequest::GetRecordStatusNotifyUrl() const
+{
+    return m_recordStatusNotifyUrl;
+}
+
+void ModifyLiveCallbackTemplateRequest::SetRecordStatusNotifyUrl(const string& _recordStatusNotifyUrl)
+{
+    m_recordStatusNotifyUrl = _recordStatusNotifyUrl;
+    m_recordStatusNotifyUrlHasBeenSet = true;
+}
+
+bool ModifyLiveCallbackTemplateRequest::RecordStatusNotifyUrlHasBeenSet() const
+{
+    return m_recordStatusNotifyUrlHasBeenSet;
+}
+
 string ModifyLiveCallbackTemplateRequest::GetSnapshotNotifyUrl() const
 {
     return m_snapshotNotifyUrl;
@@ -264,6 +330,70 @@ void ModifyLiveCallbackTemplateRequest::SetCallbackKey(const string& _callbackKe
 bool ModifyLiveCallbackTemplateRequest::CallbackKeyHasBeenSet() const
 {
     return m_callbackKeyHasBeenSet;
+}
+
+string ModifyLiveCallbackTemplateRequest::GetPushExceptionNotifyUrl() const
+{
+    return m_pushExceptionNotifyUrl;
+}
+
+void ModifyLiveCallbackTemplateRequest::SetPushExceptionNotifyUrl(const string& _pushExceptionNotifyUrl)
+{
+    m_pushExceptionNotifyUrl = _pushExceptionNotifyUrl;
+    m_pushExceptionNotifyUrlHasBeenSet = true;
+}
+
+bool ModifyLiveCallbackTemplateRequest::PushExceptionNotifyUrlHasBeenSet() const
+{
+    return m_pushExceptionNotifyUrlHasBeenSet;
+}
+
+string ModifyLiveCallbackTemplateRequest::GetAudioAuditNotifyUrl() const
+{
+    return m_audioAuditNotifyUrl;
+}
+
+void ModifyLiveCallbackTemplateRequest::SetAudioAuditNotifyUrl(const string& _audioAuditNotifyUrl)
+{
+    m_audioAuditNotifyUrl = _audioAuditNotifyUrl;
+    m_audioAuditNotifyUrlHasBeenSet = true;
+}
+
+bool ModifyLiveCallbackTemplateRequest::AudioAuditNotifyUrlHasBeenSet() const
+{
+    return m_audioAuditNotifyUrlHasBeenSet;
+}
+
+string ModifyLiveCallbackTemplateRequest::GetRecordExceptionNotifyUrl() const
+{
+    return m_recordExceptionNotifyUrl;
+}
+
+void ModifyLiveCallbackTemplateRequest::SetRecordExceptionNotifyUrl(const string& _recordExceptionNotifyUrl)
+{
+    m_recordExceptionNotifyUrl = _recordExceptionNotifyUrl;
+    m_recordExceptionNotifyUrlHasBeenSet = true;
+}
+
+bool ModifyLiveCallbackTemplateRequest::RecordExceptionNotifyUrlHasBeenSet() const
+{
+    return m_recordExceptionNotifyUrlHasBeenSet;
+}
+
+vector<string> ModifyLiveCallbackTemplateRequest::GetRecordExceptionLevels() const
+{
+    return m_recordExceptionLevels;
+}
+
+void ModifyLiveCallbackTemplateRequest::SetRecordExceptionLevels(const vector<string>& _recordExceptionLevels)
+{
+    m_recordExceptionLevels = _recordExceptionLevels;
+    m_recordExceptionLevelsHasBeenSet = true;
+}
+
+bool ModifyLiveCallbackTemplateRequest::RecordExceptionLevelsHasBeenSet() const
+{
+    return m_recordExceptionLevelsHasBeenSet;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ CynosdbCluster::CynosdbCluster() :
     m_vpcIdHasBeenSet(false),
     m_subnetIdHasBeenSet(false),
     m_cynosVersionHasBeenSet(false),
+    m_cynosVersionTagHasBeenSet(false),
     m_storageLimitHasBeenSet(false),
     m_renewFlagHasBeenSet(false),
     m_processingTaskHasBeenSet(false),
@@ -54,7 +55,18 @@ CynosdbCluster::CynosdbCluster() :
     m_storagePayModeHasBeenSet(false),
     m_minStorageSizeHasBeenSet(false),
     m_maxStorageSizeHasBeenSet(false),
-    m_netAddrsHasBeenSet(false)
+    m_netAddrsHasBeenSet(false),
+    m_physicalZoneHasBeenSet(false),
+    m_masterZoneHasBeenSet(false),
+    m_hasSlaveZoneHasBeenSet(false),
+    m_slaveZonesHasBeenSet(false),
+    m_businessTypeHasBeenSet(false),
+    m_isFreezeHasBeenSet(false),
+    m_orderSourceHasBeenSet(false),
+    m_abilityHasBeenSet(false),
+    m_resourcePackagesHasBeenSet(false),
+    m_gdnIdHasBeenSet(false),
+    m_gdnRoleHasBeenSet(false)
 {
 }
 
@@ -273,6 +285,16 @@ CoreInternalOutcome CynosdbCluster::Deserialize(const rapidjson::Value &value)
         m_cynosVersionHasBeenSet = true;
     }
 
+    if (value.HasMember("CynosVersionTag") && !value["CynosVersionTag"].IsNull())
+    {
+        if (!value["CynosVersionTag"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.CynosVersionTag` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_cynosVersionTag = string(value["CynosVersionTag"].GetString());
+        m_cynosVersionTagHasBeenSet = true;
+    }
+
     if (value.HasMember("StorageLimit") && !value["StorageLimit"].IsNull())
     {
         if (!value["StorageLimit"].IsInt64())
@@ -431,6 +453,136 @@ CoreInternalOutcome CynosdbCluster::Deserialize(const rapidjson::Value &value)
             m_netAddrs.push_back(item);
         }
         m_netAddrsHasBeenSet = true;
+    }
+
+    if (value.HasMember("PhysicalZone") && !value["PhysicalZone"].IsNull())
+    {
+        if (!value["PhysicalZone"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.PhysicalZone` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_physicalZone = string(value["PhysicalZone"].GetString());
+        m_physicalZoneHasBeenSet = true;
+    }
+
+    if (value.HasMember("MasterZone") && !value["MasterZone"].IsNull())
+    {
+        if (!value["MasterZone"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.MasterZone` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_masterZone = string(value["MasterZone"].GetString());
+        m_masterZoneHasBeenSet = true;
+    }
+
+    if (value.HasMember("HasSlaveZone") && !value["HasSlaveZone"].IsNull())
+    {
+        if (!value["HasSlaveZone"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.HasSlaveZone` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_hasSlaveZone = string(value["HasSlaveZone"].GetString());
+        m_hasSlaveZoneHasBeenSet = true;
+    }
+
+    if (value.HasMember("SlaveZones") && !value["SlaveZones"].IsNull())
+    {
+        if (!value["SlaveZones"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.SlaveZones` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["SlaveZones"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_slaveZones.push_back((*itr).GetString());
+        }
+        m_slaveZonesHasBeenSet = true;
+    }
+
+    if (value.HasMember("BusinessType") && !value["BusinessType"].IsNull())
+    {
+        if (!value["BusinessType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.BusinessType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_businessType = string(value["BusinessType"].GetString());
+        m_businessTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("IsFreeze") && !value["IsFreeze"].IsNull())
+    {
+        if (!value["IsFreeze"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.IsFreeze` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_isFreeze = string(value["IsFreeze"].GetString());
+        m_isFreezeHasBeenSet = true;
+    }
+
+    if (value.HasMember("OrderSource") && !value["OrderSource"].IsNull())
+    {
+        if (!value["OrderSource"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.OrderSource` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_orderSource = string(value["OrderSource"].GetString());
+        m_orderSourceHasBeenSet = true;
+    }
+
+    if (value.HasMember("Ability") && !value["Ability"].IsNull())
+    {
+        if (!value["Ability"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.Ability` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_ability.Deserialize(value["Ability"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_abilityHasBeenSet = true;
+    }
+
+    if (value.HasMember("ResourcePackages") && !value["ResourcePackages"].IsNull())
+    {
+        if (!value["ResourcePackages"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.ResourcePackages` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["ResourcePackages"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            ResourcePackage item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_resourcePackages.push_back(item);
+        }
+        m_resourcePackagesHasBeenSet = true;
+    }
+
+    if (value.HasMember("GdnId") && !value["GdnId"].IsNull())
+    {
+        if (!value["GdnId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.GdnId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_gdnId = string(value["GdnId"].GetString());
+        m_gdnIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("GdnRole") && !value["GdnRole"].IsNull())
+    {
+        if (!value["GdnRole"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `CynosdbCluster.GdnRole` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_gdnRole = string(value["GdnRole"].GetString());
+        m_gdnRoleHasBeenSet = true;
     }
 
 
@@ -608,6 +760,14 @@ void CynosdbCluster::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         value.AddMember(iKey, rapidjson::Value(m_cynosVersion.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_cynosVersionTagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CynosVersionTag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_cynosVersionTag.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_storageLimitHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -731,6 +891,107 @@ void CynosdbCluster::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_physicalZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PhysicalZone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_physicalZone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_masterZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MasterZone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_masterZone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_hasSlaveZoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HasSlaveZone";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_hasSlaveZone.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_slaveZonesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SlaveZones";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_slaveZones.begin(); itr != m_slaveZones.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_businessTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BusinessType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_businessType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_isFreezeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsFreeze";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_isFreeze.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_orderSourceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OrderSource";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_orderSource.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_abilityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ability";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_ability.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_resourcePackagesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourcePackages";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_resourcePackages.begin(); itr != m_resourcePackages.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_gdnIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GdnId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_gdnId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_gdnRoleHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GdnRole";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_gdnRole.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1072,6 +1333,22 @@ bool CynosdbCluster::CynosVersionHasBeenSet() const
     return m_cynosVersionHasBeenSet;
 }
 
+string CynosdbCluster::GetCynosVersionTag() const
+{
+    return m_cynosVersionTag;
+}
+
+void CynosdbCluster::SetCynosVersionTag(const string& _cynosVersionTag)
+{
+    m_cynosVersionTag = _cynosVersionTag;
+    m_cynosVersionTagHasBeenSet = true;
+}
+
+bool CynosdbCluster::CynosVersionTagHasBeenSet() const
+{
+    return m_cynosVersionTagHasBeenSet;
+}
+
 int64_t CynosdbCluster::GetStorageLimit() const
 {
     return m_storageLimit;
@@ -1278,5 +1555,181 @@ void CynosdbCluster::SetNetAddrs(const vector<NetAddr>& _netAddrs)
 bool CynosdbCluster::NetAddrsHasBeenSet() const
 {
     return m_netAddrsHasBeenSet;
+}
+
+string CynosdbCluster::GetPhysicalZone() const
+{
+    return m_physicalZone;
+}
+
+void CynosdbCluster::SetPhysicalZone(const string& _physicalZone)
+{
+    m_physicalZone = _physicalZone;
+    m_physicalZoneHasBeenSet = true;
+}
+
+bool CynosdbCluster::PhysicalZoneHasBeenSet() const
+{
+    return m_physicalZoneHasBeenSet;
+}
+
+string CynosdbCluster::GetMasterZone() const
+{
+    return m_masterZone;
+}
+
+void CynosdbCluster::SetMasterZone(const string& _masterZone)
+{
+    m_masterZone = _masterZone;
+    m_masterZoneHasBeenSet = true;
+}
+
+bool CynosdbCluster::MasterZoneHasBeenSet() const
+{
+    return m_masterZoneHasBeenSet;
+}
+
+string CynosdbCluster::GetHasSlaveZone() const
+{
+    return m_hasSlaveZone;
+}
+
+void CynosdbCluster::SetHasSlaveZone(const string& _hasSlaveZone)
+{
+    m_hasSlaveZone = _hasSlaveZone;
+    m_hasSlaveZoneHasBeenSet = true;
+}
+
+bool CynosdbCluster::HasSlaveZoneHasBeenSet() const
+{
+    return m_hasSlaveZoneHasBeenSet;
+}
+
+vector<string> CynosdbCluster::GetSlaveZones() const
+{
+    return m_slaveZones;
+}
+
+void CynosdbCluster::SetSlaveZones(const vector<string>& _slaveZones)
+{
+    m_slaveZones = _slaveZones;
+    m_slaveZonesHasBeenSet = true;
+}
+
+bool CynosdbCluster::SlaveZonesHasBeenSet() const
+{
+    return m_slaveZonesHasBeenSet;
+}
+
+string CynosdbCluster::GetBusinessType() const
+{
+    return m_businessType;
+}
+
+void CynosdbCluster::SetBusinessType(const string& _businessType)
+{
+    m_businessType = _businessType;
+    m_businessTypeHasBeenSet = true;
+}
+
+bool CynosdbCluster::BusinessTypeHasBeenSet() const
+{
+    return m_businessTypeHasBeenSet;
+}
+
+string CynosdbCluster::GetIsFreeze() const
+{
+    return m_isFreeze;
+}
+
+void CynosdbCluster::SetIsFreeze(const string& _isFreeze)
+{
+    m_isFreeze = _isFreeze;
+    m_isFreezeHasBeenSet = true;
+}
+
+bool CynosdbCluster::IsFreezeHasBeenSet() const
+{
+    return m_isFreezeHasBeenSet;
+}
+
+string CynosdbCluster::GetOrderSource() const
+{
+    return m_orderSource;
+}
+
+void CynosdbCluster::SetOrderSource(const string& _orderSource)
+{
+    m_orderSource = _orderSource;
+    m_orderSourceHasBeenSet = true;
+}
+
+bool CynosdbCluster::OrderSourceHasBeenSet() const
+{
+    return m_orderSourceHasBeenSet;
+}
+
+Ability CynosdbCluster::GetAbility() const
+{
+    return m_ability;
+}
+
+void CynosdbCluster::SetAbility(const Ability& _ability)
+{
+    m_ability = _ability;
+    m_abilityHasBeenSet = true;
+}
+
+bool CynosdbCluster::AbilityHasBeenSet() const
+{
+    return m_abilityHasBeenSet;
+}
+
+vector<ResourcePackage> CynosdbCluster::GetResourcePackages() const
+{
+    return m_resourcePackages;
+}
+
+void CynosdbCluster::SetResourcePackages(const vector<ResourcePackage>& _resourcePackages)
+{
+    m_resourcePackages = _resourcePackages;
+    m_resourcePackagesHasBeenSet = true;
+}
+
+bool CynosdbCluster::ResourcePackagesHasBeenSet() const
+{
+    return m_resourcePackagesHasBeenSet;
+}
+
+string CynosdbCluster::GetGdnId() const
+{
+    return m_gdnId;
+}
+
+void CynosdbCluster::SetGdnId(const string& _gdnId)
+{
+    m_gdnId = _gdnId;
+    m_gdnIdHasBeenSet = true;
+}
+
+bool CynosdbCluster::GdnIdHasBeenSet() const
+{
+    return m_gdnIdHasBeenSet;
+}
+
+string CynosdbCluster::GetGdnRole() const
+{
+    return m_gdnRole;
+}
+
+void CynosdbCluster::SetGdnRole(const string& _gdnRole)
+{
+    m_gdnRole = _gdnRole;
+    m_gdnRoleHasBeenSet = true;
+}
+
+bool CynosdbCluster::GdnRoleHasBeenSet() const
+{
+    return m_gdnRoleHasBeenSet;
 }
 

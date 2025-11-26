@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,72 +46,84 @@ namespace TencentCloud
                     /**
                      * 获取VPN网关实例ID。
                      * @return VpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     std::string GetVpnGatewayId() const;
 
                     /**
                      * 设置VPN网关实例ID。
-                     * @param VpnGatewayId VPN网关实例ID。
+                     * @param _vpnGatewayId VPN网关实例ID。
+                     * 
                      */
                     void SetVpnGatewayId(const std::string& _vpnGatewayId);
 
                     /**
                      * 判断参数 VpnGatewayId 是否已赋值
                      * @return VpnGatewayId 是否已赋值
+                     * 
                      */
                     bool VpnGatewayIdHasBeenSet() const;
 
                     /**
                      * 获取VPN通道实例ID。形如：vpnx-f49l6u0z。
                      * @return VpnConnectionId VPN通道实例ID。形如：vpnx-f49l6u0z。
+                     * 
                      */
                     std::string GetVpnConnectionId() const;
 
                     /**
                      * 设置VPN通道实例ID。形如：vpnx-f49l6u0z。
-                     * @param VpnConnectionId VPN通道实例ID。形如：vpnx-f49l6u0z。
+                     * @param _vpnConnectionId VPN通道实例ID。形如：vpnx-f49l6u0z。
+                     * 
                      */
                     void SetVpnConnectionId(const std::string& _vpnConnectionId);
 
                     /**
                      * 判断参数 VpnConnectionId 是否已赋值
                      * @return VpnConnectionId 是否已赋值
+                     * 
                      */
                     bool VpnConnectionIdHasBeenSet() const;
 
                     /**
-                     * 获取对端网关厂商信息对象，可通过DescribeCustomerGatewayVendors获取。
-                     * @return CustomerGatewayVendor 对端网关厂商信息对象，可通过DescribeCustomerGatewayVendors获取。
+                     * 获取对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
+                     * @return CustomerGatewayVendor 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
+                     * 
                      */
                     CustomerGatewayVendor GetCustomerGatewayVendor() const;
 
                     /**
-                     * 设置对端网关厂商信息对象，可通过DescribeCustomerGatewayVendors获取。
-                     * @param CustomerGatewayVendor 对端网关厂商信息对象，可通过DescribeCustomerGatewayVendors获取。
+                     * 设置对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
+                     * @param _customerGatewayVendor 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
+                     * 
                      */
                     void SetCustomerGatewayVendor(const CustomerGatewayVendor& _customerGatewayVendor);
 
                     /**
                      * 判断参数 CustomerGatewayVendor 是否已赋值
                      * @return CustomerGatewayVendor 是否已赋值
+                     * 
                      */
                     bool CustomerGatewayVendorHasBeenSet() const;
 
                     /**
                      * 获取通道接入设备物理接口名称。
                      * @return InterfaceName 通道接入设备物理接口名称。
+                     * 
                      */
                     std::string GetInterfaceName() const;
 
                     /**
                      * 设置通道接入设备物理接口名称。
-                     * @param InterfaceName 通道接入设备物理接口名称。
+                     * @param _interfaceName 通道接入设备物理接口名称。
+                     * 
                      */
                     void SetInterfaceName(const std::string& _interfaceName);
 
                     /**
                      * 判断参数 InterfaceName 是否已赋值
                      * @return InterfaceName 是否已赋值
+                     * 
                      */
                     bool InterfaceNameHasBeenSet() const;
 
@@ -130,7 +142,7 @@ namespace TencentCloud
                     bool m_vpnConnectionIdHasBeenSet;
 
                     /**
-                     * 对端网关厂商信息对象，可通过DescribeCustomerGatewayVendors获取。
+                     * 对端网关厂商信息对象，可通过[DescribeCustomerGatewayVendors](https://cloud.tencent.com/document/api/215/17517)获取。
                      */
                     CustomerGatewayVendor m_customerGatewayVendor;
                     bool m_customerGatewayVendorHasBeenSet;

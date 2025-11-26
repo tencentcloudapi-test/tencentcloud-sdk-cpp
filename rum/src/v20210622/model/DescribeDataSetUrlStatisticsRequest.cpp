@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,8 @@ DescribeDataSetUrlStatisticsRequest::DescribeDataSetUrlStatisticsRequest() :
     m_osHasBeenSet(false),
     m_browserHasBeenSet(false),
     m_costTypeHasBeenSet(false),
-    m_envHasBeenSet(false)
+    m_envHasBeenSet(false),
+    m_packageTypeHasBeenSet(false)
 {
 }
 
@@ -229,6 +230,14 @@ string DescribeDataSetUrlStatisticsRequest::ToJsonString() const
         string key = "Env";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_env.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_packageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PackageType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_packageType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -589,6 +598,22 @@ void DescribeDataSetUrlStatisticsRequest::SetEnv(const string& _env)
 bool DescribeDataSetUrlStatisticsRequest::EnvHasBeenSet() const
 {
     return m_envHasBeenSet;
+}
+
+string DescribeDataSetUrlStatisticsRequest::GetPackageType() const
+{
+    return m_packageType;
+}
+
+void DescribeDataSetUrlStatisticsRequest::SetPackageType(const string& _packageType)
+{
+    m_packageType = _packageType;
+    m_packageTypeHasBeenSet = true;
+}
+
+bool DescribeDataSetUrlStatisticsRequest::PackageTypeHasBeenSet() const
+{
+    return m_packageTypeHasBeenSet;
 }
 
 

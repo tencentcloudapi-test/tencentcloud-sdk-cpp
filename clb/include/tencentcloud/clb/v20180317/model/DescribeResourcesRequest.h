@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,62 +46,119 @@ namespace TencentCloud
                     /**
                      * 获取返回可用区资源列表数目，默认20，最大值100。
                      * @return Limit 返回可用区资源列表数目，默认20，最大值100。
+                     * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
                      * 设置返回可用区资源列表数目，默认20，最大值100。
-                     * @param Limit 返回可用区资源列表数目，默认20，最大值100。
+                     * @param _limit 返回可用区资源列表数目，默认20，最大值100。
+                     * 
                      */
                     void SetLimit(const uint64_t& _limit);
 
                     /**
                      * 判断参数 Limit 是否已赋值
                      * @return Limit 是否已赋值
+                     * 
                      */
                     bool LimitHasBeenSet() const;
 
                     /**
                      * 获取返回可用区资源列表起始偏移量，默认0。
                      * @return Offset 返回可用区资源列表起始偏移量，默认0。
+                     * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
                      * 设置返回可用区资源列表起始偏移量，默认0。
-                     * @param Offset 返回可用区资源列表起始偏移量，默认0。
+                     * @param _offset 返回可用区资源列表起始偏移量，默认0。
+                     * 
                      */
                     void SetOffset(const uint64_t& _offset);
 
                     /**
                      * 判断参数 Offset 是否已赋值
                      * @return Offset 是否已赋值
+                     * 
                      */
                     bool OffsetHasBeenSet() const;
 
                     /**
                      * 获取查询可用区资源列表条件，详细的过滤条件如下：
-<li> zone - String - 是否必填：否 - （过滤条件）按照 可用区 过滤，如："ap-guangzhou-1"（广州一区）。</li>
-<li> isp -- String - 是否必填：否 - （过滤条件）按照 Isp 类型过滤，如："BGP","CMCC","CUCC","CTCC"。</li>
+- master-zone
+按照【地域可用区】进行过滤，例如：ap-guangzhou-2。
+类型：String
+必选：否
+- ip-version
+按照【IP 类型】进行过滤，例如：IPv4。
+类型：String
+必选：否
+可选项：IPv4、IPv6、IPv6_Nat
+- isp
+按照【ISP 类型】进行过滤，例如：BGP。
+类型：String
+必选：否
+可选项：BGP、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、BGP_PRO、INTERNAL（内网）
                      * @return Filters 查询可用区资源列表条件，详细的过滤条件如下：
-<li> zone - String - 是否必填：否 - （过滤条件）按照 可用区 过滤，如："ap-guangzhou-1"（广州一区）。</li>
-<li> isp -- String - 是否必填：否 - （过滤条件）按照 Isp 类型过滤，如："BGP","CMCC","CUCC","CTCC"。</li>
+- master-zone
+按照【地域可用区】进行过滤，例如：ap-guangzhou-2。
+类型：String
+必选：否
+- ip-version
+按照【IP 类型】进行过滤，例如：IPv4。
+类型：String
+必选：否
+可选项：IPv4、IPv6、IPv6_Nat
+- isp
+按照【ISP 类型】进行过滤，例如：BGP。
+类型：String
+必选：否
+可选项：BGP、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、BGP_PRO、INTERNAL（内网）
+                     * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
                      * 设置查询可用区资源列表条件，详细的过滤条件如下：
-<li> zone - String - 是否必填：否 - （过滤条件）按照 可用区 过滤，如："ap-guangzhou-1"（广州一区）。</li>
-<li> isp -- String - 是否必填：否 - （过滤条件）按照 Isp 类型过滤，如："BGP","CMCC","CUCC","CTCC"。</li>
-                     * @param Filters 查询可用区资源列表条件，详细的过滤条件如下：
-<li> zone - String - 是否必填：否 - （过滤条件）按照 可用区 过滤，如："ap-guangzhou-1"（广州一区）。</li>
-<li> isp -- String - 是否必填：否 - （过滤条件）按照 Isp 类型过滤，如："BGP","CMCC","CUCC","CTCC"。</li>
+- master-zone
+按照【地域可用区】进行过滤，例如：ap-guangzhou-2。
+类型：String
+必选：否
+- ip-version
+按照【IP 类型】进行过滤，例如：IPv4。
+类型：String
+必选：否
+可选项：IPv4、IPv6、IPv6_Nat
+- isp
+按照【ISP 类型】进行过滤，例如：BGP。
+类型：String
+必选：否
+可选项：BGP、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、BGP_PRO、INTERNAL（内网）
+                     * @param _filters 查询可用区资源列表条件，详细的过滤条件如下：
+- master-zone
+按照【地域可用区】进行过滤，例如：ap-guangzhou-2。
+类型：String
+必选：否
+- ip-version
+按照【IP 类型】进行过滤，例如：IPv4。
+类型：String
+必选：否
+可选项：IPv4、IPv6、IPv6_Nat
+- isp
+按照【ISP 类型】进行过滤，例如：BGP。
+类型：String
+必选：否
+可选项：BGP、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、BGP_PRO、INTERNAL（内网）
+                     * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
 
                     /**
                      * 判断参数 Filters 是否已赋值
                      * @return Filters 是否已赋值
+                     * 
                      */
                     bool FiltersHasBeenSet() const;
 
@@ -121,8 +178,20 @@ namespace TencentCloud
 
                     /**
                      * 查询可用区资源列表条件，详细的过滤条件如下：
-<li> zone - String - 是否必填：否 - （过滤条件）按照 可用区 过滤，如："ap-guangzhou-1"（广州一区）。</li>
-<li> isp -- String - 是否必填：否 - （过滤条件）按照 Isp 类型过滤，如："BGP","CMCC","CUCC","CTCC"。</li>
+- master-zone
+按照【地域可用区】进行过滤，例如：ap-guangzhou-2。
+类型：String
+必选：否
+- ip-version
+按照【IP 类型】进行过滤，例如：IPv4。
+类型：String
+必选：否
+可选项：IPv4、IPv6、IPv6_Nat
+- isp
+按照【ISP 类型】进行过滤，例如：BGP。
+类型：String
+必选：否
+可选项：BGP、CMCC（中国移动）、CUCC（中国联通）、CTCC（中国电信）、BGP_PRO、INTERNAL（内网）
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;

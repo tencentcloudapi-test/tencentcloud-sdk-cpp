@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,94 +49,105 @@ namespace TencentCloud
                     /**
                      * 获取文件版本
                      * @return Version 文件版本
+                     * 
                      */
                     std::string GetVersion() const;
 
                     /**
                      * 设置文件版本
-                     * @param Version 文件版本
+                     * @param _version 文件版本
+                     * 
                      */
                     void SetVersion(const std::string& _version);
 
                     /**
                      * 判断参数 Version 是否已赋值
                      * @return Version 是否已赋值
+                     * 
                      */
                     bool VersionHasBeenSet() const;
 
                     /**
                      * 获取文件唯一 key
                      * @return FileKey 文件唯一 key
+                     * 
                      */
                     std::string GetFileKey() const;
 
                     /**
                      * 设置文件唯一 key
-                     * @param FileKey 文件唯一 key
+                     * @param _fileKey 文件唯一 key
+                     * 
                      */
                     void SetFileKey(const std::string& _fileKey);
 
                     /**
                      * 判断参数 FileKey 是否已赋值
                      * @return FileKey 是否已赋值
+                     * 
                      */
                     bool FileKeyHasBeenSet() const;
 
                     /**
                      * 获取文件名
                      * @return FileName 文件名
+                     * 
                      */
                     std::string GetFileName() const;
 
                     /**
                      * 设置文件名
-                     * @param FileName 文件名
+                     * @param _fileName 文件名
+                     * 
                      */
                     void SetFileName(const std::string& _fileName);
 
                     /**
                      * 判断参数 FileName 是否已赋值
                      * @return FileName 是否已赋值
+                     * 
                      */
                     bool FileNameHasBeenSet() const;
 
                     /**
                      * 获取文件哈希值
                      * @return FileHash 文件哈希值
+                     * 
                      */
                     std::string GetFileHash() const;
 
                     /**
                      * 设置文件哈希值
-                     * @param FileHash 文件哈希值
+                     * @param _fileHash 文件哈希值
+                     * 
                      */
                     void SetFileHash(const std::string& _fileHash);
 
                     /**
                      * 判断参数 FileHash 是否已赋值
                      * @return FileHash 是否已赋值
+                     * 
                      */
                     bool FileHashHasBeenSet() const;
 
                     /**
                      * 获取文件 id
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ID 文件 id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetID() const;
 
                     /**
                      * 设置文件 id
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ID 文件 id
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _iD 文件 id
+                     * 
                      */
                     void SetID(const int64_t& _iD);
 
                     /**
                      * 判断参数 ID 是否已赋值
                      * @return ID 是否已赋值
+                     * 
                      */
                     bool IDHasBeenSet() const;
 
@@ -168,7 +179,6 @@ namespace TencentCloud
 
                     /**
                      * 文件 id
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_iD;
                     bool m_iDHasBeenSet;

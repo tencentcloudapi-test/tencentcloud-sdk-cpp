@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,8 @@ using namespace std;
 
 DescribeClusterAuthenticationOptionsResponse::DescribeClusterAuthenticationOptionsResponse() :
     m_serviceAccountsHasBeenSet(false),
-    m_latestOperationStateHasBeenSet(false)
+    m_latestOperationStateHasBeenSet(false),
+    m_oIDCConfigHasBeenSet(false)
 {
 }
 
@@ -90,6 +91,23 @@ CoreInternalOutcome DescribeClusterAuthenticationOptionsResponse::Deserialize(co
         m_latestOperationStateHasBeenSet = true;
     }
 
+    if (rsp.HasMember("OIDCConfig") && !rsp["OIDCConfig"].IsNull())
+    {
+        if (!rsp["OIDCConfig"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `OIDCConfig` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_oIDCConfig.Deserialize(rsp["OIDCConfig"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_oIDCConfigHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -117,11 +135,20 @@ string DescribeClusterAuthenticationOptionsResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_latestOperationState.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_oIDCConfigHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OIDCConfig";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_oIDCConfig.ToJsonObject(value[key.c_str()], allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
@@ -147,6 +174,16 @@ string DescribeClusterAuthenticationOptionsResponse::GetLatestOperationState() c
 bool DescribeClusterAuthenticationOptionsResponse::LatestOperationStateHasBeenSet() const
 {
     return m_latestOperationStateHasBeenSet;
+}
+
+OIDCConfigAuthenticationOptions DescribeClusterAuthenticationOptionsResponse::GetOIDCConfig() const
+{
+    return m_oIDCConfig;
+}
+
+bool DescribeClusterAuthenticationOptionsResponse::OIDCConfigHasBeenSet() const
+{
+    return m_oIDCConfigHasBeenSet;
 }
 
 

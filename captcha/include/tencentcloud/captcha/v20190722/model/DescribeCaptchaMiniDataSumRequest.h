@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,54 +45,63 @@ namespace TencentCloud
                     /**
                      * 获取验证码应用ID
                      * @return CaptchaAppId 验证码应用ID
+                     * 
                      */
                     int64_t GetCaptchaAppId() const;
 
                     /**
                      * 设置验证码应用ID
-                     * @param CaptchaAppId 验证码应用ID
+                     * @param _captchaAppId 验证码应用ID
+                     * 
                      */
                     void SetCaptchaAppId(const int64_t& _captchaAppId);
 
                     /**
                      * 判断参数 CaptchaAppId 是否已赋值
                      * @return CaptchaAppId 是否已赋值
+                     * 
                      */
                     bool CaptchaAppIdHasBeenSet() const;
 
                     /**
                      * 获取查询开始时间
                      * @return Start 查询开始时间
+                     * 
                      */
                     int64_t GetStart() const;
 
                     /**
                      * 设置查询开始时间
-                     * @param Start 查询开始时间
+                     * @param _start 查询开始时间
+                     * 
                      */
                     void SetStart(const int64_t& _start);
 
                     /**
                      * 判断参数 Start 是否已赋值
                      * @return Start 是否已赋值
+                     * 
                      */
                     bool StartHasBeenSet() const;
 
                     /**
                      * 获取查询结束时间
                      * @return End 查询结束时间
+                     * 
                      */
                     int64_t GetEnd() const;
 
                     /**
                      * 设置查询结束时间
-                     * @param End 查询结束时间
+                     * @param _end 查询结束时间
+                     * 
                      */
                     void SetEnd(const int64_t& _end);
 
                     /**
                      * 判断参数 End 是否已赋值
                      * @return End 是否已赋值
+                     * 
                      */
                     bool EndHasBeenSet() const;
 

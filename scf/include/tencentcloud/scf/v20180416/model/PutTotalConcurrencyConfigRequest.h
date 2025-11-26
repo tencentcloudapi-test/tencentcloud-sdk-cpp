@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取账号并发内存配额，注：账号并发内存配额下限：用户已用并发内存总额 + 12800
                      * @return TotalConcurrencyMem 账号并发内存配额，注：账号并发内存配额下限：用户已用并发内存总额 + 12800
+                     * 
                      */
                     uint64_t GetTotalConcurrencyMem() const;
 
                     /**
                      * 设置账号并发内存配额，注：账号并发内存配额下限：用户已用并发内存总额 + 12800
-                     * @param TotalConcurrencyMem 账号并发内存配额，注：账号并发内存配额下限：用户已用并发内存总额 + 12800
+                     * @param _totalConcurrencyMem 账号并发内存配额，注：账号并发内存配额下限：用户已用并发内存总额 + 12800
+                     * 
                      */
                     void SetTotalConcurrencyMem(const uint64_t& _totalConcurrencyMem);
 
                     /**
                      * 判断参数 TotalConcurrencyMem 是否已赋值
                      * @return TotalConcurrencyMem 是否已赋值
+                     * 
                      */
                     bool TotalConcurrencyMemHasBeenSet() const;
 
                     /**
                      * 获取命名空间，默认为default
                      * @return Namespace 命名空间，默认为default
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置命名空间，默认为default
-                     * @param Namespace 命名空间，默认为default
+                     * @param _namespace 命名空间，默认为default
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 

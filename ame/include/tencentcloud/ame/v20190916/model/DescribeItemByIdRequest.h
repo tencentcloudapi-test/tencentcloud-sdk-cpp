@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取歌曲ID，目前暂不支持批量查询
                      * @return ItemIDs 歌曲ID，目前暂不支持批量查询
+                     * 
                      */
                     std::string GetItemIDs() const;
 
                     /**
                      * 设置歌曲ID，目前暂不支持批量查询
-                     * @param ItemIDs 歌曲ID，目前暂不支持批量查询
+                     * @param _itemIDs 歌曲ID，目前暂不支持批量查询
+                     * 
                      */
                     void SetItemIDs(const std::string& _itemIDs);
 
                     /**
                      * 判断参数 ItemIDs 是否已赋值
                      * @return ItemIDs 是否已赋值
+                     * 
                      */
                     bool ItemIDsHasBeenSet() const;
 

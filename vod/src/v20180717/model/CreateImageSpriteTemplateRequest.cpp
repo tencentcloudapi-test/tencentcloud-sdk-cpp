@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,13 +27,14 @@ CreateImageSpriteTemplateRequest::CreateImageSpriteTemplateRequest() :
     m_sampleIntervalHasBeenSet(false),
     m_rowCountHasBeenSet(false),
     m_columnCountHasBeenSet(false),
+    m_subAppIdHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_commentHasBeenSet(false),
     m_fillTypeHasBeenSet(false),
     m_widthHasBeenSet(false),
     m_heightHasBeenSet(false),
     m_resolutionAdaptiveHasBeenSet(false),
-    m_subAppIdHasBeenSet(false)
+    m_formatHasBeenSet(false)
 {
 }
 
@@ -74,6 +75,14 @@ string CreateImageSpriteTemplateRequest::ToJsonString() const
         string key = "ColumnCount";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_columnCount, allocator);
+    }
+
+    if (m_subAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_subAppId, allocator);
     }
 
     if (m_nameHasBeenSet)
@@ -124,12 +133,12 @@ string CreateImageSpriteTemplateRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_resolutionAdaptive.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_subAppIdHasBeenSet)
+    if (m_formatHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubAppId";
+        string key = "Format";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_subAppId, allocator);
+        d.AddMember(iKey, rapidjson::Value(m_format.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -202,6 +211,22 @@ void CreateImageSpriteTemplateRequest::SetColumnCount(const uint64_t& _columnCou
 bool CreateImageSpriteTemplateRequest::ColumnCountHasBeenSet() const
 {
     return m_columnCountHasBeenSet;
+}
+
+uint64_t CreateImageSpriteTemplateRequest::GetSubAppId() const
+{
+    return m_subAppId;
+}
+
+void CreateImageSpriteTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+{
+    m_subAppId = _subAppId;
+    m_subAppIdHasBeenSet = true;
+}
+
+bool CreateImageSpriteTemplateRequest::SubAppIdHasBeenSet() const
+{
+    return m_subAppIdHasBeenSet;
 }
 
 string CreateImageSpriteTemplateRequest::GetName() const
@@ -300,20 +325,20 @@ bool CreateImageSpriteTemplateRequest::ResolutionAdaptiveHasBeenSet() const
     return m_resolutionAdaptiveHasBeenSet;
 }
 
-uint64_t CreateImageSpriteTemplateRequest::GetSubAppId() const
+string CreateImageSpriteTemplateRequest::GetFormat() const
 {
-    return m_subAppId;
+    return m_format;
 }
 
-void CreateImageSpriteTemplateRequest::SetSubAppId(const uint64_t& _subAppId)
+void CreateImageSpriteTemplateRequest::SetFormat(const string& _format)
 {
-    m_subAppId = _subAppId;
-    m_subAppIdHasBeenSet = true;
+    m_format = _format;
+    m_formatHasBeenSet = true;
 }
 
-bool CreateImageSpriteTemplateRequest::SubAppIdHasBeenSet() const
+bool CreateImageSpriteTemplateRequest::FormatHasBeenSet() const
 {
-    return m_subAppIdHasBeenSet;
+    return m_formatHasBeenSet;
 }
 
 

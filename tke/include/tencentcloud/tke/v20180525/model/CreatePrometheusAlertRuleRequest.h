@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,36 +46,42 @@ namespace TencentCloud
                     /**
                      * 获取实例id
                      * @return InstanceId 实例id
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置实例id
-                     * @param InstanceId 实例id
+                     * @param _instanceId 实例id
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取告警配置
                      * @return AlertRule 告警配置
+                     * 
                      */
                     PrometheusAlertRuleDetail GetAlertRule() const;
 
                     /**
                      * 设置告警配置
-                     * @param AlertRule 告警配置
+                     * @param _alertRule 告警配置
+                     * 
                      */
                     void SetAlertRule(const PrometheusAlertRuleDetail& _alertRule);
 
                     /**
                      * 判断参数 AlertRule 是否已赋值
                      * @return AlertRule 是否已赋值
+                     * 
                      */
                     bool AlertRuleHasBeenSet() const;
 

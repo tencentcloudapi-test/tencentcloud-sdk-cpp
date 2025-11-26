@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,36 +45,42 @@ namespace TencentCloud
                     /**
                      * 获取网络ACL实例ID。例如：acl-12345678。
                      * @return NetworkAclId 网络ACL实例ID。例如：acl-12345678。
+                     * 
                      */
                     std::string GetNetworkAclId() const;
 
                     /**
                      * 设置网络ACL实例ID。例如：acl-12345678。
-                     * @param NetworkAclId 网络ACL实例ID。例如：acl-12345678。
+                     * @param _networkAclId 网络ACL实例ID。例如：acl-12345678。
+                     * 
                      */
                     void SetNetworkAclId(const std::string& _networkAclId);
 
                     /**
                      * 判断参数 NetworkAclId 是否已赋值
                      * @return NetworkAclId 是否已赋值
+                     * 
                      */
                     bool NetworkAclIdHasBeenSet() const;
 
                     /**
-                     * 获取子网实例ID数组。例如：[subnet-12345678]
-                     * @return SubnetIds 子网实例ID数组。例如：[subnet-12345678]
+                     * 获取子网实例ID数组。例如：[subnet-12345678]。
+                     * @return SubnetIds 子网实例ID数组。例如：[subnet-12345678]。
+                     * 
                      */
                     std::vector<std::string> GetSubnetIds() const;
 
                     /**
-                     * 设置子网实例ID数组。例如：[subnet-12345678]
-                     * @param SubnetIds 子网实例ID数组。例如：[subnet-12345678]
+                     * 设置子网实例ID数组。例如：[subnet-12345678]。
+                     * @param _subnetIds 子网实例ID数组。例如：[subnet-12345678]。
+                     * 
                      */
                     void SetSubnetIds(const std::vector<std::string>& _subnetIds);
 
                     /**
                      * 判断参数 SubnetIds 是否已赋值
                      * @return SubnetIds 是否已赋值
+                     * 
                      */
                     bool SubnetIdsHasBeenSet() const;
 
@@ -87,7 +93,7 @@ namespace TencentCloud
                     bool m_networkAclIdHasBeenSet;
 
                     /**
-                     * 子网实例ID数组。例如：[subnet-12345678]
+                     * 子网实例ID数组。例如：[subnet-12345678]。
                      */
                     std::vector<std::string> m_subnetIds;
                     bool m_subnetIdsHasBeenSet;

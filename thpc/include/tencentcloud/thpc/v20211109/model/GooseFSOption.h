@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,54 +49,63 @@ namespace TencentCloud
                     /**
                      * 获取文件系统本地挂载路径
                      * @return LocalPath 文件系统本地挂载路径
+                     * 
                      */
                     std::string GetLocalPath() const;
 
                     /**
                      * 设置文件系统本地挂载路径
-                     * @param LocalPath 文件系统本地挂载路径
+                     * @param _localPath 文件系统本地挂载路径
+                     * 
                      */
                     void SetLocalPath(const std::string& _localPath);
 
                     /**
                      * 判断参数 LocalPath 是否已赋值
                      * @return LocalPath 是否已赋值
+                     * 
                      */
                     bool LocalPathHasBeenSet() const;
 
                     /**
                      * 获取文件系统远程挂载路径
                      * @return RemotePath 文件系统远程挂载路径
+                     * 
                      */
                     std::string GetRemotePath() const;
 
                     /**
                      * 设置文件系统远程挂载路径
-                     * @param RemotePath 文件系统远程挂载路径
+                     * @param _remotePath 文件系统远程挂载路径
+                     * 
                      */
                     void SetRemotePath(const std::string& _remotePath);
 
                     /**
                      * 判断参数 RemotePath 是否已赋值
                      * @return RemotePath 是否已赋值
+                     * 
                      */
                     bool RemotePathHasBeenSet() const;
 
                     /**
                      * 获取文件系统master的ip和端口
                      * @return Masters 文件系统master的ip和端口
+                     * 
                      */
                     std::vector<std::string> GetMasters() const;
 
                     /**
                      * 设置文件系统master的ip和端口
-                     * @param Masters 文件系统master的ip和端口
+                     * @param _masters 文件系统master的ip和端口
+                     * 
                      */
                     void SetMasters(const std::vector<std::string>& _masters);
 
                     /**
                      * 判断参数 Masters 是否已赋值
                      * @return Masters 是否已赋值
+                     * 
                      */
                     bool MastersHasBeenSet() const;
 

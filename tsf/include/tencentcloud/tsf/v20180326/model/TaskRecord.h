@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,404 +52,420 @@ namespace TencentCloud
                     /**
                      * 获取任务名称
                      * @return TaskName 任务名称
+                     * 
                      */
                     std::string GetTaskName() const;
 
                     /**
                      * 设置任务名称
-                     * @param TaskName 任务名称
+                     * @param _taskName 任务名称
+                     * 
                      */
                     void SetTaskName(const std::string& _taskName);
 
                     /**
                      * 判断参数 TaskName 是否已赋值
                      * @return TaskName 是否已赋值
+                     * 
                      */
                     bool TaskNameHasBeenSet() const;
 
                     /**
                      * 获取任务类型
                      * @return TaskType 任务类型
+                     * 
                      */
                     std::string GetTaskType() const;
 
                     /**
                      * 设置任务类型
-                     * @param TaskType 任务类型
+                     * @param _taskType 任务类型
+                     * 
                      */
                     void SetTaskType(const std::string& _taskType);
 
                     /**
                      * 判断参数 TaskType 是否已赋值
                      * @return TaskType 是否已赋值
+                     * 
                      */
                     bool TaskTypeHasBeenSet() const;
 
                     /**
-                     * 获取执行类型
-                     * @return ExecuteType 执行类型
+                     * 获取任务执行方式，unicast：随机单节点执行，broadcast：广播执行，shard：分片执行
+                     * @return ExecuteType 任务执行方式，unicast：随机单节点执行，broadcast：广播执行，shard：分片执行
+                     * 
                      */
                     std::string GetExecuteType() const;
 
                     /**
-                     * 设置执行类型
-                     * @param ExecuteType 执行类型
+                     * 设置任务执行方式，unicast：随机单节点执行，broadcast：广播执行，shard：分片执行
+                     * @param _executeType 任务执行方式，unicast：随机单节点执行，broadcast：广播执行，shard：分片执行
+                     * 
                      */
                     void SetExecuteType(const std::string& _executeType);
 
                     /**
                      * 判断参数 ExecuteType 是否已赋值
                      * @return ExecuteType 是否已赋值
+                     * 
                      */
                     bool ExecuteTypeHasBeenSet() const;
 
                     /**
                      * 获取任务内容，长度限制65535字节
                      * @return TaskContent 任务内容，长度限制65535字节
+                     * 
                      */
                     std::string GetTaskContent() const;
 
                     /**
                      * 设置任务内容，长度限制65535字节
-                     * @param TaskContent 任务内容，长度限制65535字节
+                     * @param _taskContent 任务内容，长度限制65535字节
+                     * 
                      */
                     void SetTaskContent(const std::string& _taskContent);
 
                     /**
                      * 判断参数 TaskContent 是否已赋值
                      * @return TaskContent 是否已赋值
+                     * 
                      */
                     bool TaskContentHasBeenSet() const;
 
                     /**
                      * 获取分组ID
                      * @return GroupId 分组ID
+                     * 
                      */
                     std::string GetGroupId() const;
 
                     /**
                      * 设置分组ID
-                     * @param GroupId 分组ID
+                     * @param _groupId 分组ID
+                     * 
                      */
                     void SetGroupId(const std::string& _groupId);
 
                     /**
                      * 判断参数 GroupId 是否已赋值
                      * @return GroupId 是否已赋值
+                     * 
                      */
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取超时时间
-                     * @return TimeOut 超时时间
+                     * 获取超时时间，单位：毫秒。
+                     * @return TimeOut 超时时间，单位：毫秒。
+                     * 
                      */
                     int64_t GetTimeOut() const;
 
                     /**
-                     * 设置超时时间
-                     * @param TimeOut 超时时间
+                     * 设置超时时间，单位：毫秒。
+                     * @param _timeOut 超时时间，单位：毫秒。
+                     * 
                      */
                     void SetTimeOut(const int64_t& _timeOut);
 
                     /**
                      * 判断参数 TimeOut 是否已赋值
                      * @return TimeOut 是否已赋值
+                     * 
                      */
                     bool TimeOutHasBeenSet() const;
 
                     /**
                      * 获取重试次数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return RetryCount 重试次数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetRetryCount() const;
 
                     /**
                      * 设置重试次数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RetryCount 重试次数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _retryCount 重试次数
+                     * 
                      */
                     void SetRetryCount(const int64_t& _retryCount);
 
                     /**
                      * 判断参数 RetryCount 是否已赋值
                      * @return RetryCount 是否已赋值
+                     * 
                      */
                     bool RetryCountHasBeenSet() const;
 
                     /**
-                     * 获取重试间隔
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RetryInterval 重试间隔
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取重试间隔，单位：毫秒。
+                     * @return RetryInterval 重试间隔，单位：毫秒。
+                     * 
                      */
                     int64_t GetRetryInterval() const;
 
                     /**
-                     * 设置重试间隔
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param RetryInterval 重试间隔
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置重试间隔，单位：毫秒。
+                     * @param _retryInterval 重试间隔，单位：毫秒。
+                     * 
                      */
                     void SetRetryInterval(const int64_t& _retryInterval);
 
                     /**
                      * 判断参数 RetryInterval 是否已赋值
                      * @return RetryInterval 是否已赋值
+                     * 
                      */
                     bool RetryIntervalHasBeenSet() const;
 
                     /**
                      * 获取触发规则
                      * @return TaskRule 触发规则
+                     * 
                      */
                     TaskRule GetTaskRule() const;
 
                     /**
                      * 设置触发规则
-                     * @param TaskRule 触发规则
+                     * @param _taskRule 触发规则
+                     * 
                      */
                     void SetTaskRule(const TaskRule& _taskRule);
 
                     /**
                      * 判断参数 TaskRule 是否已赋值
                      * @return TaskRule 是否已赋值
+                     * 
                      */
                     bool TaskRuleHasBeenSet() const;
 
                     /**
-                     * 获取是否启用任务,ENABLED/DISABLED
-                     * @return TaskState 是否启用任务,ENABLED/DISABLED
+                     * 获取任务启用状态。一共2种状态可选，ENABLED：启用，DISABLED：停用
+                     * @return TaskState 任务启用状态。一共2种状态可选，ENABLED：启用，DISABLED：停用
+                     * 
                      */
                     std::string GetTaskState() const;
 
                     /**
-                     * 设置是否启用任务,ENABLED/DISABLED
-                     * @param TaskState 是否启用任务,ENABLED/DISABLED
+                     * 设置任务启用状态。一共2种状态可选，ENABLED：启用，DISABLED：停用
+                     * @param _taskState 任务启用状态。一共2种状态可选，ENABLED：启用，DISABLED：停用
+                     * 
                      */
                     void SetTaskState(const std::string& _taskState);
 
                     /**
                      * 判断参数 TaskState 是否已赋值
                      * @return TaskState 是否已赋值
+                     * 
                      */
                     bool TaskStateHasBeenSet() const;
 
                     /**
                      * 获取任务ID
                      * @return TaskId 任务ID
+                     * 
                      */
                     std::string GetTaskId() const;
 
                     /**
                      * 设置任务ID
-                     * @param TaskId 任务ID
+                     * @param _taskId 任务ID
+                     * 
                      */
                     void SetTaskId(const std::string& _taskId);
 
                     /**
                      * 判断参数 TaskId 是否已赋值
                      * @return TaskId 是否已赋值
+                     * 
                      */
                     bool TaskIdHasBeenSet() const;
 
                     /**
                      * 获取判断任务成功的操作符
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SuccessOperator 判断任务成功的操作符
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetSuccessOperator() const;
 
                     /**
                      * 设置判断任务成功的操作符
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SuccessOperator 判断任务成功的操作符
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _successOperator 判断任务成功的操作符
+                     * 
                      */
                     void SetSuccessOperator(const std::string& _successOperator);
 
                     /**
                      * 判断参数 SuccessOperator 是否已赋值
                      * @return SuccessOperator 是否已赋值
+                     * 
                      */
                     bool SuccessOperatorHasBeenSet() const;
 
                     /**
                      * 获取判断任务成功的阈值
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return SuccessRatio 判断任务成功的阈值
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetSuccessRatio() const;
 
                     /**
                      * 设置判断任务成功的阈值
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param SuccessRatio 判断任务成功的阈值
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _successRatio 判断任务成功的阈值
+                     * 
                      */
                     void SetSuccessRatio(const int64_t& _successRatio);
 
                     /**
                      * 判断参数 SuccessRatio 是否已赋值
                      * @return SuccessRatio 是否已赋值
+                     * 
                      */
                     bool SuccessRatioHasBeenSet() const;
 
                     /**
                      * 获取分片数量
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ShardCount 分片数量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     int64_t GetShardCount() const;
 
                     /**
                      * 设置分片数量
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ShardCount 分片数量
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _shardCount 分片数量
+                     * 
                      */
                     void SetShardCount(const int64_t& _shardCount);
 
                     /**
                      * 判断参数 ShardCount 是否已赋值
                      * @return ShardCount 是否已赋值
+                     * 
                      */
                     bool ShardCountHasBeenSet() const;
 
                     /**
                      * 获取高级设置
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return AdvanceSettings 高级设置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     AdvanceSettings GetAdvanceSettings() const;
 
                     /**
                      * 设置高级设置
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param AdvanceSettings 高级设置
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _advanceSettings 高级设置
+                     * 
                      */
                     void SetAdvanceSettings(const AdvanceSettings& _advanceSettings);
 
                     /**
                      * 判断参数 AdvanceSettings 是否已赋值
                      * @return AdvanceSettings 是否已赋值
+                     * 
                      */
                     bool AdvanceSettingsHasBeenSet() const;
 
                     /**
                      * 获取分片参数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ShardArguments 分片参数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<ShardArgument> GetShardArguments() const;
 
                     /**
                      * 设置分片参数
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param ShardArguments 分片参数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _shardArguments 分片参数
+                     * 
                      */
                     void SetShardArguments(const std::vector<ShardArgument>& _shardArguments);
 
                     /**
                      * 判断参数 ShardArguments 是否已赋值
                      * @return ShardArguments 是否已赋值
+                     * 
                      */
                     bool ShardArgumentsHasBeenSet() const;
 
                     /**
                      * 获取所属工作流ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return BelongFlowIds 所属工作流ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::vector<std::string> GetBelongFlowIds() const;
 
                     /**
                      * 设置所属工作流ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param BelongFlowIds 所属工作流ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _belongFlowIds 所属工作流ID
+                     * 
                      */
                     void SetBelongFlowIds(const std::vector<std::string>& _belongFlowIds);
 
                     /**
                      * 判断参数 BelongFlowIds 是否已赋值
                      * @return BelongFlowIds 是否已赋值
+                     * 
                      */
                     bool BelongFlowIdsHasBeenSet() const;
 
                     /**
                      * 获取任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TaskLogId 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetTaskLogId() const;
 
                     /**
                      * 设置任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TaskLogId 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _taskLogId 任务历史ID
+                     * 
                      */
                     void SetTaskLogId(const std::string& _taskLogId);
 
                     /**
                      * 判断参数 TaskLogId 是否已赋值
                      * @return TaskLogId 是否已赋值
+                     * 
                      */
                     bool TaskLogIdHasBeenSet() const;
 
                     /**
-                     * 获取触发类型
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TriggerType 触发类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取触发类型，一共3种类型，WorkFlow：工作流触发，Cron：定时触发，FixRate：周期触发
+                     * @return TriggerType 触发类型，一共3种类型，WorkFlow：工作流触发，Cron：定时触发，FixRate：周期触发
+                     * 
                      */
                     std::string GetTriggerType() const;
 
                     /**
-                     * 设置触发类型
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TriggerType 触发类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置触发类型，一共3种类型，WorkFlow：工作流触发，Cron：定时触发，FixRate：周期触发
+                     * @param _triggerType 触发类型，一共3种类型，WorkFlow：工作流触发，Cron：定时触发，FixRate：周期触发
+                     * 
                      */
                     void SetTriggerType(const std::string& _triggerType);
 
                     /**
                      * 判断参数 TriggerType 是否已赋值
                      * @return TriggerType 是否已赋值
+                     * 
                      */
                     bool TriggerTypeHasBeenSet() const;
 
                     /**
                      * 获取任务参数，长度限制10000个字符
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return TaskArgument 任务参数，长度限制10000个字符
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetTaskArgument() const;
 
                     /**
                      * 设置任务参数，长度限制10000个字符
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param TaskArgument 任务参数，长度限制10000个字符
-注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _taskArgument 任务参数，长度限制10000个字符
+                     * 
                      */
                     void SetTaskArgument(const std::string& _taskArgument);
 
                     /**
                      * 判断参数 TaskArgument 是否已赋值
                      * @return TaskArgument 是否已赋值
+                     * 
                      */
                     bool TaskArgumentHasBeenSet() const;
 
@@ -468,7 +484,7 @@ namespace TencentCloud
                     bool m_taskTypeHasBeenSet;
 
                     /**
-                     * 执行类型
+                     * 任务执行方式，unicast：随机单节点执行，broadcast：广播执行，shard：分片执行
                      */
                     std::string m_executeType;
                     bool m_executeTypeHasBeenSet;
@@ -486,21 +502,19 @@ namespace TencentCloud
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * 超时时间
+                     * 超时时间，单位：毫秒。
                      */
                     int64_t m_timeOut;
                     bool m_timeOutHasBeenSet;
 
                     /**
                      * 重试次数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_retryCount;
                     bool m_retryCountHasBeenSet;
 
                     /**
-                     * 重试间隔
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 重试间隔，单位：毫秒。
                      */
                     int64_t m_retryInterval;
                     bool m_retryIntervalHasBeenSet;
@@ -512,7 +526,7 @@ namespace TencentCloud
                     bool m_taskRuleHasBeenSet;
 
                     /**
-                     * 是否启用任务,ENABLED/DISABLED
+                     * 任务启用状态。一共2种状态可选，ENABLED：启用，DISABLED：停用
                      */
                     std::string m_taskState;
                     bool m_taskStateHasBeenSet;
@@ -525,63 +539,54 @@ namespace TencentCloud
 
                     /**
                      * 判断任务成功的操作符
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_successOperator;
                     bool m_successOperatorHasBeenSet;
 
                     /**
                      * 判断任务成功的阈值
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_successRatio;
                     bool m_successRatioHasBeenSet;
 
                     /**
                      * 分片数量
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_shardCount;
                     bool m_shardCountHasBeenSet;
 
                     /**
                      * 高级设置
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AdvanceSettings m_advanceSettings;
                     bool m_advanceSettingsHasBeenSet;
 
                     /**
                      * 分片参数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ShardArgument> m_shardArguments;
                     bool m_shardArgumentsHasBeenSet;
 
                     /**
                      * 所属工作流ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_belongFlowIds;
                     bool m_belongFlowIdsHasBeenSet;
 
                     /**
                      * 任务历史ID
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskLogId;
                     bool m_taskLogIdHasBeenSet;
 
                     /**
-                     * 触发类型
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 触发类型，一共3种类型，WorkFlow：工作流触发，Cron：定时触发，FixRate：周期触发
                      */
                     std::string m_triggerType;
                     bool m_triggerTypeHasBeenSet;
 
                     /**
                      * 任务参数，长度限制10000个字符
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskArgument;
                     bool m_taskArgumentHasBeenSet;

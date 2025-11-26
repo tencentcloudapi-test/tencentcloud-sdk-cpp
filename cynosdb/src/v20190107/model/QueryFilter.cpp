@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,11 @@ using namespace TencentCloud::Cynosdb::V20190107::Model;
 using namespace std;
 
 QueryFilter::QueryFilter() :
-    m_namesHasBeenSet(false),
     m_valuesHasBeenSet(false),
+    m_namesHasBeenSet(false),
     m_exactMatchHasBeenSet(false),
-    m_nameHasBeenSet(false)
+    m_nameHasBeenSet(false),
+    m_operatorHasBeenSet(false)
 {
 }
 
@@ -32,19 +33,6 @@ CoreInternalOutcome QueryFilter::Deserialize(const rapidjson::Value &value)
 {
     string requestId = "";
 
-
-    if (value.HasMember("Names") && !value["Names"].IsNull())
-    {
-        if (!value["Names"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `QueryFilter.Names` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["Names"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_names.push_back((*itr).GetString());
-        }
-        m_namesHasBeenSet = true;
-    }
 
     if (value.HasMember("Values") && !value["Values"].IsNull())
     {
@@ -57,6 +45,19 @@ CoreInternalOutcome QueryFilter::Deserialize(const rapidjson::Value &value)
             m_values.push_back((*itr).GetString());
         }
         m_valuesHasBeenSet = true;
+    }
+
+    if (value.HasMember("Names") && !value["Names"].IsNull())
+    {
+        if (!value["Names"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `QueryFilter.Names` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Names"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_names.push_back((*itr).GetString());
+        }
+        m_namesHasBeenSet = true;
     }
 
     if (value.HasMember("ExactMatch") && !value["ExactMatch"].IsNull())
@@ -79,25 +80,22 @@ CoreInternalOutcome QueryFilter::Deserialize(const rapidjson::Value &value)
         m_nameHasBeenSet = true;
     }
 
+    if (value.HasMember("Operator") && !value["Operator"].IsNull())
+    {
+        if (!value["Operator"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `QueryFilter.Operator` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_operator = string(value["Operator"].GetString());
+        m_operatorHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
 
 void QueryFilter::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const
 {
-
-    if (m_namesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Names";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_names.begin(); itr != m_names.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
-    }
 
     if (m_valuesHasBeenSet)
     {
@@ -107,6 +105,19 @@ void QueryFilter::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
 
         for (auto itr = m_values.begin(); itr != m_values.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_namesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Names";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_names.begin(); itr != m_names.end(); ++itr)
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
@@ -128,24 +139,16 @@ void QueryFilter::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         value.AddMember(iKey, rapidjson::Value(m_name.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_operatorHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Operator";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_operator.c_str(), allocator).Move(), allocator);
+    }
+
 }
 
-
-vector<string> QueryFilter::GetNames() const
-{
-    return m_names;
-}
-
-void QueryFilter::SetNames(const vector<string>& _names)
-{
-    m_names = _names;
-    m_namesHasBeenSet = true;
-}
-
-bool QueryFilter::NamesHasBeenSet() const
-{
-    return m_namesHasBeenSet;
-}
 
 vector<string> QueryFilter::GetValues() const
 {
@@ -161,6 +164,22 @@ void QueryFilter::SetValues(const vector<string>& _values)
 bool QueryFilter::ValuesHasBeenSet() const
 {
     return m_valuesHasBeenSet;
+}
+
+vector<string> QueryFilter::GetNames() const
+{
+    return m_names;
+}
+
+void QueryFilter::SetNames(const vector<string>& _names)
+{
+    m_names = _names;
+    m_namesHasBeenSet = true;
+}
+
+bool QueryFilter::NamesHasBeenSet() const
+{
+    return m_namesHasBeenSet;
 }
 
 bool QueryFilter::GetExactMatch() const
@@ -193,5 +212,21 @@ void QueryFilter::SetName(const string& _name)
 bool QueryFilter::NameHasBeenSet() const
 {
     return m_nameHasBeenSet;
+}
+
+string QueryFilter::GetOperator() const
+{
+    return m_operator;
+}
+
+void QueryFilter::SetOperator(const string& _operator)
+{
+    m_operator = _operator;
+    m_operatorHasBeenSet = true;
+}
+
+bool QueryFilter::OperatorHasBeenSet() const
+{
+    return m_operatorHasBeenSet;
 }
 

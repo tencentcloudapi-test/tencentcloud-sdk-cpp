@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,9 @@ using namespace std;
 ConnectionDescription::ConnectionDescription() :
     m_resourceDescriptionHasBeenSet(false),
     m_aPIGWParamsHasBeenSet(false),
-    m_ckafkaParamsHasBeenSet(false)
+    m_ckafkaParamsHasBeenSet(false),
+    m_dTSParamsHasBeenSet(false),
+    m_tDMQParamsHasBeenSet(false)
 {
 }
 
@@ -76,6 +78,40 @@ CoreInternalOutcome ConnectionDescription::Deserialize(const rapidjson::Value &v
         m_ckafkaParamsHasBeenSet = true;
     }
 
+    if (value.HasMember("DTSParams") && !value["DTSParams"].IsNull())
+    {
+        if (!value["DTSParams"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ConnectionDescription.DTSParams` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_dTSParams.Deserialize(value["DTSParams"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_dTSParamsHasBeenSet = true;
+    }
+
+    if (value.HasMember("TDMQParams") && !value["TDMQParams"].IsNull())
+    {
+        if (!value["TDMQParams"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `ConnectionDescription.TDMQParams` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_tDMQParams.Deserialize(value["TDMQParams"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_tDMQParamsHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -107,6 +143,24 @@ void ConnectionDescription::ToJsonObject(rapidjson::Value &value, rapidjson::Doc
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_ckafkaParams.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_dTSParamsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DTSParams";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_dTSParams.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_tDMQParamsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TDMQParams";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_tDMQParams.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -158,5 +212,37 @@ void ConnectionDescription::SetCkafkaParams(const CkafkaParams& _ckafkaParams)
 bool ConnectionDescription::CkafkaParamsHasBeenSet() const
 {
     return m_ckafkaParamsHasBeenSet;
+}
+
+DTSParams ConnectionDescription::GetDTSParams() const
+{
+    return m_dTSParams;
+}
+
+void ConnectionDescription::SetDTSParams(const DTSParams& _dTSParams)
+{
+    m_dTSParams = _dTSParams;
+    m_dTSParamsHasBeenSet = true;
+}
+
+bool ConnectionDescription::DTSParamsHasBeenSet() const
+{
+    return m_dTSParamsHasBeenSet;
+}
+
+TDMQParams ConnectionDescription::GetTDMQParams() const
+{
+    return m_tDMQParams;
+}
+
+void ConnectionDescription::SetTDMQParams(const TDMQParams& _tDMQParams)
+{
+    m_tDMQParams = _tDMQParams;
+    m_tDMQParamsHasBeenSet = true;
+}
+
+bool ConnectionDescription::TDMQParamsHasBeenSet() const
+{
+    return m_tDMQParamsHasBeenSet;
 }
 

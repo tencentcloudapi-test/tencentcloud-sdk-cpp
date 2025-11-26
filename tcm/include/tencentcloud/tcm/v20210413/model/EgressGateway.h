@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tcm/v20210413/model/WorkloadConfig.h>
+#include <tencentcloud/tcm/v20210413/model/EgressGatewayStatus.h>
 
 
 namespace TencentCloud
@@ -50,56 +51,86 @@ namespace TencentCloud
                     /**
                      * 获取Egress名称
                      * @return Name Egress名称
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置Egress名称
-                     * @param Name Egress名称
+                     * @param _name Egress名称
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                     /**
                      * 获取所在的Namespace
                      * @return Namespace 所在的Namespace
+                     * 
                      */
                     std::string GetNamespace() const;
 
                     /**
                      * 设置所在的Namespace
-                     * @param Namespace 所在的Namespace
+                     * @param _namespace 所在的Namespace
+                     * 
                      */
                     void SetNamespace(const std::string& _namespace);
 
                     /**
                      * 判断参数 Namespace 是否已赋值
                      * @return Namespace 是否已赋值
+                     * 
                      */
                     bool NamespaceHasBeenSet() const;
 
                     /**
                      * 获取工作负载配置
                      * @return Workload 工作负载配置
+                     * 
                      */
                     WorkloadConfig GetWorkload() const;
 
                     /**
                      * 设置工作负载配置
-                     * @param Workload 工作负载配置
+                     * @param _workload 工作负载配置
+                     * 
                      */
                     void SetWorkload(const WorkloadConfig& _workload);
 
                     /**
                      * 判断参数 Workload 是否已赋值
                      * @return Workload 是否已赋值
+                     * 
                      */
                     bool WorkloadHasBeenSet() const;
+
+                    /**
+                     * 获取工作负载的状态
+                     * @return Status 工作负载的状态
+                     * 
+                     */
+                    EgressGatewayStatus GetStatus() const;
+
+                    /**
+                     * 设置工作负载的状态
+                     * @param _status 工作负载的状态
+                     * 
+                     */
+                    void SetStatus(const EgressGatewayStatus& _status);
+
+                    /**
+                     * 判断参数 Status 是否已赋值
+                     * @return Status 是否已赋值
+                     * 
+                     */
+                    bool StatusHasBeenSet() const;
 
                 private:
 
@@ -120,6 +151,12 @@ namespace TencentCloud
                      */
                     WorkloadConfig m_workload;
                     bool m_workloadHasBeenSet;
+
+                    /**
+                     * 工作负载的状态
+                     */
+                    EgressGatewayStatus m_status;
+                    bool m_statusHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ using namespace std;
 
 AutoScalingAdvice::AutoScalingAdvice() :
     m_autoScalingGroupIdHasBeenSet(false),
+    m_levelHasBeenSet(false),
     m_advicesHasBeenSet(false)
 {
 }
@@ -39,6 +40,16 @@ CoreInternalOutcome AutoScalingAdvice::Deserialize(const rapidjson::Value &value
         }
         m_autoScalingGroupId = string(value["AutoScalingGroupId"].GetString());
         m_autoScalingGroupIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Level") && !value["Level"].IsNull())
+    {
+        if (!value["Level"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AutoScalingAdvice.Level` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_level = string(value["Level"].GetString());
+        m_levelHasBeenSet = true;
     }
 
     if (value.HasMember("Advices") && !value["Advices"].IsNull())
@@ -76,6 +87,14 @@ void AutoScalingAdvice::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         value.AddMember(iKey, rapidjson::Value(m_autoScalingGroupId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_levelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Level";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_level.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_advicesHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -108,6 +127,22 @@ void AutoScalingAdvice::SetAutoScalingGroupId(const string& _autoScalingGroupId)
 bool AutoScalingAdvice::AutoScalingGroupIdHasBeenSet() const
 {
     return m_autoScalingGroupIdHasBeenSet;
+}
+
+string AutoScalingAdvice::GetLevel() const
+{
+    return m_level;
+}
+
+void AutoScalingAdvice::SetLevel(const string& _level)
+{
+    m_level = _level;
+    m_levelHasBeenSet = true;
+}
+
+bool AutoScalingAdvice::LevelHasBeenSet() const
+{
+    return m_levelHasBeenSet;
 }
 
 vector<Advice> AutoScalingAdvice::GetAdvices() const

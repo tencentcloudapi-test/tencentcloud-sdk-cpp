@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Tcss::V20201101::Model;
 using namespace std;
 
-DescribeAssetImageRegistrySummaryResponse::DescribeAssetImageRegistrySummaryResponse()
+DescribeAssetImageRegistrySummaryResponse::DescribeAssetImageRegistrySummaryResponse() :
+    m_unScannedImageCntHasBeenSet(false)
 {
 }
 
@@ -61,6 +62,16 @@ CoreInternalOutcome DescribeAssetImageRegistrySummaryResponse::Deserialize(const
     }
 
 
+    if (rsp.HasMember("UnScannedImageCnt") && !rsp["UnScannedImageCnt"].IsNull())
+    {
+        if (!rsp["UnScannedImageCnt"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `UnScannedImageCnt` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_unScannedImageCnt = rsp["UnScannedImageCnt"].GetUint64();
+        m_unScannedImageCntHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -71,16 +82,34 @@ string DescribeAssetImageRegistrySummaryResponse::ToJsonString() const
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
 
+    if (m_unScannedImageCntHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UnScannedImageCnt";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_unScannedImageCnt, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
     value.AddMember(iKey, rapidjson::Value().SetString(GetRequestId().c_str(), allocator), allocator);
-    
+
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     value.Accept(writer);
     return buffer.GetString();
 }
 
+
+uint64_t DescribeAssetImageRegistrySummaryResponse::GetUnScannedImageCnt() const
+{
+    return m_unScannedImageCnt;
+}
+
+bool DescribeAssetImageRegistrySummaryResponse::UnScannedImageCntHasBeenSet() const
+{
+    return m_unScannedImageCntHasBeenSet;
+}
 
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取约定用入参，默认不涉及默认BusinessSecurityData 与BusinessCrptoData 不传
                      * @return CryptoType 约定用入参，默认不涉及默认BusinessSecurityData 与BusinessCrptoData 不传
+                     * 
                      */
                     std::string GetCryptoType() const;
 
                     /**
                      * 设置约定用入参，默认不涉及默认BusinessSecurityData 与BusinessCrptoData 不传
-                     * @param CryptoType 约定用入参，默认不涉及默认BusinessSecurityData 与BusinessCrptoData 不传
+                     * @param _cryptoType 约定用入参，默认不涉及默认BusinessSecurityData 与BusinessCrptoData 不传
+                     * 
                      */
                     void SetCryptoType(const std::string& _cryptoType);
 
                     /**
                      * 判断参数 CryptoType 是否已赋值
                      * @return CryptoType 是否已赋值
+                     * 
                      */
                     bool CryptoTypeHasBeenSet() const;
 
                     /**
                      * 获取约定用入参，默认不涉及
                      * @return CryptoContent 约定用入参，默认不涉及
+                     * 
                      */
                     std::string GetCryptoContent() const;
 
                     /**
                      * 设置约定用入参，默认不涉及
-                     * @param CryptoContent 约定用入参，默认不涉及
+                     * @param _cryptoContent 约定用入参，默认不涉及
+                     * 
                      */
                     void SetCryptoContent(const std::string& _cryptoContent);
 
                     /**
                      * 判断参数 CryptoContent 是否已赋值
                      * @return CryptoContent 是否已赋值
+                     * 
                      */
                     bool CryptoContentHasBeenSet() const;
 

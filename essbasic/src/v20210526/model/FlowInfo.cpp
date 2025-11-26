@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,13 +24,18 @@ FlowInfo::FlowInfo() :
     m_flowNameHasBeenSet(false),
     m_deadlineHasBeenSet(false),
     m_templateIdHasBeenSet(false),
-    m_flowTypeHasBeenSet(false),
-    m_callbackUrlHasBeenSet(false),
     m_flowApproversHasBeenSet(false),
     m_formFieldsHasBeenSet(false),
+    m_callbackUrlHasBeenSet(false),
+    m_flowTypeHasBeenSet(false),
     m_flowDescriptionHasBeenSet(false),
     m_customerDataHasBeenSet(false),
-    m_ccInfosHasBeenSet(false)
+    m_customShowMapHasBeenSet(false),
+    m_ccInfosHasBeenSet(false),
+    m_needSignReviewHasBeenSet(false),
+    m_ccNotifyTypeHasBeenSet(false),
+    m_autoSignSceneHasBeenSet(false),
+    m_flowDisplayTypeHasBeenSet(false)
 {
 }
 
@@ -67,26 +72,6 @@ CoreInternalOutcome FlowInfo::Deserialize(const rapidjson::Value &value)
         }
         m_templateId = string(value["TemplateId"].GetString());
         m_templateIdHasBeenSet = true;
-    }
-
-    if (value.HasMember("FlowType") && !value["FlowType"].IsNull())
-    {
-        if (!value["FlowType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `FlowInfo.FlowType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_flowType = string(value["FlowType"].GetString());
-        m_flowTypeHasBeenSet = true;
-    }
-
-    if (value.HasMember("CallbackUrl") && !value["CallbackUrl"].IsNull())
-    {
-        if (!value["CallbackUrl"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `FlowInfo.CallbackUrl` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_callbackUrl = string(value["CallbackUrl"].GetString());
-        m_callbackUrlHasBeenSet = true;
     }
 
     if (value.HasMember("FlowApprovers") && !value["FlowApprovers"].IsNull())
@@ -129,6 +114,26 @@ CoreInternalOutcome FlowInfo::Deserialize(const rapidjson::Value &value)
         m_formFieldsHasBeenSet = true;
     }
 
+    if (value.HasMember("CallbackUrl") && !value["CallbackUrl"].IsNull())
+    {
+        if (!value["CallbackUrl"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowInfo.CallbackUrl` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_callbackUrl = string(value["CallbackUrl"].GetString());
+        m_callbackUrlHasBeenSet = true;
+    }
+
+    if (value.HasMember("FlowType") && !value["FlowType"].IsNull())
+    {
+        if (!value["FlowType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowInfo.FlowType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_flowType = string(value["FlowType"].GetString());
+        m_flowTypeHasBeenSet = true;
+    }
+
     if (value.HasMember("FlowDescription") && !value["FlowDescription"].IsNull())
     {
         if (!value["FlowDescription"].IsString())
@@ -149,6 +154,16 @@ CoreInternalOutcome FlowInfo::Deserialize(const rapidjson::Value &value)
         m_customerDataHasBeenSet = true;
     }
 
+    if (value.HasMember("CustomShowMap") && !value["CustomShowMap"].IsNull())
+    {
+        if (!value["CustomShowMap"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowInfo.CustomShowMap` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_customShowMap = string(value["CustomShowMap"].GetString());
+        m_customShowMapHasBeenSet = true;
+    }
+
     if (value.HasMember("CcInfos") && !value["CcInfos"].IsNull())
     {
         if (!value["CcInfos"].IsArray())
@@ -167,6 +182,46 @@ CoreInternalOutcome FlowInfo::Deserialize(const rapidjson::Value &value)
             m_ccInfos.push_back(item);
         }
         m_ccInfosHasBeenSet = true;
+    }
+
+    if (value.HasMember("NeedSignReview") && !value["NeedSignReview"].IsNull())
+    {
+        if (!value["NeedSignReview"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowInfo.NeedSignReview` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_needSignReview = value["NeedSignReview"].GetBool();
+        m_needSignReviewHasBeenSet = true;
+    }
+
+    if (value.HasMember("CcNotifyType") && !value["CcNotifyType"].IsNull())
+    {
+        if (!value["CcNotifyType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowInfo.CcNotifyType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_ccNotifyType = value["CcNotifyType"].GetInt64();
+        m_ccNotifyTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoSignScene") && !value["AutoSignScene"].IsNull())
+    {
+        if (!value["AutoSignScene"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowInfo.AutoSignScene` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoSignScene = string(value["AutoSignScene"].GetString());
+        m_autoSignSceneHasBeenSet = true;
+    }
+
+    if (value.HasMember("FlowDisplayType") && !value["FlowDisplayType"].IsNull())
+    {
+        if (!value["FlowDisplayType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `FlowInfo.FlowDisplayType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_flowDisplayType = value["FlowDisplayType"].GetInt64();
+        m_flowDisplayTypeHasBeenSet = true;
     }
 
 
@@ -200,22 +255,6 @@ void FlowInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         value.AddMember(iKey, rapidjson::Value(m_templateId.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_flowTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FlowType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_flowType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_callbackUrlHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CallbackUrl";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_callbackUrl.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_flowApproversHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -246,6 +285,22 @@ void FlowInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         }
     }
 
+    if (m_callbackUrlHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CallbackUrl";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_callbackUrl.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_flowTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlowType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_flowType.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_flowDescriptionHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -262,6 +317,14 @@ void FlowInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         value.AddMember(iKey, rapidjson::Value(m_customerData.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_customShowMapHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CustomShowMap";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_customShowMap.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_ccInfosHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -275,6 +338,38 @@ void FlowInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
+    }
+
+    if (m_needSignReviewHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "NeedSignReview";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_needSignReview, allocator);
+    }
+
+    if (m_ccNotifyTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "CcNotifyType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_ccNotifyType, allocator);
+    }
+
+    if (m_autoSignSceneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoSignScene";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_autoSignScene.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_flowDisplayTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlowDisplayType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_flowDisplayType, allocator);
     }
 
 }
@@ -328,38 +423,6 @@ bool FlowInfo::TemplateIdHasBeenSet() const
     return m_templateIdHasBeenSet;
 }
 
-string FlowInfo::GetFlowType() const
-{
-    return m_flowType;
-}
-
-void FlowInfo::SetFlowType(const string& _flowType)
-{
-    m_flowType = _flowType;
-    m_flowTypeHasBeenSet = true;
-}
-
-bool FlowInfo::FlowTypeHasBeenSet() const
-{
-    return m_flowTypeHasBeenSet;
-}
-
-string FlowInfo::GetCallbackUrl() const
-{
-    return m_callbackUrl;
-}
-
-void FlowInfo::SetCallbackUrl(const string& _callbackUrl)
-{
-    m_callbackUrl = _callbackUrl;
-    m_callbackUrlHasBeenSet = true;
-}
-
-bool FlowInfo::CallbackUrlHasBeenSet() const
-{
-    return m_callbackUrlHasBeenSet;
-}
-
 vector<FlowApproverInfo> FlowInfo::GetFlowApprovers() const
 {
     return m_flowApprovers;
@@ -390,6 +453,38 @@ void FlowInfo::SetFormFields(const vector<FormField>& _formFields)
 bool FlowInfo::FormFieldsHasBeenSet() const
 {
     return m_formFieldsHasBeenSet;
+}
+
+string FlowInfo::GetCallbackUrl() const
+{
+    return m_callbackUrl;
+}
+
+void FlowInfo::SetCallbackUrl(const string& _callbackUrl)
+{
+    m_callbackUrl = _callbackUrl;
+    m_callbackUrlHasBeenSet = true;
+}
+
+bool FlowInfo::CallbackUrlHasBeenSet() const
+{
+    return m_callbackUrlHasBeenSet;
+}
+
+string FlowInfo::GetFlowType() const
+{
+    return m_flowType;
+}
+
+void FlowInfo::SetFlowType(const string& _flowType)
+{
+    m_flowType = _flowType;
+    m_flowTypeHasBeenSet = true;
+}
+
+bool FlowInfo::FlowTypeHasBeenSet() const
+{
+    return m_flowTypeHasBeenSet;
 }
 
 string FlowInfo::GetFlowDescription() const
@@ -424,6 +519,22 @@ bool FlowInfo::CustomerDataHasBeenSet() const
     return m_customerDataHasBeenSet;
 }
 
+string FlowInfo::GetCustomShowMap() const
+{
+    return m_customShowMap;
+}
+
+void FlowInfo::SetCustomShowMap(const string& _customShowMap)
+{
+    m_customShowMap = _customShowMap;
+    m_customShowMapHasBeenSet = true;
+}
+
+bool FlowInfo::CustomShowMapHasBeenSet() const
+{
+    return m_customShowMapHasBeenSet;
+}
+
 vector<CcInfo> FlowInfo::GetCcInfos() const
 {
     return m_ccInfos;
@@ -438,5 +549,69 @@ void FlowInfo::SetCcInfos(const vector<CcInfo>& _ccInfos)
 bool FlowInfo::CcInfosHasBeenSet() const
 {
     return m_ccInfosHasBeenSet;
+}
+
+bool FlowInfo::GetNeedSignReview() const
+{
+    return m_needSignReview;
+}
+
+void FlowInfo::SetNeedSignReview(const bool& _needSignReview)
+{
+    m_needSignReview = _needSignReview;
+    m_needSignReviewHasBeenSet = true;
+}
+
+bool FlowInfo::NeedSignReviewHasBeenSet() const
+{
+    return m_needSignReviewHasBeenSet;
+}
+
+int64_t FlowInfo::GetCcNotifyType() const
+{
+    return m_ccNotifyType;
+}
+
+void FlowInfo::SetCcNotifyType(const int64_t& _ccNotifyType)
+{
+    m_ccNotifyType = _ccNotifyType;
+    m_ccNotifyTypeHasBeenSet = true;
+}
+
+bool FlowInfo::CcNotifyTypeHasBeenSet() const
+{
+    return m_ccNotifyTypeHasBeenSet;
+}
+
+string FlowInfo::GetAutoSignScene() const
+{
+    return m_autoSignScene;
+}
+
+void FlowInfo::SetAutoSignScene(const string& _autoSignScene)
+{
+    m_autoSignScene = _autoSignScene;
+    m_autoSignSceneHasBeenSet = true;
+}
+
+bool FlowInfo::AutoSignSceneHasBeenSet() const
+{
+    return m_autoSignSceneHasBeenSet;
+}
+
+int64_t FlowInfo::GetFlowDisplayType() const
+{
+    return m_flowDisplayType;
+}
+
+void FlowInfo::SetFlowDisplayType(const int64_t& _flowDisplayType)
+{
+    m_flowDisplayType = _flowDisplayType;
+    m_flowDisplayTypeHasBeenSet = true;
+}
+
+bool FlowInfo::FlowDisplayTypeHasBeenSet() const
+{
+    return m_flowDisplayTypeHasBeenSet;
 }
 

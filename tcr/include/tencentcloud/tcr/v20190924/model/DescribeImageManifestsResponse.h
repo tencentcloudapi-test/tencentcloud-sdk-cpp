@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/tcr/v20190924/model/KeyValueString.h>
 
 
 namespace TencentCloud
@@ -46,26 +47,58 @@ namespace TencentCloud
                     /**
                      * 获取镜像的Manifest信息
                      * @return Manifest 镜像的Manifest信息
+                     * 
                      */
                     std::string GetManifest() const;
 
                     /**
                      * 判断参数 Manifest 是否已赋值
                      * @return Manifest 是否已赋值
+                     * 
                      */
                     bool ManifestHasBeenSet() const;
 
                     /**
                      * 获取镜像的配置信息
                      * @return Config 镜像的配置信息
+                     * 
                      */
                     std::string GetConfig() const;
 
                     /**
                      * 判断参数 Config 是否已赋值
                      * @return Config 是否已赋值
+                     * 
                      */
                     bool ConfigHasBeenSet() const;
+
+                    /**
+                     * 获取镜像的Labels信息
+                     * @return Labels 镜像的Labels信息
+                     * 
+                     */
+                    std::vector<KeyValueString> GetLabels() const;
+
+                    /**
+                     * 判断参数 Labels 是否已赋值
+                     * @return Labels 是否已赋值
+                     * 
+                     */
+                    bool LabelsHasBeenSet() const;
+
+                    /**
+                     * 获取镜像大小，单位：byte
+                     * @return Size 镜像大小，单位：byte
+                     * 
+                     */
+                    int64_t GetSize() const;
+
+                    /**
+                     * 判断参数 Size 是否已赋值
+                     * @return Size 是否已赋值
+                     * 
+                     */
+                    bool SizeHasBeenSet() const;
 
                 private:
 
@@ -80,6 +113,18 @@ namespace TencentCloud
                      */
                     std::string m_config;
                     bool m_configHasBeenSet;
+
+                    /**
+                     * 镜像的Labels信息
+                     */
+                    std::vector<KeyValueString> m_labels;
+                    bool m_labelsHasBeenSet;
+
+                    /**
+                     * 镜像大小，单位：byte
+                     */
+                    int64_t m_size;
+                    bool m_sizeHasBeenSet;
 
                 };
             }

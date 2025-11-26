@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,71 +45,71 @@ namespace TencentCloud
 
                     /**
                      * 获取最后检测时间
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return LatestScanTime 最后检测时间
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetLatestScanTime() const;
 
                     /**
                      * 判断参数 LatestScanTime 是否已赋值
                      * @return LatestScanTime 是否已赋值
+                     * 
                      */
                     bool LatestScanTimeHasBeenSet() const;
 
                     /**
                      * 获取是否全部服务器：1-是 0-否
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return IsGlobal 是否全部服务器：1-是 0-否
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetIsGlobal() const;
 
                     /**
                      * 判断参数 IsGlobal 是否已赋值
                      * @return IsGlobal 是否已赋值
+                     * 
                      */
                     bool IsGlobalHasBeenSet() const;
 
                     /**
                      * 获取服务器总数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScanHostCount 服务器总数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetScanHostCount() const;
 
                     /**
                      * 判断参数 ScanHostCount 是否已赋值
                      * @return ScanHostCount 是否已赋值
+                     * 
                      */
                     bool ScanHostCountHasBeenSet() const;
 
                     /**
                      * 获取检测项总数
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScanRuleCount 检测项总数
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetScanRuleCount() const;
 
                     /**
                      * 判断参数 ScanRuleCount 是否已赋值
                      * @return ScanRuleCount 是否已赋值
+                     * 
                      */
                     bool ScanRuleCountHasBeenSet() const;
 
                     /**
                      * 获取是否是第一次检测  1是 0不是
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return IfFirstScan 是否是第一次检测  1是 0不是
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     uint64_t GetIfFirstScan() const;
 
                     /**
                      * 判断参数 IfFirstScan 是否已赋值
                      * @return IfFirstScan 是否已赋值
+                     * 
                      */
                     bool IfFirstScanHasBeenSet() const;
 
@@ -117,35 +117,30 @@ namespace TencentCloud
 
                     /**
                      * 最后检测时间
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_latestScanTime;
                     bool m_latestScanTimeHasBeenSet;
 
                     /**
                      * 是否全部服务器：1-是 0-否
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_isGlobal;
                     bool m_isGlobalHasBeenSet;
 
                     /**
                      * 服务器总数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_scanHostCount;
                     bool m_scanHostCountHasBeenSet;
 
                     /**
                      * 检测项总数
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_scanRuleCount;
                     bool m_scanRuleCountHasBeenSet;
 
                     /**
                      * 是否是第一次检测  1是 0不是
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_ifFirstScan;
                     bool m_ifFirstScanHasBeenSet;

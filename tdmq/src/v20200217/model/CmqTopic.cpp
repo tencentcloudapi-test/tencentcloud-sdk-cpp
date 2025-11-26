@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,10 @@ CmqTopic::CmqTopic() :
     m_tagsHasBeenSet(false),
     m_traceHasBeenSet(false),
     m_tenantIdHasBeenSet(false),
-    m_namespaceNameHasBeenSet(false)
+    m_namespaceNameHasBeenSet(false),
+    m_statusHasBeenSet(false),
+    m_brokerTypeHasBeenSet(false),
+    m_subscriptionCountHasBeenSet(false)
 {
 }
 
@@ -193,6 +196,36 @@ CoreInternalOutcome CmqTopic::Deserialize(const rapidjson::Value &value)
         m_namespaceNameHasBeenSet = true;
     }
 
+    if (value.HasMember("Status") && !value["Status"].IsNull())
+    {
+        if (!value["Status"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CmqTopic.Status` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_status = value["Status"].GetInt64();
+        m_statusHasBeenSet = true;
+    }
+
+    if (value.HasMember("BrokerType") && !value["BrokerType"].IsNull())
+    {
+        if (!value["BrokerType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CmqTopic.BrokerType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_brokerType = value["BrokerType"].GetInt64();
+        m_brokerTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("SubscriptionCount") && !value["SubscriptionCount"].IsNull())
+    {
+        if (!value["SubscriptionCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `CmqTopic.SubscriptionCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_subscriptionCount = value["SubscriptionCount"].GetInt64();
+        m_subscriptionCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -317,6 +350,30 @@ void CmqTopic::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "NamespaceName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_namespaceName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_statusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Status";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_status, allocator);
+    }
+
+    if (m_brokerTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "BrokerType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_brokerType, allocator);
+    }
+
+    if (m_subscriptionCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubscriptionCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_subscriptionCount, allocator);
     }
 
 }
@@ -544,5 +601,53 @@ void CmqTopic::SetNamespaceName(const string& _namespaceName)
 bool CmqTopic::NamespaceNameHasBeenSet() const
 {
     return m_namespaceNameHasBeenSet;
+}
+
+int64_t CmqTopic::GetStatus() const
+{
+    return m_status;
+}
+
+void CmqTopic::SetStatus(const int64_t& _status)
+{
+    m_status = _status;
+    m_statusHasBeenSet = true;
+}
+
+bool CmqTopic::StatusHasBeenSet() const
+{
+    return m_statusHasBeenSet;
+}
+
+int64_t CmqTopic::GetBrokerType() const
+{
+    return m_brokerType;
+}
+
+void CmqTopic::SetBrokerType(const int64_t& _brokerType)
+{
+    m_brokerType = _brokerType;
+    m_brokerTypeHasBeenSet = true;
+}
+
+bool CmqTopic::BrokerTypeHasBeenSet() const
+{
+    return m_brokerTypeHasBeenSet;
+}
+
+int64_t CmqTopic::GetSubscriptionCount() const
+{
+    return m_subscriptionCount;
+}
+
+void CmqTopic::SetSubscriptionCount(const int64_t& _subscriptionCount)
+{
+    m_subscriptionCount = _subscriptionCount;
+    m_subscriptionCountHasBeenSet = true;
+}
+
+bool CmqTopic::SubscriptionCountHasBeenSet() const
+{
+    return m_subscriptionCountHasBeenSet;
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,12 @@ CreateTawInstanceRequest::CreateTawInstanceRequest() :
     m_instanceDescHasBeenSet(false),
     m_countNumHasBeenSet(false),
     m_periodRetainHasBeenSet(false),
-    m_buyingChannelHasBeenSet(false)
+    m_buyingChannelHasBeenSet(false),
+    m_resourcePackageTypeHasBeenSet(false),
+    m_resourcePackageNumHasBeenSet(false),
+    m_instanceTypeHasBeenSet(false),
+    m_autoRenewalTypeHasBeenSet(false),
+    m_autoRenewalThresholdHasBeenSet(false)
 {
 }
 
@@ -119,6 +124,46 @@ string CreateTawInstanceRequest::ToJsonString() const
         string key = "BuyingChannel";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_buyingChannel.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_resourcePackageTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourcePackageType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_resourcePackageType, allocator);
+    }
+
+    if (m_resourcePackageNumHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ResourcePackageNum";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_resourcePackageNum, allocator);
+    }
+
+    if (m_instanceTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "InstanceType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_instanceType, allocator);
+    }
+
+    if (m_autoRenewalTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRenewalType";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoRenewalType, allocator);
+    }
+
+    if (m_autoRenewalThresholdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoRenewalThreshold";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_autoRenewalThreshold, allocator);
     }
 
 
@@ -271,6 +316,86 @@ void CreateTawInstanceRequest::SetBuyingChannel(const string& _buyingChannel)
 bool CreateTawInstanceRequest::BuyingChannelHasBeenSet() const
 {
     return m_buyingChannelHasBeenSet;
+}
+
+uint64_t CreateTawInstanceRequest::GetResourcePackageType() const
+{
+    return m_resourcePackageType;
+}
+
+void CreateTawInstanceRequest::SetResourcePackageType(const uint64_t& _resourcePackageType)
+{
+    m_resourcePackageType = _resourcePackageType;
+    m_resourcePackageTypeHasBeenSet = true;
+}
+
+bool CreateTawInstanceRequest::ResourcePackageTypeHasBeenSet() const
+{
+    return m_resourcePackageTypeHasBeenSet;
+}
+
+uint64_t CreateTawInstanceRequest::GetResourcePackageNum() const
+{
+    return m_resourcePackageNum;
+}
+
+void CreateTawInstanceRequest::SetResourcePackageNum(const uint64_t& _resourcePackageNum)
+{
+    m_resourcePackageNum = _resourcePackageNum;
+    m_resourcePackageNumHasBeenSet = true;
+}
+
+bool CreateTawInstanceRequest::ResourcePackageNumHasBeenSet() const
+{
+    return m_resourcePackageNumHasBeenSet;
+}
+
+int64_t CreateTawInstanceRequest::GetInstanceType() const
+{
+    return m_instanceType;
+}
+
+void CreateTawInstanceRequest::SetInstanceType(const int64_t& _instanceType)
+{
+    m_instanceType = _instanceType;
+    m_instanceTypeHasBeenSet = true;
+}
+
+bool CreateTawInstanceRequest::InstanceTypeHasBeenSet() const
+{
+    return m_instanceTypeHasBeenSet;
+}
+
+int64_t CreateTawInstanceRequest::GetAutoRenewalType() const
+{
+    return m_autoRenewalType;
+}
+
+void CreateTawInstanceRequest::SetAutoRenewalType(const int64_t& _autoRenewalType)
+{
+    m_autoRenewalType = _autoRenewalType;
+    m_autoRenewalTypeHasBeenSet = true;
+}
+
+bool CreateTawInstanceRequest::AutoRenewalTypeHasBeenSet() const
+{
+    return m_autoRenewalTypeHasBeenSet;
+}
+
+int64_t CreateTawInstanceRequest::GetAutoRenewalThreshold() const
+{
+    return m_autoRenewalThreshold;
+}
+
+void CreateTawInstanceRequest::SetAutoRenewalThreshold(const int64_t& _autoRenewalThreshold)
+{
+    m_autoRenewalThreshold = _autoRenewalThreshold;
+    m_autoRenewalThresholdHasBeenSet = true;
+}
+
+bool CreateTawInstanceRequest::AutoRenewalThresholdHasBeenSet() const
+{
+    return m_autoRenewalThresholdHasBeenSet;
 }
 
 

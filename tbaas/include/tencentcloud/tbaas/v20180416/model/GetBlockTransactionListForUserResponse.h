@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,24 +47,28 @@ namespace TencentCloud
                     /**
                      * 获取交易总数量
                      * @return TotalCount 交易总数量
+                     * 
                      */
                     uint64_t GetTotalCount() const;
 
                     /**
                      * 判断参数 TotalCount 是否已赋值
                      * @return TotalCount 是否已赋值
+                     * 
                      */
                     bool TotalCountHasBeenSet() const;
 
                     /**
                      * 获取交易列表
                      * @return TransactionList 交易列表
+                     * 
                      */
                     std::vector<TransactionItem> GetTransactionList() const;
 
                     /**
                      * 判断参数 TransactionList 是否已赋值
                      * @return TransactionList 是否已赋值
+                     * 
                      */
                     bool TransactionListHasBeenSet() const;
 

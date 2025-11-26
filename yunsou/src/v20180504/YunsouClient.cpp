@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,25 +62,32 @@ YunsouClient::DataManipulationOutcome YunsouClient::DataManipulation(const DataM
 
 void YunsouClient::DataManipulationAsync(const DataManipulationRequest& request, const DataManipulationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DataManipulation(request), context);
-    };
+    using Req = const DataManipulationRequest&;
+    using Resp = DataManipulationResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DataManipulation", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 YunsouClient::DataManipulationOutcomeCallable YunsouClient::DataManipulationCallable(const DataManipulationRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DataManipulationOutcome()>>(
-        [this, request]()
-        {
-            return this->DataManipulation(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DataManipulationOutcome>>();
+    DataManipulationAsync(
+    request,
+    [prom](
+        const YunsouClient*,
+        const DataManipulationRequest&,
+        DataManipulationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 YunsouClient::DataSearchOutcome YunsouClient::DataSearch(const DataSearchRequest &request)
@@ -105,24 +112,31 @@ YunsouClient::DataSearchOutcome YunsouClient::DataSearch(const DataSearchRequest
 
 void YunsouClient::DataSearchAsync(const DataSearchRequest& request, const DataSearchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DataSearch(request), context);
-    };
+    using Req = const DataSearchRequest&;
+    using Resp = DataSearchResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DataSearch", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 YunsouClient::DataSearchOutcomeCallable YunsouClient::DataSearchCallable(const DataSearchRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DataSearchOutcome()>>(
-        [this, request]()
-        {
-            return this->DataSearch(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DataSearchOutcome>>();
+    DataSearchAsync(
+    request,
+    [prom](
+        const YunsouClient*,
+        const DataSearchRequest&,
+        DataSearchOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,51 +45,52 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Status Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取 同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul>
+                     * @return Status  同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul>
+                     * 
                      */
                     int64_t GetStatus() const;
 
                     /**
                      * 判断参数 Status 是否已赋值
                      * @return Status 是否已赋值
+                     * 
                      */
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FailedList 同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取同步失败员工ID及其失败原因
+                     * @return FailedList 同步失败员工ID及其失败原因
+                     * 
                      */
                     std::vector<SyncFailReason> GetFailedList() const;
 
                     /**
                      * 判断参数 FailedList 是否已赋值
                      * @return FailedList 是否已赋值
+                     * 
                      */
                     bool FailedListHasBeenSet() const;
 
                 private:
 
                     /**
-                     * Status 同步状态,全部同步失败接口会直接报错
-1-成功 
-2-部分成功
-注意：此字段可能返回 null，表示取不到有效值。
+                     *  同步的状态,  全部同步失败接口是接口会直接报错
+
+<ul><li> **1** :全部成功</li>
+<li> **2** :部分成功</li></ul>
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * 同步失败经办人及其失败原因
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 同步失败员工ID及其失败原因
                      */
                     std::vector<SyncFailReason> m_failedList;
                     bool m_failedListHasBeenSet;

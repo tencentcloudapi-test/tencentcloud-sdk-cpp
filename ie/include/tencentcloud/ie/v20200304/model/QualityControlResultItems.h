@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,38 +52,44 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return Id 异常类型
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     std::string GetId() const;
 
                     /**
                      * 设置异常类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param Id 异常类型
+                     * @param _id 异常类型
 注意：此字段可能返回 null，表示取不到有效值。
+                     * 
                      */
                     void SetId(const std::string& _id);
 
                     /**
                      * 判断参数 Id 是否已赋值
                      * @return Id 是否已赋值
+                     * 
                      */
                     bool IdHasBeenSet() const;
 
                     /**
                      * 获取质检结果项
                      * @return QualityControlItems 质检结果项
+                     * 
                      */
                     std::vector<QualityControlItem> GetQualityControlItems() const;
 
                     /**
                      * 设置质检结果项
-                     * @param QualityControlItems 质检结果项
+                     * @param _qualityControlItems 质检结果项
+                     * 
                      */
                     void SetQualityControlItems(const std::vector<QualityControlItem>& _qualityControlItems);
 
                     /**
                      * 判断参数 QualityControlItems 是否已赋值
                      * @return QualityControlItems 是否已赋值
+                     * 
                      */
                     bool QualityControlItemsHasBeenSet() const;
 

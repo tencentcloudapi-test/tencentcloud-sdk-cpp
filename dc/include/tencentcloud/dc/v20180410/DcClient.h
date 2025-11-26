@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,8 @@
 #include <tencentcloud/dc/v20180410/model/AcceptDirectConnectTunnelResponse.h>
 #include <tencentcloud/dc/v20180410/model/ApplyInternetAddressRequest.h>
 #include <tencentcloud/dc/v20180410/model/ApplyInternetAddressResponse.h>
+#include <tencentcloud/dc/v20180410/model/CreateCloudAttachServiceRequest.h>
+#include <tencentcloud/dc/v20180410/model/CreateCloudAttachServiceResponse.h>
 #include <tencentcloud/dc/v20180410/model/CreateDirectConnectRequest.h>
 #include <tencentcloud/dc/v20180410/model/CreateDirectConnectResponse.h>
 #include <tencentcloud/dc/v20180410/model/CreateDirectConnectTunnelRequest.h>
@@ -85,6 +87,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ApplyInternetAddressResponse> ApplyInternetAddressOutcome;
                 typedef std::future<ApplyInternetAddressOutcome> ApplyInternetAddressOutcomeCallable;
                 typedef std::function<void(const DcClient*, const Model::ApplyInternetAddressRequest&, ApplyInternetAddressOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ApplyInternetAddressAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateCloudAttachServiceResponse> CreateCloudAttachServiceOutcome;
+                typedef std::future<CreateCloudAttachServiceOutcome> CreateCloudAttachServiceOutcomeCallable;
+                typedef std::function<void(const DcClient*, const Model::CreateCloudAttachServiceRequest&, CreateCloudAttachServiceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCloudAttachServiceAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateDirectConnectResponse> CreateDirectConnectOutcome;
                 typedef std::future<CreateDirectConnectOutcome> CreateDirectConnectOutcomeCallable;
                 typedef std::function<void(const DcClient*, const Model::CreateDirectConnectRequest&, CreateDirectConnectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDirectConnectAsyncHandler;
@@ -146,7 +151,7 @@ namespace TencentCloud
 
 
                 /**
-                 *接受专用通道申请
+                 *接受专用通道申请。
                  * @param req AcceptDirectConnectTunnelRequest
                  * @return AcceptDirectConnectTunnelOutcome
                  */
@@ -164,6 +169,15 @@ namespace TencentCloud
                 ApplyInternetAddressOutcomeCallable ApplyInternetAddressCallable(const Model::ApplyInternetAddressRequest& request);
 
                 /**
+                 *创建敏捷上云服务
+                 * @param req CreateCloudAttachServiceRequest
+                 * @return CreateCloudAttachServiceOutcome
+                 */
+                CreateCloudAttachServiceOutcome CreateCloudAttachService(const Model::CreateCloudAttachServiceRequest &request);
+                void CreateCloudAttachServiceAsync(const Model::CreateCloudAttachServiceRequest& request, const CreateCloudAttachServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateCloudAttachServiceOutcomeCallable CreateCloudAttachServiceCallable(const Model::CreateCloudAttachServiceRequest& request);
+
+                /**
                  *申请物理专线接入。
 调用该接口时，请注意：
 账号要进行实名认证，否则不允许申请物理专线；
@@ -176,7 +190,7 @@ namespace TencentCloud
                 CreateDirectConnectOutcomeCallable CreateDirectConnectCallable(const Model::CreateDirectConnectRequest& request);
 
                 /**
-                 *用于创建专用通道的接口
+                 *创建专用通道。
                  * @param req CreateDirectConnectTunnelRequest
                  * @return CreateDirectConnectTunnelOutcome
                  */
@@ -185,8 +199,7 @@ namespace TencentCloud
                 CreateDirectConnectTunnelOutcomeCallable CreateDirectConnectTunnelCallable(const Model::CreateDirectConnectTunnelRequest& request);
 
                 /**
-                 *删除物理专线。
-只能删除处于已连接状态的物理专线。
+                 *删除物理专线。只能删除处于已连接状态的物理专线。
                  * @param req DeleteDirectConnectRequest
                  * @return DeleteDirectConnectOutcome
                  */
@@ -195,7 +208,7 @@ namespace TencentCloud
                 DeleteDirectConnectOutcomeCallable DeleteDirectConnectCallable(const Model::DeleteDirectConnectRequest& request);
 
                 /**
-                 *删除专用通道
+                 *删除专用通道。
                  * @param req DeleteDirectConnectTunnelRequest
                  * @return DeleteDirectConnectTunnelOutcome
                  */
@@ -204,8 +217,7 @@ namespace TencentCloud
                 DeleteDirectConnectTunnelOutcomeCallable DeleteDirectConnectTunnelCallable(const Model::DeleteDirectConnectTunnelRequest& request);
 
                 /**
-                 *查询物理专线接入点
-
+                 *查询物理专线接入点。
                  * @param req DescribeAccessPointsRequest
                  * @return DescribeAccessPointsOutcome
                  */
@@ -214,7 +226,7 @@ namespace TencentCloud
                 DescribeAccessPointsOutcomeCallable DescribeAccessPointsCallable(const Model::DescribeAccessPointsRequest& request);
 
                 /**
-                 *本接口（DescribeDirectConnectTunnelExtra）用于查询专用通道扩展信息
+                 *查询专用通道扩展信息。
                  * @param req DescribeDirectConnectTunnelExtraRequest
                  * @return DescribeDirectConnectTunnelExtraOutcome
                  */
@@ -223,7 +235,7 @@ namespace TencentCloud
                 DescribeDirectConnectTunnelExtraOutcomeCallable DescribeDirectConnectTunnelExtraCallable(const Model::DescribeDirectConnectTunnelExtraRequest& request);
 
                 /**
-                 *用于查询专用通道列表。
+                 *查询专用通道列表。
                  * @param req DescribeDirectConnectTunnelsRequest
                  * @return DescribeDirectConnectTunnelsOutcome
                  */
@@ -268,7 +280,7 @@ namespace TencentCloud
                 DescribeInternetAddressStatisticsOutcomeCallable DescribeInternetAddressStatisticsCallable(const Model::DescribeInternetAddressStatisticsRequest& request);
 
                 /**
-                 *本接口（DescribePublicDirectConnectTunnelRoutes）用于查询互联网通道路由列表
+                 *查询互联网通道路由列表。
                  * @param req DescribePublicDirectConnectTunnelRoutesRequest
                  * @return DescribePublicDirectConnectTunnelRoutesOutcome
                  */
@@ -304,7 +316,7 @@ namespace TencentCloud
                 ModifyDirectConnectAttributeOutcomeCallable ModifyDirectConnectAttributeCallable(const Model::ModifyDirectConnectAttributeRequest& request);
 
                 /**
-                 *修改专用通道属性
+                 *修改专用通道属性。
                  * @param req ModifyDirectConnectTunnelAttributeRequest
                  * @return ModifyDirectConnectTunnelAttributeOutcome
                  */
@@ -313,7 +325,7 @@ namespace TencentCloud
                 ModifyDirectConnectTunnelAttributeOutcomeCallable ModifyDirectConnectTunnelAttributeCallable(const Model::ModifyDirectConnectTunnelAttributeRequest& request);
 
                 /**
-                 *本接口（ModifyDirectConnectTunnelExtra）用于修改专用通道扩展信息
+                 *修改专用通道扩展信息。
                  * @param req ModifyDirectConnectTunnelExtraRequest
                  * @return ModifyDirectConnectTunnelExtraOutcome
                  */
@@ -322,7 +334,7 @@ namespace TencentCloud
                 ModifyDirectConnectTunnelExtraOutcomeCallable ModifyDirectConnectTunnelExtraCallable(const Model::ModifyDirectConnectTunnelExtraRequest& request);
 
                 /**
-                 *拒绝专用通道申请
+                 *拒绝专用通道申请。
                  * @param req RejectDirectConnectTunnelRequest
                  * @return RejectDirectConnectTunnelOutcome
                  */

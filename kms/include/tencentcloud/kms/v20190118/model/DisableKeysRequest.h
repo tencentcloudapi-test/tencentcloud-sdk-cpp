@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,18 +45,21 @@ namespace TencentCloud
                     /**
                      * 获取需要批量禁用的CMK Id 列表，CMK数量最大支持100
                      * @return KeyIds 需要批量禁用的CMK Id 列表，CMK数量最大支持100
+                     * 
                      */
                     std::vector<std::string> GetKeyIds() const;
 
                     /**
                      * 设置需要批量禁用的CMK Id 列表，CMK数量最大支持100
-                     * @param KeyIds 需要批量禁用的CMK Id 列表，CMK数量最大支持100
+                     * @param _keyIds 需要批量禁用的CMK Id 列表，CMK数量最大支持100
+                     * 
                      */
                     void SetKeyIds(const std::vector<std::string>& _keyIds);
 
                     /**
                      * 判断参数 KeyIds 是否已赋值
                      * @return KeyIds 是否已赋值
+                     * 
                      */
                     bool KeyIdsHasBeenSet() const;
 

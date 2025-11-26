@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,6 +57,7 @@ TRUE：表示开通IP直通
 FALSE：表示不开通IP直通
 默认取值：TRUE。
 windows镜像目前不支持IP直通。
+                     * 
                      */
                     bool GetEnabled() const;
 
@@ -66,17 +67,19 @@ TRUE：表示开通IP直通
 FALSE：表示不开通IP直通
 默认取值：TRUE。
 windows镜像目前不支持IP直通。
-                     * @param Enabled 是否开通IP直通。取值范围：
+                     * @param _enabled 是否开通IP直通。取值范围：
 TRUE：表示开通IP直通
 FALSE：表示不开通IP直通
 默认取值：TRUE。
 windows镜像目前不支持IP直通。
+                     * 
                      */
                     void SetEnabled(const bool& _enabled);
 
                     /**
                      * 判断参数 Enabled 是否已赋值
                      * @return Enabled 是否已赋值
+                     * 
                      */
                     bool EnabledHasBeenSet() const;
 

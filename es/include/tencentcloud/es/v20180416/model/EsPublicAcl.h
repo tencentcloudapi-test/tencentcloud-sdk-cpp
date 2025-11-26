@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * ES公网访问访问控制信息
+                * ES公网访问控制信息
                 */
                 class EsPublicAcl : public AbstractModel
                 {
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取访问黑名单
                      * @return BlackIpList 访问黑名单
+                     * 
                      */
                     std::vector<std::string> GetBlackIpList() const;
 
                     /**
                      * 设置访问黑名单
-                     * @param BlackIpList 访问黑名单
+                     * @param _blackIpList 访问黑名单
+                     * 
                      */
                     void SetBlackIpList(const std::vector<std::string>& _blackIpList);
 
                     /**
                      * 判断参数 BlackIpList 是否已赋值
                      * @return BlackIpList 是否已赋值
+                     * 
                      */
                     bool BlackIpListHasBeenSet() const;
 
                     /**
                      * 获取访问白名单
                      * @return WhiteIpList 访问白名单
+                     * 
                      */
                     std::vector<std::string> GetWhiteIpList() const;
 
                     /**
                      * 设置访问白名单
-                     * @param WhiteIpList 访问白名单
+                     * @param _whiteIpList 访问白名单
+                     * 
                      */
                     void SetWhiteIpList(const std::vector<std::string>& _whiteIpList);
 
                     /**
                      * 判断参数 WhiteIpList 是否已赋值
                      * @return WhiteIpList 是否已赋值
+                     * 
                      */
                     bool WhiteIpListHasBeenSet() const;
 

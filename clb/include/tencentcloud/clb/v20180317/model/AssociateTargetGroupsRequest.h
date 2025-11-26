@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,27 +44,40 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取绑定的关系数组。
-                     * @return Associations 绑定的关系数组。
+                     * 获取绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
+
+                     * @return Associations 绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
+
+                     * 
                      */
                     std::vector<TargetGroupAssociation> GetAssociations() const;
 
                     /**
-                     * 设置绑定的关系数组。
-                     * @param Associations 绑定的关系数组。
+                     * 设置绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
+
+                     * @param _associations 绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
+
+                     * 
                      */
                     void SetAssociations(const std::vector<TargetGroupAssociation>& _associations);
 
                     /**
                      * 判断参数 Associations 是否已赋值
                      * @return Associations 是否已赋值
+                     * 
                      */
                     bool AssociationsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 绑定的关系数组。
+                     * 绑定的关系数组，目标组类型需要一致。
+一次请求最多支持20个。
+
                      */
                     std::vector<TargetGroupAssociation> m_associations;
                     bool m_associationsHasBeenSet;

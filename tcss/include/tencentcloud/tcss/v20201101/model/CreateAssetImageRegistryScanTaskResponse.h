@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,27 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
+                    /**
+                     * 获取返回的任务ID
+                     * @return TaskID 返回的任务ID
+                     * 
+                     */
+                    uint64_t GetTaskID() const;
+
+                    /**
+                     * 判断参数 TaskID 是否已赋值
+                     * @return TaskID 是否已赋值
+                     * 
+                     */
+                    bool TaskIDHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 返回的任务ID
+                     */
+                    uint64_t m_taskID;
+                    bool m_taskIDHasBeenSet;
 
                 };
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,36 +49,42 @@ namespace TencentCloud
                     /**
                      * 获取黑石物理机的主机ID、托管主机ID或虚拟机IP。
                      * @return InstanceId 黑石物理机的主机ID、托管主机ID或虚拟机IP。
+                     * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
                      * 设置黑石物理机的主机ID、托管主机ID或虚拟机IP。
-                     * @param InstanceId 黑石物理机的主机ID、托管主机ID或虚拟机IP。
+                     * @param _instanceId 黑石物理机的主机ID、托管主机ID或虚拟机IP。
+                     * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
 
                     /**
                      * 判断参数 InstanceId 是否已赋值
                      * @return InstanceId 是否已赋值
+                     * 
                      */
                     bool InstanceIdHasBeenSet() const;
 
                     /**
                      * 获取主机端口。
                      * @return Port 主机端口。
+                     * 
                      */
                     int64_t GetPort() const;
 
                     /**
                      * 设置主机端口。
-                     * @param Port 主机端口。
+                     * @param _port 主机端口。
+                     * 
                      */
                     void SetPort(const int64_t& _port);
 
                     /**
                      * 判断参数 Port 是否已赋值
                      * @return Port 是否已赋值
+                     * 
                      */
                     bool PortHasBeenSet() const;
 

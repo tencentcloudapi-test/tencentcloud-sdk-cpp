@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,8 @@ ProductConf::ProductConf() :
     m_replicaNumHasBeenSet(false),
     m_shardNumHasBeenSet(false),
     m_payModeHasBeenSet(false),
-    m_enableRepicaReadOnlyHasBeenSet(false)
+    m_enableRepicaReadOnlyHasBeenSet(false),
+    m_enableReplicaReadOnlyHasBeenSet(false)
 {
 }
 
@@ -184,6 +185,16 @@ CoreInternalOutcome ProductConf::Deserialize(const rapidjson::Value &value)
         m_enableRepicaReadOnlyHasBeenSet = true;
     }
 
+    if (value.HasMember("EnableReplicaReadOnly") && !value["EnableReplicaReadOnly"].IsNull())
+    {
+        if (!value["EnableReplicaReadOnly"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `ProductConf.EnableReplicaReadOnly` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_enableReplicaReadOnly = value["EnableReplicaReadOnly"].GetBool();
+        m_enableReplicaReadOnlyHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -313,6 +324,14 @@ void ProductConf::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "EnableRepicaReadOnly";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_enableRepicaReadOnly, allocator);
+    }
+
+    if (m_enableReplicaReadOnlyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EnableReplicaReadOnly";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_enableReplicaReadOnly, allocator);
     }
 
 }
@@ -524,5 +543,21 @@ void ProductConf::SetEnableRepicaReadOnly(const bool& _enableRepicaReadOnly)
 bool ProductConf::EnableRepicaReadOnlyHasBeenSet() const
 {
     return m_enableRepicaReadOnlyHasBeenSet;
+}
+
+bool ProductConf::GetEnableReplicaReadOnly() const
+{
+    return m_enableReplicaReadOnly;
+}
+
+void ProductConf::SetEnableReplicaReadOnly(const bool& _enableReplicaReadOnly)
+{
+    m_enableReplicaReadOnly = _enableReplicaReadOnly;
+    m_enableReplicaReadOnlyHasBeenSet = true;
+}
+
+bool ProductConf::EnableReplicaReadOnlyHasBeenSet() const
+{
+    return m_enableReplicaReadOnlyHasBeenSet;
 }
 

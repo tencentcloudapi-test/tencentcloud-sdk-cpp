@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,9 @@ BatchRecordInfo::BatchRecordInfo() :
     m_errMsgHasBeenSet(false),
     m_idHasBeenSet(false),
     m_enabledHasBeenSet(false),
-    m_mXHasBeenSet(false)
+    m_mXHasBeenSet(false),
+    m_weightHasBeenSet(false),
+    m_remarkHasBeenSet(false)
 {
 }
 
@@ -161,6 +163,26 @@ CoreInternalOutcome BatchRecordInfo::Deserialize(const rapidjson::Value &value)
         m_mXHasBeenSet = true;
     }
 
+    if (value.HasMember("Weight") && !value["Weight"].IsNull())
+    {
+        if (!value["Weight"].IsUint64())
+        {
+            return CoreInternalOutcome(Core::Error("response `BatchRecordInfo.Weight` IsUint64=false incorrectly").SetRequestId(requestId));
+        }
+        m_weight = value["Weight"].GetUint64();
+        m_weightHasBeenSet = true;
+    }
+
+    if (value.HasMember("Remark") && !value["Remark"].IsNull())
+    {
+        if (!value["Remark"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `BatchRecordInfo.Remark` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_remark = string(value["Remark"].GetString());
+        m_remarkHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -262,6 +284,22 @@ void BatchRecordInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "MX";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_mX, allocator);
+    }
+
+    if (m_weightHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Weight";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_weight, allocator);
+    }
+
+    if (m_remarkHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Remark";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -457,5 +495,37 @@ void BatchRecordInfo::SetMX(const uint64_t& _mX)
 bool BatchRecordInfo::MXHasBeenSet() const
 {
     return m_mXHasBeenSet;
+}
+
+uint64_t BatchRecordInfo::GetWeight() const
+{
+    return m_weight;
+}
+
+void BatchRecordInfo::SetWeight(const uint64_t& _weight)
+{
+    m_weight = _weight;
+    m_weightHasBeenSet = true;
+}
+
+bool BatchRecordInfo::WeightHasBeenSet() const
+{
+    return m_weightHasBeenSet;
+}
+
+string BatchRecordInfo::GetRemark() const
+{
+    return m_remark;
+}
+
+void BatchRecordInfo::SetRemark(const string& _remark)
+{
+    m_remark = _remark;
+    m_remarkHasBeenSet = true;
+}
+
+bool BatchRecordInfo::RemarkHasBeenSet() const
+{
+    return m_remarkHasBeenSet;
 }
 

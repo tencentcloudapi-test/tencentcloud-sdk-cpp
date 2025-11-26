@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,10 @@ GetDetectInfoEnhancedRequest::GetDetectInfoEnhancedRequest() :
     m_bestFramesCountHasBeenSet(false),
     m_isCutIdCardImageHasBeenSet(false),
     m_isNeedIdCardAvatarHasBeenSet(false),
-    m_isEncryptHasBeenSet(false)
+    m_isEncryptHasBeenSet(false),
+    m_encryptionHasBeenSet(false),
+    m_isEncryptResponseHasBeenSet(false),
+    m_isReturnAllVideoHasBeenSet(false)
 {
 }
 
@@ -94,6 +97,31 @@ string GetDetectInfoEnhancedRequest::ToJsonString() const
         string key = "IsEncrypt";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_isEncrypt, allocator);
+    }
+
+    if (m_encryptionHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Encryption";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_encryption.ToJsonObject(d[key.c_str()], allocator);
+    }
+
+    if (m_isEncryptResponseHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsEncryptResponse";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isEncryptResponse, allocator);
+    }
+
+    if (m_isReturnAllVideoHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "IsReturnAllVideo";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_isReturnAllVideo, allocator);
     }
 
 
@@ -214,6 +242,54 @@ void GetDetectInfoEnhancedRequest::SetIsEncrypt(const bool& _isEncrypt)
 bool GetDetectInfoEnhancedRequest::IsEncryptHasBeenSet() const
 {
     return m_isEncryptHasBeenSet;
+}
+
+Encryption GetDetectInfoEnhancedRequest::GetEncryption() const
+{
+    return m_encryption;
+}
+
+void GetDetectInfoEnhancedRequest::SetEncryption(const Encryption& _encryption)
+{
+    m_encryption = _encryption;
+    m_encryptionHasBeenSet = true;
+}
+
+bool GetDetectInfoEnhancedRequest::EncryptionHasBeenSet() const
+{
+    return m_encryptionHasBeenSet;
+}
+
+bool GetDetectInfoEnhancedRequest::GetIsEncryptResponse() const
+{
+    return m_isEncryptResponse;
+}
+
+void GetDetectInfoEnhancedRequest::SetIsEncryptResponse(const bool& _isEncryptResponse)
+{
+    m_isEncryptResponse = _isEncryptResponse;
+    m_isEncryptResponseHasBeenSet = true;
+}
+
+bool GetDetectInfoEnhancedRequest::IsEncryptResponseHasBeenSet() const
+{
+    return m_isEncryptResponseHasBeenSet;
+}
+
+bool GetDetectInfoEnhancedRequest::GetIsReturnAllVideo() const
+{
+    return m_isReturnAllVideo;
+}
+
+void GetDetectInfoEnhancedRequest::SetIsReturnAllVideo(const bool& _isReturnAllVideo)
+{
+    m_isReturnAllVideo = _isReturnAllVideo;
+    m_isReturnAllVideoHasBeenSet = true;
+}
+
+bool GetDetectInfoEnhancedRequest::IsReturnAllVideoHasBeenSet() const
+{
+    return m_isReturnAllVideoHasBeenSet;
 }
 
 

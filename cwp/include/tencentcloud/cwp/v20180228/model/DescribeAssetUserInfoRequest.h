@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2025 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,69 +43,78 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取服务器Quuid
-                     * @return Quuid 服务器Quuid
+                     * 获取云服务器UUID
+                     * @return Quuid 云服务器UUID
+                     * 
                      */
                     std::string GetQuuid() const;
 
                     /**
-                     * 设置服务器Quuid
-                     * @param Quuid 服务器Quuid
+                     * 设置云服务器UUID
+                     * @param _quuid 云服务器UUID
+                     * 
                      */
                     void SetQuuid(const std::string& _quuid);
 
                     /**
                      * 判断参数 Quuid 是否已赋值
                      * @return Quuid 是否已赋值
+                     * 
                      */
                     bool QuuidHasBeenSet() const;
 
                     /**
-                     * 获取服务器Uuid
-                     * @return Uuid 服务器Uuid
+                     * 获取主机安全UUID
+                     * @return Uuid 主机安全UUID
+                     * 
                      */
                     std::string GetUuid() const;
 
                     /**
-                     * 设置服务器Uuid
-                     * @param Uuid 服务器Uuid
+                     * 设置主机安全UUID
+                     * @param _uuid 主机安全UUID
+                     * 
                      */
                     void SetUuid(const std::string& _uuid);
 
                     /**
                      * 判断参数 Uuid 是否已赋值
                      * @return Uuid 是否已赋值
+                     * 
                      */
                     bool UuidHasBeenSet() const;
 
                     /**
                      * 获取账户名
                      * @return Name 账户名
+                     * 
                      */
                     std::string GetName() const;
 
                     /**
                      * 设置账户名
-                     * @param Name 账户名
+                     * @param _name 账户名
+                     * 
                      */
                     void SetName(const std::string& _name);
 
                     /**
                      * 判断参数 Name 是否已赋值
                      * @return Name 是否已赋值
+                     * 
                      */
                     bool NameHasBeenSet() const;
 
                 private:
 
                     /**
-                     * 服务器Quuid
+                     * 云服务器UUID
                      */
                     std::string m_quuid;
                     bool m_quuidHasBeenSet;
 
                     /**
-                     * 服务器Uuid
+                     * 主机安全UUID
                      */
                     std::string m_uuid;
                     bool m_uuidHasBeenSet;
